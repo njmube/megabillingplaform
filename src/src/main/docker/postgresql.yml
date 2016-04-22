@@ -1,0 +1,12 @@
+version: '2'
+services:
+    megabillingplatform-postgresql:
+        container_name: megabillingplatform-postgresql
+        image: postgres:9.5.1
+        # volumes:
+        #     - ~/volumes/jhipster/megabillingplatform/postgresql/:/var/lib/postgresql/
+        environment:
+            - POSTGRES_USER=megabillingplatform
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432

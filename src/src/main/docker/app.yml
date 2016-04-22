@@ -1,0 +1,15 @@
+version: '2'
+services:
+    megabillingplatform-app:
+        image: megabillingplatform
+        external_links:
+            - megabillingplatform-postgresql:postgresql
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/megabillingplatform
+        ports:
+            - 8080:8080
+    megabillingplatform-postgresql:
+        extends:
+            file: postgresql.yml
+            service: megabillingplatform-postgresql
