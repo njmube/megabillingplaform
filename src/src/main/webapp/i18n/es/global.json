@@ -28,6 +28,10 @@
                 "cMunicipality": "C_municipality",
                 "cZipCode": "C_zip_code",
                 "cLocation": "C_location",
+                "generalData": "General_data",
+                "cfdiTemplate": "Cfdi_template",
+                "digitalCertificate": "Digital_certificate",
+                "task": "Task",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

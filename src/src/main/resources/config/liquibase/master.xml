@@ -5,8 +5,6 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160428133638_added_entity_Archive_status.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160428142222_added_entity_File.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501134433_added_entity_Category_product.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501134733_added_entity_Product.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501135246_added_entity_Measure_unit.xml" relativeToChangelogFile="false"/>
@@ -14,8 +12,6 @@
     <include file="classpath:config/liquibase/changelog/20160501135633_added_entity_Tax_concept.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501135757_added_entity_Voucher_state.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501135915_added_entity_Voucher_type.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160501140514_added_entity_File_state.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160501140617_added_entity_File_type.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501140728_added_entity_Tax_regime.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501140856_added_entity_Billing_account_state.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501141040_added_entity_Package_state.xml" relativeToChangelogFile="false"/>
@@ -26,5 +22,12 @@
     <include file="classpath:config/liquibase/changelog/20160501143806_added_entity_C_municipality.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501144017_added_entity_C_zip_code.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501144335_added_entity_C_location.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160501140514_added_entity_File_state.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160501140617_added_entity_File_type.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160428142222_added_entity_File.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160506123343_added_entity_General_data.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160506173808_added_entity_Cfdi_template.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160506181119_added_entity_Digital_certificate.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160506181622_added_entity_Task.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
