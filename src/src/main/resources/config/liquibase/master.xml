@@ -29,5 +29,6 @@
     <include file="classpath:config/liquibase/changelog/20160506173808_added_entity_Cfdi_template.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160506181119_added_entity_Digital_certificate.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160506181622_added_entity_Task.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160512122702_added_entity_Package_transactions.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
