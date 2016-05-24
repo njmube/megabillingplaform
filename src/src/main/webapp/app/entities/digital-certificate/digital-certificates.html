@@ -1,0 +1,66 @@
+<div>
+    <h2 translate="megabillingplatformApp.digital_certificate.home.title">Digital_certificates</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="digital-certificate.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.digital_certificate.home.createLabel">
+                        Create new Digital_certificate
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="adrees"><span translate="megabillingplatformApp.digital_certificate.adrees">Adrees</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="private_key"><span translate="megabillingplatformApp.digital_certificate.private_key">Private_key</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="possword"><span translate="megabillingplatformApp.digital_certificate.possword">Possword</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="digital_certificate in vm.digital_certificates track by digital_certificate.id">
+                    <td><a ui-sref="digital-certificate-detail({id:digital_certificate.id})">{{digital_certificate.id}}</a></td>
+                    <td><a ng-click="vm.openFile(digital_certificate.adreesContentType, digital_certificate.adrees)" ng-if="digital_certificate.adrees" target="_blank">open</a>
+                        {{digital_certificate.adreesContentType}}, {{byteSize(digital_certificate.adrees)}}</td>
+                    <td><a ng-click="vm.openFile(digital_certificate.private_keyContentType, digital_certificate.private_key)" ng-if="digital_certificate.private_key" target="_blank">open</a>
+                        {{digital_certificate.private_keyContentType}}, {{byteSize(digital_certificate.private_key)}}</td>
+                    <td>{{digital_certificate.possword}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="digital-certificate-detail({id:digital_certificate.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="digital-certificate.edit({id:digital_certificate.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="digital-certificate.delete({id:digital_certificate.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

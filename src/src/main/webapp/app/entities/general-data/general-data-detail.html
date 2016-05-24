@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.general_data.detail.title">General_data</span> {{vm.general_data.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.general_data.platform_name">Platform_name</dt></dt>
+        <dd>
+            <span>{{vm.general_data.platform_name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.general_data.format_date">Format_date</dt></dt>
+        <dd>
+            <span>{{vm.general_data.format_date}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.general_data.logo">Logo</dt></dt>
+        <dd>
+            <img data-ng-src="{{'data:' + vm.general_data.logoContentType + ';base64,' + vm.general_data.logo}}" style="max-width: 100%;" ng-if="vm.general_data.logo"/>
+            <div>{{vm.general_data.logoContentType}}, {{vm.byteSize(vm.general_data.logo)}}</div>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.general_data.adrees">Adrees</dt></dt>
+        <dd>
+            <span>{{vm.general_data.adrees}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.general_data.phones">Phones</dt></dt>
+        <dd>
+            <span>{{vm.general_data.phones}}<span>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

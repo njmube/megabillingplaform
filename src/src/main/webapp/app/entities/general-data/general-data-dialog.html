@@ -1,0 +1,73 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myGeneral_dataLabel" translate="megabillingplatformApp.general_data.home.createOrEditLabel">Create or edit a General_data</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.general_data.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.general_data.platform_name" for="field_platform_name">Platform_name</label>
+            <input type="text" class="form-control" name="platform_name" id="field_platform_name"
+                    ng-model="vm.general_data.platform_name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.general_data.format_date" for="field_format_date">Format_date</label>
+            <input type="text" class="form-control" name="format_date" id="field_format_date"
+                    ng-model="vm.general_data.format_date"
+                     />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.general_data)" ngf-pattern="'image/*'">
+            <label class="control-label" translate="megabillingplatformApp.general_data.logo" for="field_logo">Logo</label>
+            <div>
+                <img data-ng-src="{{'data:' + vm.general_data.logoContentType + ';base64,' + vm.general_data.logo}}" style="max-height: 100px;" ng-if="vm.general_data.logo"/>
+                <div class="help-block clearfix">
+                    <span class="pull-left">{{vm.general_data.logoContentType}}, {{byteSize(vm.general_data.logo)}}</span>
+                    <button ng-click="vm.general_data.logo=null;vm.general_data.logoContentType=null;"
+                            ng-if="vm.general_data.logo"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setLogo($file, vm.general_data)" accept="image/*" translate="entity.action.addimage">
+                    Add image
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="logo" id="field_logo"
+                    ng-model="vm.general_data.logo"
+                     />
+            <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
+                    ng-model="vm.general_data.logoContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.general_data.adrees" for="field_adrees">Adrees</label>
+            <input type="text" class="form-control" name="adrees" id="field_adrees"
+                    ng-model="vm.general_data.adrees"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.general_data.phones" for="field_phones">Phones</label>
+            <input type="text" class="form-control" name="phones" id="field_phones"
+                    ng-model="vm.general_data.phones"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

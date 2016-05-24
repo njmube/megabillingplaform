@@ -1,0 +1,33 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.c_location.detail.title">C_location</span> {{vm.c_location.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.c_location.name">Name</dt></dt>
+        <dd>
+            <span>{{vm.c_location.name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.c_location.description">Description</dt></dt>
+        <dd>
+            <span>{{vm.c_location.description}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.c_location.c_municipality">c_municipality</span></dt>
+        <dd>
+            <a ui-sref="c-municipality-detail({id:vm.c_location.c_municipality.id})">{{vm.c_location.c_municipality.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.c_location.c_zip_code">c_zip_code</span></dt>
+        <dd>
+            <a ui-sref="c-zip-code-detail({id:vm.c_location.c_zip_code.id})">{{vm.c_location.c_zip_code.postcode}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

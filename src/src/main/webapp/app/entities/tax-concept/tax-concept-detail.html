@@ -1,0 +1,28 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.tax_concept.detail.title">Tax_concept</span> {{vm.tax_concept.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.tax_concept.name">Name</dt></dt>
+        <dd>
+            <span>{{vm.tax_concept.name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.tax_concept.description">Description</dt></dt>
+        <dd>
+            <span>{{vm.tax_concept.description}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.tax_concept.c_tax_rate">c_tax_rate</span></dt>
+        <dd>
+            <a ui-sref="c-tax-rate-detail({id:vm.tax_concept.c_tax_rate.id})">{{vm.tax_concept.c_tax_rate.name}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

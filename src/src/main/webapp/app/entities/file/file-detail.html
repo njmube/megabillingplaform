@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.file.detail.title">File</span> {{vm.file.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.file.name">Name</dt></dt>
+        <dd>
+            <span>{{vm.file.name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.file.description">Description</dt></dt>
+        <dd>
+            <span>{{vm.file.description}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.file.path">Path</dt></dt>
+        <dd>
+            <span>{{vm.file.path}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.file.file_state">file_state</span></dt>
+        <dd>
+            <a ui-sref="file-state-detail({id:vm.file.file_state.id})">{{vm.file.file_state.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.file.file_type">file_type</span></dt>
+        <dd>
+            <a ui-sref="file-type-detail({id:vm.file.file_type.id})">{{vm.file.file_type.name}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

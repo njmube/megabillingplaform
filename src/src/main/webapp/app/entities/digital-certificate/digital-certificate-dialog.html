@@ -1,0 +1,78 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myDigital_certificateLabel" translate="megabillingplatformApp.digital_certificate.home.createOrEditLabel">Create or edit a Digital_certificate</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.digital_certificate.id" readonly />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setAdrees($file, vm.digital_certificate)">
+            <label class="control-label" translate="megabillingplatformApp.digital_certificate.adrees" for="field_adrees">Adrees</label>
+            <div>
+                <div class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.digital_certificate.adreesContentType, vm.digital_certificate.adrees)" ng-if="vm.digital_certificate.adrees" target="_blank">open</a><br>
+                    <span class="pull-left">{{vm.digital_certificate.adreesContentType}}, {{byteSize(vm.digital_certificate.adrees)}}</span>
+                    <button ng-click="vm.digital_certificate.adrees=null;vm.digital_certificate.adreesContentType=null;"
+                            ng-if="vm.digital_certificate.adrees"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setAdrees($file, vm.digital_certificate)" translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="adrees" id="field_adrees"
+                    ng-model="vm.digital_certificate.adrees"
+                     />
+            <input type="hidden" class="form-control" name="adreesContentType" id="field_adreesContentType"
+                    ng-model="vm.digital_certificate.adreesContentType" />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setPrivate_key($file, vm.digital_certificate)">
+            <label class="control-label" translate="megabillingplatformApp.digital_certificate.private_key" for="field_private_key">Private_key</label>
+            <div>
+                <div class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.digital_certificate.private_keyContentType, vm.digital_certificate.private_key)" ng-if="vm.digital_certificate.private_key" target="_blank">open</a><br>
+                    <span class="pull-left">{{vm.digital_certificate.private_keyContentType}}, {{byteSize(vm.digital_certificate.private_key)}}</span>
+                    <button ng-click="vm.digital_certificate.private_key=null;vm.digital_certificate.private_keyContentType=null;"
+                            ng-if="vm.digital_certificate.private_key"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setPrivate_key($file, vm.digital_certificate)" translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="private_key" id="field_private_key"
+                    ng-model="vm.digital_certificate.private_key"
+                     />
+            <input type="hidden" class="form-control" name="private_keyContentType" id="field_private_keyContentType"
+                    ng-model="vm.digital_certificate.private_keyContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.digital_certificate.possword" for="field_possword">Possword</label>
+            <input type="text" class="form-control" name="possword" id="field_possword"
+                    ng-model="vm.digital_certificate.possword"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

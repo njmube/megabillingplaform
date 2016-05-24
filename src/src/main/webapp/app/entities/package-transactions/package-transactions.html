@@ -1,0 +1,72 @@
+<div>
+    <h2 translate="megabillingplatformApp.package_transactions.home.title">Package_transactions</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="package-transactions.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.package_transactions.home.createLabel">
+                        Create new Package_transactions
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="megabillingplatformApp.package_transactions.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span translate="megabillingplatformApp.package_transactions.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="price"><span translate="megabillingplatformApp.package_transactions.price">Price</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="expiry_time"><span translate="megabillingplatformApp.package_transactions.expiry_time">Expiry_time</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="unit_time"><span translate="megabillingplatformApp.package_transactions.unit_time">Unit_time</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="package_state.name"><span translate="megabillingplatformApp.package_transactions.package_state">package_state</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="package_transactions in vm.package_transactions track by package_transactions.id">
+                    <td><a ui-sref="package-transactions-detail({id:package_transactions.id})">{{package_transactions.id}}</a></td>
+                    <td>{{package_transactions.name}}</td>
+                    <td>{{package_transactions.description}}</td>
+                    <td>{{package_transactions.price}}</td>
+                    <td>{{package_transactions.expiry_time}}</td>
+                    <td>{{package_transactions.unit_time}}</td>
+                    <td>
+                        <a ui-sref="package-state-detail({id:package_transactions.package_state.id})">{{package_transactions.package_state.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="package-transactions-detail({id:package_transactions.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="package-transactions.edit({id:package_transactions.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="package-transactions.delete({id:package_transactions.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

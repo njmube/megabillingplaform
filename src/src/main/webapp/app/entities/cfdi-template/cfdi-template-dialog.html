@@ -1,0 +1,66 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCfdi_templateLabel" translate="megabillingplatformApp.cfdi_template.home.createOrEditLabel">Create or edit a Cfdi_template</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.cfdi_template.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi_template.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.cfdi_template.name"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi_template.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.cfdi_template.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi_template.template" for="field_template">Template</label>
+                <textarea class="form-control" name="template" id="field_template"
+                    ng-model="vm.cfdi_template.template"  />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setFile($file, vm.cfdi_template)">
+            <label class="control-label" translate="megabillingplatformApp.cfdi_template.file" for="field_file">File</label>
+            <div>
+                <div class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.cfdi_template.fileContentType, vm.cfdi_template.file)" ng-if="vm.cfdi_template.file" target="_blank">open</a><br>
+                    <span class="pull-left">{{vm.cfdi_template.fileContentType}}, {{byteSize(vm.cfdi_template.file)}}</span>
+                    <button ng-click="vm.cfdi_template.file=null;vm.cfdi_template.fileContentType=null;"
+                            ng-if="vm.cfdi_template.file"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setFile($file, vm.cfdi_template)" translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="file" id="field_file"
+                    ng-model="vm.cfdi_template.file"
+                     />
+            <input type="hidden" class="form-control" name="fileContentType" id="field_fileContentType"
+                    ng-model="vm.cfdi_template.fileContentType" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
