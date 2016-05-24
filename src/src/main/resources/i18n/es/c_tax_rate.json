@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "c_tax_rate" : {
+            "home": {
+                "title": "C_tax_rates",
+                "createLabel": "Crear nuevo C_tax_rate",
+                "createOrEditLabel": "Crear o editar C_tax_rate",
+                "search": "Search for C_tax_rate"
+            },
+            "created": "Un nuevo C_tax_rate ha sido creado con el identificador {{ param }}",
+            "updated": "Un C_tax_rate ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C_tax_rate ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar C_tax_rate {{ id }}?"
+            },
+            "detail": {
+                "title": "C_tax_rate"
+            },
+            "name": "Name",
+            "description": "Description",
+            "tax_concept": "Tax_concept"
+        }
+    }
+}

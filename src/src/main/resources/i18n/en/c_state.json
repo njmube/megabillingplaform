@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "c_state" : {
+            "home": {
+                "title": "C_states",
+                "createLabel": "Create a new C_state",
+                "createOrEditLabel": "Create or edit a C_state",
+                "search": "Search for C_state"
+            },
+            "created": "A new C_state is created with identifier {{ param }}",
+            "updated": "A C_state is updated with identifier {{ param }}",
+            "deleted": "A C_state is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete C_state {{ id }}?"
+            },
+            "detail": {
+                "title": "C_state"
+            },
+            "name": "Name",
+            "abrev": "Abrev",
+            "c_country": "C_country",
+            "c_municipality": "C_municipality"
+        }
+    }
+}

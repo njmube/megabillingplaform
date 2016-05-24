@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "tax_regime" : {
+            "home": {
+                "title": "Tax_regimes",
+                "createLabel": "Crear nuevo Tax_regime",
+                "createOrEditLabel": "Crear o editar Tax_regime",
+                "search": "Search for Tax_regime"
+            },
+            "created": "Un nuevo Tax_regime ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tax_regime ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tax_regime ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tax_regime {{ id }}?"
+            },
+            "detail": {
+                "title": "Tax_regime"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

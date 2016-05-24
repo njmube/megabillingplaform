@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "package_state" : {
+            "home": {
+                "title": "Package_states",
+                "createLabel": "Crear nuevo Package_state",
+                "createOrEditLabel": "Crear o editar Package_state",
+                "search": "Search for Package_state"
+            },
+            "created": "Un nuevo Package_state ha sido creado con el identificador {{ param }}",
+            "updated": "Un Package_state ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Package_state ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Package_state {{ id }}?"
+            },
+            "detail": {
+                "title": "Package_state"
+            },
+            "name": "Name",
+            "description": "Description",
+            "package_transations": "Package_transations"
+        }
+    }
+}

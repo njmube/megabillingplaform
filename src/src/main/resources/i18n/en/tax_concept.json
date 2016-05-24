@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "tax_concept" : {
+            "home": {
+                "title": "Tax_concepts",
+                "createLabel": "Create a new Tax_concept",
+                "createOrEditLabel": "Create or edit a Tax_concept",
+                "search": "Search for Tax_concept"
+            },
+            "created": "A new Tax_concept is created with identifier {{ param }}",
+            "updated": "A Tax_concept is updated with identifier {{ param }}",
+            "deleted": "A Tax_concept is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tax_concept {{ id }}?"
+            },
+            "detail": {
+                "title": "Tax_concept"
+            },
+            "name": "Name",
+            "description": "Description",
+            "c_tax_rate": "C_tax_rate"
+        }
+    }
+}

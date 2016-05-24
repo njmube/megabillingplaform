@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "c_municipality" : {
+            "home": {
+                "title": "C_municipalities",
+                "createLabel": "Crear nuevo C_municipality",
+                "createOrEditLabel": "Crear o editar C_municipality",
+                "search": "Search for C_municipality"
+            },
+            "created": "Un nuevo C_municipality ha sido creado con el identificador {{ param }}",
+            "updated": "Un C_municipality ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C_municipality ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar C_municipality {{ id }}?"
+            },
+            "detail": {
+                "title": "C_municipality"
+            },
+            "name": "Name",
+            "c_state": "C_state",
+            "c_location": "C_location"
+        }
+    }
+}

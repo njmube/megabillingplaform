@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "file_type" : {
+            "home": {
+                "title": "File_types",
+                "createLabel": "Create a new File_type",
+                "createOrEditLabel": "Create or edit a File_type",
+                "search": "Search for File_type"
+            },
+            "created": "A new File_type is created with identifier {{ param }}",
+            "updated": "A File_type is updated with identifier {{ param }}",
+            "deleted": "A File_type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete File_type {{ id }}?"
+            },
+            "detail": {
+                "title": "File_type"
+            },
+            "name": "Name",
+            "description": "Description",
+            "file": "File"
+        }
+    }
+}

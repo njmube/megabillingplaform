@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "billing_account_state" : {
+            "home": {
+                "title": "Billing_account_states",
+                "createLabel": "Crear nuevo Billing_account_state",
+                "createOrEditLabel": "Crear o editar Billing_account_state",
+                "search": "Search for Billing_account_state"
+            },
+            "created": "Un nuevo Billing_account_state ha sido creado con el identificador {{ param }}",
+            "updated": "Un Billing_account_state ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Billing_account_state ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Billing_account_state {{ id }}?"
+            },
+            "detail": {
+                "title": "Billing_account_state"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

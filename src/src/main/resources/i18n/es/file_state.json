@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "file_state" : {
+            "home": {
+                "title": "File_states",
+                "createLabel": "Crear nuevo File_state",
+                "createOrEditLabel": "Crear o editar File_state",
+                "search": "Search for File_state"
+            },
+            "created": "Un nuevo File_state ha sido creado con el identificador {{ param }}",
+            "updated": "Un File_state ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un File_state ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar File_state {{ id }}?"
+            },
+            "detail": {
+                "title": "File_state"
+            },
+            "name": "Name",
+            "description": "Description",
+            "file": "File"
+        }
+    }
+}
