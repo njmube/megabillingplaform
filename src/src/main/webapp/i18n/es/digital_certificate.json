@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "digital_certificate" : {
             "home": {
-                "title": "Digital_certificates",
-                "createLabel": "Crear nuevo Digital_certificate",
-                "createOrEditLabel": "Crear o editar Digital_certificate",
-                "search": "Search for Digital_certificate"
+                "title": "Certificado digital",
+                "createLabel": "Crear nuevo Certificado digital",
+                "createOrEditLabel": "Crear o editar Certificado digital",
+                "search": "Búsqueda para Certificado digital"
             },
-            "created": "Un nuevo Digital_certificate ha sido creado con el identificador {{ param }}",
-            "updated": "Un Digital_certificate ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Digital_certificate ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Certificado digital ha sido creado con el identificador {{ param }}",
+            "updated": "Un Certificado digital ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Certificado digital ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Digital_certificate {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Certificado digital {{ id }}?"
             },
             "detail": {
-                "title": "Digital_certificate"
+                "title": "Certificado digital"
             },
-            "adrees": "Adrees",
-            "private_key": "Private_key",
-            "possword": "Possword"
+            "adrees": "Dirección",
+            "private_key": "Llave privada",
+            "possword": "Contraseña"
         }
     }
 }

@@ -1,0 +1,33 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "c_country",
+            "otherEntityName": "c_country",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "c_municipality",
+            "otherEntityName": "c_municipality",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "c_state"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "abrev",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160501143605",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "c_state",
+    "pagination": "pagination"
+}

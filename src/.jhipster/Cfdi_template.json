@@ -1,0 +1,31 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "template",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "file",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160506173808",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "cfdi_template",
+    "pagination": "pagination"
+}

@@ -1,0 +1,27 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "c_state",
+            "otherEntityName": "c_state",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "c_country"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "abrev",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160501143311",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "c_country",
+    "pagination": "pagination"
+}

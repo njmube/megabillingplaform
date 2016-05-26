@@ -1,0 +1,34 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "c_municipality",
+            "otherEntityName": "c_municipality",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "c_zip_code",
+            "otherEntityName": "c_zip_code",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "postcode",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "c_location"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160501144335",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "c_location",
+    "pagination": "pagination"
+}

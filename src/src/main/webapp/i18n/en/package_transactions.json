@@ -2,26 +2,26 @@
     "megabillingplatformApp": {
         "package_transactions" : {
             "home": {
-                "title": "Package_transactions",
-                "createLabel": "Create a new Package_transactions",
-                "createOrEditLabel": "Create or edit a Package_transactions",
-                "search": "Search for Package_transactions"
+                "title": "Package transactions",
+                "createLabel": "Create a new Package transactions",
+                "createOrEditLabel": "Create or edit a Package transactions",
+                "search": "Search for Package transactions"
             },
-            "created": "A new Package_transactions is created with identifier {{ param }}",
-            "updated": "A Package_transactions is updated with identifier {{ param }}",
-            "deleted": "A Package_transactions is deleted with identifier {{ param }}",
+            "created": "A new Package transactions is created with identifier {{ param }}",
+            "updated": "A Package transactions is updated with identifier {{ param }}",
+            "deleted": "A Package transactions is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Package_transactions {{ id }}?"
+                "question": "Are you sure you want to delete Package transactions {{ id }}?"
             },
             "detail": {
-                "title": "Package_transactions"
+                "title": "Package transactions"
             },
             "name": "Name",
             "description": "Description",
             "price": "Price",
-            "expiry_time": "Expiry_time",
-            "unit_time": "Unit_time",
-            "package_state": "Package_state"
+            "expiry_time": "Expiry time",
+            "unit_time": "Unit time",
+            "package_state": "Package state"
         }
     }
 }

@@ -1,0 +1,20 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160506181622",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "task",
+    "pagination": "pagination"
+}

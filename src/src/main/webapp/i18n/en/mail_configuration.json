@@ -1,0 +1,30 @@
+{
+    "megabillingplatformApp": {
+        "mail_configuration" : {
+            "home": {
+                "title": "Mail configurations",
+                "createLabel": "Create a new Mail configuration",
+                "createOrEditLabel": "Create or edit a Mail configuration",
+                "search": "Search for Mail configuration"
+            },
+            "created": "A new Mail configuration is created with identifier {{ param }}",
+            "updated": "A Mail configuration is updated with identifier {{ param }}",
+            "deleted": "A Mail configuration is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mail configuration {{ id }}?"
+            },
+            "detail": {
+                "title": "Mail configuration"
+            },
+            "host": "Host",
+            "port": "Port",
+            "user_mail": "User_mail",
+            "password_mail": "Password_mail",
+            "protocol": "Protocol",
+            "tls": "Tls",
+            "smtp_auth": "Smtp_auth",
+            "starttls_enable": "Starttls_enable",
+            "ssl_trust": "Ssl_trust"
+        }
+    }
+}

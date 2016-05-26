@@ -1,0 +1,55 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "host",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "port",
+            "fieldType": "Integer",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "user_mail",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "password_mail",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "protocol",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "tls",
+            "fieldType": "Boolean",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "smtp_auth",
+            "fieldType": "Boolean",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "starttls_enable",
+            "fieldType": "Boolean",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "ssl_trust",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160525225043",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "mail_configuration",
+    "pagination": "pagination"
+}

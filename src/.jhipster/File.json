@@ -1,0 +1,37 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "file_state",
+            "otherEntityName": "file_state",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "file_type",
+            "otherEntityName": "file_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "path",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160428142222",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "file",
+    "pagination": "pagination"
+}

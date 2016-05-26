@@ -1,0 +1,35 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "platform_name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "format_date",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "logo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "adrees",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "phones",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160506123343",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "general_data",
+    "pagination": "pagination"
+}

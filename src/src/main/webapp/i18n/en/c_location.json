@@ -2,24 +2,24 @@
     "megabillingplatformApp": {
         "c_location" : {
             "home": {
-                "title": "C_locations",
-                "createLabel": "Create a new C_location",
-                "createOrEditLabel": "Create or edit a C_location",
-                "search": "Search for C_location"
+                "title": "Locations",
+                "createLabel": "Create a new Location",
+                "createOrEditLabel": "Create or edit a Location",
+                "search": "Search for Location"
             },
-            "created": "A new C_location is created with identifier {{ param }}",
-            "updated": "A C_location is updated with identifier {{ param }}",
-            "deleted": "A C_location is deleted with identifier {{ param }}",
+            "created": "A new Location is created with identifier {{ param }}",
+            "updated": "A Location is updated with identifier {{ param }}",
+            "deleted": "A Location is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete C_location {{ id }}?"
+                "question": "Are you sure you want to delete Location {{ id }}?"
             },
             "detail": {
-                "title": "C_location"
+                "title": "Location"
             },
             "name": "Name",
             "description": "Description",
-            "c_municipality": "C_municipality",
-            "c_zip_code": "C_zip_code"
+            "c_municipality": "Municipality",
+            "c_zip_code": "Zip code"
         }
     }
 }

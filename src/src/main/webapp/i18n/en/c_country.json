@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "c_country" : {
             "home": {
-                "title": "C_countries",
-                "createLabel": "Create a new C_country",
-                "createOrEditLabel": "Create or edit a C_country",
-                "search": "Search for C_country"
+                "title": "Countries",
+                "createLabel": "Create a new Countries",
+                "createOrEditLabel": "Create or edit a Countries",
+                "search": "Search for Countries"
             },
-            "created": "A new C_country is created with identifier {{ param }}",
-            "updated": "A C_country is updated with identifier {{ param }}",
-            "deleted": "A C_country is deleted with identifier {{ param }}",
+            "created": "A new Countries is created with identifier {{ param }}",
+            "updated": "A Countries is updated with identifier {{ param }}",
+            "deleted": "A Countries is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete C_country {{ id }}?"
+                "question": "Are you sure you want to delete Countries {{ id }}?"
             },
             "detail": {
-                "title": "C_country"
+                "title": "Countries"
             },
             "name": "Name",
             "abrev": "Abrev",
-            "c_state": "C_state"
+            "c_state": "State"
         }
     }
 }

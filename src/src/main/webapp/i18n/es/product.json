@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "product" : {
             "home": {
-                "title": "Products",
-                "createLabel": "Crear nuevo Product",
-                "createOrEditLabel": "Crear o editar Product",
-                "search": "Search for Product"
+                "title": "Producto",
+                "createLabel": "Crear nuevo Producto",
+                "createOrEditLabel": "Crear o editar Producto",
+                "search": "Búsqueda para Producto"
             },
-            "created": "Un nuevo Product ha sido creado con el identificador {{ param }}",
-            "updated": "Un Product ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Product ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Producto ha sido creado con el identificador {{ param }}",
+            "updated": "Un Producto ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Producto ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Product {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Producto {{ id }}?"
             },
             "detail": {
-                "title": "Product"
+                "title": "Producto"
             },
-            "name": "Name",
-            "description": "Description",
-            "category_product": "Category_product"
+            "name": "Nombre",
+            "description": "Descripción",
+            "category_product": "Categoría del producto"
         }
     }
 }

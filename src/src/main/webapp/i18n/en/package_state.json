@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "package_state" : {
             "home": {
-                "title": "Package_states",
-                "createLabel": "Create a new Package_state",
-                "createOrEditLabel": "Create or edit a Package_state",
-                "search": "Search for Package_state"
+                "title": "Package states",
+                "createLabel": "Create a new Package state",
+                "createOrEditLabel": "Create or edit a Package state",
+                "search": "Search for Package state"
             },
-            "created": "A new Package_state is created with identifier {{ param }}",
-            "updated": "A Package_state is updated with identifier {{ param }}",
-            "deleted": "A Package_state is deleted with identifier {{ param }}",
+            "created": "A new Package state is created with identifier {{ param }}",
+            "updated": "A Package state is updated with identifier {{ param }}",
+            "deleted": "A Package state is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Package_state {{ id }}?"
+                "question": "Are you sure you want to delete Package state {{ id }}?"
             },
             "detail": {
-                "title": "Package_state"
+                "title": "Package state"
             },
             "name": "Name",
             "description": "Description",
-            "package_transations": "Package_transations"
+            "package_transations": "Package transations"
         }
     }
 }

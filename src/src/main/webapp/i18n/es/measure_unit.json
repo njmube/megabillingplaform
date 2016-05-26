@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "measure_unit" : {
             "home": {
-                "title": "Measure_units",
-                "createLabel": "Crear nuevo Measure_unit",
-                "createOrEditLabel": "Crear o editar Measure_unit",
-                "search": "Search for Measure_unit"
+                "title": "Unidad de medida",
+                "createLabel": "Crear nueva Unidad de medida",
+                "createOrEditLabel": "Crear o editar Unidad de medida",
+                "search": "Búsqueda para Unidad de medida"
             },
-            "created": "Un nuevo Measure_unit ha sido creado con el identificador {{ param }}",
-            "updated": "Un Measure_unit ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Measure_unit ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Unidad de medida ha sido creado con el identificador {{ param }}",
+            "updated": "Una Unidad de medida ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Unidad de medida ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Measure_unit {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Unidad de medida {{ id }}?"
             },
             "detail": {
-                "title": "Measure_unit"
+                "title": "Unidad de medida"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Nombre",
+            "description": "Descripción"
         }
     }
 }

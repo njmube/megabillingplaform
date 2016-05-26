@@ -1,0 +1,26 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "file",
+            "otherEntityName": "file",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "file_type"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160501140617",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "file_type",
+    "pagination": "pagination"
+}

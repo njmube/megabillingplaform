@@ -2,26 +2,26 @@
     "megabillingplatformApp": {
         "package_transactions" : {
             "home": {
-                "title": "Package_transactions",
-                "createLabel": "Crear nuevo Package_transactions",
-                "createOrEditLabel": "Crear o editar Package_transactions",
-                "search": "Search for Package_transactions"
+                "title": "Transacción de paquete",
+                "createLabel": "Crear nueva Transacción de paquete",
+                "createOrEditLabel": "Crear o editar Transacción de paquete",
+                "search": "Búsqueda para Transacción de paquete"
             },
-            "created": "Un nuevo Package_transactions ha sido creado con el identificador {{ param }}",
-            "updated": "Un Package_transactions ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Package_transactions ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Transacción de paquete ha sido creado con el identificador {{ param }}",
+            "updated": "Una Transacción de paquete ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Transacción de paquete ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Package_transactions {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Transacción de paquete {{ id }}?"
             },
             "detail": {
-                "title": "Package_transactions"
+                "title": "Transacción de paquete"
             },
-            "name": "Name",
-            "description": "Description",
-            "price": "Price",
-            "expiry_time": "Expiry_time",
-            "unit_time": "Unit_time",
-            "package_state": "Package_state"
+            "name": "Nombre",
+            "description": "Descripción",
+            "price": "Precio",
+            "expiry_time": "Expiración",
+            "unit_time": "Unidad de tiempo",
+            "package_state": "Estado del paquete"
         }
     }
 }

@@ -1,0 +1,30 @@
+{
+    "megabillingplatformApp": {
+        "mail_configuration" : {
+            "home": {
+                "title": "Configuración del email",
+                "createLabel": "Crear nueva Configuración del email",
+                "createOrEditLabel": "Crear o editar Configuración del email",
+                "search": "Búsqueda para Configuración del email"
+            },
+            "created": "Una nueva Configuración del email ha sido creado con el identificador {{ param }}",
+            "updated": "Una Configuración del email ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Configuración del email ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Configuración del email {{ id }}?"
+            },
+            "detail": {
+                "title": "Configuración del email"
+            },
+            "host": "Host",
+            "port": "Port",
+            "user_mail": "User_mail",
+            "password_mail": "Password_mail",
+            "protocol": "Protocol",
+            "tls": "tls",
+            "smtp_auth": "smtp_auth",
+            "starttls_enable": "starttls_enable",
+            "ssl_trust": "ssl_trust"
+        }
+    }
+}

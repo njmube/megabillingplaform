@@ -1,0 +1,26 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "c_tax_rate",
+            "otherEntityName": "c_tax_rate",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160501135633",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "tax_concept",
+    "pagination": "pagination"
+}

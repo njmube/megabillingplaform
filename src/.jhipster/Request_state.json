@@ -1,0 +1,19 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160501141206",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "request_state",
+    "pagination": "pagination"
+}

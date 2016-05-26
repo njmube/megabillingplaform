@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_tax_rate" : {
             "home": {
-                "title": "C_tax_rates",
-                "createLabel": "Crear nuevo C_tax_rate",
-                "createOrEditLabel": "Crear o editar C_tax_rate",
-                "search": "Search for C_tax_rate"
+                "title": "Tipo de impuesto",
+                "createLabel": "Crear nuevo Tipo de impuesto",
+                "createOrEditLabel": "Crear o editar Tipo de impuesto",
+                "search": "Búsqueda para Tipo de impuesto"
             },
-            "created": "Un nuevo C_tax_rate ha sido creado con el identificador {{ param }}",
-            "updated": "Un C_tax_rate ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C_tax_rate ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Tipo de impuesto ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tipo de impuesto ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tipo de impuesto ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C_tax_rate {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Tipo de impuesto {{ id }}?"
             },
             "detail": {
-                "title": "C_tax_rate"
+                "title": "Tipo de impuesto"
             },
-            "name": "Name",
-            "description": "Description",
+            "name": "Nombre",
+            "description": "Descripción",
             "tax_concept": "Tax_concept"
         }
     }

@@ -1,0 +1,23 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "c_location",
+            "otherEntityName": "c_location",
+            "relationshipType": "one-to-one",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "c_zip_code"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "postcode",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160501144017",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "c_zip_code",
+    "pagination": "pagination"
+}

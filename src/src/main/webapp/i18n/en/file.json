@@ -19,8 +19,8 @@
             "name": "Name",
             "description": "Description",
             "path": "Path",
-            "file_state": "File_state",
-            "file_type": "File_type"
+            "file_state": "File state",
+            "file_type": "File type"
         }
     }
 }

@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "voucher_state" : {
             "home": {
-                "title": "Voucher_states",
-                "createLabel": "Create a new Voucher_state",
-                "createOrEditLabel": "Create or edit a Voucher_state",
-                "search": "Search for Voucher_state"
+                "title": "Voucher states",
+                "createLabel": "Create a new Voucher state",
+                "createOrEditLabel": "Create or edit a Voucher state",
+                "search": "Search for Voucher state"
             },
-            "created": "A new Voucher_state is created with identifier {{ param }}",
-            "updated": "A Voucher_state is updated with identifier {{ param }}",
-            "deleted": "A Voucher_state is deleted with identifier {{ param }}",
+            "created": "A new Voucher state is created with identifier {{ param }}",
+            "updated": "A Voucher state is updated with identifier {{ param }}",
+            "deleted": "A Voucher state is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Voucher_state {{ id }}?"
+                "question": "Are you sure you want to delete Voucher state {{ id }}?"
             },
             "detail": {
-                "title": "Voucher_state"
+                "title": "Voucher state"
             },
             "name": "Name",
             "description": "Description"

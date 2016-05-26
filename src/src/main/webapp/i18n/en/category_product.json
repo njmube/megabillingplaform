@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "category_product" : {
             "home": {
-                "title": "Category_products",
-                "createLabel": "Create a new Category_product",
-                "createOrEditLabel": "Create or edit a Category_product",
-                "search": "Search for Category_product"
+                "title": "Products category",
+                "createLabel": "Create a new Products category",
+                "createOrEditLabel": "Create or edit a Products category",
+                "search": "Search for Products category"
             },
-            "created": "A new Category_product is created with identifier {{ param }}",
-            "updated": "A Category_product is updated with identifier {{ param }}",
-            "deleted": "A Category_product is deleted with identifier {{ param }}",
+            "created": "A new Products category is created with identifier {{ param }}",
+            "updated": "A Products category is updated with identifier {{ param }}",
+            "deleted": "A Products category is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Category_product {{ id }}?"
+                "question": "Are you sure you want to delete Products category {{ id }}?"
             },
             "detail": {
-                "title": "Category_product"
+                "title": "Products category"
             },
             "name": "Name",
             "description": "Description",

@@ -1,0 +1,19 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160501135915",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "voucher_type",
+    "pagination": "pagination"
+}

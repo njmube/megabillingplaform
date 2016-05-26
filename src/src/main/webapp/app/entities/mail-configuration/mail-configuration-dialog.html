@@ -1,0 +1,80 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myMail_configurationLabel" translate="megabillingplatformApp.mail_configuration.home.createOrEditLabel">Create or edit a Mail_configuration</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.mail_configuration.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.mail_configuration.host" for="field_host">Host</label>
+            <input type="text" class="form-control" name="host" id="field_host"
+                    ng-model="vm.mail_configuration.host"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.mail_configuration.port" for="field_port">Port</label>
+            <input type="number" class="form-control" name="port" id="field_port"
+                    ng-model="vm.mail_configuration.port"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.mail_configuration.user_mail" for="field_user_mail">User_mail</label>
+            <input type="text" class="form-control" name="user_mail" id="field_user_mail"
+                    ng-model="vm.mail_configuration.user_mail"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.mail_configuration.password_mail" for="field_password_mail">Password_mail</label>
+            <input type="text" class="form-control" name="password_mail" id="field_password_mail"
+                    ng-model="vm.mail_configuration.password_mail"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.mail_configuration.protocol" for="field_protocol">Protocol</label>
+            <input type="text" class="form-control" name="protocol" id="field_protocol"
+                    ng-model="vm.mail_configuration.protocol"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.mail_configuration.tls" for="field_tls">Tls</label>
+            <input type="checkbox" class="form-control" name="tls" id="field_tls"
+                    ng-model="vm.mail_configuration.tls"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.mail_configuration.smtp_auth" for="field_smtp_auth">Smtp_auth</label>
+            <input type="checkbox" class="form-control" name="smtp_auth" id="field_smtp_auth"
+                    ng-model="vm.mail_configuration.smtp_auth"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.mail_configuration.starttls_enable" for="field_starttls_enable">Starttls_enable</label>
+            <input type="checkbox" class="form-control" name="starttls_enable" id="field_starttls_enable"
+                    ng-model="vm.mail_configuration.starttls_enable"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.mail_configuration.ssl_trust" for="field_ssl_trust">Ssl_trust</label>
+            <input type="text" class="form-control" name="ssl_trust" id="field_ssl_trust"
+                    ng-model="vm.mail_configuration.ssl_trust"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

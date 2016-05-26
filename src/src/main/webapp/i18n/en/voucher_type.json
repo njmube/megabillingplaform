@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "voucher_type" : {
             "home": {
-                "title": "Voucher_types",
-                "createLabel": "Create a new Voucher_type",
-                "createOrEditLabel": "Create or edit a Voucher_type",
-                "search": "Search for Voucher_type"
+                "title": "Voucher types",
+                "createLabel": "Create a new Voucher type",
+                "createOrEditLabel": "Create or edit a Voucher type",
+                "search": "Search for Voucher type"
             },
-            "created": "A new Voucher_type is created with identifier {{ param }}",
-            "updated": "A Voucher_type is updated with identifier {{ param }}",
-            "deleted": "A Voucher_type is deleted with identifier {{ param }}",
+            "created": "A new Voucher type is created with identifier {{ param }}",
+            "updated": "A Voucher type is updated with identifier {{ param }}",
+            "deleted": "A Voucher type is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Voucher_type {{ id }}?"
+                "question": "Are you sure you want to delete Voucher type {{ id }}?"
             },
             "detail": {
-                "title": "Voucher_type"
+                "title": "Voucher type"
             },
             "name": "Name",
             "description": "Description"

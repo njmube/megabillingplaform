@@ -1,0 +1,76 @@
+<div>
+    <h2 translate="megabillingplatformApp.mail_configuration.home.title">Mail_configurations</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="mail-configuration.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.mail_configuration.home.createLabel">
+                        Create new Mail_configuration
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="host"><span translate="megabillingplatformApp.mail_configuration.host">Host</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="port"><span translate="megabillingplatformApp.mail_configuration.port">Port</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="user_mail"><span translate="megabillingplatformApp.mail_configuration.user_mail">User_mail</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="password_mail"><span translate="megabillingplatformApp.mail_configuration.password_mail">Password_mail</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="protocol"><span translate="megabillingplatformApp.mail_configuration.protocol">Protocol</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tls"><span translate="megabillingplatformApp.mail_configuration.tls">Tls</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="smtp_auth"><span translate="megabillingplatformApp.mail_configuration.smtp_auth">Smtp_auth</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="starttls_enable"><span translate="megabillingplatformApp.mail_configuration.starttls_enable">Starttls_enable</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ssl_trust"><span translate="megabillingplatformApp.mail_configuration.ssl_trust">Ssl_trust</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="mail_configuration in vm.mail_configurations track by mail_configuration.id">
+                    <td><a ui-sref="mail-configuration-detail({id:mail_configuration.id})">{{mail_configuration.id}}</a></td>
+                    <td>{{mail_configuration.host}}</td>
+                    <td>{{mail_configuration.port}}</td>
+                    <td>{{mail_configuration.user_mail}}</td>
+                    <td>{{mail_configuration.password_mail}}</td>
+                    <td>{{mail_configuration.protocol}}</td>
+                    <td>{{mail_configuration.tls}}</td>
+                    <td>{{mail_configuration.smtp_auth}}</td>
+                    <td>{{mail_configuration.starttls_enable}}</td>
+                    <td>{{mail_configuration.ssl_trust}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="mail-configuration-detail({id:mail_configuration.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="mail-configuration.edit({id:mail_configuration.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="mail-configuration.delete({id:mail_configuration.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

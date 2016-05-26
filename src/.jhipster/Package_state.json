@@ -1,0 +1,26 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "package_transations",
+            "otherEntityName": "package_transactions",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "package_state"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160501141040",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "package_state",
+    "pagination": "pagination"
+}

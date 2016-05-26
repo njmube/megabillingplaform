@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "cfdi_template" : {
             "home": {
-                "title": "Cfdi_templates",
-                "createLabel": "Create a new Cfdi_template",
-                "createOrEditLabel": "Create or edit a Cfdi_template",
-                "search": "Search for Cfdi_template"
+                "title": "Cfdi templates",
+                "createLabel": "Create a new Cfdi template",
+                "createOrEditLabel": "Create or edit a Cfdi template",
+                "search": "Search for Cfdi template"
             },
-            "created": "A new Cfdi_template is created with identifier {{ param }}",
-            "updated": "A Cfdi_template is updated with identifier {{ param }}",
-            "deleted": "A Cfdi_template is deleted with identifier {{ param }}",
+            "created": "A new Cfdi template is created with identifier {{ param }}",
+            "updated": "A Cfdi template is updated with identifier {{ param }}",
+            "deleted": "A Cfdi template is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Cfdi_template {{ id }}?"
+                "question": "Are you sure you want to delete Cfdi template {{ id }}?"
             },
             "detail": {
-                "title": "Cfdi_template"
+                "title": "Cfdi template"
             },
             "name": "Name",
             "description": "Description",

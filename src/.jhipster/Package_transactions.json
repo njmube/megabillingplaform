@@ -1,0 +1,41 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "package_state",
+            "otherEntityName": "package_state",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "expiry_time",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "unit_time",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160512122702",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "package_transactions",
+    "pagination": "pagination"
+}

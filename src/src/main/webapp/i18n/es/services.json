@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "services" : {
             "home": {
-                "title": "Services",
-                "createLabel": "Crear nuevo Services",
-                "createOrEditLabel": "Crear o editar Services",
+                "title": "Servicio",
+                "createLabel": "Crear nuevo Servicio",
+                "createOrEditLabel": "Crear o editar Servicio",
                 "search": "Search for Services"
             },
-            "created": "Un nuevo Services ha sido creado con el identificador {{ param }}",
-            "updated": "Un Services ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Services ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Servicio ha sido creado con el identificador {{ param }}",
+            "updated": "Un Servicio ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Servicio ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Services {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Servicio {{ id }}?"
             },
             "detail": {
-                "title": "Services"
+                "title": "Servicio"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Nombre",
+            "description": "Descripción"
         }
     }
 }

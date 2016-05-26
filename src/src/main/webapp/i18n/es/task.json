@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "task" : {
             "home": {
-                "title": "Tasks",
-                "createLabel": "Crear nuevo Task",
-                "createOrEditLabel": "Crear o editar Task",
-                "search": "Search for Task"
+                "title": "Tarea",
+                "createLabel": "Crear nueva Tarea",
+                "createOrEditLabel": "Crear o editar Tarea",
+                "search": "Búsqueda para Tarea"
             },
-            "created": "Un nuevo Task ha sido creado con el identificador {{ param }}",
-            "updated": "Un Task ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Task ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Tarea ha sido creado con el identificador {{ param }}",
+            "updated": "Una Tarea ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Tarea ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Task {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Tarea {{ id }}?"
             },
             "detail": {
-                "title": "Task"
+                "title": "Tarea"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Nombre",
+            "description": "Descripción"
         }
     }
 }

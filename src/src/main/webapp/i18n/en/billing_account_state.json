@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "billing_account_state" : {
             "home": {
-                "title": "Billing_account_states",
-                "createLabel": "Create a new Billing_account_state",
-                "createOrEditLabel": "Create or edit a Billing_account_state",
-                "search": "Search for Billing_account_state"
+                "title": "Billing account states",
+                "createLabel": "Create a new Billing account state",
+                "createOrEditLabel": "Create or edit a Billing account state",
+                "search": "Search for Billing account state"
             },
-            "created": "A new Billing_account_state is created with identifier {{ param }}",
-            "updated": "A Billing_account_state is updated with identifier {{ param }}",
-            "deleted": "A Billing_account_state is deleted with identifier {{ param }}",
+            "created": "A new Billing account state is created with identifier {{ param }}",
+            "updated": "A Billing account state is updated with identifier {{ param }}",
+            "deleted": "A Billing account state is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Billing_account_state {{ id }}?"
+                "question": "Are you sure you want to delete Billing account state {{ id }}?"
             },
             "detail": {
-                "title": "Billing_account_state"
+                "title": "Billing account state"
             },
             "name": "Name",
             "description": "Description"

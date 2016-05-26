@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "file_type" : {
             "home": {
-                "title": "File_types",
-                "createLabel": "Crear nuevo File_type",
-                "createOrEditLabel": "Crear o editar File_type",
-                "search": "Search for File_type"
+                "title": "Tipo de fichero",
+                "createLabel": "Crear nuevo Tipo de fichero",
+                "createOrEditLabel": "Crear o editar Tipo de fichero",
+                "search": "Búsqueda para Tipo de fichero"
             },
-            "created": "Un nuevo File_type ha sido creado con el identificador {{ param }}",
-            "updated": "Un File_type ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un File_type ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Tipo de fichero ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tipo de fichero ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tipo de fichero ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar File_type {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Tipo de fichero {{ id }}?"
             },
             "detail": {
-                "title": "File_type"
+                "title": "Tipo de fichero"
             },
-            "name": "Name",
-            "description": "Description",
-            "file": "File"
+            "name": "Nombre",
+            "description": "Descripción",
+            "file": "Fichero"
         }
     }
 }

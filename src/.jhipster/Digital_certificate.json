@@ -1,0 +1,27 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "adrees",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "private_key",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "possword",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20160506181119",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "digital_certificate",
+    "pagination": "pagination"
+}
