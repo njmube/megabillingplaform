@@ -9,6 +9,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
 import javax.xml.parsers.*;
 import javax.xml.transform.*;
 import javax.xml.transform.dom.*;
@@ -43,6 +46,7 @@ public class Mail_configurationServiceImpl implements Mail_configurationService{
     public Mail_configuration save(Mail_configuration mail_configuration) {
         log.debug("Request to save Mail_configuration : {}", mail_configuration);
 
+       // File xmlFile = new File( "C:\\Users\\Admin\\projects\\appweb\\megabillingplaform\\src\\src\\main\\resources\\config\\application-dev.yml" );
         Mail_configuration result = mail_configurationRepository.save(mail_configuration);
         return result;
     }
@@ -56,6 +60,8 @@ public class Mail_configurationServiceImpl implements Mail_configurationService{
     @Transactional(readOnly = true)
     public Page<Mail_configuration> findAll(Pageable pageable) {
         log.debug("Request to get all Mail_configurations");
+        //File xmlFile = new File( "C:\\Users\\Admin\\projects\\appweb\\megabillingplaform\\src\\src\\main\\resources\\config\\application-dev.yml" );
+
         Page<Mail_configuration> result = mail_configurationRepository.findAll(pageable);
         return result;
     }
@@ -69,6 +75,8 @@ public class Mail_configurationServiceImpl implements Mail_configurationService{
     @Transactional(readOnly = true)
     public Mail_configuration findOne(Long id) {
         log.debug("Request to get Mail_configuration : {}", id);
+        //File xmlFile = new File( "C:\\Users\\Admin\\projects\\appweb\\megabillingplaform\\src\\src\\main\\resources\\config\\application-dev.yml" );
+
         Mail_configuration mail_configuration = mail_configurationRepository.findOne(id);
         return mail_configuration;
     }

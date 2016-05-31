@@ -18,7 +18,7 @@
             },
             "adrees": "Adrees",
             "private_key": "Private key",
-            "possword": "Possword"
+            "possword": "Password"
         }
     }
 }
