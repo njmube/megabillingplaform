@@ -2,10 +2,20 @@
     "settings": {
         "title": "User settings for [<b>{{username}}</b>]",
         "form": {
-            "firstname": "First Name",
-            "firstname.placeholder": "Your first name",
-            "lastname": "Last Name",
-            "lastname.placeholder": "Your last name",
+            "rfc": "RFC",
+            "rfc.placeholder": "Your rfc",
+            "name": "Name",
+            "name.placeholder": "Your name",
+            "first_surname": "First surname",
+            "first_surname.placeholder": "Your first surname",
+            "second_surname": "Second surname",
+            "second_surname.placeholder": "Your second surname",
+            "phone": "Phone",
+            "phone.placeholder": "Your phone",
+            "date_born": "Date born",
+            "date_born.placeholder": "Your date born",
+            "gender": "Gender",
+            "gender.placeholder": "Your gender",
             "language": "Language",
             "button": "Save"
         },
@@ -16,15 +26,30 @@
             },
             "success": "<strong>Settings saved!</strong>",
             "validate": {
-                "firstname": {
-                    "required": "Your first name is required.",
-                    "minlength": "Your first name is required to be at least 1 character",
-                    "maxlength": "Your first name cannot be longer than 50 characters"
+                "rfc": {
+                    "required": "Your rfc is required.",
+                    "minlength": "Your rfc is required to be at least 12 character",
+                    "maxlength": "Your rfc cannot be longer than 13 characters"
                 },
-                "lastname": {
-                    "required": "Your last name is required.",
-                    "minlength": "Your last name is required to be at least 1 character",
-                    "maxlength": "Your last name cannot be longer than 50 characters"
+                "name": {
+                    "required": "Your name is required.",
+                    "minlength": "Your name is required to be at least 1 character",
+                    "maxlength": "Your name cannot be longer than 50 characters"
+                },
+                "first_surname": {
+                    "required": "Your first surname is required.",
+                    "minlength": "Your first surname is required to be at least 1 character",
+                    "maxlength": "Your first surname cannot be longer than 50 characters"
+                },
+                "second_surname": {
+                    "required": "Your second surname is required.",
+                    "minlength": "Your second surname is required to be at least 1 character",
+                    "maxlength": "Your second surname cannot be longer than 50 characters"
+                },
+                "phone": {
+                    "required": "Your phone is required.",
+                    "minlength": "Your phone is required to be at least 1 character",
+                    "maxlength": "Your phone cannot be longer than 15 characters"
                 }
             }
         }

@@ -34,6 +34,8 @@
                 "task": "Tarea",
                 "packageTransactions": "Transacción de paquete",
                 "mailConfiguration": "Configuración del email",
+                "measureUnit": "Measure_unit",
+                "archiveStatus": "Archive_status",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

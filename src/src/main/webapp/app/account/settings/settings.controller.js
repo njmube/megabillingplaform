@@ -21,10 +21,15 @@
         var copyAccount = function (account) {
             return {
                 activated: account.activated,
+                rfc: account.rfc,
                 email: account.email,
-                firstName: account.firstName,
+                name: account.name,
                 langKey: account.langKey,
-                lastName: account.lastName,
+                first_surname: account.first_surname,
+                second_surname: account.second_surname,
+                phone: account.phone,
+                date_born: account.date_born,
+                gender: account.gender,
                 login: account.login
             };
         };
@@ -50,5 +55,11 @@
                 vm.error = 'ERROR';
             });
         }
+        vm.datePickerOpenStatus = {};
+        vm.datePickerOpenStatus.date_born = false;
+
+        vm.openCalendar = function(date_born) {
+            vm.datePickerOpenStatus[date_born] = true;
+        };
     }
 })();

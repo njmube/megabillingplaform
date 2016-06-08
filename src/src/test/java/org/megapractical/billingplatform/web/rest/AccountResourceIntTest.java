@@ -1,5 +1,6 @@
 package org.megapractical.billingplatform.web.rest;
 
+import org.joda.time.DateTime;
 import org.megapractical.billingplatform.MegabillingplatformApp;
 import org.megapractical.billingplatform.domain.Authority;
 import org.megapractical.billingplatform.domain.User;
@@ -114,9 +115,14 @@ public class AccountResourceIntTest {
 
         User user = new User();
         user.setLogin("test");
-        user.setFirstName("john");
-        user.setLastName("doe");
+        user.setRFC("AAA121234ZZX");
+        user.setName("john");
+        user.setFirstSurname("doe");
+        user.setSecondSurname("doe");
         user.setEmail("john.doe@jhipter.com");
+        user.setPhone("123456789");
+        user.setDate_born(DateTime.now());
+        user.setGender("M");
         user.setAuthorities(authorities);
         when(mockUserService.getUserWithAuthorities()).thenReturn(user);
 
@@ -125,9 +131,14 @@ public class AccountResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.login").value("test"))
-                .andExpect(jsonPath("$.firstName").value("john"))
-                .andExpect(jsonPath("$.lastName").value("doe"))
+                .andExpect(jsonPath("$.rfc").value("AAA121234ZZX"))
+                .andExpect(jsonPath("$.name").value("john"))
+                .andExpect(jsonPath("$.first_Surname").value("doe"))
+                .andExpect(jsonPath("$.second_Surname").value("doe"))
                 .andExpect(jsonPath("$.email").value("john.doe@jhipter.com"))
+                .andExpect(jsonPath("$.phone").value("123456789"))
+                .andExpect(jsonPath("$.date_born").value(DateTime.now()))
+                .andExpect(jsonPath("$.gender").value("M"))
                 .andExpect(jsonPath("$.authorities").value(AuthoritiesConstants.ADMIN));
     }
 
@@ -145,10 +156,15 @@ public class AccountResourceIntTest {
     public void testRegisterValid() throws Exception {
         UserDTO u = new UserDTO(
             "joe",                  // login
+            "AAA121234ZZX",         //rfc
             "password",             // password
-            "Joe",                  // firstName
-            "Shmoe",                // lastName
+            "Joe",                  // Name
+            "Shmoe",                // first_surname
+            "Shmoe",                // second_Surname
             "joe@example.com",      // e-mail
+            "123456789",
+            DateTime.now(),
+            "M",
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER))
@@ -169,10 +185,15 @@ public class AccountResourceIntTest {
     public void testRegisterInvalidLogin() throws Exception {
         UserDTO u = new UserDTO(
             "funky-log!n",          // login <-- invalid
+            "AAA121234ZZX",         //rfc
             "password",             // password
-            "Funky",                // firstName
-            "One",                  // lastName
+            "Funky",                // Name
+            "One",                  // first_Surname
+            "One",                  // Second_surname
             "funky@example.com",    // e-mail
+            "123456789",
+            DateTime.now(),
+            "M",
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER))
@@ -193,10 +214,15 @@ public class AccountResourceIntTest {
     public void testRegisterInvalidEmail() throws Exception {
         UserDTO u = new UserDTO(
             "bob",              // login
+            "AAA121234ZZX",         //rfc
             "password",         // password
-            "Bob",              // firstName
-            "Green",            // lastName
+            "Bob",              // Name
+            "Green",            // first_surname
+            "Green",            // second_surname
             "invalid",          // e-mail <-- invalid
+            "123456789",
+            DateTime.now(),
+            "M",
             true,               // activated
             "en",               // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER))
@@ -217,10 +243,15 @@ public class AccountResourceIntTest {
     public void testRegisterEmailEmpty() throws Exception {
         UserDTO u = new UserDTO(
             "bob",              // login
+            "AAA121234ZZX",         //rfc
             "password",         // password
-            "Bob",              // firstName
-            "Green",            // lastName
+            "Bob",              // Name
+            "Green",            // first_surname
+            "Green",            // second_surname
             "",                 // e-mail <-- empty
+            "123456789",
+            DateTime.now(),
+            "M",
             true,               // activated
             "en",               // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER))
@@ -242,18 +273,24 @@ public class AccountResourceIntTest {
         // Good
         UserDTO u = new UserDTO(
             "alice",                // login
+            "AAA121234ZZX",         //rfc
             "password",             // password
-            "Alice",                // firstName
-            "Something",            // lastName
+            "Alice",                // Name
+            "Something",            // first_surname
+            "Something",            // second_surname
             "alice@example.com",    // e-mail
+            "123456789",
+            DateTime.now(),
+            "M",
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER))
         );
 
         // Duplicate login, different e-mail
-        UserDTO dup = new UserDTO(u.getLogin(), u.getPassword(), u.getLogin(), u.getLastName(),
-            "alicejr@example.com", true, u.getLangKey(), u.getAuthorities());
+        UserDTO dup = new UserDTO(u.getLogin(), u.getRFC(),u.getPassword(), u.getLogin(), u.getFirstSurname(),
+            u.getSecondSurname(),"alicejr@example.com", "123456789",DateTime.now(),
+            "M",true, u.getLangKey(), u.getAuthorities());
 
         // Good user
         restMvc.perform(
@@ -279,18 +316,24 @@ public class AccountResourceIntTest {
         // Good
         UserDTO u = new UserDTO(
             "john",                 // login
+            "AAA121234ZZX",         //rfc
             "password",             // password
-            "John",                 // firstName
+            "John",                 // Name
+            "Doe",                  // lastName
             "Doe",                  // lastName
             "john@example.com",     // e-mail
+            "123456789",
+            DateTime.now(),
+            "M",
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.USER))
         );
 
         // Duplicate e-mail, different login
-        UserDTO dup = new UserDTO("johnjr", u.getPassword(), u.getLogin(), u.getLastName(),
-            u.getEmail(), true, u.getLangKey(), u.getAuthorities());
+        UserDTO dup = new UserDTO("johnjr",u.getRFC(), u.getPassword(), u.getLogin(), u.getFirstSurname(),
+            u.getSecondSurname(),u.getEmail(),"123456789",DateTime.now(),
+            "M", true, u.getLangKey(), u.getAuthorities());
 
         // Good user
         restMvc.perform(
@@ -315,10 +358,15 @@ public class AccountResourceIntTest {
     public void testRegisterAdminIsIgnored() throws Exception {
         UserDTO u = new UserDTO(
             "badguy",               // login
+            "AAA121234ZZX",         //rfc
             "password",             // password
-            "Bad",                  // firstName
+            "Bad",                  // tName
+            "Guy",                  // lastName
             "Guy",                  // lastName
             "badguy@example.com",   // e-mail
+            "123456789",
+            DateTime.now(),
+            "M",
             true,                   // activated
             "en",                   // langKey
             new HashSet<>(Arrays.asList(AuthoritiesConstants.ADMIN)) // <-- only admin should be able to do that

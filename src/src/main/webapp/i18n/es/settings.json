@@ -2,10 +2,20 @@
     "settings": {
         "title": "Ajustes del usuario [<b>{{username}}</b>]",
         "form": {
-            "firstname": "Nombre",
-            "firstname.placeholder": "Su nombre",
-            "lastname": "Apellidos",
-            "lastname.placeholder": "Sus apellidos",
+            "rfc": "RFC",
+            "rfc.placeholder": "Su rfc",
+            "name": "Nombre",
+            "name.placeholder": "Su nombre",
+            "first_surname": "Apellido paterno",
+            "first_surname.placeholder": "Su apellido paterno",
+            "second_surname": "Apellido materno",
+            "second_surname.placeholder": "Su apellido materno",
+            "phone": "Teléfono",
+            "phone.placeholder": "Su teléfono",
+            "date_born": "Fecha de nacimiento",
+            "date_born.placeholder": "Su fecha de nacimiento",
+            "gender": "Género",
+            "gender.placeholder": "Su género",
             "language": "Idioma",
             "button": "Guardar"
         },
@@ -21,11 +31,30 @@
                     "minlength": "Se requiere que su nombre tenga por lo menos 1 caracter",
                     "maxlength": "Su nombre no puede tener más de 50 caracteres"
                 },
-                "lastname": {
-                    "required": "Se requiere que ingrese sus apellidos.",
-                    "minlength": "Se requiere que sus apellidos tengan por lo menos 1 caracter",
-                    "maxlength": "Sus apellidos no pueden tener más de 50 caracteres"
-                }
+                "rfc": {
+                    "required": "Se requiere que ingrese su rfc.",
+                    "minlength": "Se requiere que su rfc tenga por lo menos 12 caracteres",
+                    "maxlength": "Su rfc no puede tener más de 13 caracteres"
+                },
+                "name": {
+                    "required": "Se requiere que ingrese su nombre.",
+                    "minlength": "Se requiere que su nombre tenga por lo menos 1 caracter",
+                    "maxlength": "Su nombre no puede tener más de 50 caracteres"
+                },
+                "first_surname": {
+                    "required": "Se requiere que ingrese su apellido paterno.",
+                    "minlength": "Se requiere que su apellido paterno tenga por lo menos 1 caracter",
+                    "maxlength": "Su apellido paterno no puede tener más de 50 caracteres"
+                },
+                "second_surname": {
+                    "required": "Se requiere que ingrese su apellido materno.",
+                    "minlength": "Se requiere que su apellido materno tenga por lo menos 1 caracter",
+                    "maxlength": "Su apellido materno no puede tener más de 50 caracteres"
+                },
+                "phone": {
+                    "required": "Se requiere que ingrese su teléfono.",
+                    "minlength": "Se requiere que su teléfono tenga por lo menos 1 número",
+                    "maxlength": "Su teléfono no puede tener más de 15 números"
             }
         }
     }

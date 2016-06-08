@@ -33,11 +33,29 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="userManagement.firstName">FirstName</label>
-            <input type="text" class="form-control" name="firstName"
-                   ng-model="vm.user.firstName" ng-maxlength="50">
+            <label class="control-label" translate="userManagement.rfc">RFC</label>
+            <input type="text" class="form-control" name="rfc"
+                   ng-model="vm.user.rfc" ng-maxlength="50">
 
-            <div ng-show="editForm.firstName.$invalid">
+            <div ng-show="editForm.login.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.login.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+
+                <p class="help-block"
+                   ng-show="editForm.login.$error.maxlength" translate="entity.validation.maxlength"
+                   translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="userManagement.name">Name</label>
+            <input type="text" class="form-control" name="name"
+                   ng-model="vm.user.name" ng-maxlength="50">
+
+            <div ng-show="editForm.name.$invalid">
                 <p class="help-block"
                    ng-show="editForm.firstName.$error.maxlength" translate="entity.validation.maxlength"
                    translate-value-max="50">
@@ -46,13 +64,26 @@
             </div>
         </div>
         <div class="form-group">
-            <label translate="userManagement.lastName">LastName</label>
-            <input type="text" class="form-control" name="lastName"
-                   ng-model="vm.user.lastName" ng-maxlength="50">
+            <label class="control-label" translate="userManagement.first_Surname">First surname</label>
+            <input type="text" class="form-control" name="first_Surname"
+                   ng-model="vm.user.first_surname" ng-maxlength="50">
 
-            <div ng-show="editForm.lastName.$invalid">
+            <div ng-show="editForm.first_Surname.$invalid">
                 <p class="help-block"
-                   ng-show="editForm.lastName.$error.maxlength" translate="entity.validation.maxlength"
+                   ng-show="editForm.first_Surname.$error.maxlength" translate="entity.validation.maxlength"
+                   translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="userManagement.second_Surname">Second surname</label>
+            <input type="text" class="form-control" name="second_Surname"
+                   ng-model="vm.user.second_surname" ng-maxlength="50">
+
+            <div ng-show="editForm.second_Surname.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.second_Surname.$error.maxlength" translate="entity.validation.maxlength"
                    translate-value-max="50">
                     This field cannot be longer than 50 characters.
                 </p>
@@ -79,6 +110,29 @@
                     Your e-mail is invalid.
                  </p>
             </div>
+        </div>
+        <div class="form-group">
+            <label translate="userManagement.phone">Phone</label>
+            <input type="text" class="form-control" name="phone"
+                   ng-model="vm.user.phone" ng-maxlength="15">
+
+            <div ng-show="editForm.phone.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.phone.$error.maxlength" translate="entity.validation.maxlength"
+                   translate-value-max="15">
+                    This field cannot be longer than 15 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="userManagement.date_born">Date born</label>
+            <input type="text" class="form-control" name="date_born"
+                   ng-model="vm.user.date_born" ng-maxlength="50">
+        </div>
+        <div class="form-group">
+            <label translate="userManagement.gender">Gender</label>
+            <input type="text" class="form-control" name="gender"
+                   ng-model="vm.user.gender" ng-maxlength="50">
         </div>
         <div class="form-group">
             <label for="activated">

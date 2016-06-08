@@ -1,0 +1,96 @@
+id;name;abrev;c_country_id
+1;Aguascalientes;AGU;151
+2;Baja California;BCN;151
+3;Baja California Sur;BCS;151
+4;Campeche;CAM;151
+5;Chiapas;CHP;151
+6;Chihuahua;CHH;151
+7;Coahuila;COA;151
+8;Colima;COL;151
+9;Distrito Federal;DIF;151
+10;Durango;DUR;151
+11;Guanajuato;GUA;151
+12;Guerrero;GRO;151
+13;Hidalgo;HID;151
+14;Jalisco;JAL;151
+15;Estado de México;MEX;151
+16;Michoacán;MIC;151
+17;Morelos;MOR;151
+18;Nayarit;NAY;151
+19;Nuevo León;NLE;151
+20;Oaxaca;OAX;151
+21;Puebla;PUE;151
+22;Querétaro;QTO;151
+23;Quintana Roo;ROO;151
+24;San Luis Potosí;SLP;151
+25;Sinaloa;SIN;151
+26;Sonora;SON;151
+27;Tabasco;TAB;151
+28;Tamaulipas;TAM;151
+29;Tlaxcala;TLA;151
+30;Veracruz;VER;151
+31;Yucatán;UC;151
+32;Zacatecas;ZAC;151
+33;Alabama;AL;66
+34;Alaska;AK;66
+35;Arizona;AZ;66
+36;Arkansas;AR;66
+37;California;CA;66
+38;Carolina del Norte;NC;66
+39;Carolina del Sur;SC;66
+40;Colorado;CO;66
+41;Connecticut;CT;66
+42;Dakota del Norte;ND;66
+43;Dakota del Sur;SD;66
+44;Delaware;DE;66
+45;Florida;FL;66
+46;Georgia;GA;66
+47;Hawái;HI;66
+48;Idaho;ID;66
+49;Illinois;IL;66
+50;Indiana;IN;66
+51;Iowa;IA;66
+52;Kansas;KS;66
+53;Kentucky;KY;66
+54;Luisiana;LA;66
+55;Maine;ME;66
+56;Maryland;MD;66
+57;Massachusetts;MA;66
+58;Míchigan;MI;66
+59;Minnesota;MN;66
+60;Misisipi;MS;66
+61;Misuri;MO;66
+62;Montana;MT;66
+63;Nebraska;NE;66
+64;Nevada;NV;66
+65;Nueva Jersey;NJ;66
+66;Nueva York;NY;66
+67;Nuevo Hampshire;NH;66
+68;Nuevo México;NM;66
+69;Ohio;OH;66
+70;Oklahoma;OK;66
+71;Oregón;OR;66
+72;Pensilvania;PA;66
+73;Rhode Island;RI;66
+74;Tennessee;TN;66
+75;Texas;TX;66
+76;Utah;UT;66
+77;Vermont;VT;66
+78;Virginia;VA;66
+79;Virginia Occidental;WV;66
+80;Washington;WA;66
+81;Wisconsin;WI;66
+82;Wyoming;WY;66
+83;Ontario ;ON;40
+84; Quebec ;QC;40
+85; Nueva Escocia;NS;40
+86;Nuevo Brunswick ;NB;40
+87; Manitoba;MB;40
+88; Columbia Británica;BC;40
+89; Isla del Príncipe Eduardo;PE;40
+90; Saskatchewan;SK;40
+91; Alberta;AB;40
+92; Terranova y Labrador;NL;40
+93; Territorios del Noroeste;NT;40
+94; Yukón;YT;40
+95; Nunavut;UN;40

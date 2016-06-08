@@ -71,9 +71,9 @@ public class AccountResource {
             .orElseGet(() -> userRepository.findOneByEmail(userDTO.getEmail())
                 .map(user -> new ResponseEntity<>("e-mail address already in use", textPlainHeaders, HttpStatus.BAD_REQUEST))
                 .orElseGet(() -> {
-                    User user = userService.createUserInformation(userDTO.getLogin(), userDTO.getPassword(),
-                    userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail().toLowerCase(),
-                    userDTO.getLangKey());
+                    User user = userService.createUserInformation(userDTO.getLogin(),userDTO.getRFC(),userDTO.getPassword(),
+                    userDTO.getName(), userDTO.getFirstSurname(), userDTO.getSecondSurname(), userDTO.getEmail().toLowerCase(),
+                    userDTO.getPhone(),userDTO.getDate_born(),userDTO.getGender(), userDTO.getLangKey());
                     String baseUrl = request.getScheme() + // "http"
                     "://" +                                // "://"
                     request.getServerName() +              // "myhost"
@@ -151,8 +151,9 @@ public class AccountResource {
         return userRepository
             .findOneByLogin(SecurityUtils.getCurrentUserLogin())
             .map(u -> {
-                userService.updateUserInformation(userDTO.getFirstName(), userDTO.getLastName(), userDTO.getEmail(),
-                    userDTO.getLangKey());
+                userService.updateUserInformation(userDTO.getRFC(),userDTO.getName(),userDTO.getFirstSurname(),
+                    userDTO.getSecondSurname(), userDTO.getEmail(),userDTO.getPhone(),userDTO.getDate_born(),
+                    userDTO.getGender(), userDTO.getLangKey());
                 return new ResponseEntity<String>(HttpStatus.OK);
             })
             .orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));

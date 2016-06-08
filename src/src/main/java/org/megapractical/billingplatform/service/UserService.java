@@ -1,5 +1,6 @@
 package org.megapractical.billingplatform.service;
 
+import org.joda.time.DateTime;
 import org.megapractical.billingplatform.domain.Authority;
 import org.megapractical.billingplatform.domain.PersistentToken;
 import org.megapractical.billingplatform.domain.User;
@@ -86,19 +87,25 @@ public class UserService {
             });
     }
 
-    public User createUserInformation(String login, String password, String firstName, String lastName, String email,
-        String langKey) {
+    public User createUserInformation(String login, String rfc, String password, String name, String first_surname,
+                                      String second_surname, String email, String phone, LocalDate date_born,
+                                      String gender, String langKey) {
 
         User newUser = new User();
         Authority authority = authorityRepository.findOne("ROLE_USER");
         Set<Authority> authorities = new HashSet<>();
         String encryptedPassword = passwordEncoder.encode(password);
         newUser.setLogin(login);
+        newUser.setRFC(rfc);
         // new user gets initially a generated password
         newUser.setPassword(encryptedPassword);
-        newUser.setFirstName(firstName);
-        newUser.setLastName(lastName);
+        newUser.setName(name);
+        newUser.setFirstSurname(first_surname);
+        newUser.setSecondSurname(second_surname);
         newUser.setEmail(email);
+        newUser.setPhone(phone);
+        newUser.setDate_born(date_born);
+        newUser.setGender(gender);
         newUser.setLangKey(langKey);
         // new user is not active
         newUser.setActivated(false);
@@ -114,9 +121,14 @@ public class UserService {
     public User createUser(ManagedUserDTO managedUserDTO) {
         User user = new User();
         user.setLogin(managedUserDTO.getLogin());
-        user.setFirstName(managedUserDTO.getFirstName());
-        user.setLastName(managedUserDTO.getLastName());
+        user.setRFC(managedUserDTO.getRFC());
+        user.setName(managedUserDTO.getName());
+        user.setFirstSurname(managedUserDTO.getFirstSurname());
+        user.setSecondSurname(managedUserDTO.getSecondSurname());
         user.setEmail(managedUserDTO.getEmail());
+        user.setPhone(managedUserDTO.getPhone());
+        user.setDate_born(managedUserDTO.getDate_born());
+        user.setGender(managedUserDTO.getGender());
         if (managedUserDTO.getLangKey() == null) {
             user.setLangKey("en"); // default language
         } else {
@@ -139,11 +151,17 @@ public class UserService {
         return user;
     }
 
-    public void updateUserInformation(String firstName, String lastName, String email, String langKey) {
+    public void updateUserInformation(String rfc, String name, String first_surname,String second_surname,
+                                      String email,String phone, LocalDate date_born,String gender, String langKey) {
         userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(u -> {
-            u.setFirstName(firstName);
-            u.setLastName(lastName);
+            u.setRFC(rfc);
+            u.setName(name);
+            u.setFirstSurname(first_surname);
+            u.setSecondSurname(second_surname);
             u.setEmail(email);
+            u.setPhone(phone);
+            u.setDate_born(date_born);
+            u.setGender(gender);
             u.setLangKey(langKey);
             userRepository.save(u);
             log.debug("Changed Information for User: {}", u);

@@ -6,6 +6,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 
 /**
@@ -30,6 +32,14 @@ public class Archive_status implements Serializable {
     @Column(name = "description")
     private String description;
 
+    @NotNull
+    @Column(name = "date", nullable = false)
+    private LocalDate date;
+
+    @NotNull
+    @Column(name = "date_1", nullable = false)
+    private ZonedDateTime date1;
+
     public Long getId() {
         return id;
     }
@@ -52,6 +62,22 @@ public class Archive_status implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public ZonedDateTime getDate1() {
+        return date1;
+    }
+
+    public void setDate1(ZonedDateTime date1) {
+        this.date1 = date1;
     }
 
     @Override
@@ -80,6 +106,8 @@ public class Archive_status implements Serializable {
             "id=" + id +
             ", name='" + name + "'" +
             ", description='" + description + "'" +
+            ", date='" + date + "'" +
+            ", date1='" + date1 + "'" +
             '}';
     }
 }

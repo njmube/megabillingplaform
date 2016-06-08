@@ -1,5 +1,6 @@
 package org.megapractical.billingplatform.service;
 
+import org.joda.time.DateTime;
 import org.megapractical.billingplatform.MegabillingplatformApp;
 import org.megapractical.billingplatform.domain.PersistentToken;
 import org.megapractical.billingplatform.domain.User;
@@ -70,7 +71,8 @@ public class UserServiceIntTest {
 
     @Test
     public void assertThatOnlyActivatedUserCanRequestPasswordReset() {
-        User user = userService.createUserInformation("johndoe", "johndoe", "John", "Doe", "john.doe@localhost", "en-US");
+        User user = userService.createUserInformation("johndoe", "AAA121234ZZX", "johndoe", "John", "Doe", "Doe",
+            "john.doe@localhost", "123456789", DateTime.now(),"M","en-US");
         Optional<User> maybeUser = userService.requestPasswordReset("john.doe@localhost");
         assertThat(maybeUser.isPresent()).isFalse();
         userRepository.delete(user);
@@ -78,7 +80,8 @@ public class UserServiceIntTest {
 
     @Test
     public void assertThatResetKeyMustNotBeOlderThan24Hours() {
-        User user = userService.createUserInformation("johndoe", "johndoe", "John", "Doe", "john.doe@localhost", "en-US");
+        User user = userService.createUserInformation("johndoe", "AAA121234ZZX", "johndoe", "John", "Doe", "Doe",
+            "john.doe@localhost", "123456789", DateTime.now(),"M","en-US");
 
         ZonedDateTime daysAgo = ZonedDateTime.now().minusHours(25);
         String resetKey = RandomUtil.generateResetKey();
@@ -97,7 +100,8 @@ public class UserServiceIntTest {
 
     @Test
     public void assertThatResetKeyMustBeValid() {
-        User user = userService.createUserInformation("johndoe", "johndoe", "John", "Doe", "john.doe@localhost", "en-US");
+        User user = userService.createUserInformation("johndoe", "AAA121234ZZX", "johndoe", "John", "Doe", "Doe",
+            "john.doe@localhost", "123456789", DateTime.now(),"M","en-US");
 
         ZonedDateTime daysAgo = ZonedDateTime.now().minusHours(25);
         user.setActivated(true);
@@ -111,7 +115,8 @@ public class UserServiceIntTest {
 
     @Test
     public void assertThatUserCanResetPassword() {
-        User user = userService.createUserInformation("johndoe", "johndoe", "John", "Doe", "john.doe@localhost", "en-US");
+        User user = userService.createUserInformation("johndoe", "AAA121234ZZX", "johndoe", "John", "Doe", "Doe",
+            "john.doe@localhost", "123456789", DateTime.now(),"M","en-US");
         String oldPassword = user.getPassword();
         ZonedDateTime daysAgo = ZonedDateTime.now().minusHours(2);
         String resetKey = RandomUtil.generateResetKey();

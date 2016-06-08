@@ -1,10 +1,10 @@
 package org.megapractical.billingplatform.web.rest.dto;
 
+import org.joda.time.DateTime;
 import org.megapractical.billingplatform.domain.Authority;
 import org.megapractical.billingplatform.domain.User;
-
+import java.time.LocalDate;
 import org.hibernate.validator.constraints.Email;
-
 import javax.validation.constraints.*;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -22,18 +22,36 @@ public class UserDTO {
     private String login;
 
     @NotNull
+    //@Pattern(regexp = "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?")
+    @Size(min = 12, max = 13)
+    private String rfc;
+
+    @NotNull
     @Size(min = PASSWORD_MIN_LENGTH, max = PASSWORD_MAX_LENGTH)
     private String password;
 
     @Size(max = 50)
-    private String firstName;
+    private String name;
 
     @Size(max = 50)
-    private String lastName;
+    private String first_surname;
+
+    @Size(max = 50)
+    private String second_surname;
 
     @Email
     @Size(min = 5, max = 100)
     private String email;
+
+    //@Pattern(regexp = "^[0-9]{1,15}")
+    @Size(min = 1, max = 15)
+    private String phone;
+
+    @NotNull
+    private LocalDate date_born;
+
+    @NotNull
+    private String gender;
 
     private boolean activated = false;
 
@@ -46,20 +64,26 @@ public class UserDTO {
     }
 
     public UserDTO(User user) {
-        this(user.getLogin(), null, user.getFirstName(), user.getLastName(),
-            user.getEmail(), user.getActivated(), user.getLangKey(),
+        this(user.getLogin(),user.getRFC(), null, user.getName(), user.getFirstSurname(),
+            user.getSecondSurname(), user.getEmail(),user.getPhone(),user.getDate_born(),
+            user.getGender(), user.getActivated(), user.getLangKey(),
             user.getAuthorities().stream().map(Authority::getName)
                 .collect(Collectors.toSet()));
     }
 
-    public UserDTO(String login, String password, String firstName, String lastName,
-        String email, boolean activated, String langKey, Set<String> authorities) {
+    public UserDTO(String login, String rfc, String password, String name, String first_surname,
+        String second_surname, String email,String phone,LocalDate date_born, String gender, boolean activated, String langKey, Set<String> authorities) {
 
         this.login = login;
         this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.rfc = rfc;
+        this.name = name;
+        this.first_surname = first_surname;
+        this.second_surname = second_surname;
         this.email = email;
+        this.phone = phone;
+        this.date_born = date_born;
+        this.gender = gender;
         this.activated = activated;
         this.langKey = langKey;
         this.authorities = authorities;
@@ -73,17 +97,66 @@ public class UserDTO {
         return login;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getRFC() {
+        return rfc;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setRFC(String RFC) {
+        this.rfc = RFC;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String Name) {
+        this.name = Name;
+    }
+
+    public String getFirstSurname() {
+        return first_surname;
+    }
+
+    public void setFirstSurname(String first_surname) {
+        this.first_surname = first_surname;
+    }
+
+    public String getSecondSurname() {
+        return second_surname;
+    }
+
+    public void setSecondSurname(String second_surname) {
+        this.second_surname = second_surname;
     }
 
     public String getEmail() {
         return email;
     }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public LocalDate getDate_born() {
+        return date_born;
+    }
+
+    public void setDate_born(LocalDate date_born) {
+        this.date_born = date_born;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
 
     public boolean isActivated() {
         return activated;
@@ -101,10 +174,13 @@ public class UserDTO {
     public String toString() {
         return "UserDTO{" +
             "login='" + login + '\'' +
-            ", password='" + password + '\'' +
-            ", firstName='" + firstName + '\'' +
-            ", lastName='" + lastName + '\'' +
+            ", name='" + name + '\'' +
+            ", firstSurname='" + first_surname + '\'' +
+            ", secondSurname='" + second_surname + '\'' +
             ", email='" + email + '\'' +
+            ", phone='" + phone + '\'' +
+            ", dateBorn='" + date_born + '\'' +
+            ", gender='" + gender + '\'' +
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +
             ", authorities=" + authorities +

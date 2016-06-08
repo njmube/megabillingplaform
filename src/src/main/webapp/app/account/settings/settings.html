@@ -18,40 +18,78 @@
             <form name="form" role="form" novalidate ng-submit="vm.save()" show-validation>
 
                 <div class="form-group">
-                    <label class="control-label" for="firstName" translate="settings.form.firstname">First Name</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="{{'settings.form.firstname.placeholder' | translate}}"
-                           ng-model="vm.settingsAccount.firstName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
-                    <div ng-show="form.firstName.$dirty && form.firstName.$invalid">
+                    <label class="control-label" for="rfc" translate="settings.form.rfc">RFC</label>
+                    <input type="text" class="form-control" id="rfc" name="rfc" placeholder="{{'settings.form.rfc.placeholder' | translate}}"
+                           ng-model="vm.settingsAccount.rfc" ng-minlength=12 ng-maxlength=13  maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?/" required>
+                    <div ng-show="form.rfc.$dirty && form.rfc.$invalid">
                         <p class="help-block"
-                               ng-show="form.firstName.$error.required" translate="settings.messages.validate.firstname.required">
-                            Your first name is required.
+                           ng-show="form.rfc.$error.required" translate="settings.messages.validate.rfc.required">
+                            Your rfc is required.
                         </p>
                         <p class="help-block"
-                               ng-show="form.firstName.$error.minlength" translate="settings.messages.validate.firstname.minlength">
-                            Your first name is required to be at least 1 character.
+                           ng-show="form.rfc.$error.minlength" translate="settings.messages.validate.rfc.minlength">
+                            Your rfc is required to be at least 12 character.
                         </p>
                         <p class="help-block"
-                               ng-show="form.firstName.$error.maxlength" translate="settings.messages.validate.firstname.maxlength">
-                            Your first name cannot be longer than 50 characters.
+                           ng-show="form.rfc.$error.maxlength" translate="settings.messages.validate.rfc.maxlength">
+                            Your rfc cannot be longer than 13 characters.
                         </p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="lastName" translate="settings.form.lastname">Last Name</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="{{'settings.form.lastname.placeholder' | translate}}"
-                           ng-model="vm.settingsAccount.lastName" ng-minlength=1 ng-maxlength=50 required maxlength="50">
-                    <div ng-show="form.lastName.$dirty && form.lastName.$invalid">
+                    <label class="control-label" for="name" translate="settings.form.name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="{{'settings.form.name.placeholder' | translate}}"
+                           ng-model="vm.settingsAccount.name" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                    <div ng-show="form.name.$dirty && form.name.$invalid">
                         <p class="help-block"
-                               ng-show="form.lastName.$error.required" translate="settings.messages.validate.lastname.required">
-                            Your last name is required.
+                               ng-show="form.name.$error.required" translate="settings.messages.validate.name.required">
+                            Your name is required.
                         </p>
                         <p class="help-block"
-                               ng-show="form.lastName.$error.minlength" translate="settings.messages.validate.lastname.minlength">
-                            Your last name is required to be at least 1 character.
+                               ng-show="form.name.$error.minlength" translate="settings.messages.validate.name.minlength">
+                            Your name is required to be at least 1 character.
                         </p>
                         <p class="help-block"
-                               ng-show="form.lastName.$error.maxlength" translate="settings.messages.validate.lastname.maxlength">
-                            Your last name cannot be longer than 50 characters.
+                               ng-show="form.name.$error.maxlength" translate="settings.messages.validate.name.maxlength">
+                            Your name cannot be longer than 50 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="first_surname" translate="settings.form.first_surname">First surname</label>
+                    <input type="text" class="form-control" id="first_surname" name="first_surname" placeholder="{{'settings.form.first_surname.placeholder' | translate}}"
+                           ng-model="vm.settingsAccount.first_surname" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                    <div ng-show="form.first_surname.$dirty && form.first_surname.$invalid">
+                        <p class="help-block"
+                               ng-show="form.first_surname.$error.required" translate="settings.messages.validate.first_surname.required">
+                            Your first surname is required.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.first_surname.$error.minlength" translate="settings.messages.validate.first_surname.minlength">
+                            Your first surname is required to be at least 1 character.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.first_surname.$error.maxlength" translate="settings.messages.validate.first_surname.maxlength">
+                            Your first surname cannot be longer than 50 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="second_surname" translate="settings.form.first_Surname">Second surname</label>
+                    <input type="text" class="form-control" id="second_surname" name="second_surname" placeholder="{{'settings.form.second_Surname.placeholder' | translate}}"
+                           ng-model="vm.settingsAccount.second_surname" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                    <div ng-show="form.second_surname.$dirty && form.second_surname.$invalid">
+                        <p class="help-block"
+                           ng-show="form.second_surname.$error.required" translate="settings.messages.validate.second_surname.required">
+                            Your second surname is required.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.second_surname.$error.minlength" translate="settings.messages.validate.second_surname.minlength">
+                            Your second surname is required to be at least 1 character.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.second_surname.$error.maxlength" translate="settings.messages.validate.second_surname.maxlength">
+                            Your second surname cannot be longer than 50 characters.
                         </p>
                     </div>
                 </div>
@@ -77,6 +115,46 @@
                             Your e-mail cannot be longer than 100 characters.
                         </p>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="phone" translate="settings.form.phone">Phone</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="{{'settings.form.phone.placeholder' | translate}}"
+                           ng-model="vm.settingsAccount.phone" ng-minlength=1 ng-maxlength=15 maxlength="15" ng-pattern="/^[0-9]{1,15}/" required>
+                    <div ng-show="form.phone.$dirty && form.phone.$invalid">
+                        <p class="help-block"
+                           ng-show="form.phone.$error.required" translate="settings.messages.validate.phone.required">
+                            Your phone is required.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.phone.$error.minlength" translate="settings.messages.validate.phone.minlength">
+                            Your phone is required to be at least 1 character.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.phone.$error.maxlength" translate="settings.messages.validate.phone.maxlength">
+                            Your phone cannot be longer than 15 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" translate="settings.form.date_born" for="date_born">Date born</label>
+                    <div class="input-group">
+                        <input id="date_born" type="text" class="form-control" name="date_born" uib-datepicker-popup="{{dateformat}}" ng-model="vm.settingsAccount.date_born" is-open="vm.datePickerOpenStatus.date_born"
+                               required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_born')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                    </div>
+                    <div ng-show="editForm.date.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.date.$error.required" translate="entity.validation.required">
+                            This field is required.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="gender" translate="settings.form.gender">Gender</label>
+                    <input type="text" class="form-control" id="gender" name="gender" placeholder="{{'settings.form.gender.placeholder' | translate}}"
+                           ng-model="vm.settingsAccount.gender" required>
                 </div>
                 <div class="form-group">
                     <label for="langKey" translate="settings.form.language">Language</label>

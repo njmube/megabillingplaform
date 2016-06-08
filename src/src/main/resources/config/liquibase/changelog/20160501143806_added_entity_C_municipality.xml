@@ -24,16 +24,21 @@
             <column name="name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="c_state_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <addForeignKeyConstraint baseColumnNames="c_state_id"
                                  baseTableName="c_municipality"
                                  constraintName="fk_c_municipality_c_state_id"
                                  referencedColumnNames="id"
                                  referencedTableName="c_state"/>
+        <!--loadData encoding="UTF-8"
+                  file="config/liquibase/municipalitys.csv"
+                  separator=";"
+                  tableName="c_municipality">
+        </loadData-->
 
     </changeSet>
 </databaseChangeLog>

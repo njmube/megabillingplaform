@@ -67,8 +67,9 @@
                     resolve: {
                         entity: function () {
                             return {
-                                id: null, login: null, firstName: null, lastName: null, email: null,
-                                activated: true, langKey: null, createdBy: null, createdDate: null,
+                                id: null, login: null, rfc: null, name: null, first_surname: null, second_surname: null,
+                                email: null, phone: null, date_born: null, gender: null,
+                                activated: null, langKey: null, createdBy: null, createdDate: null,
                                 lastModifiedBy: null, lastModifiedDate: null, resetDate: null,
                                 resetKey: null, authorities: null
                             };

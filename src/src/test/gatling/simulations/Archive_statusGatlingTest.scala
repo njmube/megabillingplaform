@@ -67,7 +67,7 @@ class Archive_statusGatlingTest extends Simulation {
             .exec(http("Create new archive_status")
             .post("/api/archive-statuses")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "description":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "description":"SAMPLE_TEXT", "date":"2020-01-01T00:00:00.000Z", "date1":"2020-01-01T00:00:00.000Z"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_archive_status_url"))).exitHereIfFailed
             .pause(10)

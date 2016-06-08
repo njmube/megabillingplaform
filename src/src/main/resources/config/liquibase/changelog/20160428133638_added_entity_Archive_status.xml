@@ -14,24 +14,32 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <!--
-        Added the entity C_zip_code.
+        Added the entity Archive_status.
     -->
-    <changeSet id="20160501144017" author="jhipster">
-        <createTable tableName="c_zip_code">
+    <changeSet id="20160428133638" author="jhipster">
+        <createTable tableName="archive_status">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="postcode" type="varchar(255)">
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="description" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
+            <column name="date" type="date">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="date_1" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+            
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        <!--loadData encoding="UTF-8"
-                  file="config/liquibase/cps.csv"
-                  separator=";"
-                  tableName="c_zip_code">
-        </loadData-->
-
+        <dropDefaultValue tableName="archive_status" columnName="date_1" columnDataType="datetime"/>
+        
     </changeSet>
 </databaseChangeLog>

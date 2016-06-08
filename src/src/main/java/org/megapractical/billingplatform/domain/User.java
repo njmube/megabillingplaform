@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.validator.constraints.Email;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 import java.time.ZonedDateTime;
@@ -34,25 +34,48 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(length = 50, unique = true, nullable = false)
     private String login;
 
+    @NotNull
+    //@Pattern(regexp = "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?")
+    @Size(min = 12, max = 13)
+    @Column(length = 50, nullable = false)
+    private String rfc;
+
     @JsonIgnore
     @NotNull
-    @Size(min = 60, max = 60) 
+    @Size(min = 60, max = 60)
     @Column(name = "password_hash",length = 60)
     private String password;
 
     @Size(max = 50)
-    @Column(name = "first_name", length = 50)
-    private String firstName;
+    @Column(name = "name", length = 50)
+    private String name;
 
     @Size(max = 50)
-    @Column(name = "last_name", length = 50)
-    private String lastName;
+    @Column(name = "first_Surname", length = 50)
+    private String first_surname;
+
+    @Size(max = 50)
+    @Column(name = "second_Surname", length = 50)
+    private String second_surname;
 
     @NotNull
     @Email
     @Size(max = 100)
     @Column(length = 100, unique = true)
     private String email;
+
+    //@Pattern(regexp = "^[0-9]{1,15}")
+    @Size(min = 1, max = 15)
+    @Column(length = 50, nullable = false)
+    private String phone;
+
+    @NotNull
+    @Column(length = 50, nullable = false)
+    private LocalDate date_born;
+
+    @NotNull
+    @Column(length = 50, nullable = false)
+    private String gender;
 
     @NotNull
     @Column(nullable = false)
@@ -104,6 +127,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.login = login;
     }
 
+    public String getRFC() {
+        return rfc;
+    }
+
+    public void setRFC(String RFC) {
+        this.rfc = RFC;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -112,20 +143,28 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.password = password;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String Name) {
+        this.name = Name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getFirstSurname() {
+        return first_surname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setFirstSurname(String first_surname) {
+        this.first_surname = first_surname;
+    }
+
+    public String getSecondSurname() {
+        return second_surname;
+    }
+
+    public void setSecondSurname(String second_surname) {
+        this.second_surname = second_surname;
     }
 
     public String getEmail() {
@@ -134,6 +173,30 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public LocalDate getDate_born() {
+        return date_born;
+    }
+
+    public void setDate_born(LocalDate date_born) {
+        this.date_born = date_born;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public boolean getActivated() {
@@ -219,9 +282,13 @@ public class User extends AbstractAuditingEntity implements Serializable {
     public String toString() {
         return "User{" +
             "login='" + login + '\'' +
-            ", firstName='" + firstName + '\'' +
-            ", lastName='" + lastName + '\'' +
+            ", name='" + name + '\'' +
+            ", firstSurname='" + first_surname + '\'' +
+            ", secondSurname='" + second_surname + '\'' +
             ", email='" + email + '\'' +
+            ", phone='" + phone + '\'' +
+            ", dateBorn='" + date_born + '\'' +
+            ", gender='" + gender + '\'' +
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +

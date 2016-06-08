@@ -145,9 +145,14 @@ public class UserResource {
             .findOneById(managedUserDTO.getId())
             .map(user -> {
                 user.setLogin(managedUserDTO.getLogin());
-                user.setFirstName(managedUserDTO.getFirstName());
-                user.setLastName(managedUserDTO.getLastName());
+                user.setRFC(managedUserDTO.getRFC());
+                user.setName(managedUserDTO.getName());
+                user.setFirstSurname(managedUserDTO.getFirstSurname());
+                user.setSecondSurname(managedUserDTO.getSecondSurname());
                 user.setEmail(managedUserDTO.getEmail());
+                user.setPhone(managedUserDTO.getPhone());
+                user.setDate_born(managedUserDTO.getDate_born());
+                user.setGender(managedUserDTO.getGender());
                 user.setActivated(managedUserDTO.isActivated());
                 user.setLangKey(managedUserDTO.getLangKey());
                 Set<Authority> authorities = user.getAuthorities();
@@ -166,7 +171,7 @@ public class UserResource {
 
     /**
      * GET  /users : get all users.
-     * 
+     *
      * @param pageable the pagination information
      * @return the ResponseEntity with status 200 (OK) and with body all users
      * @throws URISyntaxException if the pagination headers couldnt be generated

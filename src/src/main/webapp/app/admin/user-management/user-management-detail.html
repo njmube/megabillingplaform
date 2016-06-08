@@ -20,18 +20,34 @@
             </tr>
             <tr>
                 <td>
-                    <span translate="userManagement.firstName">FirstName</span>
+                    <span translate="userManagement.rfc">RFC</span>
                 </td>
                 <td>
-                    <input type="text" class="input-sm form-control" value="{{vm.user.firstName}}" readonly>
+                    <input type="text" class="input-sm form-control" value="{{vm.user.rfc}}" readonly>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span translate="userManagement.lastName">LastName</span>
+                    <span translate="userManagement.name">Name</span>
                 </td>
                 <td>
-                    <input type="text" class="input-sm form-control" value="{{vm.user.lastName}}" readonly>
+                    <input type="text" class="input-sm form-control" value="{{vm.user.name}}" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="userManagement.first_Surname">First surname</span>
+                </td>
+                <td>
+                    <input type="text" class="input-sm form-control" value="{{vm.user.first_surname}}" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="userManagement.second_Surname">Second surname</span>
+                </td>
+                <td>
+                    <input type="text" class="input-sm form-control" value="{{vm.user.second_surname}}" readonly>
                 </td>
             </tr>
             <tr>
@@ -44,13 +60,37 @@
             </tr>
             <tr>
                 <td>
+                    <span translate="userManagement.phone">Phone</span>
+                </td>
+                <td>
+                    <input type="text" class="input-sm form-control" value="{{vm.user.phone}}" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="userManagement.date_born">Date born</span>
+                </td>
+                <td>
+                    <input type="text" class="input-sm form-control" value="{{vm.user.date_born | date:'dd/MM/yyyy'}}" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="userManagement.gender">Gender</span>
+                </td>
+                <td>
+                    <input type="text" class="input-sm form-control" value="{{vm.user.gender}}" readonly>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <span translate="userManagement.activated">Activated</span>
                 </td>
                 <td>
                     <input type="text" class="input-sm form-control" value="{{vm.user.activated}}" readonly>
                 </td>
             </tr>
-            
+
             <tr>
                 <td>
                     <span translate="userManagement.langKey">LangKey</span>
@@ -59,7 +99,7 @@
                     <input type="text" class="input-sm form-control" value="{{vm.user.langKey}}" readonly>
                 </td>
             </tr>
-            
+
             <tr>
                 <td>
                     <span translate="userManagement.createdBy">CreatedBy</span>
