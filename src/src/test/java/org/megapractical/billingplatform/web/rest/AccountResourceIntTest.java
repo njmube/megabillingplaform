@@ -1,6 +1,7 @@
 package org.megapractical.billingplatform.web.rest;
 
-import org.joda.time.DateTime;
+
+import java.time.LocalDate;
 import org.megapractical.billingplatform.MegabillingplatformApp;
 import org.megapractical.billingplatform.domain.Authority;
 import org.megapractical.billingplatform.domain.User;
@@ -121,7 +122,7 @@ public class AccountResourceIntTest {
         user.setSecondSurname("doe");
         user.setEmail("john.doe@jhipter.com");
         user.setPhone("123456789");
-        user.setDate_born(DateTime.now());
+        user.setDate_born(LocalDate.now());
         user.setGender("M");
         user.setAuthorities(authorities);
         when(mockUserService.getUserWithAuthorities()).thenReturn(user);
@@ -137,7 +138,7 @@ public class AccountResourceIntTest {
                 .andExpect(jsonPath("$.second_Surname").value("doe"))
                 .andExpect(jsonPath("$.email").value("john.doe@jhipter.com"))
                 .andExpect(jsonPath("$.phone").value("123456789"))
-                .andExpect(jsonPath("$.date_born").value(DateTime.now()))
+                .andExpect(jsonPath("$.date_born").value(LocalDate.now()))
                 .andExpect(jsonPath("$.gender").value("M"))
                 .andExpect(jsonPath("$.authorities").value(AuthoritiesConstants.ADMIN));
     }
@@ -163,7 +164,7 @@ public class AccountResourceIntTest {
             "Shmoe",                // second_Surname
             "joe@example.com",      // e-mail
             "123456789",
-            DateTime.now(),
+            LocalDate.now(),
             "M",
             true,                   // activated
             "en",                   // langKey
@@ -192,7 +193,7 @@ public class AccountResourceIntTest {
             "One",                  // Second_surname
             "funky@example.com",    // e-mail
             "123456789",
-            DateTime.now(),
+            LocalDate.now(),
             "M",
             true,                   // activated
             "en",                   // langKey
@@ -221,7 +222,7 @@ public class AccountResourceIntTest {
             "Green",            // second_surname
             "invalid",          // e-mail <-- invalid
             "123456789",
-            DateTime.now(),
+            LocalDate.now(),
             "M",
             true,               // activated
             "en",               // langKey
@@ -250,7 +251,7 @@ public class AccountResourceIntTest {
             "Green",            // second_surname
             "",                 // e-mail <-- empty
             "123456789",
-            DateTime.now(),
+            LocalDate.now(),
             "M",
             true,               // activated
             "en",               // langKey
@@ -280,7 +281,7 @@ public class AccountResourceIntTest {
             "Something",            // second_surname
             "alice@example.com",    // e-mail
             "123456789",
-            DateTime.now(),
+            LocalDate.now(),
             "M",
             true,                   // activated
             "en",                   // langKey
@@ -289,7 +290,7 @@ public class AccountResourceIntTest {
 
         // Duplicate login, different e-mail
         UserDTO dup = new UserDTO(u.getLogin(), u.getRFC(),u.getPassword(), u.getLogin(), u.getFirstSurname(),
-            u.getSecondSurname(),"alicejr@example.com", "123456789",DateTime.now(),
+            u.getSecondSurname(),"alicejr@example.com", "123456789",LocalDate.now(),
             "M",true, u.getLangKey(), u.getAuthorities());
 
         // Good user
@@ -323,7 +324,7 @@ public class AccountResourceIntTest {
             "Doe",                  // lastName
             "john@example.com",     // e-mail
             "123456789",
-            DateTime.now(),
+            LocalDate.now(),
             "M",
             true,                   // activated
             "en",                   // langKey
@@ -332,7 +333,7 @@ public class AccountResourceIntTest {
 
         // Duplicate e-mail, different login
         UserDTO dup = new UserDTO("johnjr",u.getRFC(), u.getPassword(), u.getLogin(), u.getFirstSurname(),
-            u.getSecondSurname(),u.getEmail(),"123456789",DateTime.now(),
+            u.getSecondSurname(),u.getEmail(),"123456789",LocalDate.now(),
             "M", true, u.getLangKey(), u.getAuthorities());
 
         // Good user
@@ -365,7 +366,7 @@ public class AccountResourceIntTest {
             "Guy",                  // lastName
             "badguy@example.com",   // e-mail
             "123456789",
-            DateTime.now(),
+            LocalDate.now(),
             "M",
             true,                   // activated
             "en",                   // langKey
