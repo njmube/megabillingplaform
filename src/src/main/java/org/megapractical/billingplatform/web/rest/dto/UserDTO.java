@@ -43,7 +43,7 @@ public class UserDTO {
     @Size(min = 5, max = 100)
     private String email;
 
-    //@Pattern(regexp = "^[0-9]{1,15}")
+    @Pattern(regexp = "^[0-9]{1,15}")
     @Size(min = 1, max = 15)
     private String phone;
 
@@ -175,11 +175,11 @@ public class UserDTO {
         return "UserDTO{" +
             "login='" + login + '\'' +
             ", name='" + name + '\'' +
-            ", firstSurname='" + first_surname + '\'' +
-            ", secondSurname='" + second_surname + '\'' +
+            ", first_surname='" + first_surname + '\'' +
+            ", second_surname='" + second_surname + '\'' +
             ", email='" + email + '\'' +
             ", phone='" + phone + '\'' +
-            ", dateBorn='" + date_born + '\'' +
+            ", date_born='" + date_born + '\'' +
             ", gender='" + gender + '\'' +
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +

@@ -283,11 +283,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
         return "User{" +
             "login='" + login + '\'' +
             ", name='" + name + '\'' +
-            ", firstSurname='" + first_surname + '\'' +
-            ", secondSurname='" + second_surname + '\'' +
+            ", first_surname='" + first_surname + '\'' +
+            ", second_surname='" + second_surname + '\'' +
             ", email='" + email + '\'' +
             ", phone='" + phone + '\'' +
-            ", dateBorn='" + date_born + '\'' +
+            ", date_born='" + date_born + '\'' +
             ", gender='" + gender + '\'' +
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +
