@@ -1,6 +1,6 @@
 package org.megapractical.billingplatform.web.rest.dto;
 
-import org.joda.time.DateTime;
+
 import org.megapractical.billingplatform.domain.Authority;
 import org.megapractical.billingplatform.domain.User;
 import java.time.LocalDate;

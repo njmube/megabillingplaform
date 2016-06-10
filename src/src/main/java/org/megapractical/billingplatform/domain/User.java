@@ -51,11 +51,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
     private String name;
 
     @Size(max = 50)
-    @Column(name = "first_Surname", length = 50)
+    @Column(name = "first_surname", length = 50)
     private String first_surname;
 
     @Size(max = 50)
-    @Column(name = "second_Surname", length = 50)
+    @Column(name = "second_surname", length = 50)
     private String second_surname;
 
     @NotNull

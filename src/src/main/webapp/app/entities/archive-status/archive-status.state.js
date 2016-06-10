@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/archive-status?page&sort&search',
             data: {
-                authorities: [],
+                authorities: ['ROLE_USER'],
                 pageTitle: 'megabillingplatformApp.archive_status.home.title'
             },
             views: {
@@ -55,7 +55,7 @@
             parent: 'entity',
             url: '/archive-status/{id}',
             data: {
-                authorities: [],
+                authorities: ['ROLE_USER'],
                 pageTitle: 'megabillingplatformApp.archive_status.detail.title'
             },
             views: {
@@ -79,7 +79,7 @@
             parent: 'archive-status',
             url: '/new',
             data: {
-                authorities: []
+                authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -110,7 +110,7 @@
             parent: 'archive-status',
             url: '/{id}/edit',
             data: {
-                authorities: []
+                authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -135,7 +135,7 @@
             parent: 'archive-status',
             url: '/{id}/delete',
             data: {
-                authorities: []
+                authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
