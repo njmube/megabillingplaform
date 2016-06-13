@@ -17,6 +17,7 @@
                     data = angular.fromJson(data);
                     data.date = DateUtils.convertLocalDateFromServer(data.date);
                     data.date1 = DateUtils.convertDateTimeFromServer(data.date1);
+                    data.date_born = DateUtils.convertLocalDateFromServer(data.date_born);
                     return data;
                 }
             },
@@ -24,6 +25,7 @@
                 method: 'PUT',
                 transformRequest: function (data) {
                     data.date = DateUtils.convertLocalDateToServer(data.date);
+                    data.date_born = DateUtils.convertLocalDateToServer(data.date_born);
                     return angular.toJson(data);
                 }
             },
@@ -31,6 +33,7 @@
                 method: 'POST',
                 transformRequest: function (data) {
                     data.date = DateUtils.convertLocalDateToServer(data.date);
+                    data.date_born = DateUtils.convertLocalDateToServer(data.date_born);
                     return angular.toJson(data);
                 }
             }

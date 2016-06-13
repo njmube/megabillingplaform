@@ -58,8 +58,8 @@
         vm.datePickerOpenStatus = {};
         vm.datePickerOpenStatus.date_born = false;
 
-        vm.openCalendar = function(date_born) {
-            vm.datePickerOpenStatus[date_born] = true;
+        vm.openCalendar = function(date) {
+            vm.datePickerOpenStatus[date] = true;
         };
     }
 })();

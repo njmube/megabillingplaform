@@ -40,6 +40,20 @@ public class Archive_status implements Serializable {
     @Column(name = "date_1", nullable = false)
     private ZonedDateTime date1;
 
+    @NotNull
+    @Size(min = 1, max = 50)
+    @Column(name = "first_surname", length = 50, nullable = false)
+    private String first_surname;
+
+    @NotNull
+    @Size(min = 3, max = 50)
+    @Column(name = "second_surname", length = 50, nullable = false)
+    private String second_surname;
+
+    @NotNull
+    @Column(name = "date_born", nullable = false)
+    private LocalDate date_born;
+
     public Long getId() {
         return id;
     }
@@ -80,6 +94,30 @@ public class Archive_status implements Serializable {
         this.date1 = date1;
     }
 
+    public String getFirst_surname() {
+        return first_surname;
+    }
+
+    public void setFirst_surname(String first_surname) {
+        this.first_surname = first_surname;
+    }
+
+    public String getSecond_surname() {
+        return second_surname;
+    }
+
+    public void setSecond_surname(String second_surname) {
+        this.second_surname = second_surname;
+    }
+
+    public LocalDate getDate_born() {
+        return date_born;
+    }
+
+    public void setDate_born(LocalDate date_born) {
+        this.date_born = date_born;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -108,6 +146,9 @@ public class Archive_status implements Serializable {
             ", description='" + description + "'" +
             ", date='" + date + "'" +
             ", date1='" + date1 + "'" +
+            ", first_surname='" + first_surname + "'" +
+            ", second_surname='" + second_surname + "'" +
+            ", date_born='" + date_born + "'" +
             '}';
     }
 }

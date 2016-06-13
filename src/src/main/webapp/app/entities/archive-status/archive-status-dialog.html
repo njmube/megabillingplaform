@@ -71,6 +71,62 @@
                 </p>
             </div>
         </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.archive_status.first_surname" for="field_first_surname">First_surname</label>
+            <input type="text" class="form-control" name="first_surname" id="field_first_surname"
+                    ng-model="vm.archive_status.first_surname"
+                    required ng-minlength="1" ng-maxlength="50" />
+            <div ng-show="editForm.first_surname.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.first_surname.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.first_surname.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.first_surname.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.archive_status.second_surname" for="field_second_surname">Second_surname</label>
+            <input type="text" class="form-control" name="second_surname" id="field_second_surname"
+                    ng-model="vm.archive_status.second_surname"
+                    required ng-minlength="3" ng-maxlength="50" />
+            <div ng-show="editForm.second_surname.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.second_surname.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.second_surname.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
+                    This field is required to be at least 3 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.second_surname.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.archive_status.date_born" for="field_date_born">Date_born</label>
+                <div class="input-group">
+                    <input id="field_date_born" type="text" class="form-control" name="date_born" uib-datepicker-popup="{{dateformat}}" ng-model="vm.archive_status.date_born" is-open="vm.datePickerOpenStatus.date_born"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_born')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_born.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_born.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
 
     </div>
     <div class="modal-footer">

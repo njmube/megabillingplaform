@@ -19,7 +19,10 @@
             "name": "Name",
             "description": "Description",
             "date": "Date",
-            "date1": "Date1"
+            "date1": "Date1",
+            "first_surname": "First_surname",
+            "second_surname": "Second_surname",
+            "date_born": "Date_born"
         }
     }
 }

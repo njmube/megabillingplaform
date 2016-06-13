@@ -33,17 +33,17 @@
                 },
                 "name": {
                     "required": "Your name is required.",
-                    "minlength": "Your name is required to be at least 1 character",
+                    "minlength": "Your name is required to be at least 3 characters",
                     "maxlength": "Your name cannot be longer than 50 characters"
                 },
                 "first_surname": {
                     "required": "Your first surname is required.",
-                    "minlength": "Your first surname is required to be at least 1 character",
+                    "minlength": "Your first surname is required to be at least 3 characters",
                     "maxlength": "Your first surname cannot be longer than 50 characters"
                 },
                 "second_surname": {
                     "required": "Your second surname is required.",
-                    "minlength": "Your second surname is required to be at least 1 character",
+                    "minlength": "Your second surname is required to be at least 3 characters",
                     "maxlength": "Your second surname cannot be longer than 50 characters"
                 },
                 "phone": {

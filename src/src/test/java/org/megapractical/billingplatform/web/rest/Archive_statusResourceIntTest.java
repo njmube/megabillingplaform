@@ -60,6 +60,13 @@ public class Archive_statusResourceIntTest {
     private static final ZonedDateTime DEFAULT_DATE_1 = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
     private static final ZonedDateTime UPDATED_DATE_1 = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
     private static final String DEFAULT_DATE_1_STR = dateTimeFormatter.format(DEFAULT_DATE_1);
+    private static final String DEFAULT_FIRST_SURNAME = "A";
+    private static final String UPDATED_FIRST_SURNAME = "B";
+    private static final String DEFAULT_SECOND_SURNAME = "AAA";
+    private static final String UPDATED_SECOND_SURNAME = "BBB";
+
+    private static final LocalDate DEFAULT_DATE_BORN = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE_BORN = LocalDate.now(ZoneId.systemDefault());
 
     @Inject
     private Archive_statusRepository archive_statusRepository;
@@ -94,6 +101,9 @@ public class Archive_statusResourceIntTest {
         archive_status.setDescription(DEFAULT_DESCRIPTION);
         archive_status.setDate(DEFAULT_DATE);
         archive_status.setDate1(DEFAULT_DATE_1);
+        archive_status.setFirst_surname(DEFAULT_FIRST_SURNAME);
+        archive_status.setSecond_surname(DEFAULT_SECOND_SURNAME);
+        archive_status.setDate_born(DEFAULT_DATE_BORN);
     }
 
     @Test
@@ -116,6 +126,9 @@ public class Archive_statusResourceIntTest {
         assertThat(testArchive_status.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testArchive_status.getDate()).isEqualTo(DEFAULT_DATE);
         assertThat(testArchive_status.getDate1()).isEqualTo(DEFAULT_DATE_1);
+        assertThat(testArchive_status.getFirst_surname()).isEqualTo(DEFAULT_FIRST_SURNAME);
+        assertThat(testArchive_status.getSecond_surname()).isEqualTo(DEFAULT_SECOND_SURNAME);
+        assertThat(testArchive_status.getDate_born()).isEqualTo(DEFAULT_DATE_BORN);
     }
 
     @Test
@@ -174,6 +187,60 @@ public class Archive_statusResourceIntTest {
 
     @Test
     @Transactional
+    public void checkFirst_surnameIsRequired() throws Exception {
+        int databaseSizeBeforeTest = archive_statusRepository.findAll().size();
+        // set the field null
+        archive_status.setFirst_surname(null);
+
+        // Create the Archive_status, which fails.
+
+        restArchive_statusMockMvc.perform(post("/api/archive-statuses")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(archive_status)))
+                .andExpect(status().isBadRequest());
+
+        List<Archive_status> archive_statuses = archive_statusRepository.findAll();
+        assertThat(archive_statuses).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkSecond_surnameIsRequired() throws Exception {
+        int databaseSizeBeforeTest = archive_statusRepository.findAll().size();
+        // set the field null
+        archive_status.setSecond_surname(null);
+
+        // Create the Archive_status, which fails.
+
+        restArchive_statusMockMvc.perform(post("/api/archive-statuses")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(archive_status)))
+                .andExpect(status().isBadRequest());
+
+        List<Archive_status> archive_statuses = archive_statusRepository.findAll();
+        assertThat(archive_statuses).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkDate_bornIsRequired() throws Exception {
+        int databaseSizeBeforeTest = archive_statusRepository.findAll().size();
+        // set the field null
+        archive_status.setDate_born(null);
+
+        // Create the Archive_status, which fails.
+
+        restArchive_statusMockMvc.perform(post("/api/archive-statuses")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(archive_status)))
+                .andExpect(status().isBadRequest());
+
+        List<Archive_status> archive_statuses = archive_statusRepository.findAll();
+        assertThat(archive_statuses).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllArchive_statuses() throws Exception {
         // Initialize the database
         archive_statusRepository.saveAndFlush(archive_status);
@@ -186,7 +253,10 @@ public class Archive_statusResourceIntTest {
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
                 .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
                 .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())))
-                .andExpect(jsonPath("$.[*].date1").value(hasItem(DEFAULT_DATE_1_STR)));
+                .andExpect(jsonPath("$.[*].date1").value(hasItem(DEFAULT_DATE_1_STR)))
+                .andExpect(jsonPath("$.[*].first_surname").value(hasItem(DEFAULT_FIRST_SURNAME.toString())))
+                .andExpect(jsonPath("$.[*].second_surname").value(hasItem(DEFAULT_SECOND_SURNAME.toString())))
+                .andExpect(jsonPath("$.[*].date_born").value(hasItem(DEFAULT_DATE_BORN.toString())));
     }
 
     @Test
@@ -203,7 +273,10 @@ public class Archive_statusResourceIntTest {
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()))
-            .andExpect(jsonPath("$.date1").value(DEFAULT_DATE_1_STR));
+            .andExpect(jsonPath("$.date1").value(DEFAULT_DATE_1_STR))
+            .andExpect(jsonPath("$.first_surname").value(DEFAULT_FIRST_SURNAME.toString()))
+            .andExpect(jsonPath("$.second_surname").value(DEFAULT_SECOND_SURNAME.toString()))
+            .andExpect(jsonPath("$.date_born").value(DEFAULT_DATE_BORN.toString()));
     }
 
     @Test
@@ -229,6 +302,9 @@ public class Archive_statusResourceIntTest {
         updatedArchive_status.setDescription(UPDATED_DESCRIPTION);
         updatedArchive_status.setDate(UPDATED_DATE);
         updatedArchive_status.setDate1(UPDATED_DATE_1);
+        updatedArchive_status.setFirst_surname(UPDATED_FIRST_SURNAME);
+        updatedArchive_status.setSecond_surname(UPDATED_SECOND_SURNAME);
+        updatedArchive_status.setDate_born(UPDATED_DATE_BORN);
 
         restArchive_statusMockMvc.perform(put("/api/archive-statuses")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -243,6 +319,9 @@ public class Archive_statusResourceIntTest {
         assertThat(testArchive_status.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testArchive_status.getDate()).isEqualTo(UPDATED_DATE);
         assertThat(testArchive_status.getDate1()).isEqualTo(UPDATED_DATE_1);
+        assertThat(testArchive_status.getFirst_surname()).isEqualTo(UPDATED_FIRST_SURNAME);
+        assertThat(testArchive_status.getSecond_surname()).isEqualTo(UPDATED_SECOND_SURNAME);
+        assertThat(testArchive_status.getDate_born()).isEqualTo(UPDATED_DATE_BORN);
     }
 
     @Test

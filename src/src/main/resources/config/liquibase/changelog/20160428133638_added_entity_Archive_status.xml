@@ -37,6 +37,18 @@
                 <constraints nullable="false" />
             </column>
             
+            <column name="first_surname" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="second_surname" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="date_born" type="date">
+                <constraints nullable="false" />
+            </column>
+            
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="archive_status" columnName="date_1" columnDataType="datetime"/>

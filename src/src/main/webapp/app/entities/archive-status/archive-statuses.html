@@ -23,6 +23,9 @@
                     <th jh-sort-by="description"><span translate="megabillingplatformApp.archive_status.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="date"><span translate="megabillingplatformApp.archive_status.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="date1"><span translate="megabillingplatformApp.archive_status.date1">Date1</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="first_surname"><span translate="megabillingplatformApp.archive_status.first_surname">First_surname</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="second_surname"><span translate="megabillingplatformApp.archive_status.second_surname">Second_surname</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_born"><span translate="megabillingplatformApp.archive_status.date_born">Date_born</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -33,6 +36,9 @@
                     <td>{{archive_status.description}}</td>
                         <td>{{archive_status.date | date:'mediumDate'}}</td>
                     <td>{{archive_status.date1 | date:'medium'}}</td>
+                    <td>{{archive_status.first_surname}}</td>
+                    <td>{{archive_status.second_surname}}</td>
+                        <td>{{archive_status.date_born | date:'mediumDate'}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

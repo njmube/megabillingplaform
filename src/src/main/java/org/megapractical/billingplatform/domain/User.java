@@ -35,7 +35,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
     private String login;
 
     @NotNull
-    //@Pattern(regexp = "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?")
+    @Pattern(regexp = "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?")
     @Size(min = 12, max = 13)
     @Column(length = 50, nullable = false)
     private String rfc;
@@ -46,16 +46,19 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "password_hash",length = 60)
     private String password;
 
-    @Size(max = 50)
-    @Column(name = "name", length = 50)
+    @NotNull
+    @Size(min = 3, max = 50)
+    @Column(length = 50)
     private String name;
 
-    @Size(max = 50)
-    @Column(name = "first_surname", length = 50)
+    @NotNull
+    @Size(min = 3, max = 50)
+    @Column(name = "first_surname", length = 50, nullable = false)
     private String first_surname;
 
-    @Size(max = 50)
-    @Column(name = "second_surname", length = 50)
+    @NotNull
+    @Size(min = 3, max = 50)
+    @Column(name = "second_surname", length = 50, nullable = false)
     private String second_surname;
 
     @NotNull
@@ -64,13 +67,13 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(length = 100, unique = true)
     private String email;
 
-    //@Pattern(regexp = "^[0-9]{1,15}")
+    @Pattern(regexp = "^[0-9]{1,15}")
     @Size(min = 1, max = 15)
     @Column(length = 50, nullable = false)
     private String phone;
 
     @NotNull
-    @Column(length = 50, nullable = false)
+    @Column(name = "date_born", nullable = false)
     private LocalDate date_born;
 
     @NotNull
@@ -283,7 +286,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
         return "User{" +
             "login='" + login + '\'' +
             ", name='" + name + '\'' +
-            ", first_surname='" + first_surname + '\'' +
+            //", first_surname='" + first_surname + '\'' +
             ", second_surname='" + second_surname + '\'' +
             ", email='" + email + '\'' +
             ", phone='" + phone + '\'' +

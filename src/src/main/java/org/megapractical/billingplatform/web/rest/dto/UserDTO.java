@@ -22,7 +22,7 @@ public class UserDTO {
     private String login;
 
     @NotNull
-    //@Pattern(regexp = "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?")
+    @Pattern(regexp = "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?")
     @Size(min = 12, max = 13)
     private String rfc;
 
@@ -30,13 +30,16 @@ public class UserDTO {
     @Size(min = PASSWORD_MIN_LENGTH, max = PASSWORD_MAX_LENGTH)
     private String password;
 
-    @Size(max = 50)
+    @NotNull
+    @Size(min = 3, max = 50)
     private String name;
 
-    @Size(max = 50)
+    @NotNull
+    @Size(min = 3, max = 50)
     private String first_surname;
 
-    @Size(max = 50)
+    @NotNull
+    @Size(min = 3, max = 50)
     private String second_surname;
 
     @Email

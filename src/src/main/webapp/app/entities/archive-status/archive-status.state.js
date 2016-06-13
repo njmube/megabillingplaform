@@ -95,6 +95,9 @@
                                 description: null,
                                 date: null,
                                 date1: null,
+                                first_surname: null,
+                                second_surname: null,
+                                date_born: null,
                                 id: null
                             };
                         }

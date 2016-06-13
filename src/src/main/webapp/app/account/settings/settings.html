@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label class="control-label" for="name" translate="settings.form.name">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="{{'settings.form.name.placeholder' | translate}}"
-                           ng-model="vm.settingsAccount.name" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                           ng-model="vm.settingsAccount.name" ng-minlength=3 ng-maxlength=50 required maxlength="50">
                     <div ng-show="form.name.$dirty && form.name.$invalid">
                         <p class="help-block"
                                ng-show="form.name.$error.required" translate="settings.messages.validate.name.required">
@@ -47,7 +47,7 @@
                         </p>
                         <p class="help-block"
                                ng-show="form.name.$error.minlength" translate="settings.messages.validate.name.minlength">
-                            Your name is required to be at least 1 character.
+                            Your name is required to be at least 3 characters.
                         </p>
                         <p class="help-block"
                                ng-show="form.name.$error.maxlength" translate="settings.messages.validate.name.maxlength">
@@ -58,7 +58,7 @@
                 <div class="form-group">
                     <label class="control-label" for="first_surname" translate="settings.form.first_surname">First surname</label>
                     <input type="text" class="form-control" id="first_surname" name="first_surname" placeholder="{{'settings.form.first_surname.placeholder' | translate}}"
-                           ng-model="vm.settingsAccount.first_surname" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                           ng-model="vm.settingsAccount.first_surname" ng-minlength=3 ng-maxlength=50 required maxlength="50">
                     <div ng-show="form.first_surname.$dirty && form.first_surname.$invalid">
                         <p class="help-block"
                                ng-show="form.first_surname.$error.required" translate="settings.messages.validate.first_surname.required">
@@ -66,7 +66,7 @@
                         </p>
                         <p class="help-block"
                                ng-show="form.first_surname.$error.minlength" translate="settings.messages.validate.first_surname.minlength">
-                            Your first surname is required to be at least 1 character.
+                            Your first surname is required to be at least 3 characters.
                         </p>
                         <p class="help-block"
                                ng-show="form.first_surname.$error.maxlength" translate="settings.messages.validate.first_surname.maxlength">
@@ -77,7 +77,7 @@
                 <div class="form-group">
                     <label class="control-label" for="second_surname" translate="settings.form.first_surname">Second surname</label>
                     <input type="text" class="form-control" id="second_surname" name="second_surname" placeholder="{{'settings.form.second_surname.placeholder' | translate}}"
-                           ng-model="vm.settingsAccount.second_surname" ng-minlength=1 ng-maxlength=50 required maxlength="50">
+                           ng-model="vm.settingsAccount.second_surname" ng-minlength=3 ng-maxlength=50 required maxlength="50">
                     <div ng-show="form.second_surname.$dirty && form.second_surname.$invalid">
                         <p class="help-block"
                            ng-show="form.second_surname.$error.required" translate="settings.messages.validate.second_surname.required">
@@ -85,7 +85,7 @@
                         </p>
                         <p class="help-block"
                            ng-show="form.second_surname.$error.minlength" translate="settings.messages.validate.second_surname.minlength">
-                            Your second surname is required to be at least 1 character.
+                            Your second surname is required to be at least 3 characters.
                         </p>
                         <p class="help-block"
                            ng-show="form.second_surname.$error.maxlength" translate="settings.messages.validate.second_surname.maxlength">
@@ -136,17 +136,17 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" translate="settings.form.date_born" for="date_born">Date born</label>
+                    <label class="control-label" translate="settings.form.date_born" for="field_date_born">Date born</label>
                     <div class="input-group">
-                        <input id="date_born" type="text" class="form-control" name="date_born" uib-datepicker-popup="{{dateformat}}" ng-model="vm.settingsAccount.date_born" is-open="vm.datePickerOpenStatus.date_born"
+                        <input id="field_date_born" type="text" class="form-control" name="date_born" uib-datepicker-popup="{{dateformat}}" ng-model="vm.settingsAccount.date_born" is-open="vm.datePickerOpenStatus.date_born"
                                required/>
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_born')"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
                     </div>
-                    <div ng-show="editForm.date.$invalid">
+                    <div ng-show="editForm.date_born.$invalid">
                         <p class="help-block"
-                           ng-show="editForm.date.$error.required" translate="entity.validation.required">
+                           ng-show="editForm.date_born.$error.required" translate="entity.validation.required">
                             This field is required.
                         </p>
                     </div>

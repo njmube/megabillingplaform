@@ -26,11 +26,6 @@
             },
             "success": "<strong>¡Ajustes guardados!</strong>",
             "validate": {
-                "firstname": {
-                    "required": "Se requiere que ingrese su nombre.",
-                    "minlength": "Se requiere que su nombre tenga por lo menos 1 caracter",
-                    "maxlength": "Su nombre no puede tener más de 50 caracteres"
-                },
                 "rfc": {
                     "required": "Se requiere que ingrese su rfc.",
                     "minlength": "Se requiere que su rfc tenga por lo menos 12 caracteres",
@@ -38,23 +33,24 @@
                 },
                 "name": {
                     "required": "Se requiere que ingrese su nombre.",
-                    "minlength": "Se requiere que su nombre tenga por lo menos 1 caracter",
+                    "minlength": "Se requiere que su nombre tenga por lo menos 3 caracteres",
                     "maxlength": "Su nombre no puede tener más de 50 caracteres"
                 },
                 "first_surname": {
                     "required": "Se requiere que ingrese su apellido paterno.",
-                    "minlength": "Se requiere que su apellido paterno tenga por lo menos 1 caracter",
+                    "minlength": "Se requiere que su apellido paterno tenga por lo menos 3 caracteres",
                     "maxlength": "Su apellido paterno no puede tener más de 50 caracteres"
                 },
                 "second_surname": {
                     "required": "Se requiere que ingrese su apellido materno.",
-                    "minlength": "Se requiere que su apellido materno tenga por lo menos 1 caracter",
+                    "minlength": "Se requiere que su apellido materno tenga por lo menos 3 caracteres",
                     "maxlength": "Su apellido materno no puede tener más de 50 caracteres"
                 },
                 "phone": {
                     "required": "Se requiere que ingrese su teléfono.",
                     "minlength": "Se requiere que su teléfono tenga por lo menos 1 número",
                     "maxlength": "Su teléfono no puede tener más de 15 números"
+                }
             }
         }
     }
