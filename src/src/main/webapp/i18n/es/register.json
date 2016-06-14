@@ -11,6 +11,24 @@
                     "minlength": "Su nombre de usuario debe tener al menos 1 caracter.",
                     "maxlength": "Su nombre de usuario no puede tener más de 50 caracteres.",
                     "pattern": "Su nombre de usuario sólo puede contener letras minúsculas y dígitos."
+                },
+                "name": {
+                    "required": "Su nombre es obligatorio.",
+                    "minlength": "Su nombre debe tener al menos 1 caracter.",
+                    "maxlength": "Su nombre no puede tener más de 50 caracteres."
+                },
+                "firtsurname": {
+                    "required": "Su apellido paterno es obligatorio.",
+                    "minlength": "Su apellido paterno debe tener al menos 1 caracter.",
+                    "maxlength": "Su apellido paterno no puede tener más de 50 caracteres."
+                },
+                "secondsurname": {
+                    "required": "Su apellido materno es obligatorio.",
+                    "minlength": "Su apellido materno debe tener al menos 1 caracter.",
+                    "maxlength": "Su apellido paterno no puede tener más de 50 caracteres."
+                },
+                "dateborn": {
+                    "required": "Su fecha de nacimiento es obligatoria."
                 }
             },
             "success": "<strong>¡Registro guardado!</strong> Por favor, revise su correo electrónico para confirmar.",

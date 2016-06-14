@@ -68,7 +68,7 @@
                         entity: function () {
                             return {
                                 id: null, login: null, rfc: null, name: null, firstsurname: null, secondsurname: null,
-                                email: null, dateborn: null, phone: null, gender: null,
+                                email: null, phone: null, gender: null,
                                 activated: null, langKey: null, createdBy: null, createdDate: null,
                                 lastModifiedBy: null, lastModifiedDate: null, resetDate: null,
                                 resetKey: null, authorities: null

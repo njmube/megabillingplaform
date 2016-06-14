@@ -26,7 +26,6 @@
                 name: account.name,
                 firtsurname: account.firtsurname,
                 secondsurname: account.secondsurname,
-                dateborn: account.dateborn,
                 langKey: account.langKey,
                 phone: account.phone,
                 gender: account.gender,

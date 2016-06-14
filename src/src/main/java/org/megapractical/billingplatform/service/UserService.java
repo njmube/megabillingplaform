@@ -88,7 +88,7 @@ public class UserService {
     }
 
     public User createUserInformation(String login, String rfc, String password, String name,String firtsuname,String secondsurname,
-                                      String email, String dateborn, String phone,
+                                      String email, String phone,
                                       String gender, String langKey) {
 
         User newUser = new User();
@@ -103,7 +103,6 @@ public class UserService {
         newUser.setFirtsurname(firtsuname);
         newUser.setSecondsurname(secondsurname);
         newUser.setEmail(email);
-        newUser.setDateborn(dateborn);
         newUser.setPhone(phone);
         newUser.setGender(gender);
         newUser.setLangKey(langKey);
@@ -126,7 +125,6 @@ public class UserService {
         user.setFirtsurname(managedUserDTO.getFirtsurname());
         user.setSecondsurname(managedUserDTO.getSecondsurname());
         user.setEmail(managedUserDTO.getEmail());
-        user.setDateborn(managedUserDTO.getDateborn());
         user.setPhone(managedUserDTO.getPhone());
         user.setGender(managedUserDTO.getGender());
         if (managedUserDTO.getLangKey() == null) {
@@ -152,14 +150,13 @@ public class UserService {
     }
 
     public void updateUserInformation(String rfc, String name, String firtsurname, String secondsurname,
-                                      String email,String dateborn, String phone, String gender, String langKey) {
+                                      String email, String phone, String gender, String langKey) {
         userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(u -> {
             u.setRFC(rfc);
             u.setName(name);
             u.setFirtsurname(firtsurname);
             u.setSecondsurname(secondsurname);
             u.setEmail(email);
-            u.setDateborn(dateborn);
             u.setPhone(phone);
             u.setGender(gender);
             u.setLangKey(langKey);

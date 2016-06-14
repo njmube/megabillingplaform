@@ -46,10 +46,6 @@ public class UserDTO {
     @Size(min = 5, max = 100)
     private String email;
 
-    @NotNull
-    @Size(min = 3, max = 50)
-    private String dateborn;
-
     @Pattern(regexp = "^[0-9]{1,15}")
     @Size(min = 1, max = 15)
     private String phone;
@@ -69,14 +65,14 @@ public class UserDTO {
 
     public UserDTO(User user) {
         this(user.getLogin(),user.getRFC(), null, user.getName(), user.getFirtsurname(),user.getSecondsurname(),
-            user.getEmail(),user.getDateborn(), user.getPhone(),
+            user.getEmail(),user.getPhone(),
             user.getGender(), user.getActivated(), user.getLangKey(),
             user.getAuthorities().stream().map(Authority::getName)
                 .collect(Collectors.toSet()));
     }
 
     public UserDTO(String login, String rfc, String password, String name,String firtsurname,String secondsurname,
-                   String email,String dateborn, String phone, String gender, boolean activated, String langKey, Set<String> authorities) {
+                   String email, String phone, String gender, boolean activated, String langKey, Set<String> authorities) {
 
         this.login = login;
         this.password = password;
@@ -85,7 +81,6 @@ public class UserDTO {
         this.firtsurname = firtsurname;
         this.secondsurname = secondsurname;
         this.email = email;
-        this.dateborn = dateborn;
         this.phone = phone;
         this.gender = gender;
         this.activated = activated;
@@ -141,14 +136,6 @@ public class UserDTO {
         this.email = email;
     }
 
-    public String getDateborn() {
-        return dateborn;
-    }
-
-    public void setDateborn(String dateborn) {
-        this.dateborn = dateborn;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -186,7 +173,6 @@ public class UserDTO {
             ", firtsurname='" + firtsurname + '\'' +
             ", secondsurname='" + secondsurname + '\'' +
             ", email='" + email + '\'' +
-            ", dateborn='" + dateborn + '\'' +
             ", phone='" + phone + '\'' +
             ", gender='" + gender + '\'' +
             ", activated=" + activated +

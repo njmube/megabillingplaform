@@ -67,11 +67,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(length = 256, unique = true)
     private String email;
 
-    @NotNull
-    @Size(min = 3, max = 50)
-    @Column(length = 50)
-    private String dateborn;
-
     @Pattern(regexp = "^[0-9]{1,15}")
     @Size(min = 1, max = 15)
     @Column(length = 50, nullable = false)
@@ -179,14 +174,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.email = email;
     }
 
-    public String getDateborn() {
-        return dateborn;
-    }
-
-    public void setDateborn(String dateborn) {
-        this.dateborn = dateborn;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -290,7 +277,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
             ", firtsurname='" + firtsurname + '\'' +
             ", secondsurname='" + secondsurname + '\'' +
             ", email='" + email + '\'' +
-            ", dateborn='" + dateborn + '\'' +
             ", phone='" + phone + '\'' +
             ", gender='" + gender + '\'' +
             ", activated='" + activated + '\'' +

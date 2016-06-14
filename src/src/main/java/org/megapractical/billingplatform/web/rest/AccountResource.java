@@ -73,7 +73,7 @@ public class AccountResource {
                 .orElseGet(() -> {
                     User user = userService.createUserInformation(userDTO.getLogin(),userDTO.getRFC(),
                         userDTO.getPassword(), userDTO.getName(), userDTO.getFirtsurname(),userDTO.getSecondsurname(),
-                        userDTO.getEmail().toLowerCase(), userDTO.getDateborn(),
+                        userDTO.getEmail().toLowerCase(),
                         userDTO.getPhone(),userDTO.getGender(), userDTO.getLangKey());
                     String baseUrl = request.getScheme() + // "http"
                     "://" +                                // "://"
@@ -154,7 +154,7 @@ public class AccountResource {
             .map(u -> {
                 userService.updateUserInformation(userDTO.getRFC(),userDTO.getName(),
                     userDTO.getFirtsurname(),userDTO.getSecondsurname(),userDTO.getEmail(),
-                    userDTO.getDateborn(),userDTO.getPhone(),
+                    userDTO.getPhone(),
                     userDTO.getGender(), userDTO.getLangKey());
                 return new ResponseEntity<String>(HttpStatus.OK);
             })
