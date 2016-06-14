@@ -1,12 +1,12 @@
 id;name;abrev
-1;Afganist·n;AFG
-2;Islas ≈land;ALA
+1;Afganist√°n;AFG
+2;Islas √Öland;ALA
 3;Albania;ALB
 4;Alemania;DEU
 5;Andorra;AND
 6;Angola;AGO
 7;Anguila;AIA
-8;Ant·rtida;ATA
+8;Ant√°rtida;ATA
 9;Antigua y Barbuda;ATG
 10;Arabia Saudita;SAU
 11;Argelia;DZA
@@ -15,64 +15,64 @@ id;name;abrev
 14;Aruba;ABW
 15;Australia;AUS
 16;Austria;AUT
-17;Azerbaiy·n;AZE
-18;Bahamas (las);BHS
-19;BangladÈs;BGD
+17;Azerbaiy√°n;AZE
+18;Bahamas;BHS
+19;Banglad√©s;BGD
 20;Barbados;BRB
-21;BarÈin;BHR
-22;BÈlgica;BEL
+21;Bar√©in;BHR
+22;B√©lgica;BEL
 23;Belice;BLZ
-24;BenÌn;BEN
+24;Ben√≠n;BEN
 25;Bermudas;BMU
 26;Bielorrusia;BLR
 27;Myanmar;MMR
-28;Bolivia, Estado Plurinacional de;BOL
+28;Bolivia; Estado Plurinacional de;BOL
 29;Bosnia y Herzegovina;BIH
 30;Botsuana;BWA
 31;Brasil;BRA
-32;BrunÈi Darussalam;BRN
+32;Brun√©i Darussalam;BRN
 33;Bulgaria;BGR
 34;Burkina Faso;BFA
 35;Burundi;BDI
-36;But·n;BTN
+36;But√°n;BTN
 37;Cabo Verde;CPV
 38;Camboya;KHM
-39;Camer˙n;CMR
-40;Canad·;CAN
+39;Camer√∫n;CMR
+40;Canad√°;CAN
 41;Catar;QAT
-42;Bonaire, San Eustaquio y Saba;BES
+42;Bonaire; San Eustaquio y Saba;BES
 43;Chad;TCD
 44;Chile;CHL
 45;China;CHN
 46;Chipre;CYP
 47;Colombia;COL
 48;Comoras;COM
-49;Corea (la Rep˙blica Democr·tica Popular de);PRK
-50;Corea (la Rep˙blica de);KOR
-51;CÙte d'Ivoire;CIV
+49;Corea del Norte;PRK
+50;Corea del Sur;KOR
+51;Costa de Marfil;CIV
 52;Costa Rica;CRI
 53;Croacia;HRV
 54;Cuba;CUB
-55;CuraÁao;CUW
+55;Curazao;CUW
 56;Dinamarca;DNK
 57;Dominica;DMA
 58;Ecuador;ECU
 59;Egipto;EGY
 60;El Salvador;SLV
-61;Emiratos ¡rabes Unidos (Los);ARE
+61;Emiratos √Årabes Unidos;ARE
 62;Eritrea;ERI
 63;Eslovaquia;SVK
 64;Eslovenia;SVN
-65;EspaÒa;ESP
-66;Estados Unidos (los);USA
+65;Espa√±a;ESP
+66;Estados Unidos;USA
 67;Estonia;EST
-68;EtiopÌa;ETH
-69;Filipinas (las);PHL
+68;Etiop√≠a;ETH
+69;Filipinas;PHL
 70;Finlandia;FIN
 71;Fiyi;FJI
 72;Francia;FRA
-73;GabÛn;GAB
-74;Gambia (La);GMB
+73;Gab√≥n;GAB
+74;Gambia;GMB
 75;Georgia;GEO
 76;Ghana;GHA
 77;Gibraltar;GIB
@@ -85,53 +85,53 @@ id;name;abrev
 84;Guayana Francesa;GUF
 85;Guernsey;GGY
 86;Guinea;GIN
-87;Guinea-Bis·u;GNB
+87;Guinea-Bis√°u;GNB
 88;Guinea Ecuatorial;GNQ
 89;Guyana;GUY
-90;HaitÌ;HTI
+90;Hait√≠;HTI
 91;Honduras;HND
 92;Hong Kong;HKG
-93;HungrÌa;HUN
+93;Hungr√≠a;HUN
 94;India;IND
 95;Indonesia;IDN
 96;Irak;IRQ
-97;Ir·n (la Rep˙blica Isl·mica de);IRN
+97;Ir√°n;IRN
 98;Irlanda;IRL
 99;Isla Bouvet;BVT
 100;Isla de Man;IMN
 101;Isla de Navidad;CXR
 102;Isla Norfolk;NFK
 103;Islandia;ISL
-104;Islas Caim·n (las);CYM
-105;Islas Cocos (Keeling);CCK
-106;Islas Cook (las);COK
-107;Islas Feroe (las);FRO
-108;Georgia del sur y las islas sandwich del sur;SGS
+104;Islas Caim√°n;CYM
+105;Islas Cocos;CCK
+106;Islas Cook;COK
+107;Islas Feroe;FRO
+108;Islas Georgias del Sur y Sandwich del Sur;SGS
 109;Isla Heard e Islas McDonald;HMD
-110;Islas Malvinas [Falkland] (las);FLK
-111;Islas Marianas del Norte (las);MNP
-112;Islas Marshall (las);MHL
+110;Islas Malvinas;FLK
+111;Islas Marianas del Norte;MNP
+112;Islas Marshall;MHL
 113;Pitcairn;PCN
-114;Islas SalomÛn (las);SLB
-115;Islas Turcas y Caicos (las);TCA
-116;Islas de Ultramar Menores de Estados Unidos (las);UMI
-117;Islas VÌrgenes (Brit·nicas);VGB
-118;Islas VÌrgenes (EE.UU.);VIR
+114;Islas Salom√≥n;SLB
+115;Islas Turcas y Caicos;TCA
+116;Islas de Ultramar Menores de Estados Unidos;UMI
+117;Islas V√≠rgenes (Brit√°nicas);VGB
+118;Islas V√≠rgenes (EE.UU.);VIR
 119;Israel;ISR
 120;Italia;ITA
 121;Jamaica;JAM
-122;JapÛn;JPN
+122;Jap√≥n;JPN
 123;Jersey;JEY
 124;Jordania;JOR
-125;Kazajist·n;KAZ
+125;Kazajist√°n;KAZ
 126;Kenia;KEN
-127;Kirguist·n;KGZ
+127;Kirguistan;KGZ
 128;Kiribati;KIR
 129;Kuwait;KWT
-130;Lao, (la) Rep˙blica Democr·tica Popular;LAO
+130;Rep√∫blica Democr√°tica Popular Lao;LAO
 131;Lesoto;LSO
 132;Letonia;LVA
-133;LÌbano;LBN
+133;L√≠bano;LBN
 134;Liberia;LBR
 135;Libia;LBY
 136;Liechtenstein;LIE
@@ -142,17 +142,17 @@ id;name;abrev
 141;Malasia;MYS
 142;Malaui;MWI
 143;Maldivas;MDV
-144;MalÌ;MLI
+144;Mal√≠;MLI
 145;Malta;MLT
 146;Marruecos;MAR
 147;Martinica;MTQ
 148;Mauricio;MUS
 149;Mauritania;MRT
 150;Mayotte;MYT
-151;MÈxico;MEX
-152;Micronesia (los Estados Federados de);FSM
-153;Moldavia (la Rep˙blica de);MDA
-154;MÛnaco;MCO
+151;M√©xico;MEX
+152;Micronesia;FSM
+153;Moldavia;MDA
+154;M√≥naco;MCO
 155;Mongolia;MNG
 156;Montenegro;MNE
 157;Montserrat;MSR
@@ -161,91 +161,91 @@ id;name;abrev
 160;Nauru;NRU
 161;Nepal;NPL
 162;Nicaragua;NIC
-163;NÌger (el);NER
+163;N√≠ger;NER
 164;Nigeria;NGA
 165;Niue;NIU
 166;Noruega;NOR
 167;Nueva Caledonia;NCL
 168;Nueva Zelanda;NZL
-169;Om·n;OMN
-170;PaÌses Bajos (los);NLD
-171;Pakist·n;PAK
+169;Om√°n;OMN
+170;Pa√≠ses Bajos;NLD
+171;Pakist√°n;PAK
 172;Palaos;PLW
-173;Palestina, Estado de;PSE
-174;Panam·;PAN
-175;Pap˙a Nueva Guinea;PNG
+173;Palestina; Estado de;PSE
+174;Panam√°;PAN
+175;Pap√∫a Nueva Guinea;PNG
 176;Paraguay;PRY
-177;Per˙;PER
+177;Per√∫;PER
 178;Polinesia Francesa;PYF
 179;Polonia;POL
 180;Portugal;PRT
 181;Puerto Rico;PRI
-182;Reino Unido (el);GBR
-183;Rep˙blica Centroafricana (la);CAF
-184;Rep˙blica Checa (la);CZE
-185;Macedonia (la antigua Rep˙blica Yugoslava de);MKD
+182;Reino Unido;GBR
+183;Rep√∫blica Centroafricana;CAF
+184;Rep√∫blica Checa;CZE
+185;Macedonia;MKD
 186;Congo;COG
-187;Congo (la Rep˙blica Democr·tica del);COD
-188;Rep˙blica Dominicana (la);DOM
-189;ReuniÛn;REU
+187;Rep√∫blica Democr√°tica del Congo;COD
+188;Rep√∫blica Dominicana;DOM
+189;Reuni√≥n;REU
 190;Ruanda;RWA
 191;Rumania;ROU
-192;Rusia, (la) FederaciÛn de;RUS
+192;Rusia;RUS
 193;Sahara Occidental;ESH
 194;Samoa;WSM
 195;Samoa Americana;ASM
-196;San BartolomÈ;BLM
-197;San CristÛbal y Nieves;KNA
+196;San Bartolom√©;BLM
+197;San Crist√≥bal y Nieves;KNA
 198;San Marino;SMR
-199;San MartÌn (parte francesa);MAF
-200;San Pedro y MiquelÛn;SPM
+199;San Mart√≠n;MAF
+200;San Pedro y Miquel√≥n;SPM
 201;San Vicente y las Granadinas;VCT
-202;Santa Helena, AscensiÛn y Trist·n de AcuÒa;SHN
-203;Santa LucÌa;LCA
-204;Santo TomÈ y PrÌncipe;STP
+202;Santa Helena;SHN
+203;Santa Luc√≠a;LCA
+204;Santo Tom√© y Pr√≠ncipe;STP
 205;Senegal;SEN
 206;Serbia;SRB
 207;Seychelles;SYC
-208;Sierra leona;SLE
+208;Sierra Leona;SLE
 209;Singapur;SGP
-210;Sint Maarten (parte holandesa);SXM
-211;Siria, (la) Rep˙blica ¡rabe;SYR
+210;Sint Maarten;SXM
+211;Siria;SYR
 212;Somalia;SOM
 213;Sri Lanka;LKA
 214;Suazilandia;SWZ
-215;Sud·frica;ZAF
-216;Sud·n (el);SDN
-217;Sud·n del Sur;SSD
+215;Sud√°frica;ZAF
+216;Sud√°n;SDN
+217;Sud√°n del Sur;SSD
 218;Suecia;SWE
 219;Suiza;CHE
 220;Surinam;SUR
 221;Svalbard y Jan Mayen;SJM
 222;Tailandia;THA
-223;Taiw·n (Provincia de China);TWN
-224;Tanzania, Rep˙blica Unida de;TZA
-225;Tayikist·n;TJK
-226;Territorio Brit·nico del OcÈano Õndico (el);IOT
-227;Territorios Australes Franceses (los);ATF
+223;Taiw√°n;TWN
+224;Tanzania;TZA
+225;Tayikist√°n;TJK
+226;Territorio Brit√°nico del Oc√©ano √çndico;IOT
+227;Territorios Australes Franceses;ATF
 228;Timor-Leste;TLS
 229;Togo;TGO
 230;Tokelau;TKL
 231;Tonga;TON
 232;Trinidad y Tobago;TTO
-233;T˙nez;TUN
-234;Turkmenist·n;TKM
-235;TurquÌa;TUR
+233;T√∫nez;TUN
+234;Turkmenist√°n;TKM
+235;Turqu√≠a;TUR
 236;Tuvalu;TUV
 237;Ucrania;UKR
 238;Uganda;UGA
 239;Uruguay;URY
-240;Uzbekist·n;UZB
+240;Uzbekist√°n;UZB
 241;Vanuatu;VUT
-242;Santa Sede[Estado de la Ciudad del Vaticano] (la);VAT
-243;Venezuela, Rep˙blica Bolivariana de;VEN
+242;Santa Sede;VAT
+243;Venezuela;VEN
 244;Viet Nam;VNM
 245;Wallis y Futuna;WLF
 246;Yemen;YEM
 247;Yibuti;DJI
 248;Zambia;ZMB
 249;Zimbabue;ZWE
-250;PaÌses no declarados;ZZZ
+250;Pa√≠ses No Declarados;ZZZ
