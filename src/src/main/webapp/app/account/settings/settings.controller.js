@@ -24,11 +24,11 @@
                 rfc: account.rfc,
                 email: account.email,
                 name: account.name,
+                firtsurname: account.firtsurname,
+                secondsurname: account.secondsurname,
+                dateborn: account.dateborn,
                 langKey: account.langKey,
-                first_surname: account.first_surname,
-                second_surname: account.second_surname,
                 phone: account.phone,
-                date_born: account.date_born,
                 gender: account.gender,
                 login: account.login
             };
@@ -55,11 +55,5 @@
                 vm.error = 'ERROR';
             });
         }
-        vm.datePickerOpenStatus = {};
-        vm.datePickerOpenStatus.date_born = false;
-
-        vm.openCalendar = function(date) {
-            vm.datePickerOpenStatus[date] = true;
-        };
     }
 })();

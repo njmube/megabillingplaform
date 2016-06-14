@@ -5,29 +5,21 @@
         .module('megabillingplatformApp')
         .factory('User', User);
 
-    User.$inject = ['$resource', 'DateUtils'];
+    User.$inject = ['$resource'];
 
-    function User ($resource, DateUtils) {
+    function User ($resource) {
         var service = $resource('api/users/:login', {}, {
             'query': {method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
                     data = angular.fromJson(data);
-                    data.date_born = DateUtils.convertLocalDateFromServer(data.date_born);
                     return data;
                 }
             },
-            'save': { method:'POST' ,
-                transformRequest: function (data) {
-                    data.date_born = DateUtils.convertLocalDateToServer(data.date_born);
-                    return angular.toJson(data);
-                }
+            'save': { method:'POST'
             },
-            'update': { method:'PUT',
-                transformRequest: function (data) {
-                    data.date_born = DateUtils.convertLocalDateToServer(data.date_born);
-                    return angular.toJson(data);}
+            'update': { method:'PUT'
             },
             'delete':{ method:'DELETE'}
         });

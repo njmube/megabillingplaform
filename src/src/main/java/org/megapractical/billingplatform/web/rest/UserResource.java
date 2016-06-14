@@ -147,11 +147,8 @@ public class UserResource {
                 user.setLogin(managedUserDTO.getLogin());
                 user.setRFC(managedUserDTO.getRFC());
                 user.setName(managedUserDTO.getName());
-                user.setFirstSurname(managedUserDTO.getFirstSurname());
-                user.setSecondSurname(managedUserDTO.getSecondSurname());
                 user.setEmail(managedUserDTO.getEmail());
                 user.setPhone(managedUserDTO.getPhone());
-                user.setDate_born(managedUserDTO.getDate_born());
                 user.setGender(managedUserDTO.getGender());
                 user.setActivated(managedUserDTO.isActivated());
                 user.setLangKey(managedUserDTO.getLangKey());

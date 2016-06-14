@@ -87,8 +87,8 @@ public class UserService {
             });
     }
 
-    public User createUserInformation(String login, String rfc, String password, String name, String first_surname,
-                                      String second_surname, String email, String phone, LocalDate date_born,
+    public User createUserInformation(String login, String rfc, String password, String name,String firtsuname,String secondsurname,
+                                      String email, String dateborn, String phone,
                                       String gender, String langKey) {
 
         User newUser = new User();
@@ -100,11 +100,11 @@ public class UserService {
         // new user gets initially a generated password
         newUser.setPassword(encryptedPassword);
         newUser.setName(name);
-        newUser.setFirstSurname(first_surname);
-        newUser.setSecondSurname(second_surname);
+        newUser.setFirtsurname(firtsuname);
+        newUser.setSecondsurname(secondsurname);
         newUser.setEmail(email);
+        newUser.setDateborn(dateborn);
         newUser.setPhone(phone);
-        newUser.setDate_born(date_born);
         newUser.setGender(gender);
         newUser.setLangKey(langKey);
         // new user is not active
@@ -123,11 +123,11 @@ public class UserService {
         user.setLogin(managedUserDTO.getLogin());
         user.setRFC(managedUserDTO.getRFC());
         user.setName(managedUserDTO.getName());
-        user.setFirstSurname(managedUserDTO.getFirstSurname());
-        user.setSecondSurname(managedUserDTO.getSecondSurname());
+        user.setFirtsurname(managedUserDTO.getFirtsurname());
+        user.setSecondsurname(managedUserDTO.getSecondsurname());
         user.setEmail(managedUserDTO.getEmail());
+        user.setDateborn(managedUserDTO.getDateborn());
         user.setPhone(managedUserDTO.getPhone());
-        user.setDate_born(managedUserDTO.getDate_born());
         user.setGender(managedUserDTO.getGender());
         if (managedUserDTO.getLangKey() == null) {
             user.setLangKey("en"); // default language
@@ -151,16 +151,16 @@ public class UserService {
         return user;
     }
 
-    public void updateUserInformation(String rfc, String name, String first_surname,String second_surname,
-                                      String email,String phone, LocalDate date_born,String gender, String langKey) {
+    public void updateUserInformation(String rfc, String name, String firtsurname, String secondsurname,
+                                      String email,String dateborn, String phone, String gender, String langKey) {
         userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(u -> {
             u.setRFC(rfc);
             u.setName(name);
-            u.setFirstSurname(first_surname);
-            u.setSecondSurname(second_surname);
+            u.setFirtsurname(firtsurname);
+            u.setSecondsurname(secondsurname);
             u.setEmail(email);
+            u.setDateborn(dateborn);
             u.setPhone(phone);
-            u.setDate_born(date_born);
             u.setGender(gender);
             u.setLangKey(langKey);
             userRepository.save(u);

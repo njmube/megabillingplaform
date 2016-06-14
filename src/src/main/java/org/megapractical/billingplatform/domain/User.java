@@ -53,28 +53,29 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @NotNull
     @Size(min = 3, max = 50)
-    @Column(name = "first_surname", length = 50, nullable = false)
-    private String first_surname;
+    @Column(length = 50)
+    private String firtsurname;
 
     @NotNull
     @Size(min = 3, max = 50)
-    @Column(name = "second_surname", length = 50, nullable = false)
-    private String second_surname;
+    @Column(length = 50)
+    private String secondsurname;
 
     @NotNull
     @Email
-    @Size(max = 100)
-    @Column(length = 100, unique = true)
+    @Size(max = 256)
+    @Column(length = 256, unique = true)
     private String email;
+
+    @NotNull
+    @Size(min = 3, max = 50)
+    @Column(length = 50)
+    private String dateborn;
 
     @Pattern(regexp = "^[0-9]{1,15}")
     @Size(min = 1, max = 15)
     @Column(length = 50, nullable = false)
     private String phone;
-
-    @NotNull
-    @Column(name = "date_born", nullable = false)
-    private LocalDate date_born;
 
     @NotNull
     @Column(length = 50, nullable = false)
@@ -154,20 +155,20 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.name = Name;
     }
 
-    public String getFirstSurname() {
-        return first_surname;
+    public String getFirtsurname() {
+        return firtsurname;
     }
 
-    public void setFirstSurname(String first_surname) {
-        this.first_surname = first_surname;
+    public void setFirtsurname(String firtsurname) {
+        this.firtsurname = firtsurname;
     }
 
-    public String getSecondSurname() {
-        return second_surname;
+    public String getSecondsurname() {
+        return secondsurname;
     }
 
-    public void setSecondSurname(String second_surname) {
-        this.second_surname = second_surname;
+    public void setSecondsurname(String secondsurname) {
+        this.secondsurname = secondsurname;
     }
 
     public String getEmail() {
@@ -178,20 +179,20 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.email = email;
     }
 
+    public String getDateborn() {
+        return dateborn;
+    }
+
+    public void setDateborn(String dateborn) {
+        this.dateborn = dateborn;
+    }
+
     public String getPhone() {
         return phone;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public LocalDate getDate_born() {
-        return date_born;
-    }
-
-    public void setDate_born(LocalDate date_born) {
-        this.date_born = date_born;
     }
 
     public String getGender() {
@@ -286,11 +287,11 @@ public class User extends AbstractAuditingEntity implements Serializable {
         return "User{" +
             "login='" + login + '\'' +
             ", name='" + name + '\'' +
-            //", first_surname='" + first_surname + '\'' +
-            ", second_surname='" + second_surname + '\'' +
+            ", firtsurname='" + firtsurname + '\'' +
+            ", secondsurname='" + secondsurname + '\'' +
             ", email='" + email + '\'' +
+            ", dateborn='" + dateborn + '\'' +
             ", phone='" + phone + '\'' +
-            ", date_born='" + date_born + '\'' +
             ", gender='" + gender + '\'' +
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +

@@ -6,14 +6,14 @@
             "rfc.placeholder": "Su rfc",
             "name": "Nombre",
             "name.placeholder": "Su nombre",
-            "first_surname": "Apellido paterno",
-            "first_surname.placeholder": "Su apellido paterno",
-            "second_surname": "Apellido materno",
-            "second_surname.placeholder": "Su apellido materno",
+            "firtsurname": "Apellido paterno",
+            "firtsurname.placeholder": "Su apellido paterno",
+            "secondsurname": "Apellido materno",
+            "secondsurname.placeholder": "Su apellido materno",
+            "dateborn": "Fecha de nacimiento",
+            "dateborn.placeholder": "Su fecha de nacimiento",
             "phone": "Teléfono",
             "phone.placeholder": "Su teléfono",
-            "date_born": "Fecha de nacimiento",
-            "date_born.placeholder": "Su fecha de nacimiento",
             "gender": "Género",
             "gender.placeholder": "Su género",
             "language": "Idioma",
@@ -36,12 +36,12 @@
                     "minlength": "Se requiere que su nombre tenga por lo menos 3 caracteres",
                     "maxlength": "Su nombre no puede tener más de 50 caracteres"
                 },
-                "first_surname": {
+                "firtsurname": {
                     "required": "Se requiere que ingrese su apellido paterno.",
                     "minlength": "Se requiere que su apellido paterno tenga por lo menos 3 caracteres",
                     "maxlength": "Su apellido paterno no puede tener más de 50 caracteres"
                 },
-                "second_surname": {
+                "secondsurname": {
                     "required": "Se requiere que ingrese su apellido materno.",
                     "minlength": "Se requiere que su apellido materno tenga por lo menos 3 caracteres",
                     "maxlength": "Su apellido materno no puede tener más de 50 caracteres"

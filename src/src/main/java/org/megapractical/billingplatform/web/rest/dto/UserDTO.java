@@ -36,22 +36,23 @@ public class UserDTO {
 
     @NotNull
     @Size(min = 3, max = 50)
-    private String first_surname;
+    private String firtsurname;
 
     @NotNull
     @Size(min = 3, max = 50)
-    private String second_surname;
+    private String secondsurname;
 
     @Email
     @Size(min = 5, max = 100)
     private String email;
 
+    @NotNull
+    @Size(min = 3, max = 50)
+    private String dateborn;
+
     @Pattern(regexp = "^[0-9]{1,15}")
     @Size(min = 1, max = 15)
     private String phone;
-
-    @NotNull
-    private LocalDate date_born;
 
     @NotNull
     private String gender;
@@ -67,25 +68,25 @@ public class UserDTO {
     }
 
     public UserDTO(User user) {
-        this(user.getLogin(),user.getRFC(), null, user.getName(), user.getFirstSurname(),
-            user.getSecondSurname(), user.getEmail(),user.getPhone(),user.getDate_born(),
+        this(user.getLogin(),user.getRFC(), null, user.getName(), user.getFirtsurname(),user.getSecondsurname(),
+            user.getEmail(),user.getDateborn(), user.getPhone(),
             user.getGender(), user.getActivated(), user.getLangKey(),
             user.getAuthorities().stream().map(Authority::getName)
                 .collect(Collectors.toSet()));
     }
 
-    public UserDTO(String login, String rfc, String password, String name, String first_surname,
-        String second_surname, String email,String phone,LocalDate date_born, String gender, boolean activated, String langKey, Set<String> authorities) {
+    public UserDTO(String login, String rfc, String password, String name,String firtsurname,String secondsurname,
+                   String email,String dateborn, String phone, String gender, boolean activated, String langKey, Set<String> authorities) {
 
         this.login = login;
         this.password = password;
         this.rfc = rfc;
         this.name = name;
-        this.first_surname = first_surname;
-        this.second_surname = second_surname;
+        this.firtsurname = firtsurname;
+        this.secondsurname = secondsurname;
         this.email = email;
+        this.dateborn = dateborn;
         this.phone = phone;
-        this.date_born = date_born;
         this.gender = gender;
         this.activated = activated;
         this.langKey = langKey;
@@ -116,24 +117,36 @@ public class UserDTO {
         this.name = Name;
     }
 
-    public String getFirstSurname() {
-        return first_surname;
+    public String getFirtsurname() {
+        return firtsurname;
     }
 
-    public void setFirstSurname(String first_surname) {
-        this.first_surname = first_surname;
+    public void setFirtsurname(String firtsurname) {
+        this.firtsurname = firtsurname;
     }
 
-    public String getSecondSurname() {
-        return second_surname;
+    public String getSecondsurname() {
+        return secondsurname;
     }
 
-    public void setSecondSurname(String second_surname) {
-        this.second_surname = second_surname;
+    public void setSecondsurname(String secondsurname) {
+        this.secondsurname = secondsurname;
     }
 
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDateborn() {
+        return dateborn;
+    }
+
+    public void setDateborn(String dateborn) {
+        this.dateborn = dateborn;
     }
 
     public String getPhone() {
@@ -142,14 +155,6 @@ public class UserDTO {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public LocalDate getDate_born() {
-        return date_born;
-    }
-
-    public void setDate_born(LocalDate date_born) {
-        this.date_born = date_born;
     }
 
     public String getGender() {
@@ -178,11 +183,11 @@ public class UserDTO {
         return "UserDTO{" +
             "login='" + login + '\'' +
             ", name='" + name + '\'' +
-            ", first_surname='" + first_surname + '\'' +
-            ", second_surname='" + second_surname + '\'' +
+            ", firtsurname='" + firtsurname + '\'' +
+            ", secondsurname='" + secondsurname + '\'' +
             ", email='" + email + '\'' +
+            ", dateborn='" + dateborn + '\'' +
             ", phone='" + phone + '\'' +
-            ", date_born='" + date_born + '\'' +
             ", gender='" + gender + '\'' +
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +

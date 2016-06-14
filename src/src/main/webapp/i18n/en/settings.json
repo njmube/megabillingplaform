@@ -6,14 +6,14 @@
             "rfc.placeholder": "Your rfc",
             "name": "Name",
             "name.placeholder": "Your name",
-            "first_surname": "First surname",
-            "first_surname.placeholder": "Your first surname",
-            "second_surname": "Second surname",
-            "second_surname.placeholder": "Your second surname",
+            "firtsurname": "Firt surname",
+            "firtsurname.placeholder": "Your Firt surname",
+            "secondsurname": "Second surname",
+            "secondsurname.placeholder": "Your second surname",
+            "dateborn": "Date born",
+            "dateborn.placeholder": "Your date born",
             "phone": "Phone",
             "phone.placeholder": "Your phone",
-            "date_born": "Date born",
-            "date_born.placeholder": "Your date born",
             "gender": "Gender",
             "gender.placeholder": "Your gender",
             "language": "Language",
@@ -36,12 +36,12 @@
                     "minlength": "Your name is required to be at least 3 characters",
                     "maxlength": "Your name cannot be longer than 50 characters"
                 },
-                "first_surname": {
-                    "required": "Your first surname is required.",
-                    "minlength": "Your first surname is required to be at least 3 characters",
-                    "maxlength": "Your first surname cannot be longer than 50 characters"
+                "firtsurname": {
+                    "required": "Your firt surname is required.",
+                    "minlength": "Your firt surname is required to be at least 3 characters",
+                    "maxlength": "Your firt surname cannot be longer than 50 characters"
                 },
-                "second_surname": {
+                "secondsurname": {
                     "required": "Your second surname is required.",
                     "minlength": "Your second surname is required to be at least 3 characters",
                     "maxlength": "Your second surname cannot be longer than 50 characters"
