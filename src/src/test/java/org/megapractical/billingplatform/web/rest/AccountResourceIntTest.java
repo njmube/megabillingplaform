@@ -118,11 +118,11 @@ public class AccountResourceIntTest {
         user.setLogin("test");
         user.setRFC("AAA121234ZZX");
         user.setName("john");
-        user.setFirstSurname("doe");
-        user.setSecondSurname("doe");
+        user.setFirtsurname("doe");
+        user.setSecondsurname("doe");
         user.setEmail("john.doe@jhipter.com");
         user.setPhone("123456789");
-        user.setDate_born(LocalDate.now());
+        user.setDateborn(LocalDate.now().toString());
         user.setGender("M");
         user.setAuthorities(authorities);
         when(mockUserService.getUserWithAuthorities()).thenReturn(user);
@@ -164,7 +164,7 @@ public class AccountResourceIntTest {
             "Shmoe",                // second_Surname
             "joe@example.com",      // e-mail
             "123456789",
-            LocalDate.now(),
+            LocalDate.now().toString(),
             "M",
             true,                   // activated
             "en",                   // langKey
@@ -193,7 +193,7 @@ public class AccountResourceIntTest {
             "One",                  // Second_surname
             "funky@example.com",    // e-mail
             "123456789",
-            LocalDate.now(),
+            LocalDate.now().toString(),
             "M",
             true,                   // activated
             "en",                   // langKey
@@ -222,7 +222,7 @@ public class AccountResourceIntTest {
             "Green",            // second_surname
             "invalid",          // e-mail <-- invalid
             "123456789",
-            LocalDate.now(),
+            LocalDate.now().toString(),
             "M",
             true,               // activated
             "en",               // langKey
@@ -251,7 +251,7 @@ public class AccountResourceIntTest {
             "Green",            // second_surname
             "",                 // e-mail <-- empty
             "123456789",
-            LocalDate.now(),
+            LocalDate.now().toString(),
             "M",
             true,               // activated
             "en",               // langKey
@@ -281,7 +281,7 @@ public class AccountResourceIntTest {
             "Something",            // second_surname
             "alice@example.com",    // e-mail
             "123456789",
-            LocalDate.now(),
+            LocalDate.now().toString(),
             "M",
             true,                   // activated
             "en",                   // langKey
@@ -289,8 +289,8 @@ public class AccountResourceIntTest {
         );
 
         // Duplicate login, different e-mail
-        UserDTO dup = new UserDTO(u.getLogin(), u.getRFC(),u.getPassword(), u.getLogin(), u.getFirstSurname(),
-            u.getSecondSurname(),"alicejr@example.com", "123456789",LocalDate.now(),
+        UserDTO dup = new UserDTO(u.getLogin(), u.getRFC(),u.getPassword(), u.getLogin(), u.getFirtsurname(),
+            u.getSecondsurname(),"alicejr@example.com", "123456789",LocalDate.now().toString(),
             "M",true, u.getLangKey(), u.getAuthorities());
 
         // Good user
@@ -324,7 +324,7 @@ public class AccountResourceIntTest {
             "Doe",                  // lastName
             "john@example.com",     // e-mail
             "123456789",
-            LocalDate.now(),
+            LocalDate.now().toString(),
             "M",
             true,                   // activated
             "en",                   // langKey
@@ -332,8 +332,8 @@ public class AccountResourceIntTest {
         );
 
         // Duplicate e-mail, different login
-        UserDTO dup = new UserDTO("johnjr",u.getRFC(), u.getPassword(), u.getLogin(), u.getFirstSurname(),
-            u.getSecondSurname(),u.getEmail(),"123456789",LocalDate.now(),
+        UserDTO dup = new UserDTO("johnjr",u.getRFC(), u.getPassword(), u.getLogin(), u.getFirtsurname(),
+            u.getSecondsurname(),u.getEmail(),"123456789",LocalDate.now().toString(),
             "M", true, u.getLangKey(), u.getAuthorities());
 
         // Good user
@@ -366,7 +366,7 @@ public class AccountResourceIntTest {
             "Guy",                  // lastName
             "badguy@example.com",   // e-mail
             "123456789",
-            LocalDate.now(),
+             LocalDate.now().toString(),
             "M",
             true,                   // activated
             "en",                   // langKey

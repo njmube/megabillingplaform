@@ -200,9 +200,10 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="gender" translate="global.form.gender">Gender</label>
-                    <select name=gender id="gender" ng-model="vm.registerAccount.gender">
-                        <option name=M value=M> M </option>
-                        <option name=F value=F> F </option>
+                    <select name=gender id="gender" ng-model="vm.registerAccount.gender" >
+                        <option selected="selected">{{'global.form.gender.placeholder' | translate}}</option>
+                        <option name=M value=M> Masculino </option>
+                        <option name=F value=F> Femenino </option>
                     </select>
                 </div>
                 <div class="form-group">
