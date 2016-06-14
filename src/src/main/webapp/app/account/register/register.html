@@ -27,26 +27,102 @@
             <form ng-show="!vm.success" name="form" role="form" novalidate ng-submit="vm.register()" show-validation>
 
                 <div class="form-group">
+                    <label class="control-label" for="rfc" translate="global.form.rfc">RFC</label>
+                    <input type="text" class="form-control" id="rfc" name="rfc" placeholder="{{'global.form.rfc.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.rfc" ng-minlength=12 ng-maxlength=13 ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?/" required>
+                    <div ng-show="form.rfc.$dirty && form.rfc.$invalid">
+                        <p class="help-block"
+                               ng-show="form.rfc.$error.required" translate="register.messages.validate.rfc.required">
+                            Your RFC is required.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.rfc.$error.minlength" translate="register.messages.validate.rfc.minlength">
+                            Your RFC is required to be at least 12 character.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.rfc.$error.maxlength" translate="register.messages.validate.rfc.maxlength">
+                            Your RFC cannot be longer than 13 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name" translate="global.form.name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="{{'global.form.name.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.name" ng-minlength=1 ng-maxlength=50 required>
+                    <div ng-show="form.name.$dirty && form.name.$invalid">
+                        <p class="help-block"
+                           ng-show="form.name.$error.required" translate="register.messages.validate.name.required">
+                            Your name is required.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.name.$error.minlength" translate="register.messages.validate.name.minlength">
+                            Your name is required to be at least 12 character.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.name.$error.maxlength" translate="register.messages.validate.name.maxlength">
+                            Your name cannot be longer than 13 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="firtsurname" translate="global.form.firtsurname">Firt surname</label>
+                    <input type="text" class="form-control" id="firtsurname" name="firtsurname" placeholder="{{'global.form.firtsurname.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.firtsurname" ng-minlength=1 ng-maxlength=50 required>
+                    <div ng-show="form.firtsurname.$dirty && form.firtsurname.$invalid">
+                        <p class="help-block"
+                           ng-show="form.firtsurname.$error.required" translate="register.messages.validate.firtsurname.required">
+                            Your firt surname is required.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.firtsurname.$error.minlength" translate="register.messages.validate.firtsurname.minlength">
+                            Your firt surname is required to be at least 12 character.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.firtsurname.$error.maxlength" translate="register.messages.validate.firtsurname.maxlength">
+                            Your firt surname cannot be longer than 13 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="secondsurname" translate="global.form.secondsurname">Second surname</label>
+                    <input type="text" class="form-control" id="secondsurname" name="secondsurname" placeholder="{{'global.form.secondsurname.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.secondsurname" ng-minlength=1 ng-maxlength=50 required>
+                    <div ng-show="form.secondsurname.$dirty && form.secondsurname.$invalid">
+                        <p class="help-block"
+                           ng-show="form.secondsurname.$error.required" translate="register.messages.validate.secondsurname.required">
+                            Your second surname is required.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.secondsurname.$error.minlength" translate="register.messages.validate.secondsurname.minlength">
+                            Your second surname is required to be at least 12 character.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.secondsurname.$error.maxlength" translate="register.messages.validate.secondsurname.maxlength">
+                            Your second surname cannot be longer than 13 characters.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="control-label" for="login" translate="global.form.username">Username</label>
                     <input type="text" class="form-control" id="login" name="login" placeholder="{{'global.form.username.placeholder' | translate}}"
                            ng-model="vm.registerAccount.login" ng-minlength=1 ng-maxlength=50 ng-pattern="/^[a-z0-9]*$/" required>
                     <div ng-show="form.login.$dirty && form.login.$invalid">
                         <p class="help-block"
-                               ng-show="form.login.$error.required" translate="register.messages.validate.login.required">
+                           ng-show="form.login.$error.required" translate="register.messages.validate.login.required">
                             Your username is required.
                         </p>
                         <p class="help-block"
-                               ng-show="form.login.$error.minlength" translate="register.messages.validate.login.minlength">
+                           ng-show="form.login.$error.minlength" translate="register.messages.validate.login.minlength">
                             Your username is required to be at least 1 character.
                         </p>
                         <p class="help-block"
-                               ng-show="form.login.$error.maxlength" translate="register.messages.validate.login.maxlength">
+                           ng-show="form.login.$error.maxlength" translate="register.messages.validate.login.maxlength">
                             Your username cannot be longer than 50 characters.
                         </p>
                         <p class="help-block"
-                               ng-show="form.login.$error.pattern" translate="register.messages.validate.login.pattern">
+                           ng-show="form.login.$error.pattern" translate="register.messages.validate.login.pattern">
                             Your username can only contain lower-case letters and digits.
-                    </p>
+                        </p>
                     </div>
                 </div>
                 <div class="form-group">
@@ -111,7 +187,43 @@
                         </p>
                     </div>
                 </div>
-
+                <div class="form-group">
+                    <label class="control-label" for="dateborn" translate="global.form.dateborn">Date born</label>
+                    <input type="text" class="form-control" id="dateborn" name="dateborn" placeholder="{{'global.form.dateborn.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.dateborn" required>
+                    <div ng-show="form.dateborn.$dirty && form.dateborn.$invalid">
+                        <p class="help-block"
+                           ng-show="form.dateborn.$error.required" translate="register.messages.validate.dateborn.required">
+                            Your date born is required.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="gender" translate="global.form.gender">Gender</label>
+                    <select name=gender id="gender" ng-model="vm.registerAccount.gender">
+                        <option name=M value=M> M </option>
+                        <option name=F value=F> F </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="phone" translate="global.form.phone">Phone</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="{{'global.form.phone.placeholder' | translate}}"
+                           ng-model="vm.registerAccount.phone" ng-minlength=1 ng-maxlength=15 ng-pattern="/^[0-9]*$/" required>
+                    <div ng-show="form.phone.$dirty && form.phone.$invalid">
+                        <p class="help-block"
+                           ng-show="form.phone.$error.required" translate="register.messages.validate.phone.required">
+                            Your phone is required.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.phone.$error.minlength" translate="register.messages.validate.phone.minlength">
+                            Your phone is required to be at least 1 digits.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.phone.$error.maxlength" translate="register.messages.validate.phone.maxlength">
+                            Your phone cannot be longer than 15 digits.
+                        </p>
+                    </div>
+                </div>
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" translate="register.form.button">Register</button>
             </form>
             <p></p>
