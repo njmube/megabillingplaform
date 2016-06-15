@@ -40,8 +40,313 @@
 				</li>
                 <li class="transparent" ui-sref-active="active" ng-switch-when="false" style="border-left:none;margin-right:20px">
 					<a ui-sref="register" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-plus-sign"></span>&#xA0;<span translate="global.menu.account.register">Register</span></a>
-				</li>	
-				<li ui-sref-active="active" uib-dropdown class="dropdown pointer transparent" ng-controller="JhiLanguageController as languageVm" style="border-left:none">
+				</li>				
+				<li ui-sref-active="active" uib-dropdown class="dropdown pointer transparent" ng-switch-when="true">
+					<a class="dropdown-toggle" uib-dropdown-toggle href="">					
+						<i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
+						<span class="badge badge-success">5</span>
+					</a>
+
+					<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
+						<li class="dropdown-header">
+							<i class="ace-icon fa fa-envelope-o"></i>
+							5 Mensajes
+						</li>
+
+						<li class="dropdown-content">
+							<ul class="dropdown-menu dropdown-navbar">
+								<li>
+									<a href="#" class="clearfix">
+										<img src="../content/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Alex:</span>
+												Ciao sociis natoque penatibus et auctor ...
+											</span>
+
+											<span class="msg-time">
+												<i class="ace-icon fa fa-clock-o"></i>
+												<span>a moment ago</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#" class="clearfix">
+										<img src="../content/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Susan:</span>
+												Vestibulum id ligula porta felis euismod ...
+											</span>
+
+											<span class="msg-time">
+												<i class="ace-icon fa fa-clock-o"></i>
+												<span>20 minutes ago</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#" class="clearfix">
+										<img src="../content/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Bob:</span>
+												Nullam quis risus eget urna mollis ornare ...
+											</span>
+
+											<span class="msg-time">
+												<i class="ace-icon fa fa-clock-o"></i>
+												<span>3:15 pm</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#" class="clearfix">
+										<img src="../content/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Kate:</span>
+												Ciao sociis natoque eget urna mollis ornare ...
+											</span>
+
+											<span class="msg-time">
+												<i class="ace-icon fa fa-clock-o"></i>
+												<span>1:33 pm</span>
+											</span>
+										</span>
+									</a>
+								</li>
+
+								<li>
+									<a href="#" class="clearfix">
+										<img src="../content/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
+										<span class="msg-body">
+											<span class="msg-title">
+												<span class="blue">Fred:</span>
+												Vestibulum id penatibus et auctor  ...
+											</span>
+
+											<span class="msg-time">
+												<i class="ace-icon fa fa-clock-o"></i>
+												<span>10:09 am</span>
+											</span>
+										</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="dropdown-footer">
+							<a href="inbox.html">
+								See all messages
+								<i class="ace-icon fa fa-arrow-right"></i>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li ui-sref-active="active" uib-dropdown class="dropdown pointer transparent" ng-switch-when="true">
+					<a class="dropdown-toggle" uib-dropdown-toggle href="">					
+						<i class="ace-icon fa fa-bell icon-animated-bell"></i>
+						<span class="badge badge-important">8</span>
+					</a>
+
+					<ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+						<li class="dropdown-header">
+							<i class="ace-icon fa fa-exclamation-triangle"></i>
+							8 Notificaciones
+						</li>
+
+						<li class="dropdown-content">
+							<ul class="dropdown-menu dropdown-navbar navbar-pink">
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
+												New Comments
+											</span>
+											<span class="pull-right badge badge-info">+12</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="btn btn-xs btn-primary fa fa-user"></i>
+										Bob just signed up as an editor ...
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-success fa fa-shopping-cart"></i>
+												New Orders
+											</span>
+											<span class="pull-right badge badge-success">+8</span>
+										</div>
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<div class="clearfix">
+											<span class="pull-left">
+												<i class="btn btn-xs no-hover btn-info fa fa-twitter"></i>
+												Followers
+											</span>
+											<span class="pull-right badge badge-info">+11</span>
+										</div>
+									</a>
+								</li>
+							</ul>
+						</li>
+
+						<li class="dropdown-footer">
+							<a href="#">
+								See all notifications
+								<i class="ace-icon fa fa-arrow-right"></i>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li ui-sref-active="active" uib-dropdown class="dropdown pointer light-blue" ng-switch-when="true">
+					<a class="dropdown-toggle" uib-dropdown-toggle href="">
+						<img class="nav-user-photo" src="../content/avatars/user.jpg" alt="Jason's Photo" />
+						<span class="user-info">
+							<small>Smith Willson,</small>
+							Jason
+						</span>
+
+						<i class="ace-icon fa fa-caret-down"></i>
+					</a>
+
+					<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">						
+						<li ui-sref-active="active" ng-switch-when="true">
+							<a ui-sref="settings" data-toggle="collapse" data-target=".navbar-collapse.in">
+								<span class="glyphicon glyphicon-wrench"></span>
+								<span translate="global.menu.account.settings">Settings</span>
+							</a>
+						</li>
+						<li ui-sref-active="active" ng-switch-when="true">
+							<a ui-sref="password" data-toggle="collapse" data-target=".navbar-collapse.in">
+								<span class="glyphicon glyphicon-lock"></span>
+								<span translate="global.menu.account.password">Password</span>
+							</a>
+						</li>
+                        <li ui-sref-active="active" ng-switch-when="true">
+							<a ui-sref="sessions" data-toggle="collapse" data-target=".navbar-collapse.in">
+								<span class="glyphicon glyphicon-cloud"></span>
+								<span translate="global.menu.account.sessions">Sessions</span>
+							</a>
+						</li>
+						<li class="divider"></li>
+						
+						<li ui-sref-active="active" ng-switch-when="true">
+							<a href="" ng-click="vm.logout()" id="logout" data-toggle="collapse" data-target=".navbar-collapse.in">
+								<span class="glyphicon glyphicon-log-out"></span>
+								<span translate="global.menu.account.logout">Sign out</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li ng-class="{active: vm.vm.$state.includes('admin')}"  ng-switch-when="true" has-authority="ROLE_ADMIN" uib-dropdown class="dropdown pointer transparent">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="admin-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-tower"></span>
+                            <span class="hidden-sm" translate="global.menu.admin.main">Administration</span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active"><a ui-sref="user-management" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-user"></span>
+                            &#xA0;<span translate="global.menu.admin.userManagement">User management</span></a></li>
+                        <li ui-sref-active="active"><a ui-sref="jhi-metrics" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-dashboard"></span>
+                            &#xA0;<span translate="global.menu.admin.metrics">Metrics</span></a></li>
+                        <li ui-sref-active="active"><a ui-sref="jhi-health" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-heart"></span>
+                            &#xA0;<span translate="global.menu.admin.health">Health</span></a></li>
+                        <li ui-sref-active="active"><a ui-sref="jhi-configuration" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-list-alt"></span>
+                            &#xA0;<span translate="global.menu.admin.configuration">Configuration</span></a></li>
+                        <li ui-sref-active="active"><a ui-sref="audits" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-bell"></span>
+                            &#xA0;<span translate="global.menu.admin.audits">Audits</span></a></li>
+                        <li ui-sref-active="active"><a ui-sref="logs" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-tasks"></span>
+                            &#xA0;<span translate="global.menu.admin.logs">Logs</span></a></li>
+                        <li ng-hide="vm.inProduction" ui-sref-active="active"><a ui-sref="docs" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-book"></span>
+                            &#xA0;<span translate="global.menu.admin.apidocs">API</span></a></li>
+                        <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
+                    </ul>
+                </li>
+				<!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+                <li ng-class="{active: vm.$state.includes('entity')}" ng-switch-when="true" uib-dropdown class="dropdown pointer transparent">
+                    <a class="dropdown-toggle" uib-dropdown-toggle href="" id="entity-menu">
+                        <span>
+                            <span class="glyphicon glyphicon-th-list"></span>
+                            <span class="hidden-sm" translate="global.menu.entities.main">
+                                Entities
+                            </span>
+                            <b class="caret"></b>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" uib-dropdown-menu>
+                        <li ui-sref-active="active" ><a ui-sref="measure-unit" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.measureUnit">Measure Unit</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="c-tax-rate" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.cTaxRate">C Tax Rate</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="tax-concept" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.taxConcept">Tax Concept</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="voucher-state" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.voucherState">Voucher State</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="voucher-type" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.voucherType">Voucher Type</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="tax-regime" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.taxRegime">Tax Regime</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="billing-account-state" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.billingAccountState">Billing Account State</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="package-state" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.packageState">Package State</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="request-state" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.requestState">Request State</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="services" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.services">Services</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="c-country" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.cCountry">C Country</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="c-state" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.cState">C State</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="c-municipality" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.cMunicipality">C Municipality</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="c-zip-code" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.cZipCode">C Zip Code</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="c-location" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.cLocation">C Location</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="file-state" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.fileState">File State</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="file-type" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.fileType">File Type</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="file" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.file">File</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="general-data" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.generalData">General Data</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="cfdi-template" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.cfdiTemplate">Cfdi Template</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="digital-certificate" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.digitalCertificate">Digital Certificate</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="task" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.task">Task</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="package-transactions" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.packageTransactions">Package Transactions</span></a></li>
+                        <li ui-sref-active="active" ><a ui-sref="mail-configuration" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-asterisk"></span>
+                        &#xA0;<span translate="global.menu.entities.mailConfiguration">Mail Configuration</span></a></li>
+                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                    </ul>
+                </li>
+				<li ui-sref-active="active" uib-dropdown class="dropdown pointer transparent" ng-controller="JhiLanguageController as languageVm">
 					<a class="dropdown-toggle" uib-dropdown-toggle href="" ng-if="languageVm.languages.length > 1">
 						<span>
 							<span class="glyphicon glyphicon-flag"></span>
