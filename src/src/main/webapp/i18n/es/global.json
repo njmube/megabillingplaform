@@ -9,8 +9,6 @@
                 "main": "Entidades",
                 "archiveStatus": "Estados de Archivo",
                 "file": "Ficheros",
-                "categoryProduct": "Categorías de Producto",
-                "product": "Productos",
                 "measureUnit": "Unidades de Medida",
                 "cTaxRate": "Tipos de Impuesto",
                 "taxConcept": "Impuestos x Concepto",

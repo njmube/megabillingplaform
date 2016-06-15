@@ -9,8 +9,6 @@
                 "main": "Entities",
                 "archiveStatus": "Archive status",
                 "file": "File",
-                "categoryProduct": "Product category",
-                "product": "Product",
                 "measureUnit": "Measure unit",
                 "cTaxRate": "Tax rate",
                 "taxConcept": "Tax concept",
