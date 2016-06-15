@@ -1,0 +1,177 @@
+.navbar {
+    background: #0060A3;
+}
+
+.navbar .navbar-brand {
+    background: url(images/logo.png) no-repeat center top;
+	height: 55px;
+	width: 100px;
+}
+
+.navbar .navbar-brand:hover{
+    background: url(images/logo.png) no-repeat center top;
+}
+
+.navbar-menu h3 {
+    margin-top: 15px;
+	color: #fff;
+}
+
+.ace-nav > li{
+	height: auto;
+}
+
+.ace-nav > li > a {
+    padding: 5px 8px;
+}
+
+.ace-nav > li.light-blue > a {
+    background-color: #0060A3;
+}
+
+.ace-nav > li.light-blue > a:hover, .ace-nav > li.light-blue > a:focus, .ace-nav > li.open.light-blue > a {
+    background-color: #0e3d51;
+}
+
+.page-header h1 {
+    color: #0060A3;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+ul.nav-pills{
+	margin-left: 0;
+}
+
+.nav-tabs > li {
+    margin-right: 10px;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff;
+    background-color: #0060A3;
+}
+
+.label-success, .label.label-success, .badge.badge-success, .badge-success {
+    background-color: #85cebb;
+}
+.label-important, .label.label-important, .badge.badge-important, .badge-important {
+    background-color: #b61f24;
+}
+
+.btn-info:hover, .btn-info:active, .open>.btn-info.dropdown-toggle {
+    background-color: #85cebb!important;
+    border-color: #85cebb;
+}
+.btn-info, .btn-info:focus {
+    background-color: #0060a3!important;
+    border-color: #0060a3;
+}
+
+
+.btn, .btn-default, .btn:focus, .btn-default:focus {
+    background-color: #abbac3!important;
+    border-color: #8d99a0;
+    padding: 8px 12px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+}
+.btn:hover, .btn-default:hover, .btn:active, .btn-default:active, .open>.btn.dropdown-toggle, .open>.btn-default.dropdown-toggle {
+    background-color: #8d99a0!important;
+    border-color: #8d99a0;
+}
+
+.btn-info, .btn-info:focus {
+    background-color: #0686e0!important;
+    border-color: #0060a3;
+}
+
+.btn-info:hover, .btn-info:active, .open>.btn-info.dropdown-toggle {
+    background-color: #024f84!important;
+    border-color: #024f84;
+}
+
+.btn-primary, .btn-primary:focus {
+    background-color: #0060a3!important;
+    border-color: #035086;
+}
+
+.btn-primary:hover, .btn-primary:active, .open>.btn-primary.dropdown-toggle {
+    background-color: #035086!important;
+    border-color: #035086;
+}
+
+.panel-blue-light {
+    background-color: #dcedf3;
+}
+
+.front-link{
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.front-link-2{
+	margin-right: 30px;
+	margin-bottom: 10px;
+}
+
+.btn.btn-link.front-link i{
+	color: #000;
+}
+
+.radius-4{
+	border-radius: 4px;
+}
+
+.link-icon-table{
+	margin-right: 10px;
+}
+
+.margin-top-0{
+	margin-top: 0;
+}
+
+.footer .footer-inner .footer-content {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    padding: 8px;
+    line-height: 36px;
+    border-top: 0px; 
+    background: #2e2e2e;
+    color: #fff;
+}
+
+.footer a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.form-home{
+	margin-top: 10px;
+}
+
+.form-home .input-email{
+	width: 200px;
+}
+
+.form-home .input-password{
+	width: 160px;
+	margin-right: 10px;
+}
+
+a.forgot-password,
+a.forgot-password:hover,
+a.user-registration,
+a.user-registration:hover{
+	color: #fff;
+	text-decoration: none;
+}
+
+.form-home label{	
+	color: #fff; 
+	margin-right: 52px;
+	font-size: 13px;
+}
