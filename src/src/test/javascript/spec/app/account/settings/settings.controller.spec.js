@@ -29,11 +29,14 @@ describe('Controller Tests', function() {
         it('should send the current identity upon save', function() {
             //GIVEN
             var accountValues = {
-                firstName: "John",
-                lastName: "Doe",
-
+                name: "John",
+                rfc: "AAA121234ZFA",
+                firtsurname: "Doe",
+                secondsurname: "Algo",
                 activated: true,
                 email: "john.doe@mail.com",
+                phone: "123456789",
+                gender: "M",
                 langKey: "en",
                 login: "john"
             };
@@ -53,8 +56,8 @@ describe('Controller Tests', function() {
         it('should notify of success upon successful save', function() {
             //GIVEN
             var accountValues = {
-                firstName: "John",
-                lastName: "Doe"
+                name: "John",
+                firstsurname: "Doe"
             };
             MockPrincipal.identity.and.returnValue($q.resolve(accountValues));
             MockAuth.updateAccount.and.returnValue($q.resolve());
