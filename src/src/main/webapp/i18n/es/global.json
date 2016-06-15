@@ -71,8 +71,6 @@
             "firtsurname.placeholder": "Introduzca su Apellido Paterno Ej: Alberto",
             "secondsurname": "Apellido Materno (*)",
             "secondsurname.placeholder": "Introduzca su Apellido Materno Ej: Terry",
-            "dateborn": "Fecha de Nacimiento",
-            "dateborn.placeholder": " Introduzca su fecha de nacimiento Ej: 11/10/1983",
             "phone": "Teléfono Móvil (*)",
             "phone.placeholder": "Introduzca su Teléfono Ej:+52 55-4856-4856",
             "gender": "Género",
@@ -107,8 +105,8 @@
                 "email": {
                     "required": "Se requiere un correo electrónico.",
                     "invalid": "Su correo electrónico no es válido.",
-                    "minlength": "Se requiere que su correo electrónico tenga por lo menos 5 caracteres",
-                    "maxlength": "Su correo electrónico no puede tener más de 50 caracteres"
+                    "minlength": "Se requiere que su correo electrónico tenga por lo menos 6 caracteres",
+                    "maxlength": "Su correo electrónico no puede tener más de 254 caracteres"
                 }
             }
         },

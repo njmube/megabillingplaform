@@ -10,8 +10,6 @@
             "firtsurname.placeholder": "Su apellido paterno",
             "secondsurname": "Apellido materno",
             "secondsurname.placeholder": "Su apellido materno",
-            "dateborn": "Fecha de nacimiento",
-            "dateborn.placeholder": "Su fecha de nacimiento",
             "phone": "Teléfono",
             "phone.placeholder": "Su teléfono",
             "gender": "Género",

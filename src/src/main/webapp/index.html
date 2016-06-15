@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>megabillingplatform</title>
+    <title>Plataforma de Facturación Eletrónica</title>
     <meta name="description" content="">
     <meta name="google" value="notranslate">
     <meta name="viewport" content="width=device-width">
@@ -14,23 +14,90 @@
     <!-- endbower -->
     <link rel="stylesheet" href="content/css/vendor.css">
     <!-- endbuild -->
-    <!-- build:css content/css/main.css -->
+	
+	<!-- build:css content/css/main.css -->
     <link rel="stylesheet" href="content/css/main.css">
     <!-- endbuild -->
+	
+	<!-- page specific plugin styles -->
+		
+	<link rel="stylesheet" href="content/font-awesome/4.5.0/css/font-awesome.min.css" />
+	<!-- text fonts -->
+	<link rel="stylesheet" href="content/fonts/fonts.googleapis.com.css" />
+
+	<!-- ace styles -->
+	<link rel="stylesheet" href="content/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+	<link rel="stylesheet" href="content/css/style.css" class="ace-main-stylesheet" id="custom-ace-style" />
+	
+	<!--[if lte IE 9]>
+		<link rel="stylesheet" href="content/css/ace-part2.min.css" class="ace-main-stylesheet" />
+	<![endif]-->
+
+	<!--[if lte IE 9]>
+	  <link rel="stylesheet" href="content/css/ace-ie.min.css" />
+	<![endif]-->
+
+	<!-- inline styles related to this page -->
+
+	<!-- ace settings handler -->
+	<script src="content/js/ace-extra.min.js"></script>
+
+	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+	<!--[if lte IE 8]>
+	<script src="content/js/html5shiv.min.js"></script>
+	<script src="content/js/respond.min.js"></script>
+	<![endif]-->
+		
+    
 </head>
-<body ng-app="megabillingplatformApp">
+<body class="no-skin" ng-app="megabillingplatformApp">
     <!--[if lt IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak></div>
     <div ui-view="navbar" ng-cloak></div>
-    <div class="container">
+	
+	<div class="main-container" id="main-container">
+		<script type="text/javascript">
+			try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+		</script>
+
+		<div id="sidebar" class="sidebar h-sidebar navbar-collapse collapse">
+			<script type="text/javascript">
+				try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+				try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+			</script>
+		</div>
+
+		<div class="main-content">
+			<div class="main-content-inner">
+				<div class="page-content">
+				
+					<div class="row">
+						<div class="col-xs-12" ui-view="content">
+							<!-- PAGE CONTENT BEGINS -->
+							
+							<!-- PAGE CONTENT ENDS -->
+						</div><!-- /.col -->
+					</div><!-- /.row -->
+				</div><!-- /.page-content -->
+			</div>
+		</div><!-- /.main-content -->
+
+		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+			<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+		</a>
+	</div><!-- /.main-container -->
+	
+	
+    <!--<div class="container">
         <div class="well" ui-view="content"></div>
 
         <div class="footer" ng-cloak>
             <p translate="footer">This is your footer</p>
         </div>
-    </div>
+    </div>-->
 
     <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
     <script>
@@ -134,18 +201,18 @@
     <script src="app/entities/request-state/request-state-dialog.controller.js"></script>
     <script src="app/entities/request-state/request-state-detail.controller.js"></script>
     <script src="app/entities/request-state/request-state-delete-dialog.controller.js"></script>
-    <script src="app/entities/package-transactions/package-transactions.state.js"></script>
-    <script src="app/entities/package-transactions/package-transactions.service.js"></script>
-    <script src="app/entities/package-transactions/package-transactions.controller.js"></script>
-    <script src="app/entities/package-transactions/package-transactions-dialog.controller.js"></script>
-    <script src="app/entities/package-transactions/package-transactions-detail.controller.js"></script>
-    <script src="app/entities/package-transactions/package-transactions-delete-dialog.controller.js"></script>
     <script src="app/entities/product/product.state.js"></script>
     <script src="app/entities/product/product.service.js"></script>
     <script src="app/entities/product/product.controller.js"></script>
     <script src="app/entities/product/product-dialog.controller.js"></script>
     <script src="app/entities/product/product-detail.controller.js"></script>
     <script src="app/entities/product/product-delete-dialog.controller.js"></script>
+    <script src="app/entities/package-transactions/package-transactions.state.js"></script>
+    <script src="app/entities/package-transactions/package-transactions.service.js"></script>
+    <script src="app/entities/package-transactions/package-transactions.controller.js"></script>
+    <script src="app/entities/package-transactions/package-transactions-dialog.controller.js"></script>
+    <script src="app/entities/package-transactions/package-transactions-detail.controller.js"></script>
+    <script src="app/entities/package-transactions/package-transactions-delete-dialog.controller.js"></script>
     <script src="app/entities/package-state/package-state.state.js"></script>
     <script src="app/entities/package-state/package-state.service.js"></script>
     <script src="app/entities/package-state/package-state.controller.js"></script>
@@ -248,12 +315,6 @@
     <script src="app/entities/billing-account-state/billing-account-state-dialog.controller.js"></script>
     <script src="app/entities/billing-account-state/billing-account-state-detail.controller.js"></script>
     <script src="app/entities/billing-account-state/billing-account-state-delete-dialog.controller.js"></script>
-    <script src="app/entities/archive-status/archive-status.state.js"></script>
-    <script src="app/entities/archive-status/archive-status.service.js"></script>
-    <script src="app/entities/archive-status/archive-status.controller.js"></script>
-    <script src="app/entities/archive-status/archive-status-dialog.controller.js"></script>
-    <script src="app/entities/archive-status/archive-status-detail.controller.js"></script>
-    <script src="app/entities/archive-status/archive-status-delete-dialog.controller.js"></script>
     <script src="app/components/util/truncate-words.filter.js"></script>
     <script src="app/components/util/truncate-characters.filter.js"></script>
     <script src="app/components/util/sort.directive.js"></script>
@@ -320,11 +381,11 @@
     <script src="app/account/sessions/sessions.controller.js"></script>
     <script src="app/account/register/register.state.js"></script>
     <script src="app/account/register/register.controller.js"></script>
-    <script src="app/account/activate/activate.state.js"></script>
-    <script src="app/account/activate/activate.controller.js"></script>
     <script src="app/account/password/password.state.js"></script>
     <script src="app/account/password/password.controller.js"></script>
     <script src="app/account/password/password-strength-bar.directive.js"></script>
+    <script src="app/account/activate/activate.state.js"></script>
+    <script src="app/account/activate/activate.controller.js"></script>
     <script src="app/home/home.state.js"></script>
     <script src="app/home/home.controller.js"></script>
     <script src="app/entities/entity.state.js"></script>
@@ -334,6 +395,33 @@
     <script src="app/app.constants.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
+	
+	<!-- basic scripts -->	
+	<script type="text/javascript">
+		if('ontouchstart' in document.documentElement) document.write("<script src='content/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+	</script>
+	
+	<!-- page specific plugin scripts -->
+	
+	<!-- ace scripts -->
+	<script src="content/js/ace-elements.min.js"></script>
+	<script src="content/js/ace.min.js"></script>
+
+	<!-- inline scripts related to this page -->
+	<script type="text/javascript">
+		jQuery(function($) {
+		 var $sidebar = $('.sidebar').eq(0);
+		 if( !$sidebar.hasClass('h-sidebar') ) return;
+		
+		 $(window).on('resize.ace.top_menu', function() {
+			$(document).triggerHandler('settings.ace.top_menu', ['sidebar_fixed' , $sidebar.hasClass('sidebar-fixed')]);
+		 });
+		 
+		 $('[data-rel=tooltip]').tooltip();
+		 $('[data-rel=popover]').popover({html:true});
+		 
+		});
+	</script>
 
 </body>
 </html>

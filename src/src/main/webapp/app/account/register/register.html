@@ -22,6 +22,10 @@
             <div class="alert alert-danger" ng-show="vm.doNotMatch" translate="global.messages.error.dontmatch">
                 The password and its confirmation do not match!
             </div>
+
+            <div class="alert alert-danger" ng-show="vm.errorRfcExists" translate="register.messages.error.errorRfcExists">
+                <strong>RFC is already in use!</strong>
+            </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
             <form ng-show="!vm.success" name="form" role="form" novalidate ng-submit="vm.register()" show-validation>
@@ -42,6 +46,10 @@
                         <p class="help-block"
                                ng-show="form.rfc.$error.maxlength" translate="register.messages.validate.rfc.maxlength">
                             Your RFC cannot be longer than 13 characters.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.rfc.$error.pattern" translate="register.messages.validate.rfc.pattern">
+                            RFC format is incorrect.
                         </p>
                     </div>
                 </div>
@@ -128,7 +136,7 @@
                 <div class="form-group">
                     <label class="control-label" for="email" translate="global.form.email">E-mail</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="{{'global.form.email.placeholder' | translate}}"
-                           ng-model="vm.registerAccount.email" ng-minlength=6 ng-maxlength=256 required>
+                           ng-model="vm.registerAccount.email" ng-minlength=6 ng-maxlength=254 required>
                     <div ng-show="form.email.$dirty && form.email.$invalid">
                         <p class="help-block"
                                ng-show="form.email.$error.required" translate="global.messages.validate.email.required">
@@ -144,7 +152,7 @@
                         </p>
                         <p class="help-block"
                                ng-show="form.email.$error.maxlength" translate="global.messages.validate.email.maxlength">
-                            Your e-mail cannot be longer than 256 characters.
+                            Your e-mail cannot be longer than 254 characters.
                         </p>
                     </div>
                 </div>
@@ -188,25 +196,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="dateborn" translate="global.form.dateborn">Date born</label>
-                    <input type="text" class="form-control" id="dateborn" name="dateborn" placeholder="{{'global.form.dateborn.placeholder' | translate}}"
-                           ng-model="vm.registerAccount.dateborn" required>
-                    <div ng-show="form.dateborn.$dirty && form.dateborn.$invalid">
-                        <p class="help-block"
-                           ng-show="form.dateborn.$error.required" translate="register.messages.validate.dateborn.required">
-                            Your date born is required.
-                        </p>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="gender" translate="global.form.gender">Gender</label>
-                    <select name=gender id="gender" ng-model="vm.registerAccount.gender" >
-                        <option selected="selected">{{'global.form.gender.placeholder' | translate}}</option>
-                        <option name=M value=M> Masculino </option>
-                        <option name=F value=F> Femenino </option>
-                    </select>
-                </div>
-                <div class="form-group">
                     <label class="control-label" for="phone" translate="global.form.phone">Phone</label>
                     <input type="text" class="form-control" id="phone" name="phone" placeholder="{{'global.form.phone.placeholder' | translate}}"
                            ng-model="vm.registerAccount.phone" ng-minlength=1 ng-maxlength=15 ng-pattern="/^[0-9]*$/" required>
@@ -223,14 +212,23 @@
                            ng-show="form.phone.$error.maxlength" translate="register.messages.validate.phone.maxlength">
                             Your phone cannot be longer than 15 digits.
                         </p>
+                        <p class="help-block"
+                           ng-show="form.phone.$error.pattern" translate="register.messages.validate.phone.pattern">
+                            Your username can only contain lower-case letters and digits.
+                        </p>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="gender" translate="global.form.gender">Gender</label>
+                    <select name=gender id="gender" ng-model="vm.registerAccount.gender">
+                        <option name=M value=M SELECTED> M </option>
+                        <option name=F value=F> F </option>
+                    </select>
                 </div>
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" translate="register.form.button">Register</button>
             </form>
             <p></p>
-            <div class="alert alert-warning" translate="global.messages.info.authenticated" translate-compile>
-                If you want to <a class="alert-link" href="" ng-click="login()">sign in</a>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").
-            </div>
+            <p translate="register.form.conditions">Al hacer clic en Registrarse, aceptas las Condiciones y confirmas que leiste nuestra política de datos, incluido el uso de cookies.</p>
         </div>
     </div>
 </div>

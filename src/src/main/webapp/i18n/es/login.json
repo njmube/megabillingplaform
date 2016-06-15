@@ -1,11 +1,11 @@
 {
     "login": {
-        "title": "Iniciar Sesión",
+        "title": "Autenticarse",
         "form": {
             "password": "Contraseña",
-            "password.placeholder": "Introduzca su contraseña",
-            "rememberme": "Iniciar sesión automáticamente",
-            "button": "Iniciar Sesión"
+            "password.placeholder": "Su contraseña",
+            "rememberme": "Recordar contraseña",
+            "button": "Autenticarse"
         },
         "messages": {
             "error": {
@@ -13,7 +13,7 @@
             }
         },
         "password" : {
-            "forgot": "¿Ha olvidado su contraseña?"
+            "forgot": "¿Olvidaste tu contraseña?"
         }
     }
 }

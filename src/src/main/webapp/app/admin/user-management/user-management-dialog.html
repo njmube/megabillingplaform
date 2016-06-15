@@ -67,7 +67,6 @@
             <label class="control-label" translate="userManagement.firtsurname">Firt surname</label>
             <input type="text" class="form-control" name="firtsurname"
                    ng-model="vm.user.firtsurname" ng-maxlength="50">
-
             <div ng-show="editForm.firtsurname.$invalid">
                 <p class="help-block"
                    ng-show="editForm.firtsurname.$error.maxlength" translate="entity.validation.maxlength"
@@ -92,7 +91,7 @@
         <div class="form-group">
             <label class="control-label" translate="userManagement.email">Email</label>
             <input type="email" class="form-control" name="email"
-                   ng-model="vm.user.email" required ng-maxlength="256">
+                   ng-model="vm.user.email" required ng-maxlength="254">
 
             <div ng-show="editForm.email.$invalid">
                 <p class="help-block"

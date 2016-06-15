@@ -63,27 +63,25 @@
             "language": "Language"
         },
         "form": {
-            "username": "Username",
+            "username": "Username (*)",
             "username.placeholder": "Your username",
-            "rfc": "RFC",
+            "rfc": "RFC (*)",
             "rfc.placeholder": "Your RFC",
-            "name": "Name",
+            "name": "Name (*)",
             "name.placeholder": "Your name",
-            "firtsurname": "Firt surname",
+            "firtsurname": "Firt surname (*)",
             "firtsurname.placeholder": "Your firt surname",
-            "secondsurname": "Second surname",
+            "secondsurname": "Second surname (*)",
             "secondsurname.placeholder": "Your second surname",
-            "dateborn": "Date born",
-            "dateborn.placeholder": "Your date born",
-            "phone": "Phone",
+            "phone": "Phone (*)",
             "phone.placeholder": "Your phone",
-            "gender": "Gender",
+            "gender": "Gender (*)",
             "gender.placeholder": "Your gender",
-            "newpassword": "New password",
+            "newpassword": "New password (*)",
             "newpassword.placeholder": "New password",
-            "confirmpassword": "New password confirmation",
+            "confirmpassword": "New password confirmation (*)",
             "confirmpassword.placeholder": "Confirm the new password",
-            "email": "E-mail",
+            "email": "E-mail (*)",
             "email.placeholder": "Your e-mail"
         },
         "messages": {
@@ -109,8 +107,8 @@
                 "email": {
                     "required": "Your e-mail is required.",
                     "invalid": "Your e-mail is invalid.",
-                    "minlength": "Your e-mail is required to be at least 5 characters.",
-                    "maxlength": "Your e-mail cannot be longer than 50 characters."
+                    "minlength": "Your e-mail is required to be at least 6 characters.",
+                    "maxlength": "Your e-mail cannot be longer than 254 characters."
                 }
             }
         },

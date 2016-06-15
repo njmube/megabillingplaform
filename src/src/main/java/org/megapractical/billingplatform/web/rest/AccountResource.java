@@ -66,26 +66,28 @@ public class AccountResource {
         HttpHeaders textPlainHeaders = new HttpHeaders();
         textPlainHeaders.setContentType(MediaType.TEXT_PLAIN);
 
-        return userRepository.findOneByLogin(userDTO.getLogin())
+        return userRepository.findOneByRfc(userDTO.getRFC())
+            .map(user -> new ResponseEntity<>("rfc already in use", textPlainHeaders, HttpStatus.BAD_REQUEST))
+            .orElseGet(() -> userRepository.findOneByLogin(userDTO.getLogin())
             .map(user -> new ResponseEntity<>("login already in use", textPlainHeaders, HttpStatus.BAD_REQUEST))
             .orElseGet(() -> userRepository.findOneByEmail(userDTO.getEmail())
-                .map(user -> new ResponseEntity<>("e-mail address already in use", textPlainHeaders, HttpStatus.BAD_REQUEST))
-                .orElseGet(() -> {
-                    User user = userService.createUserInformation(userDTO.getLogin(),userDTO.getRFC(),
-                        userDTO.getPassword(), userDTO.getName(), userDTO.getFirtsurname(),userDTO.getSecondsurname(),
-                        userDTO.getEmail().toLowerCase(),
-                        userDTO.getPhone(),userDTO.getGender(), userDTO.getLangKey());
-                    String baseUrl = request.getScheme() + // "http"
-                    "://" +                                // "://"
-                    request.getServerName() +              // "myhost"
-                    ":" +                                  // ":"
-                    request.getServerPort() +              // "80"
-                    request.getContextPath();              // "/myContextPath" or "" if deployed in root context
+                    .map(user -> new ResponseEntity<>("e-mail address already in use", textPlainHeaders, HttpStatus.BAD_REQUEST))
+                    .orElseGet(() -> {
+                        User user = userService.createUserInformation(userDTO.getLogin(), userDTO.getRFC(),
+                            userDTO.getPassword(), userDTO.getName(), userDTO.getFirtsurname(), userDTO.getSecondsurname(),
+                            userDTO.getEmail().toLowerCase(),
+                            userDTO.getPhone(), userDTO.getGender(), userDTO.getLangKey());
+                        String baseUrl = request.getScheme() + // "http"
+                            "://" +                                // "://"
+                            request.getServerName() +              // "myhost"
+                            ":" +                                  // ":"
+                            request.getServerPort() +              // "80"
+                            request.getContextPath();              // "/myContextPath" or "" if deployed in root context
 
-                    mailService.sendActivationEmail(user, baseUrl);
-                    return new ResponseEntity<>(HttpStatus.CREATED);
-                })
-        );
+                        mailService.sendActivationEmail(user, baseUrl);
+                        return new ResponseEntity<>(HttpStatus.CREATED);
+                    })
+            ));
     }
 
     /**

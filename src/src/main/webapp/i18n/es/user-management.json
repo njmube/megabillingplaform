@@ -20,7 +20,6 @@
         "firtsurname": "Apellido paterno",
         "secondsurname": "Apellido materno",
         "email": "Correo electrónico",
-        "dateborn": "Fecha de nacimiento",
         "phone": "Teléfono",
         "gender": "Género",
         "activated": "Activado",
