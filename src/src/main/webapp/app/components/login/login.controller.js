@@ -7,7 +7,7 @@
 
     LoginController.$inject = ['$rootScope', '$state', '$timeout', 'Auth', '$uibModalInstance'];
 
-    function LoginController ($rootScope,$state, $timeout, Auth, $uibModalInstance) {
+    function LoginController ($rootScope, $state, $timeout, Auth, $uibModalInstance) {
         var vm = this;
 
         vm.authenticationError = false;
@@ -41,14 +41,15 @@
             }).then(function () {
                 vm.authenticationError = false;
                 $uibModalInstance.close();
-                // If we're redirected to login, our
+				$state.go('user-normal');
+				/*// If we're redirected to login, our
                 // previousState is already set in the authExpiredInterceptor. When login succesful go to stored state
                 if ($rootScope.redirected && $rootScope.previousStateName) {
                     $state.go($rootScope.previousStateName, $rootScope.previousStateParams);
                     $rootScope.redirected = false;
                 } else {
                     $rootScope.$broadcast('authenticationSuccess');
-                }
+                }*/
             }).catch(function () {
                 vm.authenticationError = true;
             });

@@ -72,18 +72,13 @@
 
 		<div class="main-content">
 			<div class="main-content-inner">
-				<div class="page-content">
+				<div class="page-content" ui-view="content">
 				
-					<div class="row">
-						<div class="col-xs-12" ui-view="content">
-							<!-- PAGE CONTENT BEGINS -->
-							
-							<!-- PAGE CONTENT ENDS -->
-						</div><!-- /.col -->
-					</div><!-- /.row -->
 				</div><!-- /.page-content -->
 			</div>
 		</div><!-- /.main-content -->
+		
+		<div ui-view="footer" ng-cloak></div>
 
 		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 			<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
@@ -395,6 +390,10 @@
     <script src="app/app.constants.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
+	
+	<script src="app/users-home/normal/user-normal.state.js"></script>
+	
+	<script src="app/layouts/footer/footer.controller.js"></script>
 	
 	<!-- basic scripts -->	
 	<script type="text/javascript">
