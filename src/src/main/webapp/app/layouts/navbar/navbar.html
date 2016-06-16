@@ -22,14 +22,14 @@
 
 				<span class="icon-bar"></span>
 			</button>
-		</div>			
+		</div>
 
 		<nav role="navigation" class="navbar-menu pull-left collapse navbar-collapse">
 			<h3 translate="global.title">
 				Plataforma de Facturacion Electrónica Universal
 			</h3>
 		</nav>
-		
+
 		<div class="navbar-buttons navbar-header pull-right  collapse navbar-collapse" role="navigation" uib-collapse="vm.navCollapsed" ng-switch="vm.isAuthenticated()">
 			<ul class="nav ace-nav">
 				<li class="transparent" ui-sref-active="active" ng-switch-when="false" style="margin-right:20px">
@@ -39,10 +39,12 @@
 					</a>
 				</li>
                 <li class="transparent" ui-sref-active="active" ng-switch-when="false" style="border-left:none;margin-right:20px">
-					<a ui-sref="register" data-toggle="collapse" data-target=".navbar-collapse.in"><span class="glyphicon glyphicon-plus-sign"></span>&#xA0;<span translate="global.menu.account.register">Register</span></a>
-				</li>				
+					<a ui-sref="register" data-toggle="collapse" data-target=".navbar-collapse.in">
+                        <span class="glyphicon glyphicon-plus-sign"></span>&#xA0;<span translate="global.menu.account.register">
+                        Register</span></a>
+				</li>
 				<li ui-sref-active="active" uib-dropdown class="dropdown pointer transparent" ng-switch-when="true">
-					<a class="dropdown-toggle" uib-dropdown-toggle href="">					
+					<a class="dropdown-toggle" uib-dropdown-toggle href="">
 						<i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
 						<span class="badge badge-success">5</span>
 					</a>
@@ -57,7 +59,7 @@
 							<ul class="dropdown-menu dropdown-navbar">
 								<li>
 									<a href="#" class="clearfix">
-										<img src="../content/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+										<img src="/megabilling/content/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Alex:</span>
@@ -74,7 +76,7 @@
 
 								<li>
 									<a href="#" class="clearfix">
-										<img src="../content/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+										<img src="/megabilling/content/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Susan:</span>
@@ -91,7 +93,7 @@
 
 								<li>
 									<a href="#" class="clearfix">
-										<img src="../content/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+										<img src="/megabilling/content/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Bob:</span>
@@ -108,7 +110,7 @@
 
 								<li>
 									<a href="#" class="clearfix">
-										<img src="../content/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
+										<img src="/megabilling/content/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Kate:</span>
@@ -125,7 +127,7 @@
 
 								<li>
 									<a href="#" class="clearfix">
-										<img src="../content/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
+										<img src="/megabilling/content/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
 										<span class="msg-body">
 											<span class="msg-title">
 												<span class="blue">Fred:</span>
@@ -151,7 +153,7 @@
 					</ul>
 				</li>
 				<li ui-sref-active="active" uib-dropdown class="dropdown pointer transparent" ng-switch-when="true">
-					<a class="dropdown-toggle" uib-dropdown-toggle href="">					
+					<a class="dropdown-toggle" uib-dropdown-toggle href="">
 						<i class="ace-icon fa fa-bell icon-animated-bell"></i>
 						<span class="badge badge-important">8</span>
 					</a>
@@ -219,16 +221,16 @@
 				</li>
 				<li ui-sref-active="active" uib-dropdown class="dropdown pointer light-blue" ng-switch-when="true">
 					<a class="dropdown-toggle" uib-dropdown-toggle href="">
-						<img class="nav-user-photo" src="../content/avatars/user.jpg" alt="Jason's Photo" />
+						<img class="nav-user-photo" src="/megabilling/content/avatars/user.jpg" alt="Jason's Photo" />
 						<span class="user-info">
 							<small>Smith Willson,</small>
 							Jason
 						</span>
-						
+
 						<i class="ace-icon fa fa-caret-down"></i>
 					</a>
 
-					<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">						
+					<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 						<li ui-sref-active="active">
 							<a ui-sref="settings" data-toggle="collapse" data-target=".navbar-collapse.in">
 								<span class="glyphicon glyphicon-wrench"></span>
@@ -248,7 +250,7 @@
 							</a>
 						</li>
 						<li class="divider"></li>
-						
+
 						<li ui-sref-active="active">
 							<a href="" ng-click="vm.logout()" id="logout" data-toggle="collapse" data-target=".navbar-collapse.in">
 								<span class="glyphicon glyphicon-log-out"></span>
@@ -256,7 +258,7 @@
 							</a>
 						</li>
 					</ul>
-				</li>				
+				</li>
 				<li ui-sref-active="active" uib-dropdown class="dropdown pointer transparent" ng-controller="JhiLanguageController as languageVm">
 					<a class="dropdown-toggle" uib-dropdown-toggle href="" ng-if="languageVm.languages.length > 1">
 						<span>

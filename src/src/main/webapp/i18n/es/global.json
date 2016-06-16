@@ -1,6 +1,6 @@
 {
     "global": {
-        "title": "Plataforma de Facturación Electrónica Universal",
+        "title": "Plataforma Facturación Electrónica",
         "browsehappy": "Está usando un navegador <strong>no actualizado</strong>. Por favor, <a href=\"http://browsehappy.com/?locale=en\">actualice su navegador</a> para mejorar su experiencia.",
         "menu": {
             "home": "Inicio",
@@ -41,9 +41,13 @@
                 "settings": "Perfil de Usuario",
                 "password": "Contraseña",
                 "sessions": "Sesiones de Usuario",
-                "login": "Iniciar sesión",
+                "login": "Iniciar Sesión",
                 "logout": "Cerrar Sesión",
-                "register": "Crear Cuenta"
+                "register": "Registrarse",
+                "soporte.tecnico": "Soporte Técnico",
+                "condiciones.uso": "Condiciones de Uso",
+                "politica.privacidad": "Política de Privacidad",
+                "ayuda": "Ayuda"
             },
             "admin": {
                 "main": "Administración",

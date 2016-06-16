@@ -45,7 +45,11 @@
                 "sessions": "Sessions",
                 "login": "Sign in",
                 "logout": "Sign out",
-                "register": "Register"
+                "register": "Register",
+                "soporte.tecnico": "Technical Support",
+                "condiciones.uso": "Terms of Use",
+                "politica.privacidad": "Privacy Policy",
+                "ayuda": "Help"
             },
             "admin": {
                 "main": "Administration",
