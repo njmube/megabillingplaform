@@ -1,6 +1,6 @@
 {
     "global": {
-        "title": "Plataforma de Facturacion Electrónica Universal",
+        "title": "Plataforma Facturación Electrónica",
         "browsehappy": "Está usando un navegador <strong>no actualizado</strong>. Por favor, <a href=\"http://browsehappy.com/?locale=en\">actualice su navegador</a> para mejorar su experiencia.",
         "menu": {
             "home": "Inicio",
@@ -9,6 +9,8 @@
                 "main": "Entidades",
                 "archiveStatus": "Estados de Archivo",
                 "file": "Ficheros",
+                "categoryProduct": "Categorías de Producto",
+                "product": "Productos",
                 "measureUnit": "Unidades de Medida",
                 "cTaxRate": "Tipos de Impuesto",
                 "taxConcept": "Impuestos x Concepto",
@@ -37,11 +39,11 @@
             "account": {
                 "main": "Cuenta",
                 "settings": "Perfil de Usuario",
-                "password": "Cambiar Contraseña",
-                "sessions": "Sesiones",
+                "password": "Contraseña",
+                "sessions": "Sesiones de Usuario",
                 "login": "Iniciar sesión",
-                "logout": "Salir",
-                "register": "Registrarse"
+                "logout": "Cerrar Sesión",
+                "register": "Crear Cuenta"
             },
             "admin": {
                 "main": "Administración",
@@ -59,7 +61,7 @@
             "language": "Idioma"
         },
         "form": {
-            "username": "Nombre de Usuario",
+            "username": "Nombre de Usuario (*)",
             "username.placeholder": "Introduzca su Nombre de Usuario Ej: yandry",
             "rfc": "RFC (*)",
             "rfc.placeholder": "RFC Ej: ",
@@ -72,7 +74,9 @@
             "phone": "Teléfono Móvil (*)",
             "phone.placeholder": "Introduzca su Teléfono Ej:+52 55-4856-4856",
             "gender": "Género",
-            "gender.placeholder": "Seleccione",
+            "gender.placeholder": "Seleccione su género",
+            "gender.male": "Masculino",
+            "gender.female": "Femenino",
             "newpassword": "Contraseña (*)",
             "newpassword.placeholder": "Contraseña Ej: Aeimpruome*/-j2002",
             "confirmpassword": "Repita Contraseña (*)",
