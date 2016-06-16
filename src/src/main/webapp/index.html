@@ -14,13 +14,13 @@
     <!-- endbower -->
     <link rel="stylesheet" href="content/css/vendor.css">
     <!-- endbuild -->
-	
+
 	<!-- build:css content/css/main.css -->
     <link rel="stylesheet" href="content/css/main.css">
     <!-- endbuild -->
-	
+
 	<!-- page specific plugin styles -->
-		
+
 	<link rel="stylesheet" href="content/font-awesome/4.5.0/css/font-awesome.min.css" />
 	<!-- text fonts -->
 	<link rel="stylesheet" href="content/fonts/fonts.googleapis.com.css" />
@@ -28,7 +28,7 @@
 	<!-- ace styles -->
 	<link rel="stylesheet" href="content/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
 	<link rel="stylesheet" href="content/css/style.css" class="ace-main-stylesheet" id="custom-ace-style" />
-	
+
 	<!--[if lte IE 9]>
 		<link rel="stylesheet" href="content/css/ace-part2.min.css" class="ace-main-stylesheet" />
 	<![endif]-->
@@ -48,8 +48,8 @@
 	<script src="content/js/html5shiv.min.js"></script>
 	<script src="content/js/respond.min.js"></script>
 	<![endif]-->
-		
-    
+
+
 </head>
 <body class="no-skin" ng-app="megabillingplatformApp">
     <!--[if lt IE 9]>
@@ -57,7 +57,7 @@
     <![endif]-->
     <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak></div>
     <div ui-view="navbar" ng-cloak></div>
-	
+
 	<div class="main-container" id="main-container">
 		<script type="text/javascript">
 			try{ace.settings.check('main-container' , 'fixed')}catch(e){}
@@ -73,19 +73,19 @@
 		<div class="main-content">
 			<div class="main-content-inner">
 				<div class="page-content" ui-view="content">
-				
+
 				</div><!-- /.page-content -->
 			</div>
 		</div><!-- /.main-content -->
-		
+
 		<div ui-view="footer" ng-cloak></div>
 
 		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
 			<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
 		</a>
 	</div><!-- /.main-container -->
-	
-	
+
+
     <!--<div class="container">
         <div class="well" ui-view="content"></div>
 
@@ -137,8 +137,6 @@
     <script src="app/account/reset/request/reset.request.controller.js"></script>
     <script src="app/account/reset/finish/reset.finish.state.js"></script>
     <script src="app/account/reset/finish/reset.finish.controller.js"></script>
-    <script src="app/users-home/normal/user-normal.state.js"></script>
-    <script src="app/users-home/normal/user-normal.controller.js"></script>
     <script src="app/services/user/user.service.js"></script>
     <script src="app/services/auth/sessions.service.js"></script>
     <script src="app/services/auth/register.service.js"></script>
@@ -387,18 +385,18 @@
     <script src="app/app.constants.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
-	
+
 	<script src="app/users-home/normal/user-normal.state.js"></script>
-	
+
 	<script src="app/layouts/footer/footer.controller.js"></script>
-	
-	<!-- basic scripts -->	
+
+	<!-- basic scripts -->
 	<script type="text/javascript">
 		if('ontouchstart' in document.documentElement) document.write("<script src='content/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 	</script>
-	
+
 	<!-- page specific plugin scripts -->
-	
+
 	<!-- ace scripts -->
 	<script src="content/js/ace-elements.min.js"></script>
 	<script src="content/js/ace.min.js"></script>
@@ -408,14 +406,14 @@
 		jQuery(function($) {
 		 var $sidebar = $('.sidebar').eq(0);
 		 if( !$sidebar.hasClass('h-sidebar') ) return;
-		
+
 		 $(window).on('resize.ace.top_menu', function() {
 			$(document).triggerHandler('settings.ace.top_menu', ['sidebar_fixed' , $sidebar.hasClass('sidebar-fixed')]);
 		 });
-		 
+
 		 $('[data-rel=tooltip]').tooltip();
 		 $('[data-rel=popover]').popover({html:true});
-		 
+
 		});
 	</script>
 
