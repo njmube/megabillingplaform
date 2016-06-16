@@ -2,32 +2,28 @@
 <div>
     <h2><span translate="megabillingplatformApp.file.detail.title">File</span> {{vm.file.id}}</h2>
     <hr>
-    <dl class="dl-horizontal">
-        <dt><span translate="megabillingplatformApp.file.name">Name</dt></dt>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.file.name">Name</span></dt>
         <dd>
-            <span>{{vm.file.name}}<span>
+            <span>{{vm.file.name}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.file.description">Description</dt></dt>
+        <dt><span translate="megabillingplatformApp.file.description">Description</span></dt>
         <dd>
-            <span>{{vm.file.description}}<span>
+            <span>{{vm.file.description}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.file.path">Path</dt></dt>
+        <dt><span translate="megabillingplatformApp.file.path">Path</span></dt>
         <dd>
-            <span>{{vm.file.path}}<span>
+            <span>{{vm.file.path}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.file.file_state">file_state</span></dt>
+        <dt><span translate="megabillingplatformApp.file.file_state">File State</span></dt>
         <dd>
             <a ui-sref="file-state-detail({id:vm.file.file_state.id})">{{vm.file.file_state.name}}</a>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.file.file_type">file_type</span></dt>
+        <dt><span translate="megabillingplatformApp.file.file_type">File Type</span></dt>
         <dd>
             <a ui-sref="file-type-detail({id:vm.file.file_type.id})">{{vm.file.file_type.name}}</a>
         </dd>
-        <hr>
     </dl>
 
     <button type="submit"

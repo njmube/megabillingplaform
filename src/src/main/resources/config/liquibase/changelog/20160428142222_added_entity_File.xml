@@ -16,7 +16,7 @@
     <!--
         Added the entity File.
     -->
-    <changeSet id="20160428142222" author="jhipster">
+    <changeSet id="20160428142222-1" author="jhipster">
         <createTable tableName="file">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
@@ -33,22 +33,16 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="file_state_id" type="bigint"/>
-            <column name="file_type_id" type="bigint"/>
+            <column name="file_state_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="file_type_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
-        <addForeignKeyConstraint baseColumnNames="file_state_id"
-                                 baseTableName="file"
-                                 constraintName="fk_file_file_state_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="file_state"/>
-
-        <addForeignKeyConstraint baseColumnNames="file_type_id"
-                                 baseTableName="file"
-                                 constraintName="fk_file_file_type_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="file_type"/>
-
     </changeSet>
 </databaseChangeLog>

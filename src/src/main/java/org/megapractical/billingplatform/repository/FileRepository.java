@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Spring Data JPA repository for the File entity.
  */
+@SuppressWarnings("unused")
 public interface FileRepository extends JpaRepository<File,Long> {
 
 }

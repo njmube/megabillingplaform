@@ -1,6 +1,6 @@
 {
     "global": {
-        "title": "Megabillingplatform",
+        "title": "Plataforma de Facturacion Electrónica Universal",
         "browsehappy": "Está usando un navegador <strong>no actualizado</strong>. Por favor, <a href=\"http://browsehappy.com/?locale=en\">actualice su navegador</a> para mejorar su experiencia.",
         "menu": {
             "home": "Inicio",
@@ -37,11 +37,11 @@
             "account": {
                 "main": "Cuenta",
                 "settings": "Perfil de Usuario",
-                "password": "Contraseña",
-                "sessions": "Sesiones de Usuario",
+                "password": "Cambiar Contraseña",
+                "sessions": "Sesiones",
                 "login": "Iniciar sesión",
-                "logout": "Cerrar Sesión",
-                "register": "Crear Cuenta"
+                "logout": "Salir",
+                "register": "Registrarse"
             },
             "admin": {
                 "main": "Administración",

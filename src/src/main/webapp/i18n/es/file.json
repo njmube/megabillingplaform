@@ -2,25 +2,25 @@
     "megabillingplatformApp": {
         "file" : {
             "home": {
-                "title": "Fichero",
-                "createLabel": "Crear nuevo Fichero",
-                "createOrEditLabel": "Crear o editar Fichero",
-                "search": "Búsqueda para Fichero"
+                "title": "Files",
+                "createLabel": "Crear nuevo File",
+                "createOrEditLabel": "Crear o editar File",
+                "search": "Search for File"
             },
-            "created": "Un nuevo Fichero ha sido creado con el identificador {{ param }}",
-            "updated": "Un Fichero ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Fichero ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo File ha sido creado con el identificador {{ param }}",
+            "updated": "Un File ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un File ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Fichero {{ id }}?"
+                "question": "¿Seguro que quiere eliminar File {{ id }}?"
             },
             "detail": {
-                "title": "Fichero"
+                "title": "File"
             },
-            "name": "Nombre",
-            "description": "Descripción",
-            "path": "Ruta",
-            "file_state": "Estado del fichero",
-            "file_type": "Tipo de fichero"
+            "name": "Name",
+            "description": "Description",
+            "path": "Path",
+            "file_state": "File State",
+            "file_type": "File Type"
         }
     }
 }
