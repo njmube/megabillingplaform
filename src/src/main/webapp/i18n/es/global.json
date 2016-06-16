@@ -1,8 +1,5 @@
 {
     "global": {
-<<<<<<< Updated upstream
-        "title": "Plataforma Facturación Electrónica",
-=======
         "title": "Plataforma de Facturación Electrónica Universal",
         "browsehappy": "Está usando un navegador <strong>no actualizado</strong>. Por favor, <a href=\"http://browsehappy.com/?locale=en\">actualice su navegador</a> para mejorar su experiencia.",
         "menu": {
