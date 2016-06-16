@@ -32,10 +32,16 @@ spring:
             hibernate.generate_statistics: false
             hibernate.cache.region.factory_class: org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
     mail:
-        host: localhost
-        port: 25
-        username:
-        password:
+        host: smtp.uservers.net
+        port: 587
+        username: cfdicontact@megapractical.com
+        password: megacfdi01
+        protocol: smtp
+        tls: true
+        properties.mail.smtp:
+            auth: true
+            starttls.enable: false
+            #ssl.trust: smtp.gmail.com
     thymeleaf:
         cache: true
 

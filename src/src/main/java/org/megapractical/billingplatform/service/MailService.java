@@ -17,8 +17,14 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 
 
 import javax.inject.Inject;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Locale;
+import java.util.Properties;
 
 /**
  * Service for sending e-mails.
@@ -53,16 +59,38 @@ public class MailService {
         log.debug("Send e-mail[multipart '{}' and html '{}'] to '{}' with subject '{}' and content={}",
             isMultipart, isHtml, to, subject, content);
 
+        final String username = "cfdicontact@megapractical.com";
+        final String password = "megacfdi01";
+
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "false");
+        props.put("mail.smtp.host", "smtp.uservers.net");
+        props.put("mail.smtp.port", "587");
+
         // Prepare message using a Spring helper
-        MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+        Session session = Session.getInstance(props,
+            new javax.mail.Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(username, password);
+                }
+            });
         try {
-            MimeMessageHelper message = new MimeMessageHelper(mimeMessage, isMultipart, CharEncoding.UTF_8);
-            message.setTo(to);
-            message.setFrom(jHipsterProperties.getMail().getFrom());
+            // Create a default MimeMessage object.
+            Message message = new MimeMessage(session);
+            // Set From: header field of the header.
+            message.setFrom(new InternetAddress(username));
+            // Set To: header field of the header.
+            message.setRecipients(Message.RecipientType.TO,
+                InternetAddress.parse(to));
+            // Set Subject: header field
             message.setSubject(subject);
-            message.setText(content, isHtml);
-            javaMailSender.send(mimeMessage);
-            log.debug("Sent e-mail to User '{}'", to);
+            // Send the actual HTML message, as big as you like
+            message.setContent(content,"text/html");
+            // Send message
+            Transport.send(message);
+
+            System.out.println("The message was successfully sent to the mail " + to);
         } catch (Exception e) {
             log.warn("E-mail could not be sent to user '{}', exception is: {}", to, e.getMessage());
         }
@@ -103,5 +131,5 @@ public class MailService {
         String subject = messageSource.getMessage("email.reset.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
     }
-    
+
 }
