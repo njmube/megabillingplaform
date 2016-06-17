@@ -16,11 +16,6 @@
                     controller: 'NavbarController',
                     controllerAs: 'vm'
                 },
-				'sidebar@': {
-                    templateUrl: 'app/layouts/sidebar/sidebar.html',
-                    controller: 'SidebarController',
-                    controllerAs: 'vm'
-                },
 				'breadcrumbs@': {
                     templateUrl: 'app/layouts/breadcrumbs/breadcrumbs.html',
                     controller: 'BreadcrumbsController',
