@@ -23,7 +23,12 @@
 
         function logout () {
             Auth.logout();
-            $state.go('home');
+			
+			$('#sidebar').attr('class','sidebar h-sidebar navbar-collapse collapse');
+			$('#sidebar-shortcuts').attr('style','display:none');
+			$('#sidebar-options').attr('style','display:none');
+            
+			$state.go('home');
         }
     }
 })();

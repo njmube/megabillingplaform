@@ -175,3 +175,7 @@ a.user-registration:hover{
 	margin-right: 52px;
 	font-size: 13px;
 }
+
+.hidden-box{
+	display: none;
+}
