@@ -12,6 +12,7 @@
 
         vm.account = null;
         vm.isAuthenticated = null;
+        vm.isNoAdmin = null;
         vm.login = LoginService.open;
         $scope.$on('authenticationSuccess', function() {
             getAccount();
@@ -23,6 +24,9 @@
             Principal.identity().then(function(account) {
                 vm.account = account;
                 vm.isAuthenticated = Principal.isAuthenticated;
+				if(vm.account != null){
+					vm.isNoAdmin = vm.account.authorities.indexOf('ROLE_ADMIN') == -1;
+				}
             });
         }
     }

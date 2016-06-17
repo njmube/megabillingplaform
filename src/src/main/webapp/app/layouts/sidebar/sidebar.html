@@ -1,0 +1,318 @@
+<div ng-switch="vm.isAuthenticated()" >
+	<div class="sidebar-shortcuts" id="sidebar-shortcuts" ng-switch-when="true" has-authority="ROLE_ADMIN">
+		<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+			<button class="btn btn-success">
+				<i class="ace-icon fa fa-user"></i>
+			</button>
+
+			<button class="btn btn-info">
+				<i class="ace-icon fa fa-check"></i>
+			</button>
+
+			<button class="btn btn-grey">
+				<i class="ace-icon fa fa-cog"></i>
+			</button>
+
+			<button class="btn btn-danger">
+				<i class="ace-icon fa fa-bar-chart"></i>
+			</button>
+		</div>
+
+		<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+			<span class="btn btn-success"></span>
+
+			<span class="btn btn-info"></span>
+
+			<span class="btn btn-warning"></span>
+
+			<span class="btn btn-danger"></span>
+		</div>
+	</div><!-- /.sidebar-shortcuts -->
+
+	<ul class="nav nav-list" ng-switch-when="true" has-authority="ROLE_ADMIN">
+		<li class="active">
+			<a href="index.html">							
+				<span class="menu-text">Pizarra de Datos</span>
+			</a>
+			<b class="arrow"></b>
+		</li>
+		<li class="">
+			<a href="#" class="dropdown-toggle">
+				<span class="menu-text">Solicitudes</span>
+				<b class="arrow fa fa-angle-down"></b>
+			</a>
+
+			<b class="arrow"></b>
+
+			<ul class="submenu">
+				<li class="">
+					<a href="solicitudes-aprobadas.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Aprobadas
+					</a>
+					<b class="arrow"></b>
+				</li>
+
+				<li class="">
+					<a href="solicitudes-pendientes.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Pendientes
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="solicitudes-rechazadas.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Rechazadas
+					</a>
+					<b class="arrow"></b>
+				</li>
+			</ul>
+		</li>
+
+		<li class="">
+			<a href="cuentas-facturacion.html">							
+				<span class="menu-text">Cuentas de Facturación</span>
+			</a>
+			<b class="arrow"></b>
+		</li>
+		
+		<li class="">
+			<a href="contribuyentes.html">							
+				<span class="menu-text">Contribuyentes</span>
+			</a>
+			<b class="arrow"></b>
+		</li>
+		
+		<li class="">
+			<a href="complementos.html">							
+				<span class="menu-text">Complementos</span>
+			</a>
+			<b class="arrow"></b>
+		</li>
+		
+		<li class="">
+			<a href="regimenes-fiscales.html">							
+				<span class="menu-text">Regímenes Fiscales</span>
+			</a>
+			<b class="arrow"></b>
+		</li>
+		
+		<li class="">
+			<a href="#" class="dropdown-toggle">
+				<span class="menu-text">Contratos</span>
+				<b class="arrow fa fa-angle-down"></b>
+			</a>
+			
+			<b class="arrow"></b>
+			
+			<ul class="submenu">
+				<li class="">
+					<a href="contratos-vigentes.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Vigentes
+					</a>
+					<b class="arrow"></b>
+				</li>
+
+				<li class="">
+					<a href="contratos-terminados.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Terminados
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="contratos-renovados.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Renovados
+					</a>
+					<b class="arrow"></b>
+				</li>
+			</ul>
+		</li>
+		
+		<li class="">
+			<a href="reportes.html">							
+				<span class="menu-text">Reportes</span>
+			</a>
+			<b class="arrow"></b>
+		</li>
+		
+		<li class="">
+			<a href="trazas.html">							
+				<span class="menu-text">Trazas</span>
+			</a>
+			<b class="arrow"></b>
+		</li>
+		
+		<li class="">
+			<a href="" class="dropdown-toggle">
+				<span class="menu-text">Administración</span>
+				<b class="arrow fa fa-angle-down"></b>
+			</a>
+			
+			<b class="arrow"></b>
+			
+			<ul class="submenu">
+				<li class="">
+					<a href="administracion-general.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						General
+					</a>
+					<b class="arrow"></b>
+				</li>
+
+				<li class="">
+					<a href="administracion-usuarios.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Usuarios
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-roles.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Roles
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-correo-electronico.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Correo Electrónico
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-ftp.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						FTP
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-estados-archivos.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Estados Archivos
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-estados-cfdi.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Estados CFDI
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-estados-contratos.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Estados Contratos
+					</a>
+					<b class="arrow"></b>
+				</li>							
+				
+				<li class="">
+					<a href="administracion-estados-cuentas.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Estados Cuenta
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-estados-solicitudes.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Estados Solicitudes
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-tipos-impuestos.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Tipos de Impuestos
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-categorias-productos.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Categorías de Productos
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-paquetes-timbres.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Paquetes Timbres
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-plantillas-cfdi.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Plantillas CFDI
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-certificado-digital.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Certificado Digital
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-tareas-programadas.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Tareas Programadas
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-servicios-facturacion.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Servicios de Facturación
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-terminos-uso.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Términos de Uso
+					</a>
+					<b class="arrow"></b>
+				</li>
+				
+				<li class="">
+					<a href="administracion-privacidad.html">
+						<i class="menu-icon fa fa-caret-right"></i>
+						Privacidad
+					</a>
+					<b class="arrow"></b>
+				</li>
+			</ul>
+		</li>
+	</ul><!-- /.nav-list -->
+
+	<script type="text/javascript">
+		try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+	</script>
+</div>

@@ -12,5 +12,12 @@
 
         vm.isAuthenticated = Principal.isAuthenticated;
         vm.$state = $state;
+		
+		vm.login = login;
+		
+		function login () {
+            LoginService.open();
+        }
     }
+	
 })();

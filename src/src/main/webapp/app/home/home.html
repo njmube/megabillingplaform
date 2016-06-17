@@ -1,6 +1,6 @@
-<div ng-cloak>
+<div ng-cloak ng-switch="vm.isAuthenticated()">
 
-	<div class="row">
+	<div class="row" ng-switch-when="false">
 		<div class="col-xs-12">
 			<!-- PAGE CONTENT BEGINS -->
 
@@ -114,5 +114,244 @@
 			<!-- PAGE CONTENT ENDS -->
 		</div><!-- /.col -->
 	</div><!-- /.row -->
+	
+	<div ng-switch-when="true" has-authority="ROLE_USER" ng-if="vm.isNoAdmin" >    
+		<div class="page-header">
+			<div class="row">
+				<div class="col-md-8">
+					<h1>
+						Usuario
+						<small>
+							<i class="ace-icon fa fa-angle-double-right"></i>
+							Inicio
+						</small>
+					</h1>
+				</div>								
+				<div class="col-md-4">
+					<a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info pull-right" href="">
+						<i class="fa fa-lightbulb-o"></i>
+					</a>
+				</div>							
+			</div>
+		</div><!-- /.page-header -->
+		
+		<div class="row">
+			<div class="col-xs-12">						
+				<ul class="nav nav-pills">
+					<li>
+						<a href="#/">
+							<i class="ace-icon fa fa-home light-blue bigger-150"></i>
+						</a>
+					</li>
+					<li>
+						<a href="">Generar CFDI</a>
+					</li>
+					<li>
+						<a href="">Consultar CFDI</a>
+					</li>
+					<li>
+						<a href="">Afiliarse a Megapractical</a>
+					</li>
+				</ul>
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+		
+		<div class="hr hr-16 hr-dotted"></div>
+		
+		<div class="row">
+			<div class="col-xs-12">
+				<!-- PAGE CONTENT BEGINS -->
+				<h4>Bienvenido al Sistema de Facturación Electrónica de Megapractical</h4>
+				<p>El sistema le da la posibilidad de realizar las siguientes operaciones:</p>
+				<ol>
+					<li>Consultar CFDI enviados al SAT</li>
+					<li>Descargar CFDI enviados al SAT</li>
+					<li>Generar y enviar CFDI al SAT</li>
+					<li>Afiliarse a nuestra empresa y tener acceso a nuestras aplicaciones</li>
+				</ol>
+				<!-- PAGE CONTENT ENDS -->
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+		
+	</div>
+	
+	<div ng-switch-when="true" has-authority="ROLE_ADMIN">
+		<div class="page-header">
+			<h1>Pizarra de Datos</h1>
+		</div><!-- /.page-header -->
+
+		<div class="row">
+			<div class="col-xs-12">
+				<!-- PAGE CONTENT BEGINS -->
+				<div class="row">
+					<div class="space-6"></div>
+
+					<div class="col-sm-7 infobox-container">
+						<div class="infobox infobox-green">
+							<div class="infobox-icon">
+								<i class="ace-icon fa fa-user"></i>
+							</div>
+
+							<div class="infobox-data">
+								<span class="infobox-data-number">1578</span>
+								<div class="infobox-content">Total de Usuarios</div>
+							</div>
+						</div>
+
+						<div class="infobox infobox-blue">
+							<div class="infobox-icon">
+								<i class="ace-icon fa fa-check"></i>
+							</div>
+
+							<div class="infobox-data">
+								<span class="infobox-data-number">563</span>
+								<div class="infobox-content">Total de Solicitudes</div>
+							</div>
+						</div>
+
+						<div class="infobox infobox-pink">
+							<div class="infobox-icon">
+								<i class="ace-icon fa fa-gavel"></i>
+							</div>
+
+							<div class="infobox-data">
+								<span class="infobox-data-number">56322992</span>
+								<div class="infobox-content">Total de Timbres</div>
+							</div>
+						</div>
+
+						<div class="infobox infobox-red">
+							<div class="infobox-icon">
+								<i class="ace-icon fa fa-money"></i>
+							</div>
+
+							<div class="infobox-data">
+								<span class="infobox-data-number">1573332</span>
+								<div class="infobox-content">Total de Facturas</div>
+							</div>
+						</div>
+
+						<div class="infobox infobox-orange2">
+							<div class="infobox-icon">
+								<i class="ace-icon fa fa-money"></i>
+							</div>
+
+							<div class="infobox-data">
+								<span class="infobox-data-number">157529992</span>
+								<div class="infobox-content">Total de Facturas</div>
+							</div>
+						</div>
+
+						<div class="infobox infobox-blue2">
+							<div class="infobox-icon">
+								<i class="ace-icon fa fa-money"></i>
+							</div>
+
+							<div class="infobox-data">
+								<span class="infobox-data-number">56399292</span>
+								<div class="infobox-content">Total de Pagos</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="vspace-12-sm"></div>
+
+					<div class="col-sm-5">
+						<div class="widget-box">
+							<div class="widget-header widget-header-flat widget-header-small">
+								<h5 class="widget-title">
+									Estadísticas Timbres
+								</h5>
+
+								<div class="widget-toolbar no-border">
+									<div class="inline dropdown-hover">
+										<button class="btn btn-minier btn-primary">
+											Este Mes
+											<i class="ace-icon fa fa-angle-down icon-on-right bigger-110"></i>
+										</button>
+
+										<ul class="dropdown-menu dropdown-menu-right dropdown-125 dropdown-lighter dropdown-close dropdown-caret">
+											<li>
+												<a href="#">
+													<i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
+													Este Mes
+												</a>
+											</li>
+											<li class="active">
+												<a href="#" class="blue">
+													<i class="ace-icon fa fa-caret-right bigger-110">&nbsp;</i>
+													Esta Semana
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="widget-body">
+								<div class="widget-main">
+									<div id="piechart-placeholder"></div>
+
+									<div class="hr hr8 hr-double"></div>
+
+									<div class="clearfix">
+										<div class="grid2">
+											<span class="grey">
+												<i class="ace-icon fa fa-level-up fa-2x green"></i>
+												&nbsp; Habilitados
+											</span>
+											<h4 class="bigger pull-right">1,255</h4>
+										</div>
+										
+										<div class="grid2">
+											<span class="grey">
+												<i class="ace-icon fa fa-level-down fa-2x blue"></i>
+												&nbsp; Gastados
+											</span>
+											<h4 class="bigger pull-right">941</h4>
+										</div>
+									</div>
+								</div><!-- /.widget-main -->
+							</div><!-- /.widget-body -->
+						</div><!-- /.widget-box -->
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+
+				<div class="hr hr32 hr-dotted"></div>
+				
+				<div class="row">
+					<div class="col-md-6">
+						<h3 class="header smaller lighter blue">
+							Solicitudes de Cuentas de Facturación Pendientes
+						</h3>
+						
+						<table id="grid-table-pendientes"></table>
+						<div id="grid-pager-pendientes"></div>
+					</div>
+					
+					<div class="col-md-6">
+						<h3 class="header smaller lighter blue">
+							Últimos CFDI Enviados al SAT
+						</h3>
+						
+						<table id="grid-table-enviados"></table>
+						<div id="grid-pager-enviados"></div>								
+					</div>
+				</div>
+				
+				<h3 class="header smaller lighter blue">
+					Trazas del sistema
+				</h3>								
+				<table id="grid-table-trazas"></table>
+				<div id="grid-pager-trazas"></div>
+
+				<script type="text/javascript">
+					var $path_base = ".";//in Ace demo this will be used for editurl parameter
+				</script>
+
+				<!-- PAGE CONTENT ENDS -->
+			</div><!-- /.col -->
+		</div><!-- /.row -->
+	</div> 
 
 </div>

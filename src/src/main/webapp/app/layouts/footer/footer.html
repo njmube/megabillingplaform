@@ -1,33 +1,29 @@
 <div class="footer-inner">
-    <div class="hr hr-6"></div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <p class="text-center">
-                <a class="link-icon-table" ui-sref="register"><span translate="global.menu.account.register">Registrarte</span></a>
-
-                <a class="link-icon-table" href="" ng-click="vm.login()"><span translate="global.menu.account.login">Iniciar Sesión</span></a>
-
-                <a class="link-icon-table" href="http://megacfdi-2314914.hs-sites.com/"><span translate="global.menu.account.soporte.tecnico">Soporte Técnico</span></a>
-
-                <a class="link-icon-table" href="http://megacfdi-2314914.hs-sites.com/"><span translate="global.menu.account.condiciones.uso">Condiciones de Uso</span></a>
-
-                <a class="link-icon-table" href="http://megacfdi-2314914.hs-sites.com/"><span translate="global.menu.account.politica.privacidad">Política de Privacidad</span></a>
-
-                <a class="link-icon-table" href="http://megacfdi-2314914.hs-sites.com/"><span translate="global.menu.account.ayuda">Ayuda</span></a>
-
-                <a  class="link-icon-table" href="https://twitter.com/megapractical">
-                    <i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-                </a>
-
-                <a  class="link-icon-table" href="https://www.facebook.com/Megapractical-671914606198465/?fref=ts">
-                    <i class="ace-icon fa fa-youtube-square text-danger bigger-150"></i>
-                </a>
-
-                <a  class="link-icon-table" href="https://www.linkedin.com/company/megapractical-sa-de-cv">
-                    <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-                </a>
-            </p>
-        </div>
-    </div>
+    <div class="footer" ng-switch="vm.isAuthenticated()">
+		<div class="footer-inner">
+			<div class="footer-content">
+				<span>
+					&copy; 2016 <span style="margin-right:20px">Megapractical</span> 
+					<a class="link-icon-table" ui-sref="register" ng-switch-when="false"><span translate="global.menu.account.register">Registrarte</span></a>
+					<a class="link-icon-table" href="" ng-click="vm.login()" ng-switch-when="false"><span translate="global.menu.account.login">Iniciar Sesión</span></a>
+					<a class="link-icon-table" target="_blank" href="http://megacfdi-2314914.hs-sites.com/"><span translate="global.menu.account.soporte.tecnico">Soporte Técnico</span></a>
+					<a class="link-icon-table" target="_blank" href="http://megacfdi-2314914.hs-sites.com/"><span translate="global.menu.account.condiciones.uso">Condiciones de Uso</span></a>
+					<a class="link-icon-table" target="_blank" href="http://megacfdi-2314914.hs-sites.com/"><span translate="global.menu.account.politica.privacidad">Política de Privacidad</span></a>
+					<a class="link-icon-table" target="_blank" href="http://megacfdi-2314914.hs-sites.com/"><span translate="global.menu.account.ayuda">Ayuda</span></a>
+				</span>
+				&nbsp; &nbsp;
+				<span class="action-buttons">
+					<a target="_blank" href="https://twitter.com/megapractical">
+						<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
+					</a>
+					<a target="_blank" href="https://www.linkedin.com/company/megapractical-sa-de-cv">
+						<i class="ace-icon fa fa-linkedin-square text-primary bigger-150"></i>
+					</a>
+					<a target="_blank" href="https://www.facebook.com/Megapractical-671914606198465/?fref=ts">
+						<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
+					</a>
+				</span>
+			</div>
+		</div>
+	</div>
 </div>

@@ -267,7 +267,7 @@
 							<b class="caret"></b>
 						</span>
 					</a>
-					<ul class="dropdown-menu" uib-dropdown-menu ng-if="languageVm.languages.length > 1">
+					<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-caret dropdown-close" uib-dropdown-menu ng-if="languageVm.languages.length > 1">
 						<li active-menu="{{language}}" ng-repeat="language in languageVm.languages">
 							<a href="" ng-click="languageVm.changeLanguage(language)" data-toggle="collapse" data-target=".navbar-collapse.in">{{language | findLanguageFromKey}}</a>
 						</li>
