@@ -15,6 +15,7 @@
         vm.languages = null;
         vm.save = save;
         vm.user = entity;
+        vm.doNotMatch = null;
 
 
         JhiLanguageService.getAll().then(function (languages) {
@@ -36,6 +37,7 @@
 
         function save () {
             if (vm.user.password !== vm.confirmPassword) {
+                vm.doNotMatch = false;
                 vm.isSaving = false;
             }
             else {

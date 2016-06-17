@@ -31,11 +31,11 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        <!--loadData encoding="Latin1"
+        <loadData encoding="UTF-8"
                   file="config/liquibase/countrys.csv"
                   separator=";"
                   tableName="c_country">
-        </loadData-->
+        </loadData>
 
     </changeSet>
 </databaseChangeLog>

@@ -4,15 +4,15 @@
         "form": {
             "rfc": "RFC",
             "rfc.placeholder": "Su rfc",
-            "name": "Nombre",
+            "name": "Nombre (*)",
             "name.placeholder": "Su nombre",
-            "firtsurname": "Apellido paterno",
+            "firtsurname": "Apellido paterno (*)",
             "firtsurname.placeholder": "Su apellido paterno",
-            "secondsurname": "Apellido materno",
+            "secondsurname": "Apellido materno (*)",
             "secondsurname.placeholder": "Su apellido materno",
-            "phone": "Teléfono",
+            "phone": "Teléfono (*)",
             "phone.placeholder": "Su teléfono",
-            "gender": "Género",
+            "gender": "Género (*)",
             "gender.placeholder": "Su género",
             "language": "Idioma",
             "button": "Guardar"
@@ -27,7 +27,8 @@
                 "rfc": {
                     "required": "Se requiere que ingrese su rfc.",
                     "minlength": "Se requiere que su rfc tenga por lo menos 12 caracteres",
-                    "maxlength": "Su rfc no puede tener más de 13 caracteres"
+                    "maxlength": "Su rfc no puede tener más de 13 caracteres",
+                    "pattern": "Formato RFC incorrecto."
                 },
                 "name": {
                     "required": "Se requiere que ingrese su nombre.",
@@ -47,7 +48,8 @@
                 "phone": {
                     "required": "Se requiere que ingrese su teléfono.",
                     "minlength": "Se requiere que su teléfono tenga por lo menos 1 número",
-                    "maxlength": "Su teléfono no puede tener más de 15 números"
+                    "maxlength": "Su teléfono no puede tener más de 15 números",
+                    "pattern": "Formato incorrecto."
                 }
             }
         }

@@ -6,6 +6,9 @@
         <h4 class="modal-title" id="myUserLabel" translate="userManagement.home.createOrEditLabel">
             Create or edit a User</h4>
     </div>
+    <div class="alert alert-danger" ng-show="vm.doNotMatch" translate="global.messages.error.dontmatch">
+        The password and its confirmation do not match!
+    </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group">
@@ -17,47 +20,24 @@
         <div class="form-group">
             <label class="control-label" translate="userManagement.login">Login</label>
             <input type="text" class="form-control" name="login"
-                   ng-model="vm.user.login" ng-required="vm.user.id == null" ng-maxlength="50">
-
-            <div ng-show="editForm.login.$invalid">
-                <p class="help-block"
-                   ng-show="editForm.login.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-
-                <p class="help-block"
-                   ng-show="editForm.login.$error.maxlength" translate="entity.validation.maxlength"
-                   translate-value-max="50">
-                    This field cannot be longer than 50 characters.
-                </p>
-            </div>
+                   ng-model="vm.user.login" ng-required="vm.user.id == null" readonly>
         </div>
         <div class="form-group">
             <label class="control-label" translate="userManagement.rfc">RFC</label>
             <input type="text" class="form-control" name="rfc"
-                   ng-model="vm.user.rfc" ng-maxlength="50">
-
-            <div ng-show="editForm.login.$invalid">
-                <p class="help-block"
-                   ng-show="editForm.login.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-
-                <p class="help-block"
-                   ng-show="editForm.login.$error.maxlength" translate="entity.validation.maxlength"
-                   translate-value-max="50">
-                    This field cannot be longer than 50 characters.
-                </p>
-            </div>
+                   ng-model="vm.user.rfc" readonly>
         </div>
         <div class="form-group">
             <label class="control-label" translate="userManagement.name">Name</label>
             <input type="text" class="form-control" name="name"
-                   ng-model="vm.user.name" ng-maxlength="50">
-
+                   ng-model="vm.user.name" ng-maxlength="50" required>
             <div ng-show="editForm.name.$invalid">
                 <p class="help-block"
-                   ng-show="editForm.firstName.$error.maxlength" translate="entity.validation.maxlength"
+                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.name.$error.maxlength" translate="entity.validation.maxlength"
                    translate-value-max="50">
                     This field cannot be longer than 50 characters.
                 </p>
@@ -66,8 +46,12 @@
         <div class="form-group">
             <label class="control-label" translate="userManagement.firtsurname">Firt surname</label>
             <input type="text" class="form-control" name="firtsurname"
-                   ng-model="vm.user.firtsurname" ng-maxlength="50">
+                   ng-model="vm.user.firtsurname" ng-maxlength="50" required>
             <div ng-show="editForm.firtsurname.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.firtsurname.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
                 <p class="help-block"
                    ng-show="editForm.firtsurname.$error.maxlength" translate="entity.validation.maxlength"
                    translate-value-max="50">
@@ -78,9 +62,12 @@
         <div class="form-group">
             <label class="control-label" translate="userManagement.secondsurname">Second surname</label>
             <input type="text" class="form-control" name="secondsurname"
-                   ng-model="vm.user.secondsurname" ng-maxlength="50">
-
+                   ng-model="vm.user.secondsurname" ng-maxlength="50" required>
             <div ng-show="editForm.secondsurname.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.secondsurname.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
                 <p class="help-block"
                    ng-show="editForm.secondsurname.$error.maxlength" translate="entity.validation.maxlength"
                    translate-value-max="50">
@@ -102,7 +89,7 @@
                 <p class="help-block"
                    ng-show="editForm.email.$error.maxlength" translate="entity.validation.maxlength"
                    translate-value-max="100">
-                    This field cannot be longer than 256 characters.
+                    This field cannot be longer than 254 characters.
                 </p>
 				<p class="help-block"
                    ng-show="editForm.email.$error.email" translate="global.messages.validate.email.invalid">
@@ -114,37 +101,37 @@
             <label class="control-label" for="password" translate="global.form.newpassword">New password</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="{{'global.form.newpassword.placeholder' | translate}}"
                    ng-model="vm.user.password" ng-minlength=5 ng-maxlength=50 required>
-            <div ng-show="form.password.$dirty && form.password.$invalid">
+            <div ng-show="editForm.password.$dirty && editForm.password.$invalid">
                 <p class="help-block"
-                   ng-show="form.password.$error.required" translate="global.messages.validate.newpassword.required">
+                   ng-show="editForm.password.$error.required" translate="global.messages.validate.newpassword.required">
                     Your password is required.
                 </p>
                 <p class="help-block"
-                   ng-show="form.password.$error.minlength" translate="global.messages.validate.newpassword.minlength">
+                   ng-show="editForm.password.$error.minlength" translate="global.messages.validate.newpassword.minlength">
                     Your password is required to be at least 5 characters.
                 </p>
                 <p class="help-block"
-                   ng-show="form.password.$error.maxlength" translate="global.messages.validate.newpassword.maxlength">
+                   ng-show="editForm.password.$error.maxlength" translate="global.messages.validate.newpassword.maxlength">
                     Your password cannot be longer than 50 characters.
                 </p>
             </div>
-            <password-strength-bar password-to-check="vm.registerAccount.password"></password-strength-bar>
+            <password-strength-bar password-to-check="vm.user.password"></password-strength-bar>
         </div>
         <div class="form-group">
             <label class="control-label" for="confirmPassword" translate="global.form.confirmpassword">New password confirmation</label>
             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="{{'global.form.confirmpassword.placeholder' | translate}}"
                    ng-model="vm.confirmPassword" ng-minlength=5 ng-maxlength=50 required>
-            <div ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
+            <div ng-show="editForm.confirmPassword.$dirty && editForm.confirmPassword.$invalid">
                 <p class="help-block"
-                   ng-show="form.confirmPassword.$error.required" translate="global.messages.validate.confirmpassword.required">
+                   ng-show="editForm.confirmPassword.$error.required" translate="global.messages.validate.confirmpassword.required">
                     Your confirmation password is required.
                 </p>
                 <p class="help-block"
-                   ng-show="form.confirmPassword.$error.minlength" translate="global.messages.validate.confirmpassword.minlength">
+                   ng-show="editForm.confirmPassword.$error.minlength" translate="global.messages.validate.confirmpassword.minlength">
                     Your confirmation password is required to be at least 5 characters.
                 </p>
                 <p class="help-block"
-                   ng-show="form.confirmPassword.$error.maxlength" translate="global.messages.validate.confirmpassword.maxlength">
+                   ng-show="editForm.confirmPassword.$error.maxlength" translate="global.messages.validate.confirmpassword.maxlength">
                     Your confirmation password cannot be longer than 50 characters.
                 </p>
             </div>
@@ -152,13 +139,22 @@
         <div class="form-group">
             <label translate="userManagement.phone">Phone</label>
             <input type="text" class="form-control" name="phone"
-                   ng-model="vm.user.phone" ng-maxlength="15">
+                   ng-model="vm.user.phone" ng-maxlength="15" ng-pattern="/^[0-9]*$/" required>
 
             <div ng-show="editForm.phone.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.phone.$error.required" translate="entity.validation.required">
+                    Your phone is required.
+                </p>
                 <p class="help-block"
                    ng-show="editForm.phone.$error.maxlength" translate="entity.validation.maxlength"
                    translate-value-max="15">
                     This field cannot be longer than 15 characters.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.phone.$error.pattern" translate="entity.validation.pattern"
+                   translate-value-pattern="[0-9]{}">
+                    Phone format is incorrect.
                 </p>
             </div>
         </div>

@@ -38,11 +38,11 @@
                                  constraintName="fk_c_state_c_country_id"
                                  referencedColumnNames="id"
                                  referencedTableName="c_country"/>
-        <!--loadData encoding="UTF-8"
+        <loadData encoding="UTF-8"
                   file="config/liquibase/states.csv"
                   separator=";"
                   tableName="c_state">
-        </loadData-->
+        </loadData>
 
     </changeSet>
 </databaseChangeLog>

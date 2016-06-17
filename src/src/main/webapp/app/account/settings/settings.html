@@ -16,6 +16,12 @@
             </div>
 
             <form name="form" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+                <div class="form-group">
+                    <label class="control-label" for="rfc" translate="settings.form.rfc">RFC</label>
+                    <input type="text" class="form-control" id="rfc" name="rfc"
+                           ng-model="vm.settingsAccount.rfc" readonly>
+                </div>
                 <div class="form-group">
                     <label class="control-label" for="name" translate="settings.form.name">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="{{'settings.form.name.placeholder' | translate}}"
@@ -99,7 +105,7 @@
                 <div class="form-group">
                     <label class="control-label" for="phone" translate="settings.form.phone">Phone</label>
                     <input type="text" class="form-control" id="phone" name="phone" placeholder="{{'settings.form.phone.placeholder' | translate}}"
-                           ng-model="vm.settingsAccount.phone" ng-minlength=1 ng-maxlength=15 maxlength="15" ng-pattern="/^[0-9]{1,15}/" required>
+                           ng-model="vm.settingsAccount.phone" ng-minlength=1 ng-maxlength=15 maxlength="15" ng-pattern="/^[0-9]*$/" required>
                     <div ng-show="form.phone.$dirty && form.phone.$invalid">
                         <p class="help-block"
                            ng-show="form.phone.$error.required" translate="settings.messages.validate.phone.required">
@@ -113,14 +119,17 @@
                            ng-show="form.phone.$error.maxlength" translate="settings.messages.validate.phone.maxlength">
                             Your phone cannot be longer than 15 characters.
                         </p>
+                        <p class="help-block"
+                           ng-show="form.phone.$error.pattern" translate="settings.messages.validate.phone.pattern">
+                            Phone format is incorrect.
+                        </p>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="gender" translate="settings.form.gender">Gender</label>
                     <select name=gender id="gender" ng-model="vm.settingsAccount.gender">
-                        <option selected="selected"> {{'global.form.gender.placeholder' | translate}} </option>
-                        <option name=M value=M> {{'global.form.gender.male' | translate}} </option>
-                        <option name=F value=F> {{'global.form.gender.female' | translate}} </option>
+                        <option name=M value=M> M </option>
+                        <option name=F value=F> F </option>
                     </select>
                 </div>
                 <div class="form-group">
