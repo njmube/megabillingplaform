@@ -50,9 +50,14 @@ liquibase:
 
 server:
     port: 8080
+    sessionTimeout: 180
     compression:
         enabled: true
         mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
+
+authentication:
+    oauth:
+        tokenValidityInSeconds: 180
 
 # ===================================================================
 # JHipster specific properties

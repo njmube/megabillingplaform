@@ -14,10 +14,26 @@
                     ng-model="vm.file.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.file.name" for="field_name">Name</label>
-            <input type="text" class="form-control" name="name" id="field_name"
-                    ng-model="vm.file.name"
+            <label class="control-label" translate="megabillingplatformApp.file.name" for="name">Name</label>
+            <input type="text" class="form-control" name="name" id="name"
+                    ng-model="vm.file.name" ng-maxlength="50" ng-minlength="3" required
                      />
+            <div ng-show="editForm.name.$dirty && editForm.name.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.name.$error.minlength" translate="entity.validation.minlength"
+                   translate-value-min="3">
+                    This field is required to be at least 3 characters.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.name.$error.maxlength" translate="entity.validation.maxlength"
+                   translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
         </div>
         <div class="form-group">
             <label class="control-label" translate="megabillingplatformApp.file.description" for="field_description">Description</label>

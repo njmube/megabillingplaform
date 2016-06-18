@@ -140,8 +140,8 @@
         },
         "validation": {
             "required": "Este campo es obligatorio.",
-            "minlength": "Este campo requiere al menos {{min}} caracteres.",
-            "maxlength": "Este campo no puede superar más de {{max}} caracteres.",
+            "minlength": "Este campo requiere al menos {{min}} caractéres.",
+            "maxlength": "Este campo no puede superar más de {{max}} caractéres.",
             "min": "Este campo debe ser mayor que {{min}}.",
             "max": "Este campo no puede ser mayor que {{max}}.",
             "minbytes": "Este campo debe tener como mínimo {{min}} bytes.",

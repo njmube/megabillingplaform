@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -22,19 +23,24 @@ public class Digital_certificate implements Serializable {
     private Long id;
 
     @Lob
+    @NotNull
     @Column(name = "adrees")
     private byte[] adrees;
 
-    @Column(name = "adrees_content_type")    
+    @NotNull
+    @Column(name = "adrees_content_type")
     private String adreesContentType;
 
+    @NotNull
     @Lob
     @Column(name = "private_key")
     private byte[] private_key;
 
-    @Column(name = "private_key_content_type")    
+    @NotNull
+    @Column(name = "private_key_content_type")
     private String private_keyContentType;
 
+    @NotNull
     @Column(name = "possword")
     private String possword;
 

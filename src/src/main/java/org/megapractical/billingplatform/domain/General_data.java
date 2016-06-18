@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -21,6 +22,7 @@ public class General_data implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     @Column(name = "platform_name")
     private String platform_name;
 
@@ -31,7 +33,7 @@ public class General_data implements Serializable {
     @Column(name = "logo")
     private byte[] logo;
 
-    @Column(name = "logo_content_type")    
+    @Column(name = "logo_content_type")
     private String logoContentType;
 
     @Column(name = "adrees")

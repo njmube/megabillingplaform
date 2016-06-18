@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -21,6 +22,7 @@ public class Cfdi_template implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     @Column(name = "name")
     private String name;
 
@@ -35,7 +37,7 @@ public class Cfdi_template implements Serializable {
     @Column(name = "file")
     private byte[] file;
 
-    @Column(name = "file_content_type")    
+    @Column(name = "file_content_type")
     private String fileContentType;
 
     public Long getId() {
