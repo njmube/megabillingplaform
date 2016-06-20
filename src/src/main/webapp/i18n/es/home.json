@@ -8,6 +8,19 @@
         "ios": "iOS",
         "android": "Android",
         "clientes": "Clientes",
+        "user": "Usuario",
+        "home": "Inicio",
+        "emitter.data": "Datos Emisor",
+        "emitter.data": "Datos Emisor",
+        "generate.cfdi": "Generar CFDI",
+        "search.cfdi": "Consultar CFDI",
+        "join.mega": "Afiliarse a Megapractical",
+        "text1": "Bienvenido al Sistema de Facturación Electrónica de Megapractical",
+        "text2": "El sistema le da la posibilidad de realizar las siguientes operaciones:",
+        "text3": "Consultar CFDI enviados al SAT",
+        "text4": "Descargar CFDI enviados al SAT",
+        "text5": "Generar y enviar CFDI al SAT",
+        "text6": "Afiliarse a nuestra empresa y tener acceso a nuestras aplicaciones",
         "logged": {
             "message": "Está conectado como \"{{username}}\"."
         }

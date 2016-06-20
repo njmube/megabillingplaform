@@ -114,67 +114,70 @@
 			<!-- PAGE CONTENT ENDS -->
 		</div><!-- /.col -->
 	</div><!-- /.row -->
-	
-	<div ng-switch-when="true" has-authority="ROLE_USER" ng-if="vm.isNoAdmin" >    
+
+	<div ng-switch-when="true" has-authority="ROLE_USER" ng-if="vm.isNoAdmin" >
 		<div class="page-header">
 			<div class="row">
 				<div class="col-md-8">
 					<h1>
-						Usuario
+                        {{'home.user' | translate}}
 						<small>
 							<i class="ace-icon fa fa-angle-double-right"></i>
-							Inicio
+                            {{'home.home' | translate}}
 						</small>
 					</h1>
-				</div>								
+				</div>
 				<div class="col-md-4">
 					<a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info pull-right" href="">
 						<i class="fa fa-lightbulb-o"></i>
 					</a>
-				</div>							
+				</div>
 			</div>
 		</div><!-- /.page-header -->
-		
+
 		<div class="row">
-			<div class="col-xs-12">						
+			<div class="col-xs-12">
 				<ul class="nav nav-pills">
 					<li>
 						<a href="#/">
 							<i class="ace-icon fa fa-home light-blue bigger-150"></i>
 						</a>
 					</li>
+                    <li>
+                        <a href="">{{'home.emitter.data' | translate}}</a>
+                    </li>
 					<li>
-						<a href="">Generar CFDI</a>
+						<a href="">{{'home.generate.cfdi' | translate}}</a>
 					</li>
 					<li>
-						<a href="">Consultar CFDI</a>
+						<a href="">{{'home.search.cfdi' | translate}}</a>
 					</li>
 					<li>
-						<a href="">Afiliarse a Megapractical</a>
+						<a href="">{{'home.join.mega' | translate}}</a>
 					</li>
 				</ul>
 			</div><!-- /.col -->
 		</div><!-- /.row -->
-		
+
 		<div class="hr hr-16 hr-dotted"></div>
-		
+
 		<div class="row">
 			<div class="col-xs-12">
 				<!-- PAGE CONTENT BEGINS -->
-				<h4>Bienvenido al Sistema de Facturación Electrónica de Megapractical</h4>
-				<p>El sistema le da la posibilidad de realizar las siguientes operaciones:</p>
+				<h4>{{'home.text1' | translate}}</h4>
+				<p>{{'home.text2' | translate}}</p>
 				<ol>
-					<li>Consultar CFDI enviados al SAT</li>
-					<li>Descargar CFDI enviados al SAT</li>
-					<li>Generar y enviar CFDI al SAT</li>
-					<li>Afiliarse a nuestra empresa y tener acceso a nuestras aplicaciones</li>
+					<li>{{'home.text3' | translate}}</li>
+					<li>{{'home.text4' | translate}}</li>
+					<li>{{'home.text5' | translate}}</li>
+					<li>{{'home.text6' | translate}}</li>
 				</ol>
 				<!-- PAGE CONTENT ENDS -->
 			</div><!-- /.col -->
 		</div><!-- /.row -->
-		
+
 	</div>
-	
+
 	<div ng-switch-when="true" has-authority="ROLE_ADMIN">
 		<div class="page-header">
 			<h1>Pizarra de Datos</h1>
@@ -302,7 +305,7 @@
 											</span>
 											<h4 class="bigger pull-right">1,255</h4>
 										</div>
-										
+
 										<div class="grid2">
 											<span class="grey">
 												<i class="ace-icon fa fa-level-down fa-2x blue"></i>
@@ -318,30 +321,30 @@
 				</div><!-- /.row -->
 
 				<div class="hr hr32 hr-dotted"></div>
-				
+
 				<div class="row">
 					<div class="col-md-6">
 						<h3 class="header smaller lighter blue">
 							Solicitudes de Cuentas de Facturación Pendientes
 						</h3>
-						
+
 						<table id="grid-table-pendientes"></table>
 						<div id="grid-pager-pendientes"></div>
 					</div>
-					
+
 					<div class="col-md-6">
 						<h3 class="header smaller lighter blue">
 							Últimos CFDI Enviados al SAT
 						</h3>
-						
+
 						<table id="grid-table-enviados"></table>
-						<div id="grid-pager-enviados"></div>								
+						<div id="grid-pager-enviados"></div>
 					</div>
 				</div>
-				
+
 				<h3 class="header smaller lighter blue">
 					Trazas del sistema
-				</h3>								
+				</h3>
 				<table id="grid-table-trazas"></table>
 				<div id="grid-pager-trazas"></div>
 
@@ -352,6 +355,6 @@
 				<!-- PAGE CONTENT ENDS -->
 			</div><!-- /.col -->
 		</div><!-- /.row -->
-	</div> 
+	</div>
 
 </div>
