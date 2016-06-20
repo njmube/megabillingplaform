@@ -148,9 +148,14 @@ public class AccountResource {
     @Timed
     public ResponseEntity<String> saveAccount(@RequestBody UserDTO userDTO) {
         Optional<User> existingUser = userRepository.findOneByEmail(userDTO.getEmail());
+        //Optional<User> existingRCF = userRepository.findOneByRfc(userDTO.getRFC());
+
         if (existingUser.isPresent() && (!existingUser.get().getLogin().equalsIgnoreCase(userDTO.getLogin()))) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("user-management", "emailexists", "Email already in use")).body(null);
         }
+        /*if (existingRCF.isPresent()) {
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("user-management", "rfcexists", "RFC already in use")).body(null);
+        }*/
         return userRepository
             .findOneByLogin(SecurityUtils.getCurrentUserLogin())
             .map(u -> {

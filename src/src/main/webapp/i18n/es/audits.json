@@ -5,6 +5,8 @@
             "title": "Filtrar por fecha",
             "from": "desde",
             "to": "hasta",
+            "principal": "usuario",
+            "auditEventType": "estado",
             "button": {
                 "weeks": "Semanas",
                 "today": "hoy",

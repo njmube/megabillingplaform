@@ -16,7 +16,7 @@
             'query': {
                 method: 'GET',
                 isArray: true,
-                params: {fromDate: null, toDate: null}
+                params: {fromDate: null, toDate: null, principal: null, auditEventType: null}
             }
         });
 

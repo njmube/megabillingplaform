@@ -41,9 +41,22 @@ public class AuditEventService {
             .map(persistentAuditEvents -> auditEventConverter.convertToAuditEvent(persistentAuditEvents));
     }
 
-    public Page<AuditEvent> findByDates(LocalDateTime fromDate, LocalDateTime toDate, Pageable pageable) {
-        return persistenceAuditEventRepository.findAllByAuditEventDateBetween(fromDate, toDate, pageable)
-            .map(persistentAuditEvents -> auditEventConverter.convertToAuditEvent(persistentAuditEvents));
+    public Page<AuditEvent> findByDates(LocalDateTime fromDate, LocalDateTime toDate,String principal,String auditEventType, Pageable pageable) {
+            if(principal == null && auditEventType == null)
+            {
+                return persistenceAuditEventRepository.findAllByAuditEventDateBetween(fromDate, toDate, pageable)
+                    .map(persistentAuditEvents -> auditEventConverter.convertToAuditEvent(persistentAuditEvents));
+            }else if (principal == null){
+                return persistenceAuditEventRepository.findAllByAuditEventDateBetweenAndAuditEventType(fromDate, toDate, auditEventType, pageable)
+                    .map(persistentAuditEvents -> auditEventConverter.convertToAuditEvent(persistentAuditEvents));
+            }else if (auditEventType == null)
+            {
+                return persistenceAuditEventRepository.findAllByAuditEventDateBetweenAndPrincipal(fromDate, toDate, principal, pageable)
+                    .map(persistentAuditEvents -> auditEventConverter.convertToAuditEvent(persistentAuditEvents));
+            }else {
+                return persistenceAuditEventRepository.findAllByAuditEventDateBetweenAndPrincipalAndAuditEventType(fromDate, toDate, principal,auditEventType, pageable)
+                    .map(persistentAuditEvents -> auditEventConverter.convertToAuditEvent(persistentAuditEvents));
+            }
     }
 
     public Optional<AuditEvent> find(Long id) {

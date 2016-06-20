@@ -50,9 +50,6 @@ spring:
 liquibase:
     contexts: dev
 
-server:
-    port: 8080
-    sessionTimeout: 180
 
 # ===================================================================
 # JHipster specific properties

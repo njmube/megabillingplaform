@@ -5,6 +5,8 @@
             "title": "Filter per date",
             "from": "from",
             "to": "to",
+            "principal": "user",
+            "auditEventType": "state",
             "button": {
                 "weeks": "Weeks",
                 "today": "today",

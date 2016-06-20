@@ -57,13 +57,16 @@ public class AuditResource {
      */
 
     @RequestMapping(method = RequestMethod.GET,
-        params = {"fromDate", "toDate"})
+        params = {"fromDate", "toDate", "principal", "auditEventType"})
     public ResponseEntity<List<AuditEvent>> getByDates(
         @RequestParam(value = "fromDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fromDate,
         @RequestParam(value = "toDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate toDate,
+        @RequestParam(value = "principal") String principal,
+        @RequestParam(value = "auditEventType") String auditEventType,
         Pageable pageable) throws URISyntaxException {
 
-        Page<AuditEvent> page = auditEventService.findByDates(fromDate.atTime(0, 0), toDate.atTime(23, 59), pageable);
+        Page<AuditEvent> page = auditEventService.findByDates(fromDate.atTime(0, 0), toDate.atTime(23, 59),
+            principal, auditEventType, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/audits");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
