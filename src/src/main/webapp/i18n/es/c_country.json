@@ -3,18 +3,18 @@
         "c_country" : {
             "home": {
                 "title": "País",
-                "createLabel": "Crear nuevo País",
-                "createOrEditLabel": "Crear o editar País",
+                "createLabel": "Adicionar País",
+                "createOrEditLabel": "Crear o Editar un País",
                 "search": "Búsqueda para País"
             },
-            "created": "Un nuevo País ha sido creado con el identificador {{ param }}",
-            "updated": "Un País ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un País ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo país ha sido creado con el identificador {{ param }}",
+            "updated": "Un país ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un país ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar País {{ id }}?"
+                "question": "¿Seguro que quiere eliminar país con el identificador {{ id }}?"
             },
             "detail": {
-                "title": "País"
+                "title": "Países"
             },
             "name": "Nombre",
             "abrev": "Abreviatura",

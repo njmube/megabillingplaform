@@ -2,27 +2,20 @@
     "megabillingplatformApp": {
         "archive_status" : {
             "home": {
-                "title": "Archive_statuses",
-                "createLabel": "Crear nuevo Archive_status",
-                "createOrEditLabel": "Crear o editar Archive_status",
-                "search": "Search for Archive_status"
+                "title": "Estados Archivos",
+                "createLabel": "Adicionar Estado de Archivo",
+                "createOrEditLabel": "Adicionar o Modificar Estado de Archivo",
+                "search": "Buscar por estado de archivo"
             },
-            "created": "Un nuevo Archive_status ha sido creado con el identificador {{ param }}",
-            "updated": "Un Archive_status ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Archive_status ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo estado de archivo ha sido creado con el identificador {{ param }}",
+            "updated": "Un estado de archivo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un estado de archivo ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Archive_status {{ id }}?"
+                "question": "¿Seguro que quiere eliminar el estado de archivo con identificador {{ id }}?"
             },
             "detail": {
-                "title": "Archive_status"
-            },
-            "name": "Name",
-            "description": "Description",
-            "date": "Date",
-            "date1": "Date1",
-            "first_surname": "First_surname",
-            "second_surname": "Second_surname",
-            "date_born": "Date_born"
+                "title": "Estado de Archivo"
+            }
         }
     }
 }
