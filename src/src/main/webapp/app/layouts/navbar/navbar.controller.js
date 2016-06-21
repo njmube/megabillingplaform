@@ -5,20 +5,33 @@
         .module('megabillingplatformApp')
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$location', '$state', 'Auth', 'Principal', 'ENV', 'LoginService'];
+    NavbarController.$inject = ['$scope', '$location', '$state', 'Auth', 'Principal', 'ENV', 'LoginService'];
 
-    function NavbarController ($location, $state, Auth, Principal, ENV, LoginService) {
+    function NavbarController ($scope, $location, $state, Auth, Principal, ENV, LoginService) {
         var vm = this;
 
         vm.navCollapsed = true;
         vm.isAuthenticated = Principal.isAuthenticated;
         vm.inProduction = ENV === 'prod';
         vm.login = login;
+		vm.account = null;
         vm.logout = logout;
         vm.$state = $state;
 
         function login () {
             LoginService.open();
+        }
+		
+		$scope.$on('authenticationSuccess', function() {
+            getAccount();
+        });
+		
+		function getAccount() {
+			
+			Principal.identity().then(function(account) {
+                vm.account = account;
+				console.log(vm.account);
+            });
         }
 
         function logout () {
