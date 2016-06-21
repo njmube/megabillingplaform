@@ -12,12 +12,6 @@
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group">
-            <label translate="global.field.id">ID</label>
-            <input type="text" class="form-control" name="id"
-                   ng-model="vm.user.id" readonly>
-        </div>
-
-        <div class="form-group">
             <label class="control-label" translate="userManagement.login">Login</label>
             <input type="text" class="form-control" name="login"
                    ng-model="vm.user.login" ng-required="vm.user.id == null" ng-maxlength="50" ng-minlength="1"
@@ -47,8 +41,8 @@
         <div class="form-group">
             <label class="control-label" translate="userManagement.rfc">RFC</label>
             <input type="text" class="form-control" name="rfc"
-                   ng-model="vm.user.rfc" ng-maxlength="13" ng-minlength="12"
-                   ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?/" required>
+                   ng-model="vm.user.rfc" required ng-minlength="12" ng-maxlength="13"
+                   ng-pattern="/[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?/">
             <div ng-show="editForm.rfc.$dirty && editForm.rfc.$invalid">
                 <p class="help-block"
                    ng-show="editForm.rcf.$error.required" translate="entity.validation.required">
@@ -66,7 +60,7 @@
                 </p>
                 <p class="help-block"
                    ng-show="editForm.rfc.$error.pattern" translate="entity.validation.pattern"
-                   translate-value-pattern="[A-Z,Ñ,&]...">
+                   translate-value-pattern="[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?">
                     RFC format is incorrect.
                 </p>
             </div>
@@ -145,12 +139,12 @@
                 </p>
                 <p class="help-block"
                    ng-show="editForm.email.$error.minlength" translate="entity.validation.minlength"
-                   translate-value-min="3">
+                   translate-value-min="6">
                     This field is required to be at least 6 characters.
                 </p>
                 <p class="help-block"
                    ng-show="editForm.email.$error.maxlength" translate="entity.validation.maxlength"
-                   translate-value-max="100">
+                   translate-value-max="254">
                     This field cannot be longer than 254 characters.
                 </p>
 				<p class="help-block"
@@ -162,7 +156,7 @@
         <div class="form-group">
             <label class="control-label" for="password" translate="global.form.newpassword">New password</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="{{'global.form.newpassword.placeholder' | translate}}"
-                   ng-model="vm.user.password" ng-minlength=5 ng-maxlength=50 required>
+                   ng-model="vm.user.password" ng-minlength=8 ng-maxlength=50 required>
             <div ng-show="editForm.password.$dirty && editForm.password.$invalid">
                 <p class="help-block"
                    ng-show="editForm.password.$error.required" translate="global.messages.validate.newpassword.required">
@@ -170,7 +164,7 @@
                 </p>
                 <p class="help-block"
                    ng-show="editForm.password.$error.minlength" translate="global.messages.validate.newpassword.minlength">
-                    Your password is required to be at least 5 characters.
+                    Your password is required to be at least 8 characters.
                 </p>
                 <p class="help-block"
                    ng-show="editForm.password.$error.maxlength" translate="global.messages.validate.newpassword.maxlength">
@@ -182,7 +176,7 @@
         <div class="form-group">
             <label class="control-label" for="confirmPassword" translate="global.form.confirmpassword">New password confirmation</label>
             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="{{'global.form.confirmpassword.placeholder' | translate}}"
-                   ng-model="vm.confirmPassword" ng-minlength=5 ng-maxlength=50 required>
+                   ng-model="vm.confirmPassword" ng-minlength=8 ng-maxlength=50 required>
             <div ng-show="editForm.confirmPassword.$dirty && editForm.confirmPassword.$invalid">
                 <p class="help-block"
                    ng-show="editForm.confirmPassword.$error.required" translate="global.messages.validate.confirmpassword.required">
@@ -190,7 +184,7 @@
                 </p>
                 <p class="help-block"
                    ng-show="editForm.confirmPassword.$error.minlength" translate="global.messages.validate.confirmpassword.minlength">
-                    Your confirmation password is required to be at least 5 characters.
+                    Your confirmation password is required to be at least 8 characters.
                 </p>
                 <p class="help-block"
                    ng-show="editForm.confirmPassword.$error.maxlength" translate="global.messages.validate.confirmpassword.maxlength">
@@ -214,15 +208,15 @@
                 </p>
                 <p class="help-block"
                    ng-show="editForm.phone.$error.pattern" translate="entity.validation.pattern"
-                   translate-value-pattern="[0-9]{}">
+                   translate-value-pattern="[0-9]">
                     Phone format is incorrect.
                 </p>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label" for="gender" translate="userManagement.gender">Gender</label>
-            <select name=gender id="gender" ng-model="vm.user.gender">
-                <option name=M value=M> M </option>
+            <select name=gender id="gender" ng-model="vm.user.gender" required>
+                <option name=M value=M selected> M </option>
                 <option name=F value=F> F </option>
             </select>
         </div>

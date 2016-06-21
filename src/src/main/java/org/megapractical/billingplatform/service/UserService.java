@@ -66,13 +66,13 @@ public class UserService {
             .filter(user -> {
                 ZonedDateTime oneDayAgo = ZonedDateTime.now().minusHours(24);
                 return user.getResetDate().isAfter(oneDayAgo);
-           })
+            })
            .map(user -> {
-                user.setPassword(passwordEncoder.encode(newPassword));
-                user.setResetKey(null);
-                user.setResetDate(null);
-                userRepository.save(user);
-                return user;
+               user.setPassword(passwordEncoder.encode(newPassword));
+               user.setResetKey(null);
+               user.setResetDate(null);
+               userRepository.save(user);
+               return user;
            });
     }
 
@@ -85,6 +85,79 @@ public class UserService {
                 userRepository.save(user);
                 return user;
             });
+    }
+
+    public String sugestionUserLogin(String name, String firtsurname, String secondsurname){
+        String suguser = "";
+        boolean find = false;
+
+        if(name.isEmpty()){
+            if(firtsurname.isEmpty()){
+                if(secondsurname.isEmpty()){
+                    suguser = "user";
+                }else
+                {
+                    suguser = secondsurname;
+                }
+            }else
+            {
+                suguser = firtsurname;
+            }
+        }else {
+            suguser = name;
+        }
+        Optional<User> user;
+        if(!name.isEmpty()){
+            //se comprueba si existe el user
+            user = userRepository.findOneByLogin(suguser);
+            if(user.isPresent()){
+                if(!firtsurname.isEmpty()){
+                    String firtletter = firtsurname.substring(0,0);
+                    suguser = suguser + firtletter;
+                    //Se comprueba si existe el user
+                    user = userRepository.findOneByLogin(suguser);
+                    if(user.isPresent()){
+                        if(!secondsurname.isEmpty()){
+                            String secondletter = secondsurname.substring(0,0);
+                            suguser = suguser + secondletter;
+                            //Se comprueba si existe el user
+                            user = userRepository.findOneByLogin(suguser);
+                            if(user.isPresent()){
+                                for(int i = 1;i<10000;i++){
+                                    String tempsuguser = suguser + i;
+                                    user = userRepository.findOneByLogin(tempsuguser);
+                                    if(!user.isPresent()){
+                                        suguser = tempsuguser;
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }else {
+                    for(int i = 1;i<10000;i++){
+                        String tempsuguser = suguser + i;
+                        user = userRepository.findOneByLogin(tempsuguser);
+                        if(!user.isPresent()){
+                            suguser = tempsuguser;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        else {
+            for(int i = 1;i<10000;i++){
+                String tempsuguser = suguser + i;
+                user = userRepository.findOneByLogin(tempsuguser);
+                if(!user.isPresent()){
+                    suguser = tempsuguser;
+                    break;
+                }
+            }
+        }
+
+        return suguser;
     }
 
     public User createUserInformation(String login, String rfc, String password, String name,String firtsuname,String secondsurname,

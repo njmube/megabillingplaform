@@ -21,7 +21,7 @@
         "secondsurname": "Second surname (*)",
         "email": "Email (*)",
         "phone": "Phone (*)",
-        "gender": "Gender (*)S",
+        "gender": "Gender (*)",
         "activated": "Activated",
         "deactivated": "Deactivated",
         "profiles": "Profiles",
