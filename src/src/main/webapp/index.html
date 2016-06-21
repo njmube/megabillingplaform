@@ -21,6 +21,11 @@
 
 	<!-- page specific plugin styles -->
 
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="content/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+	<!-- page specific plugin styles -->
+
 	<!-- text fonts -->
 	<link rel="stylesheet" href="content/fonts/fonts.googleapis.com.css" />
 
@@ -718,9 +723,32 @@
 	<script src="app/layouts/footer/footer.controller.js"></script>
 
 	<!-- basic scripts -->
-	<script type="text/javascript">
-		if('ontouchstart' in document.documentElement) document.write("<script src='content/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-	</script>
+
+		<!--[if !IE]> -->
+		<script src="content/js/jquery.2.1.1.min.js"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script src="content/js/jquery.1.11.1.min.js"></script>
+		<![endif]-->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='content/js/jquery.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='content/js/jquery1x.min.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='content/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="content/js/bootstrap.min.js"></script>
 
 	<!-- page specific plugin scripts -->
 	<script src="content/js/jquery-ui.custom.min.js"></script>
