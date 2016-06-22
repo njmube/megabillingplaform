@@ -1,0 +1,32 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "c_location",
+            "otherEntityName": "c_location",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "3",
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160622170334",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "c_colony",
+    "pagination": "pagination"
+}

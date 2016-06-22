@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "tax_types" : {
+            "home": {
+                "title": "Tax Types",
+                "createLabel": "Crear nuevo Tax Types",
+                "createOrEditLabel": "Crear o editar Tax Types",
+                "search": "Search for Tax Types"
+            },
+            "created": "Un nuevo Tax Types ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tax Types ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tax Types ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Tax Types {{ id }}?"
+            },
+            "detail": {
+                "title": "Tax Types"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

@@ -1,11 +1,13 @@
 package org.megapractical.billingplatform.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -22,7 +24,6 @@ public class C_location implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
     @Column(name = "name")
     private String name;
 
@@ -35,6 +36,11 @@ public class C_location implements Serializable {
     @OneToOne
     @JoinColumn(unique = true)
     private C_zip_code c_zip_code;
+
+    @OneToMany(mappedBy = "c_location")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<C_colony> c_colonies = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -74,6 +80,14 @@ public class C_location implements Serializable {
 
     public void setC_zip_code(C_zip_code c_zip_code) {
         this.c_zip_code = c_zip_code;
+    }
+
+    public Set<C_colony> getC_colonies() {
+        return c_colonies;
+    }
+
+    public void setC_colonies(Set<C_colony> c_colonies) {
+        this.c_colonies = c_colonies;
     }
 
     @Override

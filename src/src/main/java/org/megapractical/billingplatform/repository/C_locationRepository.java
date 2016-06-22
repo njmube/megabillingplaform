@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Spring Data JPA repository for the C_location entity.
  */
+@SuppressWarnings("unused")
 public interface C_locationRepository extends JpaRepository<C_location,Long> {
 
 }

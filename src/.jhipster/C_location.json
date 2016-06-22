@@ -13,6 +13,12 @@
             "otherEntityField": "postcode",
             "ownerSide": true,
             "otherEntityRelationshipName": "c_location"
+        },
+        {
+            "relationshipName": "c_colony",
+            "otherEntityName": "c_colony",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "c_location"
         }
     ],
     "fields": [

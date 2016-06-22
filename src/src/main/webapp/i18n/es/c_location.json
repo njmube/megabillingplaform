@@ -2,24 +2,25 @@
     "megabillingplatformApp": {
         "c_location" : {
             "home": {
-                "title": "Localidad",
-                "createLabel": "Crear nueva Localidad",
-                "createOrEditLabel": "Crear o editar Localidad",
-                "search": "Búsqueda para Localidad"
+                "title": "C Locations",
+                "createLabel": "Crear nuevo C Location",
+                "createOrEditLabel": "Crear o editar C Location",
+                "search": "Search for C Location"
             },
-            "created": "Un nuevo Localidad ha sido creado con el identificador {{ param }}",
-            "updated": "Un Localidad ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Localidad ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo C Location ha sido creado con el identificador {{ param }}",
+            "updated": "Un C Location ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C Location ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Localidad {{ id }}?"
+                "question": "¿Seguro que quiere eliminar C Location {{ id }}?"
             },
             "detail": {
-                "title": "Localidad"
+                "title": "C Location"
             },
-            "name": "Nombre",
-            "description": "Descripción",
-            "c_municipality": "Municipio",
-            "c_zip_code": "Código postal"
+            "name": "Name",
+            "description": "Description",
+            "c_municipality": "C Municipality",
+            "c_zip_code": "C Zip Code",
+            "c_colony": "C Colony"
         }
     }
 }

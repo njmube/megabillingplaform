@@ -1,0 +1,84 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.free_emitter.detail.title">Free Emitter</span> {{vm.free_emitter.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.free_emitter.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.free_emitter.rfc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.name">Name</span></dt>
+        <dd>
+            <span>{{vm.free_emitter.name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.email">Email</span></dt>
+        <dd>
+            <span>{{vm.free_emitter.email}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.path_certificate">Path Certificate</span></dt>
+        <dd>
+            <div ng-if="vm.free_emitter.path_certificate">
+                <a ng-click="vm.openFile(vm.free_emitter.path_certificateContentType, vm.free_emitter.path_certificate)" translate="entity.action.open">open</a>
+                {{vm.free_emitter.path_certificateContentType}}, {{vm.byteSize(vm.free_emitter.path_certificate)}}
+            </div>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.private_key">Private Key</span></dt>
+        <dd>
+            <div ng-if="vm.free_emitter.private_key">
+                <a ng-click="vm.openFile(vm.free_emitter.private_keyContentType, vm.free_emitter.private_key)" translate="entity.action.open">open</a>
+                {{vm.free_emitter.private_keyContentType}}, {{vm.byteSize(vm.free_emitter.private_key)}}
+            </div>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.reference">Reference</span></dt>
+        <dd>
+            <span>{{vm.free_emitter.reference}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.num_in">Num In</span></dt>
+        <dd>
+            <span>{{vm.free_emitter.num_in}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.num_out">Num Out</span></dt>
+        <dd>
+            <span>{{vm.free_emitter.num_out}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.street">Street</span></dt>
+        <dd>
+            <span>{{vm.free_emitter.street}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.tax_regime">Tax Regime</span></dt>
+        <dd>
+            <a ui-sref="tax-regime-detail({id:vm.free_emitter.tax_regime.id})">{{vm.free_emitter.tax_regime.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.c_country">C Country</span></dt>
+        <dd>
+            <a ui-sref="c-country-detail({id:vm.free_emitter.c_country.id})">{{vm.free_emitter.c_country.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.c_state">C State</span></dt>
+        <dd>
+            <a ui-sref="c-state-detail({id:vm.free_emitter.c_state.id})">{{vm.free_emitter.c_state.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.c_municipality">C Municipality</span></dt>
+        <dd>
+            <a ui-sref="c-municipality-detail({id:vm.free_emitter.c_municipality.id})">{{vm.free_emitter.c_municipality.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.c_location">C Location</span></dt>
+        <dd>
+            <a ui-sref="c-location-detail({id:vm.free_emitter.c_location.id})">{{vm.free_emitter.c_location.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.c_colony">C Colony</span></dt>
+        <dd>
+            <a ui-sref="c-colony-detail({id:vm.free_emitter.c_colony.id})">{{vm.free_emitter.c_colony.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_emitter.c_zip_code">C Zip Code</span></dt>
+        <dd>
+            <a ui-sref="c-zip-code-detail({id:vm.free_emitter.c_zip_code.id})">{{vm.free_emitter.c_zip_code.postcode}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -28,6 +28,12 @@
                 "reports": "Reportes",
                 "wayPayment": "Way Payment",
                 "paymentMethod": "Payment Method",
+                "taxTypes": "Tax Types",
+                "cfdiStates": "Cfdi States",
+                "cfdiTypes": "Cfdi Types",
+                "cColony": "C Colony",
+                "cLocation": "C Location",
+                "freeEmitter": "Free Emitter",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

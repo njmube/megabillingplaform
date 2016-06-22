@@ -1,28 +1,25 @@
 
 <div>
-    <h2><span translate="megabillingplatformApp.c_location.detail.title">C_location</span> {{vm.c_location.id}}</h2>
+    <h2><span translate="megabillingplatformApp.c_location.detail.title">C Location</span> {{vm.c_location.id}}</h2>
     <hr>
-    <dl class="dl-horizontal">
-        <dt><span translate="megabillingplatformApp.c_location.name">Name</dt></dt>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.c_location.name">Name</span></dt>
         <dd>
-            <span>{{vm.c_location.name}}<span>
+            <span>{{vm.c_location.name}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.c_location.description">Description</dt></dt>
+        <dt><span translate="megabillingplatformApp.c_location.description">Description</span></dt>
         <dd>
-            <span>{{vm.c_location.description}}<span>
+            <span>{{vm.c_location.description}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.c_location.c_municipality">c_municipality</span></dt>
+        <dt><span translate="megabillingplatformApp.c_location.c_municipality">C Municipality</span></dt>
         <dd>
             <a ui-sref="c-municipality-detail({id:vm.c_location.c_municipality.id})">{{vm.c_location.c_municipality.name}}</a>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.c_location.c_zip_code">c_zip_code</span></dt>
+        <dt><span translate="megabillingplatformApp.c_location.c_zip_code">C Zip Code</span></dt>
         <dd>
             <a ui-sref="c-zip-code-detail({id:vm.c_location.c_zip_code.id})">{{vm.c_location.c_zip_code.postcode}}</a>
         </dd>
-        <hr>
     </dl>
 
     <button type="submit"

@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "c_colony" : {
+            "home": {
+                "title": "C Colonies",
+                "createLabel": "Crear nuevo C Colony",
+                "createOrEditLabel": "Crear o editar C Colony",
+                "search": "Search for C Colony"
+            },
+            "created": "Un nuevo C Colony ha sido creado con el identificador {{ param }}",
+            "updated": "Un C Colony ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C Colony ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar C Colony {{ id }}?"
+            },
+            "detail": {
+                "title": "C Colony"
+            },
+            "name": "Name",
+            "description": "Description",
+            "c_location": "C Location"
+        }
+    }
+}

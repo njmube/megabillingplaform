@@ -9,12 +9,13 @@
 
     function C_locationController ($scope, $state, C_location, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
-        vm.loadAll = loadAll;
+        
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
-        vm.loadAll();
+
+        loadAll();
 
         function loadAll () {
             C_location.query({
@@ -53,6 +54,5 @@
                 search: vm.currentSearch
             });
         }
-
     }
 })();

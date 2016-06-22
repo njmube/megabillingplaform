@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.c_colony.detail.title">C Colony</span> {{vm.c_colony.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.c_colony.name">Name</span></dt>
+        <dd>
+            <span>{{vm.c_colony.name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.c_colony.description">Description</span></dt>
+        <dd>
+            <span>{{vm.c_colony.description}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.c_colony.c_location">C Location</span></dt>
+        <dd>
+            <a ui-sref="c-location-detail({id:vm.c_colony.c_location.id})">{{vm.c_colony.c_location.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

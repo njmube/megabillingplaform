@@ -24,13 +24,17 @@
             <column name="name" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="description" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/tax_regimes.csv"
+                  separator=";"
+                  tableName="tax_regime">
+        </loadData>
     </changeSet>
 </databaseChangeLog>

@@ -5,10 +5,6 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160501135446_added_entity_C_tax_rate.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160501135633_added_entity_Tax_concept.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160501135757_added_entity_Voucher_state.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160501135915_added_entity_Voucher_type.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501140728_added_entity_Tax_regime.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501140856_added_entity_Billing_account_state.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501141040_added_entity_Package_state.xml" relativeToChangelogFile="false"/>
@@ -29,8 +25,12 @@
     <include file="classpath:config/liquibase/changelog/20160512122702_added_entity_Package_transactions.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160525225043_added_entity_Mail_configuration.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501135246_added_entity_Measure_unit.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160428133638_added_entity_Archive_status.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160622160039_added_entity_Way_payment.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160622160320_added_entity_Payment_method.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160622164712_added_entity_Tax_types.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160622164831_added_entity_Cfdi_states.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160622164935_added_entity_Cfdi_types.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160622170334_added_entity_C_colony.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160622172937_added_entity_Free_emitter.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity C_colony.
+    -->
+    <changeSet id="20160622170334-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="c_location_id"
+                                 baseTableName="c_colony"
+                                 constraintName="fk_c_colony_c_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_location"/>
+
+    </changeSet>
+</databaseChangeLog>
