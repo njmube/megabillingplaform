@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "way_payment" : {
+            "home": {
+                "title": "Way Payments",
+                "createLabel": "Create a new Way Payment",
+                "createOrEditLabel": "Create or edit a Way Payment",
+                "search": "Search for Way Payment"
+            },
+            "created": "A new Way Payment is created with identifier {{ param }}",
+            "updated": "A Way Payment is updated with identifier {{ param }}",
+            "deleted": "A Way Payment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Way Payment {{ id }}?"
+            },
+            "detail": {
+                "title": "Way Payment"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

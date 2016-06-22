@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "payment_method" : {
+            "home": {
+                "title": "Payment Methods",
+                "createLabel": "Crear nuevo Payment Method",
+                "createOrEditLabel": "Crear o editar Payment Method",
+                "search": "Search for Payment Method"
+            },
+            "created": "Un nuevo Payment Method ha sido creado con el identificador {{ param }}",
+            "updated": "Un Payment Method ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Payment Method ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Payment Method {{ id }}?"
+            },
+            "detail": {
+                "title": "Payment Method"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}
