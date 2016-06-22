@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "cfdi_states" : {
             "home": {
-                "title": "Cfdi States",
-                "createLabel": "Crear nuevo Cfdi States",
-                "createOrEditLabel": "Crear o editar Cfdi States",
-                "search": "Search for Cfdi States"
+                "title": "Estados CFDI",
+                "createLabel": "Crear nuevo Estado CFDI",
+                "createOrEditLabel": "Crear o editar v",
+                "search": "Búsqueda para Estado CFDI"
             },
-            "created": "Un nuevo Cfdi States ha sido creado con el identificador {{ param }}",
-            "updated": "Un Cfdi States ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Cfdi States ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Estado CFDI ha sido creado con el identificador {{ param }}",
+            "updated": "Un Estado CFDI ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Estado CFDI ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Cfdi States {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Estado CFDI {{ id }}?"
             },
             "detail": {
-                "title": "Cfdi States"
+                "title": "Estado CFDI"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Nombre",
+            "description": "Descripción"
         }
     }
 }

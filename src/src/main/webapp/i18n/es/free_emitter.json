@@ -2,36 +2,36 @@
     "megabillingplatformApp": {
         "free_emitter" : {
             "home": {
-                "title": "Free Emitters",
-                "createLabel": "Crear nuevo Free Emitter",
-                "createOrEditLabel": "Crear o editar Free Emitter",
-                "search": "Search for Free Emitter"
+                "title": "Emisores",
+                "createLabel": "Crear nuevo Emisor",
+                "createOrEditLabel": "Crear o editar Emisor",
+                "search": "Búsqueda para Emisor"
             },
-            "created": "Un nuevo Free Emitter ha sido creado con el identificador {{ param }}",
-            "updated": "Un Free Emitter ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Free Emitter ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Emisor ha sido creado con el identificador {{ param }}",
+            "updated": "Un Emisor ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Emisor ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Free Emitter {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Emisor {{ id }}?"
             },
             "detail": {
-                "title": "Free Emitter"
+                "title": "Emisor"
             },
-            "rfc": "Rfc",
-            "name": "Name",
-            "email": "Email",
-            "path_certificate": "Path Certificate",
-            "private_key": "Private Key",
-            "reference": "Reference",
-            "num_in": "Num In",
-            "num_out": "Num Out",
-            "street": "Street",
-            "tax_regime": "Tax Regime",
-            "c_country": "C Country",
-            "c_state": "C State",
-            "c_municipality": "C Municipality",
-            "c_location": "C Location",
-            "c_colony": "C Colony",
-            "c_zip_code": "C Zip Code"
+            "rfc": "RFC",
+            "name": "Nombre",
+            "email": "Correo electrónico",
+            "path_certificate": "Ruta certificado",
+            "private_key": "Clave privada",
+            "reference": "Referencia",
+            "num_in": "No. interior",
+            "num_out": "No. exterior",
+            "street": "Calle",
+            "tax_regime": "Régimen Fiscal",
+            "c_country": "País",
+            "c_state": "Estado",
+            "c_municipality": "Municipio",
+            "c_location": "Localidad",
+            "c_colony": "Colonia",
+            "c_zip_code": "Código postal"
         }
     }
 }

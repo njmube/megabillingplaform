@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "cfdi_states" : {
             "home": {
-                "title": "Cfdi States",
-                "createLabel": "Create a new Cfdi States",
-                "createOrEditLabel": "Create or edit a Cfdi States",
-                "search": "Search for Cfdi States"
+                "title": "CFDI States",
+                "createLabel": "Create a new CFDI States",
+                "createOrEditLabel": "Create or edit a CFDI States",
+                "search": "Search for CFDI States"
             },
-            "created": "A new Cfdi States is created with identifier {{ param }}",
-            "updated": "A Cfdi States is updated with identifier {{ param }}",
-            "deleted": "A Cfdi States is deleted with identifier {{ param }}",
+            "created": "A new CFDI States is created with identifier {{ param }}",
+            "updated": "A CFDI States is updated with identifier {{ param }}",
+            "deleted": "A CFDI States is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Cfdi States {{ id }}?"
+                "question": "Are you sure you want to delete CFDI States {{ id }}?"
             },
             "detail": {
-                "title": "Cfdi States"
+                "title": "CFDI States"
             },
             "name": "Name",
             "description": "Description"

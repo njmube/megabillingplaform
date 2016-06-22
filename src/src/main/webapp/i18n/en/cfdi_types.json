@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "cfdi_types" : {
             "home": {
-                "title": "Cfdi Types",
-                "createLabel": "Create a new Cfdi Types",
-                "createOrEditLabel": "Create or edit a Cfdi Types",
-                "search": "Search for Cfdi Types"
+                "title": "CFDI Types",
+                "createLabel": "Create a new CFDI Types",
+                "createOrEditLabel": "Create or edit a CFDI Types",
+                "search": "Search for CFDI Types"
             },
-            "created": "A new Cfdi Types is created with identifier {{ param }}",
-            "updated": "A Cfdi Types is updated with identifier {{ param }}",
-            "deleted": "A Cfdi Types is deleted with identifier {{ param }}",
+            "created": "A new CFDI Types is created with identifier {{ param }}",
+            "updated": "A CFDI Types is updated with identifier {{ param }}",
+            "deleted": "A CFDI Types is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Cfdi Types {{ id }}?"
+                "question": "Are you sure you want to delete CFDI Types {{ id }}?"
             },
             "detail": {
-                "title": "Cfdi Types"
+                "title": "CFDI Types"
             },
             "name": "Name",
             "description": "Description"

@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "tax_types" : {
             "home": {
-                "title": "Tax Types",
-                "createLabel": "Crear nuevo Tax Types",
-                "createOrEditLabel": "Crear o editar Tax Types",
-                "search": "Search for Tax Types"
+                "title": "Tipos de impuesto",
+                "createLabel": "Crear nuevo Tipo de impuesto",
+                "createOrEditLabel": "Crear o editar Tipo de impuesto",
+                "search": "Búsqueda para Tipo de impuesto"
             },
-            "created": "Un nuevo Tax Types ha sido creado con el identificador {{ param }}",
-            "updated": "Un Tax Types ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Tax Types ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Tipo de impuesto ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tipo de impuesto ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tipo de impuesto ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Tax Types {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Tipo de impuesto {{ id }}?"
             },
             "detail": {
-                "title": "Tax Types"
+                "title": "Tipo de impuesto"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Nombre",
+            "description": "Descripción"
         }
     }
 }

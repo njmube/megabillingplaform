@@ -9,20 +9,15 @@
 
     function C_colonyDeleteController($uibModalInstance, entity, C_colony) {
         var vm = this;
-
         vm.c_colony = entity;
-        vm.clear = clear;
-        vm.confirmDelete = confirmDelete;
-        
-        function clear () {
+        vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
-        }
-
-        function confirmDelete (id) {
+        };
+        vm.confirmDelete = function (id) {
             C_colony.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });
-        }
+        };
     }
 })();

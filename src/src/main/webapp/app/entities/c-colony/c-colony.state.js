@@ -71,7 +71,7 @@
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'C_colony', function($stateParams, C_colony) {
-                    return C_colony.get({id : $stateParams.id}).$promise;
+                    return C_colony.get({id : $stateParams.id});
                 }]
             }
         })
@@ -119,7 +119,7 @@
                     size: 'lg',
                     resolve: {
                         entity: ['C_colony', function(C_colony) {
-                            return C_colony.get({id : $stateParams.id}).$promise;
+                            return C_colony.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {
@@ -143,7 +143,7 @@
                     size: 'md',
                     resolve: {
                         entity: ['C_colony', function(C_colony) {
-                            return C_colony.get({id : $stateParams.id}).$promise;
+                            return C_colony.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {

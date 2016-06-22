@@ -1,21 +1,23 @@
 
 <div>
-    <h2><span translate="megabillingplatformApp.c_colony.detail.title">C Colony</span> {{vm.c_colony.id}}</h2>
+    <h2><span translate="megabillingplatformApp.c_colony.detail.title">C_colony</span> {{vm.c_colony.id}}</h2>
     <hr>
-    <jhi-alert-error></jhi-alert-error>
-    <dl class="dl-horizontal jh-entity-details">
-        <dt><span translate="megabillingplatformApp.c_colony.name">Name</span></dt>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.c_colony.name">Name</dt></dt>
         <dd>
-            <span>{{vm.c_colony.name}}</span>
+            <span>{{vm.c_colony.name}}<span>
         </dd>
-        <dt><span translate="megabillingplatformApp.c_colony.description">Description</span></dt>
+        <hr>
+        <dt><span translate="megabillingplatformApp.c_colony.description">Description</dt></dt>
         <dd>
-            <span>{{vm.c_colony.description}}</span>
+            <span>{{vm.c_colony.description}}<span>
         </dd>
-        <dt><span translate="megabillingplatformApp.c_colony.c_location">C Location</span></dt>
+        <hr>
+        <dt><span translate="megabillingplatformApp.c_colony.c_location">c_location</span></dt>
         <dd>
             <a ui-sref="c-location-detail({id:vm.c_colony.c_location.id})">{{vm.c_colony.c_location.name}}</a>
         </dd>
+        <hr>
     </dl>
 
     <button type="submit"

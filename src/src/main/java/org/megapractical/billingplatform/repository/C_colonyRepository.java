@@ -9,7 +9,6 @@ import java.util.List;
 /**
  * Spring Data JPA repository for the C_colony entity.
  */
-@SuppressWarnings("unused")
 public interface C_colonyRepository extends JpaRepository<C_colony,Long> {
 
 }

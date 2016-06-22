@@ -9,13 +9,12 @@
 
     function C_colonyController ($scope, $state, C_colony, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
-        
+        vm.loadAll = loadAll;
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
-
-        loadAll();
+        vm.loadAll();
 
         function loadAll () {
             C_colony.query({
@@ -54,5 +53,6 @@
                 search: vm.currentSearch
             });
         }
+
     }
 })();
