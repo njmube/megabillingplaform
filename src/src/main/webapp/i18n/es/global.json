@@ -26,6 +26,8 @@
                 "measure.unit": "Unidades de Medida",
                 "tax.concept": "Impuestos x Concepto",
                 "reports": "Reportes",
+                "wayPayment": "Way Payment",
+                "paymentMethod": "Payment Method",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
