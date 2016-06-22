@@ -12,33 +12,6 @@
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group">
-            <label class="control-label" translate="userManagement.login">Login</label>
-            <input type="text" class="form-control" name="login"
-                   ng-model="vm.user.login" ng-required="vm.user.id == null" ng-maxlength="50" ng-minlength="1"
-                   ng-pattern="/^[a-z0-9]*$/" required>
-            <div ng-show="editForm.login.$dirty && editForm.login.$invalid">
-                <p class="help-block"
-                   ng-show="editForm.login.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                   ng-show="editForm.login.$error.minlength" translate="entity.validation.minlength"
-                   translate-value-min="1">
-                    This field is required to be at least 1 character.
-                </p>
-                <p class="help-block"
-                   ng-show="editForm.login.$error.maxlength" translate="entity.validation.maxlength"
-                   translate-value-max="50">
-                    This field cannot be longer than 50 characters.
-                </p>
-                <p class="help-block"
-                   ng-show="editForm.login.$error.pattern" translate="entity.validation.pattern"
-                   translate-value-pattern="[a-z0-9]*$">
-                    RFC format is incorrect.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
             <label class="control-label" translate="userManagement.rfc">RFC</label>
             <input type="text" class="form-control" name="rfc"
                    ng-model="vm.user.rfc" required ng-minlength="12" ng-maxlength="13"
@@ -129,9 +102,36 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="control-label" translate="userManagement.login">Login</label>
+            <input type="text" class="form-control" name="login"
+                   ng-model="vm.user.login" ng-required="vm.user.id == null" ng-maxlength="50" ng-minlength="1"
+                   ng-pattern="/^[a-z0-9]*$/" required>
+            <div ng-show="editForm.login.$dirty && editForm.login.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.login.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.login.$error.minlength" translate="entity.validation.minlength"
+                   translate-value-min="1">
+                    This field is required to be at least 1 character.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.login.$error.maxlength" translate="entity.validation.maxlength"
+                   translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.login.$error.pattern" translate="entity.validation.pattern"
+                   translate-value-pattern="[a-z0-9]*$">
+                    RFC format is incorrect.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="control-label" translate="userManagement.email">Email</label>
             <input type="email" class="form-control" name="email"
-                   ng-model="vm.user.email" required ng-maxlength="254" ng-minlength="6">
+                   ng-model="vm.user.email" required ng-maxlength="254" ng-minlength="6" ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/">
             <div ng-show="editForm.email.$dirty && editForm.email.$invalid">
                 <p class="help-block"
                    ng-show="editForm.email.$error.required" translate="entity.validation.required">
@@ -147,16 +147,16 @@
                    translate-value-max="254">
                     This field cannot be longer than 254 characters.
                 </p>
-				<p class="help-block"
-                   ng-show="editForm.email.$error.email" translate="global.messages.validate.email.invalid">
+                <p class="help-block"
+                   ng-show="form.email.$error.pattern" translate="global.messages.validate.email.pattern">
                     Your e-mail is invalid.
-                 </p>
+                </p>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label" for="password" translate="global.form.newpassword">New password</label>
             <input type="password" class="form-control" id="password" name="password" placeholder="{{'global.form.newpassword.placeholder' | translate}}"
-                   ng-model="vm.user.password" ng-minlength=8 ng-maxlength=50 required>
+                   ng-model="vm.user.password" ng-minlength=8 ng-maxlength=50 required ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($‌​)$-$_]{8,50}$/">
             <div ng-show="editForm.password.$dirty && editForm.password.$invalid">
                 <p class="help-block"
                    ng-show="editForm.password.$error.required" translate="global.messages.validate.newpassword.required">
@@ -169,6 +169,10 @@
                 <p class="help-block"
                    ng-show="editForm.password.$error.maxlength" translate="global.messages.validate.newpassword.maxlength">
                     Your password cannot be longer than 50 characters.
+                </p>
+                <p class="help-block"
+                   ng-show="form.password.$error.pattern" translate="global.messages.validate.newpassword.pattern">
+                    Pattern incorrect.
                 </p>
             </div>
             <password-strength-bar password-to-check="vm.user.password"></password-strength-bar>

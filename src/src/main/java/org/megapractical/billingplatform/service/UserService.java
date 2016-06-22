@@ -89,74 +89,60 @@ public class UserService {
 
     public String sugestionUserLogin(String name, String firtsurname, String secondsurname){
         String suguser = "";
+        ArrayList<String> list = new ArrayList<String>(10);
         boolean find = false;
 
-        if(name.isEmpty()){
-            if(firtsurname.isEmpty()){
+        //Generacion de posibles users: name, namefs, nfirstsurname, firstsurname, nfsecondsurname, secondsurname
+        if(name.isEmpty()|| name == null){
+            if(firtsurname.isEmpty() || firtsurname == null){
                 if(secondsurname.isEmpty()){
-                    suguser = "user";
+                    list.add("user");
                 }else
                 {
-                    suguser = secondsurname;
+                    list.add(secondsurname);
                 }
             }else
             {
-                suguser = firtsurname;
+                list.add(firtsurname);
             }
         }else {
-            suguser = name;
-        }
-        Optional<User> user;
-        if(!name.isEmpty()){
-            //se comprueba si existe el user
-            user = userRepository.findOneByLogin(suguser);
-            if(user.isPresent()){
-                if(!firtsurname.isEmpty()){
-                    String firtletter = firtsurname.substring(0,0);
-                    suguser = suguser + firtletter;
-                    //Se comprueba si existe el user
-                    user = userRepository.findOneByLogin(suguser);
-                    if(user.isPresent()){
-                        if(!secondsurname.isEmpty()){
-                            String secondletter = secondsurname.substring(0,0);
-                            suguser = suguser + secondletter;
-                            //Se comprueba si existe el user
-                            user = userRepository.findOneByLogin(suguser);
-                            if(user.isPresent()){
-                                for(int i = 1;i<10000;i++){
-                                    String tempsuguser = suguser + i;
-                                    user = userRepository.findOneByLogin(tempsuguser);
-                                    if(!user.isPresent()){
-                                        suguser = tempsuguser;
-                                        break;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }else {
-                    for(int i = 1;i<10000;i++){
-                        String tempsuguser = suguser + i;
-                        user = userRepository.findOneByLogin(tempsuguser);
-                        if(!user.isPresent()){
-                            suguser = tempsuguser;
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        else {
-            for(int i = 1;i<10000;i++){
-                String tempsuguser = suguser + i;
-                user = userRepository.findOneByLogin(tempsuguser);
-                if(!user.isPresent()){
-                    suguser = tempsuguser;
-                    break;
+            list.add(name);
+            if(!firtsurname.isEmpty() && firtsurname != null)
+            {
+                list.add(name.substring(0,0)+firtsurname);
+                list.add(firtsurname);
+                if(!secondsurname.isEmpty() && secondsurname != null)
+                {
+                    list.add(name+firtsurname.substring(0,0)+secondsurname.substring(0,0));
+                    list.add(name.substring(0,0)+firtsurname.substring(0,0)+secondsurname);
+                    list.add(secondsurname);
                 }
             }
         }
 
+        //Verificacion de los user generados
+
+        Optional<User> user;
+        for(int i = 0;i < list.size();i++){
+            user = userRepository.findOneByLogin(list.get(i));
+            if(user.isPresent())
+            {
+                for(int ii = 1;ii<10000;ii++){
+                    String tempsuguser = list.get(i) + ii;
+                    user = userRepository.findOneByLogin(tempsuguser);
+                    if(!user.isPresent()){
+                        list.set(i,tempsuguser);
+                        break;
+                    }
+                }
+            }
+        }
+        if(list.size()>0){
+            suguser = list.get(0);
+            for(int i = 1;i < list.size();i++){
+                suguser = suguser + ", "+list.get(i);
+            }
+        }
         return suguser;
     }
 
