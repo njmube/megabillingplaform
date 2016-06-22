@@ -50,7 +50,6 @@ public class UserDTO {
     @Size(min = 1, max = 15)
     private String phone;
 
-    @NotNull
     private String gender;
 
     private boolean activated = false;
