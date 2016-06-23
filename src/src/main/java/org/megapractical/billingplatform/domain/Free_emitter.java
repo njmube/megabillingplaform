@@ -44,7 +44,7 @@ public class Free_emitter implements Serializable {
     @Column(name = "path_certificate", nullable = false)
     private byte[] path_certificate;
 
-    @Column(name = "path_certificate_content_type", nullable = false)
+    @Column(name = "path_certificate_content_type", nullable = false)    
     private String path_certificateContentType;
 
     @NotNull
@@ -52,7 +52,7 @@ public class Free_emitter implements Serializable {
     @Column(name = "private_key", nullable = false)
     private byte[] private_key;
 
-    @Column(name = "private_key_content_type", nullable = false)
+    @Column(name = "private_key_content_type", nullable = false)    
     private String private_keyContentType;
 
     @Column(name = "reference")
@@ -88,6 +88,10 @@ public class Free_emitter implements Serializable {
 
     @ManyToOne
     private C_zip_code c_zip_code;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private User user;
 
     public Long getId() {
         return id;
@@ -239,6 +243,14 @@ public class Free_emitter implements Serializable {
 
     public void setC_zip_code(C_zip_code c_zip_code) {
         this.c_zip_code = c_zip_code;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

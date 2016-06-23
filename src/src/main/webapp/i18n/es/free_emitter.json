@@ -31,7 +31,8 @@
             "c_municipality": "Municipio",
             "c_location": "Localidad",
             "c_colony": "Colonia",
-            "c_zip_code": "Código postal"
+            "c_zip_code": "Código postal",
+            "user": "Usuario"
         }
     }
 }

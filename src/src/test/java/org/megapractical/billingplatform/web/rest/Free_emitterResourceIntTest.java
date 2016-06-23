@@ -43,12 +43,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class Free_emitterResourceIntTest {
 
-    private static final String DEFAULT_RFC = "AAA121234ZZL";
-    private static final String UPDATED_RFC = "AAA121234ZZH";
+    private static final String DEFAULT_RFC = "AAAAAAAAAAAA";
+    private static final String UPDATED_RFC = "BBBBBBBBBBBB";
     private static final String DEFAULT_NAME = "AAA";
     private static final String UPDATED_NAME = "BBB";
-    private static final String DEFAULT_EMAIL = "a@a.ab";
-    private static final String UPDATED_EMAIL = "b@a.ab";
+    private static final String DEFAULT_EMAIL = "AAAAAA";
+    private static final String UPDATED_EMAIL = "BBBBBB";
 
     private static final byte[] DEFAULT_PATH_CERTIFICATE = TestUtil.createByteArray(1, "0");
     private static final byte[] UPDATED_PATH_CERTIFICATE = TestUtil.createByteArray(2, "1");
@@ -61,10 +61,10 @@ public class Free_emitterResourceIntTest {
     private static final String UPDATED_PRIVATE_KEY_CONTENT_TYPE = "image/png";
     private static final String DEFAULT_REFERENCE = "AAAAA";
     private static final String UPDATED_REFERENCE = "BBBBB";
-    private static final String DEFAULT_NUM_IN = "1";
-    private static final String UPDATED_NUM_IN = "2";
-    private static final String DEFAULT_NUM_OUT = "3";
-    private static final String UPDATED_NUM_OUT = "4";
+    private static final String DEFAULT_NUM_IN = "AAAAA";
+    private static final String UPDATED_NUM_IN = "BBBBB";
+    private static final String DEFAULT_NUM_OUT = "AAAAA";
+    private static final String UPDATED_NUM_OUT = "BBBBB";
     private static final String DEFAULT_STREET = "AAAAA";
     private static final String UPDATED_STREET = "BBBBB";
 

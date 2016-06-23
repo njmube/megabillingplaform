@@ -71,7 +71,7 @@
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Free_emitter', function($stateParams, Free_emitter) {
-                    return Free_emitter.get({id : $stateParams.id}).$promise;
+                    return Free_emitter.get({id : $stateParams.id});
                 }]
             }
         })
@@ -128,7 +128,7 @@
                     size: 'lg',
                     resolve: {
                         entity: ['Free_emitter', function(Free_emitter) {
-                            return Free_emitter.get({id : $stateParams.id}).$promise;
+                            return Free_emitter.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {
@@ -152,7 +152,7 @@
                     size: 'md',
                     resolve: {
                         entity: ['Free_emitter', function(Free_emitter) {
-                            return Free_emitter.get({id : $stateParams.id}).$promise;
+                            return Free_emitter.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {

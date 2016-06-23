@@ -9,20 +9,15 @@
 
     function Free_emitterDeleteController($uibModalInstance, entity, Free_emitter) {
         var vm = this;
-
         vm.free_emitter = entity;
-        vm.clear = clear;
-        vm.confirmDelete = confirmDelete;
-        
-        function clear () {
+        vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
-        }
-
-        function confirmDelete (id) {
+        };
+        vm.confirmDelete = function (id) {
             Free_emitter.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });
-        }
+        };
     }
 })();

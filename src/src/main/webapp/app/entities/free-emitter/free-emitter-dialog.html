@@ -4,17 +4,17 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myFree_emitterLabel" translate="megabillingplatformApp.free_emitter.home.createOrEditLabel">Create or edit a Free Emitter</h4>
+        <h4 class="modal-title" id="myFree_emitterLabel" translate="megabillingplatformApp.free_emitter.home.createOrEditLabel">Create or edit a Free_emitter</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.free_emitter.id">
+        <div class="form-group">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.free_emitter.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_emitter.rfc" for="field_rfc">Rfc</label>
+            <label class="control-label" translate="megabillingplatformApp.free_emitter.rfc" for="field_rfc">RFC</label>
             <input type="text" class="form-control" name="rfc" id="field_rfc"
                     ng-model="vm.free_emitter.rfc"
                     required ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?/" />
@@ -58,6 +58,12 @@
             </div>
         </div>
         <div class="form-group">
+            <label translate="megabillingplatformApp.free_emitter.tax_regime" for="field_tax_regime">Tax regime</label>
+            <select class="form-control" id="field_tax_regime" name="tax_regime" ng-model="vm.free_emitter.tax_regime" ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimes track by tax_regime.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
             <label class="control-label" translate="megabillingplatformApp.free_emitter.email" for="field_email">Email</label>
             <input type="text" class="form-control" name="email" id="field_email"
                     ng-model="vm.free_emitter.email"
@@ -82,12 +88,13 @@
             </div>
         </div>
         <div class="form-group" ngf-drop ngf-change="vm.setPath_certificate($file, vm.free_emitter)">
-            <label class="control-label" translate="megabillingplatformApp.free_emitter.path_certificate" for="field_path_certificate">Path Certificate</label>
+            <label class="control-label" translate="megabillingplatformApp.free_emitter.path_certificate" for="field_path_certificate">Path_certificate</label>
             <div>
-                <div ng-if="vm.free_emitter.path_certificate" class="help-block clearfix">
-                    <a class="pull-left" ng-click="vm.openFile(vm.free_emitter.path_certificateContentType, vm.free_emitter.path_certificate)" translate="entity.action.open">open</a><br>
-                    <span class="pull-left">{{vm.free_emitter.path_certificateContentType}}, {{vm.byteSize(vm.free_emitter.path_certificate)}}</span>
+                <div class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.free_emitter.path_certificateContentType, vm.free_emitter.path_certificate)" ng-if="vm.free_emitter.path_certificate" target="_blank">open</a><br>
+                    <span class="pull-left">{{vm.free_emitter.path_certificateContentType}}, {{byteSize(vm.free_emitter.path_certificate)}}</span>
                     <button ng-click="vm.free_emitter.path_certificate=null;vm.free_emitter.path_certificateContentType=null;"
+                            ng-if="vm.free_emitter.path_certificate"
                             class="btn btn-default btn-xs pull-right">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
@@ -110,12 +117,13 @@
             </div>
         </div>
         <div class="form-group" ngf-drop ngf-change="vm.setPrivate_key($file, vm.free_emitter)">
-            <label class="control-label" translate="megabillingplatformApp.free_emitter.private_key" for="field_private_key">Private Key</label>
+            <label class="control-label" translate="megabillingplatformApp.free_emitter.private_key" for="field_private_key">Private_key</label>
             <div>
-                <div ng-if="vm.free_emitter.private_key" class="help-block clearfix">
-                    <a class="pull-left" ng-click="vm.openFile(vm.free_emitter.private_keyContentType, vm.free_emitter.private_key)" translate="entity.action.open">open</a><br>
-                    <span class="pull-left">{{vm.free_emitter.private_keyContentType}}, {{vm.byteSize(vm.free_emitter.private_key)}}</span>
+                <div class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.free_emitter.private_keyContentType, vm.free_emitter.private_key)" ng-if="vm.free_emitter.private_key" target="_blank">open</a><br>
+                    <span class="pull-left">{{vm.free_emitter.private_keyContentType}}, {{byteSize(vm.free_emitter.private_key)}}</span>
                     <button ng-click="vm.free_emitter.private_key=null;vm.free_emitter.private_keyContentType=null;"
+                            ng-if="vm.free_emitter.private_key"
                             class="btn btn-default btn-xs pull-right">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
@@ -137,76 +145,76 @@
                 </p>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_emitter.reference" for="field_reference">Reference</label>
-            <input type="text" class="form-control" name="reference" id="field_reference"
-                    ng-model="vm.free_emitter.reference"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_emitter.num_in" for="field_num_in">Num In</label>
-            <input type="text" class="form-control" name="num_in" id="field_num_in"
-                    ng-model="vm.free_emitter.num_in"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_emitter.num_out" for="field_num_out">Num Out</label>
-            <input type="text" class="form-control" name="num_out" id="field_num_out"
-                    ng-model="vm.free_emitter.num_out"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_emitter.street" for="field_street">Street</label>
-            <input type="text" class="form-control" name="street" id="field_street"
-                    ng-model="vm.free_emitter.street"
-                    required />
-            <div ng-show="editForm.street.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.street.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
 
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_emitter.tax_regime" for="field_tax_regime">Tax Regime</label>
-            <select class="form-control" id="field_tax_regime" name="tax_regime" ng-model="vm.free_emitter.tax_regime" ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimes track by tax_regime.id">
+            <label translate="megabillingplatformApp.free_emitter.c_country" for="field_c_country">Country</label>
+            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.free_emitter.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countrys track by c_country.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_emitter.c_country" for="field_c_country">C Country</label>
-            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.free_emitter.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countries track by c_country.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="megabillingplatformApp.free_emitter.c_state" for="field_c_state">C State</label>
+            <label translate="megabillingplatformApp.free_emitter.c_state" for="field_c_state">State</label>
             <select class="form-control" id="field_c_state" name="c_state" ng-model="vm.free_emitter.c_state" ng-options="c_state as c_state.name for c_state in vm.c_states track by c_state.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_emitter.c_municipality" for="field_c_municipality">C Municipality</label>
-            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_emitter.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalities track by c_municipality.id">
+            <label translate="megabillingplatformApp.free_emitter.c_municipality" for="field_c_municipality">c_municipality</label>
+            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_emitter.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_emitter.c_location" for="field_c_location">C Location</label>
+            <label translate="megabillingplatformApp.free_emitter.c_location" for="field_c_location">Location</label>
             <select class="form-control" id="field_c_location" name="c_location" ng-model="vm.free_emitter.c_location" ng-options="c_location as c_location.name for c_location in vm.c_locations track by c_location.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_emitter.c_colony" for="field_c_colony">C Colony</label>
-            <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_emitter.c_colony" ng-options="c_colony as c_colony.name for c_colony in vm.c_colonies track by c_colony.id">
+            <label translate="megabillingplatformApp.free_emitter.c_colony" for="field_c_colony">Colony</label>
+            <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_emitter.c_colony" ng-options="c_colony as c_colony.name for c_colony in vm.c_colonys track by c_colony.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_emitter.c_zip_code" for="field_c_zip_code">C Zip Code</label>
+            <label translate="megabillingplatformApp.free_emitter.c_zip_code" for="field_c_zip_code">Zip code</label>
             <select class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.free_emitter.c_zip_code" ng-options="c_zip_code as c_zip_code.postcode for c_zip_code in vm.c_zip_codes track by c_zip_code.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_emitter.reference" for="field_reference">Reference</label>
+            <input type="text" class="form-control" name="reference" id="field_reference"
+                   ng-model="vm.free_emitter.reference"
+                />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_emitter.num_in" for="field_num_in">Num in</label>
+            <input type="text" class="form-control" name="num_in" id="field_num_in"
+                   ng-model="vm.free_emitter.num_in"
+                />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_emitter.num_out" for="field_num_out">Num out</label>
+            <input type="text" class="form-control" name="num_out" id="field_num_out"
+                   ng-model="vm.free_emitter.num_out"
+                />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_emitter.street" for="field_street">Street</label>
+            <input type="text" class="form-control" name="street" id="field_street"
+                   ng-model="vm.free_emitter.street"
+                   required />
+            <div ng-show="editForm.street.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.street.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.free_emitter.user" for="field_user">user</label>
+            <select class="form-control" id="field_user" name="user" ng-model="vm.free_emitter.user" ng-options="user as user.login for user in vm.users track by user.id">
                 <option value=""></option>
             </select>
         </div>
@@ -215,7 +223,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
         </button>
     </div>
