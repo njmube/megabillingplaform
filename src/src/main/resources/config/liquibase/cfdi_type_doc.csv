@@ -1,0 +1,5 @@
+id;name;description
+1;Factura  ;CFDI de tipo Factura
+2;Nómina  ;CFDI de tipo Nómina  
+3;Nota Débito  ; CFDI de tipo Nota Débito
+4;Nota Crédito  ; CFDI de tipo Nota Crédito
