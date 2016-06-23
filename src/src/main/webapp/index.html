@@ -150,8 +150,8 @@
                 </li>
 
                 <li class="">
-                    <a href="#/voucher-state">
-                        <span class="menu-text">{{'global.menu.entities.voucher.state' | translate}}</span>
+                    <a href="#/cfdi-states">
+                        <span class="menu-text">{{'global.menu.entities.cfdi.state' | translate}}</span>
                     </a>
                     <b class="arrow"></b>
                 </li>
@@ -199,8 +199,8 @@
                 </li>
 
                 <li class="">
-                    <a href="#/voucher-type">
-                        <span class="menu-text">{{'global.menu.entities.voucher.type' | translate}}</span>
+                    <a href="#/cfdi-types">
+                        <span class="menu-text">{{'global.menu.entities.cfdi.type' | translate}}</span>
                     </a>
                     <b class="arrow"></b>
                 </li>
@@ -295,6 +295,14 @@
                             <a href="#/c-location">
                                 <i class="menu-icon fa fa-caret-right"></i>
                                 {{'global.menu.admin.cLocation' | translate}}
+                            </a>
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li class="">
+                            <a href="#/c-colony">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                {{'global.menu.admin.cColony' | translate}}
                             </a>
                             <b class="arrow"></b>
                         </li>
@@ -488,54 +496,30 @@
     <script src="app/layouts/footer/footer.controller.js"></script>
     <script src="app/layouts/error/error.state.js"></script>
     <script src="app/layouts/breadcrumbs/breadcrumbs.controller.js"></script>
-    <script src="app/entities/tax-regime/tax-regime.state.js"></script>
-    <script src="app/entities/tax-regime/tax-regime.service.js"></script>
-    <script src="app/entities/tax-regime/tax-regime.controller.js"></script>
-    <script src="app/entities/tax-regime/tax-regime-dialog.controller.js"></script>
-    <script src="app/entities/tax-regime/tax-regime-detail.controller.js"></script>
-    <script src="app/entities/tax-regime/tax-regime-delete-dialog.controller.js"></script>
     <script src="app/entities/way-payment/way-payment.state.js"></script>
     <script src="app/entities/way-payment/way-payment.service.js"></script>
     <script src="app/entities/way-payment/way-payment.controller.js"></script>
     <script src="app/entities/way-payment/way-payment-dialog.controller.js"></script>
     <script src="app/entities/way-payment/way-payment-detail.controller.js"></script>
     <script src="app/entities/way-payment/way-payment-delete-dialog.controller.js"></script>
-    <script src="app/entities/cfdi-types/cfdi-types.state.js"></script>
-    <script src="app/entities/cfdi-types/cfdi-types.service.js"></script>
-    <script src="app/entities/cfdi-types/cfdi-types.controller.js"></script>
-    <script src="app/entities/cfdi-types/cfdi-types-dialog.controller.js"></script>
-    <script src="app/entities/cfdi-types/cfdi-types-detail.controller.js"></script>
-    <script src="app/entities/cfdi-types/cfdi-types-delete-dialog.controller.js"></script>
-    <script src="app/entities/cfdi-states/cfdi-states.state.js"></script>
-    <script src="app/entities/cfdi-states/cfdi-states.service.js"></script>
-    <script src="app/entities/cfdi-states/cfdi-states.controller.js"></script>
-    <script src="app/entities/cfdi-states/cfdi-states-dialog.controller.js"></script>
-    <script src="app/entities/cfdi-states/cfdi-states-detail.controller.js"></script>
-    <script src="app/entities/cfdi-states/cfdi-states-delete-dialog.controller.js"></script>
     <script src="app/entities/tax-types/tax-types.state.js"></script>
     <script src="app/entities/tax-types/tax-types.service.js"></script>
     <script src="app/entities/tax-types/tax-types.controller.js"></script>
     <script src="app/entities/tax-types/tax-types-dialog.controller.js"></script>
     <script src="app/entities/tax-types/tax-types-detail.controller.js"></script>
     <script src="app/entities/tax-types/tax-types-delete-dialog.controller.js"></script>
-    <script src="app/entities/payment-method/payment-method.state.js"></script>
-    <script src="app/entities/payment-method/payment-method.service.js"></script>
-    <script src="app/entities/payment-method/payment-method.controller.js"></script>
-    <script src="app/entities/payment-method/payment-method-dialog.controller.js"></script>
-    <script src="app/entities/payment-method/payment-method-detail.controller.js"></script>
-    <script src="app/entities/payment-method/payment-method-delete-dialog.controller.js"></script>
-    <script src="app/entities/free-emitter/free-emitter.state.js"></script>
-    <script src="app/entities/free-emitter/free-emitter.service.js"></script>
-    <script src="app/entities/free-emitter/free-emitter.controller.js"></script>
-    <script src="app/entities/free-emitter/free-emitter-dialog.controller.js"></script>
-    <script src="app/entities/free-emitter/free-emitter-detail.controller.js"></script>
-    <script src="app/entities/free-emitter/free-emitter-delete-dialog.controller.js"></script>
     <script src="app/entities/task/task.state.js"></script>
     <script src="app/entities/task/task.service.js"></script>
     <script src="app/entities/task/task.controller.js"></script>
     <script src="app/entities/task/task-dialog.controller.js"></script>
     <script src="app/entities/task/task-detail.controller.js"></script>
     <script src="app/entities/task/task-delete-dialog.controller.js"></script>
+    <script src="app/entities/tax-regime/tax-regime.state.js"></script>
+    <script src="app/entities/tax-regime/tax-regime.service.js"></script>
+    <script src="app/entities/tax-regime/tax-regime.controller.js"></script>
+    <script src="app/entities/tax-regime/tax-regime-dialog.controller.js"></script>
+    <script src="app/entities/tax-regime/tax-regime-detail.controller.js"></script>
+    <script src="app/entities/tax-regime/tax-regime-delete-dialog.controller.js"></script>
     <script src="app/entities/services/services.state.js"></script>
     <script src="app/entities/services/services.service.js"></script>
     <script src="app/entities/services/services.controller.js"></script>
@@ -548,6 +532,12 @@
     <script src="app/entities/request-state/request-state-dialog.controller.js"></script>
     <script src="app/entities/request-state/request-state-detail.controller.js"></script>
     <script src="app/entities/request-state/request-state-delete-dialog.controller.js"></script>
+    <script src="app/entities/payment-method/payment-method.state.js"></script>
+    <script src="app/entities/payment-method/payment-method.service.js"></script>
+    <script src="app/entities/payment-method/payment-method.controller.js"></script>
+    <script src="app/entities/payment-method/payment-method-dialog.controller.js"></script>
+    <script src="app/entities/payment-method/payment-method-detail.controller.js"></script>
+    <script src="app/entities/payment-method/payment-method-delete-dialog.controller.js"></script>
     <script src="app/entities/package-transactions/package-transactions.state.js"></script>
     <script src="app/entities/package-transactions/package-transactions.service.js"></script>
     <script src="app/entities/package-transactions/package-transactions.controller.js"></script>
@@ -578,6 +568,12 @@
     <script src="app/entities/general-data/general-data-dialog.controller.js"></script>
     <script src="app/entities/general-data/general-data-detail.controller.js"></script>
     <script src="app/entities/general-data/general-data-delete-dialog.controller.js"></script>
+    <script src="app/entities/free-emitter/free-emitter.state.js"></script>
+    <script src="app/entities/free-emitter/free-emitter.service.js"></script>
+    <script src="app/entities/free-emitter/free-emitter.controller.js"></script>
+    <script src="app/entities/free-emitter/free-emitter-dialog.controller.js"></script>
+    <script src="app/entities/free-emitter/free-emitter-detail.controller.js"></script>
+    <script src="app/entities/free-emitter/free-emitter-delete-dialog.controller.js"></script>
     <script src="app/entities/file-type/file-type.state.js"></script>
     <script src="app/entities/file-type/file-type.service.js"></script>
     <script src="app/entities/file-type/file-type.controller.js"></script>
@@ -602,19 +598,31 @@
     <script src="app/entities/digital-certificate/digital-certificate-dialog.controller.js"></script>
     <script src="app/entities/digital-certificate/digital-certificate-detail.controller.js"></script>
     <script src="app/entities/digital-certificate/digital-certificate-delete-dialog.controller.js"></script>
+    <script src="app/entities/cfdi-types/cfdi-types.state.js"></script>
+    <script src="app/entities/cfdi-types/cfdi-types.service.js"></script>
+    <script src="app/entities/cfdi-types/cfdi-types.controller.js"></script>
+    <script src="app/entities/cfdi-types/cfdi-types-dialog.controller.js"></script>
+    <script src="app/entities/cfdi-types/cfdi-types-detail.controller.js"></script>
+    <script src="app/entities/cfdi-types/cfdi-types-delete-dialog.controller.js"></script>
     <script src="app/entities/cfdi-template/cfdi-template.state.js"></script>
     <script src="app/entities/cfdi-template/cfdi-template.service.js"></script>
     <script src="app/entities/cfdi-template/cfdi-template.controller.js"></script>
     <script src="app/entities/cfdi-template/cfdi-template-dialog.controller.js"></script>
     <script src="app/entities/cfdi-template/cfdi-template-detail.controller.js"></script>
     <script src="app/entities/cfdi-template/cfdi-template-delete-dialog.controller.js"></script>
+    <script src="app/entities/cfdi-states/cfdi-states.state.js"></script>
+    <script src="app/entities/cfdi-states/cfdi-states.service.js"></script>
+    <script src="app/entities/cfdi-states/cfdi-states.controller.js"></script>
+    <script src="app/entities/cfdi-states/cfdi-states-dialog.controller.js"></script>
+    <script src="app/entities/cfdi-states/cfdi-states-detail.controller.js"></script>
+    <script src="app/entities/cfdi-states/cfdi-states-delete-dialog.controller.js"></script>
     <script src="app/entities/c-zip-code/c-zip-code.state.js"></script>
     <script src="app/entities/c-zip-code/c-zip-code.service.js"></script>
     <script src="app/entities/c-zip-code/c-zip-code.controller.js"></script>
     <script src="app/entities/c-zip-code/c-zip-code-dialog.controller.js"></script>
     <script src="app/entities/c-zip-code/c-zip-code-detail.controller.js"></script>
     <script src="app/entities/c-zip-code/c-zip-code-delete-dialog.controller.js"></script>
-   <script src="app/entities/c-state/c-state.state.js"></script>
+    <script src="app/entities/c-state/c-state.state.js"></script>
     <script src="app/entities/c-state/c-state.service.js"></script>
     <script src="app/entities/c-state/c-state.controller.js"></script>
     <script src="app/entities/c-state/c-state-dialog.controller.js"></script>
@@ -632,18 +640,18 @@
     <script src="app/entities/c-location/c-location-dialog.controller.js"></script>
     <script src="app/entities/c-location/c-location-detail.controller.js"></script>
     <script src="app/entities/c-location/c-location-delete-dialog.controller.js"></script>
-    <script src="app/entities/c-colony/c-colony.state.js"></script>
-    <script src="app/entities/c-colony/c-colony.service.js"></script>
-    <script src="app/entities/c-colony/c-colony.controller.js"></script>
-    <script src="app/entities/c-colony/c-colony-dialog.controller.js"></script>
-    <script src="app/entities/c-colony/c-colony-detail.controller.js"></script>
-    <script src="app/entities/c-colony/c-colony-delete-dialog.controller.js"></script>
     <script src="app/entities/c-country/c-country.state.js"></script>
     <script src="app/entities/c-country/c-country.service.js"></script>
     <script src="app/entities/c-country/c-country.controller.js"></script>
     <script src="app/entities/c-country/c-country-dialog.controller.js"></script>
     <script src="app/entities/c-country/c-country-detail.controller.js"></script>
     <script src="app/entities/c-country/c-country-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-colony/c-colony.state.js"></script>
+    <script src="app/entities/c-colony/c-colony.service.js"></script>
+    <script src="app/entities/c-colony/c-colony.controller.js"></script>
+    <script src="app/entities/c-colony/c-colony-dialog.controller.js"></script>
+    <script src="app/entities/c-colony/c-colony-detail.controller.js"></script>
+    <script src="app/entities/c-colony/c-colony-delete-dialog.controller.js"></script>
     <script src="app/entities/billing-account-state/billing-account-state.state.js"></script>
     <script src="app/entities/billing-account-state/billing-account-state.service.js"></script>
     <script src="app/entities/billing-account-state/billing-account-state.controller.js"></script>
@@ -728,11 +736,12 @@
     <script src="app/account/account.state.js"></script>
     <script src="app/app.state.js"></script>
     <script src="app/app.constants.js"></script>
+    <script src="app/layouts/breadcrumbs/breadcrumbs.controller.js"></script>
+    <script src="app/layouts/footer/footer.controller.js"></script>
     <!-- endinject -->
     <!-- endbuild -->
 
-	<script src="app/layouts/breadcrumbs/breadcrumbs.controller.js"></script>
-	<script src="app/layouts/footer/footer.controller.js"></script>
+
 
 	<!-- basic scripts -->
 
