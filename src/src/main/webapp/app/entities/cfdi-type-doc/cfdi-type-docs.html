@@ -1,0 +1,62 @@
+<div>
+    <h2 translate="megabillingplatformApp.cfdi_type_doc.home.title">Cfdi_type_docs</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="cfdi-type-doc.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.cfdi_type_doc.home.createLabel">
+                        Create new Cfdi_type_doc
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="megabillingplatformApp.cfdi_type_doc.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span translate="megabillingplatformApp.cfdi_type_doc.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cfdi_type_doc in vm.cfdi_type_docs track by cfdi_type_doc.id">
+                    <td><a ui-sref="cfdi-type-doc-detail({id:cfdi_type_doc.id})">{{cfdi_type_doc.id}}</a></td>
+                    <td>{{cfdi_type_doc.name}}</td>
+                    <td>{{cfdi_type_doc.description}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="cfdi-type-doc-detail({id:cfdi_type_doc.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="cfdi-type-doc.edit({id:cfdi_type_doc.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="cfdi-type-doc.delete({id:cfdi_type_doc.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

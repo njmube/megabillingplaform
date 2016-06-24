@@ -1,0 +1,134 @@
+<div>
+    <h2 translate="megabillingplatformApp.free_cfdi.home.title">Free_cfdis</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="free-cfdi.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.free_cfdi.home.createLabel">
+                        Create new Free_cfdi
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version"><span translate="megabillingplatformApp.free_cfdi.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="serial"><span translate="megabillingplatformApp.free_cfdi.serial">Serial</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="folio"><span translate="megabillingplatformApp.free_cfdi.folio">Folio</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_expedition"><span translate="megabillingplatformApp.free_cfdi.date_expedition">Date_expedition</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payment_conditions"><span translate="megabillingplatformApp.free_cfdi.payment_conditions">Payment_conditions</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="change_type"><span translate="megabillingplatformApp.free_cfdi.change_type">Change_type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="place_expedition"><span translate="megabillingplatformApp.free_cfdi.place_expedition">Place_expedition</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="account_number"><span translate="megabillingplatformApp.free_cfdi.account_number">Account_number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="folio_fiscal_orig"><span translate="megabillingplatformApp.free_cfdi.folio_fiscal_orig">Folio_fiscal_orig</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="serial_folio_fiscal_orig"><span translate="megabillingplatformApp.free_cfdi.serial_folio_fiscal_orig">Serial_folio_fiscal_orig</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_folio_fiscal_orig"><span translate="megabillingplatformApp.free_cfdi.date_folio_fiscal_orig">Date_folio_fiscal_orig</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mont_folio_fiscal_orig"><span translate="megabillingplatformApp.free_cfdi.mont_folio_fiscal_orig">Mont_folio_fiscal_orig</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="total_tax_retention"><span translate="megabillingplatformApp.free_cfdi.total_tax_retention">Total_tax_retention</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="total_tax_transfered"><span translate="megabillingplatformApp.free_cfdi.total_tax_transfered">Total_tax_transfered</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="discount"><span translate="megabillingplatformApp.free_cfdi.discount">Discount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="discount_reason"><span translate="megabillingplatformApp.free_cfdi.discount_reason">Discount_reason</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="subtotal"><span translate="megabillingplatformApp.free_cfdi.subtotal">Subtotal</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="total"><span translate="megabillingplatformApp.free_cfdi.total">Total</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="addenda"><span translate="megabillingplatformApp.free_cfdi.addenda">Addenda</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="stamp"><span translate="megabillingplatformApp.free_cfdi.stamp">Stamp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_certificate"><span translate="megabillingplatformApp.free_cfdi.no_certificate">No_certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="certificate"><span translate="megabillingplatformApp.free_cfdi.certificate">Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfdi_types.name"><span translate="megabillingplatformApp.free_cfdi.cfdi_types">cfdi_types</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfdi_states.name"><span translate="megabillingplatformApp.free_cfdi.cfdi_states">cfdi_states</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="free_emitter.id"><span translate="megabillingplatformApp.free_cfdi.free_emitter">free_emitter</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="free_reciver.id"><span translate="megabillingplatformApp.free_cfdi.free_reciver">free_reciver</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payment_method.name"><span translate="megabillingplatformApp.free_cfdi.payment_method">payment_method</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="way_payment.name"><span translate="megabillingplatformApp.free_cfdi.way_payment">way_payment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_money.name"><span translate="megabillingplatformApp.free_cfdi.c_money">c_money</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfdi_type_doc.name"><span translate="megabillingplatformApp.free_cfdi.cfdi_type_doc">cfdi_type_doc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="free_cfdi in vm.free_cfdis track by free_cfdi.id">
+                    <td><a ui-sref="free-cfdi-detail({id:free_cfdi.id})">{{free_cfdi.id}}</a></td>
+                    <td>{{free_cfdi.version}}</td>
+                    <td>{{free_cfdi.serial}}</td>
+                    <td>{{free_cfdi.folio}}</td>
+                    <td>{{free_cfdi.date_expedition | date:'medium'}}</td>
+                    <td>{{free_cfdi.payment_conditions}}</td>
+                    <td>{{free_cfdi.change_type}}</td>
+                    <td>{{free_cfdi.place_expedition}}</td>
+                    <td>{{free_cfdi.account_number}}</td>
+                    <td>{{free_cfdi.folio_fiscal_orig}}</td>
+                    <td>{{free_cfdi.serial_folio_fiscal_orig}}</td>
+                    <td>{{free_cfdi.date_folio_fiscal_orig | date:'medium'}}</td>
+                    <td>{{free_cfdi.mont_folio_fiscal_orig}}</td>
+                    <td>{{free_cfdi.total_tax_retention}}</td>
+                    <td>{{free_cfdi.total_tax_transfered}}</td>
+                    <td>{{free_cfdi.discount}}</td>
+                    <td>{{free_cfdi.discount_reason}}</td>
+                    <td>{{free_cfdi.subtotal}}</td>
+                    <td>{{free_cfdi.total}}</td>
+                    <td>{{free_cfdi.addenda}}</td>
+                    <td>{{free_cfdi.stamp}}</td>
+                    <td>{{free_cfdi.no_certificate}}</td>
+                    <td>{{free_cfdi.certificate}}</td>
+                    <td>
+                        <a ui-sref="cfdi-types-detail({id:free_cfdi.cfdi_types.id})">{{free_cfdi.cfdi_types.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="cfdi-states-detail({id:free_cfdi.cfdi_states.id})">{{free_cfdi.cfdi_states.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="free-emitter-detail({id:free_cfdi.free_emitter.id})">{{free_cfdi.free_emitter.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="free-reciver-detail({id:free_cfdi.free_reciver.id})">{{free_cfdi.free_reciver.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="payment-method-detail({id:free_cfdi.payment_method.id})">{{free_cfdi.payment_method.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="way-payment-detail({id:free_cfdi.way_payment.id})">{{free_cfdi.way_payment.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-money-detail({id:free_cfdi.c_money.id})">{{free_cfdi.c_money.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="cfdi-type-doc-detail({id:free_cfdi.cfdi_type_doc.id})">{{free_cfdi.cfdi_type_doc.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="free-cfdi-detail({id:free_cfdi.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="free-cfdi.edit({id:free_cfdi.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="free-cfdi.delete({id:free_cfdi.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

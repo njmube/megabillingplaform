@@ -2,37 +2,33 @@
     "megabillingplatformApp": {
         "free_emitter" : {
             "home": {
-                "title": "Emisores",
-                "createLabel": "Crear nuevo Emisor",
-                "createOrEditLabel": "Crear o editar Emisor",
-                "search": "Búsqueda para Emisor"
+                "title": "Free_emitters",
+                "createLabel": "Crear nuevo Free_emitter",
+                "createOrEditLabel": "Crear o editar Free_emitter",
+                "search": "Search for Free_emitter"
             },
-            "created": "Un nuevo Emisor ha sido creado con el identificador {{ param }}",
-            "updated": "Un Emisor ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Emisor ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Free_emitter ha sido creado con el identificador {{ param }}",
+            "updated": "Un Free_emitter ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Free_emitter ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Emisor {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Free_emitter {{ id }}?"
             },
             "detail": {
-                "title": "Emisor"
+                "title": "Free_emitter"
             },
-            "rfc": "RFC",
-            "name": "Nombre",
-            "email": "Correo electrónico",
-            "path_certificate": "Ruta certificado",
-            "private_key": "Clave privada",
-            "reference": "Referencia",
-            "num_in": "No. interior",
-            "num_out": "No. exterior",
-            "street": "Calle",
-            "tax_regime": "Régimen Fiscal",
-            "c_country": "País",
-            "c_state": "Estado",
-            "c_municipality": "Municipio",
-            "c_location": "Localidad",
-            "c_colony": "Colonia",
-            "c_zip_code": "Código postal",
-            "user": "Usuario"
+            "reference": "Reference",
+            "num_int": "Num_int",
+            "num_ext": "Num_ext",
+            "street": "Street",
+            "tax_regime": "Tax_regime",
+            "c_country": "C_country",
+            "c_state": "C_state",
+            "c_municipality": "C_municipality",
+            "c_location": "C_location",
+            "c_colony": "C_colony",
+            "c_zip_code": "C_zip_code",
+            "user": "User",
+            "free_digital_certificate": "Free_digital_certificate"
         }
     }
 }

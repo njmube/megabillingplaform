@@ -1,0 +1,51 @@
+{
+    "megabillingplatformApp": {
+        "free_cfdi" : {
+            "home": {
+                "title": "Free_cfdis",
+                "createLabel": "Crear nuevo Free_cfdi",
+                "createOrEditLabel": "Crear o editar Free_cfdi",
+                "search": "Search for Free_cfdi"
+            },
+            "created": "Un nuevo Free_cfdi ha sido creado con el identificador {{ param }}",
+            "updated": "Un Free_cfdi ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Free_cfdi ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Free_cfdi {{ id }}?"
+            },
+            "detail": {
+                "title": "Free_cfdi"
+            },
+            "version": "Version",
+            "serial": "Serial",
+            "folio": "Folio",
+            "date_expedition": "Date_expedition",
+            "payment_conditions": "Payment_conditions",
+            "change_type": "Change_type",
+            "place_expedition": "Place_expedition",
+            "account_number": "Account_number",
+            "folio_fiscal_orig": "Folio_fiscal_orig",
+            "serial_folio_fiscal_orig": "Serial_folio_fiscal_orig",
+            "date_folio_fiscal_orig": "Date_folio_fiscal_orig",
+            "mont_folio_fiscal_orig": "Mont_folio_fiscal_orig",
+            "total_tax_retention": "Total_tax_retention",
+            "total_tax_transfered": "Total_tax_transfered",
+            "discount": "Discount",
+            "discount_reason": "Discount_reason",
+            "subtotal": "Subtotal",
+            "total": "Total",
+            "addenda": "Addenda",
+            "stamp": "Stamp",
+            "no_certificate": "No_certificate",
+            "certificate": "Certificate",
+            "cfdi_types": "Cfdi_types",
+            "cfdi_states": "Cfdi_states",
+            "free_emitter": "Free_emitter",
+            "free_reciver": "Free_reciver",
+            "payment_method": "Payment_method",
+            "way_payment": "Way_payment",
+            "c_money": "C_money",
+            "cfdi_type_doc": "Cfdi_type_doc"
+        }
+    }
+}

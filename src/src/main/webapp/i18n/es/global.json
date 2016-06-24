@@ -36,6 +36,18 @@
                 "freeEmitter": "Free Emitter",
                 "cColony": "C_colony",
                 "freeEmitter": "Free_emitter",
+                "freeDigitalCertificate": "Free_digital_certificate",
+                "cMoney": "C_money",
+                "freeReciver": "Free_reciver",
+                "complement": "Complement",
+                "cfdiTypeDoc": "Cfdi_type_doc",
+                "freeCfdi": "Free_cfdi",
+                "rateType": "Rate_type",
+                "taxTransfered": "Tax_transfered",
+                "taxRetentions": "Tax_retentions",
+                "freeConcept": "Free_concept",
+                "freePartConcept": "Free_part_concept",
+                "freeCustomsInfo": "Free_customs_info",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

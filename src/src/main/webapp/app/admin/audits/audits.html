@@ -10,9 +10,9 @@
                 <span class="input-group-addon" translate="audits.filter.to">to</span>
                 <input type="date" class="input-sm form-control" name="end" ng-model="vm.toDate" ng-change="vm.onChangeDate()" required/>
                 <span class="input-group-addon" translate="audits.filter.principal">user</span>
-                <input type="text" class="input-sm form-control" name="principal" ng-model="vm.principal" ng-change="vm.onChangeDate()" required/>
+                <input type="text" class="input-sm form-control" name="principal" ng-model="vm.principal" ng-change="vm.onChangeDate()"/>
                 <span class="input-group-addon" translate="audits.filter.auditEventType">state</span>
-                <input type="text" class="input-sm form-control" name="auditEventType" ng-model="vm.auditEventType" ng-change="vm.onChangeDate()" required/>
+                <input type="text" class="input-sm form-control" name="auditEventType" ng-model="vm.auditEventType" ng-change="vm.onChangeDate()"/>
             </p>
         </div>
     </div>

@@ -1,0 +1,41 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "free_concept",
+            "otherEntityName": "free_concept",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "free_part_concept",
+            "otherEntityName": "free_part_concept",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "number_doc",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "customs",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160624070350",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "free_customs_info",
+    "pagination": "pagination"
+}

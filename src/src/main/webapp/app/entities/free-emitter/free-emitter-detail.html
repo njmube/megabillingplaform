@@ -3,36 +3,29 @@
     <h2><span translate="megabillingplatformApp.free_emitter.detail.title">Free_emitter</span> {{vm.free_emitter.id}}</h2>
     <hr>
     <dl class="dl-horizontal">
-        <dt><span translate="megabillingplatformApp.free_emitter.rfc">RFC</dt></dt>
+        <dt><span translate="megabillingplatformApp.free_emitter.reference">Reference</dt></dt>
         <dd>
-            <span>{{vm.free_emitter.rfc}}<span>
+            <span>{{vm.free_emitter.reference}}<span>
         </dd>
         <hr>
-        <dt><span translate="megabillingplatformApp.free_emitter.name">Name</dt></dt>
+        <dt><span translate="megabillingplatformApp.free_emitter.num_int">Num_int</dt></dt>
         <dd>
-            <span>{{vm.free_emitter.name}}<span>
+            <span>{{vm.free_emitter.num_int}}<span>
         </dd>
         <hr>
-        <dt><span translate="megabillingplatformApp.free_emitter.tax_regime">Tax regime</span></dt>
+        <dt><span translate="megabillingplatformApp.free_emitter.num_ext">Num_ext</dt></dt>
+        <dd>
+            <span>{{vm.free_emitter.num_ext}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_emitter.street">Street</dt></dt>
+        <dd>
+            <span>{{vm.free_emitter.street}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_emitter.tax_regime">tax_regime</span></dt>
         <dd>
             <a ui-sref="tax-regime-detail({id:vm.free_emitter.tax_regime.id})">{{vm.free_emitter.tax_regime.name}}</a>
-        </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_emitter.email">Email</dt></dt>
-        <dd>
-            <span>{{vm.free_emitter.email}}<span>
-        </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_emitter.path_certificate">Path_certificate</dt></dt>
-        <dd>
-            <a ng-click="vm.openFile(vm.free_emitter.path_certificateContentType, vm.free_emitter.path_certificate)" ng-if="vm.free_emitter.path_certificate" target="_blank">open</a>
-            <div>{{vm.free_emitter.path_certificateContentType}}, {{vm.byteSize(vm.free_emitter.path_certificate)}}</div>
-        </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_emitter.private_key">Private key</dt></dt>
-        <dd>
-            <a ng-click="vm.openFile(vm.free_emitter.private_keyContentType, vm.free_emitter.private_key)" ng-if="vm.free_emitter.private_key" target="_blank">open</a>
-            <div>{{vm.free_emitter.private_keyContentType}}, {{vm.byteSize(vm.free_emitter.private_key)}}</div>
         </dd>
         <hr>
         <dt><span translate="megabillingplatformApp.free_emitter.c_country">c_country</span></dt>
@@ -65,29 +58,14 @@
             <a ui-sref="c-zip-code-detail({id:vm.free_emitter.c_zip_code.id})">{{vm.free_emitter.c_zip_code.postcode}}</a>
         </dd>
         <hr>
-        <dt><span translate="megabillingplatformApp.free_emitter.reference">Reference</dt></dt>
-        <dd>
-            <span>{{vm.free_emitter.reference}}<span>
-        </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_emitter.num_in">Num in</dt></dt>
-        <dd>
-            <span>{{vm.free_emitter.num_in}}<span>
-        </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_emitter.num_out">Num out</dt></dt>
-        <dd>
-            <span>{{vm.free_emitter.num_out}}<span>
-        </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_emitter.street">Street</dt></dt>
-        <dd>
-            <span>{{vm.free_emitter.street}}<span>
-        </dd>
-        <hr>
         <dt><span translate="megabillingplatformApp.free_emitter.user">user</span></dt>
         <dd>
             {{vm.free_emitter.user.login}}
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_emitter.free_digital_certificate">free_digital_certificate</span></dt>
+        <dd>
+            <a ui-sref="free-digital-certificate-detail({id:vm.free_emitter.free_digital_certificate.id})">{{vm.free_emitter.free_digital_certificate.id}}</a>
         </dd>
         <hr>
     </dl>

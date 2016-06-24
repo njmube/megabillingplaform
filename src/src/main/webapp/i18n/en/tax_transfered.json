@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "tax_transfered" : {
+            "home": {
+                "title": "Tax_transfereds",
+                "createLabel": "Create a new Tax_transfered",
+                "createOrEditLabel": "Create or edit a Tax_transfered",
+                "search": "Search for Tax_transfered"
+            },
+            "created": "A new Tax_transfered is created with identifier {{ param }}",
+            "updated": "A Tax_transfered is updated with identifier {{ param }}",
+            "deleted": "A Tax_transfered is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tax_transfered {{ id }}?"
+            },
+            "detail": {
+                "title": "Tax_transfered"
+            },
+            "amount": "Amount",
+            "tax_types": "Tax_types",
+            "rate_type": "Rate_type"
+        }
+    }
+}

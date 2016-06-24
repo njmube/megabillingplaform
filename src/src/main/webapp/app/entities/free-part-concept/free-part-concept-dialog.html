@@ -1,0 +1,78 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFree_part_conceptLabel" translate="megabillingplatformApp.free_part_concept.home.createOrEditLabel">Create or edit a Free_part_concept</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.free_part_concept.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_part_concept.no_identification" for="field_no_identification">No_identification</label>
+            <input type="text" class="form-control" name="no_identification" id="field_no_identification"
+                    ng-model="vm.free_part_concept.no_identification"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_part_concept.quantity" for="field_quantity">Quantity</label>
+            <input type="number" class="form-control" name="quantity" id="field_quantity"
+                    ng-model="vm.free_part_concept.quantity"
+                    required />
+            <div ng-show="editForm.quantity.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.quantity.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.quantity.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_part_concept.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.free_part_concept.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_part_concept.unit_value" for="field_unit_value">Unit_value</label>
+            <input type="number" class="form-control" name="unit_value" id="field_unit_value"
+                    ng-model="vm.free_part_concept.unit_value"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_part_concept.amount" for="field_amount">Amount</label>
+            <input type="number" class="form-control" name="amount" id="field_amount"
+                    ng-model="vm.free_part_concept.amount"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.free_part_concept.free_concept" for="field_free_concept">free_concept</label>
+            <select class="form-control" id="field_free_concept" name="free_concept" ng-model="vm.free_part_concept.free_concept" ng-options="free_concept as free_concept.id for free_concept in vm.free_concepts track by free_concept.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.free_part_concept.measure_unit" for="field_measure_unit">measure_unit</label>
+            <select class="form-control" id="field_measure_unit" name="measure_unit" ng-model="vm.free_part_concept.measure_unit" ng-options="measure_unit as measure_unit.name for measure_unit in vm.measure_units track by measure_unit.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,46 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "free_concept",
+            "otherEntityName": "free_concept",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "measure_unit",
+            "otherEntityName": "measure_unit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "no_identification",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unit_value",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "changelogDate": "20160624065746",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "free_part_concept",
+    "pagination": "pagination"
+}

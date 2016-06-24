@@ -1,0 +1,28 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.rate_type.detail.title">Rate_type</span> {{vm.rate_type.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.rate_type.name">Name</dt></dt>
+        <dd>
+            <span>{{vm.rate_type.name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.rate_type.value">Value</dt></dt>
+        <dd>
+            <span>{{vm.rate_type.value}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.rate_type.description">Description</dt></dt>
+        <dd>
+            <span>{{vm.rate_type.description}}<span>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,68 @@
+<div>
+    <h2 translate="megabillingplatformApp.tax_transfered.home.title">Tax_transfereds</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="tax-transfered.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.tax_transfered.home.createLabel">
+                        Create new Tax_transfered
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amount"><span translate="megabillingplatformApp.tax_transfered.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax_types.name"><span translate="megabillingplatformApp.tax_transfered.tax_types">tax_types</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rate_type.name"><span translate="megabillingplatformApp.tax_transfered.rate_type">rate_type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="tax_transfered in vm.tax_transfereds track by tax_transfered.id">
+                    <td><a ui-sref="tax-transfered-detail({id:tax_transfered.id})">{{tax_transfered.id}}</a></td>
+                    <td>{{tax_transfered.amount}}</td>
+                    <td>
+                        <a ui-sref="tax-types-detail({id:tax_transfered.tax_types.id})">{{tax_transfered.tax_types.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="rate-type-detail({id:tax_transfered.rate_type.id})">{{tax_transfered.rate_type.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="tax-transfered-detail({id:tax_transfered.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tax-transfered.edit({id:tax_transfered.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tax-transfered.delete({id:tax_transfered.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

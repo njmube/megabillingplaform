@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "free_digital_certificate" : {
+            "home": {
+                "title": "Free_digital_certificates",
+                "createLabel": "Create a new Free_digital_certificate",
+                "createOrEditLabel": "Create or edit a Free_digital_certificate",
+                "search": "Search for Free_digital_certificate"
+            },
+            "created": "A new Free_digital_certificate is created with identifier {{ param }}",
+            "updated": "A Free_digital_certificate is updated with identifier {{ param }}",
+            "deleted": "A Free_digital_certificate is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Free_digital_certificate {{ id }}?"
+            },
+            "detail": {
+                "title": "Free_digital_certificate"
+            },
+            "adrees": "Adrees",
+            "private_key": "Private_key"
+        }
+    }
+}

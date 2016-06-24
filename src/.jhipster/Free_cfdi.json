@@ -1,0 +1,198 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "cfdi_types",
+            "otherEntityName": "cfdi_types",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "cfdi_states",
+            "otherEntityName": "cfdi_states",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "free_emitter",
+            "otherEntityName": "free_emitter",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "free_reciver",
+            "otherEntityName": "free_reciver",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "payment_method",
+            "otherEntityName": "payment_method",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "way_payment",
+            "otherEntityName": "way_payment",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "c_money",
+            "otherEntityName": "c_money",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "cfdi_type_doc",
+            "otherEntityName": "cfdi_type_doc",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "3",
+            "fieldValidateRulesMaxlength": "3"
+        },
+        {
+            "fieldName": "serial",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "1",
+            "fieldValidateRulesMaxlength": "25"
+        },
+        {
+            "fieldName": "folio",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "1",
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "date_expedition",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "payment_conditions",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "change_type",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "[0-9]{1,14}(.([0-9]{1,6}))?",
+            "fieldValidateRulesPatternJava": "[0-9]{1,14}(.([0-9]{1,6}))?"
+        },
+        {
+            "fieldName": "place_expedition",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "account_number",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "4"
+        },
+        {
+            "fieldName": "folio_fiscal_orig",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serial_folio_fiscal_orig",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date_folio_fiscal_orig",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "mont_folio_fiscal_orig",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "total_tax_retention",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "total_tax_transfered",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "discount",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "discount_reason",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subtotal",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "addenda",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stamp",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "no_certificate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "certificate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160624052323",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "free_cfdi",
+    "pagination": "pagination"
+}

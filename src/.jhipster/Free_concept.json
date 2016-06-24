@@ -1,0 +1,71 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "free_cfdi",
+            "otherEntityName": "free_cfdi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "measure_unit",
+            "otherEntityName": "measure_unit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "tax_transfered",
+            "otherEntityName": "tax_transfered",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "tax_retentions",
+            "otherEntityName": "tax_retentions",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "no_identification",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unit_value",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "predial_number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160624065009",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "free_concept",
+    "pagination": "pagination"
+}

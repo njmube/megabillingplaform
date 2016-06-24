@@ -22,47 +22,14 @@ public class Free_emitter implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
-    @Size(min = 12, max = 13)
-    @Pattern(regexp = "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?")
-    @Column(name = "rfc", length = 13, nullable = false)
-    private String rfc;
-
-    @NotNull
-    @Size(min = 3, max = 50)
-    @Column(name = "name", length = 50, nullable = false)
-    private String name;
-
-    @NotNull
-    @Size(min = 6, max = 254)
-    @Pattern(regexp = "^([a-zA-Z0-9_\\.\\-])+\\@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9])+$")
-    @Column(name = "email", length = 254, nullable = false)
-    private String email;
-
-    @NotNull
-    @Lob
-    @Column(name = "path_certificate", nullable = false)
-    private byte[] path_certificate;
-
-    @Column(name = "path_certificate_content_type", nullable = false)    
-    private String path_certificateContentType;
-
-    @NotNull
-    @Lob
-    @Column(name = "private_key", nullable = false)
-    private byte[] private_key;
-
-    @Column(name = "private_key_content_type", nullable = false)    
-    private String private_keyContentType;
-
     @Column(name = "reference")
     private String reference;
 
-    @Column(name = "num_in")
-    private String num_in;
+    @Column(name = "num_int")
+    private String num_int;
 
-    @Column(name = "num_out")
-    private String num_out;
+    @Column(name = "num_ext")
+    private String num_ext;
 
     @NotNull
     @Column(name = "street", nullable = false)
@@ -93,68 +60,16 @@ public class Free_emitter implements Serializable {
     @JoinColumn(unique = true)
     private User user;
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Free_digital_certificate free_digital_certificate;
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getRfc() {
-        return rfc;
-    }
-
-    public void setRfc(String rfc) {
-        this.rfc = rfc;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public byte[] getPath_certificate() {
-        return path_certificate;
-    }
-
-    public void setPath_certificate(byte[] path_certificate) {
-        this.path_certificate = path_certificate;
-    }
-
-    public String getPath_certificateContentType() {
-        return path_certificateContentType;
-    }
-
-    public void setPath_certificateContentType(String path_certificateContentType) {
-        this.path_certificateContentType = path_certificateContentType;
-    }
-
-    public byte[] getPrivate_key() {
-        return private_key;
-    }
-
-    public void setPrivate_key(byte[] private_key) {
-        this.private_key = private_key;
-    }
-
-    public String getPrivate_keyContentType() {
-        return private_keyContentType;
-    }
-
-    public void setPrivate_keyContentType(String private_keyContentType) {
-        this.private_keyContentType = private_keyContentType;
     }
 
     public String getReference() {
@@ -165,20 +80,20 @@ public class Free_emitter implements Serializable {
         this.reference = reference;
     }
 
-    public String getNum_in() {
-        return num_in;
+    public String getNum_int() {
+        return num_int;
     }
 
-    public void setNum_in(String num_in) {
-        this.num_in = num_in;
+    public void setNum_int(String num_int) {
+        this.num_int = num_int;
     }
 
-    public String getNum_out() {
-        return num_out;
+    public String getNum_ext() {
+        return num_ext;
     }
 
-    public void setNum_out(String num_out) {
-        this.num_out = num_out;
+    public void setNum_ext(String num_ext) {
+        this.num_ext = num_ext;
     }
 
     public String getStreet() {
@@ -253,6 +168,14 @@ public class Free_emitter implements Serializable {
         this.user = user;
     }
 
+    public Free_digital_certificate getFree_digital_certificate() {
+        return free_digital_certificate;
+    }
+
+    public void setFree_digital_certificate(Free_digital_certificate free_digital_certificate) {
+        this.free_digital_certificate = free_digital_certificate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -277,16 +200,9 @@ public class Free_emitter implements Serializable {
     public String toString() {
         return "Free_emitter{" +
             "id=" + id +
-            ", rfc='" + rfc + "'" +
-            ", name='" + name + "'" +
-            ", email='" + email + "'" +
-            ", path_certificate='" + path_certificate + "'" +
-            ", path_certificateContentType='" + path_certificateContentType + "'" +
-            ", private_key='" + private_key + "'" +
-            ", private_keyContentType='" + private_keyContentType + "'" +
             ", reference='" + reference + "'" +
-            ", num_in='" + num_in + "'" +
-            ", num_out='" + num_out + "'" +
+            ", num_int='" + num_int + "'" +
+            ", num_ext='" + num_ext + "'" +
             ", street='" + street + "'" +
             '}';
     }

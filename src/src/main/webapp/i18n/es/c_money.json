@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "c_money" : {
+            "home": {
+                "title": "C_monies",
+                "createLabel": "Crear nuevo C_money",
+                "createOrEditLabel": "Crear o editar C_money",
+                "search": "Search for C_money"
+            },
+            "created": "Un nuevo C_money ha sido creado con el identificador {{ param }}",
+            "updated": "Un C_money ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C_money ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar C_money {{ id }}?"
+            },
+            "detail": {
+                "title": "C_money"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

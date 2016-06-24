@@ -19,33 +19,32 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.free_emitter.rfc">RFC</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span translate="megabillingplatformApp.free_emitter.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tax_regime.name"><span translate="megabillingplatformApp.free_emitter.tax_regime">Tax regime</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="email"><span translate="megabillingplatformApp.free_emitter.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="c_country.name"><span translate="megabillingplatformApp.free_emitter.c_country">Country</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="c_state.name"><span translate="megabillingplatformApp.free_emitter.c_state">State</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="c_municipality.name"><span translate="megabillingplatformApp.free_emitter.c_municipality">Municipality</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="c_location.name"><span translate="megabillingplatformApp.free_emitter.c_location">Location</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="c_colony.name"><span translate="megabillingplatformApp.free_emitter.c_colony">Colony</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="c_zip_code.postcode"><span translate="megabillingplatformApp.free_emitter.c_zip_code">Zip code</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="reference"><span translate="megabillingplatformApp.free_emitter.reference">Reference</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="num_in"><span translate="megabillingplatformApp.free_emitter.num_in">Num_in</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="num_out"><span translate="megabillingplatformApp.free_emitter.num_out">Num_out</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="num_int"><span translate="megabillingplatformApp.free_emitter.num_int">Num_int</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="num_ext"><span translate="megabillingplatformApp.free_emitter.num_ext">Num_ext</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="street"><span translate="megabillingplatformApp.free_emitter.street">Street</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax_regime.name"><span translate="megabillingplatformApp.free_emitter.tax_regime">tax_regime</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_country.name"><span translate="megabillingplatformApp.free_emitter.c_country">c_country</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_state.name"><span translate="megabillingplatformApp.free_emitter.c_state">c_state</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_municipality.name"><span translate="megabillingplatformApp.free_emitter.c_municipality">c_municipality</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_location.name"><span translate="megabillingplatformApp.free_emitter.c_location">c_location</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_colony.name"><span translate="megabillingplatformApp.free_emitter.c_colony">c_colony</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_zip_code.postcode"><span translate="megabillingplatformApp.free_emitter.c_zip_code">c_zip_code</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="user.login"><span translate="megabillingplatformApp.free_emitter.user">user</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="free_digital_certificate.id"><span translate="megabillingplatformApp.free_emitter.free_digital_certificate">free_digital_certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="free_emitter in vm.free_emitters track by free_emitter.id">
                     <td><a ui-sref="free-emitter-detail({id:free_emitter.id})">{{free_emitter.id}}</a></td>
-                    <td>{{free_emitter.rfc}}</td>
-                    <td>{{free_emitter.name}}</td>
+                    <td>{{free_emitter.reference}}</td>
+                    <td>{{free_emitter.num_int}}</td>
+                    <td>{{free_emitter.num_ext}}</td>
+                    <td>{{free_emitter.street}}</td>
                     <td>
                         <a ui-sref="tax-regime-detail({id:free_emitter.tax_regime.id})">{{free_emitter.tax_regime.name}}</a>
                     </td>
-                    <td>{{free_emitter.email}}</td>
                     <td>
                         <a ui-sref="c-country-detail({id:free_emitter.c_country.id})">{{free_emitter.c_country.name}}</a>
                     </td>
@@ -64,12 +63,11 @@
                     <td>
                         <a ui-sref="c-zip-code-detail({id:free_emitter.c_zip_code.id})">{{free_emitter.c_zip_code.postcode}}</a>
                     </td>
-                    <td>{{free_emitter.reference}}</td>
-                    <td>{{free_emitter.num_in}}</td>
-                    <td>{{free_emitter.num_out}}</td>
-                    <td>{{free_emitter.street}}</td>
                     <td>
                         {{free_emitter.user.login}}
+                    </td>
+                    <td>
+                        <a ui-sref="free-digital-certificate-detail({id:free_emitter.free_digital_certificate.id})">{{free_emitter.free_digital_certificate.id}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

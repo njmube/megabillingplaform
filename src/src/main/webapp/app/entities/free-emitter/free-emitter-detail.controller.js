@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_emitterDetailController', Free_emitterDetailController);
 
-    Free_emitterDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'DataUtils', 'entity', 'Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_location', 'C_colony', 'C_zip_code', 'User'];
+    Free_emitterDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_location', 'C_colony', 'C_zip_code', 'User', 'Free_digital_certificate'];
 
-    function Free_emitterDetailController($scope, $rootScope, $stateParams, DataUtils, entity, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_location, C_colony, C_zip_code, User) {
+    function Free_emitterDetailController($scope, $rootScope, $stateParams, entity, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_location, C_colony, C_zip_code, User, Free_digital_certificate) {
         var vm = this;
         vm.free_emitter = entity;
         vm.load = function (id) {
@@ -20,7 +20,5 @@
         });
         $scope.$on('$destroy', unsubscribe);
 
-        vm.byteSize = DataUtils.byteSize;
-        vm.openFile = DataUtils.openFile;
     }
 })();

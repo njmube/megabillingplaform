@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "free_customs_info" : {
+            "home": {
+                "title": "Free_customs_infos",
+                "createLabel": "Create a new Free_customs_info",
+                "createOrEditLabel": "Create or edit a Free_customs_info",
+                "search": "Search for Free_customs_info"
+            },
+            "created": "A new Free_customs_info is created with identifier {{ param }}",
+            "updated": "A Free_customs_info is updated with identifier {{ param }}",
+            "deleted": "A Free_customs_info is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Free_customs_info {{ id }}?"
+            },
+            "detail": {
+                "title": "Free_customs_info"
+            },
+            "number_doc": "Number_doc",
+            "date": "Date",
+            "customs": "Customs",
+            "free_concept": "Free_concept",
+            "free_part_concept": "Free_part_concept"
+        }
+    }
+}

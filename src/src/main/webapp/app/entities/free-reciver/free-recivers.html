@@ -1,0 +1,96 @@
+<div>
+    <h2 translate="megabillingplatformApp.free_reciver.home.title">Free_recivers</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="free-reciver.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.free_reciver.home.createLabel">
+                        Create new Free_reciver
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.free_reciver.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="business_name"><span translate="megabillingplatformApp.free_reciver.business_name">Business_name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email"><span translate="megabillingplatformApp.free_reciver.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="street"><span translate="megabillingplatformApp.free_reciver.street">Street</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_int"><span translate="megabillingplatformApp.free_reciver.no_int">No_int</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_ext"><span translate="megabillingplatformApp.free_reciver.no_ext">No_ext</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reference"><span translate="megabillingplatformApp.free_reciver.reference">Reference</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_country.name"><span translate="megabillingplatformApp.free_reciver.c_country">c_country</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_state.name"><span translate="megabillingplatformApp.free_reciver.c_state">c_state</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_municipality.name"><span translate="megabillingplatformApp.free_reciver.c_municipality">c_municipality</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_location.name"><span translate="megabillingplatformApp.free_reciver.c_location">c_location</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_colony.name"><span translate="megabillingplatformApp.free_reciver.c_colony">c_colony</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_zip_code.postcode"><span translate="megabillingplatformApp.free_reciver.c_zip_code">c_zip_code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="free_reciver in vm.free_recivers track by free_reciver.id">
+                    <td><a ui-sref="free-reciver-detail({id:free_reciver.id})">{{free_reciver.id}}</a></td>
+                    <td>{{free_reciver.rfc}}</td>
+                    <td>{{free_reciver.business_name}}</td>
+                    <td>{{free_reciver.email}}</td>
+                    <td>{{free_reciver.street}}</td>
+                    <td>{{free_reciver.no_int}}</td>
+                    <td>{{free_reciver.no_ext}}</td>
+                    <td>{{free_reciver.reference}}</td>
+                    <td>
+                        <a ui-sref="c-country-detail({id:free_reciver.c_country.id})">{{free_reciver.c_country.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-state-detail({id:free_reciver.c_state.id})">{{free_reciver.c_state.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-municipality-detail({id:free_reciver.c_municipality.id})">{{free_reciver.c_municipality.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-location-detail({id:free_reciver.c_location.id})">{{free_reciver.c_location.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-colony-detail({id:free_reciver.c_colony.id})">{{free_reciver.c_colony.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-zip-code-detail({id:free_reciver.c_zip_code.id})">{{free_reciver.c_zip_code.postcode}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="free-reciver-detail({id:free_reciver.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="free-reciver.edit({id:free_reciver.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="free-reciver.delete({id:free_reciver.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

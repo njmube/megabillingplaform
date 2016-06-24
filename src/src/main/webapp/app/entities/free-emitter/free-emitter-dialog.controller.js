@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_emitterDialogController', Free_emitterDialogController);
 
-    Free_emitterDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$q', 'DataUtils', 'entity', 'Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_location', 'C_colony', 'C_zip_code', 'User'];
+    Free_emitterDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_location', 'C_colony', 'C_zip_code', 'User', 'Free_digital_certificate'];
 
-    function Free_emitterDialogController ($scope, $stateParams, $uibModalInstance, $q, DataUtils, entity, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_location, C_colony, C_zip_code, User) {
+    function Free_emitterDialogController ($scope, $stateParams, $uibModalInstance, $q, entity, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_location, C_colony, C_zip_code, User, Free_digital_certificate) {
         var vm = this;
         vm.free_emitter = entity;
         vm.tax_regimes = Tax_regime.query();
@@ -18,6 +18,15 @@
         vm.c_colonys = C_colony.query();
         vm.c_zip_codes = C_zip_code.query();
         vm.users = User.query();
+        vm.free_digital_certificates = Free_digital_certificate.query({filter: 'free_emitter-is-null'});
+        $q.all([vm.free_emitter.$promise, vm.free_digital_certificates.$promise]).then(function() {
+            if (!vm.free_emitter.free_digital_certificate || !vm.free_emitter.free_digital_certificate.id) {
+                return $q.reject();
+            }
+            return Free_digital_certificate.get({id : vm.free_emitter.free_digital_certificate.id}).$promise;
+        }).then(function(free_digital_certificate) {
+            vm.free_digital_certificates.push(free_digital_certificate);
+        });
         vm.load = function(id) {
             Free_emitter.get({id : id}, function(result) {
                 vm.free_emitter = result;
@@ -46,30 +55,5 @@
         vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
         };
-
-        vm.setPath_certificate = function ($file, free_emitter) {
-            if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
-                        free_emitter.path_certificate = base64Data;
-                        free_emitter.path_certificateContentType = $file.type;
-                    });
-                });
-            }
-        };
-
-        vm.setPrivate_key = function ($file, free_emitter) {
-            if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
-                        free_emitter.private_key = base64Data;
-                        free_emitter.private_keyContentType = $file.type;
-                    });
-                });
-            }
-        };
-
-        vm.openFile = DataUtils.openFile;
-        vm.byteSize = DataUtils.byteSize;
     }
 })();

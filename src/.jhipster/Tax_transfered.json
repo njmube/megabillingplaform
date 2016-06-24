@@ -1,0 +1,30 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "tax_types",
+            "otherEntityName": "tax_types",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "rate_type",
+            "otherEntityName": "rate_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160624062731",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "tax_transfered",
+    "pagination": "pagination"
+}

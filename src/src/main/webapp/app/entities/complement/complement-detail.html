@@ -1,0 +1,23 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.complement.detail.title">Complement</span> {{vm.complement.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.complement.name">Name</dt></dt>
+        <dd>
+            <span>{{vm.complement.name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.complement.description">Description</dt></dt>
+        <dd>
+            <span>{{vm.complement.description}}<span>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

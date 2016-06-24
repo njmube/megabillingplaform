@@ -16,7 +16,7 @@
                 "rfc": {
                     "required": "Su RFC es obligatorio.",
                     "minlength": "Su RFC debe tener al menos 12 caracteres.",
-                    "maxlength": "Su RFC no puede tener más de 50 caracteres.",
+                    "maxlength": "Su RFC no puede tener más de 13 caracteres.",
                     "pattern": "Patrón de RFC incorrecto."
                 },
                 "name": {

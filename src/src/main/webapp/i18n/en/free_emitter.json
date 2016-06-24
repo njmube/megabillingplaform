@@ -2,37 +2,33 @@
     "megabillingplatformApp": {
         "free_emitter" : {
             "home": {
-                "title": "Free emitters",
-                "createLabel": "Create a new Free emitter",
-                "createOrEditLabel": "Create or edit a Free emitter",
-                "search": "Search for Free emitter"
+                "title": "Free_emitters",
+                "createLabel": "Create a new Free_emitter",
+                "createOrEditLabel": "Create or edit a Free_emitter",
+                "search": "Search for Free_emitter"
             },
-            "created": "A new Free emitter is created with identifier {{ param }}",
-            "updated": "A Free emitter is updated with identifier {{ param }}",
-            "deleted": "A Free emitter is deleted with identifier {{ param }}",
+            "created": "A new Free_emitter is created with identifier {{ param }}",
+            "updated": "A Free_emitter is updated with identifier {{ param }}",
+            "deleted": "A Free_emitter is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Free emitter {{ id }}?"
+                "question": "Are you sure you want to delete Free_emitter {{ id }}?"
             },
             "detail": {
-                "title": "Free emitter"
+                "title": "Free_emitter"
             },
-            "rfc": "RFC",
-            "name": "Name",
-            "email": "Email",
-            "path_certificate": "Path certificate",
-            "private_key": "Private key",
             "reference": "Reference",
-            "num_in": "Num in",
-            "num_out": "Num out",
+            "num_int": "Num_int",
+            "num_ext": "Num_ext",
             "street": "Street",
-            "tax_regime": "Tax regime",
-            "c_country": "Country",
-            "c_state": "State",
-            "c_municipality": "Municipality",
-            "c_location": "Location",
-            "c_colony": "Colony",
-            "c_zip_code": "Zip code",
-            "user": "User"
+            "tax_regime": "Tax_regime",
+            "c_country": "C_country",
+            "c_state": "C_state",
+            "c_municipality": "C_municipality",
+            "c_location": "C_location",
+            "c_colony": "C_colony",
+            "c_zip_code": "C_zip_code",
+            "user": "User",
+            "free_digital_certificate": "Free_digital_certificate"
         }
     }
 }

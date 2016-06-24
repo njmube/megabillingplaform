@@ -91,16 +91,9 @@
                     resolve: {
                         entity: function () {
                             return {
-                                rfc: null,
-                                name: null,
-                                email: null,
-                                path_certificate: null,
-                                path_certificateContentType: null,
-                                private_key: null,
-                                private_keyContentType: null,
                                 reference: null,
-                                num_in: null,
-                                num_out: null,
+                                num_int: null,
+                                num_ext: null,
                                 street: null,
                                 id: null
                             };

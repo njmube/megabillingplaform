@@ -1,0 +1,24 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "tax_types",
+            "otherEntityName": "tax_types",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160624063805",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "tax_retentions",
+    "pagination": "pagination"
+}

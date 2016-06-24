@@ -1,0 +1,163 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.free_cfdi.detail.title">Free_cfdi</span> {{vm.free_cfdi.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.free_cfdi.version">Version</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.version}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.serial">Serial</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.serial}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.folio">Folio</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.folio}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.date_expedition">Date_expedition</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.date_expedition | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.payment_conditions">Payment_conditions</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.payment_conditions}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.change_type">Change_type</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.change_type}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.place_expedition">Place_expedition</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.place_expedition}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.account_number">Account_number</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.account_number}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.folio_fiscal_orig">Folio_fiscal_orig</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.folio_fiscal_orig}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.serial_folio_fiscal_orig">Serial_folio_fiscal_orig</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.serial_folio_fiscal_orig}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.date_folio_fiscal_orig">Date_folio_fiscal_orig</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.date_folio_fiscal_orig | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.mont_folio_fiscal_orig">Mont_folio_fiscal_orig</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.mont_folio_fiscal_orig}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.total_tax_retention">Total_tax_retention</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.total_tax_retention}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.total_tax_transfered">Total_tax_transfered</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.total_tax_transfered}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.discount">Discount</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.discount}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.discount_reason">Discount_reason</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.discount_reason}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.subtotal">Subtotal</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.subtotal}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.total">Total</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.total}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.addenda">Addenda</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.addenda}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.stamp">Stamp</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.stamp}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.no_certificate">No_certificate</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.no_certificate}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.certificate">Certificate</dt></dt>
+        <dd>
+            <span>{{vm.free_cfdi.certificate}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.cfdi_types">cfdi_types</span></dt>
+        <dd>
+            <a ui-sref="cfdi-types-detail({id:vm.free_cfdi.cfdi_types.id})">{{vm.free_cfdi.cfdi_types.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.cfdi_states">cfdi_states</span></dt>
+        <dd>
+            <a ui-sref="cfdi-states-detail({id:vm.free_cfdi.cfdi_states.id})">{{vm.free_cfdi.cfdi_states.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.free_emitter">free_emitter</span></dt>
+        <dd>
+            <a ui-sref="free-emitter-detail({id:vm.free_cfdi.free_emitter.id})">{{vm.free_cfdi.free_emitter.id}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.free_reciver">free_reciver</span></dt>
+        <dd>
+            <a ui-sref="free-reciver-detail({id:vm.free_cfdi.free_reciver.id})">{{vm.free_cfdi.free_reciver.id}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.payment_method">payment_method</span></dt>
+        <dd>
+            <a ui-sref="payment-method-detail({id:vm.free_cfdi.payment_method.id})">{{vm.free_cfdi.payment_method.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.way_payment">way_payment</span></dt>
+        <dd>
+            <a ui-sref="way-payment-detail({id:vm.free_cfdi.way_payment.id})">{{vm.free_cfdi.way_payment.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.c_money">c_money</span></dt>
+        <dd>
+            <a ui-sref="c-money-detail({id:vm.free_cfdi.c_money.id})">{{vm.free_cfdi.c_money.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_cfdi.cfdi_type_doc">cfdi_type_doc</span></dt>
+        <dd>
+            <a ui-sref="cfdi-type-doc-detail({id:vm.free_cfdi.cfdi_type_doc.id})">{{vm.free_cfdi.cfdi_type_doc.name}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

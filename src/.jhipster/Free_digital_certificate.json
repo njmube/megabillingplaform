@@ -1,0 +1,26 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "adrees",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "private_key",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160624023539",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "free_digital_certificate",
+    "pagination": "pagination"
+}
