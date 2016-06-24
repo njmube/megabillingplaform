@@ -3,15 +3,15 @@
         "title": "Auditorías",
         "filter": {
             "title": "Filtrar por fecha",
-            "from": "desde",
-            "to": "hasta",
-            "principal": "usuario",
-            "auditEventType": "estado",
+            "from": "Desde",
+            "to": "Hasta",
+            "principal": "Usuario",
+            "auditEventType": "Estado",
             "button": {
                 "weeks": "Semanas",
-                "today": "hoy",
-                "clear": "limpiar",
-                "close": "cerrar"
+                "today": "Hoy",
+                "clear": "Limpiar",
+                "close": "Cerrar"
             }
         },
         "table": {
@@ -19,10 +19,10 @@
                 "principal": "Usuario",
                 "date": "Fecha",
                 "status": "Estado",
-                "data": "Datos extra"
+                "data": "IP"
             },
             "data": {
-                "remoteAddress": "Dirección remota:"
+                "remoteAddress": "Dirección Remota:"
             }
         }
     }
