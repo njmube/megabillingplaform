@@ -117,6 +117,7 @@
             <column name="way_payment_id" type="bigint"/>
             <column name="c_money_id" type="bigint"/>
             <column name="cfdi_type_doc_id" type="bigint"/>
+            <column name="tax_regime_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="free_cfdi" columnName="date_expedition" columnDataType="datetime"/>
@@ -169,6 +170,12 @@
                                  constraintName="fk_free_cfdi_cfdi_type_doc_id"
                                  referencedColumnNames="id"
                                  referencedTableName="cfdi_type_doc"/>
+
+        <addForeignKeyConstraint baseColumnNames="tax_regime_id"
+                                 baseTableName="free_cfdi"
+                                 constraintName="fk_free_cfdi_tax_regime_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tax_regime"/>
 
     </changeSet>
 </databaseChangeLog>

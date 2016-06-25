@@ -20,6 +20,8 @@
             "num_int": "Num_int",
             "num_ext": "Num_ext",
             "street": "Street",
+            "create_date": "Create_date",
+            "activated": "Activated",
             "tax_regime": "Tax_regime",
             "c_country": "C_country",
             "c_state": "C_state",

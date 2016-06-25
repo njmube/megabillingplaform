@@ -23,6 +23,16 @@
             <span>{{vm.free_emitter.street}}<span>
         </dd>
         <hr>
+        <dt><span translate="megabillingplatformApp.free_emitter.create_date">Create_date</dt></dt>
+        <dd>
+            <span>{{vm.free_emitter.create_date | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_emitter.activated">Activated</dt></dt>
+        <dd>
+            <span>{{vm.free_emitter.activated}}<span>
+        </dd>
+        <hr>
         <dt><span translate="megabillingplatformApp.free_emitter.tax_regime">tax_regime</span></dt>
         <dd>
             <a ui-sref="tax-regime-detail({id:vm.free_emitter.tax_regime.id})">{{vm.free_emitter.tax_regime.name}}</a>

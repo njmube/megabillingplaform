@@ -19,6 +19,7 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,10 +31,10 @@ import java.util.Optional;
 public class Free_emitterResource {
 
     private final Logger log = LoggerFactory.getLogger(Free_emitterResource.class);
-        
+
     @Inject
     private Free_emitterService free_emitterService;
-    
+
     /**
      * POST  /free-emitters : Create a new free_emitter.
      *
@@ -46,6 +47,7 @@ public class Free_emitterResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<Free_emitter> createFree_emitter(@Valid @RequestBody Free_emitter free_emitter) throws URISyntaxException {
+        free_emitter.setCreate_date(ZonedDateTime.now());
         log.debug("REST request to save Free_emitter : {}", free_emitter);
         if (free_emitter.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "idexists", "A new free_emitter cannot already have an ID")).body(null);
@@ -94,7 +96,7 @@ public class Free_emitterResource {
     public ResponseEntity<List<Free_emitter>> getAllFree_emitters(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Free_emitters");
-        Page<Free_emitter> page = free_emitterService.findAll(pageable); 
+        Page<Free_emitter> page = free_emitterService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-emitters");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

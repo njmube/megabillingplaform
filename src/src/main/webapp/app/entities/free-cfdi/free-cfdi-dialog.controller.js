@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiDialogController', Free_cfdiDialogController);
 
-    Free_cfdiDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'Free_emitter', 'Free_reciver', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc'];
+    Free_cfdiDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'Free_emitter', 'Free_reciver', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime'];
 
-    function Free_cfdiDialogController ($scope, $stateParams, $uibModalInstance, entity, Free_cfdi, Cfdi_types, Cfdi_states, Free_emitter, Free_reciver, Payment_method, Way_payment, C_money, Cfdi_type_doc) {
+    function Free_cfdiDialogController ($scope, $stateParams, $uibModalInstance, entity, Free_cfdi, Cfdi_types, Cfdi_states, Free_emitter, Free_reciver, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime) {
         var vm = this;
         vm.free_cfdi = entity;
         vm.cfdi_typess = Cfdi_types.query();
@@ -18,6 +18,7 @@
         vm.way_payments = Way_payment.query();
         vm.c_moneys = C_money.query();
         vm.cfdi_type_docs = Cfdi_type_doc.query();
+        vm.tax_regimes = Tax_regime.query();
         vm.load = function(id) {
             Free_cfdi.get({id : id}, function(result) {
                 vm.free_cfdi = result;

@@ -24,6 +24,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,6 +46,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class Free_emitterResourceIntTest {
 
+    private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").withZone(ZoneId.of("Z"));
+
     private static final String DEFAULT_REFERENCE = "AAAAA";
     private static final String UPDATED_REFERENCE = "BBBBB";
     private static final String DEFAULT_NUM_INT = "AAAAA";
@@ -50,6 +56,13 @@ public class Free_emitterResourceIntTest {
     private static final String UPDATED_NUM_EXT = "BBBBB";
     private static final String DEFAULT_STREET = "AAAAA";
     private static final String UPDATED_STREET = "BBBBB";
+
+    private static final ZonedDateTime DEFAULT_CREATE_DATE = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
+    private static final ZonedDateTime UPDATED_CREATE_DATE = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final String DEFAULT_CREATE_DATE_STR = dateTimeFormatter.format(DEFAULT_CREATE_DATE);
+
+    private static final Boolean DEFAULT_ACTIVATED = false;
+    private static final Boolean UPDATED_ACTIVATED = true;
 
     @Inject
     private Free_emitterRepository free_emitterRepository;
@@ -84,6 +97,8 @@ public class Free_emitterResourceIntTest {
         free_emitter.setNum_int(DEFAULT_NUM_INT);
         free_emitter.setNum_ext(DEFAULT_NUM_EXT);
         free_emitter.setStreet(DEFAULT_STREET);
+        free_emitter.setCreate_date(DEFAULT_CREATE_DATE);
+        free_emitter.setActivated(DEFAULT_ACTIVATED);
     }
 
     @Test
@@ -106,6 +121,8 @@ public class Free_emitterResourceIntTest {
         assertThat(testFree_emitter.getNum_int()).isEqualTo(DEFAULT_NUM_INT);
         assertThat(testFree_emitter.getNum_ext()).isEqualTo(DEFAULT_NUM_EXT);
         assertThat(testFree_emitter.getStreet()).isEqualTo(DEFAULT_STREET);
+        assertThat(testFree_emitter.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
+        assertThat(testFree_emitter.isActivated()).isEqualTo(DEFAULT_ACTIVATED);
     }
 
     @Test
@@ -114,6 +131,42 @@ public class Free_emitterResourceIntTest {
         int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
         // set the field null
         free_emitter.setStreet(null);
+
+        // Create the Free_emitter, which fails.
+
+        restFree_emitterMockMvc.perform(post("/api/free-emitters")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(free_emitter)))
+                .andExpect(status().isBadRequest());
+
+        List<Free_emitter> free_emitters = free_emitterRepository.findAll();
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkCreate_dateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
+        // set the field null
+        free_emitter.setCreate_date(null);
+
+        // Create the Free_emitter, which fails.
+
+        restFree_emitterMockMvc.perform(post("/api/free-emitters")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(free_emitter)))
+                .andExpect(status().isBadRequest());
+
+        List<Free_emitter> free_emitters = free_emitterRepository.findAll();
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkActivatedIsRequired() throws Exception {
+        int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
+        // set the field null
+        free_emitter.setActivated(null);
 
         // Create the Free_emitter, which fails.
 
@@ -140,7 +193,9 @@ public class Free_emitterResourceIntTest {
                 .andExpect(jsonPath("$.[*].reference").value(hasItem(DEFAULT_REFERENCE.toString())))
                 .andExpect(jsonPath("$.[*].num_int").value(hasItem(DEFAULT_NUM_INT.toString())))
                 .andExpect(jsonPath("$.[*].num_ext").value(hasItem(DEFAULT_NUM_EXT.toString())))
-                .andExpect(jsonPath("$.[*].street").value(hasItem(DEFAULT_STREET.toString())));
+                .andExpect(jsonPath("$.[*].street").value(hasItem(DEFAULT_STREET.toString())))
+                .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)))
+                .andExpect(jsonPath("$.[*].activated").value(hasItem(DEFAULT_ACTIVATED.booleanValue())));
     }
 
     @Test
@@ -157,7 +212,9 @@ public class Free_emitterResourceIntTest {
             .andExpect(jsonPath("$.reference").value(DEFAULT_REFERENCE.toString()))
             .andExpect(jsonPath("$.num_int").value(DEFAULT_NUM_INT.toString()))
             .andExpect(jsonPath("$.num_ext").value(DEFAULT_NUM_EXT.toString()))
-            .andExpect(jsonPath("$.street").value(DEFAULT_STREET.toString()));
+            .andExpect(jsonPath("$.street").value(DEFAULT_STREET.toString()))
+            .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR))
+            .andExpect(jsonPath("$.activated").value(DEFAULT_ACTIVATED.booleanValue()));
     }
 
     @Test
@@ -183,6 +240,8 @@ public class Free_emitterResourceIntTest {
         updatedFree_emitter.setNum_int(UPDATED_NUM_INT);
         updatedFree_emitter.setNum_ext(UPDATED_NUM_EXT);
         updatedFree_emitter.setStreet(UPDATED_STREET);
+        updatedFree_emitter.setCreate_date(UPDATED_CREATE_DATE);
+        updatedFree_emitter.setActivated(UPDATED_ACTIVATED);
 
         restFree_emitterMockMvc.perform(put("/api/free-emitters")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -197,6 +256,8 @@ public class Free_emitterResourceIntTest {
         assertThat(testFree_emitter.getNum_int()).isEqualTo(UPDATED_NUM_INT);
         assertThat(testFree_emitter.getNum_ext()).isEqualTo(UPDATED_NUM_EXT);
         assertThat(testFree_emitter.getStreet()).isEqualTo(UPDATED_STREET);
+        assertThat(testFree_emitter.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
+        assertThat(testFree_emitter.isActivated()).isEqualTo(UPDATED_ACTIVATED);
     }
 
     @Test

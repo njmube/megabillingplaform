@@ -6,6 +6,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.ZonedDateTime;
 import java.util.Objects;
 
 /**
@@ -34,6 +35,13 @@ public class Free_emitter implements Serializable {
     @NotNull
     @Column(name = "street", nullable = false)
     private String street;
+
+    @Column(name = "create_date")
+    private ZonedDateTime create_date;
+
+    @NotNull
+    @Column(name = "activated", nullable = false)
+    private Boolean activated;
 
     @ManyToOne
     private Tax_regime tax_regime;
@@ -102,6 +110,22 @@ public class Free_emitter implements Serializable {
 
     public void setStreet(String street) {
         this.street = street;
+    }
+
+    public ZonedDateTime getCreate_date() {
+        return create_date;
+    }
+
+    public void setCreate_date(ZonedDateTime create_date) {
+        this.create_date = create_date;
+    }
+
+    public Boolean isActivated() {
+        return activated;
+    }
+
+    public void setActivated(Boolean activated) {
+        this.activated = activated;
     }
 
     public Tax_regime getTax_regime() {
@@ -204,6 +228,8 @@ public class Free_emitter implements Serializable {
             ", num_int='" + num_int + "'" +
             ", num_ext='" + num_ext + "'" +
             ", street='" + street + "'" +
+            ", create_date='" + create_date + "'" +
+            ", activated='" + activated + "'" +
             '}';
     }
 }

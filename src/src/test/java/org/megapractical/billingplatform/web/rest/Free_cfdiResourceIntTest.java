@@ -49,8 +49,8 @@ public class Free_cfdiResourceIntTest {
 
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").withZone(ZoneId.of("Z"));
 
-    private static final String DEFAULT_VERSION = "3.2";
-    private static final String UPDATED_VERSION = "3.3";
+    private static final String DEFAULT_VERSION = "AAA";
+    private static final String UPDATED_VERSION = "BBB";
     private static final String DEFAULT_SERIAL = "A";
     private static final String UPDATED_SERIAL = "B";
     private static final String DEFAULT_FOLIO = "A";
@@ -61,12 +61,12 @@ public class Free_cfdiResourceIntTest {
     private static final String DEFAULT_DATE_EXPEDITION_STR = dateTimeFormatter.format(DEFAULT_DATE_EXPEDITION);
     private static final String DEFAULT_PAYMENT_CONDITIONS = "AAAAA";
     private static final String UPDATED_PAYMENT_CONDITIONS = "BBBBB";
-    private static final String DEFAULT_CHANGE_TYPE = "9";
-    private static final String UPDATED_CHANGE_TYPE = "10";
+    private static final String DEFAULT_CHANGE_TYPE = "AAAAA";
+    private static final String UPDATED_CHANGE_TYPE = "BBBBB";
     private static final String DEFAULT_PLACE_EXPEDITION = "AAAAA";
     private static final String UPDATED_PLACE_EXPEDITION = "BBBBB";
-    private static final String DEFAULT_ACCOUNT_NUMBER = "1234";
-    private static final String UPDATED_ACCOUNT_NUMBER = "4321";
+    private static final String DEFAULT_ACCOUNT_NUMBER = "AAAA";
+    private static final String UPDATED_ACCOUNT_NUMBER = "BBBB";
     private static final String DEFAULT_FOLIO_FISCAL_ORIG = "AAAAA";
     private static final String UPDATED_FOLIO_FISCAL_ORIG = "BBBBB";
     private static final String DEFAULT_SERIAL_FOLIO_FISCAL_ORIG = "AAAAA";
@@ -99,8 +99,8 @@ public class Free_cfdiResourceIntTest {
     private static final String UPDATED_ADDENDA = "BBBBB";
     private static final String DEFAULT_STAMP = "AAAAA";
     private static final String UPDATED_STAMP = "BBBBB";
-    private static final String DEFAULT_NO_CERTIFICATE = "AAA";
-    private static final String UPDATED_NO_CERTIFICATE = "BBB";
+    private static final String DEFAULT_NO_CERTIFICATE = "AAAAAAAAAAAAAAAAAAAA";
+    private static final String UPDATED_NO_CERTIFICATE = "BBBBBBBBBBBBBBBBBBBB";
     private static final String DEFAULT_CERTIFICATE = "AAAAA";
     private static final String UPDATED_CERTIFICATE = "BBBBB";
 

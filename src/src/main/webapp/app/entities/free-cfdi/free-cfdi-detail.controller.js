@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiDetailController', Free_cfdiDetailController);
 
-    Free_cfdiDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'Free_emitter', 'Free_reciver', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc'];
+    Free_cfdiDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'Free_emitter', 'Free_reciver', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime'];
 
-    function Free_cfdiDetailController($scope, $rootScope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, Free_emitter, Free_reciver, Payment_method, Way_payment, C_money, Cfdi_type_doc) {
+    function Free_cfdiDetailController($scope, $rootScope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, Free_emitter, Free_reciver, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime) {
         var vm = this;
         vm.free_cfdi = entity;
         vm.load = function (id) {

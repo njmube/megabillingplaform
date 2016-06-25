@@ -128,6 +128,9 @@ public class Free_cfdi implements Serializable {
     @ManyToOne
     private Cfdi_type_doc cfdi_type_doc;
 
+    @ManyToOne
+    private Tax_regime tax_regime;
+
     public Long getId() {
         return id;
     }
@@ -374,6 +377,14 @@ public class Free_cfdi implements Serializable {
 
     public void setCfdi_type_doc(Cfdi_type_doc cfdi_type_doc) {
         this.cfdi_type_doc = cfdi_type_doc;
+    }
+
+    public Tax_regime getTax_regime() {
+        return tax_regime;
+    }
+
+    public void setTax_regime(Tax_regime tax_regime) {
+        this.tax_regime = tax_regime;
     }
 
     @Override

@@ -49,6 +49,7 @@
                     <th jh-sort-by="way_payment.name"><span translate="megabillingplatformApp.free_cfdi.way_payment">way_payment</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="c_money.name"><span translate="megabillingplatformApp.free_cfdi.c_money">c_money</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="cfdi_type_doc.name"><span translate="megabillingplatformApp.free_cfdi.cfdi_type_doc">cfdi_type_doc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax_regime.name"><span translate="megabillingplatformApp.free_cfdi.tax_regime">tax_regime</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -100,6 +101,9 @@
                     </td>
                     <td>
                         <a ui-sref="cfdi-type-doc-detail({id:free_cfdi.cfdi_type_doc.id})">{{free_cfdi.cfdi_type_doc.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="tax-regime-detail({id:free_cfdi.tax_regime.id})">{{free_cfdi.tax_regime.name}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

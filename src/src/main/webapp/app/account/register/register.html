@@ -56,7 +56,7 @@
                 <div class="form-group">
                     <label class="control-label" for="name" translate="global.form.name">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="{{'global.form.name.placeholder' | translate}}"
-                           ng-model="vm.registerAccount.name" ng-minlength=1 ng-maxlength=50 required>
+                           ng-model="vm.registerAccount.name" ng-minlength=3 ng-maxlength=50 required>
                     <div ng-show="form.name.$dirty && form.name.$invalid">
                         <p class="help-block"
                            ng-show="form.name.$error.required" translate="register.messages.validate.name.required">
@@ -64,7 +64,7 @@
                         </p>
                         <p class="help-block"
                            ng-show="form.name.$error.minlength" translate="register.messages.validate.name.minlength">
-                            Your name is required to be at least 1 character.
+                            Your name is required to be at least 3 character.
                         </p>
                         <p class="help-block"
                            ng-show="form.name.$error.maxlength" translate="register.messages.validate.name.maxlength">
@@ -75,7 +75,7 @@
                 <div class="form-group">
                     <label class="control-label" for="firtsurname" translate="global.form.firtsurname">Firt surname</label>
                     <input type="text" class="form-control" id="firtsurname" name="firtsurname" placeholder="{{'global.form.firtsurname.placeholder' | translate}}"
-                           ng-model="vm.registerAccount.firtsurname" ng-minlength=1 ng-maxlength=50 required>
+                           ng-model="vm.registerAccount.firtsurname" ng-minlength=3 ng-maxlength=50 required>
                     <div ng-show="form.firtsurname.$dirty && form.firtsurname.$invalid">
                         <p class="help-block"
                            ng-show="form.firtsurname.$error.required" translate="register.messages.validate.firtsurname.required">
@@ -83,7 +83,7 @@
                         </p>
                         <p class="help-block"
                            ng-show="form.firtsurname.$error.minlength" translate="register.messages.validate.firtsurname.minlength">
-                            Your firt surname is required to be at least 1 character.
+                            Your firt surname is required to be at least 3 character.
                         </p>
                         <p class="help-block"
                            ng-show="form.firtsurname.$error.maxlength" translate="register.messages.validate.firtsurname.maxlength">
@@ -94,7 +94,7 @@
                 <div class="form-group">
                     <label class="control-label" for="secondsurname" translate="global.form.secondsurname">Second surname</label>
                     <input type="text" class="form-control" id="secondsurname" name="secondsurname" placeholder="{{'global.form.secondsurname.placeholder' | translate}}"
-                           ng-model="vm.registerAccount.secondsurname" ng-minlength=1 ng-maxlength=50 required>
+                           ng-model="vm.registerAccount.secondsurname" ng-minlength=3 ng-maxlength=50 required>
                     <div ng-show="form.secondsurname.$dirty && form.secondsurname.$invalid">
                         <p class="help-block"
                            ng-show="form.secondsurname.$error.required" translate="register.messages.validate.secondsurname.required">
@@ -102,7 +102,7 @@
                         </p>
                         <p class="help-block"
                            ng-show="form.secondsurname.$error.minlength" translate="register.messages.validate.secondsurname.minlength">
-                            Your second surname is required to be at least 1 characters.
+                            Your second surname is required to be at least 3 characters.
                         </p>
                         <p class="help-block"
                            ng-show="form.secondsurname.$error.maxlength" translate="register.messages.validate.secondsurname.maxlength">
@@ -113,7 +113,7 @@
                 <div class="form-group">
                     <label class="control-label" for="login" translate="global.form.username">Username</label>
                     <input type="text" class="form-control" id="login" name="login" placeholder="{{'global.form.username.placeholder' | translate}}"
-                           ng-model="vm.registerAccount.login" ng-minlength=1 ng-maxlength=50 ng-pattern="/^[a-z0-9]*$/" required>
+                           ng-model="vm.registerAccount.login" ng-minlength=3 ng-maxlength=50 ng-pattern="/^[a-z0-9]*$/" required>
                     <div ng-show="form.login.$dirty && form.login.$invalid">
                         <p class="help-block"
                            ng-show="form.login.$error.required" translate="register.messages.validate.login.required">
@@ -121,7 +121,7 @@
                         </p>
                         <p class="help-block"
                            ng-show="form.login.$error.minlength" translate="register.messages.validate.login.minlength">
-                            Your username is required to be at least 1 character.
+                            Your username is required to be at least 3 character.
                         </p>
                         <p class="help-block"
                            ng-show="form.login.$error.maxlength" translate="register.messages.validate.login.maxlength">
@@ -136,7 +136,7 @@
                 <div class="form-group">
                     <label class="control-label" for="email" translate="global.form.email">E-mail</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="{{'global.form.email.placeholder' | translate}}"
-                           ng-model="vm.registerAccount.email" ng-minlength=6 ng-maxlength=254 required ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/">
+                           ng-model="vm.registerAccount.email" ng-minlength=6 ng-maxlength=254 required ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/">
                     <div ng-show="form.email.$dirty && form.email.$invalid">
                         <p class="help-block"
                                ng-show="form.email.$error.required" translate="global.messages.validate.email.required">

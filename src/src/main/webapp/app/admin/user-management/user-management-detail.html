@@ -131,9 +131,7 @@
                     <span translate="userManagement.profiles">Profiles</span>
                 </td>
                 <td>
-                    <ul class="list-unstyled">
-                        <li ng-repeat="authority in user.authorities"><span>{{authority}}</span></li>
-                    </ul>
+                    <input type="text" class="input-sm form-control" value="{{vm.user.autorities}}" readonly>
                 </td>
             </tr>
             </tbody>

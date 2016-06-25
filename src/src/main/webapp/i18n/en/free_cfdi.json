@@ -45,7 +45,8 @@
             "payment_method": "Payment_method",
             "way_payment": "Way_payment",
             "c_money": "C_money",
-            "cfdi_type_doc": "Cfdi_type_doc"
+            "cfdi_type_doc": "Cfdi_type_doc",
+            "tax_regime": "Tax_regime"
         }
     }
 }

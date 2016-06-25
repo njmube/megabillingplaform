@@ -21,13 +21,13 @@ import java.util.List;
 public class C_countryServiceImpl implements C_countryService{
 
     private final Logger log = LoggerFactory.getLogger(C_countryServiceImpl.class);
-    
+
     @Inject
     private C_countryRepository c_countryRepository;
-    
+
     /**
      * Save a c_country.
-     * 
+     *
      * @param c_country the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,21 @@ public class C_countryServiceImpl implements C_countryService{
 
     /**
      *  Get all the c_countries.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<C_country> findAll(Pageable pageable) {
         log.debug("Request to get all C_countries");
-        Page<C_country> result = c_countryRepository.findAll(pageable); 
+        Page<C_country> result = c_countryRepository.findAll(pageable);
+        return result;
+    }
+
+    @Transactional(readOnly = true)
+    public List<C_country> findAll() {
+        log.debug("Request to get all C_countries");
+        List<C_country> result = c_countryRepository.findAll();
         return result;
     }
 
@@ -56,7 +63,7 @@ public class C_countryServiceImpl implements C_countryService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public C_country findOne(Long id) {
         log.debug("Request to get C_country : {}", id);
         C_country c_country = c_countryRepository.findOne(id);
@@ -65,7 +72,7 @@ public class C_countryServiceImpl implements C_countryService{
 
     /**
      *  Delete the  c_country by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

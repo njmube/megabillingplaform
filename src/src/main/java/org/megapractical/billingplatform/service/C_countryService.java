@@ -13,7 +13,7 @@ public interface C_countryService {
 
     /**
      * Save a c_country.
-     * 
+     *
      * @param c_country the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface C_countryService {
 
     /**
      *  Get all the c_countries.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<C_country> findAll(Pageable pageable);
 
+    List<C_country> findAll();
+
     /**
      *  Get the "id" c_country.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface C_countryService {
 
     /**
      *  Delete the "id" c_country.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

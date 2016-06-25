@@ -47,6 +47,12 @@
             "otherEntityName": "cfdi_type_doc",
             "relationshipType": "many-to-one",
             "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "tax_regime",
+            "otherEntityName": "tax_regime",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
         }
     ],
     "fields": [

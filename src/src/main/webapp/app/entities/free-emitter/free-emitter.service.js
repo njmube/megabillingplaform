@@ -4,9 +4,9 @@
         .module('megabillingplatformApp')
         .factory('Free_emitter', Free_emitter);
 
-    Free_emitter.$inject = ['$resource'];
+    Free_emitter.$inject = ['$resource', 'DateUtils'];
 
-    function Free_emitter ($resource) {
+    function Free_emitter ($resource, DateUtils) {
         var resourceUrl =  'api/free-emitters/:id';
 
         return $resource(resourceUrl, {}, {
@@ -15,6 +15,7 @@
                 method: 'GET',
                 transformResponse: function (data) {
                     data = angular.fromJson(data);
+                    data.create_date = DateUtils.convertDateTimeFromServer(data.create_date);
                     return data;
                 }
             },

@@ -9,7 +9,7 @@
             "validate": {
                 "login": {
                     "required": "Your username is required.",
-                    "minlength": "Your username is required to be at least 1 character.",
+                    "minlength": "Your username is required to be at least 3 character.",
                     "maxlength": "Your username cannot be longer than 50 characters.",
                     "pattern": "Your username can only contain lower-case letters and digits."
                 },
@@ -21,17 +21,17 @@
                 },
                 "name": {
                     "required": "Your name is required.",
-                    "minlength": "Your name is required to be at least 1 character.",
+                    "minlength": "Your name is required to be at least 3 characters.",
                     "maxlength": "Your name cannot be longer than 50 characters."
                 },
                 "firtsurname": {
                     "required": "Your firt surname is required.",
-                    "minlength": "Your firt surname is required to be at least 1 character.",
+                    "minlength": "Your firt surname is required to be at least 3 characters.",
                     "maxlength": "Your firt surname cannot be longer than 50 characters."
                 },
                 "secondsurname": {
                     "required": "Your second surname is required.",
-                    "minlength": "Your second surname is required to be at least 1 character.",
+                    "minlength": "Your second surname is required to be at least 3 characters.",
                     "maxlength": "Your second surname cannot be longer than 50 characters."
                 },
                 "phone": {

@@ -29,10 +29,10 @@ import java.util.Optional;
 public class C_countryResource {
 
     private final Logger log = LoggerFactory.getLogger(C_countryResource.class);
-        
+
     @Inject
     private C_countryService c_countryService;
-    
+
     /**
      * POST  /c-countries : Create a new c_country.
      *
@@ -93,10 +93,21 @@ public class C_countryResource {
     public ResponseEntity<List<C_country>> getAllC_countries(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_countries");
-        Page<C_country> page = c_countryService.findAll(pageable); 
+        Page<C_country> page = c_countryService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-countries");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
+/*
+    @RequestMapping(value = "/c-countries",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    @Timed
+    public List<C_country> getAllC_countries()
+        throws URISyntaxException {
+        log.debug("REST request to get a list of C_countries");
+        List<C_country> list = c_countryService.findAll();
+        return list;
+    }*/
 
     /**
      * GET  /c-countries/:id : get the "id" c_country.
