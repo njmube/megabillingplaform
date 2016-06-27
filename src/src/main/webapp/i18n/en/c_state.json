@@ -3,15 +3,15 @@
         "c_state" : {
             "home": {
                 "title": "States",
-                "createLabel": "Create a new State",
-                "createOrEditLabel": "Create or edit a State",
-                "search": "Search for State"
+                "createLabel": "New State",
+                "createOrEditLabel": "Create or edit a state",
+                "search": "Search for state"
             },
-            "created": "A new State is created with identifier {{ param }}",
-            "updated": "A State is updated with identifier {{ param }}",
-            "deleted": "A State is deleted with identifier {{ param }}",
+            "created": "A new state is created with identifier {{ param }}",
+            "updated": "A state is updated with identifier {{ param }}",
+            "deleted": "A state is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete State {{ id }}?"
+                "question": "Are you sure you want to delete state {{ id }}?"
             },
             "detail": {
                 "title": "State"

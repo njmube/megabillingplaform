@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "c_zip_code" : {
             "home": {
-                "title": "Zip codes",
-                "createLabel": "Create a new Zip code",
-                "createOrEditLabel": "Create or edit a Zip code",
-                "search": "Search for Zip code"
+                "title": "Zip Codes",
+                "createLabel": "New Zip Code",
+                "createOrEditLabel": "Create or edit a zip code",
+                "search": "Search for zip code"
             },
-            "created": "A new Zip code is created with identifier {{ param }}",
-            "updated": "A Zip code is updated with identifier {{ param }}",
-            "deleted": "A Zip code is deleted with identifier {{ param }}",
+            "created": "A new zip code is created with identifier {{ param }}",
+            "updated": "A zip code is updated with identifier {{ param }}",
+            "deleted": "A zip code is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Zip code {{ id }}?"
+                "question": "Are you sure you want to delete zip code {{ id }}?"
             },
             "detail": {
-                "title": "Zip code"
+                "title": "Zip Code"
             },
             "postcode": "Postcode",
             "c_location": "Location"
