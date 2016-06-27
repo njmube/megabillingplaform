@@ -3,13 +3,13 @@
         "c_colony" : {
             "home": {
                 "title": "Colonies",
-                "createLabel": "Create a new Colony",
-                "createOrEditLabel": "Create or edit a Colony",
-                "search": "Search for Colony"
+                "createLabel": "Create a new colony",
+                "createOrEditLabel": "Create or edit a colony",
+                "search": "Search for colony"
             },
-            "created": "A new Colony is created with identifier {{ param }}",
-            "updated": "A Colony is updated with identifier {{ param }}",
-            "deleted": "A Colony is deleted with identifier {{ param }}",
+            "created": "A new colony is created with identifier {{ param }}",
+            "updated": "A colony is updated with identifier {{ param }}",
+            "deleted": "A colony is deleted with identifier {{ param }}",
             "delete": {
                 "question": "Are you sure you want to delete Colony {{ id }}?"
             },
