@@ -56,7 +56,7 @@ public class C_colonyResource {
             .body(result);
     }
 
-    @RequestMapping(value = "/c-coloniesbylocation" ,
+    /*@RequestMapping(value = "/c-coloniesbylocation" ,
         method = RequestMethod.GET,
         params = {"locationId"},
         produces = MediaType.APPLICATION_JSON_VALUE)
@@ -64,7 +64,7 @@ public class C_colonyResource {
         @RequestParam(value = "locationId") Long locationId) throws URISyntaxException {
         List<C_colony> page = c_colonyService.findByLocation(locationId);
         return new ResponseEntity<>(page, HttpStatus.OK);
-    }
+    }*/
 
     /**
      * PUT  /c-colonies : Updates an existing c_colony.
@@ -99,14 +99,20 @@ public class C_colonyResource {
      */
     @RequestMapping(value = "/c-colonies",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"locationId"})
     @Timed
-    public ResponseEntity<List<C_colony>> getAllC_colonies(Pageable pageable)
+    public ResponseEntity<List<C_colony>> getAllC_colonies(@RequestParam(value = "locationId") Integer locationId, Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_colonies");
-        Page<C_colony> page = c_colonyService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-colonies");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(locationId == 0){
+            Page<C_colony> page = c_colonyService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-colonies");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);}
+        else {
+            List<C_colony> page = c_colonyService.findByLocation(locationId);
+            return new ResponseEntity<>(page, HttpStatus.OK);
+        }
     }
 
     /**

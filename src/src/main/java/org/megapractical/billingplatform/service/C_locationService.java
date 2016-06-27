@@ -27,7 +27,7 @@ public interface C_locationService {
      */
     Page<C_location> findAll(Pageable pageable);
 
-    List<C_location> findByMunicipality(Long municipalityId);
+    List<C_location> findByMunicipality(long municipalityId);
 
     /**
      *  Get the "id" c_location.

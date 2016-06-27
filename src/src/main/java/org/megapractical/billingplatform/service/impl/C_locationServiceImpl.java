@@ -38,9 +38,11 @@ public class C_locationServiceImpl implements C_locationService{
         return result;
     }
 
-    public List<C_location> findByMunicipality(Long municipalityId){
+    public List<C_location> findByMunicipality(long municipalityId){
         log.debug("Request to get all C_states");
         List<C_location> result = c_locationRepository.findAll();
+        if(municipalityId == -1)
+            return result;
         List<C_location> res = new ArrayList<>();
         for(int i = 0; i < result.size();i++){
             if(result.get(i).getC_municipality().getId() == municipalityId){

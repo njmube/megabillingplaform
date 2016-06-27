@@ -107,7 +107,7 @@ public class C_locationResourceIntTest {
         c_locationRepository.saveAndFlush(c_location);
 
         // Get all the c_locations
-        restC_locationMockMvc.perform(get("/api/c-locations?sort=id,desc"))
+        restC_locationMockMvc.perform(get("/api/c-locations?sort=id,desc&municipalityId=-1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(c_location.getId().intValue())))

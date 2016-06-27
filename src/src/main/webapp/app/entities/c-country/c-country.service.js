@@ -10,7 +10,10 @@
         var resourceUrl =  'api/c-countries/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true},
+            'query': { method: 'GET',
+                isArray: true,
+                params: {pg: null}
+            },
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
@@ -21,11 +24,4 @@
             'update': { method:'PUT' }
         });
     }
-    /*function C_country ($resource) {
-        var resourceUrl =  'api/c-countriesall';
-
-        return $resource(resourceUrl, {}, {
-            'queryall': { method: 'GET', isArray: true}
-        });
-    }*/
 })();

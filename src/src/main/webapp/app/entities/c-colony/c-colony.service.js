@@ -10,7 +10,7 @@
         var resourceUrl =  'api/c-colonies/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true},
+            'query': { method: 'GET', isArray: true, params: {locationId: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
@@ -21,15 +21,4 @@
             'update': { method:'PUT' }
         });
     }
-    /*function C_colony ($resource) {
-        var service = $resource('api/c-coloniesbylocation', {}, {
-            'queryBylocation': {
-                method: 'GET',
-                isArray: true,
-                params: {locationId: null}
-            }
-        });
-
-        return service;
-    }*/
 })();

@@ -38,9 +38,12 @@ public class C_colonyServiceImpl implements C_colonyService{
         return result;
     }
 
-    public List<C_colony> findByLocation(Long locationId){
+    public List<C_colony> findByLocation(long locationId){
         log.debug("Request to get all C_states");
         List<C_colony> result = c_colonyRepository.findAll();
+        if(locationId == -1){
+            return  result;
+        }
         List<C_colony> res = new ArrayList<>();
         for(int i = 0; i < result.size();i++){
             if(result.get(i).getC_location().getId() == locationId){

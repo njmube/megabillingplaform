@@ -38,9 +38,11 @@ public class C_municipalityServiceImpl implements C_municipalityService{
         return result;
     }
 
-    public List<C_municipality> findByState(Long stateId){
+    public List<C_municipality> findByState(long stateId){
         log.debug("Request to get all C_states");
         List<C_municipality> result = c_municipalityRepository.findAll();
+        if(stateId == -1)
+            return result;
         List<C_municipality> res = new ArrayList<>();
         for(int i = 0; i < result.size();i++){
             if(result.get(i).getC_state().getId() == stateId){

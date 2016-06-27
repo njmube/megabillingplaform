@@ -11,11 +11,15 @@
         var vm = this;
         vm.free_emitter = entity;
         vm.tax_regimes = Tax_regime.query();
-        vm.c_countrys = C_country.query();
-        vm.c_states = C_state.query();
-        vm.c_municipalitys = C_municipality.query();
-        vm.c_locations = C_location.query();
-        vm.c_colonys = C_colony.query();
+        vm.c_countrys = C_country.query({pg:1});
+        vm.c_states = null;
+        vm.onChangeC_country = onChangeC_country;
+        vm.c_municipalitys = null;
+        vm.onChangeC_state = onChangeC_state;
+        vm.c_locations = null;
+        vm.onChangeC_municipality = onChangeC_municipality;
+        vm.c_colonys = null;
+        vm.onChangeC_location = onChangeC_location;
         vm.c_zip_codes = C_zip_code.query();
         vm.users = User.query();
         vm.free_digital_certificates = Free_digital_certificate.query({filter: 'free_emitter-is-null'});
@@ -32,6 +36,34 @@
                 vm.free_emitter = result;
             });
         };
+
+        function onChangeC_country () {
+            var countryId = vm.free_emitter.c_country.id;
+            C_state.query({countryId: countryId}, function(result){
+                vm.c_states = result;
+            });
+        }
+
+        function onChangeC_state () {
+            var stateId = vm.free_emitter.c_state.id;
+            C_municipality.query({stateId: stateId}, function(result){
+                vm.c_municipalitys = result;
+            });
+        }
+
+        function onChangeC_municipality () {
+            var municipalityId = vm.free_emitter.c_municipality.id;
+            C_location.query({municipalityId: municipalityId}, function(result){
+                vm.c_locations = result;
+            });
+        }
+
+        function onChangeC_location () {
+            var locationId = vm.free_emitter.c_location.id;
+            C_colony.query({locationId: locationId}, function(result){
+                vm.c_colonys = result;
+            });
+        }
 
         var onSaveSuccess = function (result) {
             $scope.$emit('megabillingplatformApp:free_emitterUpdate', result);

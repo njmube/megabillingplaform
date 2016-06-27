@@ -10,8 +10,8 @@
     function C_stateDialogController ($scope, $stateParams, $uibModalInstance, entity, C_state, C_country, C_municipality) {
         var vm = this;
         vm.c_state = entity;
-        vm.c_countrys = C_country.query();
-        vm.c_municipalitys = C_municipality.query();
+        vm.c_countrys = C_country.query({pg:1});
+        vm.c_municipalitys = C_municipality.query({stateId:-1});
         vm.load = function(id) {
             C_state.get({id : id}, function(result) {
                 vm.c_state = result;

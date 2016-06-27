@@ -55,7 +55,7 @@ public class C_municipalityResource {
             .body(result);
     }
 
-    @RequestMapping(value = "/c-municipalitiesbystate" ,
+    /*@RequestMapping(value = "/c-municipalitiesbystate" ,
         method = RequestMethod.GET,
         params = {"stateId"},
         produces = MediaType.APPLICATION_JSON_VALUE)
@@ -63,7 +63,7 @@ public class C_municipalityResource {
         @RequestParam(value = "stateId") Long stateId) throws URISyntaxException {
         List<C_municipality> page = c_municipalityService.findByState(stateId);
         return new ResponseEntity<>(page, HttpStatus.OK);
-    }
+    }*/
 
     /**
      * PUT  /c-municipalities : Updates an existing c_municipality.
@@ -98,14 +98,21 @@ public class C_municipalityResource {
      */
     @RequestMapping(value = "/c-municipalities",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"stateId"})
     @Timed
-    public ResponseEntity<List<C_municipality>> getAllC_municipalities(Pageable pageable)
+    public ResponseEntity<List<C_municipality>> getAllC_municipalities(@RequestParam(value = "stateId") Integer stateId, Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_municipalities");
-        Page<C_municipality> page = c_municipalityService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-municipalities");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(stateId == 0){
+            Page<C_municipality> page = c_municipalityService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-municipalities");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);}
+        else
+        {
+            List<C_municipality> page = c_municipalityService.findByState(stateId);
+            return new ResponseEntity<>(page, HttpStatus.OK);
+        }
     }
 
     /**

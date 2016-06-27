@@ -107,7 +107,7 @@ public class C_stateResourceIntTest {
         c_stateRepository.saveAndFlush(c_state);
 
         // Get all the c_states
-        restC_stateMockMvc.perform(get("/api/c-states?sort=id,desc"))
+        restC_stateMockMvc.perform(get("/api/c-states?sort=id,desc&countryId=-1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(c_state.getId().intValue())))

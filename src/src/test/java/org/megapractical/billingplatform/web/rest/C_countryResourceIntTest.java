@@ -107,7 +107,7 @@ public class C_countryResourceIntTest {
         c_countryRepository.saveAndFlush(c_country);
 
         // Get all the c_countries
-        restC_countryMockMvc.perform(get("/api/c-countries?sort=id,desc"))
+        restC_countryMockMvc.perform(get("/api/c-countries?sort=id,desc&pg=1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(c_country.getId().intValue())))

@@ -27,7 +27,7 @@ public interface C_municipalityService {
      */
     Page<C_municipality> findAll(Pageable pageable);
 
-    List<C_municipality> findByState(Long stateId);
+    List<C_municipality> findByState(long stateId);
 
     /**
      *  Get the "id" c_municipality.

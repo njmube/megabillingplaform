@@ -79,7 +79,7 @@ public class C_locationResource {
             .body(result);
     }
 
-    @RequestMapping(value = "/c-locationsbymunicipality" ,
+    /*@RequestMapping(value = "/c-locationsbymunicipality" ,
         method = RequestMethod.GET,
         params = {"municipalityId"},
         produces = MediaType.APPLICATION_JSON_VALUE)
@@ -87,7 +87,7 @@ public class C_locationResource {
         @RequestParam(value = "municipalityId") Long municipalityId) throws URISyntaxException {
         List<C_location> page = c_locationService.findByMunicipality(municipalityId);
         return new ResponseEntity<>(page, HttpStatus.OK);
-    }
+    }*/
 
     /**
      * GET  /c-locations : get all the c_locations.
@@ -98,14 +98,21 @@ public class C_locationResource {
      */
     @RequestMapping(value = "/c-locations",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"municipalityId"})
     @Timed
-    public ResponseEntity<List<C_location>> getAllC_locations(Pageable pageable)
+    public ResponseEntity<List<C_location>> getAllC_locations(@RequestParam(value = "municipalityId") Integer municipalityId, Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_locations");
-        Page<C_location> page = c_locationService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-locations");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(municipalityId == 0){
+            Page<C_location> page = c_locationService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-locations");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);}
+        else
+        {
+            List<C_location> page = c_locationService.findByMunicipality(municipalityId);
+            return new ResponseEntity<>(page, HttpStatus.OK);
+        }
     }
 
     /**

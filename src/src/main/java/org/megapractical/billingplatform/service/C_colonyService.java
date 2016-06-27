@@ -27,7 +27,7 @@ public interface C_colonyService {
      */
     Page<C_colony> findAll(Pageable pageable);
 
-    List<C_colony> findByLocation(Long locationId);
+    List<C_colony> findByLocation(long locationId);
 
     /**
      *  Get the "id" c_colony.

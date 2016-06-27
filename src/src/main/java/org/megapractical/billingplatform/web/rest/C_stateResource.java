@@ -60,14 +60,14 @@ public class C_stateResource {
             .body(result);
     }
 
-    @RequestMapping(method = RequestMethod.GET,
+    /*@RequestMapping(method = RequestMethod.GET,
         params = {"countryId"},
         produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<C_state>> findByCountry(
         @RequestParam(value = "countryId") Long countryId) throws URISyntaxException {
         List<C_state> page = c_stateService.findByCountry(countryId);
         return new ResponseEntity<>(page, HttpStatus.OK);
-    }
+    }*/
 
     /**
      * PUT  /c-states : Updates an existing c_state.
@@ -102,14 +102,20 @@ public class C_stateResource {
      */
     @RequestMapping(value = "/c-states",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"countryId"})
     @Timed
-    public ResponseEntity<List<C_state>> getAllC_states(Pageable pageable)
+    public ResponseEntity<List<C_state>> getAllC_states(@RequestParam(value = "countryId") Integer countryId, Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_states");
-        Page<C_state> page = c_stateService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-states");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(countryId == 0){
+            Page<C_state> page = c_stateService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-states");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else {
+            List<C_state> page = c_stateService.findByCountry(countryId);
+            return new ResponseEntity<>(page, HttpStatus.OK);
+        }
     }
 
     /**

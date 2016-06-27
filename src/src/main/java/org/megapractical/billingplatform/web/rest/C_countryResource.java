@@ -88,17 +88,24 @@ public class C_countryResource {
      */
     @RequestMapping(value = "/c-countries",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"pg"})
     @Timed
-    public ResponseEntity<List<C_country>> getAllC_countries(Pageable pageable)
+    public ResponseEntity<List<C_country>> getAllC_countries(Pageable pageable, @RequestParam(value = "pg") Integer pg)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_countries");
-        Page<C_country> page = c_countryService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-countries");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if (pg == 0){
+            Page<C_country> page = c_countryService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-countries");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else
+        {
+            List<C_country> page = c_countryService.findAll();
+            return new ResponseEntity<>(page, HttpStatus.OK);
+        }
     }
 
-    @RequestMapping(value = "/c-countriesall",
+    /*@RequestMapping(value = "/c-countriesall",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
@@ -107,7 +114,7 @@ public class C_countryResource {
         log.debug("REST request to get a page of C_countries");
         List<C_country> page = c_countryService.findAll();
         return new ResponseEntity<>(page, HttpStatus.OK);
-    }
+    }*/
 
     /**
      * GET  /c-countries/:id : get the "id" c_country.

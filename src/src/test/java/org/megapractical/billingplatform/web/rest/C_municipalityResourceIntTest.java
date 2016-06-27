@@ -103,7 +103,7 @@ public class C_municipalityResourceIntTest {
         c_municipalityRepository.saveAndFlush(c_municipality);
 
         // Get all the c_municipalities
-        restC_municipalityMockMvc.perform(get("/api/c-municipalities?sort=id,desc"))
+        restC_municipalityMockMvc.perform(get("/api/c-municipalities?sort=id,desc&stateId=-1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(c_municipality.getId().intValue())))

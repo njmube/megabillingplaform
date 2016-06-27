@@ -56,6 +56,8 @@ public class C_stateServiceImpl implements C_stateService{
     public List<C_state> findByCountry(long countryId){
         log.debug("Request to get all C_states");
         List<C_state> result = c_stateRepository.findAll();
+        if (countryId == -1)
+            return result;
         List<C_state> res = new ArrayList<>();
         for(int i = 0; i < result.size();i++){
             if(result.get(i).getC_country().getId() == countryId){

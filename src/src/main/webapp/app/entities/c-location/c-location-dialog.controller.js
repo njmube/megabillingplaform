@@ -13,7 +13,7 @@
         vm.c_location = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.c_municipalities = C_municipality.query();
+        vm.c_municipalities = C_municipality.query({stateId:-1});
         vm.c_zip_codes = C_zip_code.query({filter: 'c_location-is-null'});
         $q.all([vm.c_location.$promise, vm.c_zip_codes.$promise]).then(function() {
             if (!vm.c_location.c_zip_code || !vm.c_location.c_zip_code.id) {
@@ -23,7 +23,7 @@
         }).then(function(c_zip_code) {
             vm.c_zip_codes.push(c_zip_code);
         });
-        vm.c_colonies = C_colony.query();
+        vm.c_colonies = C_colony.query({locationId:-1});
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

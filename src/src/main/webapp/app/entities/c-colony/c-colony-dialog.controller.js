@@ -10,7 +10,7 @@
     function C_colonyDialogController ($scope, $stateParams, $uibModalInstance, entity, C_colony, C_location) {
         var vm = this;
         vm.c_colony = entity;
-        vm.c_locations = C_location.query();
+        vm.c_locations = C_location.query({municipalityId:-1});
         vm.load = function(id) {
             C_colony.get({id : id}, function(result) {
                 vm.c_colony = result;
