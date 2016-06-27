@@ -67,7 +67,6 @@
 
         var onSaveSuccess = function (result) {
             $scope.$emit('megabillingplatformApp:free_emitterUpdate', result);
-            //$uibModalInstance.close(result);
             vm.isSaving = false;
         };
 

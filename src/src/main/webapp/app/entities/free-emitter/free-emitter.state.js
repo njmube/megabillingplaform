@@ -51,39 +51,39 @@
                 }]
             }
         })
-            .state('free-emitter.new', {
-                parent: 'free-emitter',
-                url: '/new',
-                data: {
-                    authorities: ['ROLE_USER'],
-                    pageTitle: 'megabillingplatformApp.free_emitter.home.createLabel'
-                },
-                views: {
-                    'content@': {
-                        templateUrl: 'app/entities/free-emitter/free-emitter-new.html',
-                        controller: 'Free_emitterNewController',
-                        controllerAs: 'vm'
-                    }
-                },
-                resolve: {
-                    entity: [function () {
-                        return {
-                            reference: null,
-                            num_int: null,
-                            num_ext: null,
-                            street: null,
-                            create_date: null,
-                            activated: false,
-                            id: null
-                        };
-                    }],
-                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('free_emitter');
-                        $translatePartialLoader.addPart('global');
-                        return $translate.refresh();
-                    }]
-                }
-            })
+		.state('free-emitter.new', {
+			parent: 'free-emitter',
+			url: '/new',
+			data: {
+				authorities: ['ROLE_USER'],
+				pageTitle: 'megabillingplatformApp.free_emitter.home.createLabel'
+			},
+			views: {
+				'content@': {
+					templateUrl: 'app/entities/free-emitter/free-emitter-new.html',
+					controller: 'Free_emitterNewController',
+					controllerAs: 'vm'
+				}
+			},
+			resolve: {
+				entity: [function () {
+					return {
+						reference: null,
+						num_int: null,
+						num_ext: null,
+						street: null,
+						create_date: null,
+						activated: false,
+						id: null
+					};
+				}],
+				translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+					$translatePartialLoader.addPart('free_emitter');
+					$translatePartialLoader.addPart('global');
+					return $translate.refresh();
+				}]
+			}
+		})
         /*.state('free-emitter.new', {
             parent: 'free-emitter',
             url: '/new',
