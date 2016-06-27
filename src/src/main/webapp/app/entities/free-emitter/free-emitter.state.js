@@ -77,6 +77,16 @@
 						id: null
 					};
 				}],
+				entity2: [function () {
+						return {
+							adrees: null,
+							adreesContentType: null,
+							private_key: null,
+							private_keyContentType: null,
+							possword: null,
+							id: null
+						};
+					}],
 				translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
 					$translatePartialLoader.addPart('free_emitter');
 					$translatePartialLoader.addPart('global');
