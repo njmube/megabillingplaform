@@ -97,17 +97,17 @@ public class C_countryResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-countries");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
-/*
-    @RequestMapping(value = "/c-countries",
+
+    @RequestMapping(value = "/c-countriesall",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public List<C_country> getAllC_countries()
+    public ResponseEntity<List<C_country>> getAllC_countries()
         throws URISyntaxException {
-        log.debug("REST request to get a list of C_countries");
-        List<C_country> list = c_countryService.findAll();
-        return list;
-    }*/
+        log.debug("REST request to get a page of C_countries");
+        List<C_country> page = c_countryService.findAll();
+        return new ResponseEntity<>(page, HttpStatus.OK);
+    }
 
     /**
      * GET  /c-countries/:id : get the "id" c_country.

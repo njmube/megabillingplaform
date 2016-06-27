@@ -21,4 +21,15 @@
             'update': { method:'PUT' }
         });
     }
+    /*function C_colony ($resource) {
+        var service = $resource('api/c-coloniesbylocation', {}, {
+            'queryBylocation': {
+                method: 'GET',
+                isArray: true,
+                params: {locationId: null}
+            }
+        });
+
+        return service;
+    }*/
 })();

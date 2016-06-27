@@ -18,7 +18,12 @@
                     return data;
                 }
             },
-            'update': { method:'PUT' }
+            'update': { method:'PUT' }/*,
+            'queryByCountry': {
+                method: 'GET',
+                isArray: true,
+                params: {countryId: null}
+            }*/
         });
     }
 })();

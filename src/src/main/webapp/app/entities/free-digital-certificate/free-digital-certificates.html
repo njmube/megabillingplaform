@@ -19,18 +19,16 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="adrees"><span translate="megabillingplatformApp.free_digital_certificate.adrees">Adrees</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="private_key"><span translate="megabillingplatformApp.free_digital_certificate.private_key">Private_key</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="path_certificate"><span translate="megabillingplatformApp.free_digital_certificate.path_certificate">Path_certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="path_private_key"><span translate="megabillingplatformApp.free_digital_certificate.path_private_key">Path_private_key</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="free_digital_certificate in vm.free_digital_certificates track by free_digital_certificate.id">
                     <td><a ui-sref="free-digital-certificate-detail({id:free_digital_certificate.id})">{{free_digital_certificate.id}}</a></td>
-                    <td><a ng-click="vm.openFile(free_digital_certificate.adreesContentType, free_digital_certificate.adrees)" ng-if="free_digital_certificate.adrees" target="_blank">open</a>
-                        {{free_digital_certificate.adreesContentType}}, {{byteSize(free_digital_certificate.adrees)}}</td>
-                    <td><a ng-click="vm.openFile(free_digital_certificate.private_keyContentType, free_digital_certificate.private_key)" ng-if="free_digital_certificate.private_key" target="_blank">open</a>
-                        {{free_digital_certificate.private_keyContentType}}, {{byteSize(free_digital_certificate.private_key)}}</td>
+                    <td>{{free_digital_certificate.path_certificate}}</td>
+                    <td>{{free_digital_certificate.path_private_key}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

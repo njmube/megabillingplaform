@@ -10,6 +10,9 @@
     function Free_emitterDialogController ($scope, $stateParams, $uibModalInstance, $q, entity, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_location, C_colony, C_zip_code, User, Free_digital_certificate) {
         var vm = this;
         vm.free_emitter = entity;
+        /*if (vm.free_emitter.id == null) {
+            vm.free_emitter.create_date = Date().getNow();
+        }*/
         vm.tax_regimes = Tax_regime.query();
         vm.c_countrys = C_country.query();
         vm.c_states = C_state.query();
@@ -30,6 +33,9 @@
         vm.load = function(id) {
             Free_emitter.get({id : id}, function(result) {
                 vm.free_emitter = result;
+                if (vm.free_emitter.id == null) {
+                    vm.free_emitter.create_date = Date.now();
+                }
             });
         };
 
@@ -54,13 +60,6 @@
 
         vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
-        };
-
-        vm.datePickerOpenStatus = {};
-        vm.datePickerOpenStatus.create_date = false;
-
-        vm.openCalendar = function(date) {
-            vm.datePickerOpenStatus[date] = true;
         };
     }
 })();

@@ -25,6 +25,9 @@
                     <th jh-sort-by="street"><span translate="megabillingplatformApp.free_emitter.street">Street</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="create_date"><span translate="megabillingplatformApp.free_emitter.create_date">Create_date</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="activated"><span translate="megabillingplatformApp.free_emitter.activated">Activated</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.free_emitter.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="social_reason"><span translate="megabillingplatformApp.free_emitter.social_reason">Social_reason</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email"><span translate="megabillingplatformApp.free_emitter.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="tax_regime.name"><span translate="megabillingplatformApp.free_emitter.tax_regime">tax_regime</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="c_country.name"><span translate="megabillingplatformApp.free_emitter.c_country">c_country</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="c_state.name"><span translate="megabillingplatformApp.free_emitter.c_state">c_state</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -46,6 +49,9 @@
                     <td>{{free_emitter.street}}</td>
                     <td>{{free_emitter.create_date | date:'medium'}}</td>
                     <td>{{free_emitter.activated}}</td>
+                    <td>{{free_emitter.rfc}}</td>
+                    <td>{{free_emitter.social_reason}}</td>
+                    <td>{{free_emitter.email}}</td>
                     <td>
                         <a ui-sref="tax-regime-detail({id:free_emitter.tax_regime.id})">{{free_emitter.tax_regime.name}}</a>
                     </td>

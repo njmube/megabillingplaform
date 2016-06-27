@@ -29,10 +29,10 @@ import java.util.Optional;
 public class C_locationResource {
 
     private final Logger log = LoggerFactory.getLogger(C_locationResource.class);
-        
+
     @Inject
     private C_locationService c_locationService;
-    
+
     /**
      * POST  /c-locations : Create a new c_location.
      *
@@ -79,6 +79,16 @@ public class C_locationResource {
             .body(result);
     }
 
+    @RequestMapping(value = "/c-locationsbymunicipality" ,
+        method = RequestMethod.GET,
+        params = {"municipalityId"},
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<C_location>> findByMunicipality(
+        @RequestParam(value = "municipalityId") Long municipalityId) throws URISyntaxException {
+        List<C_location> page = c_locationService.findByMunicipality(municipalityId);
+        return new ResponseEntity<>(page, HttpStatus.OK);
+    }
+
     /**
      * GET  /c-locations : get all the c_locations.
      *
@@ -93,7 +103,7 @@ public class C_locationResource {
     public ResponseEntity<List<C_location>> getAllC_locations(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_locations");
-        Page<C_location> page = c_locationService.findAll(pageable); 
+        Page<C_location> page = c_locationService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-locations");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

@@ -1,5 +1,6 @@
 package org.megapractical.billingplatform.service.impl;
 
+import org.megapractical.billingplatform.domain.C_country;
 import org.megapractical.billingplatform.service.C_stateService;
 import org.megapractical.billingplatform.domain.C_state;
 import org.megapractical.billingplatform.repository.C_stateRepository;
@@ -11,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,13 +23,13 @@ import java.util.List;
 public class C_stateServiceImpl implements C_stateService{
 
     private final Logger log = LoggerFactory.getLogger(C_stateServiceImpl.class);
-    
+
     @Inject
     private C_stateRepository c_stateRepository;
-    
+
     /**
      * Save a c_state.
-     * 
+     *
      * @param c_state the entity to save
      * @return the persisted entity
      */
@@ -39,15 +41,28 @@ public class C_stateServiceImpl implements C_stateService{
 
     /**
      *  Get all the c_states.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<C_state> findAll(Pageable pageable) {
         log.debug("Request to get all C_states");
-        Page<C_state> result = c_stateRepository.findAll(pageable); 
+        Page<C_state> result = c_stateRepository.findAll(pageable);
         return result;
+    }
+
+    @Transactional(readOnly = true)
+    public List<C_state> findByCountry(long countryId){
+        log.debug("Request to get all C_states");
+        List<C_state> result = c_stateRepository.findAll();
+        List<C_state> res = new ArrayList<>();
+        for(int i = 0; i < result.size();i++){
+            if(result.get(i).getC_country().getId() == countryId){
+                res.add(result.get(i));
+            }
+        }
+        return res;
     }
 
     /**
@@ -56,7 +71,7 @@ public class C_stateServiceImpl implements C_stateService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public C_state findOne(Long id) {
         log.debug("Request to get C_state : {}", id);
         C_state c_state = c_stateRepository.findOne(id);
@@ -65,7 +80,7 @@ public class C_stateServiceImpl implements C_stateService{
 
     /**
      *  Delete the  c_state by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

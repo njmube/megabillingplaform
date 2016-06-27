@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,13 +22,13 @@ import java.util.List;
 public class C_municipalityServiceImpl implements C_municipalityService{
 
     private final Logger log = LoggerFactory.getLogger(C_municipalityServiceImpl.class);
-    
+
     @Inject
     private C_municipalityRepository c_municipalityRepository;
-    
+
     /**
      * Save a c_municipality.
-     * 
+     *
      * @param c_municipality the entity to save
      * @return the persisted entity
      */
@@ -37,16 +38,28 @@ public class C_municipalityServiceImpl implements C_municipalityService{
         return result;
     }
 
+    public List<C_municipality> findByState(Long stateId){
+        log.debug("Request to get all C_states");
+        List<C_municipality> result = c_municipalityRepository.findAll();
+        List<C_municipality> res = new ArrayList<>();
+        for(int i = 0; i < result.size();i++){
+            if(result.get(i).getC_state().getId() == stateId){
+                res.add(result.get(i));
+            }
+        }
+        return res;
+    }
+
     /**
      *  Get all the c_municipalities.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<C_municipality> findAll(Pageable pageable) {
         log.debug("Request to get all C_municipalities");
-        Page<C_municipality> result = c_municipalityRepository.findAll(pageable); 
+        Page<C_municipality> result = c_municipalityRepository.findAll(pageable);
         return result;
     }
 
@@ -56,7 +69,7 @@ public class C_municipalityServiceImpl implements C_municipalityService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public C_municipality findOne(Long id) {
         log.debug("Request to get C_municipality : {}", id);
         C_municipality c_municipality = c_municipalityRepository.findOne(id);
@@ -65,7 +78,7 @@ public class C_municipalityServiceImpl implements C_municipalityService{
 
     /**
      *  Delete the  c_municipality by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

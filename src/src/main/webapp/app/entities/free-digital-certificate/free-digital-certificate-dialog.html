@@ -13,60 +13,26 @@
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.free_digital_certificate.id" readonly />
         </div>
-        <div class="form-group" ngf-drop ngf-change="vm.setAdrees($file, vm.free_digital_certificate)">
-            <label class="control-label" translate="megabillingplatformApp.free_digital_certificate.adrees" for="field_adrees">Adrees</label>
-            <div>
-                <div class="help-block clearfix">
-                    <a class="pull-left" ng-click="vm.openFile(vm.free_digital_certificate.adreesContentType, vm.free_digital_certificate.adrees)" ng-if="vm.free_digital_certificate.adrees" target="_blank">open</a><br>
-                    <span class="pull-left">{{vm.free_digital_certificate.adreesContentType}}, {{byteSize(vm.free_digital_certificate.adrees)}}</span>
-                    <button ng-click="vm.free_digital_certificate.adrees=null;vm.free_digital_certificate.adreesContentType=null;"
-                            ng-if="vm.free_digital_certificate.adrees"
-                            class="btn btn-default btn-xs pull-right">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </div>
-                <button type="file" ngf-select class="btn btn-default btn-block"
-                        ngf-change="vm.setAdrees($file, vm.free_digital_certificate)" translate="entity.action.addblob">
-                    Add blob
-                </button>
-            </div>
-            <input type="hidden" class="form-control" name="adrees" id="field_adrees"
-                    ng-model="vm.free_digital_certificate.adrees"
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_digital_certificate.path_certificate" for="field_path_certificate">Path_certificate</label>
+            <input type="text" class="form-control" name="path_certificate" id="field_path_certificate"
+                    ng-model="vm.free_digital_certificate.path_certificate"
                     required />
-            <input type="hidden" class="form-control" name="adreesContentType" id="field_adreesContentType"
-                    ng-model="vm.free_digital_certificate.adreesContentType" />
-            <div ng-show="editForm.adrees.$invalid">
+            <div ng-show="editForm.path_certificate.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.adrees.$error.required" translate="entity.validation.required">
+                    ng-show="editForm.path_certificate.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
             </div>
         </div>
-        <div class="form-group" ngf-drop ngf-change="vm.setPrivate_key($file, vm.free_digital_certificate)">
-            <label class="control-label" translate="megabillingplatformApp.free_digital_certificate.private_key" for="field_private_key">Private_key</label>
-            <div>
-                <div class="help-block clearfix">
-                    <a class="pull-left" ng-click="vm.openFile(vm.free_digital_certificate.private_keyContentType, vm.free_digital_certificate.private_key)" ng-if="vm.free_digital_certificate.private_key" target="_blank">open</a><br>
-                    <span class="pull-left">{{vm.free_digital_certificate.private_keyContentType}}, {{byteSize(vm.free_digital_certificate.private_key)}}</span>
-                    <button ng-click="vm.free_digital_certificate.private_key=null;vm.free_digital_certificate.private_keyContentType=null;"
-                            ng-if="vm.free_digital_certificate.private_key"
-                            class="btn btn-default btn-xs pull-right">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </div>
-                <button type="file" ngf-select class="btn btn-default btn-block"
-                        ngf-change="vm.setPrivate_key($file, vm.free_digital_certificate)" translate="entity.action.addblob">
-                    Add blob
-                </button>
-            </div>
-            <input type="hidden" class="form-control" name="private_key" id="field_private_key"
-                    ng-model="vm.free_digital_certificate.private_key"
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_digital_certificate.path_private_key" for="field_path_private_key">Path_private_key</label>
+            <input type="text" class="form-control" name="path_private_key" id="field_path_private_key"
+                    ng-model="vm.free_digital_certificate.path_private_key"
                     required />
-            <input type="hidden" class="form-control" name="private_keyContentType" id="field_private_keyContentType"
-                    ng-model="vm.free_digital_certificate.private_keyContentType" />
-            <div ng-show="editForm.private_key.$invalid">
+            <div ng-show="editForm.path_private_key.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.private_key.$error.required" translate="entity.validation.required">
+                    ng-show="editForm.path_private_key.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
             </div>

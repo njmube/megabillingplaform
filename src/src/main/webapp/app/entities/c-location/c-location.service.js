@@ -23,4 +23,15 @@
             'update': { method:'PUT' }
         });
     }
+    /*function C_location ($resource) {
+        var service = $resource('api/c-locationsbymunicipality', {}, {
+            'queryByMunicipality': {
+                method: 'GET',
+                isArray: true,
+                params: {municipalityId: null}
+            }
+        });
+
+        return service;
+    }*/
 })();

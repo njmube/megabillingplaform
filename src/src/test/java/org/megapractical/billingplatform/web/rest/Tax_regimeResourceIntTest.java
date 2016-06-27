@@ -46,6 +46,8 @@ public class Tax_regimeResourceIntTest {
     private static final String UPDATED_NAME = "BBBBB";
     private static final String DEFAULT_DESCRIPTION = "AAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBB";
+    private static final String DEFAULT_CODE = "AAAAA";
+    private static final String UPDATED_CODE = "BBBBB";
 
     @Inject
     private Tax_regimeRepository tax_regimeRepository;
@@ -78,6 +80,7 @@ public class Tax_regimeResourceIntTest {
         tax_regime = new Tax_regime();
         tax_regime.setName(DEFAULT_NAME);
         tax_regime.setDescription(DEFAULT_DESCRIPTION);
+        tax_regime.setCode(DEFAULT_CODE);
     }
 
     @Test
@@ -98,6 +101,25 @@ public class Tax_regimeResourceIntTest {
         Tax_regime testTax_regime = tax_regimes.get(tax_regimes.size() - 1);
         assertThat(testTax_regime.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testTax_regime.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testTax_regime.getCode()).isEqualTo(DEFAULT_CODE);
+    }
+
+    @Test
+    @Transactional
+    public void checkCodeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = tax_regimeRepository.findAll().size();
+        // set the field null
+        tax_regime.setCode(null);
+
+        // Create the Tax_regime, which fails.
+
+        restTax_regimeMockMvc.perform(post("/api/tax-regimes")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(tax_regime)))
+                .andExpect(status().isBadRequest());
+
+        List<Tax_regime> tax_regimes = tax_regimeRepository.findAll();
+        assertThat(tax_regimes).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -112,7 +134,8 @@ public class Tax_regimeResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(tax_regime.getId().intValue())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-                .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
+                .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
+                .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE.toString())));
     }
 
     @Test
@@ -127,7 +150,8 @@ public class Tax_regimeResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(tax_regime.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE.toString()));
     }
 
     @Test
@@ -151,6 +175,7 @@ public class Tax_regimeResourceIntTest {
         updatedTax_regime.setId(tax_regime.getId());
         updatedTax_regime.setName(UPDATED_NAME);
         updatedTax_regime.setDescription(UPDATED_DESCRIPTION);
+        updatedTax_regime.setCode(UPDATED_CODE);
 
         restTax_regimeMockMvc.perform(put("/api/tax-regimes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -163,6 +188,7 @@ public class Tax_regimeResourceIntTest {
         Tax_regime testTax_regime = tax_regimes.get(tax_regimes.size() - 1);
         assertThat(testTax_regime.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testTax_regime.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testTax_regime.getCode()).isEqualTo(UPDATED_CODE);
     }
 
     @Test

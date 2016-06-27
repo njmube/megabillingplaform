@@ -21,17 +21,11 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="adrees" type="blob">
-                <constraints nullable="false" />
-            </column>
-            <column name="adrees_content_type" type="varchar(255)">
+            <column name="path_certificate" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             
-            <column name="private_key" type="blob">
-                <constraints nullable="false" />
-            </column>
-            <column name="private_key_content_type" type="varchar(255)">
+            <column name="path_private_key" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             

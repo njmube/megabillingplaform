@@ -29,10 +29,10 @@ import java.util.Optional;
 public class C_municipalityResource {
 
     private final Logger log = LoggerFactory.getLogger(C_municipalityResource.class);
-        
+
     @Inject
     private C_municipalityService c_municipalityService;
-    
+
     /**
      * POST  /c-municipalities : Create a new c_municipality.
      *
@@ -53,6 +53,16 @@ public class C_municipalityResource {
         return ResponseEntity.created(new URI("/api/c-municipalities/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("c_municipality", result.getId().toString()))
             .body(result);
+    }
+
+    @RequestMapping(value = "/c-municipalitiesbystate" ,
+        method = RequestMethod.GET,
+        params = {"stateId"},
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<C_municipality>> findByState(
+        @RequestParam(value = "stateId") Long stateId) throws URISyntaxException {
+        List<C_municipality> page = c_municipalityService.findByState(stateId);
+        return new ResponseEntity<>(page, HttpStatus.OK);
     }
 
     /**
@@ -93,7 +103,7 @@ public class C_municipalityResource {
     public ResponseEntity<List<C_municipality>> getAllC_municipalities(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_municipalities");
-        Page<C_municipality> page = c_municipalityService.findAll(pageable); 
+        Page<C_municipality> page = c_municipalityService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-municipalities");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

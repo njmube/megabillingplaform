@@ -21,4 +21,16 @@
             'update': { method:'PUT' }
         });
     }
+
+    /*function C_municipality ($resource) {
+        var service = $resource('api/c-municipalitiesbystate', {}, {
+            'queryByState': {
+                method: 'GET',
+                isArray: true,
+                params: {stateId: null}
+            }
+        });
+
+        return service;
+    }*/
 })();

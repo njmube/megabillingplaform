@@ -2,22 +2,23 @@
     "megabillingplatformApp": {
         "tax_regime" : {
             "home": {
-                "title": "Tax regimes",
-                "createLabel": "Create a new Tax regime",
-                "createOrEditLabel": "Create or edit a Tax regime",
-                "search": "Search for Tax regime"
+                "title": "Tax_regimes",
+                "createLabel": "Create a new Tax_regime",
+                "createOrEditLabel": "Create or edit a Tax_regime",
+                "search": "Search for Tax_regime"
             },
-            "created": "A new Tax regime is created with identifier {{ param }}",
-            "updated": "A Tax regime is updated with identifier {{ param }}",
-            "deleted": "A Tax regime is deleted with identifier {{ param }}",
+            "created": "A new Tax_regime is created with identifier {{ param }}",
+            "updated": "A Tax_regime is updated with identifier {{ param }}",
+            "deleted": "A Tax_regime is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Tax regime {{ id }}?"
+                "question": "Are you sure you want to delete Tax_regime {{ id }}?"
             },
             "detail": {
-                "title": "Tax regime"
+                "title": "Tax_regime"
             },
             "name": "Name",
-            "description": "Description"
+            "description": "Description",
+            "code": "Code"
         }
     }
 }

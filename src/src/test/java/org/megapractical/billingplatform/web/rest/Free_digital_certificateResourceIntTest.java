@@ -21,7 +21,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Base64Utils;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -43,16 +42,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class Free_digital_certificateResourceIntTest {
 
-
-    private static final byte[] DEFAULT_ADREES = TestUtil.createByteArray(1, "0");
-    private static final byte[] UPDATED_ADREES = TestUtil.createByteArray(2, "1");
-    private static final String DEFAULT_ADREES_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_ADREES_CONTENT_TYPE = "image/png";
-
-    private static final byte[] DEFAULT_PRIVATE_KEY = TestUtil.createByteArray(1, "0");
-    private static final byte[] UPDATED_PRIVATE_KEY = TestUtil.createByteArray(2, "1");
-    private static final String DEFAULT_PRIVATE_KEY_CONTENT_TYPE = "image/jpg";
-    private static final String UPDATED_PRIVATE_KEY_CONTENT_TYPE = "image/png";
+    private static final String DEFAULT_PATH_CERTIFICATE = "AAAAA";
+    private static final String UPDATED_PATH_CERTIFICATE = "BBBBB";
+    private static final String DEFAULT_PATH_PRIVATE_KEY = "AAAAA";
+    private static final String UPDATED_PATH_PRIVATE_KEY = "BBBBB";
 
     @Inject
     private Free_digital_certificateRepository free_digital_certificateRepository;
@@ -83,10 +76,8 @@ public class Free_digital_certificateResourceIntTest {
     @Before
     public void initTest() {
         free_digital_certificate = new Free_digital_certificate();
-        free_digital_certificate.setAdrees(DEFAULT_ADREES);
-        free_digital_certificate.setAdreesContentType(DEFAULT_ADREES_CONTENT_TYPE);
-        free_digital_certificate.setPrivate_key(DEFAULT_PRIVATE_KEY);
-        free_digital_certificate.setPrivate_keyContentType(DEFAULT_PRIVATE_KEY_CONTENT_TYPE);
+        free_digital_certificate.setPath_certificate(DEFAULT_PATH_CERTIFICATE);
+        free_digital_certificate.setPath_private_key(DEFAULT_PATH_PRIVATE_KEY);
     }
 
     @Test
@@ -105,18 +96,16 @@ public class Free_digital_certificateResourceIntTest {
         List<Free_digital_certificate> free_digital_certificates = free_digital_certificateRepository.findAll();
         assertThat(free_digital_certificates).hasSize(databaseSizeBeforeCreate + 1);
         Free_digital_certificate testFree_digital_certificate = free_digital_certificates.get(free_digital_certificates.size() - 1);
-        assertThat(testFree_digital_certificate.getAdrees()).isEqualTo(DEFAULT_ADREES);
-        assertThat(testFree_digital_certificate.getAdreesContentType()).isEqualTo(DEFAULT_ADREES_CONTENT_TYPE);
-        assertThat(testFree_digital_certificate.getPrivate_key()).isEqualTo(DEFAULT_PRIVATE_KEY);
-        assertThat(testFree_digital_certificate.getPrivate_keyContentType()).isEqualTo(DEFAULT_PRIVATE_KEY_CONTENT_TYPE);
+        assertThat(testFree_digital_certificate.getPath_certificate()).isEqualTo(DEFAULT_PATH_CERTIFICATE);
+        assertThat(testFree_digital_certificate.getPath_private_key()).isEqualTo(DEFAULT_PATH_PRIVATE_KEY);
     }
 
     @Test
     @Transactional
-    public void checkAdreesIsRequired() throws Exception {
+    public void checkPath_certificateIsRequired() throws Exception {
         int databaseSizeBeforeTest = free_digital_certificateRepository.findAll().size();
         // set the field null
-        free_digital_certificate.setAdrees(null);
+        free_digital_certificate.setPath_certificate(null);
 
         // Create the Free_digital_certificate, which fails.
 
@@ -131,10 +120,10 @@ public class Free_digital_certificateResourceIntTest {
 
     @Test
     @Transactional
-    public void checkPrivate_keyIsRequired() throws Exception {
+    public void checkPath_private_keyIsRequired() throws Exception {
         int databaseSizeBeforeTest = free_digital_certificateRepository.findAll().size();
         // set the field null
-        free_digital_certificate.setPrivate_key(null);
+        free_digital_certificate.setPath_private_key(null);
 
         // Create the Free_digital_certificate, which fails.
 
@@ -158,10 +147,8 @@ public class Free_digital_certificateResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(free_digital_certificate.getId().intValue())))
-                .andExpect(jsonPath("$.[*].adreesContentType").value(hasItem(DEFAULT_ADREES_CONTENT_TYPE)))
-                .andExpect(jsonPath("$.[*].adrees").value(hasItem(Base64Utils.encodeToString(DEFAULT_ADREES))))
-                .andExpect(jsonPath("$.[*].private_keyContentType").value(hasItem(DEFAULT_PRIVATE_KEY_CONTENT_TYPE)))
-                .andExpect(jsonPath("$.[*].private_key").value(hasItem(Base64Utils.encodeToString(DEFAULT_PRIVATE_KEY))));
+                .andExpect(jsonPath("$.[*].path_certificate").value(hasItem(DEFAULT_PATH_CERTIFICATE.toString())))
+                .andExpect(jsonPath("$.[*].path_private_key").value(hasItem(DEFAULT_PATH_PRIVATE_KEY.toString())));
     }
 
     @Test
@@ -175,10 +162,8 @@ public class Free_digital_certificateResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(free_digital_certificate.getId().intValue()))
-            .andExpect(jsonPath("$.adreesContentType").value(DEFAULT_ADREES_CONTENT_TYPE))
-            .andExpect(jsonPath("$.adrees").value(Base64Utils.encodeToString(DEFAULT_ADREES)))
-            .andExpect(jsonPath("$.private_keyContentType").value(DEFAULT_PRIVATE_KEY_CONTENT_TYPE))
-            .andExpect(jsonPath("$.private_key").value(Base64Utils.encodeToString(DEFAULT_PRIVATE_KEY)));
+            .andExpect(jsonPath("$.path_certificate").value(DEFAULT_PATH_CERTIFICATE.toString()))
+            .andExpect(jsonPath("$.path_private_key").value(DEFAULT_PATH_PRIVATE_KEY.toString()));
     }
 
     @Test
@@ -200,10 +185,8 @@ public class Free_digital_certificateResourceIntTest {
         // Update the free_digital_certificate
         Free_digital_certificate updatedFree_digital_certificate = new Free_digital_certificate();
         updatedFree_digital_certificate.setId(free_digital_certificate.getId());
-        updatedFree_digital_certificate.setAdrees(UPDATED_ADREES);
-        updatedFree_digital_certificate.setAdreesContentType(UPDATED_ADREES_CONTENT_TYPE);
-        updatedFree_digital_certificate.setPrivate_key(UPDATED_PRIVATE_KEY);
-        updatedFree_digital_certificate.setPrivate_keyContentType(UPDATED_PRIVATE_KEY_CONTENT_TYPE);
+        updatedFree_digital_certificate.setPath_certificate(UPDATED_PATH_CERTIFICATE);
+        updatedFree_digital_certificate.setPath_private_key(UPDATED_PATH_PRIVATE_KEY);
 
         restFree_digital_certificateMockMvc.perform(put("/api/free-digital-certificates")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -214,10 +197,8 @@ public class Free_digital_certificateResourceIntTest {
         List<Free_digital_certificate> free_digital_certificates = free_digital_certificateRepository.findAll();
         assertThat(free_digital_certificates).hasSize(databaseSizeBeforeUpdate);
         Free_digital_certificate testFree_digital_certificate = free_digital_certificates.get(free_digital_certificates.size() - 1);
-        assertThat(testFree_digital_certificate.getAdrees()).isEqualTo(UPDATED_ADREES);
-        assertThat(testFree_digital_certificate.getAdreesContentType()).isEqualTo(UPDATED_ADREES_CONTENT_TYPE);
-        assertThat(testFree_digital_certificate.getPrivate_key()).isEqualTo(UPDATED_PRIVATE_KEY);
-        assertThat(testFree_digital_certificate.getPrivate_keyContentType()).isEqualTo(UPDATED_PRIVATE_KEY_CONTENT_TYPE);
+        assertThat(testFree_digital_certificate.getPath_certificate()).isEqualTo(UPDATED_PATH_CERTIFICATE);
+        assertThat(testFree_digital_certificate.getPath_private_key()).isEqualTo(UPDATED_PATH_PRIVATE_KEY);
     }
 
     @Test

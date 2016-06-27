@@ -2,17 +2,15 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "adrees",
-            "fieldType": "byte[]",
-            "fieldTypeBlobContent": "any",
+            "fieldName": "path_certificate",
+            "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "private_key",
-            "fieldType": "byte[]",
-            "fieldTypeBlobContent": "any",
+            "fieldName": "path_private_key",
+            "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]

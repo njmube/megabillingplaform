@@ -14,6 +14,74 @@
                     ng-model="vm.free_emitter.id" readonly />
         </div>
         <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_emitter.rfc" for="field_rfc">Rfc</label>
+            <input type="text" class="form-control" name="rfc" id="field_rfc"
+                   ng-model="vm.free_emitter.rfc"
+                   required ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$/" />
+            <div ng-show="editForm.rfc.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.rfc.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.rfc.$error.minlength" translate="entity.validation.minlength" translate-value-min="12">
+                    This field is required to be at least 12 characters.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.rfc.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="13">
+                    This field cannot be longer than 13 characters.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.rfc.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$">
+                    This field should follow pattern "^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$".
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_emitter.social_reason" for="field_social_reason">Social_reason</label>
+            <input type="text" class="form-control" name="social_reason" id="field_social_reason"
+                   ng-model="vm.free_emitter.social_reason"
+                   required ng-minlength="3" ng-maxlength="50" />
+            <div ng-show="editForm.social_reason.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.social_reason.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.social_reason.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
+                    This field is required to be at least 3 characters.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.social_reason.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_emitter.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                   ng-model="vm.free_emitter.email"
+                   required ng-minlength="6" ng-maxlength="254" ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" />
+            <div ng-show="editForm.email.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.email.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.email.$error.minlength" translate="entity.validation.minlength" translate-value-min="6">
+                    This field is required to be at least 6 characters.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.email.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="254">
+                    This field cannot be longer than 254 characters.
+                </p>
+                <p class="help-block"
+                   ng-show="editForm.email.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$">
+                    This field should follow pattern "^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$".
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="control-label" translate="megabillingplatformApp.free_emitter.reference" for="field_reference">Reference</label>
             <input type="text" class="form-control" name="reference" id="field_reference"
                     ng-model="vm.free_emitter.reference"
@@ -44,6 +112,26 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_emitter.create_date" for="field_create_date">Create_date</label>
+                <div class="input-group">
+                    <input id="field_create_date" type="text" class="form-control" name="create_date" datetime-picker="{{dateformat}}" ng-model="vm.free_emitter.create_date" is-open="vm.datePickerOpenStatus.create_date"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('create_date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.create_date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.create_date.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.create_date.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="control-label" translate="megabillingplatformApp.free_emitter.activated" for="field_activated">Activated</label>
             <input type="checkbox" class="form-control" name="activated" id="field_activated"
                     ng-model="vm.free_emitter.activated"
@@ -55,7 +143,6 @@
                 </p>
             </div>
         </div>
-
         <div class="form-group">
             <label translate="megabillingplatformApp.free_emitter.tax_regime" for="field_tax_regime">tax_regime</label>
             <select class="form-control" id="field_tax_regime" name="tax_regime" ng-model="vm.free_emitter.tax_regime" ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimes track by tax_regime.id">

@@ -52,8 +52,8 @@ public class Free_emitterResourceIntTest {
     private static final String UPDATED_REFERENCE = "BBBBB";
     private static final String DEFAULT_NUM_INT = "1";
     private static final String UPDATED_NUM_INT = "2";
-    private static final String DEFAULT_NUM_EXT = "2";
-    private static final String UPDATED_NUM_EXT = "3";
+    private static final String DEFAULT_NUM_EXT = "3";
+    private static final String UPDATED_NUM_EXT = "4";
     private static final String DEFAULT_STREET = "AAAAA";
     private static final String UPDATED_STREET = "BBBBB";
 
@@ -63,6 +63,12 @@ public class Free_emitterResourceIntTest {
 
     private static final Boolean DEFAULT_ACTIVATED = false;
     private static final Boolean UPDATED_ACTIVATED = true;
+    private static final String DEFAULT_RFC = "AAA121234ZWW";
+    private static final String UPDATED_RFC = "AAA121234ZSS";
+    private static final String DEFAULT_SOCIAL_REASON = "AAA";
+    private static final String UPDATED_SOCIAL_REASON = "BBB";
+    private static final String DEFAULT_EMAIL = "algo@algo.com";
+    private static final String UPDATED_EMAIL = "algo1@algo.com";
 
     @Inject
     private Free_emitterRepository free_emitterRepository;
@@ -99,12 +105,14 @@ public class Free_emitterResourceIntTest {
         free_emitter.setStreet(DEFAULT_STREET);
         free_emitter.setCreate_date(DEFAULT_CREATE_DATE);
         free_emitter.setActivated(DEFAULT_ACTIVATED);
+        free_emitter.setRfc(DEFAULT_RFC);
+        free_emitter.setSocial_reason(DEFAULT_SOCIAL_REASON);
+        free_emitter.setEmail(DEFAULT_EMAIL);
     }
 
     @Test
     @Transactional
     public void createFree_emitter() throws Exception {
-        /*
         int databaseSizeBeforeCreate = free_emitterRepository.findAll().size();
 
         // Create the Free_emitter
@@ -123,7 +131,10 @@ public class Free_emitterResourceIntTest {
         assertThat(testFree_emitter.getNum_ext()).isEqualTo(DEFAULT_NUM_EXT);
         assertThat(testFree_emitter.getStreet()).isEqualTo(DEFAULT_STREET);
         assertThat(testFree_emitter.getCreate_date()).isEqualTo(DEFAULT_CREATE_DATE);
-        assertThat(testFree_emitter.isActivated()).isEqualTo(DEFAULT_ACTIVATED);*/
+        assertThat(testFree_emitter.isActivated()).isEqualTo(DEFAULT_ACTIVATED);
+        assertThat(testFree_emitter.getRfc()).isEqualTo(DEFAULT_RFC);
+        assertThat(testFree_emitter.getSocial_reason()).isEqualTo(DEFAULT_SOCIAL_REASON);
+        assertThat(testFree_emitter.getEmail()).isEqualTo(DEFAULT_EMAIL);
     }
 
     @Test
@@ -147,7 +158,6 @@ public class Free_emitterResourceIntTest {
     @Test
     @Transactional
     public void checkCreate_dateIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
         // set the field null
         free_emitter.setCreate_date(null);
@@ -160,7 +170,7 @@ public class Free_emitterResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_emitter> free_emitters = free_emitterRepository.findAll();
-        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -169,6 +179,60 @@ public class Free_emitterResourceIntTest {
         int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
         // set the field null
         free_emitter.setActivated(null);
+
+        // Create the Free_emitter, which fails.
+
+        restFree_emitterMockMvc.perform(post("/api/free-emitters")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(free_emitter)))
+                .andExpect(status().isBadRequest());
+
+        List<Free_emitter> free_emitters = free_emitterRepository.findAll();
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkRfcIsRequired() throws Exception {
+        int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
+        // set the field null
+        free_emitter.setRfc(null);
+
+        // Create the Free_emitter, which fails.
+
+        restFree_emitterMockMvc.perform(post("/api/free-emitters")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(free_emitter)))
+                .andExpect(status().isBadRequest());
+
+        List<Free_emitter> free_emitters = free_emitterRepository.findAll();
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkSocial_reasonIsRequired() throws Exception {
+        int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
+        // set the field null
+        free_emitter.setSocial_reason(null);
+
+        // Create the Free_emitter, which fails.
+
+        restFree_emitterMockMvc.perform(post("/api/free-emitters")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(free_emitter)))
+                .andExpect(status().isBadRequest());
+
+        List<Free_emitter> free_emitters = free_emitterRepository.findAll();
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkEmailIsRequired() throws Exception {
+        int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
+        // set the field null
+        free_emitter.setEmail(null);
 
         // Create the Free_emitter, which fails.
 
@@ -197,7 +261,10 @@ public class Free_emitterResourceIntTest {
                 .andExpect(jsonPath("$.[*].num_ext").value(hasItem(DEFAULT_NUM_EXT.toString())))
                 .andExpect(jsonPath("$.[*].street").value(hasItem(DEFAULT_STREET.toString())))
                 .andExpect(jsonPath("$.[*].create_date").value(hasItem(DEFAULT_CREATE_DATE_STR)))
-                .andExpect(jsonPath("$.[*].activated").value(hasItem(DEFAULT_ACTIVATED.booleanValue())));
+                .andExpect(jsonPath("$.[*].activated").value(hasItem(DEFAULT_ACTIVATED.booleanValue())))
+                .andExpect(jsonPath("$.[*].rfc").value(hasItem(DEFAULT_RFC.toString())))
+                .andExpect(jsonPath("$.[*].social_reason").value(hasItem(DEFAULT_SOCIAL_REASON.toString())))
+                .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())));
     }
 
     @Test
@@ -216,7 +283,10 @@ public class Free_emitterResourceIntTest {
             .andExpect(jsonPath("$.num_ext").value(DEFAULT_NUM_EXT.toString()))
             .andExpect(jsonPath("$.street").value(DEFAULT_STREET.toString()))
             .andExpect(jsonPath("$.create_date").value(DEFAULT_CREATE_DATE_STR))
-            .andExpect(jsonPath("$.activated").value(DEFAULT_ACTIVATED.booleanValue()));
+            .andExpect(jsonPath("$.activated").value(DEFAULT_ACTIVATED.booleanValue()))
+            .andExpect(jsonPath("$.rfc").value(DEFAULT_RFC.toString()))
+            .andExpect(jsonPath("$.social_reason").value(DEFAULT_SOCIAL_REASON.toString()))
+            .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()));
     }
 
     @Test
@@ -244,6 +314,9 @@ public class Free_emitterResourceIntTest {
         updatedFree_emitter.setStreet(UPDATED_STREET);
         updatedFree_emitter.setCreate_date(UPDATED_CREATE_DATE);
         updatedFree_emitter.setActivated(UPDATED_ACTIVATED);
+        updatedFree_emitter.setRfc(UPDATED_RFC);
+        updatedFree_emitter.setSocial_reason(UPDATED_SOCIAL_REASON);
+        updatedFree_emitter.setEmail(UPDATED_EMAIL);
 
         restFree_emitterMockMvc.perform(put("/api/free-emitters")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -260,6 +333,9 @@ public class Free_emitterResourceIntTest {
         assertThat(testFree_emitter.getStreet()).isEqualTo(UPDATED_STREET);
         assertThat(testFree_emitter.getCreate_date()).isEqualTo(UPDATED_CREATE_DATE);
         assertThat(testFree_emitter.isActivated()).isEqualTo(UPDATED_ACTIVATED);
+        assertThat(testFree_emitter.getRfc()).isEqualTo(UPDATED_RFC);
+        assertThat(testFree_emitter.getSocial_reason()).isEqualTo(UPDATED_SOCIAL_REASON);
+        assertThat(testFree_emitter.getEmail()).isEqualTo(UPDATED_EMAIL);
     }
 
     @Test

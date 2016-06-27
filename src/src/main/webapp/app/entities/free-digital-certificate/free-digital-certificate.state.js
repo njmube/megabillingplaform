@@ -91,10 +91,8 @@
                     resolve: {
                         entity: function () {
                             return {
-                                adrees: null,
-                                adreesContentType: null,
-                                private_key: null,
-                                private_keyContentType: null,
+                                path_certificate: null,
+                                path_private_key: null,
                                 id: null
                             };
                         }

@@ -13,7 +13,7 @@ public interface C_municipalityService {
 
     /**
      * Save a c_municipality.
-     * 
+     *
      * @param c_municipality the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface C_municipalityService {
 
     /**
      *  Get all the c_municipalities.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<C_municipality> findAll(Pageable pageable);
 
+    List<C_municipality> findByState(Long stateId);
+
     /**
      *  Get the "id" c_municipality.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface C_municipalityService {
 
     /**
      *  Delete the "id" c_municipality.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

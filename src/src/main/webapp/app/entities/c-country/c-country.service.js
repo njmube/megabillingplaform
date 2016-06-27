@@ -21,4 +21,11 @@
             'update': { method:'PUT' }
         });
     }
+    /*function C_country ($resource) {
+        var resourceUrl =  'api/c-countriesall';
+
+        return $resource(resourceUrl, {}, {
+            'queryall': { method: 'GET', isArray: true}
+        });
+    }*/
 })();

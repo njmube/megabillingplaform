@@ -93,6 +93,7 @@
                             return {
                                 name: null,
                                 description: null,
+                                code: null,
                                 id: null
                             };
                         }

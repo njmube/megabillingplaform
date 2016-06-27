@@ -36,12 +36,30 @@ public class Free_emitter implements Serializable {
     @Column(name = "street", nullable = false)
     private String street;
 
-    @Column(name = "create_date")
+    @NotNull
+    @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 
     @NotNull
     @Column(name = "activated", nullable = false)
     private Boolean activated;
+
+    @NotNull
+    @Size(min = 12, max = 13)
+    @Pattern(regexp = "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$")
+    @Column(name = "rfc", length = 13, nullable = false)
+    private String rfc;
+
+    @NotNull
+    @Size(min = 3, max = 50)
+    @Column(name = "social_reason", length = 50, nullable = false)
+    private String social_reason;
+
+    @NotNull
+    @Size(min = 6, max = 254)
+    @Pattern(regexp = "^([a-zA-Z0-9])+([_\\.\\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9])+$")
+    @Column(name = "email", length = 254, nullable = false)
+    private String email;
 
     @ManyToOne
     private Tax_regime tax_regime;
@@ -126,6 +144,30 @@ public class Free_emitter implements Serializable {
 
     public void setActivated(Boolean activated) {
         this.activated = activated;
+    }
+
+    public String getRfc() {
+        return rfc;
+    }
+
+    public void setRfc(String rfc) {
+        this.rfc = rfc;
+    }
+
+    public String getSocial_reason() {
+        return social_reason;
+    }
+
+    public void setSocial_reason(String social_reason) {
+        this.social_reason = social_reason;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Tax_regime getTax_regime() {
@@ -230,6 +272,9 @@ public class Free_emitter implements Serializable {
             ", street='" + street + "'" +
             ", create_date='" + create_date + "'" +
             ", activated='" + activated + "'" +
+            ", rfc='" + rfc + "'" +
+            ", social_reason='" + social_reason + "'" +
+            ", email='" + email + "'" +
             '}';
     }
 }

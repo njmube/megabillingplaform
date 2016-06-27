@@ -23,20 +23,12 @@ public class Free_digital_certificate implements Serializable {
     private Long id;
 
     @NotNull
-    @Lob
-    @Column(name = "adrees", nullable = false)
-    private byte[] adrees;
-
-    @Column(name = "adrees_content_type", nullable = false)    
-    private String adreesContentType;
+    @Column(name = "path_certificate", nullable = false)
+    private String path_certificate;
 
     @NotNull
-    @Lob
-    @Column(name = "private_key", nullable = false)
-    private byte[] private_key;
-
-    @Column(name = "private_key_content_type", nullable = false)    
-    private String private_keyContentType;
+    @Column(name = "path_private_key", nullable = false)
+    private String path_private_key;
 
     public Long getId() {
         return id;
@@ -46,36 +38,20 @@ public class Free_digital_certificate implements Serializable {
         this.id = id;
     }
 
-    public byte[] getAdrees() {
-        return adrees;
+    public String getPath_certificate() {
+        return path_certificate;
     }
 
-    public void setAdrees(byte[] adrees) {
-        this.adrees = adrees;
+    public void setPath_certificate(String path_certificate) {
+        this.path_certificate = path_certificate;
     }
 
-    public String getAdreesContentType() {
-        return adreesContentType;
+    public String getPath_private_key() {
+        return path_private_key;
     }
 
-    public void setAdreesContentType(String adreesContentType) {
-        this.adreesContentType = adreesContentType;
-    }
-
-    public byte[] getPrivate_key() {
-        return private_key;
-    }
-
-    public void setPrivate_key(byte[] private_key) {
-        this.private_key = private_key;
-    }
-
-    public String getPrivate_keyContentType() {
-        return private_keyContentType;
-    }
-
-    public void setPrivate_keyContentType(String private_keyContentType) {
-        this.private_keyContentType = private_keyContentType;
+    public void setPath_private_key(String path_private_key) {
+        this.path_private_key = path_private_key;
     }
 
     @Override
@@ -102,10 +78,8 @@ public class Free_digital_certificate implements Serializable {
     public String toString() {
         return "Free_digital_certificate{" +
             "id=" + id +
-            ", adrees='" + adrees + "'" +
-            ", adreesContentType='" + adreesContentType + "'" +
-            ", private_key='" + private_key + "'" +
-            ", private_keyContentType='" + private_keyContentType + "'" +
+            ", path_certificate='" + path_certificate + "'" +
+            ", path_private_key='" + path_private_key + "'" +
             '}';
     }
 }

@@ -16,8 +16,8 @@
             "detail": {
                 "title": "Free_digital_certificate"
             },
-            "adrees": "Adrees",
-            "private_key": "Private_key"
+            "path_certificate": "Path_certificate",
+            "path_private_key": "Path_private_key"
         }
     }
 }

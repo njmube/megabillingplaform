@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_digital_certificateDialogController', Free_digital_certificateDialogController);
 
-    Free_digital_certificateDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'DataUtils', 'entity', 'Free_digital_certificate'];
+    Free_digital_certificateDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Free_digital_certificate'];
 
-    function Free_digital_certificateDialogController ($scope, $stateParams, $uibModalInstance, DataUtils, entity, Free_digital_certificate) {
+    function Free_digital_certificateDialogController ($scope, $stateParams, $uibModalInstance, entity, Free_digital_certificate) {
         var vm = this;
         vm.free_digital_certificate = entity;
         vm.load = function(id) {
@@ -38,30 +38,5 @@
         vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
         };
-
-        vm.setAdrees = function ($file, free_digital_certificate) {
-            if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
-                        free_digital_certificate.adrees = base64Data;
-                        free_digital_certificate.adreesContentType = $file.type;
-                    });
-                });
-            }
-        };
-
-        vm.setPrivate_key = function ($file, free_digital_certificate) {
-            if ($file) {
-                DataUtils.toBase64($file, function(base64Data) {
-                    $scope.$apply(function() {
-                        free_digital_certificate.private_key = base64Data;
-                        free_digital_certificate.private_keyContentType = $file.type;
-                    });
-                });
-            }
-        };
-
-        vm.openFile = DataUtils.openFile;
-        vm.byteSize = DataUtils.byteSize;
     }
 })();

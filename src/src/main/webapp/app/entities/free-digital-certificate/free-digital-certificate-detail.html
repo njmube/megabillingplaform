@@ -3,16 +3,14 @@
     <h2><span translate="megabillingplatformApp.free_digital_certificate.detail.title">Free_digital_certificate</span> {{vm.free_digital_certificate.id}}</h2>
     <hr>
     <dl class="dl-horizontal">
-        <dt><span translate="megabillingplatformApp.free_digital_certificate.adrees">Adrees</dt></dt>
+        <dt><span translate="megabillingplatformApp.free_digital_certificate.path_certificate">Path_certificate</dt></dt>
         <dd>
-            <a ng-click="vm.openFile(vm.free_digital_certificate.adreesContentType, vm.free_digital_certificate.adrees)" ng-if="vm.free_digital_certificate.adrees" target="_blank">open</a>
-            <div>{{vm.free_digital_certificate.adreesContentType}}, {{vm.byteSize(vm.free_digital_certificate.adrees)}}</div>
+            <span>{{vm.free_digital_certificate.path_certificate}}<span>
         </dd>
         <hr>
-        <dt><span translate="megabillingplatformApp.free_digital_certificate.private_key">Private_key</dt></dt>
+        <dt><span translate="megabillingplatformApp.free_digital_certificate.path_private_key">Path_private_key</dt></dt>
         <dd>
-            <a ng-click="vm.openFile(vm.free_digital_certificate.private_keyContentType, vm.free_digital_certificate.private_key)" ng-if="vm.free_digital_certificate.private_key" target="_blank">open</a>
-            <div>{{vm.free_digital_certificate.private_keyContentType}}, {{vm.byteSize(vm.free_digital_certificate.private_key)}}</div>
+            <span>{{vm.free_digital_certificate.path_private_key}}<span>
         </dd>
         <hr>
     </dl>

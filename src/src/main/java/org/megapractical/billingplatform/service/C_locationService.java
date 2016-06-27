@@ -13,7 +13,7 @@ public interface C_locationService {
 
     /**
      * Save a c_location.
-     * 
+     *
      * @param c_location the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface C_locationService {
 
     /**
      *  Get all the c_locations.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<C_location> findAll(Pageable pageable);
 
+    List<C_location> findByMunicipality(Long municipalityId);
+
     /**
      *  Get the "id" c_location.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface C_locationService {
 
     /**
      *  Delete the "id" c_location.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

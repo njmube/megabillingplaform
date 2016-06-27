@@ -67,7 +67,7 @@ class Free_digital_certificateGatlingTest extends Simulation {
             .exec(http("Create new free_digital_certificate")
             .post("/api/free-digital-certificates")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "adrees":null, "private_key":null}""")).asJSON
+            .body(StringBody("""{"id":null, "path_certificate":"SAMPLE_TEXT", "path_private_key":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_free_digital_certificate_url"))).exitHereIfFailed
             .pause(10)

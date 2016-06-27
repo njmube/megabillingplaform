@@ -97,6 +97,9 @@
                                 street: null,
                                 create_date: null,
                                 activated: false,
+                                rfc: null,
+                                social_reason: null,
+                                email: null,
                                 id: null
                             };
                         }

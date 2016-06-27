@@ -30,10 +30,10 @@ import java.util.Optional;
 public class C_colonyResource {
 
     private final Logger log = LoggerFactory.getLogger(C_colonyResource.class);
-        
+
     @Inject
     private C_colonyService c_colonyService;
-    
+
     /**
      * POST  /c-colonies : Create a new c_colony.
      *
@@ -54,6 +54,16 @@ public class C_colonyResource {
         return ResponseEntity.created(new URI("/api/c-colonies/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("c_colony", result.getId().toString()))
             .body(result);
+    }
+
+    @RequestMapping(value = "/c-coloniesbylocation" ,
+        method = RequestMethod.GET,
+        params = {"locationId"},
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<C_colony>> findByLocation(
+        @RequestParam(value = "locationId") Long locationId) throws URISyntaxException {
+        List<C_colony> page = c_colonyService.findByLocation(locationId);
+        return new ResponseEntity<>(page, HttpStatus.OK);
     }
 
     /**
@@ -94,7 +104,7 @@ public class C_colonyResource {
     public ResponseEntity<List<C_colony>> getAllC_colonies(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_colonies");
-        Page<C_colony> page = c_colonyService.findAll(pageable); 
+        Page<C_colony> page = c_colonyService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-colonies");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

@@ -1,7 +1,9 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import org.megapractical.billingplatform.domain.C_country;
 import org.megapractical.billingplatform.domain.C_state;
+import org.megapractical.billingplatform.service.C_countryService;
 import org.megapractical.billingplatform.service.C_stateService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
@@ -29,10 +31,13 @@ import java.util.Optional;
 public class C_stateResource {
 
     private final Logger log = LoggerFactory.getLogger(C_stateResource.class);
-        
+
     @Inject
     private C_stateService c_stateService;
-    
+
+    @Inject
+    private C_countryService c_countryService;
+
     /**
      * POST  /c-states : Create a new c_state.
      *
@@ -53,6 +58,15 @@ public class C_stateResource {
         return ResponseEntity.created(new URI("/api/c-states/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("c_state", result.getId().toString()))
             .body(result);
+    }
+
+    @RequestMapping(method = RequestMethod.GET,
+        params = {"countryId"},
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<C_state>> findByCountry(
+        @RequestParam(value = "countryId") Long countryId) throws URISyntaxException {
+        List<C_state> page = c_stateService.findByCountry(countryId);
+        return new ResponseEntity<>(page, HttpStatus.OK);
     }
 
     /**
@@ -93,7 +107,7 @@ public class C_stateResource {
     public ResponseEntity<List<C_state>> getAllC_states(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_states");
-        Page<C_state> page = c_stateService.findAll(pageable); 
+        Page<C_state> page = c_stateService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-states");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

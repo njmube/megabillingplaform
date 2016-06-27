@@ -1,5 +1,6 @@
 package org.megapractical.billingplatform.repository;
 
+import org.megapractical.billingplatform.domain.C_country;
 import org.megapractical.billingplatform.domain.C_state;
 
 import org.springframework.data.jpa.repository.*;
