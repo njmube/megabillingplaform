@@ -23,7 +23,6 @@
             "street": "Calle:",
             "create_date": "Create_date",
             "activated": "Activated",
-<<<<<<< Updated upstream
             "rfc": "Rfc",
             "social_reason": "Social_reason",
             "email": "Email",
@@ -34,7 +33,6 @@
             "c_location": "C_location",
             "c_colony": "C_colony",
             "c_zip_code": "C_zip_code",
-=======
             "tax_regime": "Régimen Fiscal:",
             "c_country": "País:",
             "c_state": "Estado:",
@@ -42,7 +40,6 @@
             "c_location": "Localidad:",
             "c_colony": "Colonia:",
             "c_zip_code": "Código Postal:",
->>>>>>> Stashed changes
             "user": "User",
             "free_digital_certificate": "Free_digital_certificate"
         }
