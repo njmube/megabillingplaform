@@ -3,11 +3,11 @@
 
     angular
         .module('megabillingplatformApp')
-        .controller('Free_cfdiDialogController', Free_cfdiDialogController);
+        .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'Free_emitter', 'Free_reciver', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'Free_emitter', 'Free_reciver', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime'];
 
-    function Free_cfdiDialogController ($scope, $stateParams, $uibModalInstance, entity, Free_cfdi, Cfdi_types, Cfdi_states, Free_emitter, Free_reciver, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, Free_emitter, Free_reciver, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime) {
         var vm = this;
         vm.free_cfdi = entity;
         vm.cfdi_typess = Cfdi_types.query();
@@ -42,10 +42,6 @@
             } else {
                 Free_cfdi.save(vm.free_cfdi, onSaveSuccess, onSaveError);
             }
-        };
-
-        vm.clear = function() {
-            $uibModalInstance.dismiss('cancel');
         };
 
         vm.datePickerOpenStatus = {};

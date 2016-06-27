@@ -3,7 +3,7 @@
         "free_cfdi" : {
             "home": {
                 "title": "Free_cfdis",
-                "createLabel": "Create a new Free_cfdi",
+                "createLabel": "Generate CFDI",
                 "createOrEditLabel": "Create or edit a Free_cfdi",
                 "search": "Search for Free_cfdi"
             },

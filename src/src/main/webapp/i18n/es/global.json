@@ -84,7 +84,15 @@
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
             "language": "Idioma"
-        },
+        },		
+		"user": {
+			"title": "Usuario",
+			"emitter.data": "Datos Emisor",
+			"emitter.data": "Datos Emisor",
+			"generate.cfdi": "Generar CFDI",
+			"search.cfdi": "Consultar CFDI",
+			"join.mega": "Afiliarse a Megapractical"
+		},
         "form": {
             "username": "Nombre de Usuario (*)",
             "username.placeholder": "Introduzca su Nombre de Usuario Ej: yandry",

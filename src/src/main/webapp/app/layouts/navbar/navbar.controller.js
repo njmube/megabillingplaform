@@ -21,26 +21,25 @@
         function login () {
             LoginService.open();
         }
-		
+
 		$scope.$on('authenticationSuccess', function() {
             getAccount();
         });
-		
+
 		function getAccount() {
-			
+
 			Principal.identity().then(function(account) {
                 vm.account = account;
-				console.log(vm.account);
             });
         }
 
         function logout () {
             Auth.logout();
-			
+
 			$('#sidebar').attr('class','sidebar h-sidebar navbar-collapse collapse');
 			$('#sidebar-shortcuts').attr('style','display:none');
 			$('#sidebar-options').attr('style','display:none');
-            
+
 			$state.go('home');
         }
     }
