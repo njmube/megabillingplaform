@@ -1,0 +1,50 @@
+{
+    "megabillingplatformApp": {
+        "free_emitter" : {
+            "home": {
+                "title": "Free Emitter",
+                "user.title": "User",
+                "createLabel": "Emitter Data",
+                "createOrEditLabel": "Create or edit a Free_emitter",
+                "search": "Search for Free_emitter"
+            },			
+            "created": "A new Free_emitter is created with identifier {{ param }}",
+            "updated": "A Free_emitter is updated with identifier {{ param }}",
+            "deleted": "A Free_emitter is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Free_emitter {{ id }}?"
+            },			
+            "detail": {
+                "title": "Free_emitter"
+            },
+            "reference": "Reference (Optional):",
+            "num_int": "Num. Int:",
+            "num_ext": "Num. Ext:",
+            "street": "Street:",
+            "create_date": "Create_date",
+            "activated": "Activated",
+<<<<<<< Updated upstream
+            "rfc": "Rfc",
+            "social_reason": "Social_reason",
+            "email": "Email",
+            "tax_regime": "Tax_regime",
+            "c_country": "C_country",
+            "c_state": "C_state",
+            "c_municipality": "C_municipality",
+            "c_location": "C_location",
+            "c_colony": "C_colony",
+            "c_zip_code": "C_zip_code",
+=======
+            "tax_regime": "Tax Regime:",
+            "c_country": "Country",
+            "c_state": "State",
+            "c_municipality": "Municipality",
+            "c_location": "Location",
+            "c_colony": "Colony:",
+            "c_zip_code": "Zip Code:",
+>>>>>>> Stashed changes
+            "user": "User",
+            "free_digital_certificate": "Free_digital_certificate"
+        }
+    }
+}

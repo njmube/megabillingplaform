@@ -1,0 +1,203 @@
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>
+                {{'global.user.title' | translate}}
+                <small>
+                    <i class="ace-icon fa fa-angle-double-right"></i>
+                    {{'megabillingplatformApp.free_emitter.home.createLabel' | translate}}
+                </small>
+            </h1>
+        </div>
+        <div class="col-md-4">
+            <a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info pull-right" href="">
+                <i class="fa fa-lightbulb-o"></i>
+            </a>
+        </div>
+    </div>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="nav nav-pills">
+            <li>
+                <a href="#/">
+                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                </a>
+            </li>
+            <li class="active">
+                <a ui-sref="free-emitter.new">{{'global.user.emitter.data' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="free-cfdi.new">{{'global.user.generate.cfdi' | translate}}</a>
+            </li>
+            <li>
+                <a href="">{{'global.user.search.cfdi' | translate}}</a>
+            </li>
+            <li>
+                <a href="">{{'global.user.join.mega' | translate}}</a>
+            </li>
+        </ul>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="hr hr-16 hr-dotted"></div>
+
+<div class="row">
+    <div class="col-sm-12">
+
+        <form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+            <div class="row">
+                <div class="col-md-6">
+
+                    <h3 class="header smaller lighter blue">
+                        Datos del Emisor
+                    </h3>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" for="field-1">
+                            RFC:
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" id="field-1" placeholder="RFC" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.tax_regime" for="field_tax_regime">tax_regime</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_tax_regime" name="tax_regime" ng-model="vm.free_emitter.tax_regime" ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimes track by tax_regime.id">
+								<option value=""></option>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" for="field-3">
+                            Nombre o Razón Social:
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" id="field-3" placeholder="Nombre o Razón Social" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" for="field-4">
+                            Correo Electrónico:
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" id="field-4" placeholder="Correo Electrónico" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="space-6"></div>
+
+                    <h3 class="header smaller lighter blue">
+                        Certificado Digital
+                    </h3>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.free_digital_certificate" for="field_free_digital_certificate">
+                            free_digital_certificate
+                        </label>
+                        <div class="col-sm-5">
+                            <input type="file" id="id-input-file-1" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" for="field-5">
+                            Clave Privada:
+                        </label>
+                        <div class="col-sm-5">
+                            <input type="file" id="id-input-file-2" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="header smaller lighter blue">
+                        Ubicación Fiscal
+                    </h3>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_country" for="field_c_country">c_country</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.free_emitter.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countrys track by c_country.id">
+								<option value=""></option>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_state" for="field_c_state">c_state</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_c_state" name="c_state" ng-model="vm.free_emitter.c_state" ng-options="c_state as c_state.name for c_state in vm.c_states track by c_state.id">
+								<option value=""></option>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_location" for="field_c_location">c_location</label>
+
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_c_location" name="c_location" ng-model="vm.free_emitter.c_location" ng-options="c_location as c_location.name for c_location in vm.c_locations track by c_location.id">
+								<option value=""></option>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_municipality" for="field_c_municipality">c_municipality</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_emitter.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id">
+								<option value=""></option>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.street" for="field_street">Street</label>
+
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="street" id="field_street" ng-model="vm.free_emitter.street" required />
+							<div ng-show="editForm.street.$invalid">
+								<p class="help-block"
+									ng-show="editForm.street.$error.required" translate="entity.validation.required">
+									This field is required.
+								</p>
+							</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.num_int" for="field_num_int">Num_int</label>
+                        <div class="col-md-2">
+                             <input type="text" class="form-control" name="num_int" id="field_num_int" ng-model="vm.free_emitter.num_int" />
+                        </div>
+                        <div class="col-md-6">
+							<label class="col-md-5 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.num_ext" for="field_num_ext">Num_ext</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" name="num_ext" id="field_num_ext" ng-model="vm.free_emitter.num_ext" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+						<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_colony" for="field_c_colony">c_colony</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_emitter.c_colony" ng-options="c_colony as c_colony.name for c_colony in vm.c_colonys track by c_colony.id">
+								<option value=""></option>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+						<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_zip_code" for="field_c_zip_code">c_zip_code</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.free_emitter.c_zip_code" ng-options="c_zip_code as c_zip_code.postcode for c_zip_code in vm.c_zip_codes track by c_zip_code.id">
+								<option value=""></option>
+							</select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" for="field_reference" translate="megabillingplatformApp.free_emitter.reference" for="field_reference">
+                            Reference
+                        </label>
+                        <div class="col-sm-8">
+                            <textarea type="text" id="field_reference" class="form-control" rows="5" ng-model="vm.free_emitter.reference"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
