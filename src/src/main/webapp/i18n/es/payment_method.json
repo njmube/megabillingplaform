@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "payment_method" : {
             "home": {
-                "title": "Payment_methods",
-                "createLabel": "Crear nuevo Payment_method",
-                "createOrEditLabel": "Crear o editar Payment_method",
-                "search": "Search for Payment_method"
+                "title": "Métodos de Pago",
+                "createLabel": "Nuevo Método de Pago",
+                "createOrEditLabel": "Crear o editar Método de Pago",
+                "search": "Búesqueda para Método de Pago"
             },
-            "created": "Un nuevo Payment_method ha sido creado con el identificador {{ param }}",
-            "updated": "Un Payment_method ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Payment_method ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo método de pago ha sido creado con el identificador {{ param }}",
+            "updated": "Un método de pago ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un método de pago ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Payment_method {{ id }}?"
+                "question": "¿Seguro que quiere eliminar método de pago  {{ id }}?"
             },
             "detail": {
-                "title": "Payment_method"
+                "title": "Método de Pago"
             },
-            "name": "Name",
-            "description": "Description",
-            "code": "Code"
+            "name": "Nombre",
+            "description": "Descripción",
+            "code": "Código"
         }
     }
 }

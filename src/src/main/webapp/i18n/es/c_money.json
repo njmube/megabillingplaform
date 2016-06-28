@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_money" : {
             "home": {
-                "title": "C_monies",
-                "createLabel": "Crear nuevo C_money",
-                "createOrEditLabel": "Crear o editar C_money",
-                "search": "Search for C_money"
+                "title": "Monedas",
+                "createLabel": "Nuevo Moneda",
+                "createOrEditLabel": "Crear o editar Moneda",
+                "search": "Buscar una Moneda"
             },
-            "created": "Un nuevo C_money ha sido creado con el identificador {{ param }}",
-            "updated": "Un C_money ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C_money ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nueva moneda ha sido creada con el identificador {{ param }}",
+            "updated": "Una moneda ha sido actualizada con el identificador {{ param }}",
+            "deleted": "Una moneda ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C_money {{ id }}?"
+                "question": "¿Seguro que quiere eliminar la moneda con ID: {{ id }}?"
             },
             "detail": {
-                "title": "C_money"
+                "title": "Moneda"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Nombre",
+            "description": "Descripción"
         }
     }
 }

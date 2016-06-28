@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "billing_account_state" : {
             "home": {
-                "title": "Estado de la cuenta",
-                "createLabel": "Crear nuevo Estado de la cuenta",
-                "createOrEditLabel": "Crear o editar Estado de la cuenta",
-                "search": "Búsqueda para Estado de la cuenta"
+                "title": "Estado de Cuenta Contribuyente",
+                "createLabel": "Nuevo Estado Cuenta",
+                "createOrEditLabel": "Crear o editar Estado de Cuenta Contribuyente",
+                "search": "Búsqueda para Estado de Cuenta Contribuyente"
             },
-            "created": "Un nuevo Estado de la cuenta ha sido creado con el identificador {{ param }}",
-            "updated": "Un Estado de la cuenta ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Estado de la cuenta ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo estado de cuenta contribuyente ha sido creado con el identificador {{ param }}",
+            "updated": "Un estado de cuenta contribuyente ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un estado de cuenta contribuyente ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Estado de la cuenta {{ id }}?"
+                "question": "¿Seguro que quiere eliminar estado de cuenta contribuyente {{ id }}?"
             },
             "detail": {
-                "title": "Estado de la cuenta"
+                "title": "Estado de Cuenta Contribuyente"
             },
             "name": "Nombre",
             "description": "Descripción"

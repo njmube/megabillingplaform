@@ -2,25 +2,25 @@
     "megabillingplatformApp": {
         "free_customs_info" : {
             "home": {
-                "title": "Free_customs_infos",
-                "createLabel": "Crear nuevo Free_customs_info",
-                "createOrEditLabel": "Crear o editar Free_customs_info",
-                "search": "Search for Free_customs_info"
+                "title": "Información Aduanera",
+                "createLabel": "Nueva Información Aduanera",
+                "createOrEditLabel": "Crear o editar Información Aduanera",
+                "search": "Búsqueda para Información Aduanera"
             },
-            "created": "Un nuevo Free_customs_info ha sido creado con el identificador {{ param }}",
-            "updated": "Un Free_customs_info ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Free_customs_info ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva información aduanera ha sido creado con el identificador {{ param }}",
+            "updated": "Una información aduanera ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una información aduanera ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Free_customs_info {{ id }}?"
+                "question": "¿Seguro que quiere eliminar información aduanera con el ID: {{ id }}?"
             },
             "detail": {
-                "title": "Free_customs_info"
+                "title": "Información Aduanera"
             },
-            "number_doc": "Number_doc",
-            "date": "Date",
-            "customs": "Customs",
-            "free_concept": "Free_concept",
-            "free_part_concept": "Free_part_concept"
+            "number_doc": "No. Documento",
+            "date": "Fecha",
+            "customs": "Aduana",
+            "free_concept": "Concepto",
+            "free_part_concept": "Parte Concepto"
         }
     }
 }

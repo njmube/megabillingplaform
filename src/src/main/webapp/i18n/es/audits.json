@@ -2,7 +2,7 @@
     "audits": {
         "title": "Auditorías",
         "filter": {
-            "title": "Filtrar por fecha",
+            "title": "Filtrar por Fecha",
             "from": "Desde",
             "to": "Hasta",
             "principal": "Usuario",

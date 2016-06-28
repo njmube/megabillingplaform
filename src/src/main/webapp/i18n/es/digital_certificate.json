@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "digital_certificate" : {
             "home": {
-                "title": "Certificado digital",
-                "createLabel": "Crear nuevo Certificado digital",
-                "createOrEditLabel": "Crear o editar Certificado digital",
+                "title": "Certificado Digital",
+                "createLabel": "Nuevo Certificado Digital",
+                "createOrEditLabel": "Crear o editar Certificado Digital",
                 "search": "Búsqueda para Certificado digital"
             },
-            "created": "Un nuevo Certificado digital ha sido creado con el identificador {{ param }}",
-            "updated": "Un Certificado digital ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Certificado digital ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo certificado digital ha sido creado con el identificador {{ param }}",
+            "updated": "Un certificado digital ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un certificado digital ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Certificado digital {{ id }}?"
+                "question": "¿Seguro que quiere eliminar certificado digital con el ID {{ id }}?"
             },
             "detail": {
-                "title": "Certificado digital"
+                "title": "Certificado Digital"
             },
             "adrees": "Dirección",
             "private_key": "Llave privada",

@@ -3,15 +3,15 @@
         "c_state" : {
             "home": {
                 "title": "Estado",
-                "createLabel": "Crear nuevo Estado",
+                "createLabel": "Nuevo Estado",
                 "createOrEditLabel": "Crear o editar Estado",
                 "search": "Búsqueda para Estado"
             },
-            "created": "Un nuevo Estado ha sido creado con el identificador {{ param }}",
-            "updated": "Un Estado ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Estado ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo estado ha sido creado con el identificador {{ param }}",
+            "updated": "Un estado ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un estado ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Estado {{ id }}?"
+                "question": "¿Seguro que quiere eliminar estado con ID: {{ id }}?"
             },
             "detail": {
                 "title": "Estado"

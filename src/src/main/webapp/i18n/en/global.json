@@ -85,6 +85,13 @@
             },
             "language": "Language"
         },
+        "user": {
+            "title": "User",
+            "emitter.data": "Emitter Data",
+            "generate.cfdi": "Generate CFDI",
+            "search.cfdi": "Search CFDI",
+            "join.mega": "Join to Megapractical"
+        },
         "form": {
             "username": "Username (*)",
             "username.placeholder": "Your username",

@@ -3,15 +3,15 @@
         "c_colony" : {
             "home": {
                 "title": "Colonias",
-                "createLabel": "Crear nueva Colonia",
+                "createLabel": "Nueva Colonia",
                 "createOrEditLabel": "Crear o editar Colonia",
                 "search": "Búsqueda para Colonia"
             },
-            "created": "Una nueva Colonia ha sido creado con el identificador {{ param }}",
-            "updated": "Una Colonia ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Una Colonia ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva colonia ha sido creado con el identificador {{ param }}",
+            "updated": "Una colonia ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una colonia ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar la Colonia {{ id }}?"
+                "question": "¿Seguro que quiere eliminar la colonia {{ id }}?"
             },
             "detail": {
                 "title": "Colonia"

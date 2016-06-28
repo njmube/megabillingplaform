@@ -2,26 +2,26 @@
     "megabillingplatformApp": {
         "package_transactions" : {
             "home": {
-                "title": "Transacción de paquete",
-                "createLabel": "Crear nueva Transacción de paquete",
-                "createOrEditLabel": "Crear o editar Transacción de paquete",
-                "search": "Búsqueda para Transacción de paquete"
+                "title": "Paquetes de Timbres",
+                "createLabel": "Nuevo Paquete Timbres",
+                "createOrEditLabel": "Crear o editar Paquete de Timbres",
+                "search": "Búsqueda para Paquete de Timbres"
             },
-            "created": "Una nueva Transacción de paquete ha sido creado con el identificador {{ param }}",
-            "updated": "Una Transacción de paquete ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Una Transacción de paquete ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo paquete de timbres ha sido creado con el identificador {{ param }}",
+            "updated": "Un paquete de timbres ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un paquete de timbres ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Transacción de paquete {{ id }}?"
+                "question": "¿Seguro que quiere eliminar paquete de timbres de ID: {{ id }}?"
             },
             "detail": {
-                "title": "Transacción de paquete"
+                "title": "Paquete de Timbres"
             },
             "name": "Nombre",
             "description": "Descripción",
             "price": "Precio",
             "expiry_time": "Expiración",
-            "unit_time": "Unidad de tiempo",
-            "package_state": "Estado del paquete"
+            "unit_time": "Unidad de Tiempo",
+            "package_state": "Estado"
         }
     }
 }

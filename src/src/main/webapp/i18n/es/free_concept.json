@@ -2,30 +2,30 @@
     "megabillingplatformApp": {
         "free_concept" : {
             "home": {
-                "title": "Free_concepts",
-                "createLabel": "Crear nuevo Free_concept",
-                "createOrEditLabel": "Crear o editar Free_concept",
-                "search": "Search for Free_concept"
+                "title": "Conceptos",
+                "createLabel": "Nuevo Concepto",
+                "createOrEditLabel": "Crear o editar Concepto",
+                "search": "Búsqueda por Concepto"
             },
-            "created": "Un nuevo Free_concept ha sido creado con el identificador {{ param }}",
-            "updated": "Un Free_concept ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Free_concept ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo concepto ha sido creado con el identificador {{ param }}",
+            "updated": "Un concepto ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un concepto ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Free_concept {{ id }}?"
+                "question": "¿Seguro que quiere eliminar concepto con el ID: {{ id }}?"
             },
             "detail": {
-                "title": "Free_concept"
+                "title": "Concepto"
             },
-            "no_identification": "No_identification",
-            "quantity": "Quantity",
-            "description": "Description",
-            "unit_value": "Unit_value",
-            "predial_number": "Predial_number",
-            "amount": "Amount",
-            "free_cfdi": "Free_cfdi",
-            "measure_unit": "Measure_unit",
-            "tax_transfered": "Tax_transfered",
-            "tax_retentions": "Tax_retentions"
+            "no_identification": "No Identificación",
+            "quantity": "Cantidad",
+            "description": "Descripción",
+            "unit_value": "Valor Unitario",
+            "predial_number": "No. Predial",
+            "amount": "Importe",
+            "free_cfdi": "CFDI",
+            "measure_unit": "Unidad de Medida",
+            "tax_transfered": "Impuestos Transferidos",
+            "tax_retentions": "Impuestos Retenidos"
         }
     }
 }

@@ -3,15 +3,15 @@
         "services" : {
             "home": {
                 "title": "Servicio",
-                "createLabel": "Crear nuevo Servicio",
+                "createLabel": "Nuevo Servicio",
                 "createOrEditLabel": "Crear o editar Servicio",
-                "search": "Search for Services"
+                "search": "Búsqueda por Servicio"
             },
-            "created": "Un nuevo Servicio ha sido creado con el identificador {{ param }}",
-            "updated": "Un Servicio ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Servicio ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo servicio ha sido creado con el identificador {{ param }}",
+            "updated": "Un servicio ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un servicio ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Servicio {{ id }}?"
+                "question": "¿Seguro que quiere eliminar servicio con el ID: {{ id }}?"
             },
             "detail": {
                 "title": "Servicio"

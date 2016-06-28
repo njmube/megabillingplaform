@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "cfdi_type_doc" : {
             "home": {
-                "title": "Cfdi_type_docs",
-                "createLabel": "Crear nuevo Cfdi_type_doc",
-                "createOrEditLabel": "Crear o editar Cfdi_type_doc",
-                "search": "Search for Cfdi_type_doc"
+                "title": "CFDI Tipos Documento",
+                "createLabel": "Nuevo Tipo Documento",
+                "createOrEditLabel": "Crear o editar Tipos Documento",
+                "search": "Búsqueda por Tipo Documento"
             },
-            "created": "Un nuevo Cfdi_type_doc ha sido creado con el identificador {{ param }}",
-            "updated": "Un Cfdi_type_doc ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Cfdi_type_doc ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo tipo documento ha sido creado con el identificador {{ param }}",
+            "updated": "Un tipo documento ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un tipo documento ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Cfdi_type_doc {{ id }}?"
+                "question": "¿Seguro que quiere eliminar tipo documento con ID: {{ id }}?"
             },
             "detail": {
-                "title": "Cfdi_type_doc"
+                "title": "CFDI Tipo Documento"
             },
             "name": "Name",
             "description": "Description"

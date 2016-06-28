@@ -3,15 +3,15 @@
         "way_payment" : {
             "home": {
                 "title": "Way Payments",
-                "createLabel": "Create a new Way Payment",
+                "createLabel": "New Way Payment",
                 "createOrEditLabel": "Create or edit a Way Payment",
                 "search": "Search for Way Payment"
             },
-            "created": "A new Way Payment is created with identifier {{ param }}",
-            "updated": "A Way Payment is updated with identifier {{ param }}",
-            "deleted": "A Way Payment is deleted with identifier {{ param }}",
+            "created": "A new way payment is created with identifier {{ param }}",
+            "updated": "A way payment is updated with identifier {{ param }}",
+            "deleted": "A way payment is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Way Payment {{ id }}?"
+                "question": "Are you sure you want to delete way payment {{ id }}?"
             },
             "detail": {
                 "title": "Way Payment"

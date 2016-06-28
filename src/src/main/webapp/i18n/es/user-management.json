@@ -2,12 +2,12 @@
     "userManagement": {
         "home": {
             "title": "Usuarios",
-            "createLabel": "Crear un nuevo usuario",
-            "createOrEditLabel": "Crear o editar un usuario"
+            "createLabel": "Nuevo Usuario",
+            "createOrEditLabel": "Crear o editar un Usuario"
         },
-        "created": "A new user is created with identifier {{ param }}",
-        "updated": "An user is updated with identifier {{ param }}",
-        "deleted": "An user is deleted with identifier {{ param }}",
+        "created": "El usuario con el identificador {{ param }} ha sido creado",
+        "updated": "El usuario con el identificador {{ param }} ha sido actualizado",
+        "deleted": "El usuario con el identificador {{ param }} ha sido eliminado.",
         "delete": {
             "question": "¿Seguro que quieres eliminar el usuario {{ login }}?"
         },
@@ -15,11 +15,13 @@
             "title": "Usuario"
         },
         "login": "Login (*)",
+        "login.list": "Login",
         "rfc": "RFC (*)",
         "name": "Nombre (*)",
         "firtsurname": "Apellido paterno (*)",
         "secondsurname": "Apellido materno (*)",
-        "email": "Correo electrónico (*)",
+        "email": "Correo Electrónico (*)",
+        "email.list": "Correo Electrónico",
         "phone": "Teléfono (*)",
         "gender": "Género (*)",
         "activated": "Activado",

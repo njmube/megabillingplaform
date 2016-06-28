@@ -2,46 +2,39 @@
     "megabillingplatformApp": {
         "free_emitter" : {
             "home": {
-                "title": "Emisor Gratuito",
+                "title": "Emisores Gratuitos",
 				"user.title": "Usuario",
                 "createLabel": "Datos Emisor",
-                "createOrEditLabel": "Crear o editar Free_emitter",
-                "search": "Search for Free_emitter"
+                "createOrEditLabel": "Crear o editar Emisor",
+                "search": "Bésqueda por Emisor"
             },
-            "created": "Un nuevo Free_emitter ha sido creado con el identificador {{ param }}",
-            "updated": "Un Free_emitter ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Free_emitter ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo emisor ha sido creado con el identificador {{ param }}",
+            "updated": "Un emisor ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un emisor ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Free_emitter {{ id }}?"
-            },            
+                "question": "¿Seguro que quiere eliminar emisor con ID: {{ id }}?"
+            },
 			"detail": {
-                "title": "Free_emitter"
-            },			
+                "title": "Emisor"
+            },
             "reference": "Referencia (Opcional):",
             "num_int": "No. Interior:",
             "num_ext": "No. Exterior:",
             "street": "Calle:",
-            "create_date": "Create_date",
-            "activated": "Activated",
+            "create_date": "Fecha Creación",
+            "activated": "Activado",
             "rfc": "RFC",
-            "social_reason": "Social_reason",
-            "email": "Email",
-            "tax_regime": "Tax_regime",
-            "c_country": "C_country",
-            "c_state": "C_state",
-            "c_municipality": "C_municipality",
-            "c_location": "C_location",
-            "c_colony": "C_colony",
-            "c_zip_code": "C_zip_code",
-            "tax_regime": "Régimen Fiscal:",
-            "c_country": "País:",
-            "c_state": "Estado:",
-            "c_municipality": "Municipio o Delegación:",
-            "c_location": "Localidad:",
-            "c_colony": "Colonia:",
-            "c_zip_code": "Código Postal:",
-            "user": "User",
-            "free_digital_certificate": "Free_digital_certificate"
+            "social_reason": "Razón Social",
+            "email": "Correo Electrónico",
+            "tax_regime": "Régimen Fiscal",
+            "c_country": "País",
+            "c_state": "Estado",
+            "c_municipality": "Municipio",
+            "c_location": "Localidad",
+            "c_colony": "Colonia",
+            "c_zip_code": "Código Postal",
+            "user": "Usuario",
+            "free_digital_certificate": "Certificado Digital"
         }
     }
 }

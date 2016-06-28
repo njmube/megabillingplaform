@@ -3,7 +3,7 @@
         "title": "Ajustes del usuario [<b>{{username}}</b>]",
         "form": {
             "rfc": "RFC",
-            "rfc.placeholder": "Su rfc",
+            "rfc.placeholder": "Su RFC",
             "name": "Nombre (*)",
             "name.placeholder": "Su nombre",
             "firtsurname": "Apellido paterno (*)",
@@ -25,9 +25,9 @@
             "success": "<strong>¡Ajustes guardados!</strong>",
             "validate": {
                 "rfc": {
-                    "required": "Se requiere que ingrese su rfc.",
-                    "minlength": "Se requiere que su rfc tenga por lo menos 12 caracteres",
-                    "maxlength": "Su rfc no puede tener más de 13 caracteres",
+                    "required": "Se requiere que ingrese su RFC.",
+                    "minlength": "Se requiere que su RFC tenga por lo menos 12 caracteres",
+                    "maxlength": "Su RFC no puede tener más de 13 caracteres",
                     "pattern": "Formato RFC incorrecto."
                 },
                 "name": {

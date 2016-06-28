@@ -2,8 +2,8 @@
     "userManagement": {
         "home": {
             "title": "Users",
-            "createLabel": "Create a new user",
-            "createOrEditLabel": "Create or edit a user"
+            "createLabel": "New user",
+            "createOrEditLabel": "Create or edit a User"
         },
         "created": "A new user is created with identifier {{ param }}",
         "updated": "An user is updated with identifier {{ param }}",
@@ -15,13 +15,15 @@
             "title": "User"
         },
         "login": "Login (*)",
+        "login.list": "Login",
         "rfc": "RFC (*)",
         "name": "Name (*)",
-        "firtsurname": "Firt surname (*)",
-        "secondsurname": "Second surname (*)",
+        "firtsurname": "Firt Surname (*)",
+        "secondsurname": "Second Surname (*)",
         "email": "Email (*)",
+        "email.list": "Email",
         "phone": "Phone (*)",
-        "gender": "Gender (*)",
+        "gender": "Gender",
         "activated": "Activated",
         "deactivated": "Deactivated",
         "profiles": "Profiles",

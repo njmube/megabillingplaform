@@ -2,14 +2,14 @@
     "megabillingplatformApp": {
         "task" : {
             "home": {
-                "title": "Tarea",
-                "createLabel": "Crear nueva Tarea",
+                "title": "Tareas",
+                "createLabel": "Nueva Tarea",
                 "createOrEditLabel": "Crear o editar Tarea",
                 "search": "Búsqueda para Tarea"
             },
-            "created": "Una nueva Tarea ha sido creado con el identificador {{ param }}",
-            "updated": "Una Tarea ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Una Tarea ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva tarea ha sido creado con el identificador {{ param }}",
+            "updated": "Una tarea ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una tarea ha sido eliminado con el identificador {{ param }}",
             "delete": {
                 "question": "¿Seguro que quiere eliminar Tarea {{ id }}?"
             },

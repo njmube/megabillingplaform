@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "package_state" : {
             "home": {
-                "title": "Estado del paquete",
-                "createLabel": "Crear nuevo Estado del paquete",
-                "createOrEditLabel": "Crear o editar Estado del paquete",
-                "search": "Búsqueda para Estado del paquete"
+                "title": "Estado Paquete Timbres",
+                "createLabel": "Nuevo Estado",
+                "createOrEditLabel": "Crear o editar Estado Paquete Timbres",
+                "search": "Búsqueda para Estado Paquete Timbres"
             },
-            "created": "Un nuevo Estado del paquete ha sido creado con el identificador {{ param }}",
-            "updated": "Un Estado del paquete ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Estado del paquete ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo estado ha sido creado con el identificador {{ param }}",
+            "updated": "Un estado ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un estado ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Estado del paquete {{ id }}?"
+                "question": "¿Seguro que quiere eliminar estado con el ID: {{ id }}?"
             },
             "detail": {
-                "title": "Estado del paquete"
+                "title": "Estado Paquete de Timbres"
             },
             "name": "Nombre",
             "description": "Descripción",
-            "package_transations": "Package_transations"
+            "package_transations": "Paquete de Timbres"
         }
     }
 }

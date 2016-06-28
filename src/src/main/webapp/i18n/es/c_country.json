@@ -2,7 +2,7 @@
     "megabillingplatformApp": {
         "c_country" : {
             "home": {
-                "title": "País",
+                "title": "Países",
                 "createLabel": "Adicionar País",
                 "createOrEditLabel": "Crear o Editar un País",
                 "search": "Búsqueda para País"
@@ -14,7 +14,7 @@
                 "question": "¿Seguro que quiere eliminar país con el identificador {{ id }}?"
             },
             "detail": {
-                "title": "Países"
+                "title": "País"
             },
             "name": "Nombre",
             "abrev": "Abreviatura",

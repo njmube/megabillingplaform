@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "general_data" : {
             "home": {
-                "title": "Datos generales",
-                "createLabel": "Crear nuevos Datos generales",
-                "createOrEditLabel": "Crear o editar Datos generales",
-                "search": "Búsqueda para Datos generales"
+                "title": "Datos Generales",
+                "createLabel": "Nuevo Datos Generales",
+                "createOrEditLabel": "Crear o editar Datos Generales",
+                "search": "Búsqueda para Datos Generales"
             },
-            "created": "Un nuevo Datos generales ha sido creado con el identificador {{ param }}",
-            "updated": "Un Datos generales ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Datos generales ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo datos generales ha sido creado con el identificador {{ param }}",
+            "updated": "Un datos generales ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un datos generales ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Datos generales {{ id }}?"
+                "question": "¿Seguro que quiere eliminar datos generales con ID: {{ id }}?"
             },
             "detail": {
-                "title": "Datos generales"
+                "title": "Datos Generales"
             },
-            "platform_name": "Nombre de la plataforma",
-            "format_date": "Formato de la fecha",
+            "platform_name": "Nombre de la Plataforma",
+            "format_date": "Formato de la Fecha",
             "logo": "Logo",
             "adrees": "Dirección",
             "phones": "Teléfonos"

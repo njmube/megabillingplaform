@@ -3,15 +3,15 @@
         "cfdi_types" : {
             "home": {
                 "title": "Tipos CFDI",
-                "createLabel": "Crear nuevo Tipo CFDI",
+                "createLabel": "Nuevo Tipo",
                 "createOrEditLabel": "Crear o editar Tipo CFDI",
                 "search": "Búsqueda para Tipo CFDI"
             },
-            "created": "Un nuevo Tipo CFDI ha sido creado con el identificador {{ param }}",
-            "updated": "Un v ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Tipo CFDI ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo tipo ha sido creado con el identificador {{ param }}",
+            "updated": "Un tipo ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un tipo ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Tipo CFDI {{ id }}?"
+                "question": "¿Seguro que quiere eliminar tipo con el ID: {{ id }}?"
             },
             "detail": {
                 "title": "Tipo CFDI"

@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "request_state" : {
             "home": {
-                "title": "Estado de la solicitud",
-                "createLabel": "Crear nuevo Estado de la solicitud",
-                "createOrEditLabel": "Crear o editar Estado de la solicitud",
-                "search": "Búsqueda para Estado de la solicitud"
+                "title": "Estados Solicitud Contribueyente",
+                "createLabel": "Nuevo Estado",
+                "createOrEditLabel": "Crear o editar Estado Solicitud Contribueyente",
+                "search": "Búsqueda para Estado Solicitud Contribueyente"
             },
-            "created": "Un nuevo Estado de la solicitud ha sido creado con el identificador {{ param }}",
-            "updated": "Un Estado de la solicitud ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Estado de la solicitud ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo estado ha sido creado con el identificador {{ param }}",
+            "updated": "Un estado ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un estado ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Estado de la solicitud {{ id }}?"
+                "question": "¿Seguro que quiere eliminar estado con el ID: {{ id }}?"
             },
             "detail": {
-                "title": "Estado de la solicitud"
+                "title": "Estado Solicitud Contribueyente"
             },
             "name": "Nombre",
             "description": "Descripción"

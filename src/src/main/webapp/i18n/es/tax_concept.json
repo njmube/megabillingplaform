@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "tax_concept" : {
             "home": {
-                "title": "Concepto de impuesto",
-                "createLabel": "Crear nuevo Concepto de impuesto",
-                "createOrEditLabel": "Crear o editar Concepto de impuesto",
-                "search": "Búsqueda para Concepto de impuesto"
+                "title": "Impuesto del Concepto",
+                "createLabel": "Nuevo Impuesto",
+                "createOrEditLabel": "Crear o editar Impuesto del Concepto",
+                "search": "Búsqueda para Impuesto del Concepto"
             },
-            "created": "Un nuevo Concepto de impuesto ha sido creado con el identificador {{ param }}",
-            "updated": "Un Concepto de impuesto ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Concepto de impuesto ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo impuesto ha sido creado con el identificador {{ param }}",
+            "updated": "Un impuesto ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un impuesto ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Concepto de impuesto {{ id }}?"
+                "question": "¿Seguro que quiere eliminar impuesto en el ID: {{ id }}?"
             },
             "detail": {
-                "title": "Concepto de impuesto"
+                "title": "Impuesto del Concepto"
             },
             "name": "Nombre",
             "description": "Descripción",
-            "c_tax_rate": "Tipo de impuesto"
+            "c_tax_rate": "Tipo Impuesto"
         }
     }
 }

@@ -3,15 +3,15 @@
         "file" : {
             "home": {
                 "title": "Fichero",
-                "createLabel": "Crear nuevo Fichero",
+                "createLabel": "Nuevo Fichero",
                 "createOrEditLabel": "Crear o editar Fichero",
                 "search": "Búsqueda para Fichero"
             },
-            "created": "Un nuevo Fichero ha sido creado con el identificador {{ param }}",
-            "updated": "Un Fichero ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Fichero ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo fichero ha sido creado con el identificador {{ param }}",
+            "updated": "Un fichero ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un fichero ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Fichero {{ id }}?"
+                "question": "¿Seguro que quiere eliminar fichero con el ID: {{ id }}?"
             },
             "detail": {
                 "title": "Fichero"
@@ -19,8 +19,8 @@
             "name": "Nombre",
             "description": "Descripción",
             "path": "Ruta",
-            "file_state": "Estado del fichero",
-            "file_type": "Tipo de fichero"
+            "file_state": "Estado Fichero",
+            "file_type": "Tipo Fichero"
         }
     }
 }

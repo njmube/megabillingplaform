@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "tax_retentions" : {
             "home": {
-                "title": "Tax_retentions",
-                "createLabel": "Create a new Tax_retentions",
-                "createOrEditLabel": "Create or edit a Tax_retentions",
-                "search": "Search for Tax_retentions"
+                "title": "Tax Retentions",
+                "createLabel": "New Tax Retention",
+                "createOrEditLabel": "Create or edit a Tax Retention",
+                "search": "Search for Tax Retention"
             },
-            "created": "A new Tax_retentions is created with identifier {{ param }}",
-            "updated": "A Tax_retentions is updated with identifier {{ param }}",
-            "deleted": "A Tax_retentions is deleted with identifier {{ param }}",
+            "created": "A new tax retention is created with identifier {{ param }}",
+            "updated": "A tax retention is updated with identifier {{ param }}",
+            "deleted": "A tax retention is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Tax_retentions {{ id }}?"
+                "question": "Are you sure you want to delete tax retention {{ id }}?"
             },
             "detail": {
-                "title": "Tax_retentions"
+                "title": "Tax Retention"
             },
             "amount": "Amount",
-            "tax_types": "Tax_types"
+            "tax_types": "Tax Type"
         }
     }
 }

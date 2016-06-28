@@ -3,15 +3,15 @@
         "task" : {
             "home": {
                 "title": "Tasks",
-                "createLabel": "Create a new Task",
+                "createLabel": "New Task",
                 "createOrEditLabel": "Create or edit a Task",
                 "search": "Search for Task"
             },
-            "created": "A new Task is created with identifier {{ param }}",
-            "updated": "A Task is updated with identifier {{ param }}",
-            "deleted": "A Task is deleted with identifier {{ param }}",
+            "created": "A new task is created with identifier {{ param }}",
+            "updated": "A task is updated with identifier {{ param }}",
+            "deleted": "A task is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Task {{ id }}?"
+                "question": "Are you sure you want to delete task {{ id }}?"
             },
             "detail": {
                 "title": "Task"

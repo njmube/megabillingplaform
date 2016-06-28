@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "tax_retentions" : {
             "home": {
-                "title": "Tax_retentions",
-                "createLabel": "Crear nuevo Tax_retentions",
-                "createOrEditLabel": "Crear o editar Tax_retentions",
-                "search": "Search for Tax_retentions"
+                "title": "Impuestos Retenidos",
+                "createLabel": "Nuevo Impuesto",
+                "createOrEditLabel": "Crear o editar Impuesto Retenido",
+                "search": "Búsqueda por Impuesto Retenido"
             },
-            "created": "Un nuevo Tax_retentions ha sido creado con el identificador {{ param }}",
-            "updated": "Un Tax_retentions ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Tax_retentions ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo impuesto ha sido creado con el identificador {{ param }}",
+            "updated": "Un impuesto ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un impuesto ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Tax_retentions {{ id }}?"
+                "question": "¿Seguro que quiere eliminar impuesto con el ID: {{ id }}?"
             },
             "detail": {
-                "title": "Tax_retentions"
+                "title": "Impuesto Retenido"
             },
-            "amount": "Amount",
-            "tax_types": "Tax_types"
+            "amount": "Importe",
+            "tax_types": "Tipo Impuesto"
         }
     }
 }

@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "file_state" : {
             "home": {
-                "title": "Estado del fichero",
-                "createLabel": "Crear nuevo Estado del fichero",
-                "createOrEditLabel": "Crear o editar Estado del fichero",
-                "search": "Búsqueda para Estado del fichero"
+                "title": "Estados Fichero",
+                "createLabel": "Nuevo Estado",
+                "createOrEditLabel": "Crear o editar Estado Fichero",
+                "search": "Búsqueda para  Estado Fichero"
             },
-            "created": "Un nuevo Estado del fichero ha sido creado con el identificador {{ param }}",
-            "updated": "Un Estado del fichero ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Estado del fichero ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo estado fichero ha sido creado con el identificador {{ param }}",
+            "updated": "Un estado fichero ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un estado fichero ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Estado del fichero {{ id }}?"
+                "question": "¿Seguro que quiere eliminar estado fichero con el ID: {{ id }}?"
             },
             "detail": {
-                "title": "Estado del fichero"
+                "title": "Estado Fichero"
             },
             "name": "Nombre",
             "description": "Descripción",

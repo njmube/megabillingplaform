@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "rate_type" : {
             "home": {
-                "title": "Rate_types",
-                "createLabel": "Crear nuevo Rate_type",
-                "createOrEditLabel": "Crear o editar Rate_type",
-                "search": "Search for Rate_type"
+                "title": "Tipo Tasa Impuestos",
+                "createLabel": "Nuevo Tipo",
+                "createOrEditLabel": "Crear o editar Tipo",
+                "search": "Search for Tipo"
             },
-            "created": "Un nuevo Rate_type ha sido creado con el identificador {{ param }}",
-            "updated": "Un Rate_type ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Rate_type ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo tipo de tasa ha sido creado con el identificador {{ param }}",
+            "updated": "Un tipo de tasa ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un tipo de tasa ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Rate_type {{ id }}?"
+                "question": "¿Seguro que quiere eliminar tipo de tasa con el ID: {{ id }}?"
             },
             "detail": {
-                "title": "Rate_type"
+                "title": "Tipo Tasa"
             },
-            "name": "Name",
-            "value": "Value",
-            "description": "Description"
+            "name": "Nombre",
+            "value": "Valor",
+            "description": "Descripción"
         }
     }
 }

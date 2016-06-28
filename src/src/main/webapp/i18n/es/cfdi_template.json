@@ -3,15 +3,15 @@
         "cfdi_template" : {
             "home": {
                 "title": "Plantilla CFDI",
-                "createLabel": "Crear nueva Plantilla CFDI",
+                "createLabel": "Nueva Plantilla CFDI",
                 "createOrEditLabel": "Crear o editar Plantilla CFDI",
                 "search": "Búsqueda para Plantilla CFDI"
             },
-            "created": "Un nuevo Plantilla CFDI ha sido creado con el identificador {{ param }}",
-            "updated": "Un Plantilla CFDI ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Plantilla CFDI ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo plantilla CFDI ha sido creado con el identificador {{ param }}",
+            "updated": "Un plantilla CFDI ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un plantilla CFDI ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Plantilla CFDI {{ id }}?"
+                "question": "¿Seguro que quiere eliminar plantilla CFDI con ID:{{ id }}?"
             },
             "detail": {
                 "title": "Plantilla CFDI"

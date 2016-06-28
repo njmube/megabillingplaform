@@ -15,7 +15,7 @@
                 "title": "Hilos",
                 "all": "Todo",
                 "runnable": "Ejecutables",
-                "timedwaiting": "Timed waiting",
+                "timedwaiting": "Tiempo de Espera",
                 "waiting": "Esperando",
                 "blocked": "Bloqueados",
                 "dump": {
