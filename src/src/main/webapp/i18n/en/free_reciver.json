@@ -1,0 +1,34 @@
+{
+    "megabillingplatformApp": {
+        "free_reciver" : {
+            "home": {
+                "title": "Receivers",
+                "createLabel": "New Receiver",
+                "createOrEditLabel": "Create or edit a Free_reciver",
+                "search": "Search for receiver"
+            },
+            "created": "A new receiver is created with identifier {{ param }}",
+            "updated": "A receiver is updated with identifier {{ param }}",
+            "deleted": "A receiver is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete receiver {{ id }}?"
+            },
+            "detail": {
+                "title": "Receiver"
+            },
+            "rfc": "RFC",
+            "business_name": "Business Name",
+            "email": "Email",
+            "street": "Street",
+            "no_int": "No Int",
+            "no_ext": "No Ext",
+            "reference": "Reference",
+            "c_country": "Country",
+            "c_state": "State",
+            "c_municipality": "Municipality",
+            "c_location": "Location",
+            "c_colony": "Colony",
+            "c_zip_code": "Zip Code"
+        }
+    }
+}

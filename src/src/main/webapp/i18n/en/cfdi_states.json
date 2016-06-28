@@ -3,15 +3,15 @@
         "cfdi_states" : {
             "home": {
                 "title": "CFDI States",
-                "createLabel": "Create a new CFDI States",
+                "createLabel": "New CFDI States",
                 "createOrEditLabel": "Create or edit a CFDI States",
-                "search": "Search for CFDI States"
+                "search": "Search for CFDI states"
             },
-            "created": "A new CFDI States is created with identifier {{ param }}",
-            "updated": "A CFDI States is updated with identifier {{ param }}",
-            "deleted": "A CFDI States is deleted with identifier {{ param }}",
+            "created": "A new CFDI states is created with identifier {{ param }}",
+            "updated": "A CFDI states is updated with identifier {{ param }}",
+            "deleted": "A CFDI states is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete CFDI States {{ id }}?"
+                "question": "Are you sure you want to delete CFDI states {{ id }}?"
             },
             "detail": {
                 "title": "CFDI States"

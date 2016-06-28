@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "rate_type" : {
             "home": {
-                "title": "Rate_types",
-                "createLabel": "Create a new Rate_type",
-                "createOrEditLabel": "Create or edit a Rate_type",
-                "search": "Search for Rate_type"
+                "title": "Rate Types",
+                "createLabel": "New Rate Type",
+                "createOrEditLabel": "Create or edit a Rate Type",
+                "search": "Search for Rate Type"
             },
-            "created": "A new Rate_type is created with identifier {{ param }}",
-            "updated": "A Rate_type is updated with identifier {{ param }}",
-            "deleted": "A Rate_type is deleted with identifier {{ param }}",
+            "created": "A new rate type is created with identifier {{ param }}",
+            "updated": "A rate type is updated with identifier {{ param }}",
+            "deleted": "A rate type is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Rate_type {{ id }}?"
+                "question": "Are you sure you want to delete rate type {{ id }}?"
             },
             "detail": {
-                "title": "Rate_type"
+                "title": "Rate Type"
             },
             "name": "Name",
             "value": "Value",

@@ -1,6 +1,6 @@
 {
     "global": {
-        "title": "Megapractica Ebilling Platform",
+        "title": "Megapractical Ebilling Platform",
         "browsehappy": "You are using an <strong>outdated</strong> browser. Please <a href=\"http://browsehappy.com/?locale=en\">upgrade your browser</a> to improve your experience.",
         "menu": {
             "home": "Home",
@@ -38,9 +38,9 @@
                 "free.concept": "Concepts",
                 "free.part.concept": "Part Concept",
                 "free.customs.info": "Customs Info",
-                "freeReceiver": "Free_receiver",
-                "freeCfdi": "Free_cfdi",
-                "paymentMethod": "Payment_method",
+                "taxRegime": "Tax_regime",
+                "freeDigitalCertificate": "Free_digital_certificate",
+                "freeEmitter": "Free_emitter",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -85,13 +85,6 @@
             },
             "language": "Language"
         },
-		"user": {
-                "title": "User",
-                "emitter.data": "Emitter Data",
-				"generate.cfdi": "Generate CFDI",
-				"search.cfdi": "Search CFDI",
-				"join.mega": "Join to Megapractical"
-            },
         "form": {
             "username": "Username (*)",
             "username.placeholder": "Your username",
@@ -180,7 +173,7 @@
             "number": "This field should be a number.",
             "datetimelocal": "This field should be a date and time."
         }
-    },	
+    },
     "error": {
         "server.not.reachable": "Server not reachable",
         "NotNull": "Field {{ fieldName }} cannot be empty!",

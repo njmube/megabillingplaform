@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "free_digital_certificate" : {
             "home": {
-                "title": "Free_digital_certificates",
-                "createLabel": "Create a new Free_digital_certificate",
-                "createOrEditLabel": "Create or edit a Free_digital_certificate",
-                "search": "Search for Free_digital_certificate"
+                "title": "Digital Certificates",
+                "createLabel": "New Digital Certificate",
+                "createOrEditLabel": "Create or edit a Digital Certificates",
+                "search": "Search for Digital Certificates"
             },
-            "created": "A new Free_digital_certificate is created with identifier {{ param }}",
-            "updated": "A Free_digital_certificate is updated with identifier {{ param }}",
-            "deleted": "A Free_digital_certificate is deleted with identifier {{ param }}",
+            "created": "A new digital certificates is created with identifier {{ param }}",
+            "updated": "A digital certificates is updated with identifier {{ param }}",
+            "deleted": "A digital certificates is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Free_digital_certificate {{ id }}?"
+                "question": "Are you sure you want to delete digital certificates {{ id }}?"
             },
             "detail": {
-                "title": "Free_digital_certificate"
+                "title": "digital certificates"
             },
-            "path_certificate": "Path_certificate",
-            "path_private_key": "Path_private_key"
+            "path_certificate": "Path Certificate",
+            "path_private_key": "Path Private Key"
         }
     }
 }

@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "cfdi_type_doc" : {
             "home": {
-                "title": "Cfdi_type_docs",
-                "createLabel": "Create a new Cfdi_type_doc",
-                "createOrEditLabel": "Create or edit a Cfdi_type_doc",
+                "title": "CFDI Types Documents",
+                "createLabel": "New CFDI Type Documents",
+                "createOrEditLabel": "Create or edit a CFDI types documents",
                 "search": "Search for Cfdi_type_doc"
             },
-            "created": "A new Cfdi_type_doc is created with identifier {{ param }}",
-            "updated": "A Cfdi_type_doc is updated with identifier {{ param }}",
-            "deleted": "A Cfdi_type_doc is deleted with identifier {{ param }}",
+            "created": "A new CFDI type documents is created with identifier {{ param }}",
+            "updated": "A CFDI type documents is updated with identifier {{ param }}",
+            "deleted": "A CFDI type documents is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Cfdi_type_doc {{ id }}?"
+                "question": "Are you sure you want to delete CFDI type documents {{ id }}?"
             },
             "detail": {
-                "title": "Cfdi_type_doc"
+                "title": "CFDI Type Documents"
             },
             "name": "Name",
             "description": "Description"

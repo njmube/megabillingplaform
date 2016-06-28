@@ -3,15 +3,15 @@
         "file" : {
             "home": {
                 "title": "Files",
-                "createLabel": "Create a new File",
+                "createLabel": "New File",
                 "createOrEditLabel": "Create or edit a File",
-                "search": "Search for File"
+                "search": "Search for file"
             },
-            "created": "A new File is created with identifier {{ param }}",
-            "updated": "A File is updated with identifier {{ param }}",
-            "deleted": "A File is deleted with identifier {{ param }}",
+            "created": "A new file is created with identifier {{ param }}",
+            "updated": "A file is updated with identifier {{ param }}",
+            "deleted": "A file is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete File {{ id }}?"
+                "question": "Are you sure you want to delete file {{ id }}?"
             },
             "detail": {
                 "title": "File"
@@ -19,8 +19,8 @@
             "name": "Name",
             "description": "Description",
             "path": "Path",
-            "file_state": "File state",
-            "file_type": "File type"
+            "file_state": "File State",
+            "file_type": "File Type"
         }
     }
 }

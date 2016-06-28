@@ -3,18 +3,18 @@
         "cfdi_types" : {
             "home": {
                 "title": "CFDI Types",
-                "createLabel": "Create a new CFDI Types",
-                "createOrEditLabel": "Create or edit a CFDI Types",
-                "search": "Search for CFDI Types"
+                "createLabel": "New CFDI Type",
+                "createOrEditLabel": "Create or edit a CFDI Type",
+                "search": "Search for CFDI Type"
             },
-            "created": "A new CFDI Types is created with identifier {{ param }}",
-            "updated": "A CFDI Types is updated with identifier {{ param }}",
-            "deleted": "A CFDI Types is deleted with identifier {{ param }}",
+            "created": "A new CFDI type is created with identifier {{ param }}",
+            "updated": "A CFDI type is updated with identifier {{ param }}",
+            "deleted": "A CFDI type is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete CFDI Types {{ id }}?"
+                "question": "Are you sure you want to delete CFDI type {{ id }}?"
             },
             "detail": {
-                "title": "CFDI Types"
+                "title": "CFDI Type"
             },
             "name": "Name",
             "description": "Description"

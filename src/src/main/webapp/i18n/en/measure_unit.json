@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "measure_unit" : {
             "home": {
-                "title": "Measure_units",
-                "createLabel": "Create a new Measure_unit",
-                "createOrEditLabel": "Create or edit a Measure_unit",
-                "search": "Search for Measure_unit"
+                "title": "Measure Units",
+                "createLabel": "New Measure Unit",
+                "createOrEditLabel": "Create or edit a Measure Unit",
+                "search": "Search for Measure Unit"
             },
-            "created": "A new Measure_unit is created with identifier {{ param }}",
-            "updated": "A Measure_unit is updated with identifier {{ param }}",
-            "deleted": "A Measure_unit is deleted with identifier {{ param }}",
+            "created": "A new measure unit is created with identifier {{ param }}",
+            "updated": "A measure unit is updated with identifier {{ param }}",
+            "deleted": "A measure unit is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Measure_unit {{ id }}?"
+                "question": "Are you sure you want to delete measure unit {{ id }}?"
             },
             "detail": {
-                "title": "Measure_unit"
+                "title": "Measure Unit"
             },
             "name": "Name",
             "description": "Description"

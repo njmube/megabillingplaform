@@ -2,30 +2,30 @@
     "megabillingplatformApp": {
         "free_concept" : {
             "home": {
-                "title": "Free_concepts",
-                "createLabel": "Create a new Free_concept",
-                "createOrEditLabel": "Create or edit a Free_concept",
-                "search": "Search for Free_concept"
+                "title": "Concepts",
+                "createLabel": "New Concept",
+                "createOrEditLabel": "Create or edit a Concept",
+                "search": "Search for Concept"
             },
-            "created": "A new Free_concept is created with identifier {{ param }}",
-            "updated": "A Free_concept is updated with identifier {{ param }}",
-            "deleted": "A Free_concept is deleted with identifier {{ param }}",
+            "created": "A new concept is created with identifier {{ param }}",
+            "updated": "A concept is updated with identifier {{ param }}",
+            "deleted": "A concept is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Free_concept {{ id }}?"
+                "question": "Are you sure you want to delete concept {{ id }}?"
             },
             "detail": {
-                "title": "Free_concept"
+                "title": "Concept"
             },
-            "no_identification": "No_identification",
+            "no_identification": "No Identification",
             "quantity": "Quantity",
             "description": "Description",
-            "unit_value": "Unit_value",
-            "predial_number": "Predial_number",
+            "unit_value": "Unit Value",
+            "predial_number": "Predial Number",
             "amount": "Amount",
-            "free_cfdi": "Free_cfdi",
-            "measure_unit": "Measure_unit",
-            "tax_transfered": "Tax_transfered",
-            "tax_retentions": "Tax_retentions"
+            "free_cfdi": "CFDI",
+            "measure_unit": "Measure Unit",
+            "tax_transfered": "Tax Transfered",
+            "tax_retentions": "Tax Retentions"
         }
     }
 }

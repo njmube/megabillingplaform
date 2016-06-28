@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "digital_certificate" : {
             "home": {
-                "title": "Digital certificates",
-                "createLabel": "Create a new Digital certificate",
-                "createOrEditLabel": "Create or edit a Digital certificate",
-                "search": "Search for Digital certificate"
+                "title": "Digital Certificates",
+                "createLabel": "New Digital Certificate",
+                "createOrEditLabel": "Create or edit a Digital Certificate",
+                "search": "Search for digital certificate"
             },
-            "created": "A new Digital certificate is created with identifier {{ param }}",
-            "updated": "A Digital certificate is updated with identifier {{ param }}",
-            "deleted": "A Digital certificate is deleted with identifier {{ param }}",
+            "created": "A new digital certificate is created with identifier {{ param }}",
+            "updated": "A digital certificate is updated with identifier {{ param }}",
+            "deleted": "A digital certificate is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Digital certificate {{ id }}?"
+                "question": "Are you sure you want to delete digital certificate {{ id }}?"
             },
             "detail": {
-                "title": "Digital certificate"
+                "title": "Digital Certificate"
             },
             "adrees": "Adrees",
             "private_key": "Private key",

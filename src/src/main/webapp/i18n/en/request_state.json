@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "request_state" : {
             "home": {
-                "title": "Request states",
-                "createLabel": "Create a new Request state",
-                "createOrEditLabel": "Create or edit a Request state",
-                "search": "Search for Request state"
+                "title": "Request States",
+                "createLabel": "New Request State",
+                "createOrEditLabel": "Create or edit a Request State",
+                "search": "Search for Request State"
             },
-            "created": "A new Request state is created with identifier {{ param }}",
-            "updated": "A Request state is updated with identifier {{ param }}",
-            "deleted": "A Request state is deleted with identifier {{ param }}",
+            "created": "A new request state is created with identifier {{ param }}",
+            "updated": "A request state is updated with identifier {{ param }}",
+            "deleted": "A request state is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Request state {{ id }}?"
+                "question": "Are you sure you want to delete request state {{ id }}?"
             },
             "detail": {
-                "title": "Request state"
+                "title": "Request State"
             },
             "name": "Name",
             "description": "Description"

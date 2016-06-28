@@ -2,51 +2,51 @@
     "megabillingplatformApp": {
         "free_cfdi" : {
             "home": {
-                "title": "Free_cfdis",
-                "createLabel": "Create a new Free_cfdi",
-                "createOrEditLabel": "Create or edit a Free_cfdi",
-                "search": "Search for Free_cfdi"
+                "title": "CFDIs",
+                "createLabel": "New CFDI",
+                "createOrEditLabel": "Create or edit a CFDI",
+                "search": "Search for cfdi"
             },
-            "created": "A new Free_cfdi is created with identifier {{ param }}",
-            "updated": "A Free_cfdi is updated with identifier {{ param }}",
-            "deleted": "A Free_cfdi is deleted with identifier {{ param }}",
+            "created": "A new cfdi is created with identifier {{ param }}",
+            "updated": "A cfdi is updated with identifier {{ param }}",
+            "deleted": "A cfdi is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Free_cfdi {{ id }}?"
+                "question": "Are you sure you want to delete cfdi {{ id }}?"
             },
             "detail": {
-                "title": "Free_cfdi"
+                "title": "CFDI"
             },
             "version": "Version",
             "serial": "Serial",
             "folio": "Folio",
-            "date_expedition": "Date_expedition",
-            "payment_conditions": "Payment_conditions",
-            "change_type": "Change_type",
-            "place_expedition": "Place_expedition",
-            "account_number": "Account_number",
-            "folio_fiscal_orig": "Folio_fiscal_orig",
-            "serial_folio_fiscal_orig": "Serial_folio_fiscal_orig",
-            "date_folio_fiscal_orig": "Date_folio_fiscal_orig",
-            "mont_folio_fiscal_orig": "Mont_folio_fiscal_orig",
-            "total_tax_retention": "Total_tax_retention",
-            "total_tax_transfered": "Total_tax_transfered",
+            "date_expedition": "Date Expedition",
+            "payment_conditions": "Payment Conditions",
+            "change_type": "Change Type",
+            "place_expedition": "Place Expedition",
+            "account_number": "Account Number",
+            "folio_fiscal_orig": "Folio Fiscal Original",
+            "serial_folio_fiscal_orig": "Serial Folio Fiscal Original",
+            "date_folio_fiscal_orig": "Date Folio Fiscal Original",
+            "mont_folio_fiscal_orig": "Amount Folio Fiscal Original",
+            "total_tax_retention": "Total Tax Retention",
+            "total_tax_transfered": "Total Tax Transfered",
             "discount": "Discount",
-            "discount_reason": "Discount_reason",
+            "discount_reason": "Discount Reason",
             "subtotal": "Subtotal",
             "total": "Total",
             "addenda": "Addenda",
             "stamp": "Stamp",
-            "no_certificate": "No_certificate",
+            "no_certificate": "No Certificate",
             "certificate": "Certificate",
-            "cfdi_types": "Cfdi_types",
-            "cfdi_states": "Cfdi_states",
-            "free_emitter": "Free_emitter",
-            "payment_method": "Payment_method",
-            "way_payment": "Way_payment",
-            "c_money": "C_money",
-            "cfdi_type_doc": "Cfdi_type_doc",
-            "tax_regime": "Tax_regime",
-            "free_receiver": "Free_receiver"
+            "cfdi_types": "CFDI Type",
+            "cfdi_states": "CFDI State",
+            "free_emitter": "Emitter",
+            "free_reciver": "Receiver",
+            "payment_method": "Payment Method",
+            "way_payment": "Way Payment",
+            "c_money": "Money",
+            "cfdi_type_doc": "Type Document",
+            "tax_regime": "Tax Regime"
         }
     }
 }

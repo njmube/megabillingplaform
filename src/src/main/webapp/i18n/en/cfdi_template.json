@@ -2,8 +2,8 @@
     "megabillingplatformApp": {
         "cfdi_template" : {
             "home": {
-                "title": "CFDI templates",
-                "createLabel": "Create a new CFDI template",
+                "title": "CFDI Templates",
+                "createLabel": "New CFDI Template",
                 "createOrEditLabel": "Create or edit a CFDI template",
                 "search": "Search for CFDI template"
             },
@@ -14,7 +14,7 @@
                 "question": "Are you sure you want to delete CFDI template {{ id }}?"
             },
             "detail": {
-                "title": "CFDI template"
+                "title": "CFDI Template"
             },
             "name": "Name",
             "description": "Description",
