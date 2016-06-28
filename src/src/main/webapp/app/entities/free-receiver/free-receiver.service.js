@@ -2,12 +2,12 @@
     'use strict';
     angular
         .module('megabillingplatformApp')
-        .factory('Payment_method', Payment_method);
+        .factory('Free_receiver', Free_receiver);
 
-    Payment_method.$inject = ['$resource'];
+    Free_receiver.$inject = ['$resource', 'DateUtils'];
 
-    function Payment_method ($resource) {
-        var resourceUrl =  'api/payment-methods/:id';
+    function Free_receiver ($resource, DateUtils) {
+        var resourceUrl =  'api/free-receivers/:id';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
@@ -15,6 +15,7 @@
                 method: 'GET',
                 transformResponse: function (data) {
                     data = angular.fromJson(data);
+                    data.create_date = DateUtils.convertDateTimeFromServer(data.create_date);
                     return data;
                 }
             },

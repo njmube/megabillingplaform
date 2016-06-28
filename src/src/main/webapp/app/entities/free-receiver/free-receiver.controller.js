@@ -3,11 +3,11 @@
 
     angular
         .module('megabillingplatformApp')
-        .controller('Payment_methodController', Payment_methodController);
+        .controller('Free_receiverController', Free_receiverController);
 
-    Payment_methodController.$inject = ['$scope', '$state', 'Payment_method', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    Free_receiverController.$inject = ['$scope', '$state', 'Free_receiver', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
 
-    function Payment_methodController ($scope, $state, Payment_method, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function Free_receiverController ($scope, $state, Free_receiver, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
@@ -17,7 +17,7 @@
         vm.loadAll();
 
         function loadAll () {
-            Payment_method.query({
+            Free_receiver.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,
                 sort: sort()
@@ -33,7 +33,7 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
-                vm.payment_methods = data;
+                vm.free_receivers = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {

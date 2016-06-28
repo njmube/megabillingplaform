@@ -114,9 +114,6 @@ public class Free_cfdi implements Serializable {
     private Free_emitter free_emitter;
 
     @ManyToOne
-    private Free_reciver free_reciver;
-
-    @ManyToOne
     private Payment_method payment_method;
 
     @ManyToOne
@@ -130,6 +127,9 @@ public class Free_cfdi implements Serializable {
 
     @ManyToOne
     private Tax_regime tax_regime;
+
+    @ManyToOne
+    private Free_receiver free_receiver;
 
     public Long getId() {
         return id;
@@ -339,14 +339,6 @@ public class Free_cfdi implements Serializable {
         this.free_emitter = free_emitter;
     }
 
-    public Free_reciver getFree_reciver() {
-        return free_reciver;
-    }
-
-    public void setFree_reciver(Free_reciver free_reciver) {
-        this.free_reciver = free_reciver;
-    }
-
     public Payment_method getPayment_method() {
         return payment_method;
     }
@@ -385,6 +377,14 @@ public class Free_cfdi implements Serializable {
 
     public void setTax_regime(Tax_regime tax_regime) {
         this.tax_regime = tax_regime;
+    }
+
+    public Free_receiver getFree_receiver() {
+        return free_receiver;
+    }
+
+    public void setFree_receiver(Free_receiver free_receiver) {
+        this.free_receiver = free_receiver;
     }
 
     @Override

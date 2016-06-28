@@ -46,6 +46,8 @@ public class Payment_methodResourceIntTest {
     private static final String UPDATED_NAME = "BBB";
     private static final String DEFAULT_DESCRIPTION = "AAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBB";
+    private static final String DEFAULT_CODE = "AAA";
+    private static final String UPDATED_CODE = "BBB";
 
     @Inject
     private Payment_methodRepository payment_methodRepository;
@@ -78,6 +80,7 @@ public class Payment_methodResourceIntTest {
         payment_method = new Payment_method();
         payment_method.setName(DEFAULT_NAME);
         payment_method.setDescription(DEFAULT_DESCRIPTION);
+        payment_method.setCode(DEFAULT_CODE);
     }
 
     @Test
@@ -98,6 +101,7 @@ public class Payment_methodResourceIntTest {
         Payment_method testPayment_method = payment_methods.get(payment_methods.size() - 1);
         assertThat(testPayment_method.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testPayment_method.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testPayment_method.getCode()).isEqualTo(DEFAULT_CODE);
     }
 
     @Test
@@ -106,6 +110,24 @@ public class Payment_methodResourceIntTest {
         int databaseSizeBeforeTest = payment_methodRepository.findAll().size();
         // set the field null
         payment_method.setName(null);
+
+        // Create the Payment_method, which fails.
+
+        restPayment_methodMockMvc.perform(post("/api/payment-methods")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(payment_method)))
+                .andExpect(status().isBadRequest());
+
+        List<Payment_method> payment_methods = payment_methodRepository.findAll();
+        assertThat(payment_methods).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkCodeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = payment_methodRepository.findAll().size();
+        // set the field null
+        payment_method.setCode(null);
 
         // Create the Payment_method, which fails.
 
@@ -130,7 +152,8 @@ public class Payment_methodResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(payment_method.getId().intValue())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-                .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
+                .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
+                .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE.toString())));
     }
 
     @Test
@@ -145,7 +168,8 @@ public class Payment_methodResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(payment_method.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE.toString()));
     }
 
     @Test
@@ -169,6 +193,7 @@ public class Payment_methodResourceIntTest {
         updatedPayment_method.setId(payment_method.getId());
         updatedPayment_method.setName(UPDATED_NAME);
         updatedPayment_method.setDescription(UPDATED_DESCRIPTION);
+        updatedPayment_method.setCode(UPDATED_CODE);
 
         restPayment_methodMockMvc.perform(put("/api/payment-methods")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -181,6 +206,7 @@ public class Payment_methodResourceIntTest {
         Payment_method testPayment_method = payment_methods.get(payment_methods.size() - 1);
         assertThat(testPayment_method.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testPayment_method.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testPayment_method.getCode()).isEqualTo(UPDATED_CODE);
     }
 
     @Test

@@ -1,17 +1,23 @@
 
 <div>
-    <h2><span translate="megabillingplatformApp.payment_method.detail.title">Payment Method</span> {{vm.payment_method.id}}</h2>
+    <h2><span translate="megabillingplatformApp.payment_method.detail.title">Payment_method</span> {{vm.payment_method.id}}</h2>
     <hr>
-    <jhi-alert-error></jhi-alert-error>
-    <dl class="dl-horizontal jh-entity-details">
-        <dt><span translate="megabillingplatformApp.payment_method.name">Name</span></dt>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.payment_method.name">Name</dt></dt>
         <dd>
-            <span>{{vm.payment_method.name}}</span>
+            <span>{{vm.payment_method.name}}<span>
         </dd>
-        <dt><span translate="megabillingplatformApp.payment_method.description">Description</span></dt>
+        <hr>
+        <dt><span translate="megabillingplatformApp.payment_method.description">Description</dt></dt>
         <dd>
-            <span>{{vm.payment_method.description}}</span>
+            <span>{{vm.payment_method.description}}<span>
         </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.payment_method.code">Code</dt></dt>
+        <dd>
+            <span>{{vm.payment_method.code}}<span>
+        </dd>
+        <hr>
     </dl>
 
     <button type="submit"

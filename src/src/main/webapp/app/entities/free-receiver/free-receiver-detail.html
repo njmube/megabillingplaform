@@ -1,0 +1,88 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.free_receiver.detail.title">Free_receiver</span> {{vm.free_receiver.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.free_receiver.rfc">Rfc</dt></dt>
+        <dd>
+            <span>{{vm.free_receiver.rfc}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.business_name">Business_name</dt></dt>
+        <dd>
+            <span>{{vm.free_receiver.business_name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.email">Email</dt></dt>
+        <dd>
+            <span>{{vm.free_receiver.email}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.activated">Activated</dt></dt>
+        <dd>
+            <span>{{vm.free_receiver.activated}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.create_date">Create_date</dt></dt>
+        <dd>
+            <span>{{vm.free_receiver.create_date | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.street">Street</dt></dt>
+        <dd>
+            <span>{{vm.free_receiver.street}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.no_ext">No_ext</dt></dt>
+        <dd>
+            <span>{{vm.free_receiver.no_ext}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.no_int">No_int</dt></dt>
+        <dd>
+            <span>{{vm.free_receiver.no_int}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.reference">Reference</dt></dt>
+        <dd>
+            <span>{{vm.free_receiver.reference}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.c_country">c_country</span></dt>
+        <dd>
+            <a ui-sref="c-country-detail({id:vm.free_receiver.c_country.id})">{{vm.free_receiver.c_country.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.c_state">c_state</span></dt>
+        <dd>
+            <a ui-sref="c-state-detail({id:vm.free_receiver.c_state.id})">{{vm.free_receiver.c_state.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.c_municipality">c_municipality</span></dt>
+        <dd>
+            <a ui-sref="c-municipality-detail({id:vm.free_receiver.c_municipality.id})">{{vm.free_receiver.c_municipality.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.c_location">c_location</span></dt>
+        <dd>
+            <a ui-sref="c-location-detail({id:vm.free_receiver.c_location.id})">{{vm.free_receiver.c_location.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.c_colony">c_colony</span></dt>
+        <dd>
+            <a ui-sref="c-colony-detail({id:vm.free_receiver.c_colony.id})">{{vm.free_receiver.c_colony.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_receiver.c_zip_code">c_zip_code</span></dt>
+        <dd>
+            <a ui-sref="c-zip-code-detail({id:vm.free_receiver.c_zip_code.id})">{{vm.free_receiver.c_zip_code.postcode}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

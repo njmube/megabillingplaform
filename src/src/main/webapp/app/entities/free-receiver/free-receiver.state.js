@@ -9,17 +9,17 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('payment-method', {
+        .state('free-receiver', {
             parent: 'entity',
-            url: '/payment-method?page&sort&search',
+            url: '/free-receiver?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'megabillingplatformApp.payment_method.home.title'
+                pageTitle: 'megabillingplatformApp.free_receiver.home.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/payment-method/payment-methods.html',
-                    controller: 'Payment_methodController',
+                    templateUrl: 'app/entities/free-receiver/free-receivers.html',
+                    controller: 'Free_receiverController',
                     controllerAs: 'vm'
                 }
             },
@@ -45,110 +45,116 @@
                     };
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('payment_method');
+                    $translatePartialLoader.addPart('free_receiver');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
             }
         })
-        .state('payment-method-detail', {
+        .state('free-receiver-detail', {
             parent: 'entity',
-            url: '/payment-method/{id}',
+            url: '/free-receiver/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'megabillingplatformApp.payment_method.detail.title'
+                pageTitle: 'megabillingplatformApp.free_receiver.detail.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/payment-method/payment-method-detail.html',
-                    controller: 'Payment_methodDetailController',
+                    templateUrl: 'app/entities/free-receiver/free-receiver-detail.html',
+                    controller: 'Free_receiverDetailController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('payment_method');
+                    $translatePartialLoader.addPart('free_receiver');
                     return $translate.refresh();
                 }],
-                entity: ['$stateParams', 'Payment_method', function($stateParams, Payment_method) {
-                    return Payment_method.get({id : $stateParams.id});
+                entity: ['$stateParams', 'Free_receiver', function($stateParams, Free_receiver) {
+                    return Free_receiver.get({id : $stateParams.id});
                 }]
             }
         })
-        .state('payment-method.new', {
-            parent: 'payment-method',
+        .state('free-receiver.new', {
+            parent: 'free-receiver',
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/payment-method/payment-method-dialog.html',
-                    controller: 'Payment_methodDialogController',
+                    templateUrl: 'app/entities/free-receiver/free-receiver-dialog.html',
+                    controller: 'Free_receiverDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         entity: function () {
                             return {
-                                name: null,
-                                description: null,
-                                code: null,
+                                rfc: null,
+                                business_name: null,
+                                email: null,
+                                activated: false,
+                                create_date: null,
+                                street: null,
+                                no_ext: null,
+                                no_int: null,
+                                reference: null,
                                 id: null
                             };
                         }
                     }
                 }).result.then(function() {
-                    $state.go('payment-method', null, { reload: true });
+                    $state.go('free-receiver', null, { reload: true });
                 }, function() {
-                    $state.go('payment-method');
+                    $state.go('free-receiver');
                 });
             }]
         })
-        .state('payment-method.edit', {
-            parent: 'payment-method',
+        .state('free-receiver.edit', {
+            parent: 'free-receiver',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/payment-method/payment-method-dialog.html',
-                    controller: 'Payment_methodDialogController',
+                    templateUrl: 'app/entities/free-receiver/free-receiver-dialog.html',
+                    controller: 'Free_receiverDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['Payment_method', function(Payment_method) {
-                            return Payment_method.get({id : $stateParams.id});
+                        entity: ['Free_receiver', function(Free_receiver) {
+                            return Free_receiver.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('payment-method', null, { reload: true });
+                    $state.go('free-receiver', null, { reload: true });
                 }, function() {
                     $state.go('^');
                 });
             }]
         })
-        .state('payment-method.delete', {
-            parent: 'payment-method',
+        .state('free-receiver.delete', {
+            parent: 'free-receiver',
             url: '/{id}/delete',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/payment-method/payment-method-delete-dialog.html',
-                    controller: 'Payment_methodDeleteController',
+                    templateUrl: 'app/entities/free-receiver/free-receiver-delete-dialog.html',
+                    controller: 'Free_receiverDeleteController',
                     controllerAs: 'vm',
                     size: 'md',
                     resolve: {
-                        entity: ['Payment_method', function(Payment_method) {
-                            return Payment_method.get({id : $stateParams.id});
+                        entity: ['Free_receiver', function(Free_receiver) {
+                            return Free_receiver.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('payment-method', null, { reload: true });
+                    $state.go('free-receiver', null, { reload: true });
                 }, function() {
                     $state.go('^');
                 });

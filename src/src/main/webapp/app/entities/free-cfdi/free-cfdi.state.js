@@ -51,55 +51,6 @@
                 }]
             }
         })
-            .state('free-cfdi.new', {
-                parent: 'free-cfdi',
-                url: '/new',
-                data: {
-                    authorities: ['ROLE_USER'],
-                    pageTitle: 'megabillingplatformApp.free_cfdi.home.title'
-                },
-                views: {
-                    'content@': {
-                        templateUrl: 'app/entities/free-cfdi/free-cfdi-new.html',
-                        controller: 'Free_cfdiNewController',
-                        controllerAs: 'vm'
-                    }
-                },
-                resolve: {
-                    entity: [function () {
-                        return {
-                            version: null,
-                            serial: null,
-                            folio: null,
-                            date_expedition: null,
-                            payment_conditions: null,
-                            change_type: null,
-                            place_expedition: null,
-                            account_number: null,
-                            folio_fiscal_orig: null,
-                            serial_folio_fiscal_orig: null,
-                            date_folio_fiscal_orig: null,
-                            mont_folio_fiscal_orig: null,
-                            total_tax_retention: null,
-                            total_tax_transfered: null,
-                            discount: null,
-                            discount_reason: null,
-                            subtotal: null,
-                            total: null,
-                            addenda: null,
-                            stamp: null,
-                            no_certificate: null,
-                            certificate: null,
-                            id: null
-                        };
-                    }],
-                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('free_cfdi');
-                        $translatePartialLoader.addPart('global');
-                        return $translate.refresh();
-                    }]
-                }
-            })
         .state('free-cfdi-detail', {
             parent: 'entity',
             url: '/free-cfdi/{id}',
@@ -124,7 +75,7 @@
                 }]
             }
         })
-        /*.state('free-cfdi.new', {
+        .state('free-cfdi.new', {
             parent: 'free-cfdi',
             url: '/new',
             data: {
@@ -172,7 +123,7 @@
                     $state.go('free-cfdi');
                 });
             }]
-        })*/
+        })
         .state('free-cfdi.edit', {
             parent: 'free-cfdi',
             url: '/{id}/edit',

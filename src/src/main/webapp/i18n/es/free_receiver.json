@@ -1,0 +1,36 @@
+{
+    "megabillingplatformApp": {
+        "free_receiver" : {
+            "home": {
+                "title": "Free_receivers",
+                "createLabel": "Crear nuevo Free_receiver",
+                "createOrEditLabel": "Crear o editar Free_receiver",
+                "search": "Search for Free_receiver"
+            },
+            "created": "Un nuevo Free_receiver ha sido creado con el identificador {{ param }}",
+            "updated": "Un Free_receiver ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Free_receiver ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Free_receiver {{ id }}?"
+            },
+            "detail": {
+                "title": "Free_receiver"
+            },
+            "rfc": "Rfc",
+            "business_name": "Business_name",
+            "email": "Email",
+            "activated": "Activated",
+            "create_date": "Create_date",
+            "street": "Street",
+            "no_ext": "No_ext",
+            "no_int": "No_int",
+            "reference": "Reference",
+            "c_country": "C_country",
+            "c_state": "C_state",
+            "c_municipality": "C_municipality",
+            "c_location": "C_location",
+            "c_colony": "C_colony",
+            "c_zip_code": "C_zip_code"
+        }
+    }
+}

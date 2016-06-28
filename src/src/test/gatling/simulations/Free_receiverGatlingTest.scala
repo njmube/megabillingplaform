@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory
 import scala.concurrent.duration._
 
 /**
- * Performance test for the Payment_method entity.
+ * Performance test for the Free_receiver entity.
  */
-class Payment_methodGatlingTest extends Simulation {
+class Free_receiverGatlingTest extends Simulation {
 
     val context: LoggerContext = LoggerFactory.getILoggerFactory.asInstanceOf[LoggerContext]
     // Log all HTTP requests
@@ -37,7 +37,7 @@ class Payment_methodGatlingTest extends Simulation {
         "X-CSRF-TOKEN" -> "${csrf_token}"
     )
 
-    val scn = scenario("Test the Payment_method entity")
+    val scn = scenario("Test the Free_receiver entity")
         .exec(http("First unauthenticated request")
         .get("/api/account")
         .headers(headers_http)
@@ -59,26 +59,26 @@ class Payment_methodGatlingTest extends Simulation {
         .check(headerRegex("Set-Cookie", "CSRF-TOKEN=(.*); [P,p]ath=/").saveAs("csrf_token")))
         .pause(10)
         .repeat(2) {
-            exec(http("Get all payment_methods")
-            .get("/api/payment-methods")
+            exec(http("Get all free_receivers")
+            .get("/api/free-receivers")
             .headers(headers_http_authenticated)
             .check(status.is(200)))
             .pause(10 seconds, 20 seconds)
-            .exec(http("Create new payment_method")
-            .post("/api/payment-methods")
+            .exec(http("Create new free_receiver")
+            .post("/api/free-receivers")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "description":"SAMPLE_TEXT", "code":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "rfc":"SAMPLE_TEXT", "business_name":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "activated":null, "create_date":"2020-01-01T00:00:00.000Z", "street":"SAMPLE_TEXT", "no_ext":"SAMPLE_TEXT", "no_int":"SAMPLE_TEXT", "reference":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
-            .check(headerRegex("Location", "(.*)").saveAs("new_payment_method_url"))).exitHereIfFailed
+            .check(headerRegex("Location", "(.*)").saveAs("new_free_receiver_url"))).exitHereIfFailed
             .pause(10)
             .repeat(5) {
-                exec(http("Get created payment_method")
-                .get("${new_payment_method_url}")
+                exec(http("Get created free_receiver")
+                .get("${new_free_receiver_url}")
                 .headers(headers_http_authenticated))
                 .pause(10)
             }
-            .exec(http("Delete created payment_method")
-            .delete("${new_payment_method_url}")
+            .exec(http("Delete created free_receiver")
+            .delete("${new_free_receiver_url}")
             .headers(headers_http_authenticated))
             .pause(10)
         }

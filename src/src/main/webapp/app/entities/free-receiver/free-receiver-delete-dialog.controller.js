@@ -3,18 +3,18 @@
 
     angular
         .module('megabillingplatformApp')
-        .controller('Payment_methodDeleteController',Payment_methodDeleteController);
+        .controller('Free_receiverDeleteController',Free_receiverDeleteController);
 
-    Payment_methodDeleteController.$inject = ['$uibModalInstance', 'entity', 'Payment_method'];
+    Free_receiverDeleteController.$inject = ['$uibModalInstance', 'entity', 'Free_receiver'];
 
-    function Payment_methodDeleteController($uibModalInstance, entity, Payment_method) {
+    function Free_receiverDeleteController($uibModalInstance, entity, Free_receiver) {
         var vm = this;
-        vm.payment_method = entity;
+        vm.free_receiver = entity;
         vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
         };
         vm.confirmDelete = function (id) {
-            Payment_method.delete({id: id},
+            Free_receiver.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });

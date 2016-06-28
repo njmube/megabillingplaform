@@ -37,7 +37,7 @@
 
         function save () {
             if (vm.user.password !== vm.confirmPassword) {
-                vm.doNotMatch = false;
+                vm.doNotMatch = 'ERROR';
                 vm.isSaving = false;
             }
             else {

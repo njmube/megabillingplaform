@@ -5,42 +5,38 @@
         .module('megabillingplatformApp')
         .controller('Payment_methodDialogController', Payment_methodDialogController);
 
-    Payment_methodDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Payment_method'];
+    Payment_methodDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Payment_method'];
 
-    function Payment_methodDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Payment_method) {
+    function Payment_methodDialogController ($scope, $stateParams, $uibModalInstance, entity, Payment_method) {
         var vm = this;
-
         vm.payment_method = entity;
-        vm.clear = clear;
-        vm.save = save;
+        vm.load = function(id) {
+            Payment_method.get({id : id}, function(result) {
+                vm.payment_method = result;
+            });
+        };
 
-        $timeout(function (){
-            angular.element('.form-group:eq(1)>input').focus();
-        });
+        var onSaveSuccess = function (result) {
+            $scope.$emit('megabillingplatformApp:payment_methodUpdate', result);
+            $uibModalInstance.close(result);
+            vm.isSaving = false;
+        };
 
-        function clear () {
-            $uibModalInstance.dismiss('cancel');
-        }
+        var onSaveError = function () {
+            vm.isSaving = false;
+        };
 
-        function save () {
+        vm.save = function () {
             vm.isSaving = true;
             if (vm.payment_method.id !== null) {
                 Payment_method.update(vm.payment_method, onSaveSuccess, onSaveError);
             } else {
                 Payment_method.save(vm.payment_method, onSaveSuccess, onSaveError);
             }
-        }
+        };
 
-        function onSaveSuccess (result) {
-            $scope.$emit('megabillingplatformApp:payment_methodUpdate', result);
-            $uibModalInstance.close(result);
-            vm.isSaving = false;
-        }
-
-        function onSaveError () {
-            vm.isSaving = false;
-        }
-
-
+        vm.clear = function() {
+            $uibModalInstance.dismiss('cancel');
+        };
     }
 })();

@@ -19,12 +19,6 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipName": "free_reciver",
-            "otherEntityName": "free_reciver",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
             "relationshipName": "payment_method",
             "otherEntityName": "payment_method",
             "relationshipType": "many-to-one",
@@ -53,6 +47,12 @@
             "otherEntityName": "tax_regime",
             "relationshipType": "many-to-one",
             "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "free_receiver",
+            "otherEntityName": "free_receiver",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

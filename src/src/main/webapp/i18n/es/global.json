@@ -38,6 +38,9 @@
                 "free.concept": "Conceptos",
                 "free.part.concept": "Parte Concepto",
                 "free.customs.info": "Información Aduanera",
+                "freeReceiver": "Free_receiver",
+                "freeCfdi": "Free_cfdi",
+                "paymentMethod": "Payment_method",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

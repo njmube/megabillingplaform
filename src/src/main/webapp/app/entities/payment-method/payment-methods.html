@@ -1,5 +1,5 @@
 <div>
-    <h2 translate="megabillingplatformApp.payment_method.home.title">Payment Methods</h2>
+    <h2 translate="megabillingplatformApp.payment_method.home.title">Payment_methods</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="payment-method.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span  translate="megabillingplatformApp.payment_method.home.createLabel">
-                        Create new Payment Method
+                        Create new Payment_method
                     </span>
                 </button>
             </div>
@@ -21,6 +21,7 @@
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="name"><span translate="megabillingplatformApp.payment_method.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="description"><span translate="megabillingplatformApp.payment_method.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="code"><span translate="megabillingplatformApp.payment_method.code">Code</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -29,6 +30,7 @@
                     <td><a ui-sref="payment-method-detail({id:payment_method.id})">{{payment_method.id}}</a></td>
                     <td>{{payment_method.name}}</td>
                     <td>{{payment_method.description}}</td>
+                    <td>{{payment_method.code}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

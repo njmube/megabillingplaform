@@ -30,6 +30,11 @@ public class Payment_method implements Serializable {
     @Column(name = "description")
     private String description;
 
+    @NotNull
+    @Size(min = 3, max = 50)
+    @Column(name = "code", length = 50, nullable = false)
+    private String code;
+
     public Long getId() {
         return id;
     }
@@ -52,6 +57,14 @@ public class Payment_method implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     @Override
@@ -80,6 +93,7 @@ public class Payment_method implements Serializable {
             "id=" + id +
             ", name='" + name + "'" +
             ", description='" + description + "'" +
+            ", code='" + code + "'" +
             '}';
     }
 }
