@@ -2,6 +2,8 @@ package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import org.megapractical.billingplatform.domain.Free_emitter;
+import org.megapractical.billingplatform.repository.UserRepository;
+import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.Free_emitterService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
@@ -19,6 +21,7 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,10 +33,13 @@ import java.util.Optional;
 public class Free_emitterResource {
 
     private final Logger log = LoggerFactory.getLogger(Free_emitterResource.class);
-        
+
     @Inject
     private Free_emitterService free_emitterService;
-    
+
+    @Inject
+    private UserRepository userRepository;
+
     /**
      * POST  /free-emitters : Create a new free_emitter.
      *
@@ -50,6 +56,11 @@ public class Free_emitterResource {
         if (free_emitter.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "idexists", "A new free_emitter cannot already have an ID")).body(null);
         }
+
+        free_emitter.setUser(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get());
+        free_emitter.setCreate_date(ZonedDateTime.now());
+        free_emitter.setActivated(true);
+
         Free_emitter result = free_emitterService.save(free_emitter);
         return ResponseEntity.created(new URI("/api/free-emitters/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_emitter", result.getId().toString()))
@@ -94,7 +105,7 @@ public class Free_emitterResource {
     public ResponseEntity<List<Free_emitter>> getAllFree_emitters(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Free_emitters");
-        Page<Free_emitter> page = free_emitterService.findAll(pageable); 
+        Page<Free_emitter> page = free_emitterService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-emitters");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

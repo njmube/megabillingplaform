@@ -1,5 +1,6 @@
 package org.megapractical.billingplatform.security;
 
+import org.megapractical.billingplatform.domain.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -35,6 +36,22 @@ public final class SecurityUtils {
             }
         }
         return userName;
+    }
+
+    /**
+     * Return the current user, or throws an exception, if the user is not
+     * authenticated yet.
+     *
+     * @return the current user
+     */
+    public static User getCurrentUser() {
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        Authentication authentication = securityContext.getAuthentication();
+
+        if (authentication != null && authentication.getPrincipal() instanceof User) {
+            return (User) authentication.getPrincipal();
+        }
+        throw new IllegalStateException("User not found!");
     }
 
     /**
@@ -74,4 +91,6 @@ public final class SecurityUtils {
         }
         return false;
     }
+
+
 }

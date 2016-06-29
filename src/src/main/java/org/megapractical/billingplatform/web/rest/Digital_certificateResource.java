@@ -29,10 +29,10 @@ import java.util.Optional;
 public class Digital_certificateResource {
 
     private final Logger log = LoggerFactory.getLogger(Digital_certificateResource.class);
-        
+
     @Inject
     private Digital_certificateService digital_certificateService;
-    
+
     /**
      * POST  /digital-certificates : Create a new digital_certificate.
      *
@@ -93,7 +93,7 @@ public class Digital_certificateResource {
     public ResponseEntity<List<Digital_certificate>> getAllDigital_certificates(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Digital_certificates");
-        Page<Digital_certificate> page = digital_certificateService.findAll(pageable); 
+        Page<Digital_certificate> page = digital_certificateService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/digital-certificates");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 /**
@@ -21,32 +22,33 @@ import java.util.List;
 public class Free_emitterServiceImpl implements Free_emitterService{
 
     private final Logger log = LoggerFactory.getLogger(Free_emitterServiceImpl.class);
-    
+
     @Inject
     private Free_emitterRepository free_emitterRepository;
-    
+
     /**
      * Save a free_emitter.
-     * 
+     *
      * @param free_emitter the entity to save
      * @return the persisted entity
      */
     public Free_emitter save(Free_emitter free_emitter) {
         log.debug("Request to save Free_emitter : {}", free_emitter);
+
         Free_emitter result = free_emitterRepository.save(free_emitter);
         return result;
     }
 
     /**
      *  Get all the free_emitters.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Free_emitter> findAll(Pageable pageable) {
         log.debug("Request to get all Free_emitters");
-        Page<Free_emitter> result = free_emitterRepository.findAll(pageable); 
+        Page<Free_emitter> result = free_emitterRepository.findAll(pageable);
         return result;
     }
 
@@ -56,7 +58,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Free_emitter findOne(Long id) {
         log.debug("Request to get Free_emitter : {}", id);
         Free_emitter free_emitter = free_emitterRepository.findOne(id);
@@ -65,7 +67,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
 
     /**
      *  Delete the  free_emitter by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

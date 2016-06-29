@@ -36,11 +36,9 @@ public class Free_emitter implements Serializable {
     @Column(name = "street", nullable = false)
     private String street;
 
-    @NotNull
     @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 
-    @NotNull
     @Column(name = "activated", nullable = false)
     private Boolean activated;
 

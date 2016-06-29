@@ -45,6 +45,9 @@
 
 <div class="row">
     <div class="col-sm-12">
+	
+		<jhi-alert-error></jhi-alert-error>
+		<jhi-alert></jhi-alert>
 
         <form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
             <div class="row">
@@ -126,7 +129,7 @@
 						</label>
 						
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="email" id="field_email"
+                            <input type="email" class="form-control" name="email" id="field_email"
 							   ng-model="vm.free_emitter.email"
 							   required ng-minlength="6" ng-maxlength="254" ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" />
 							<div ng-show="editForm.email.$invalid">
@@ -149,27 +152,42 @@
 							</div>
                         </div>
                     </div>
+					
 
                     <div class="space-6"></div>
 
                     <h3 class="header smaller lighter blue">
                         Certificado Digital
                     </h3>
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.free_digital_certificate" for="field_free_digital_certificate">
-                            free_digital_certificate
-                        </label>
-                        <div class="col-sm-5">
-                            <input type="file" id="id-input-file-1" />
-                        </div>
+					
+					<div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_digital_certificate.path_certificate" for="field_path_certificate">Path_certificate</label>
+                        <div class="col-sm-8">
+							<input type="text" class="form-control" name="path_certificate" id="field_path_certificate"
+								ng-model="vm.free_digital_certificate.path_certificate"
+								required />
+							<div ng-show="editForm.path_certificate.$invalid">
+								<p class="help-block"
+									ng-show="editForm.path_certificate.$error.required" translate="entity.validation.required">
+									This field is required.
+								</p>
+							</div>                           
+						</div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" for="field-5">
-                            Clave Privada:
-                        </label>
-                        <div class="col-sm-5">
-                            <input type="file" id="id-input-file-2" />
-                        </div>
+					
+					<div class="form-group">
+						<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_digital_certificate.path_private_key" for="field_path_private_key">Path_private_key</label>
+                        <div class="col-sm-8">
+							<input type="text" class="form-control" name="path_private_key" id="field_path_private_key"
+								ng-model="vm.free_digital_certificate.path_private_key"
+								required />
+							<div ng-show="editForm.path_private_key.$invalid">
+								<p class="help-block"
+									ng-show="editForm.path_private_key.$error.required" translate="entity.validation.required">
+									This field is required.
+								</p>
+							</div>                          
+						</div>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -179,9 +197,15 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_country" for="field_c_country">c_country</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.free_emitter.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countrys track by c_country.id">
+                            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.free_emitter.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countrys track by c_country.id" required>
 								<option value=""></option>
 							</select>
+							<div ng-show="editForm.c_country.$invalid">
+								<p class="help-block"
+								   ng-show="editForm.c_country.$error.required" translate="entity.validation.required">
+									This field is required.
+								</p>
+							</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -210,10 +234,17 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.street" for="field_street">Street</label>
-
+                        <label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.free_emitter.street" for="field_street">Street</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="street" id="field_street" ng-model="vm.free_emitter.street" required />
+                            <input type="text" class="form-control" name="street" id="field_street"
+									ng-model="vm.free_emitter.street"
+									required />
+							<div ng-show="editForm.street.$invalid">
+								<p class="help-block"
+									ng-show="editForm.street.$error.required" translate="entity.validation.required">
+									This field is required.
+								</p>
+							</div>
 						</div>
                     </div>
                     <div class="form-group">
@@ -253,6 +284,19 @@
                         </div>
 
                     </div>
+					
+					<div class="form-group">
+						
+						<button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary pull-right" style="margin: 0 15px">
+							<span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save </span> 
+							({{editForm.$invalid}}) 
+						</button>
+						
+						<button type="button" class="btn btn-default pull-right" onclick="window.history.back()">
+							<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+						</button>
+						
+					</div>
                 </div>
             </div>
         </form>

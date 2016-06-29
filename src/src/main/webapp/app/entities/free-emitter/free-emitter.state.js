@@ -66,7 +66,7 @@
 				}
 			},
 			resolve: {
-				entity: [function () {
+				FreeEmitterEntity: [function () {
 					return {
 						reference: null,
 						num_int: null,
@@ -77,18 +77,16 @@
 						id: null
 					};
 				}],
-				entity2: [function () {
-						return {
-							adrees: null,
-							adreesContentType: null,
-							private_key: null,
-							private_keyContentType: null,
-							possword: null,
-							id: null
-						};
-					}],
+				FreeDigitalCertificateEntity: [function () {
+					return {
+						path_certificate: null,
+						path_private_key: null,
+						id: null
+					};
+				}],
 				translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
 					$translatePartialLoader.addPart('free_emitter');
+					$translatePartialLoader.addPart('free_digital_certificate');
 					$translatePartialLoader.addPart('global');
 					return $translate.refresh();
 				}]
