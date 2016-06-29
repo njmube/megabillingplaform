@@ -15,6 +15,9 @@
             "gender": "Gender (*)",
             "gender.placeholder": "Your gender",
             "language": "Language",
+            "language.placeholder": "Your language",
+            "language.spanish": "Spanish",
+            "language.english": "English",
             "button": "Save"
         },
         "messages": {

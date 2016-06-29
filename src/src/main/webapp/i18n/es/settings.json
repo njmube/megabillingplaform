@@ -15,6 +15,9 @@
             "gender": "Género (*)",
             "gender.placeholder": "Su género",
             "language": "Idioma",
+            "language.placeholder": "Seleccione el Idioma",
+            "language.spanish": "Español",
+            "language.english": "Inglés",
             "button": "Guardar"
         },
         "messages": {

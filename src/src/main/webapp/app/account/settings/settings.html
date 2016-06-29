@@ -135,7 +135,11 @@
                 </div>
                 <div class="form-group">
                     <label for="langKey" translate="settings.form.language">Language</label>
-                    <select id="langKey" name="langKey" class="form-control" ng-model="vm.settingsAccount.langKey" ng-controller="JhiLanguageController as languageVm" ng-options="code as (code | findLanguageFromKey) for code in languageVm.languages"></select>
+                    <select id="langKey" name="langKey" class="form-control" ng-model="vm.settingsAccount.langKey" ng-controller="JhiLanguageController as languageVm">
+                        <option selected="selected"> {{'settings.form.language.placeholder' | translate}} </option>
+                        <option name=spanish value=es> {{'settings.language.spanish' | translate}} </option>
+                        <option name=english value=en> {{'settings.form.language.english' | translate}} </option>
+                    </select>
                 </div>
 
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" translate="settings.form.button">Save</button>
