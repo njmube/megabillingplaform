@@ -14,8 +14,8 @@
         "detail": {
             "title": "Usuario"
         },
-        "login": "Login (*)",
-        "login.list": "Login",
+        "login": "Nombre Usuario (*)",
+        "login.list": "Nomnbre Usuario",
         "rfc": "RFC (*)",
         "name": "Nombre (*)",
         "firtsurname": "Apellido paterno (*)",
