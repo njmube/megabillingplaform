@@ -41,6 +41,7 @@
                 "freeReceiver": "Free_receiver",
                 "freeCfdi": "Free_cfdi",
                 "paymentMethod": "Payment_method",
+                "taxRegime": "Tax_regime",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -113,6 +114,8 @@
             "newpassword.placeholder": "Contraseña Ej: Aeimpruome*/-j2002",
             "confirmpassword": "Repita Contraseña (*)",
             "confirmpassword.placeholder": "Repita Contraseña Ej: Aeimpruome*/-j2002",
+            "oldpassword": "Contraseña anterior (*)",
+            "oldpassword.placeholder": "Contraseña anterior",
             "email": "Correo Electrónico (*)",
             "email.placeholder": "Introduzca su dirección de correo electrónico Ej: yandry.alberto@megapractical.com"
         },

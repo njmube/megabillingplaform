@@ -231,19 +231,34 @@ public class UserService {
         });
     }
 
-    public void changePassword(String password) {
-        userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(u -> {
-            String encryptedPassword = passwordEncoder.encode(password);
-            u.setPassword(encryptedPassword);
-            userRepository.save(u);
-            log.debug("Changed password for User: {}", u);
-        });
+    public boolean changePassword(String password) {
+        String [] temp = password.split("   ");
+        if(temp.length == 2){
+            Optional<User> user1 = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin());
+            String encry = user1.get().getPassword();
+
+            boolean result = passwordEncoder.matches(temp[0],encry);
+            if(!result){
+                return false;
+            }
+
+            userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(u -> {
+                String encryptedPassword = passwordEncoder.encode(temp[1]);
+                u.setPassword(encryptedPassword);
+                userRepository.save(u);
+                log.debug("Changed password for User: {}", u);
+            });
+            return true;
+        }
+        else
+            return false;
     }
 
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthoritiesByLogin(String login) {
         return userRepository.findOneByLogin(login).map(u -> {
             u.getAuthorities().size();
+            //log.debug("Este es el user: ", u);
             return u;
         });
     }

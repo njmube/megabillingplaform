@@ -16,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -45,7 +44,7 @@ public class Tax_regimeResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Tax_regime> createTax_regime(@Valid @RequestBody Tax_regime tax_regime) throws URISyntaxException {
+    public ResponseEntity<Tax_regime> createTax_regime(@RequestBody Tax_regime tax_regime) throws URISyntaxException {
         log.debug("REST request to save Tax_regime : {}", tax_regime);
         if (tax_regime.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("tax_regime", "idexists", "A new tax_regime cannot already have an ID")).body(null);
@@ -69,7 +68,7 @@ public class Tax_regimeResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Tax_regime> updateTax_regime(@Valid @RequestBody Tax_regime tax_regime) throws URISyntaxException {
+    public ResponseEntity<Tax_regime> updateTax_regime(@RequestBody Tax_regime tax_regime) throws URISyntaxException {
         log.debug("REST request to update Tax_regime : {}", tax_regime);
         if (tax_regime.getId() == null) {
             return createTax_regime(tax_regime);

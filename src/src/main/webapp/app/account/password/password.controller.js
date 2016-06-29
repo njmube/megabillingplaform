@@ -13,6 +13,7 @@
         vm.changePassword = changePassword;
         vm.doNotMatch = null;
         vm.error = null;
+        vm.errorpassword = null;
         vm.success = null;
 
         Principal.identity().then(function(account) {
@@ -20,18 +21,26 @@
         });
 
         function changePassword () {
+
             if (vm.password !== vm.confirmPassword) {
                 vm.error = null;
                 vm.success = null;
+                vm.errorpassword = null;
                 vm.doNotMatch = 'ERROR';
             } else {
                 vm.doNotMatch = null;
-                Auth.changePassword(vm.password).then(function () {
-                    vm.error = null;
+                vm.error = null;
+                vm.errorpassword = null;
+                var password1 = vm.oldpassword + "   " + vm.password;
+                Auth.changePassword(password1).then(function () {
                     vm.success = 'OK';
-                }).catch(function () {
+                }).catch(function (response) {
                     vm.success = null;
-                    vm.error = 'ERROR';
+                    if (response.status === 400 && response.data === 'Incorrect old password') {
+                        vm.errorpassword = 'ERROR';
+                    } else {
+                        vm.error = 'ERROR';
+                    }
                 });
             }
         }

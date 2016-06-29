@@ -182,8 +182,10 @@ public class AccountResource {
         if (!checkPasswordLength(password)) {
             return new ResponseEntity<>("Incorrect password", HttpStatus.BAD_REQUEST);
         }
-        userService.changePassword(password);
-        return new ResponseEntity<>(HttpStatus.OK);
+        if(userService.changePassword(password))
+            return new ResponseEntity<>(HttpStatus.OK);
+        else
+            return new ResponseEntity<>("Incorrect old password", HttpStatus.BAD_REQUEST);
     }
 
     /**

@@ -9,7 +9,7 @@
 
     function UserManagementDetailController ($stateParams, User) {
         var vm = this;
-
+        vm.auto = null;
         vm.load = load;
         vm.user = {};
 
@@ -18,6 +18,7 @@
         function load (login) {
             User.get({login: login}, function(result) {
                 vm.user = result;
+                vm.auto = vm.user.authorities[0];
             });
         }
     }

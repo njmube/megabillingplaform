@@ -17,8 +17,7 @@
                 "title": "Tax Regime"
             },
             "name": "Name",
-            "description": "Description",
-            "code": "Code"
+            "description": "Description"
         }
     }
 }

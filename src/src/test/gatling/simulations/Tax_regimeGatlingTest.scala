@@ -67,7 +67,7 @@ class Tax_regimeGatlingTest extends Simulation {
             .exec(http("Create new tax_regime")
             .post("/api/tax-regimes")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "description":"SAMPLE_TEXT", "code":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "description":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_tax_regime_url"))).exitHereIfFailed
             .pause(10)

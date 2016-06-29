@@ -4,7 +4,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -28,10 +27,6 @@ public class Tax_regime implements Serializable {
     @Column(name = "description")
     private String description;
 
-    @NotNull
-    @Column(name = "code", nullable = false)
-    private String code;
-
     public Long getId() {
         return id;
     }
@@ -54,14 +49,6 @@ public class Tax_regime implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
     }
 
     @Override
@@ -90,7 +77,6 @@ public class Tax_regime implements Serializable {
             "id=" + id +
             ", name='" + name + "'" +
             ", description='" + description + "'" +
-            ", code='" + code + "'" +
             '}';
     }
 }
