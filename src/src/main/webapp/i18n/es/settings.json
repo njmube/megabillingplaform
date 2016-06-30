@@ -12,7 +12,7 @@
             "secondsurname.placeholder": "Su apellido materno",
             "phone": "Teléfono (*)",
             "phone.placeholder": "Su teléfono",
-            "gender": "Género (*)",
+            "gender": "Género",
             "gender.placeholder": "Su género",
             "language": "Idioma",
             "language.placeholder": "Seleccione el Idioma",
