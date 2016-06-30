@@ -106,6 +106,16 @@ public class AccountResource {
             .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
+
+
+    @RequestMapping(value = "/register",
+        method = RequestMethod.GET,
+        params = {"name_f_s"})
+    @Timed
+    public ResponseEntity<String> sugesUser(@RequestParam(value = "name_f_s") String name_f_s) {
+        return new ResponseEntity<String>(name_f_s,HttpStatus.OK);
+    }
+
     /**
      * GET  /authenticate : check if the user is authenticated, and return its login.
      *

@@ -3,6 +3,7 @@
         "title": "Registro",
         "form": {
             "button": "Crear la cuenta",
+            "buttonsuges": "Usuarios sugeridos",
             "conditions": "Al hacer clic en Registrarse, aceptas las Condiciones y confirmas que leiste nuestra política de datos, incluido el uso de cookies."
         },
         "messages": {

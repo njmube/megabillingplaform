@@ -19,8 +19,33 @@
         vm.register = register;
         vm.registerAccount = {};
         vm.success = null;
+        vm.usersuges = null;
+        vm.suges = suges;
 
         $timeout(function (){angular.element('[ng-model="vm.registerAccount.login"]').focus();});
+
+        function suges(){
+            vm.usersuges = "OK";
+            var name_f_s = "";
+            if(vm.registerAccount.name == null)
+                name_f_s += "vacio";
+            else
+                name_f_s += vm.registerAccount.name;
+            if(vm.registerAccount.firtsurname == null)
+                name_f_s += "_vacio";
+            else
+                name_f_s += "_" + vm.registerAccount.firtsurname;
+            if(vm.registerAccount.secondsurname == null)
+                name_f_s += "_vacio";
+            else
+                name_f_s += "_" + vm.registerAccount.secondsurname;
+            /*Auth.sugesuser(name_f_s).then(function (response) {
+                vm.usersuges = "OK";
+            }).catch(function (response) {
+                vm.error = 'ERROR';
+            });*/
+
+        }
 
         function register () {
             if (vm.registerAccount.password !== vm.confirmPassword) {

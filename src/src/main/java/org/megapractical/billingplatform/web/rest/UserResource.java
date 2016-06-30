@@ -205,6 +205,17 @@ public class UserResource {
                 .map(managedUserDTO -> new ResponseEntity<>(managedUserDTO, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
+    /*@RequestMapping(method = RequestMethod.GET,
+        params = {"name", "firtsurname", "secondsurname"})
+    public ResponseEntity<String> getSugesUser(
+        @RequestParam(value = "name") String name,
+        @RequestParam(value = "firtsurname") String firtsurname,
+        @RequestParam(value = "secondsurname") String secondsurname
+        ) throws URISyntaxException {
+        String result = userService.sugestionUserLogin(name,firtsurname,secondsurname);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }*/
     /**
      * DELETE  USER :login : delete the "login" User.
      *

@@ -3,6 +3,7 @@
         "title": "Registration",
         "form": {
             "button": "Register",
+            "buttonsuges": "Propousal users",
             "conditions": "Accept conditions."
         },
         "messages": {
