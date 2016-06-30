@@ -50,7 +50,8 @@ spring:
 server:
     port: 8080
     address: 127.0.0.1
-    sessionTimeout: 1000
+    session:
+        timeout: 60
 
 liquibase:
     contexts: dev
