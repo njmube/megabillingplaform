@@ -25,6 +25,10 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="code" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+
             <column name="c_state_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
@@ -39,6 +43,5 @@
                   separator=";"
                   tableName="c_municipality">
         </loadData>
-
     </changeSet>
 </databaseChangeLog>

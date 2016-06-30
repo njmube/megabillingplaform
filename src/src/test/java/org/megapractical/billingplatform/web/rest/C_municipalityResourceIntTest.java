@@ -44,6 +44,8 @@ public class C_municipalityResourceIntTest {
 
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
+    private static final String DEFAULT_CODE = "AAA";
+    private static final String UPDATED_CODE = "BBB";
 
     @Inject
     private C_municipalityRepository c_municipalityRepository;
@@ -75,6 +77,7 @@ public class C_municipalityResourceIntTest {
     public void initTest() {
         c_municipality = new C_municipality();
         c_municipality.setName(DEFAULT_NAME);
+        c_municipality.setCode(DEFAULT_CODE);
     }
 
     @Test
@@ -94,6 +97,25 @@ public class C_municipalityResourceIntTest {
         assertThat(c_municipalities).hasSize(databaseSizeBeforeCreate + 1);
         C_municipality testC_municipality = c_municipalities.get(c_municipalities.size() - 1);
         assertThat(testC_municipality.getName()).isEqualTo(DEFAULT_NAME);
+        assertThat(testC_municipality.getCode()).isEqualTo(DEFAULT_CODE);
+    }
+
+    @Test
+    @Transactional
+    public void checkCodeIsRequired() throws Exception {
+        int databaseSizeBeforeTest = c_municipalityRepository.findAll().size();
+        // set the field null
+        c_municipality.setCode(null);
+
+        // Create the C_municipality, which fails.
+
+        restC_municipalityMockMvc.perform(post("/api/c-municipalities")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(c_municipality)))
+                .andExpect(status().isBadRequest());
+
+        List<C_municipality> c_municipalities = c_municipalityRepository.findAll();
+        assertThat(c_municipalities).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -103,11 +125,12 @@ public class C_municipalityResourceIntTest {
         c_municipalityRepository.saveAndFlush(c_municipality);
 
         // Get all the c_municipalities
-        restC_municipalityMockMvc.perform(get("/api/c-municipalities?sort=id,desc&stateId=-1"))
+        restC_municipalityMockMvc.perform(get("/api/c-municipalities?sort=id,desc"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(c_municipality.getId().intValue())))
-                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+                .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE.toString())));
     }
 
     @Test
@@ -121,7 +144,8 @@ public class C_municipalityResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(c_municipality.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE.toString()));
     }
 
     @Test
@@ -144,6 +168,7 @@ public class C_municipalityResourceIntTest {
         C_municipality updatedC_municipality = new C_municipality();
         updatedC_municipality.setId(c_municipality.getId());
         updatedC_municipality.setName(UPDATED_NAME);
+        updatedC_municipality.setCode(UPDATED_CODE);
 
         restC_municipalityMockMvc.perform(put("/api/c-municipalities")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -155,6 +180,7 @@ public class C_municipalityResourceIntTest {
         assertThat(c_municipalities).hasSize(databaseSizeBeforeUpdate);
         C_municipality testC_municipality = c_municipalities.get(c_municipalities.size() - 1);
         assertThat(testC_municipality.getName()).isEqualTo(UPDATED_NAME);
+        assertThat(testC_municipality.getCode()).isEqualTo(UPDATED_CODE);
     }
 
     @Test

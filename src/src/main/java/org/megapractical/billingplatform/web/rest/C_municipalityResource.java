@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -29,10 +30,10 @@ import java.util.Optional;
 public class C_municipalityResource {
 
     private final Logger log = LoggerFactory.getLogger(C_municipalityResource.class);
-
+        
     @Inject
     private C_municipalityService c_municipalityService;
-
+    
     /**
      * POST  /c-municipalities : Create a new c_municipality.
      *
@@ -44,7 +45,7 @@ public class C_municipalityResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<C_municipality> createC_municipality(@RequestBody C_municipality c_municipality) throws URISyntaxException {
+    public ResponseEntity<C_municipality> createC_municipality(@Valid @RequestBody C_municipality c_municipality) throws URISyntaxException {
         log.debug("REST request to save C_municipality : {}", c_municipality);
         if (c_municipality.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("c_municipality", "idexists", "A new c_municipality cannot already have an ID")).body(null);
@@ -54,16 +55,6 @@ public class C_municipalityResource {
             .headers(HeaderUtil.createEntityCreationAlert("c_municipality", result.getId().toString()))
             .body(result);
     }
-
-    /*@RequestMapping(value = "/c-municipalitiesbystate" ,
-        method = RequestMethod.GET,
-        params = {"stateId"},
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<C_municipality>> findByState(
-        @RequestParam(value = "stateId") Long stateId) throws URISyntaxException {
-        List<C_municipality> page = c_municipalityService.findByState(stateId);
-        return new ResponseEntity<>(page, HttpStatus.OK);
-    }*/
 
     /**
      * PUT  /c-municipalities : Updates an existing c_municipality.
@@ -78,7 +69,7 @@ public class C_municipalityResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<C_municipality> updateC_municipality(@RequestBody C_municipality c_municipality) throws URISyntaxException {
+    public ResponseEntity<C_municipality> updateC_municipality(@Valid @RequestBody C_municipality c_municipality) throws URISyntaxException {
         log.debug("REST request to update C_municipality : {}", c_municipality);
         if (c_municipality.getId() == null) {
             return createC_municipality(c_municipality);
@@ -98,21 +89,14 @@ public class C_municipalityResource {
      */
     @RequestMapping(value = "/c-municipalities",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE,
-        params = {"stateId"})
+        produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<C_municipality>> getAllC_municipalities(@RequestParam(value = "stateId") Integer stateId, Pageable pageable)
+    public ResponseEntity<List<C_municipality>> getAllC_municipalities(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_municipalities");
-        if(stateId == 0){
-            Page<C_municipality> page = c_municipalityService.findAll(pageable);
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-municipalities");
-            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);}
-        else
-        {
-            List<C_municipality> page = c_municipalityService.findByState(stateId);
-            return new ResponseEntity<>(page, HttpStatus.OK);
-        }
+        Page<C_municipality> page = c_municipalityService.findAll(pageable); 
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-municipalities");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
     /**

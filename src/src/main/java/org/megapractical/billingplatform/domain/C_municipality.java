@@ -5,7 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -25,9 +25,13 @@ public class C_municipality implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
     @Column(name = "name")
     private String name;
+
+    @NotNull
+    @Size(min = 3, max = 50)
+    @Column(name = "code", length = 50, nullable = false)
+    private String code;
 
     @ManyToOne
     private C_state c_state;
@@ -51,6 +55,14 @@ public class C_municipality implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public C_state getC_state() {
@@ -94,6 +106,7 @@ public class C_municipality implements Serializable {
         return "C_municipality{" +
             "id=" + id +
             ", name='" + name + "'" +
+            ", code='" + code + "'" +
             '}';
     }
 }

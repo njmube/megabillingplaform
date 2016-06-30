@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()">
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -14,23 +14,27 @@
                     ng-model="vm.c_municipality.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.c_municipality.name" for="name">Name</label>
-            <input type="text" class="form-control" name="name" id="name"
-                    ng-model="vm.c_municipality.name" ng-maxlength="50" ng-minlength="3" required
+            <label class="control-label" translate="megabillingplatformApp.c_municipality.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.c_municipality.name"
                      />
-            <div ng-show="editForm.name.$dirty && editForm.name.$invalid">
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.c_municipality.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                    ng-model="vm.c_municipality.code"
+                    required ng-minlength="3" ng-maxlength="50" />
+            <div ng-show="editForm.code.$invalid">
                 <p class="help-block"
-                   ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    ng-show="editForm.code.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                   ng-show="editForm.name.$error.minlength" translate="entity.validation.minlength"
-                   translate-value-min="3">
+                    ng-show="editForm.code.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
                     This field is required to be at least 3 characters.
                 </p>
                 <p class="help-block"
-                   ng-show="editForm.name.$error.maxlength" translate="entity.validation.maxlength"
-                   translate-value-max="50">
+                    ng-show="editForm.code.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
                     This field cannot be longer than 50 characters.
                 </p>
             </div>

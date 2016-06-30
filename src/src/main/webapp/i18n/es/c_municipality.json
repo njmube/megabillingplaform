@@ -2,23 +2,24 @@
     "megabillingplatformApp": {
         "c_municipality" : {
             "home": {
-                "title": "Municipio",
-                "createLabel": "Crear nuevo Municipio",
-                "createOrEditLabel": "Crear o editar Municipio",
-                "search": "Búsqueda para Municipio"
+                "title": "C_municipalities",
+                "createLabel": "Crear nuevo C_municipality",
+                "createOrEditLabel": "Crear o editar C_municipality",
+                "search": "Search for C_municipality"
             },
-            "created": "Un nuevo Municipio ha sido creado con el identificador {{ param }}",
-            "updated": "Un Municipio ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Municipio ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo C_municipality ha sido creado con el identificador {{ param }}",
+            "updated": "Un C_municipality ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C_municipality ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Municipio {{ id }}?"
+                "question": "¿Seguro que quiere eliminar C_municipality {{ id }}?"
             },
             "detail": {
-                "title": "Municipio"
+                "title": "C_municipality"
             },
-            "name": "Nombre",
-            "c_state": "Estado",
-            "c_location": "Localidad"
+            "name": "Name",
+            "code": "Code",
+            "c_state": "C_state",
+            "c_location": "C_location"
         }
     }
 }

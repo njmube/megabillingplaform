@@ -10,7 +10,7 @@
         var resourceUrl =  'api/c-municipalities/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true, params: {stateId: null}},
+            'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
@@ -21,16 +21,4 @@
             'update': { method:'PUT' }
         });
     }
-
-    /*function C_municipality ($resource) {
-        var service = $resource('api/c-municipalitiesbystate', {}, {
-            'queryByState': {
-                method: 'GET',
-                isArray: true,
-                params: {stateId: null}
-            }
-        });
-
-        return service;
-    }*/
 })();

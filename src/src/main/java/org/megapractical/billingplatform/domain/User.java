@@ -95,6 +95,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "reset_date", nullable = true)
     private ZonedDateTime resetDate = null;
 
+
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -240,6 +241,8 @@ public class User extends AbstractAuditingEntity implements Serializable {
     public Set<PersistentToken> getPersistentTokens() {
         return persistentTokens;
     }
+
+
 
     public void setPersistentTokens(Set<PersistentToken> persistentTokens) {
         this.persistentTokens = persistentTokens;

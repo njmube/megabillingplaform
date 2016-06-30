@@ -52,12 +52,14 @@ public class UserDTO {
 
     private String gender;
 
-    private boolean activated = false;
+    private boolean activated;
 
     @Size(min = 2, max = 5)
     private String langKey;
 
     private Set<String> authorities;
+
+
 
     public UserDTO() {
     }
@@ -151,6 +153,7 @@ public class UserDTO {
         this.gender = gender;
     }
 
+    public void setActivated(boolean activated){this.activated = activated;}
 
     public boolean isActivated() {
         return activated;
@@ -163,6 +166,8 @@ public class UserDTO {
     public Set<String> getAuthorities() {
         return authorities;
     }
+
+
 
     @Override
     public String toString() {

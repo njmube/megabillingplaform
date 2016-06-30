@@ -1,2458 +1,2458 @@
-id;name;c_state_id
-1;Aguascalientes;1
-2;Ensenada;2
-3;Comondu;3
-4;Calkini;4
-5;Ahumada;6
-6;Acacoyagua;5
-7;Abasolo;7
-8;Armeria;8
-9;Canatlan;10
-10;Acapulco de Juarez;12
-11;Abasolo;11
-12;Acatlan;13
-13;Acatic;14
-14;Acambay de Ruiz Castaneda;15
-15;Acuitzio;16
-16;Amacuzac;17
-17;Acaponeta;18
-18;Abasolo;19
-19;Abejones;20
-20;Acajete;21
-21;Amealco de Bonfil;22
-22;Cozumel;23
-23;Ahome;25
-24;Ahualulco;24
-25;Aconchi;26
-26;Balancan;27
-27;Abasolo;28
-28;Amaxac de Guerrero;29
-29;Acajete;30
-30;Abala;31
-31;Apozol;32
-32;Asientos;1
-33;Mexicali;2
-34;Mulege;3
-35;Campeche;4
-36;Aldama;6
-37;Acala;5
-38;Acuna;7
-39;Colima;8
-40;Azcapotzalco;9
-41;Canelas;10
-42;Ahuacuotzingo;12
-43;Acambaro;11
-44;Acaxochitlan;13
-45;Acatlan de Juarez;14
-46;Acolman;15
-47;Aguililla;16
-48;Atlatlahucan;17
-49;Ahuacatlan;18
-50;Agualeguas;19
-51;Acatlan de Perez Figueroa;20
-52;Acateno;21
-53;Pinal de Amoles;22
-54;Felipe Carrillo Puerto;23
-55;Angostura;25
-56;Alaquines;24
-57;Agua Prieta;26
-58;Cardenas;27
-59;Aldama;28
-60;Apetatitlan de Antonio Carvajal;29
-61;Acatlan;30
-62;Acanceh;31
-63;Apulco;32
-64;Calvillo;1
-65;Tecate;2
-66;La Paz;3
-67;Carmen;4
-68;Allende;6
-69;Acapetahua;5
-70;Allende;7
-71;Comala;8
-72;Coyoacan;9
-73;Coneto de Comonfort;10
-74;Ajuchitlan del Progreso;12
-75;San Miguel de Allende;11
-76;Actopan;13
-77;Ahualulco de Mercado;14
-78;Aculco;15
-79;Alvaro Obregon;16
-80;Axochiapan;17
-81;Amatlan de Canas;18
-82;Los Aldamas;19
-83;Asuncion Cacalotepec;20
-84;Acatlan;21
-85;Arroyo Seco;22
-86;Isla Mujeres;23
-87;Badiraguato;25
-88;Aquismon;24
-89;Alamos;26
-90;Centla;27
-91;Altamira;28
-92;Atlangatepec;29
-93;Acayucan;30
-94;Akil;31
-95;Atolinga;32
-96;Cosio;1
-97;Tijuana;2
-98;Champoton;4
-99;Aquiles Serdan;6
-100;Altamirano;5
-101;Arteaga;7
-102;Coquimatlan;8
-103;Cuajimalpa de Morelos;9
-104;Cuencame;10
-105;Alcozauca de Guerrero;12
-106;Apaseo el Alto;11
-107;Agua Blanca de Iturbide;13
-108;Amacueca;14
-109;Almoloya de Alquisiras;15
-110;Angamacutiro;16
-111;Ayala;17
-112;Compostela;18
-113;Allende;19
-114;Asuncion Cuyotepeji;20
-115;Acatzingo;21
-116;Cadereyta de Montes;22
-117;Othon P. Blanco;23
-118;Concordia;25
-119;Armadillo de los Infante;24
-120;Altar;26
-121;Centro;27
-122;Antiguo Morelos;28
-123;Atltzayanca;29
-124;Actopan;30
-125;Baca;31
-126;Benito Juarez;32
-127;Jesus Maria;1
-128;Playas de Rosarito;2
-129;Hecelchakan;4
-130;Ascension;6
-131;Amatan;5
-132;Candela;7
-133;Cuauhtemoc;8
-134;Gustavo A. Madero;9
-135;Durango;10
-136;Alpoyeca;12
-137;Apaseo el Grande;11
-138;Ajacuba;13
-139;Amatitan;14
-140;Almoloya de Juarez;15
-141;Angangueo;16
-142;Coatlan del Rio;17
-143;Huajicori;18
-144;Anahuac;19
-145;Asuncion Ixtaltepec;20
-146;Acteopan;21
-147;Colon;22
-148;Benito Juarez;23
-149;Cosala;25
-150;Cardenas;24
-151;Arivechi;26
-152;Comalcalco;27
-153;Burgos;28
-154;Apizaco;29
-155;Acula;30
-156;Bokoba;31
-157;Calera;32
-158;Pabellon de Arteaga;1
-159;Hopelchen;4
-160;Bachiniva;6
-161;Amatenango de la Frontera;5
-162;Castanos;7
-163;Ixtlahuacan;8
-164;Iztacalco;9
-165;General Simon Bolivar;10
-166;Apaxtla;12
-167;Atarjea;11
-168;Alfajayucan;13
-169;Ameca;14
-170;Almoloya del Rio;15
-171;Apatzingan;16
-172;Cuautla;17
-173;Ixtlan del Rio;18
-174;Apodaca;19
-175;Asuncion Nochixtlan;20
-176;Ahuacatlan;21
-177;Corregidora;22
-178;Jose Maria Morelos;23
-179;Culiacan;25
-180;Catorce;24
-181;Arizpe;26
-182;Cunduacan;27
-183;Bustamante;28
-184;Calpulalpan;29
-185;Acultzingo;30
-186;Buctzotz;31
-187;Canitas de Felipe Pescador;32
-188;Rincon de Romos;1
-189;Palizada;4
-190;Balleza;6
-191;Amatenango del Valle;5
-192;Cuatro Cienegas;7
-193;Manzanillo;8
-194;Iztapalapa;9
-195;Gomez Palacio;10
-196;Arcelia;12
-197;Celaya;11
-198;Almoloya;13
-199;San Juanito de Escobedo;14
-200;Amanalco;15
-201;Aporo;16
-202;Cuernavaca;17
-203;Jala;18
-204;Aramberri;19
-205;Asuncion Ocotlan;20
-206;Ahuatlan;21
-207;Ezequiel Montes;22
-208;Lazaro Cardenas;23
-209;Choix;25
-210;Cedral;24
-211;Atil;26
-212;Emiliano Zapata;27
-213;Camargo;28
-214;El Carmen Tequexquitla;29
-215;Camaron de Tejeda;30
-216;Cacalchen;31
-217;Concepcion del Oro;32
-218;San Jose de Gracia;1
-219;Los Cabos;3
-220;Tenabo;4
-221;Batopilas;6
-222;Angel Albino Corzo;5
-223;Escobedo;7
-224;Minatitlan;8
-225;La Magdalena Contreras;9
-226;Guadalupe Victoria;10
-227;Atenango del Rio;12
-228;Manuel Doblado;11
-229;Apan;13
-230;Arandas;14
-231;Amatepec;15
-232;Aquila;16
-233;Emiliano Zapata;17
-234;Xalisco;18
-235;Bustamante;19
-236;Asuncion Tlacolulita;20
-237;Ahuazotepec;21
-238;Huimilpan;22
-239;Solidaridad;23
-240;Elota;25
-241;Cerritos;24
-242;Bacadehuachi;26
-243;Huimanguillo;27
-244;Casas;28
-245;Cuapiaxtla;29
-246;Alpatlahuac;30
-247;Calotmul;31
-248;Cuauhtemoc;32
-249;Tepezala;1
-250;Loreto;3
-251;Escarcega;4
-252;Bocoyna;6
-253;Arriaga;5
-254;Francisco I. Madero;7
-255;Tecoman;8
-256;Milpa Alta;9
-257;Guanacevi;10
-258;Atlamajalcingo del Monte;12
-259;Comonfort;11
-260;El Arenal;13
-261;El Arenal;14
-262;Amecameca;15
-263;Ario;16
-264;Huitzilac;17
-265;Del Nayar;18
-266;Cadereyta Jimenez;19
-267;Ayotzintepec;20
-268;Ahuehuetitla;21
-269;Jalpan de Serra;22
-270;Tulum;23
-271;Escuinapa;25
-272;Cerro de San Pedro;24
-273;Bacanora;26
-274;Jalapa;27
-275;Ciudad Madero;28
-276;Cuaxomulco;29
-277;Alto Lucero de Gutierrez Barrios;30
-278;Cansahcab;31
-279;Chalchihuites;32
-280;El Llano;1
-281;Calakmul;4
-282;Buenaventura;6
-283;Bejucal de Ocampo;5
-284;Frontera;7
-285;Villa de alvarez;8
-286;alvaro Obregon;9
-287;Hidalgo;10
-288;Atlixtac;12
-289;Coroneo;11
-290;Atitalaquia;13
-291;Atemajac de Brizuela;14
-292;Apaxco;15
-293;Arteaga;16
-294;Jantetelco;17
-295;Rosamorada;18
-296;El Carmen;19
-297;El Barrio de la Soledad;20
-298;Ajalpan;21
-299;Landa de Matamoros;22
-300;Bacalar;23
-301;El Fuerte;25
-302;Ciudad del Maiz;24
-303;Bacerac;26
-304;Jalpa de Mendez;27
-305;Cruillas;28
-306;Chiautempan;29
-307;Altotonga;30
-308;Cantamayec;31
-309;Fresnillo;32
-310;San Francisco de los Romo;1
-311;Candelaria;4
-312;Camargo;6
-313;Bella Vista;5
-314;General Cepeda;7
-315;Tlahuac;9
-316;Inde;10
-317;Atoyac de alvarez;12
-318;Cortazar;11
-319;Atlapexco;13
-320;Atengo;14
-321;Atenco;15
-322;Brisenas;16
-323;Jiutepec;17
-324;Ruiz;18
-325;Cerralvo;19
-326;Calihuala;20
-327;Albino Zertuche;21
-328;El Marques;22
-329;Guasave;25
-330;Ciudad Fernandez;24
-331;Bacoachi;26
-332;Jonuta;27
-333;Gomez Farias;28
-334;Munoz de Domingo Arenas;29
-335;Alvarado;30
-336;Celestun;31
-337;Trinidad Garcia de la Cadena;32
-338;Carichi;6
-339;Berriozabal;5
-340;Guerrero;7
-341;Tlalpan;9
-342;Lerdo;10
-343;Ayutla de los Libres;12
-344;Cueramaro;11
-345;Atotonilco el Grande;13
-346;Atenguillo;14
-347;Atizapan;15
-348;Buenavista;16
-349;Jojutla;17
-350;San Blas;18
-351;Cienega de Flores;19
-352;Candelaria Loxicha;20
-353;Aljojuca;21
-354;Pedro Escobedo;22
-355;Mazatlan;25
-356;Tancanhuitz;24
-357;Bacum;26
-358;Macuspana;27
-359;Gonzalez;28
-360;Espanita;29
-361;Amatitlan;30
-362;Cenotillo;31
-363;Genaro Codina;32
-364;Casas Grandes;6
-365;Bochil;5
-366;Hidalgo;7
-367;Xochimilco;9
-368;Mapimi;10
-369;Azoyu;12
-370;Doctor Mora;11
-371;Atotonilco de Tula;13
-372;Atotonilco el Alto;14
-373;Atizapan de Zaragoza;15
-374;Caracuaro;16
-375;Jonacatepec;17
-376;San Pedro Lagunillas;18
-377;China;19
-378;Cienega de Zimatlan;20
-379;Altepexi;21
-380;Penamiller;22
-381;Mocorito;25
-382;Ciudad Valles;24
-383;Banamichi;26
-384;Nacajuca;27
-385;Güemez;28
-386;Huamantla;29
-387;Naranjos Amatlan;30
-388;Conkal;31
-389;General Enrique Estrada;32
-390;Coronado;6
-391;El Bosque;5
-392;Jimenez;7
-393;Benito Juarez;9
-394;Mezquital;10
-395;Benito Juarez;12
-396;Dolores Hidalgo Cuna de la Independencia Nacional;11
-397;Calnali;13
-398;Atoyac;14
-399;Atlacomulco;15
-400;Coahuayana;16
-401;Mazatepec;17
-402;Santa Maria del Oro;18
-403;Doctor Arroyo;19
-404;Ciudad Ixtepec;20
-405;Amixtlan;21
-406;Queretaro;22
-407;Rosario;25
-408;Coxcatlan;24
-409;Baviacora;26
-410;Paraiso;27
-411;Guerrero;28
-412;Hueyotlipan;29
-413;Amatlan de los Reyes;30
-414;Cuncunul;31
-415;General Francisco R. Murguia;32
-416;Coyame del Sotol;6
-417;Cacahoatan;5
-418;Juarez;7
-419;Cuauhtemoc;9
-420;Nazas;10
-421;Buenavista de Cuellar;12
-422;Guanajuato;11
-423;Cardonal;13
-424;Autlan de Navarro;14
-425;Atlautla;15
-426;Coalcoman de Vazquez Pallares;16
-427;Miacatlan;17
-428;Santiago Ixcuintla;18
-429;Doctor Coss;19
-430;Coatecas Altas;20
-431;Amozoc;21
-432;San Joaquin;22
-433;Salvador Alvarado;25
-434;Charcas;24
-435;Bavispe;26
-436;Tacotalpa;27
-437;Gustavo Diaz Ordaz;28
-438;Ixtacuixtla de Mariano Matamoros;29
-439;Angel R. Cabada;30
-440;Cuzama;31
-441;El Plateado de Joaquin Amaro;32
-442;La Cruz;6
-443;Catazaja;5
-444;Lamadrid;7
-445;Miguel Hidalgo;9
-446;Nombre de Dios;10
-447;Coahuayutla de Jose Maria Izazaga;12
-448;Huanimaro;11
-449;Cuautepec de Hinojosa;13
-450;Ayotlan;14
-451;Axapusco;15
-452;Coeneo;16
-453;Ocuituco;17
-454;Tecuala;18
-455;Doctor Gonzalez;19
-456;Coicoyan de las Flores;20
-457;Aquixtla;21
-458;San Juan del Rio;22
-459;San Ignacio;25
-460;Ebano;24
-461;Benjamin Hill;26
-462;Teapa;27
-463;Hidalgo;28
-464;Ixtenco;29
-465;La Antigua;30
-466;Chacsinkin;31
-467;General Panfilo Natera;32
-468;Cuauhtemoc;6
-469;Cintalapa;5
-470;Matamoros;7
-471;Venustiano Carranza;9
-472;Ocampo;10
-473;Cocula;12
-474;Irapuato;11
-475;Chapantongo;13
-476;Ayutla;14
-477;Ayapango;15
-478;Contepec;16
-479;Puente de Ixtla;17
-480;Tepic;18
-481;Galeana;19
-482;La Compania;20
-483;Atempan;21
-484;Tequisquiapan;22
-485;Sinaloa;25
-486;Guadalcazar;24
-487;Caborca;26
-488;Tenosique;27
-489;Jaumave;28
-490;Mazatecochco de Jose Maria Morelos;29
-491;Apazapan;30
-492;Chankom;31
-493;Guadalupe;32
-494;Cusihuiriachi;6
-495;Coapilla;5
-496;Monclova;7
-497;El Oro;10
-498;Copala;12
-499;Jaral del Progreso;11
-500;Chapulhuacan;13
-501;La Barca;14
-502;Calimaya;15
-503;Copandaro;16
-504;Temixco;17
-505;Tuxpan;18
-506;Garcia;19
-507;Concepcion Buenavista;20
-508;Atexcal;21
-509;Toliman;22
-510;Navolato;25
-511;Huehuetlan;24
-512;Cajeme;26
-513;Jimenez;28
-514;Contla de Juan Cuamatzi;29
-515;Aquila;30
-516;Chapab;31
-517;Huanusco;32
-518;Chihuahua;6
-519;Comitan de Dominguez;5
-520;Morelos;7
-521;Otaez;10
-522;Copalillo;12
-523;Jerecuaro;11
-524;Chilcuautla;13
-525;Bolanos;14
-526;Capulhuac;15
-527;Cotija;16
-528;Tepalcingo;17
-529;La Yesca;18
-530;San Pedro Garza Garcia;19
-531;Concepcion Papalo;20
-532;Atlixco;21
-533;Lagunillas;24
-534;Cananea;26
-535;Llera;28
-536;Tepetitla de Lardizabal;29
-537;Astacinga;30
-538;Chemax;31
-539;Jalpa;32
-540;Chinipas;6
-541;La Concordia;5
-542;Muzquiz;7
-543;Panuco de Coronado;10
-544;Copanatoyac;12
-545;Leon;11
-546;Eloxochitlan;13
-547;Cabo Corrientes;14
-548;Coacalco de Berriozabal;15
-549;Cuitzeo;16
-550;Tepoztlan;17
-551;Bahia de Banderas;18
-552;General Bravo;19
-553;Constancia del Rosario;20
-554;Atoyatempan;21
-555;Matehuala;24
-556;Carbo;26
-557;Mainero;28
-558;Sanctorum de Lazaro Cardenas;29
-559;Atlahuilco;30
-560;Chicxulub Pueblo;31
-561;Jerez;32
-562;Delicias;6
-563;Copainala;5
-564;Nadadores;7
-565;Penon Blanco;10
-566;Coyuca de Benitez;12
-567;Moroleon;11
-568;Emiliano Zapata;13
-569;Casimiro Castillo;14
-570;Coatepec Harinas;15
-571;Charapan;16
-572;Tetecala;17
-573;General Escobedo;19
-574;Cosolapa;20
-575;Atzala;21
-576;Mexquitic de Carmona;24
-577;La Colorada;26
-578;El Mante;28
-579;Nanacamilpa de Mariano Arista;29
-580;Atoyac;30
-581;Chichimila;31
-582;Jimenez del Teul;32
-583;Dr. Belisario Dominguez;6
-584;Chalchihuitan;5
-585;Nava;7
-586;Poanas;10
-587;Coyuca de Catalan;12
-588;Ocampo;11
-589;Epazoyucan;13
-590;Cihuatlan;14
-591;Cocotitlan;15
-592;Charo;16
-593;Tetela del Volcan;17
-594;General Teran;19
-595;Cosoltepec;20
-596;Atzitzihuacan;21
-597;Moctezuma;24
-598;Cucurpe;26
-599;Matamoros;28
-600;Acuamanala de Miguel Hidalgo;29
-601;Atzacan;30
-602;Chikindzonot;31
-603;Juan Aldama;32
-604;Galeana;6
-605;Chamula;5
-606;Ocampo;7
-607;Pueblo Nuevo;10
-608;Cuajinicuilapa;12
-609;Penjamo;11
-610;Francisco I. Madero;13
-611;Zapotlan el Grande;14
-612;Coyotepec;15
-613;Chavinda;16
-614;Tlalnepantla;17
-615;General Trevino;19
-616;Cuilapam de Guerrero;20
-617;Atzitzintla;21
-618;Rayon;24
-619;Cumpas;26
-620;Mendez;28
-621;Nativitas;29
-622;Atzalan;30
-623;Chochola;31
-624;Juchipila;32
-625;Santa Isabel;6
-626;Chanal;5
-627;Parras;7
-628;Rodeo;10
-629;Cualac;12
-630;Pueblo Nuevo;11
-631;Huasca de Ocampo;13
-632;Cocula;14
-633;Cuautitlan;15
-634;Cheran;16
-635;Tlaltizapan de Zapata;17
-636;General Zaragoza;19
-637;Cuyamecalco Villa de Zaragoza;20
-638;Axutla;21
-639;Rioverde;24
-640;Divisaderos;26
-641;Mier;28
-642;Panotla;29
-643;Tlaltetela;30
-644;Chumayel;31
-645;Loreto;32
-646;Gomez Farias;6
-647;Chapultenango;5
-648;Piedras Negras;7
-649;San Bernardo;10
-650;Cuautepec;12
-651;Purisima del Rincon;11
-652;Huautla;13
-653;Colotlan;14
-654;Chalco;15
-655;Chilchota;16
-656;Tlaquiltenango;17
-657;General Zuazua;19
-658;Chahuites;20
-659;Ayotoxco de Guerrero;21
-660;Salinas;24
-661;Empalme;26
-662;Miguel Aleman;28
-663;San Pablo del Monte;29
-664;Ayahualulco;30
-665;Dzan;31
-666;Luis Moya;32
-667;Gran Morelos;6
-668;Chenalho;5
-669;Progreso;7
-670;San Dimas;10
-671;Cuetzala del Progreso;12
-672;Romita;11
-673;Huazalingo;13
-674;Concepcion de Buenos Aires;14
-675;Chapa de Mota;15
-676;Chinicuila;16
-677;Tlayacapan;17
-678;Guadalupe;19
-679;Chalcatongo de Hidalgo;20
-680;Calpan;21
-681;San Antonio;24
-682;Etchojoa;26
-683;Miquihuana;28
-684;Santa Cruz Tlaxcala;29
-685;Banderilla;30
-686;Dzemul;31
-687;Mazapil;32
-688;Guachochi;6
-689;Chiapa de Corzo;5
-690;Ramos Arizpe;7
-691;San Juan de Guadalupe;10
-692;Cutzamala de Pinzon;12
-693;Salamanca;11
-694;Huehuetla;13
-695;Cuautitlan de Garcia Barragan;14
-696;Chapultepec;15
-697;Chucandiro;16
-698;Totolapan;17
-699;Los Herreras;19
-700;Chiquihuitlan de Benito Juarez;20
-701;Caltepec;21
-702;San Ciro de Acosta;24
-703;Fronteras;26
-704;Nuevo Laredo;28
-705;Tenancingo;29
-706;Benito Juarez;30
-707;Dzidzantun;31
-708;Melchor Ocampo;32
-709;Guadalupe;6
-710;Chiapilla;5
-711;Sabinas;7
-712;San Juan del Rio;10
-713;Chilapa de alvarez;12
-714;Salvatierra;11
-715;Huejutla de Reyes;13
-716;Cuautla;14
-717;Chiautla;15
-718;Churintzio;16
-719;Xochitepec;17
-720;Higueras;19
-721;Heroica Ciudad de Ejutla de Crespo;20
-722;Camocuautla;21
-723;San Luis Potosi;24
-724;Granados;26
-725;Nuevo Morelos;28
-726;Teolocholco;29
-727;Boca del Rio;30
-728;Dzilam de Bravo;31
-729;Mezquital del Oro;32
-730;Guadalupe y Calvo;6
-731;Chicoasen;5
-732;Sacramento;7
-733;San Luis del Cordero;10
-734;Chilpancingo de los Bravo;12
-735;San Diego de la Union;11
-736;Huichapan;13
-737;Cuquio;14
-738;Chicoloapan;15
-739;Churumuco;16
-740;Yautepec;17
-741;Hualahuises;19
-742;Eloxochitlan de Flores Magon;20
-743;Caxhuacan;21
-744;San Martin Chalchicuautla;24
-745;Guaymas;26
-746;Ocampo;28
-747;Tepeyanco;29
-748;Calcahualco;30
-749;Dzilam Gonzalez;31
-750;Miguel Auza;32
-751;Guazapares;6
-752;Chicomuselo;5
-753;Saltillo;7
-754;San Pedro del Gallo;10
-755;Florencio Villarreal;12
-756;San Felipe;11
-757;Ixmiquilpan;13
-758;Chapala;14
-759;Chiconcuac;15
-760;Ecuandureo;16
-761;Yecapixtla;17
-762;Iturbide;19
-763;El Espinal;20
-764;Coatepec;21
-765;San Nicolas Tolentino;24
-766;Hermosillo;26
-767;Padilla;28
-768;Terrenate;29
-769;Camerino Z. Mendoza;30
-770;Dzitas;31
-771;Momax;32
-772;Guerrero;6
-773;Chilon;5
-774;San Buenaventura;7
-775;Santa Clara;10
-776;General Canuto A. Neri;12
-777;San Francisco del Rincon;11
-778;Jacala de Ledezma;13
-779;Chimaltitan;14
-780;Chimalhuacan;15
-781;Epitacio Huerta;16
-782;Zacatepec;17
-783;Juarez;19
-784;Tamazulapam del Espiritu Santo;20
-785;Coatzingo;21
-786;Santa Catarina;24
-787;Huachinera;26
-788;Palmillas;28
-789;Tetla de la Solidaridad;29
-790;Carrillo Puerto;30
-791;Dzoncauich;31
-792;Monte Escobedo;32
-793;Hidalgo del Parral;6
-794;Escuintla;5
-795;San Juan de Sabinas;7
-796;Santiago Papasquiaro;10
-797;General Heliodoro Castillo;12
-798;San Jose Iturbide;11
-799;Jaltocan;13
-800;Chiquilistlan;14
-801;Donato Guerra;15
-802;Erongaricuaro;16
-803;Zacualpan;17
-804;Lampazos de Naranjo;19
-805;Fresnillo de Trujano;20
-806;Cohetzala;21
-807;Santa Maria del Rio;24
-808;Huasabas;26
-809;Reynosa;28
-810;Tetlatlahuca;29
-811;Catemaco;30
-812;Espita;31
-813;Morelos;32
-814;Huejotitan;6
-815;Francisco Leon;5
-816;San Pedro;7
-817;Suchil;10
-818;Huamuxtitlan;12
-819;San Luis de la Paz;11
-820;Juarez Hidalgo;13
-821;Degollado;14
-822;Ecatepec de Morelos;15
-823;Gabriel Zamora;16
-824;Temoac;17
-825;Linares;19
-826;Guadalupe Etla;20
-827;Cohuecan;21
-828;Santo Domingo;24
-829;Huatabampo;26
-830;Rio Bravo;28
-831;Tlaxcala;29
-832;Cazones de Herrera;30
-833;Halacho;31
-834;Moyahua de Estrada;32
-835;Ignacio Zaragoza;6
-836;Frontera Comalapa;5
-837;Sierra Mojada;7
-838;Tamazula;10
-839;Huitzuco de los Figueroa;12
-840;Santa Catarina;11
-841;Lolotla;13
-842;Ejutla;14
-843;Ecatzingo;15
-844;Hidalgo;16
-845;Marin;19
-846;Guadalupe de Ramirez;20
-847;Coronango;21
-848;San Vicente Tancuayalab;24
-849;Huepac;26
-850;San Carlos;28
-851;Tlaxco;29
-852;Cerro Azul;30
-853;Hocaba;31
-854;Nochistlan de Mejia;32
-855;Janos;6
-856;Frontera Hidalgo;5
-857;Torreon;7
-858;Tepehuanes;10
-859;Iguala de la Independencia;12
-860;Santa Cruz de Juventino Rosas;11
-861;Metepec;13
-862;Encarnacion de Diaz;14
-863;Huehuetoca;15
-864;La Huacana;16
-865;Melchor Ocampo;19
-866;Guelatao de Juarez;20
-867;Coxcatlan;21
-868;Soledad de Graciano Sanchez;24
-869;Imuris;26
-870;San Fernando;28
-871;Tocatlan;29
-872;Citlaltepetl;30
-873;Hoctun;31
-874;Noria de angeles;32
-875;Jimenez;6
-876;La Grandeza;5
-877;Viesca;7
-878;Tlahualilo;10
-879;Igualapa;12
-880;Santiago Maravatio;11
-881;San Agustin Metzquititlan;13
-882;Etzatlan;14
-883;Hueypoxtla;15
-884;Huandacareo;16
-885;Mier y Noriega;19
-886;Guevea de Humboldt;20
-887;Coyomeapan;21
-888;Tamasopo;24
-889;Magdalena;26
-890;San Nicolas;28
-891;Totolac;29
-892;Coacoatzintla;30
-893;Homun;31
-894;Ojocaliente;32
-895;Juarez;6
-896;Huehuetan;5
-897;Villa Union;7
-898;Topia;10
-899;Ixcateopan de Cuauhtemoc;12
-900;Silao de la Victoria;11
-901;Metztitlan;13
-902;El Grullo;14
-903;Huixquilucan;15
-904;Huaniqueo;16
-905;Mina;19
-906;Mesones Hidalgo;20
-907;Coyotepec;21
-908;Tamazunchale;24
-909;Mazatan;26
-910;Soto la Marina;28
-911;Ziltlaltepec de Trinidad Sanchez Santos;29
-912;Coahuitlan;30
-913;Huhi;31
-914;Panuco;32
-915;Julimes;6
-916;Huixtan;5
-917;Zaragoza;7
-918;Vicente Guerrero;10
-919;Zihuatanejo de Azueta;12
-920;Tarandacuao;11
-921;Mineral del Chico;13
-922;Guachinango;14
-923;Isidro Fabela;15
-924;Huetamo;16
-925;Montemorelos;19
-926;Villa Hidalgo;20
-927;Cuapiaxtla de Madero;21
-928;Tampacan;24
-929;Moctezuma;26
-930;Tampico;28
-931;Tzompantepec;29
-932;Coatepec;30
-933;Hunucma;31
-934;Pinos;32
-935;Lopez;6
-936;Huitiupan;5
-937;Nuevo Ideal;10
-938;Juan R. Escudero;12
-939;Tarimoro;11
-940;Mineral del Monte;13
-941;Guadalajara;14
-942;Ixtapaluca;15
-943;Huiramba;16
-944;Monterrey;19
-945;Heroica Ciudad de Huajuapan de Leon;20
-946;Cuautempan;21
-947;Tampamolon Corona;24
-948;Naco;26
-949;Tula;28
-950;Xaloztoc;29
-951;Coatzacoalcos;30
-952;Ixil;31
-953;Rio Grande;32
-954;Madera;6
-955;Huixtla;5
-956;Leonardo Bravo;12
-957;Tierra Blanca;11
-958;La Mision;13
-959;Hostotipaquillo;14
-960;Ixtapan de la Sal;15
-961;Indaparapeo;16
-962;Paras;19
-963;Huautepec;20
-964;Cuautinchan;21
-965;Tamuin;24
-966;Nacori Chico;26
-967;Valle Hermoso;28
-968;Xaltocan;29
-969;Coatzintla;30
-970;Izamal;31
-971;Sain Alto;32
-972;Maguarichi;6
-973;La Independencia;5
-974;Malinaltepec;12
-975;Uriangato;11
-976;Mixquiahuala de Juarez;13
-977;Huejucar;14
-978;Ixtapan del Oro;15
-979;Irimbo;16
-980;Pesqueria;19
-981;Huautla de Jimenez;20
-982;Cuautlancingo;21
-983;Tanlajas;24
-984;Nacozari de Garcia;26
-985;Victoria;28
-986;Papalotla de Xicohtencatl;29
-987;Coetzala;30
-988;Kanasin;31
-989;El Salvador;32
-990;Manuel Benavides;6
-991;Ixhuatan;5
-992;Martir de Cuilapan;12
-993;Valle de Santiago;11
-994;Molango de Escamilla;13
-995;Huejuquilla el Alto;14
-996;Ixtlahuaca;15
-997;Ixtlan;16
-998;Los Ramones;19
-999;Ixtlan de Juarez;20
-1000;Cuayuca de Andrade;21
-1001;Tanquian de Escobedo;24
-1002;Navojoa;26
-1003;Villagran;28
-1004;Xicohtzinco;29
-1005;Colipa;30
-1006;Kantunil;31
-1007;Sombrerete;32
-1008;Matachi;6
-1009;Ixtacomitan;5
-1010;Metlatonoc;12
-1011;Victoria;11
-1012;Nicolas Flores;13
-1013;La Huerta;14
-1014;Xalatlaco;15
-1015;Jacona;16
-1016;Rayones;19
-1017;Heroica Ciudad de Juchitan de Zaragoza;20
-1018;Cuetzalan del Progreso;21
-1019;Tierra Nueva;24
-1020;Nogales;26
-1021;Xicotencatl;28
-1022;Yauhquemehcan;29
-1023;Comapa;30
-1024;Kaua;31
-1025;Susticacan;32
-1026;Matamoros;6
-1027;Ixtapa;5
-1028;Mochitlan;12
-1029;Villagran;11
-1030;Nopala de Villagran;13
-1031;Ixtlahuacan de los Membrillos;14
-1032;Jaltenco;15
-1033;Jimenez;16
-1034;Sabinas Hidalgo;19
-1035;Loma Bonita;20
-1036;Cuyoaco;21
-1037;Vanegas;24
-1038;Onavas;26
-1039;Zacatelco;29
-1040;Cordoba;30
-1041;Kinchil;31
-1042;Tabasco;32
-1043;Meoqui;6
-1044;Ixtapangajoya;5
-1045;Olinala;12
-1046;Xichu;11
-1047;Omitlan de Juarez;13
-1048;Ixtlahuacan del Rio;14
-1049;Jilotepec;15
-1050;Jiquilpan;16
-1051;Salinas Victoria;19
-1052;Magdalena Apasco;20
-1053;Chalchicomula de Sesma;21
-1054;Venado;24
-1055;Opodepe;26
-1056;Benito Juarez;29
-1057;Cosamaloapan de Carpio;30
-1058;Kopoma;31
-1059;Tepechitlan;32
-1060;Morelos;6
-1061;Jiquipilas;5
-1062;Ometepec;12
-1063;Yuriria;11
-1064;San Felipe Orizatlan;13
-1065;Jalostotitlan;14
-1066;Jilotzingo;15
-1067;Juarez;16
-1068;San Nicolas de los Garza;19
-1069;Magdalena Jaltepec;20
-1070;Chapulco;21
-1071;Villa de Arriaga;24
-1072;Oquitoa;26
-1073;Emiliano Zapata;29
-1074;Cosautlan de Carvajal;30
-1075;Mama;31
-1076;Tepetongo;32
-1077;Moris;6
-1078;Jitotol;5
-1079;Pedro Ascencio Alquisiras;12
-1080;Pacula;13
-1081;Jamay;14
-1082;Jiquipilco;15
-1083;Jungapeo;16
-1084;Hidalgo;19
-1085;Santa Magdalena Jicotlan;20
-1086;Chiautla;21
-1087;Villa de Guadalupe;24
-1088;Pitiquito;26
-1089;Lazaro Cardenas;29
-1090;Coscomatepec;30
-1091;Mani;31
-1092;Teul de Gonzalez Ortega;32
-1093;Namiquipa;6
-1094;Juarez;5
-1095;Petatlan;12
-1096;Pachuca de Soto;13
-1097;Jesus Maria;14
-1098;Jocotitlan;15
-1099;Lagunillas;16
-1100;Santa Catarina;19
-1101;Magdalena Mixtepec;20
-1102;Chiautzingo;21
-1103;Villa de la Paz;24
-1104;Puerto Penasco;26
-1105;La Magdalena Tlaltelulco;29
-1106;Cosoleacaque;30
-1107;Maxcanu;31
-1108;Tlaltenango de Sanchez Roman;32
-1109;Nonoava;6
-1110;Larrainzar;5
-1111;Pilcaya;12
-1112;Pisaflores;13
-1113;Jilotlan de los Dolores;14
-1114;Joquicingo;15
-1115;Madero;16
-1116;Santiago;19
-1117;Magdalena Ocotlan;20
-1118;Chiconcuautla;21
-1119;Villa de Ramos;24
-1120;Quiriego;26
-1121;San Damian Texoloc;29
-1122;Cotaxtla;30
-1123;Mayapan;31
-1124;Valparaiso;32
-1125;Nuevo Casas Grandes;6
-1126;La Libertad;5
-1127;Pungarabato;12
-1128;Progreso de Obregon;13
-1129;Jocotepec;14
-1130;Juchitepec;15
-1131;Maravatio;16
-1132;Vallecillo;19
-1133;Magdalena Penasco;20
-1134;Chichiquila;21
-1135;Villa de Reyes;24
-1136;Rayon;26
-1137;San Francisco Tetlanohcan;29
-1138;Coxquihui;30
-1139;Merida;31
-1140;Vetagrande;32
-1141;Ocampo;6
-1142;Mapastepec;5
-1143;Quechultenango;12
-1144;Mineral de la Reforma;13
-1145;Juanacatlan;14
-1146;Lerma;15
-1147;Marcos Castellanos;16
-1148;Villaldama;19
-1149;Magdalena Teitipac;20
-1150;Chietla;21
-1151;Villa Hidalgo;24
-1152;Rosario;26
-1153;San Jeronimo Zacualpan;29
-1154;Coyutla;30
-1155;Mococha;31
-1156;Villa de Cos;32
-1157;Ojinaga;6
-1158;Las Margaritas;5
-1159;San Luis Acatlan;12
-1160;San Agustin Tlaxiaca;13
-1161;Juchitlan;14
-1162;Malinalco;15
-1163;Lazaro Cardenas;16
-1164;Magdalena Tequisistlan;20
-1165;Chigmecatitlan;21
-1166;Villa Juarez;24
-1167;Sahuaripa;26
-1168;San Jose Teacalco;29
-1169;Cuichapa;30
-1170;Motul;31
-1171;Villa Garcia;32
-1172;Praxedis G. Guerrero;6
-1173;Mazapa de Madero;5
-1174;San Marcos;12
-1175;San Bartolo Tutotepec;13
-1176;Lagos de Moreno;14
-1177;Melchor Ocampo;15
-1178;Morelia;16
-1179;Magdalena Tlacotepec;20
-1180;Chignahuapan;21
-1181;Axtla de Terrazas;24
-1182;San Felipe de Jesus;26
-1183;San Juan Huactzinco;29
-1184;Cuitlahuac;30
-1185;Muna;31
-1186;Villa Gonzalez Ortega;32
-1187;Riva Palacio;6
-1188;Mazatan;5
-1189;San Miguel Totolapan;12
-1190;San Salvador;13
-1191;El Limon;14
-1192;Metepec;15
-1193;Morelos;16
-1194;Magdalena Zahuatlan;20
-1195;Chignautla;21
-1196;Xilitla;24
-1197;San Javier;26
-1198;San Lorenzo Axocomanitla;29
-1199;Chacaltianguis;30
-1200;Muxupip;31
-1201;Villa Hidalgo;32
-1202;Rosales;6
-1203;Metapa;5
-1204;Taxco de Alarcon;12
-1205;Santiago de Anaya;13
-1206;Magdalena;14
-1207;Mexicaltzingo;15
-1208;Mugica;16
-1209;Mariscala de Juarez;20
-1210;Chila;21
-1211;Zaragoza;24
-1212;San Luis Rio Colorado;26
-1213;San Lucas Tecopilco;29
-1214;Chalma;30
-1215;Opichen;31
-1216;Villanueva;32
-1217;Rosario;6
-1218;Mitontic;5
-1219;Tecoanapa;12
-1220;Santiago Tulantepec de Lugo Guerrero;13
-1221;Santa Maria del Oro;14
-1222;Morelos;15
-1223;Nahuatzen;16
-1224;Martires de Tacubaya;20
-1225;Chila de la Sal;21
-1226;Villa de Arista;24
-1227;San Miguel de Horcasitas;26
-1228;Santa Ana Nopalucan;29
-1229;Chiconamel;30
-1230;Oxkutzcab;31
-1231;Zacatecas;32
-1232;San Francisco de Borja;6
-1233;Motozintla;5
-1234;Tecpan de Galeana;12
-1235;Singuilucan;13
-1236;La Manzanilla de la Paz;14
-1237;Naucalpan de Juarez;15
-1238;Nocupetaro;16
-1239;Matias Romero Avendano;20
-1240;Honey;21
-1241;Matlapa;24
-1242;San Pedro de la Cueva;26
-1243;Santa Apolonia Teacalco;29
-1244;Chiconquiaco;30
-1245;Panaba;31
-1246;Trancoso;32
-1247;San Francisco de Conchos;6
-1248;Nicolas Ruiz;5
-1249;Teloloapan;12
-1250;Tasquillo;13
-1251;Mascota;14
-1252;Nezahualcoyotl;15
-1253;Nuevo Parangaricutiro;16
-1254;Mazatlan Villa de Flores;20
-1255;Chilchotla;21
-1256;El Naranjo;24
-1257;Santa Ana;26
-1258;Santa Catarina Ayometla;29
-1259;Chicontepec;30
-1260;Peto;31
-1261;Santa Maria de la Paz;32
-1262;San Francisco del Oro;6
-1263;Ocosingo;5
-1264;Tepecoacuilco de Trujano;12
-1265;Tecozautla;13
-1266;Mazamitla;14
-1267;Nextlalpan;15
-1268;Nuevo Urecho;16
-1269;Miahuatlan de Porfirio Diaz;20
-1270;Chinantla;21
-1271;Santa Cruz;26
-1272;Santa Cruz Quilehtla;29
-1273;Chinameca;30
-1274;Progreso;31
-1275;Santa Barbara;6
-1276;Ocotepec;5
-1277;Tetipac;12
-1278;Tenango de Doria;13
-1279;Mexticacan;14
-1280;Nicolas Romero;15
-1281;Numaran;16
-1282;Mixistlan de la Reforma;20
-1283;Domingo Arenas;21
-1284;Saric;26
-1285;Santa Isabel Xiloxoxtla;29
-1286;Chinampa de Gorostiza;30
-1287;Quintana Roo;31
-1288;Satevo;6
-1289;Ocozocoautla de Espinosa;5
-1290;Tixtla de Guerrero;12
-1291;Tepeapulco;13
-1292;Mezquitic;14
-1293;Nopaltepec;15
-1294;Ocampo;16
-1295;Monjas;20
-1296;Eloxochitlan;21
-1297;Soyopa;26
-1298;Las Choapas;30
-1299;Rio Lagartos;31
-1300;Saucillo;6
-1301;Ostuacan;5
-1302;Tlacoachistlahuaca;12
-1303;Tepehuacan de Guerrero;13
-1304;Mixtlan;14
-1305;Ocoyoacac;15
-1306;Pajacuaran;16
-1307;Natividad;20
-1308;Epatlan;21
-1309;Suaqui Grande;26
-1310;Chocaman;30
-1311;Sacalum;31
-1312;Temosachic;6
-1313;Osumacinta;5
-1314;Tlacoapa;12
-1315;Tepeji del Rio de Ocampo;13
-1316;Ocotlan;14
-1317;Ocuilan;15
-1318;Panindicuaro;16
-1319;Nazareno Etla;20
-1320;Esperanza;21
-1321;Tepache;26
-1322;Chontla;30
-1323;Samahil;31
-1324;El Tule;6
-1325;Oxchuc;5
-1326;Tlalchapa;12
-1327;Tepetitlan;13
-1328;Ojuelos de Jalisco;14
-1329;El Oro;15
-1330;Paracuaro;16
-1331;Nejapa de Madero;20
-1332;Francisco Z. Mena;21
-1333;Trincheras;26
-1334;Chumatlan;30
-1335;Sanahcat;31
-1336;Urique;6
-1337;Palenque;5
-1338;Tlalixtaquilla de Maldonado;12
-1339;Tetepango;13
-1340;Pihuamo;14
-1341;Otumba;15
-1342;Paracho;16
-1343;Ixpantepec Nieves;20
-1344;General Felipe angeles;21
-1345;Tubutama;26
-1346;Emiliano Zapata;30
-1347;San Felipe;31
-1348;Uruachi;6
-1349;Pantelho;5
-1350;Tlapa de Comonfort;12
-1351;Villa de Tezontepec;13
-1352;Poncitlan;14
-1353;Otzoloapan;15
-1354;Patzcuaro;16
-1355;Santiago Niltepec;20
-1356;Guadalupe;21
-1357;Ures;26
-1358;Espinal;30
-1359;Santa Elena;31
-1360;Valle de Zaragoza;6
-1361;Pantepec;5
-1362;Tlapehuala;12
-1363;Tezontepec de Aldama;13
-1364;Puerto Vallarta;14
-1365;Otzolotepec;15
-1366;Penjamillo;16
-1367;Oaxaca de Juarez;20
-1368;Guadalupe Victoria;21
-1369;Villa Hidalgo;26
-1370;Filomeno Mata;30
-1371;Seye;31
-1372;Pichucalco;5
-1373;La Union de Isidoro Montes de Oca;12
-1374;Tianguistengo;13
-1375;Villa Purificacion;14
-1376;Ozumba;15
-1377;Periban;16
-1378;Ocotlan de Morelos;20
-1379;Hermenegildo Galeana;21
-1380;Villa Pesqueira;26
-1381;Fortin;30
-1382;Sinanche;31
-1383;Pijijiapan;5
-1384;Xalpatlahuac;12
-1385;Tizayuca;13
-1386;Quitupan;14
-1387;Papalotla;15
-1388;La Piedad;16
-1389;La Pe;20
-1390;Huaquechula;21
-1391;Yecora;26
-1392;Gutierrez Zamora;30
-1393;Sotuta;31
-1394;El Porvenir;5
-1395;Xochihuehuetlan;12
-1396;Tlahuelilpan;13
-1397;El Salto;14
-1398;La Paz;15
-1399;Purepero;16
-1400;Pinotepa de Don Luis;20
-1401;Huatlatlauca;21
-1402;General Plutarco Elias Calles;26
-1403;Hidalgotitlan;30
-1404;Sucila;31
-1405;Villa Comaltitlan;5
-1406;Xochistlahuaca;12
-1407;Tlahuiltepa;13
-1408;San Cristobal de la Barranca;14
-1409;Polotitlan;15
-1410;Puruandiro;16
-1411;Pluma Hidalgo;20
-1412;Huauchinango;21
-1413;Benito Juarez;26
-1414;Huatusco;30
-1415;Sudzal;31
-1416;Pueblo Nuevo Solistahuacan;5
-1417;Zapotitlan Tablas;12
-1418;Tlanalapa;13
-1419;San Diego de Alejandria;14
-1420;Rayon;15
-1421;Querendaro;16
-1422;San Jose del Progreso;20
-1423;Huehuetla;21
-1424;San Ignacio Rio Muerto;26
-1425;Huayacocotla;30
-1426;Suma;31
-1427;Rayon;5
-1428;Zirandaro;12
-1429;Tlanchinol;13
-1430;San Juan de los Lagos;14
-1431;San Antonio la Isla;15
-1432;Quiroga;16
-1433;Putla Villa de Guerrero;20
-1434;Huehuetlan el Chico;21
-1435;Hueyapan de Ocampo;30
-1436;Tahdziu;31
-1437;Reforma;5
-1438;Zitlala;12
-1439;Tlaxcoapan;13
-1440;San Julian;14
-1441;San Felipe del Progreso;15
-1442;Cojumatlan de Regules;16
-1443;Santa Catarina Quioquitani;20
-1444;Huejotzingo;21
-1445;Huiloapan de Cuauhtemoc;30
-1446;Tahmek;31
-1447;Las Rosas;5
-1448;Eduardo Neri;12
-1449;Tolcayuca;13
-1450;San Marcos;14
-1451;San Martin de las Piramides;15
-1452;Los Reyes;16
-1453;Reforma de Pineda;20
-1454;Hueyapan;21
-1455;Ignacio de la Llave;30
-1456;Teabo;31
-1457;Sabanilla;5
-1458;Acatepec;12
-1459;Tula de Allende;13
-1460;San Martin de Bolanos;14
-1461;San Mateo Atenco;15
-1462;Sahuayo;16
-1463;La Reforma;20
-1464;Hueytamalco;21
-1465;Ilamatlan;30
-1466;Tecoh;31
-1467;Salto de Agua;5
-1468;Marquelia;12
-1469;Tulancingo de Bravo;13
-1470;San Martin Hidalgo;14
-1471;San Simon de Guerrero;15
-1472;San Lucas;16
-1473;Reyes Etla;20
-1474;Hueytlalpan;21
-1475;Isla;30
-1476;Tekal de Venegas;31
-1477;San Cristobal de las Casas;5
-1478;Cochoapa el Grande;12
-1479;Xochiatipan;13
-1480;San Miguel el Alto;14
-1481;Santo Tomas;15
-1482;Santa Ana Maya;16
-1483;Rojas de Cuauhtemoc;20
-1484;Huitzilan de Serdan;21
-1485;Ixcatepec;30
-1486;Tekanto;31
-1487;San Fernando;5
-1488;Jose Joaquin de Herrera;12
-1489;Xochicoatlan;13
-1490;Gomez Farias;14
-1491;Soyaniquilpan de Juarez;15
-1492;Salvador Escalante;16
-1493;Salina Cruz;20
-1494;Huitziltepec;21
-1495;Ixhuacan de los Reyes;30
-1496;Tekax;31
-1497;Siltepec;5
-1498;Juchitan;12
-1499;Yahualica;13
-1500;San Sebastian del Oeste;14
-1501;Sultepec;15
-1502;Senguio;16
-1503;San Agustin Amatengo;20
-1504;Atlequizayan;21
-1505;Ixhuatlan del Cafe;30
-1506;Tekit;31
-1507;Simojovel;5
-1508;Iliatenco;12
-1509;Zacualtipan de angeles;13
-1510;Santa Maria de los angeles;14
-1511;Tecamac;15
-1512;Susupuato;16
-1513;San Agustin Atenango;20
-1514;Ixcamilpa de Guerrero;21
-1515;Ixhuatlancillo;30
-1516;Tekom;31
-1517;Sitala;5
-1518;Zapotlan de Juarez;13
-1519;Sayula;14
-1520;Tejupilco;15
-1521;Tacambaro;16
-1522;San Agustin Chayuco;20
-1523;Ixcaquixtla;21
-1524;Ixhuatlan del Sureste;30
-1525;Telchac Pueblo;31
-1526;Socoltenango;5
-1527;Zempoala;13
-1528;Tala;14
-1529;Temamatla;15
-1530;Tancitaro;16
-1531;San Agustin de las Juntas;20
-1532;Ixtacamaxtitlan;21
-1533;Ixhuatlan de Madero;30
-1534;Telchac Puerto;31
-1535;Solosuchiapa;5
-1536;Zimapan;13
-1537;Talpa de Allende;14
-1538;Temascalapa;15
-1539;Tangamandapio;16
-1540;San Agustin Etla;20
-1541;Ixtepec;21
-1542;Ixmatlahuacan;30
-1543;Temax;31
-1544;Soyalo;5
-1545;Tamazula de Gordiano;14
-1546;Temascalcingo;15
-1547;Tangancicuaro;16
-1548;San Agustin Loxicha;20
-1549;Izucar de Matamoros;21
-1550;Ixtaczoquitlan;30
-1551;Temozon;31
-1552;Suchiapa;5
-1553;Tapalpa;14
-1554;Temascaltepec;15
-1555;Tanhuato;16
-1556;San Agustin Tlacotepec;20
-1557;Jalpan;21
-1558;Jalacingo;30
-1559;Tepakan;31
-1560;Suchiate;5
-1561;Tecalitlan;14
-1562;Temoaya;15
-1563;Taretan;16
-1564;San Agustin Yatareni;20
-1565;Jolalpan;21
-1566;Xalapa;30
-1567;Tetiz;31
-1568;Sunuapa;5
-1569;Tecolotlan;14
-1570;Tenancingo;15
-1571;Tarimbaro;16
-1572;San Andres Cabecera Nueva;20
-1573;Jonotla;21
-1574;Jalcomulco;30
-1575;Teya;31
-1576;Tapachula;5
-1577;Techaluta de Montenegro;14
-1578;Tenango del Aire;15
-1579;Tepalcatepec;16
-1580;San Andres Dinicuiti;20
-1581;Jopala;21
-1582;Jaltipan;30
-1583;Ticul;31
-1584;Tapalapa;5
-1585;Tenamaxtlan;14
-1586;Tenango del Valle;15
-1587;Tingambato;16
-1588;San Andres Huaxpaltepec;20
-1589;Juan C. Bonilla;21
-1590;Jamapa;30
-1591;Timucuy;31
-1592;Tapilula;5
-1593;Teocaltiche;14
-1594;Teoloyucan;15
-1595;Tingüindin;16
-1596;San Andres Huayapam;20
-1597;Juan Galindo;21
-1598;Jesus Carranza;30
-1599;Tinum;31
-1600;Tecpatan;5
-1601;Teocuitatlan de Corona;14
-1602;Teotihuacan;15
-1603;Tiquicheo de Nicolas Romero;16
-1604;San Andres Ixtlahuaca;20
-1605;Juan N. Mendez;21
-1606;Xico;30
-1607;Tixcacalcupul;31
-1608;Tenejapa;5
-1609;Tepatitlan de Morelos;14
-1610;Tepetlaoxtoc;15
-1611;Tlalpujahua;16
-1612;San Andres Lagunas;20
-1613;Lafragua;21
-1614;Jilotepec;30
-1615;Tixkokob;31
-1616;Teopisca;5
-1617;Tequila;14
-1618;Tepetlixpa;15
-1619;Tlazazalca;16
-1620;San Andres Nuxino;20
-1621;Libres;21
-1622;Juan Rodriguez Clara;30
-1623;Tixmehuac;31
-1624;Teuchitlan;14
-1625;Tepotzotlan;15
-1626;Tocumbo;16
-1627;San Andres Paxtlan;20
-1628;La Magdalena Tlatlauquitepec;21
-1629;Juchique de Ferrer;30
-1630;Tixpehual;31
-1631;Tila;5
-1632;Tizapan el Alto;14
-1633;Tequixquiac;15
-1634;Tumbiscatio;16
-1635;San Andres Sinaxtla;20
-1636;Mazapiltepec de Juarez;21
-1637;Landero y Coss;30
-1638;Tizimin;31
-1639;Tonala;5
-1640;Tlajomulco de Zuniga;14
-1641;Texcaltitlan;15
-1642;Turicato;16
-1643;San Andres Solaga;20
-1644;Mixtla;21
-1645;Lerdo de Tejada;30
-1646;Tunkas;31
-1647;Totolapa;5
-1648;San Pedro Tlaquepaque;14
-1649;Texcalyacac;15
-1650;Tuxpan;16
-1651;San Andres Teotilalpam;20
-1652;Molcaxac;21
-1653;Magdalena;30
-1654;Tzucacab;31
-1655;La Trinitaria;5
-1656;Toliman;14
-1657;Texcoco;15
-1658;Tuzantla;16
-1659;San Andres Tepetlapa;20
-1660;Canada Morelos;21
-1661;Maltrata;30
-1662;Uayma;31
-1663;Tumbala;5
-1664;Tomatlan;14
-1665;Tezoyuca;15
-1666;Tzintzuntzan;16
-1667;San Andres Yaa;20
-1668;Naupan;21
-1669;Manlio Fabio Altamirano;30
-1670;Ucu;31
-1671;Tuxtla Gutierrez;5
-1672;Tonala;14
-1673;Tianguistenco;15
-1674;Tzitzio;16
-1675;San Andres Zabache;20
-1676;Nauzontla;21
-1677;Mariano Escobedo;30
-1678;Uman;31
-1679;Tuxtla Chico;5
-1680;Tonaya;14
-1681;Timilpan;15
-1682;Uruapan;16
-1683;San Andres Zautla;20
-1684;Nealtican;21
-1685;Martinez de la Torre;30
-1686;Valladolid;31
-1687;Tuzantan;5
-1688;Tonila;14
-1689;Tlalmanalco;15
-1690;Venustiano Carranza;16
-1691;San Antonino Castillo Velasco;20
-1692;Nicolas Bravo;21
-1693;Mecatlan;30
-1694;Xocchel;31
-1695;Tzimol;5
-1696;Totatiche;14
-1697;Tlalnepantla de Baz;15
-1698;Villamar;16
-1699;San Antonino el Alto;20
-1700;Nopalucan;21
-1701;Mecayapan;30
-1702;Yaxcaba;31
-1703;Union Juarez;5
-1704;Tototlan;14
-1705;Tlatlaya;15
-1706;Vista Hermosa;16
-1707;San Antonino Monte Verde;20
-1708;Ocotepec;21
-1709;Medellin;30
-1710;Yaxkukul;31
-1711;Venustiano Carranza;5
-1712;Tuxcacuesco;14
-1713;Toluca;15
-1714;Yurecuaro;16
-1715;San Antonio Acutla;20
-1716;Ocoyucan;21
-1717;Miahuatlan;30
-1718;Yobain;31
-1719;Villa Corzo;5
-1720;Tuxcueca;14
-1721;Tonatico;15
-1722;Zacapu;16
-1723;San Antonio de la Cal;20
-1724;Olintla;21
-1725;Las Minas;30
-1726;Villaflores;5
-1727;Tuxpan;14
-1728;Tultepec;15
-1729;Zamora;16
-1730;San Antonio Huitepec;20
-1731;Oriental;21
-1732;Minatitlan;30
-1733;Yajalon;5
-1734;Union de San Antonio;14
-1735;Tultitlan;15
-1736;Zinaparo;16
-1737;San Antonio Nanahuatipam;20
-1738;Pahuatlan;21
-1739;Misantla;30
-1740;San Lucas;5
-1741;Union de Tula;14
-1742;Valle de Bravo;15
-1743;Zinapecuaro;16
-1744;San Antonio Sinicahua;20
-1745;Palmar de Bravo;21
-1746;Mixtla de Altamirano;30
-1747;Zinacantan;5
-1748;Valle de Guadalupe;14
-1749;Villa de Allende;15
-1750;Ziracuaretiro;16
-1751;San Antonio Tepetlapa;20
-1752;Pantepec;21
-1753;Moloacan;30
-1754;San Juan Cancuc;5
-1755;Valle de Juarez;14
-1756;Villa del Carbon;15
-1757;Zitacuaro;16
-1758;San Baltazar Chichicapam;20
-1759;Petlalcingo;21
-1760;Naolinco;30
-1761;Aldama;5
-1762;San Gabriel;14
-1763;Villa Guerrero;15
-1764;Jose Sixto Verduzco;16
-1765;San Baltazar Loxicha;20
-1766;Piaxtla;21
-1767;Naranjal;30
-1768;Benemerito de las Americas;5
-1769;Villa Corona;14
-1770;Villa Victoria;15
-1771;San Baltazar Yatzachi el Bajo;20
-1772;Puebla;21
-1773;Nautla;30
-1774;Maravilla Tenejapa;5
-1775;Villa Guerrero;14
-1776;Xonacatlan;15
-1777;San Bartolo Coyotepec;20
-1778;Quecholac;21
-1779;Nogales;30
-1780;Marques de Comillas;5
-1781;Villa Hidalgo;14
-1782;Zacazonapan;15
-1783;San Bartolome Ayautla;20
-1784;Quimixtlan;21
-1785;Oluta;30
-1786;Montecristo de Guerrero;5
-1787;Canadas de Obregon;14
-1788;Zacualpan;15
-1789;San Bartolome Loxicha;20
-1790;Rafael Lara Grajales;21
-1791;Omealca;30
-1792;San Andres Duraznal;5
-1793;Yahualica de Gonzalez Gallo;14
-1794;Zinacantepec;15
-1795;San Bartolome Quialana;20
-1796;Los Reyes de Juarez;21
-1797;Orizaba;30
-1798;Santiago el Pinar;5
-1799;Zacoalco de Torres;14
-1800;Zumpahuacan;15
-1801;San Bartolome Yucuane;20
-1802;San Andres Cholula;21
-1803;Otatitlan;30
-1804;Zapopan;14
-1805;Zumpango;15
-1806;San Bartolome Zoogocho;20
-1807;San Antonio Canada;21
-1808;Oteapan;30
-1809;Zapotiltic;14
-1810;Cuautitlan Izcalli;15
-1811;San Bartolo Soyaltepec;20
-1812;San Diego la Mesa Tochimiltzingo;21
-1813;Ozuluama de Mascarenas;30
-1814;Zapotitlan de Vadillo;14
-1815;Valle de Chalco Solidaridad;15
-1816;San Bartolo Yautepec;20
-1817;San Felipe Teotlalcingo;21
-1818;Pajapan;30
-1819;Zapotlan del Rey;14
-1820;Luvianos;15
-1821;San Bernardo Mixtepec;20
-1822;San Felipe Tepatlan;21
-1823;Panuco;30
-1824;Zapotlanejo;14
-1825;San Jose del Rincon;15
-1826;San Blas Atempa;20
-1827;San Gabriel Chilac;21
-1828;Papantla;30
-1829;San Ignacio Cerro Gordo;14
-1830;Tonanitla;15
-1831;San Carlos Yautepec;20
-1832;San Gregorio Atzompa;21
-1833;Paso del Macho;30
-1834;San Cristobal Amatlan;20
-1835;San Jeronimo Tecuanipan;21
-1836;Paso de Ovejas;30
-1837;San Cristobal Amoltepec;20
-1838;San Jeronimo Xayacatlan;21
-1839;La Perla;30
-1840;San Cristobal Lachirioag;20
-1841;San Jose Chiapa;21
-1842;Perote;30
-1843;San Cristobal Suchixtlahuaca;20
-1844;San Jose Miahuatlan;21
-1845;Platon Sanchez;30
-1846;San Dionisio del Mar;20
-1847;San Juan Atenco;21
-1848;Playa Vicente;30
-1849;San Dionisio Ocotepec;20
-1850;San Juan Atzompa;21
-1851;Poza Rica de Hidalgo;30
-1852;San Dionisio Ocotlan;20
-1853;San Martin Texmelucan;21
-1854;Las Vigas de Ramirez;30
-1855;San Esteban Atatlahuca;20
-1856;San Martin Totoltepec;21
-1857;Pueblo Viejo;30
-1858;San Felipe Jalapa de Diaz;20
-1859;San Matias Tlalancaleca;21
-1860;Puente Nacional;30
-1861;San Felipe Tejalapam;20
-1862;San Miguel Ixitlan;21
-1863;Rafael Delgado;30
-1864;San Felipe Usila;20
-1865;San Miguel Xoxtla;21
-1866;Rafael Lucio;30
-1867;San Francisco Cahuacua;20
-1868;San Nicolas Buenos Aires;21
-1869;Los Reyes;30
-1870;San Francisco Cajonos;20
-1871;San Nicolas de los Ranchos;21
-1872;Rio Blanco;30
-1873;San Francisco Chapulapa;20
-1874;San Pablo Anicano;21
-1875;Saltabarranca;30
-1876;San Francisco Chindua;20
-1877;San Pedro Cholula;21
-1878;San Andres Tenejapan;30
-1879;San Francisco del Mar;20
-1880;San Pedro Yeloixtlahuaca;21
-1881;San Andres Tuxtla;30
-1882;San Francisco Huehuetlan;20
-1883;San Salvador el Seco;21
-1884;San Juan Evangelista;30
-1885;San Francisco Ixhuatan;20
-1886;San Salvador el Verde;21
-1887;Santiago Tuxtla;30
-1888;San Francisco Jaltepetongo;20
-1889;San Salvador Huixcolotla;21
-1890;Sayula de Aleman;30
-1891;San Francisco Lachigolo;20
-1892;San Sebastian Tlacotepec;21
-1893;Soconusco;30
-1894;San Francisco Logueche;20
-1895;Santa Catarina Tlaltempan;21
-1896;Sochiapa;30
-1897;San Francisco Nuxano;20
-1898;Santa Ines Ahuatempan;21
-1899;Soledad Atzompa;30
-1900;San Francisco Ozolotepec;20
-1901;Santa Isabel Cholula;21
-1902;Soledad de Doblado;30
-1903;San Francisco Sola;20
-1904;Santiago Miahuatlan;21
-1905;Soteapan;30
-1906;San Francisco Telixtlahuaca;20
-1907;Huehuetlan el Grande;21
-1908;Tamalin;30
-1909;San Francisco Teopan;20
-1910;Santo Tomas Hueyotlipan;21
-1911;Tamiahua;30
-1912;San Francisco Tlapancingo;20
-1913;Soltepec;21
-1914;Tampico Alto;30
-1915;San Gabriel Mixtepec;20
-1916;Tecali de Herrera;21
-1917;Tancoco;30
-1918;San Ildefonso Amatlan;20
-1919;Tecamachalco;21
-1920;Tantima;30
-1921;San Ildefonso Sola;20
-1922;Tecomatlan;21
-1923;Tantoyuca;30
-1924;San Ildefonso Villa Alta;20
-1925;Tehuacan;21
-1926;Tatatila;30
-1927;San Jacinto Amilpas;20
-1928;Tehuitzingo;21
-1929;Castillo de Teayo;30
-1930;San Jacinto Tlacotepec;20
-1931;Tenampulco;21
-1932;Tecolutla;30
-1933;San Jeronimo Coatlan;20
-1934;Teopantlan;21
-1935;Tehuipango;30
-1936;San Jeronimo Silacayoapilla;20
-1937;Teotlalco;21
-1938;alamo Temapache;30
-1939;San Jeronimo Sosola;20
-1940;Tepanco de Lopez;21
-1941;Tempoal;30
-1942;San Jeronimo Taviche;20
-1943;Tepango de Rodriguez;21
-1944;Tenampa;30
-1945;San Jeronimo Tecoatl;20
-1946;Tepatlaxco de Hidalgo;21
-1947;Tenochtitlan;30
-1948;San Jorge Nuchita;20
-1949;Tepeaca;21
-1950;Teocelo;30
-1951;San Jose Ayuquila;20
-1952;Tepemaxalco;21
-1953;Tepatlaxco;30
-1954;San Jose Chiltepec;20
-1955;Tepeojuma;21
-1956;Tepetlan;30
-1957;San Jose del Penasco;20
-1958;Tepetzintla;21
-1959;Tepetzintla;30
-1960;San Jose Estancia Grande;20
-1961;Tepexco;21
-1962;Tequila;30
-1963;San Jose Independencia;20
-1964;Tepexi de Rodriguez;21
-1965;Jose Azueta;30
-1966;San Jose Lachiguiri;20
-1967;Tepeyahualco;21
-1968;Texcatepec;30
-1969;San Jose Tenango;20
-1970;Tepeyahualco de Cuauhtemoc;21
-1971;Texhuacan;30
-1972;San Juan Achiutla;20
-1973;Tetela de Ocampo;21
-1974;Texistepec;30
-1975;San Juan Atepec;20
-1976;Teteles de Avila Castillo;21
-1977;Tezonapa;30
-1978;animas Trujano;20
-1979;Teziutlan;21
-1980;Tierra Blanca;30
-1981;San Juan Bautista Atatlahuca;20
-1982;Tianguismanalco;21
-1983;Tihuatlan;30
-1984;San Juan Bautista Coixtlahuaca;20
-1985;Tilapa;21
-1986;Tlacojalpan;30
-1987;San Juan Bautista Cuicatlan;20
-1988;Tlacotepec de Benito Juarez;21
-1989;Tlacolulan;30
-1990;San Juan Bautista Guelache;20
-1991;Tlacuilotepec;21
-1992;Tlacotalpan;30
-1993;San Juan Bautista Jayacatlan;20
-1994;Tlachichuca;21
-1995;Tlacotepec de Mejia;30
-1996;San Juan Bautista Lo de Soto;20
-1997;Tlahuapan;21
-1998;Tlachichilco;30
-1999;San Juan Bautista Suchitepec;20
-2000;Tlaltenango;21
-2001;Tlalixcoyan;30
-2002;San Juan Bautista Tlacoatzintepec;20
-2003;Tlanepantla;21
-2004;Tlalnelhuayocan;30
-2005;San Juan Bautista Tlachichilco;20
-2006;Tlaola;21
-2007;Tlapacoyan;30
-2008;San Juan Bautista Tuxtepec;20
-2009;Tlapacoya;21
-2010;Tlaquilpa;30
-2011;San Juan Cacahuatepec;20
-2012;Tlapanala;21
-2013;Tlilapan;30
-2014;San Juan Cieneguilla;20
-2015;Tlatlauquitepec;21
-2016;Tomatlan;30
-2017;San Juan Coatzospam;20
-2018;Tlaxco;21
-2019;Tonayan;30
-2020;San Juan Colorado;20
-2021;Tochimilco;21
-2022;Totutla;30
-2023;San Juan Comaltepec;20
-2024;Tochtepec;21
-2025;Tuxpan;30
-2026;San Juan Cotzocon;20
-2027;Totoltepec de Guerrero;21
-2028;Tuxtilla;30
-2029;San Juan Chicomezuchil;20
-2030;Tulcingo;21
-2031;Ursulo Galvan;30
-2032;San Juan Chilateca;20
-2033;Tuzamapan de Galeana;21
-2034;Vega de Alatorre;30
-2035;San Juan del Estado;20
-2036;Tzicatlacoyan;21
-2037;Veracruz;30
-2038;San Juan del Rio;20
-2039;Venustiano Carranza;21
-2040;Villa Aldama;30
-2041;San Juan Diuxi;20
-2042;Vicente Guerrero;21
-2043;Xoxocotla;30
-2044;San Juan Evangelista Analco;20
-2045;Xayacatlan de Bravo;21
-2046;Yanga;30
-2047;San Juan Guelavia;20
-2048;Xicotepec;21
-2049;Yecuatla;30
-2050;San Juan Guichicovi;20
-2051;Xicotlan;21
-2052;Zacualpan;30
-2053;San Juan Ihualtepec;20
-2054;Xiutetelco;21
-2055;Zaragoza;30
-2056;San Juan Juquila Mixes;20
-2057;Xochiapulco;21
-2058;Zentla;30
-2059;San Juan Juquila Vijanos;20
-2060;Xochiltepec;21
-2061;Zongolica;30
-2062;San Juan Lachao;20
-2063;Xochitlan de Vicente Suarez;21
-2064;Zontecomatlan de Lopez y Fuentes;30
-2065;San Juan Lachigalla;20
-2066;Xochitlan Todos Santos;21
-2067;Zozocolco de Hidalgo;30
-2068;San Juan Lajarcia;20
-2069;Yaonahuac;21
-2070;Agua Dulce;30
-2071;San Juan Lalana;20
-2072;Yehualtepec;21
-2073;El Higo;30
-2074;San Juan de los Cues;20
-2075;Zacapala;21
-2076;Nanchital de Lazaro Cardenas del Rio;30
-2077;San Juan Mazatlan;20
-2078;Zacapoaxtla;21
-2079;Tres Valles;30
-2080;San Juan Mixtepec -Dto. 08 -;20
-2081;Zacatlan;21
-2082;Carlos A. Carrillo;30
-2083;San Juan Mixtepec -Dto. 26 -;20
-2084;Zapotitlan;21
-2085;Tatahuicapan de Juarez;30
-2086;San Juan numi;20
-2087;Zapotitlan de Mendez;21
-2088;Uxpanapa;30
-2089;San Juan Ozolotepec;20
-2090;Zaragoza;21
-2091;San Rafael;30
-2092;San Juan Petlapa;20
-2093;Zautla;21
-2094;Santiago Sochiapan;30
-2095;San Juan Quiahije;20
-2096;Zihuateutla;21
-2097;San Juan Quiotepec;20
-2098;Zinacatepec;21
-2099;San Juan Sayultepec;20
-2100;Zongozotla;21
-2101;San Juan Tabaa;20
-2102;Zoquiapan;21
-2103;San Juan Tamazola;20
-2104;Zoquitlan;21
-2105;San Juan Teita;20
-2106;San Juan Teitipac;20
-2107;San Juan Tepeuxila;20
-2108;San Juan Teposcolula;20
-2109;San Juan Yaee;20
-2110;San Juan Yatzona;20
-2111;San Juan Yucuita;20
-2112;San Lorenzo;20
-2113;San Lorenzo Albarradas;20
-2114;San Lorenzo Cacaotepec;20
-2115;San Lorenzo Cuaunecuiltitla;20
-2116;San Lorenzo Texmelucan;20
-2117;San Lorenzo Victoria;20
-2118;San Lucas Camotlan;20
-2119;San Lucas Ojitlan;20
-2120;San Lucas Quiavini;20
-2121;San Lucas Zoquiapam;20
-2122;San Luis Amatlan;20
-2123;San Marcial Ozolotepec;20
-2124;San Marcos Arteaga;20
-2125;San Martin de los Cansecos;20
-2126;San Martin Huamelulpam;20
-2127;San Martin Itunyoso;20
-2128;San Martin Lachila;20
-2129;San Martin Peras;20
-2130;San Martin Tilcajete;20
-2131;San Martin Toxpalan;20
-2132;San Martin Zacatepec;20
-2133;San Mateo Cajonos;20
-2134;Capulalpam de Mendez;20
-2135;San Mateo del Mar;20
-2136;San Mateo Yoloxochitlan;20
-2137;San Mateo Etlatongo;20
-2138;San Mateo Nejapam;20
-2139;San Mateo Penasco;20
-2140;San Mateo Pinas;20
-2141;San Mateo Rio Hondo;20
-2142;San Mateo Sindihui;20
-2143;San Mateo Tlapiltepec;20
-2144;San Melchor Betaza;20
-2145;San Miguel Achiutla;20
-2146;San Miguel Ahuehuetitlan;20
-2147;San Miguel Aloapam;20
-2148;San Miguel Amatitlan;20
-2149;San Miguel Amatlan;20
-2150;San Miguel Coatlan;20
-2151;San Miguel Chicahua;20
-2152;San Miguel Chimalapa;20
-2153;San Miguel del Puerto;20
-2154;San Miguel del Rio;20
-2155;San Miguel Ejutla;20
-2156;San Miguel el Grande;20
-2157;San Miguel Huautla;20
-2158;San Miguel Mixtepec;20
-2159;San Miguel Panixtlahuaca;20
-2160;San Miguel Peras;20
-2161;San Miguel Piedras;20
-2162;San Miguel Quetzaltepec;20
-2163;San Miguel Santa Flor;20
-2164;Villa Sola de Vega;20
-2165;San Miguel Soyaltepec;20
-2166;San Miguel Suchixtepec;20
-2167;Villa Talea de Castro;20
-2168;San Miguel Tecomatlan;20
-2169;San Miguel Tenango;20
-2170;San Miguel Tequixtepec;20
-2171;San Miguel Tilquiapam;20
-2172;San Miguel Tlacamama;20
-2173;San Miguel Tlacotepec;20
-2174;San Miguel Tulancingo;20
-2175;San Miguel Yotao;20
-2176;San Nicolas;20
-2177;San Nicolas Hidalgo;20
-2178;San Pablo Coatlan;20
-2179;San Pablo Cuatro Venados;20
-2180;San Pablo Etla;20
-2181;San Pablo Huitzo;20
-2182;San Pablo Huixtepec;20
-2183;San Pablo Macuiltianguis;20
-2184;San Pablo Tijaltepec;20
-2185;San Pablo Villa de Mitla;20
-2186;San Pablo Yaganiza;20
-2187;San Pedro Amuzgos;20
-2188;San Pedro Apostol;20
-2189;San Pedro Atoyac;20
-2190;San Pedro Cajonos;20
-2191;San Pedro Coxcaltepec Cantaros;20
-2192;San Pedro Comitancillo;20
-2193;San Pedro el Alto;20
-2194;San Pedro Huamelula;20
-2195;San Pedro Huilotepec;20
-2196;San Pedro Ixcatlan;20
-2197;San Pedro Ixtlahuaca;20
-2198;San Pedro Jaltepetongo;20
-2199;San Pedro Jicayan;20
-2200;San Pedro Jocotipac;20
-2201;San Pedro Juchatengo;20
-2202;San Pedro Martir;20
-2203;San Pedro Martir Quiechapa;20
-2204;San Pedro Martir Yucuxaco;20
-2205;San Pedro Mixtepec -Dto. 22 -;20
-2206;San Pedro Mixtepec -Dto. 26 -;20
-2207;San Pedro Molinos;20
-2208;San Pedro Nopala;20
-2209;San Pedro Ocopetatillo;20
-2210;San Pedro Ocotepec;20
-2211;San Pedro Pochutla;20
-2212;San Pedro Quiatoni;20
-2213;San Pedro Sochiapam;20
-2214;San Pedro Tapanatepec;20
-2215;San Pedro Taviche;20
-2216;San Pedro Teozacoalco;20
-2217;San Pedro Teutila;20
-2218;San Pedro Tidaa;20
-2219;San Pedro Topiltepec;20
-2220;San Pedro Totolapam;20
-2221;Villa de Tututepec de Melchor Ocampo;20
-2222;San Pedro Yaneri;20
-2223;San Pedro Yolox;20
-2224;San Pedro y San Pablo Ayutla;20
-2225;Villa de Etla;20
-2226;San Pedro y San Pablo Teposcolula;20
-2227;San Pedro y San Pablo Tequixtepec;20
-2228;San Pedro Yucunama;20
-2229;San Raymundo Jalpan;20
-2230;San Sebastian Abasolo;20
-2231;San Sebastian Coatlan;20
-2232;San Sebastian Ixcapa;20
-2233;San Sebastian Nicananduta;20
-2234;San Sebastian Rio Hondo;20
-2235;San Sebastian Tecomaxtlahuaca;20
-2236;San Sebastian Teitipac;20
-2237;San Sebastian Tutla;20
-2238;San Simon Almolongas;20
-2239;San Simon Zahuatlan;20
-2240;Santa Ana;20
-2241;Santa Ana Ateixtlahuaca;20
-2242;Santa Ana Cuauhtemoc;20
-2243;Santa Ana del Valle;20
-2244;Santa Ana Tavela;20
-2245;Santa Ana Tlapacoyan;20
-2246;Santa Ana Yareni;20
-2247;Santa Ana Zegache;20
-2248;Santa Catalina Quieri;20
-2249;Santa Catarina Cuixtla;20
-2250;Santa Catarina Ixtepeji;20
-2251;Santa Catarina Juquila;20
-2252;Santa Catarina Lachatao;20
-2253;Santa Catarina Loxicha;20
-2254;Santa Catarina Mechoacan;20
-2255;Santa Catarina Minas;20
-2256;Santa Catarina Quiane;20
-2257;Santa Catarina Tayata;20
-2258;Santa Catarina Ticua;20
-2259;Santa Catarina Yosonotu;20
-2260;Santa Catarina Zapoquila;20
-2261;Santa Cruz Acatepec;20
-2262;Santa Cruz Amilpas;20
-2263;Santa Cruz de Bravo;20
-2264;Santa Cruz Itundujia;20
-2265;Santa Cruz Mixtepec;20
-2266;Santa Cruz Nundaco;20
-2267;Santa Cruz Papalutla;20
-2268;Santa Cruz Tacache de Mina;20
-2269;Santa Cruz Tacahua;20
-2270;Santa Cruz Tayata;20
-2271;Santa Cruz Xitla;20
-2272;Santa Cruz Xoxocotlan;20
-2273;Santa Cruz Zenzontepec;20
-2274;Santa Gertrudis;20
-2275;Santa Ines del Monte;20
-2276;Santa Ines Yatzeche;20
-2277;Santa Lucia del Camino;20
-2278;Santa Lucia Miahuatlan;20
-2279;Santa Lucia Monteverde;20
-2280;Santa Lucia Ocotlan;20
-2281;Santa Maria Alotepec;20
-2282;Santa Maria Apazco;20
-2283;Santa Maria la Asuncion;20
-2284;Heroica Ciudad de Tlaxiaco;20
-2285;Ayoquezco de Aldama;20
-2286;Santa Maria Atzompa;20
-2287;Santa Maria Camotlan;20
-2288;Santa Maria Colotepec;20
-2289;Santa Maria Cortijo;20
-2290;Santa Maria Coyotepec;20
-2291;Santa Maria Chachoapam;20
-2292;Villa de Chilapa de Diaz;20
-2293;Santa Maria Chilchotla;20
-2294;Santa Maria Chimalapa;20
-2295;Santa Maria del Rosario;20
-2296;Santa Maria del Tule;20
-2297;Santa Maria Ecatepec;20
-2298;Santa Maria Guelace;20
-2299;Santa Maria Guienagati;20
-2300;Santa Maria Huatulco;20
-2301;Santa Maria Huazolotitlan;20
-2302;Santa Maria Ipalapa;20
-2303;Santa Maria Ixcatlan;20
-2304;Santa Maria Jacatepec;20
-2305;Santa Maria Jalapa del Marques;20
-2306;Santa Maria Jaltianguis;20
-2307;Santa Maria Lachixio;20
-2308;Santa Maria Mixtequilla;20
-2309;Santa Maria Nativitas;20
-2310;Santa Maria Nduayaco;20
-2311;Santa Maria Ozolotepec;20
-2312;Santa Maria Papalo;20
-2313;Santa Maria Penoles;20
-2314;Santa Maria Petapa;20
-2315;Santa Maria Quiegolani;20
-2316;Santa Maria Sola;20
-2317;Santa Maria Tataltepec;20
-2318;Santa Maria Tecomavaca;20
-2319;Santa Maria Temaxcalapa;20
-2320;Santa Maria Temaxcaltepec;20
-2321;Santa Maria Teopoxco;20
-2322;Santa Maria Tepantlali;20
-2323;Santa Maria Texcatitlan;20
-2324;Santa Maria Tlahuitoltepec;20
-2325;Santa Maria Tlalixtac;20
-2326;Santa Maria Tonameca;20
-2327;Santa Maria Totolapilla;20
-2328;Santa Maria Xadani;20
-2329;Santa Maria Yalina;20
-2330;Santa Maria Yavesia;20
-2331;Santa Maria Yolotepec;20
-2332;Santa Maria Yosoyua;20
-2333;Santa Maria Yucuhiti;20
-2334;Santa Maria Zacatepec;20
-2335;Santa Maria Zaniza;20
-2336;Santa Maria Zoquitlan;20
-2337;Santiago Amoltepec;20
-2338;Santiago Apoala;20
-2339;Santiago Apostol;20
-2340;Santiago Astata;20
-2341;Santiago Atitlan;20
-2342;Santiago Ayuquililla;20
-2343;Santiago Cacaloxtepec;20
-2344;Santiago Camotlan;20
-2345;Santiago Comaltepec;20
-2346;Santiago Chazumba;20
-2347;Santiago Choapam;20
-2348;Santiago del Rio;20
-2349;Santiago Huajolotitlan;20
-2350;Santiago Huauclilla;20
-2351;Santiago Ihuitlan Plumas;20
-2352;Santiago Ixcuintepec;20
-2353;Santiago Ixtayutla;20
-2354;Santiago Jamiltepec;20
-2355;Santiago Jocotepec;20
-2356;Santiago Juxtlahuaca;20
-2357;Santiago Lachiguiri;20
-2358;Santiago Lalopa;20
-2359;Santiago Laollaga;20
-2360;Santiago Laxopa;20
-2361;Santiago Llano Grande;20
-2362;Santiago Matatlan;20
-2363;Santiago Miltepec;20
-2364;Santiago Minas;20
-2365;Santiago Nacaltepec;20
-2366;Santiago Nejapilla;20
-2367;Santiago Nundiche;20
-2368;Santiago Nuyoo;20
-2369;Santiago Pinotepa Nacional;20
-2370;Santiago Suchilquitongo;20
-2371;Santiago Tamazola;20
-2372;Santiago Tapextla;20
-2373;Villa Tejupam de la Union;20
-2374;Santiago Tenango;20
-2375;Santiago Tepetlapa;20
-2376;Santiago Tetepec;20
-2377;Santiago Texcalcingo;20
-2378;Santiago Textitlan;20
-2379;Santiago Tilantongo;20
-2380;Santiago Tillo;20
-2381;Santiago Tlazoyaltepec;20
-2382;Santiago Xanica;20
-2383;Santiago Xiacui;20
-2384;Santiago Yaitepec;20
-2385;Santiago Yaveo;20
-2386;Santiago Yolomecatl;20
-2387;Santiago Yosondua;20
-2388;Santiago Yucuyachi;20
-2389;Santiago Zacatepec;20
-2390;Santiago Zoochila;20
-2391;Nuevo Zoquiapam;20
-2392;Santo Domingo Ingenio;20
-2393;Santo Domingo Albarradas;20
-2394;Santo Domingo Armenta;20
-2395;Santo Domingo Chihuitan;20
-2396;Santo Domingo de Morelos;20
-2397;Santo Domingo Ixcatlan;20
-2398;Santo Domingo Nuxaa;20
-2399;Santo Domingo Ozolotepec;20
-2400;Santo Domingo Petapa;20
-2401;Santo Domingo Roayaga;20
-2402;Santo Domingo Tehuantepec;20
-2403;Santo Domingo Teojomulco;20
-2404;Santo Domingo Tepuxtepec;20
-2405;Santo Domingo Tlatayapam;20
-2406;Santo Domingo Tomaltepec;20
-2407;Santo Domingo Tonala;20
-2408;Santo Domingo Tonaltepec;20
-2409;Santo Domingo Xagacia;20
-2410;Santo Domingo Yanhuitlan;20
-2411;Santo Domingo Yodohino;20
-2412;Santo Domingo Zanatepec;20
-2413;Santos Reyes Nopala;20
-2414;Santos Reyes Papalo;20
-2415;Santos Reyes Tepejillo;20
-2416;Santos Reyes Yucuna;20
-2417;Santo Tomas Jalieza;20
-2418;Santo Tomas Mazaltepec;20
-2419;Santo Tomas Ocotepec;20
-2420;Santo Tomas Tamazulapan;20
-2421;San Vicente Coatlan;20
-2422;San Vicente Lachixio;20
-2423;San Vicente Nunu;20
-2424;Silacayoapam;20
-2425;Sitio de Xitlapehua;20
-2426;Soledad Etla;20
-2427;Villa de Tamazulapam del Progreso;20
-2428;Tanetze de Zaragoza;20
-2429;Taniche;20
-2430;Tataltepec de Valdes;20
-2431;Teococuilco de Marcos Perez;20
-2432;Teotitlan de Flores Magon;20
-2433;Teotitlan del Valle;20
-2434;Teotongo;20
-2435;Tepelmeme Villa de Morelos;20
-2436;Tezoatlan de Segura y Luna;20
-2437;San Jeronimo Tlacochahuaya;20
-2438;Tlacolula de Matamoros;20
-2439;Tlacotepec Plumas;20
-2440;Tlalixtac de Cabrera;20
-2441;Totontepec Villa de Morelos;20
-2442;Trinidad Zaachila;20
-2443;La Trinidad Vista Hermosa;20
-2444;Union Hidalgo;20
-2445;Valerio Trujano;20
-2446;San Juan Bautista Valle Nacional;20
-2447;Villa Diaz Ordaz;20
-2448;Yaxe;20
-2449;Magdalena Yodocono de Porfirio Diaz;20
-2450;Yogana;20
-2451;Yutanduchi de Guerrero;20
-2452;Villa de Zaachila;20
-2453;San Mateo Yucutindoo;20
-2454;Zapotitlan Lagunas;20
-2455;Zapotitlan Palmas;20
-2456;Santa Ines de Zaragoza;20
-2457;Zimatlan de alvarez;20
+id;name;code;c_state_id
+1;Aguascalientes;001;1
+2;Ensenada;001;2
+3;Comondu;001;3
+4;Calkini;001;4
+5;Ahumada;001;6
+6;Acacoyagua;001;5
+7;Abasolo;001;7
+8;Armeria;001;8
+9;Canatlan;001;10
+10;Acapulco de Juarez;001;12
+11;Abasolo;001;11
+12;Acatlan;001;13
+13;Acatic;001;14
+14;Acambay de Ruiz Castaneda;001;15
+15;Acuitzio;001;16
+16;Amacuzac;001;17
+17;Acaponeta;001;18
+18;Abasolo;001;19
+19;Abejones;001;20
+20;Acajete;001;21
+21;Amealco de Bonfil;001;22
+22;Cozumel;001;23
+23;Ahome;001;25
+24;Ahualulco;001;24
+25;Aconchi;001;26
+26;Balancan;001;27
+27;Abasolo;001;28
+28;Amaxac de Guerrero;001;29
+29;Acajete;001;30
+30;Abala;001;31
+31;Apozol;001;32
+32;Asientos;002;1
+33;Mexicali;002;2
+34;Mulege;002;3
+35;Campeche;002;4
+36;Aldama;002;6
+37;Acala;002;5
+38;Acuna;002;7
+39;Colima;002;8
+40;Azcapotzalco;002;9
+41;Canelas;002;10
+42;Ahuacuotzingo;002;12
+43;Acambaro;002;11
+44;Acaxochitlan;002;13
+45;Acatlan de Juarez;002;14
+46;Acolman;002;15
+47;Aguililla;002;16
+48;Atlatlahucan;002;17
+49;Ahuacatlan;002;18
+50;Agualeguas;002;19
+51;Acatlan de Perez Figueroa;002;20
+52;Acateno;002;21
+53;Pinal de Amoles;002;22
+54;Felipe Carrillo Puerto;002;23
+55;Angostura;002;25
+56;Alaquines;002;24
+57;Agua Prieta;002;26
+58;Cardenas;002;27
+59;Aldama;002;28
+60;Apetatitlan de Antonio Carvajal;002;29
+61;Acatlan;002;30
+62;Acanceh;002;31
+63;Apulco;002;32
+64;Calvillo;003;1
+65;Tecate;003;2
+66;La Paz;003;3
+67;Carmen;003;4
+68;Allende;003;6
+69;Acapetahua;003;5
+70;Allende;003;7
+71;Comala;003;8
+72;Coyoacan;003;9
+73;Coneto de Comonfort;003;10
+74;Ajuchitlan del Progreso;003;12
+75;San Miguel de Allende;003;11
+76;Actopan;003;13
+77;Ahualulco de Mercado;003;14
+78;Aculco;003;15
+79;Alvaro Obregon;003;16
+80;Axochiapan;003;17
+81;Amatlan de Canas;003;18
+82;Los Aldamas;003;19
+83;Asuncion Cacalotepec;003;20
+84;Acatlan;003;21
+85;Arroyo Seco;003;22
+86;Isla Mujeres;003;23
+87;Badiraguato;003;25
+88;Aquismon;003;24
+89;Alamos;003;26
+90;Centla;003;27
+91;Altamira;003;28
+92;Atlangatepec;003;29
+93;Acayucan;003;30
+94;Akil;003;31
+95;Atolinga;003;32
+96;Cosio;004;1
+97;Tijuana;004;2
+98;Champoton;004;4
+99;Aquiles Serdan;004;6
+100;Altamirano;004;5
+101;Arteaga;004;7
+102;Coquimatlan;004;8
+103;Cuajimalpa de Morelos;004;9
+104;Cuencame;004;10
+105;Alcozauca de Guerrero;004;12
+106;Apaseo el Alto;004;11
+107;Agua Blanca de Iturbide;004;13
+108;Amacueca;004;14
+109;Almoloya de Alquisiras;004;15
+110;Angamacutiro;004;16
+111;Ayala;004;17
+112;Compostela;004;18
+113;Allende;004;19
+114;Asuncion Cuyotepeji;004;20
+115;Acatzingo;004;21
+116;Cadereyta de Montes;004;22
+117;Othon P. Blanco;004;23
+118;Concordia;004;25
+119;Armadillo de los Infante;004;24
+120;Altar;004;26
+121;Centro;004;27
+122;Antiguo Morelos;004;28
+123;Atltzayanca;004;29
+124;Actopan;004;30
+125;Baca;004;31
+126;Benito Juarez;004;32
+127;Jesus Maria;005;1
+128;Playas de Rosarito;005;2
+129;Hecelchakan;005;4
+130;Ascension;005;6
+131;Amatan;005;5
+132;Candela;005;7
+133;Cuauhtemoc;005;8
+134;Gustavo A. Madero;005;9
+135;Durango;005;10
+136;Alpoyeca;005;12
+137;Apaseo el Grande;005;11
+138;Ajacuba;005;13
+139;Amatitan;005;14
+140;Almoloya de Juarez;005;15
+141;Angangueo;005;16
+142;Coatlan del Rio;005;17
+143;Huajicori;005;18
+144;Anahuac;005;19
+145;Asuncion Ixtaltepec;005;20
+146;Acteopan;005;21
+147;Colon;005;22
+148;Benito Juarez;005;23
+149;Cosala;005;25
+150;Cardenas;005;24
+151;Arivechi;005;26
+152;Comalcalco;005;27
+153;Burgos;005;28
+154;Apizaco;005;29
+155;Acula;005;30
+156;Bokoba;005;31
+157;Calera;005;32
+158;Pabellon de Arteaga;006;1
+159;Hopelchen;006;4
+160;Bachiniva;006;6
+161;Amatenango de la Frontera;006;5
+162;Castanos;006;7
+163;Ixtlahuacan;006;8
+164;Iztacalco;006;9
+165;General Simon Bolivar;006;10
+166;Apaxtla;006;12
+167;Atarjea;006;11
+168;Alfajayucan;006;13
+169;Ameca;006;14
+170;Almoloya del Rio;006;15
+171;Apatzingan;006;16
+172;Cuautla;006;17
+173;Ixtlan del Rio;006;18
+174;Apodaca;006;19
+175;Asuncion Nochixtlan;006;20
+176;Ahuacatlan;006;21
+177;Corregidora;006;22
+178;Jose Maria Morelos;006;23
+179;Culiacan;006;25
+180;Catorce;006;24
+181;Arizpe;006;26
+182;Cunduacan;006;27
+183;Bustamante;006;28
+184;Calpulalpan;006;29
+185;Acultzingo;006;30
+186;Buctzotz;006;31
+187;Canitas de Felipe Pescador;006;32
+188;Rincon de Romos;007;1
+189;Palizada;007;4
+190;Balleza;007;6
+191;Amatenango del Valle;007;5
+192;Cuatro Cienegas;007;7
+193;Manzanillo;007;8
+194;Iztapalapa;007;9
+195;Gomez Palacio;007;10
+196;Arcelia;007;12
+197;Celaya;007;11
+198;Almoloya;007;13
+199;San Juanito de Escobedo;007;14
+200;Amanalco;007;15
+201;Aporo;007;16
+202;Cuernavaca;007;17
+203;Jala;007;18
+204;Aramberri;007;19
+205;Asuncion Ocotlan;007;20
+206;Ahuatlan;007;21
+207;Ezequiel Montes;007;22
+208;Lazaro Cardenas;007;23
+209;Choix;007;25
+210;Cedral;007;24
+211;Atil;007;26
+212;Emiliano Zapata;007;27
+213;Camargo;007;28
+214;El Carmen Tequexquitla;007;29
+215;Camaron de Tejeda;007;30
+216;Cacalchen;007;31
+217;Concepcion del Oro;007;32
+218;San Jose de Gracia;008;1
+219;Los Cabos;008;3
+220;Tenabo;008;4
+221;Batopilas;008;6
+222;Angel Albino Corzo;008;5
+223;Escobedo;008;7
+224;Minatitlan;008;8
+225;La Magdalena Contreras;008;9
+226;Guadalupe Victoria;008;10
+227;Atenango del Rio;008;12
+228;Manuel Doblado;008;11
+229;Apan;008;13
+230;Arandas;008;14
+231;Amatepec;008;15
+232;Aquila;008;16
+233;Emiliano Zapata;008;17
+234;Xalisco;008;18
+235;Bustamante;008;19
+236;Asuncion Tlacolulita;008;20
+237;Ahuazotepec;008;21
+238;Huimilpan;008;22
+239;Solidaridad;008;23
+240;Elota;008;25
+241;Cerritos;008;24
+242;Bacadehuachi;008;26
+243;Huimanguillo;008;27
+244;Casas;008;28
+245;Cuapiaxtla;008;29
+246;Alpatlahuac;008;30
+247;Calotmul;008;31
+248;Cuauhtemoc;008;32
+249;Tepezala;009;1
+250;Loreto;009;3
+251;Escarcega;009;4
+252;Bocoyna;009;6
+253;Arriaga;009;5
+254;Francisco I. Madero;009;7
+255;Tecoman;009;8
+256;Milpa Alta;009;9
+257;Guanacevi;009;10
+258;Atlamajalcingo del Monte;009;12
+259;Comonfort;009;11
+260;El Arenal;009;13
+261;El Arenal;009;14
+262;Amecameca;009;15
+263;Ario;009;16
+264;Huitzilac;009;17
+265;Del Nayar;009;18
+266;Cadereyta Jimenez;009;19
+267;Ayotzintepec;009;20
+268;Ahuehuetitla;009;21
+269;Jalpan de Serra;009;22
+270;Tulum;009;23
+271;Escuinapa;009;25
+272;Cerro de San Pedro;009;24
+273;Bacanora;009;26
+274;Jalapa;009;27
+275;Ciudad Madero;009;28
+276;Cuaxomulco;009;29
+277;Alto Lucero de Gutierrez Barrios;009;30
+278;Cansahcab;009;31
+279;Chalchihuites;009;32
+280;El Llano;010;1
+281;Calakmul;010;4
+282;Buenaventura;010;6
+283;Bejucal de Ocampo;010;5
+284;Frontera;010;7
+285;Villa de alvarez;010;8
+286;alvaro Obregon;010;9
+287;Hidalgo;010;10
+288;Atlixtac;010;12
+289;Coroneo;010;11
+290;Atitalaquia;010;13
+291;Atemajac de Brizuela;010;14
+292;Apaxco;010;15
+293;Arteaga;010;16
+294;Jantetelco;010;17
+295;Rosamorada;010;18
+296;El Carmen;010;19
+297;El Barrio de la Soledad;010;20
+298;Ajalpan;010;21
+299;Landa de Matamoros;010;22
+300;Bacalar;010;23
+301;El Fuerte;010;25
+302;Ciudad del Maiz;010;24
+303;Bacerac;010;26
+304;Jalpa de Mendez;010;27
+305;Cruillas;010;28
+306;Chiautempan;010;29
+307;Altotonga;010;30
+308;Cantamayec;010;31
+309;Fresnillo;010;32
+310;San Francisco de los Romo;011;1
+311;Candelaria;011;4
+312;Camargo;011;6
+313;Bella Vista;011;5
+314;General Cepeda;011;7
+315;Tlahuac;011;9
+316;Inde;011;10
+317;Atoyac de alvarez;011;12
+318;Cortazar;011;11
+319;Atlapexco;011;13
+320;Atengo;011;14
+321;Atenco;011;15
+322;Brisenas;011;16
+323;Jiutepec;011;17
+324;Ruiz;011;18
+325;Cerralvo;011;19
+326;Calihuala;011;20
+327;Albino Zertuche;011;21
+328;El Marques;011;22
+329;Guasave;011;25
+330;Ciudad Fernandez;011;24
+331;Bacoachi;011;26
+332;Jonuta;011;27
+333;Gomez Farias;011;28
+334;Munoz de Domingo Arenas;011;29
+335;Alvarado;011;30
+336;Celestun;011;31
+337;Trinidad Garcia de la Cadena;011;32
+338;Carichi;012;6
+339;Berriozabal;012;5
+340;Guerrero;012;7
+341;Tlalpan;012;9
+342;Lerdo;012;10
+343;Ayutla de los Libres;012;12
+344;Cueramaro;012;11
+345;Atotonilco el Grande;012;13
+346;Atenguillo;012;14
+347;Atizapan;012;15
+348;Buenavista;012;16
+349;Jojutla;012;17
+350;San Blas;012;18
+351;Cienega de Flores;012;19
+352;Candelaria Loxicha;012;20
+353;Aljojuca;012;21
+354;Pedro Escobedo;012;22
+355;Mazatlan;012;25
+356;Tancanhuitz;012;24
+357;Bacum;012;26
+358;Macuspana;012;27
+359;Gonzalez;012;28
+360;Espanita;012;29
+361;Amatitlan;012;30
+362;Cenotillo;012;31
+363;Genaro Codina;012;32
+364;Casas Grandes;013;6
+365;Bochil;013;5
+366;Hidalgo;013;7
+367;Xochimilco;013;9
+368;Mapimi;013;10
+369;Azoyu;013;12
+370;Doctor Mora;013;11
+371;Atotonilco de Tula;013;13
+372;Atotonilco el Alto;013;14
+373;Atizapan de Zaragoza;013;15
+374;Caracuaro;013;16
+375;Jonacatepec;013;17
+376;San Pedro Lagunillas;013;18
+377;China;013;19
+378;Cienega de Zimatlan;013;20
+379;Altepexi;013;21
+380;Penamiller;013;22
+381;Mocorito;013;25
+382;Ciudad Valles;013;24
+383;Banamichi;013;26
+384;Nacajuca;013;27
+385;Güemez;013;28
+386;Huamantla;013;29
+387;Naranjos Amatlan;013;30
+388;Conkal;013;31
+389;General Enrique Estrada;013;32
+390;Coronado;014;6
+391;El Bosque;014;5
+392;Jimenez;014;7
+393;Benito Juarez;014;9
+394;Mezquital;014;10
+395;Benito Juarez;014;12
+396;Dolores Hidalgo Cuna de la Independencia Nacional;014;11
+397;Calnali;014;13
+398;Atoyac;014;14
+399;Atlacomulco;014;15
+400;Coahuayana;014;16
+401;Mazatepec;014;17
+402;Santa Maria del Oro;014;18
+403;Doctor Arroyo;014;19
+404;Ciudad Ixtepec;014;20
+405;Amixtlan;014;21
+406;Queretaro;014;22
+407;Rosario;014;25
+408;Coxcatlan;014;24
+409;Baviacora;014;26
+410;Paraiso;014;27
+411;Guerrero;014;28
+412;Hueyotlipan;014;29
+413;Amatlan de los Reyes;014;30
+414;Cuncunul;014;31
+415;General Francisco R. Murguia;014;32
+416;Coyame del Sotol;015;6
+417;Cacahoatan;015;5
+418;Juarez;015;7
+419;Cuauhtemoc;015;9
+420;Nazas;015;10
+421;Buenavista de Cuellar;015;12
+422;Guanajuato;015;11
+423;Cardonal;015;13
+424;Autlan de Navarro;015;14
+425;Atlautla;015;15
+426;Coalcoman de Vazquez Pallares;015;16
+427;Miacatlan;015;17
+428;Santiago Ixcuintla;015;18
+429;Doctor Coss;015;19
+430;Coatecas Altas;015;20
+431;Amozoc;015;21
+432;San Joaquin;015;22
+433;Salvador Alvarado;015;25
+434;Charcas;015;24
+435;Bavispe;015;26
+436;Tacotalpa;015;27
+437;Gustavo Diaz Ordaz;015;28
+438;Ixtacuixtla de Mariano Matamoros;015;29
+439;Angel R. Cabada;015;30
+440;Cuzama;015;31
+441;El Plateado de Joaquin Amaro;015;32
+442;La Cruz;016;6
+443;Catazaja;016;5
+444;Lamadrid;016;7
+445;Miguel Hidalgo;016;9
+446;Nombre de Dios;016;10
+447;Coahuayutla de Jose Maria Izazaga;016;12
+448;Huanimaro;016;11
+449;Cuautepec de Hinojosa;016;13
+450;Ayotlan;016;14
+451;Axapusco;016;15
+452;Coeneo;016;16
+453;Ocuituco;016;17
+454;Tecuala;016;18
+455;Doctor Gonzalez;016;19
+456;Coicoyan de las Flores;016;20
+457;Aquixtla;016;21
+458;San Juan del Rio;016;22
+459;San Ignacio;016;25
+460;Ebano;016;24
+461;Benjamin Hill;016;26
+462;Teapa;016;27
+463;Hidalgo;016;28
+464;Ixtenco;016;29
+465;La Antigua;016;30
+466;Chacsinkin;016;31
+467;General Panfilo Natera;016;32
+468;Cuauhtemoc;017;6
+469;Cintalapa;017;5
+470;Matamoros;017;7
+471;Venustiano Carranza;017;9
+472;Ocampo;017;10
+473;Cocula;017;12
+474;Irapuato;017;11
+475;Chapantongo;017;13
+476;Ayutla;017;14
+477;Ayapango;017;15
+478;Contepec;017;16
+479;Puente de Ixtla;017;17
+480;Tepic;017;18
+481;Galeana;017;19
+482;La Compania;017;20
+483;Atempan;017;21
+484;Tequisquiapan;017;22
+485;Sinaloa;017;25
+486;Guadalcazar;017;24
+487;Caborca;017;26
+488;Tenosique;017;27
+489;Jaumave;017;28
+490;Mazatecochco de Jose Maria Morelos;017;29
+491;Apazapan;017;30
+492;Chankom;017;31
+493;Guadalupe;017;32
+494;Cusihuiriachi;018;6
+495;Coapilla;018;5
+496;Monclova;018;7
+497;El Oro;018;10
+498;Copala;018;12
+499;Jaral del Progreso;018;11
+500;Chapulhuacan;018;13
+501;La Barca;018;14
+502;Calimaya;018;15
+503;Copandaro;018;16
+504;Temixco;018;17
+505;Tuxpan;018;18
+506;Garcia;018;19
+507;Concepcion Buenavista;018;20
+508;Atexcal;018;21
+509;Toliman;018;22
+510;Navolato;018;25
+511;Huehuetlan;018;24
+512;Cajeme;018;26
+513;Jimenez;018;28
+514;Contla de Juan Cuamatzi;018;29
+515;Aquila;018;30
+516;Chapab;018;31
+517;Huanusco;018;32
+518;Chihuahua;019;6
+519;Comitan de Dominguez;019;5
+520;Morelos;019;7
+521;Otaez;019;10
+522;Copalillo;019;12
+523;Jerecuaro;019;11
+524;Chilcuautla;019;13
+525;Bolanos;019;14
+526;Capulhuac;019;15
+527;Cotija;019;16
+528;Tepalcingo;019;17
+529;La Yesca;019;18
+530;San Pedro Garza Garcia;019;19
+531;Concepcion Papalo;019;20
+532;Atlixco;019;21
+533;Lagunillas;019;24
+534;Cananea;019;26
+535;Llera;019;28
+536;Tepetitla de Lardizabal;019;29
+537;Astacinga;019;30
+538;Chemax;019;31
+539;Jalpa;019;32
+540;Chinipas;020;6
+541;La Concordia;020;5
+542;Muzquiz;020;7
+543;Panuco de Coronado;020;10
+544;Copanatoyac;020;12
+545;Leon;020;11
+546;Eloxochitlan;020;13
+547;Cabo Corrientes;020;14
+548;Coacalco de Berriozabal;020;15
+549;Cuitzeo;020;16
+550;Tepoztlan;020;17
+551;Bahia de Banderas;020;18
+552;General Bravo;020;19
+553;Constancia del Rosario;020;20
+554;Atoyatempan;020;21
+555;Matehuala;020;24
+556;Carbo;020;26
+557;Mainero;020;28
+558;Sanctorum de Lazaro Cardenas;020;29
+559;Atlahuilco;020;30
+560;Chicxulub Pueblo;020;31
+561;Jerez;020;32
+562;Delicias;021;6
+563;Copainala;021;5
+564;Nadadores;021;7
+565;Penon Blanco;021;10
+566;Coyuca de Benitez;021;12
+567;Moroleon;021;11
+568;Emiliano Zapata;021;13
+569;Casimiro Castillo;021;14
+570;Coatepec Harinas;021;15
+571;Charapan;021;16
+572;Tetecala;021;17
+573;General Escobedo;021;19
+574;Cosolapa;021;20
+575;Atzala;021;21
+576;Mexquitic de Carmona;021;24
+577;La Colorada;021;26
+578;El Mante;021;28
+579;Nanacamilpa de Mariano Arista;021;29
+580;Atoyac;021;30
+581;Chichimila;021;31
+582;Jimenez del Teul;021;32
+583;Dr. Belisario Dominguez;022;6
+584;Chalchihuitan;022;5
+585;Nava;022;7
+586;Poanas;022;10
+587;Coyuca de Catalan;022;12
+588;Ocampo;022;11
+589;Epazoyucan;022;13
+590;Cihuatlan;022;14
+591;Cocotitlan;022;15
+592;Charo;022;16
+593;Tetela del Volcan;022;17
+594;General Teran;022;19
+595;Cosoltepec;022;20
+596;Atzitzihuacan;022;21
+597;Moctezuma;022;24
+598;Cucurpe;022;26
+599;Matamoros;022;28
+600;Acuamanala de Miguel Hidalgo;022;29
+601;Atzacan;022;30
+602;Chikindzonot;022;31
+603;Juan Aldama;022;32
+604;Galeana;023;6
+605;Chamula;023;5
+606;Ocampo;023;7
+607;Pueblo Nuevo;023;10
+608;Cuajinicuilapa;023;12
+609;Penjamo;023;11
+610;Francisco I. Madero;023;13
+611;Zapotlan el Grande;023;14
+612;Coyotepec;023;15
+613;Chavinda;023;16
+614;Tlalnepantla;023;17
+615;General Trevino;023;19
+616;Cuilapam de Guerrero;023;20
+617;Atzitzintla;023;21
+618;Rayon;023;24
+619;Cumpas;023;26
+620;Mendez;023;28
+621;Nativitas;023;29
+622;Atzalan;023;30
+623;Chochola;023;31
+624;Juchipila;023;32
+625;Santa Isabel;024;6
+626;Chanal;024;5
+627;Parras;024;7
+628;Rodeo;024;10
+629;Cualac;024;12
+630;Pueblo Nuevo;024;11
+631;Huasca de Ocampo;024;13
+632;Cocula;024;14
+633;Cuautitlan;024;15
+634;Cheran;024;16
+635;Tlaltizapan de Zapata;024;17
+636;General Zaragoza;024;19
+637;Cuyamecalco Villa de Zaragoza;024;20
+638;Axutla;024;21
+639;Rioverde;024;24
+640;Divisaderos;024;26
+641;Mier;024;28
+642;Panotla;024;29
+643;Tlaltetela;024;30
+644;Chumayel;024;31
+645;Loreto;024;32
+646;Gomez Farias;025;6
+647;Chapultenango;025;5
+648;Piedras Negras;025;7
+649;San Bernardo;025;10
+650;Cuautepec;025;12
+651;Purisima del Rincon;025;11
+652;Huautla;025;13
+653;Colotlan;025;14
+654;Chalco;025;15
+655;Chilchota;025;16
+656;Tlaquiltenango;025;17
+657;General Zuazua;025;19
+658;Chahuites;025;20
+659;Ayotoxco de Guerrero;025;21
+660;Salinas;025;24
+661;Empalme;025;26
+662;Miguel Aleman;025;28
+663;San Pablo del Monte;025;29
+664;Ayahualulco;025;30
+665;Dzan;025;31
+666;Luis Moya;025;32
+667;Gran Morelos;026;6
+668;Chenalho;026;5
+669;Progreso;026;7
+670;San Dimas;026;10
+671;Cuetzala del Progreso;026;12
+672;Romita;026;11
+673;Huazalingo;026;13
+674;Concepcion de Buenos Aires;026;14
+675;Chapa de Mota;026;15
+676;Chinicuila;026;16
+677;Tlayacapan;026;17
+678;Guadalupe;026;19
+679;Chalcatongo de Hidalgo;026;20
+680;Calpan;026;21
+681;San Antonio;026;24
+682;Etchojoa;026;26
+683;Miquihuana;026;28
+684;Santa Cruz Tlaxcala;026;29
+685;Banderilla;026;30
+686;Dzemul;026;31
+687;Mazapil;026;32
+688;Guachochi;027;6
+689;Chiapa de Corzo;027;5
+690;Ramos Arizpe;027;7
+691;San Juan de Guadalupe;027;10
+692;Cutzamala de Pinzon;027;12
+693;Salamanca;027;11
+694;Huehuetla;027;13
+695;Cuautitlan de Garcia Barragan;027;14
+696;Chapultepec;027;15
+697;Chucandiro;027;16
+698;Totolapan;027;17
+699;Los Herreras;027;19
+700;Chiquihuitlan de Benito Juarez;027;20
+701;Caltepec;027;21
+702;San Ciro de Acosta;027;24
+703;Fronteras;027;26
+704;Nuevo Laredo;027;28
+705;Tenancingo;027;29
+706;Benito Juarez;027;30
+707;Dzidzantun;027;31
+708;Melchor Ocampo;027;32
+709;Guadalupe;028;6
+710;Chiapilla;028;5
+711;Sabinas;028;7
+712;San Juan del Rio;028;10
+713;Chilapa de alvarez;028;12
+714;Salvatierra;028;11
+715;Huejutla de Reyes;028;13
+716;Cuautla;028;14
+717;Chiautla;028;15
+718;Churintzio;028;16
+719;Xochitepec;028;17
+720;Higueras;028;19
+721;Heroica Ciudad de Ejutla de Crespo;028;20
+722;Camocuautla;028;21
+723;San Luis Potosi;028;24
+724;Granados;028;26
+725;Nuevo Morelos;028;28
+726;Teolocholco;028;29
+727;Boca del Rio;028;30
+728;Dzilam de Bravo;028;31
+729;Mezquital del Oro;028;32
+730;Guadalupe y Calvo;029;6
+731;Chicoasen;029;5
+732;Sacramento;029;7
+733;San Luis del Cordero;029;10
+734;Chilpancingo de los Bravo;029;12
+735;San Diego de la Union;029;11
+736;Huichapan;029;13
+737;Cuquio;029;14
+738;Chicoloapan;029;15
+739;Churumuco;029;16
+740;Yautepec;029;17
+741;Hualahuises;029;19
+742;Eloxochitlan de Flores Magon;029;20
+743;Caxhuacan;029;21
+744;San Martin Chalchicuautla;029;24
+745;Guaymas;029;26
+746;Ocampo;029;28
+747;Tepeyanco;029;29
+748;Calcahualco;029;30
+749;Dzilam Gonzalez;029;31
+750;Miguel Auza;029;32
+751;Guazapares;030;6
+752;Chicomuselo;030;5
+753;Saltillo;030;7
+754;San Pedro del Gallo;030;10
+755;Florencio Villarreal;030;12
+756;San Felipe;030;11
+757;Ixmiquilpan;030;13
+758;Chapala;030;14
+759;Chiconcuac;030;15
+760;Ecuandureo;030;16
+761;Yecapixtla;030;17
+762;Iturbide;030;19
+763;El Espinal;030;20
+764;Coatepec;030;21
+765;San Nicolas Tolentino;030;24
+766;Hermosillo;030;26
+767;Padilla;030;28
+768;Terrenate;030;29
+769;Camerino Z. Mendoza;030;30
+770;Dzitas;030;31
+771;Momax;030;32
+772;Guerrero;031;6
+773;Chilon;031;5
+774;San Buenaventura;031;7
+775;Santa Clara;031;10
+776;General Canuto A. Neri;031;12
+777;San Francisco del Rincon;031;11
+778;Jacala de Ledezma;031;13
+779;Chimaltitan;031;14
+780;Chimalhuacan;031;15
+781;Epitacio Huerta;031;16
+782;Zacatepec;031;17
+783;Juarez;031;19
+784;Tamazulapam del Espiritu Santo;031;20
+785;Coatzingo;031;21
+786;Santa Catarina;031;24
+787;Huachinera;031;26
+788;Palmillas;031;28
+789;Tetla de la Solidaridad;031;29
+790;Carrillo Puerto;031;30
+791;Dzoncauich;031;31
+792;Monte Escobedo;031;32
+793;Hidalgo del Parral;032;6
+794;Escuintla;032;5
+795;San Juan de Sabinas;032;7
+796;Santiago Papasquiaro;032;10
+797;General Heliodoro Castillo;032;12
+798;San Jose Iturbide;032;11
+799;Jaltocan;032;13
+800;Chiquilistlan;032;14
+801;Donato Guerra;032;15
+802;Erongaricuaro;032;16
+803;Zacualpan;032;17
+804;Lampazos de Naranjo;032;19
+805;Fresnillo de Trujano;032;20
+806;Cohetzala;032;21
+807;Santa Maria del Rio;032;24
+808;Huasabas;032;26
+809;Reynosa;032;28
+810;Tetlatlahuca;032;29
+811;Catemaco;032;30
+812;Espita;032;31
+813;Morelos;032;32
+814;Huejotitan;033;6
+815;Francisco Leon;033;5
+816;San Pedro;033;7
+817;Suchil;033;10
+818;Huamuxtitlan;033;12
+819;San Luis de la Paz;033;11
+820;Juarez Hidalgo;033;13
+821;Degollado;033;14
+822;Ecatepec de Morelos;033;15
+823;Gabriel Zamora;033;16
+824;Temoac;033;17
+825;Linares;033;19
+826;Guadalupe Etla;033;20
+827;Cohuecan;033;21
+828;Santo Domingo;033;24
+829;Huatabampo;033;26
+830;Rio Bravo;033;28
+831;Tlaxcala;033;29
+832;Cazones de Herrera;033;30
+833;Halacho;033;31
+834;Moyahua de Estrada;033;32
+835;Ignacio Zaragoza;034;6
+836;Frontera Comalapa;034;5
+837;Sierra Mojada;034;7
+838;Tamazula;034;10
+839;Huitzuco de los Figueroa;034;12
+840;Santa Catarina;034;11
+841;Lolotla;034;13
+842;Ejutla;034;14
+843;Ecatzingo;034;15
+844;Hidalgo;034;16
+845;Marin;034;19
+846;Guadalupe de Ramirez;034;20
+847;Coronango;034;21
+848;San Vicente Tancuayalab;034;24
+849;Huepac;034;26
+850;San Carlos;034;28
+851;Tlaxco;034;29
+852;Cerro Azul;034;30
+853;Hocaba;034;31
+854;Nochistlan de Mejia;034;32
+855;Janos;035;6
+856;Frontera Hidalgo;035;5
+857;Torreon;035;7
+858;Tepehuanes;035;10
+859;Iguala de la Independencia;035;12
+860;Santa Cruz de Juventino Rosas;035;11
+861;Metepec;035;13
+862;Encarnacion de Diaz;035;14
+863;Huehuetoca;035;15
+864;La Huacana;035;16
+865;Melchor Ocampo;035;19
+866;Guelatao de Juarez;035;20
+867;Coxcatlan;035;21
+868;Soledad de Graciano Sanchez;035;24
+869;Imuris;035;26
+870;San Fernando;035;28
+871;Tocatlan;035;29
+872;Citlaltepetl;035;30
+873;Hoctun;035;31
+874;Noria de angeles;035;32
+875;Jimenez;036;6
+876;La Grandeza;036;5
+877;Viesca;036;7
+878;Tlahualilo;036;10
+879;Igualapa;036;12
+880;Santiago Maravatio;036;11
+881;San Agustin Metzquititlan;036;13
+882;Etzatlan;036;14
+883;Hueypoxtla;036;15
+884;Huandacareo;036;16
+885;Mier y Noriega;036;19
+886;Guevea de Humboldt;036;20
+887;Coyomeapan;036;21
+888;Tamasopo;036;24
+889;Magdalena;036;26
+890;San Nicolas;036;28
+891;Totolac;036;29
+892;Coacoatzintla;036;30
+893;Homun;036;31
+894;Ojocaliente;036;32
+895;Juarez;037;6
+896;Huehuetan;037;5
+897;Villa Union;037;7
+898;Topia;037;10
+899;Ixcateopan de Cuauhtemoc;037;12
+900;Silao de la Victoria;037;11
+901;Metztitlan;037;13
+902;El Grullo;037;14
+903;Huixquilucan;037;15
+904;Huaniqueo;037;16
+905;Mina;037;19
+906;Mesones Hidalgo;037;20
+907;Coyotepec;037;21
+908;Tamazunchale;037;24
+909;Mazatan;037;26
+910;Soto la Marina;037;28
+911;Ziltlaltepec de Trinidad Sanchez Santos;037;29
+912;Coahuitlan;037;30
+913;Huhi;037;31
+914;Panuco;037;32
+915;Julimes;038;6
+916;Huixtan;038;5
+917;Zaragoza;038;7
+918;Vicente Guerrero;038;10
+919;Zihuatanejo de Azueta;038;12
+920;Tarandacuao;038;11
+921;Mineral del Chico;038;13
+922;Guachinango;038;14
+923;Isidro Fabela;038;15
+924;Huetamo;038;16
+925;Montemorelos;038;19
+926;Villa Hidalgo;038;20
+927;Cuapiaxtla de Madero;038;21
+928;Tampacan;038;24
+929;Moctezuma;038;26
+930;Tampico;038;28
+931;Tzompantepec;038;29
+932;Coatepec;038;30
+933;Hunucma;038;31
+934;Pinos;038;32
+935;Lopez;039;6
+936;Huitiupan;039;5
+937;Nuevo Ideal;039;10
+938;Juan R. Escudero;039;12
+939;Tarimoro;039;11
+940;Mineral del Monte;039;13
+941;Guadalajara;039;14
+942;Ixtapaluca;039;15
+943;Huiramba;039;16
+944;Monterrey;039;19
+945;Heroica Ciudad de Huajuapan de Leon;039;20
+946;Cuautempan;039;21
+947;Tampamolon Corona;039;24
+948;Naco;039;26
+949;Tula;039;28
+950;Xaloztoc;039;29
+951;Coatzacoalcos;039;30
+952;Ixil;039;31
+953;Rio Grande;039;32
+954;Madera;040;6
+955;Huixtla;040;5
+956;Leonardo Bravo;040;12
+957;Tierra Blanca;040;11
+958;La Mision;040;13
+959;Hostotipaquillo;040;14
+960;Ixtapan de la Sal;040;15
+961;Indaparapeo;040;16
+962;Paras;040;19
+963;Huautepec;040;20
+964;Cuautinchan;040;21
+965;Tamuin;040;24
+966;Nacori Chico;040;26
+967;Valle Hermoso;040;28
+968;Xaltocan;040;29
+969;Coatzintla;040;30
+970;Izamal;040;31
+971;Sain Alto;040;32
+972;Maguarichi;041;6
+973;La Independencia;041;5
+974;Malinaltepec;041;12
+975;Uriangato;041;11
+976;Mixquiahuala de Juarez;041;13
+977;Huejucar;041;14
+978;Ixtapan del Oro;041;15
+979;Irimbo;041;16
+980;Pesqueria;041;19
+981;Huautla de Jimenez;041;20
+982;Cuautlancingo;041;21
+983;Tanlajas;041;24
+984;Nacozari de Garcia;041;26
+985;Victoria;041;28
+986;Papalotla de Xicohtencatl;041;29
+987;Coetzala;041;30
+988;Kanasin;041;31
+989;El Salvador;041;32
+990;Manuel Benavides;042;6
+991;Ixhuatan;042;5
+992;Martir de Cuilapan;042;12
+993;Valle de Santiago;042;11
+994;Molango de Escamilla;042;13
+995;Huejuquilla el Alto;042;14
+996;Ixtlahuaca;042;15
+997;Ixtlan;042;16
+998;Los Ramones;042;19
+999;Ixtlan de Juarez;042;20
+1000;Cuayuca de Andrade;042;21
+1001;Tanquian de Escobedo;042;24
+1002;Navojoa;042;26
+1003;Villagran;042;28
+1004;Xicohtzinco;042;29
+1005;Colipa;042;30
+1006;Kantunil;042;31
+1007;Sombrerete;042;32
+1008;Matachi;043;6
+1009;Ixtacomitan;043;5
+1010;Metlatonoc;043;12
+1011;Victoria;043;11
+1012;Nicolas Flores;043;13
+1013;La Huerta;043;14
+1014;Xalatlaco;043;15
+1015;Jacona;043;16
+1016;Rayones;043;19
+1017;Heroica Ciudad de Juchitan de Zaragoza;043;20
+1018;Cuetzalan del Progreso;043;21
+1019;Tierra Nueva;043;24
+1020;Nogales;043;26
+1021;Xicotencatl;043;28
+1022;Yauhquemehcan;043;29
+1023;Comapa;043;30
+1024;Kaua;043;31
+1025;Susticacan;043;32
+1026;Matamoros;044;6
+1027;Ixtapa;044;5
+1028;Mochitlan;044;12
+1029;Villagran;044;11
+1030;Nopala de Villagran;044;13
+1031;Ixtlahuacan de los Membrillos;044;14
+1032;Jaltenco;044;15
+1033;Jimenez;044;16
+1034;Sabinas Hidalgo;044;19
+1035;Loma Bonita;044;20
+1036;Cuyoaco;044;21
+1037;Vanegas;044;24
+1038;Onavas;044;26
+1039;Zacatelco;044;29
+1040;Cordoba;044;30
+1041;Kinchil;044;31
+1042;Tabasco;044;32
+1043;Meoqui;045;6
+1044;Ixtapangajoya;045;5
+1045;Olinala;045;12
+1046;Xichu;045;11
+1047;Omitlan de Juarez;045;13
+1048;Ixtlahuacan del Rio;045;14
+1049;Jilotepec;045;15
+1050;Jiquilpan;045;16
+1051;Salinas Victoria;045;19
+1052;Magdalena Apasco;045;20
+1053;Chalchicomula de Sesma;045;21
+1054;Venado;045;24
+1055;Opodepe;045;26
+1056;Benito Juarez;045;29
+1057;Cosamaloapan de Carpio;045;30
+1058;Kopoma;045;31
+1059;Tepechitlan;045;32
+1060;Morelos;046;6
+1061;Jiquipilas;046;5
+1062;Ometepec;046;12
+1063;Yuriria;046;11
+1064;San Felipe Orizatlan;046;13
+1065;Jalostotitlan;046;14
+1066;Jilotzingo;046;15
+1067;Juarez;046;16
+1068;San Nicolas de los Garza;046;19
+1069;Magdalena Jaltepec;046;20
+1070;Chapulco;046;21
+1071;Villa de Arriaga;046;24
+1072;Oquitoa;046;26
+1073;Emiliano Zapata;046;29
+1074;Cosautlan de Carvajal;046;30
+1075;Mama;046;31
+1076;Tepetongo;046;32
+1077;Moris;047;6
+1078;Jitotol;047;5
+1079;Pedro Ascencio Alquisiras;047;12
+1080;Pacula;047;13
+1081;Jamay;047;14
+1082;Jiquipilco;047;15
+1083;Jungapeo;047;16
+1084;Hidalgo;047;19
+1085;Santa Magdalena Jicotlan;047;20
+1086;Chiautla;047;21
+1087;Villa de Guadalupe;047;24
+1088;Pitiquito;047;26
+1089;Lazaro Cardenas;047;29
+1090;Coscomatepec;047;30
+1091;Mani;047;31
+1092;Teul de Gonzalez Ortega;047;32
+1093;Namiquipa;048;6
+1094;Juarez;048;5
+1095;Petatlan;048;12
+1096;Pachuca de Soto;048;13
+1097;Jesus Maria;048;14
+1098;Jocotitlan;048;15
+1099;Lagunillas;048;16
+1100;Santa Catarina;048;19
+1101;Magdalena Mixtepec;048;20
+1102;Chiautzingo;048;21
+1103;Villa de la Paz;048;24
+1104;Puerto Penasco;048;26
+1105;La Magdalena Tlaltelulco;048;29
+1106;Cosoleacaque;048;30
+1107;Maxcanu;048;31
+1108;Tlaltenango de Sanchez Roman;048;32
+1109;Nonoava;049;6
+1110;Larrainzar;049;5
+1111;Pilcaya;049;12
+1112;Pisaflores;049;13
+1113;Jilotlan de los Dolores;049;14
+1114;Joquicingo;049;15
+1115;Madero;049;16
+1116;Santiago;049;19
+1117;Magdalena Ocotlan;049;20
+1118;Chiconcuautla;049;21
+1119;Villa de Ramos;049;24
+1120;Quiriego;049;26
+1121;San Damian Texoloc;049;29
+1122;Cotaxtla;049;30
+1123;Mayapan;049;31
+1124;Valparaiso;049;32
+1125;Nuevo Casas Grandes;050;6
+1126;La Libertad;050;5
+1127;Pungarabato;050;12
+1128;Progreso de Obregon;050;13
+1129;Jocotepec;050;14
+1130;Juchitepec;050;15
+1131;Maravatio;050;16
+1132;Vallecillo;050;19
+1133;Magdalena Penasco;050;20
+1134;Chichiquila;050;21
+1135;Villa de Reyes;050;24
+1136;Rayon;050;26
+1137;San Francisco Tetlanohcan;050;29
+1138;Coxquihui;050;30
+1139;Merida;050;31
+1140;Vetagrande;050;32
+1141;Ocampo;051;6
+1142;Mapastepec;051;5
+1143;Quechultenango;051;12
+1144;Mineral de la Reforma;051;13
+1145;Juanacatlan;051;14
+1146;Lerma;051;15
+1147;Marcos Castellanos;051;16
+1148;Villaldama;051;19
+1149;Magdalena Teitipac;051;20
+1150;Chietla;051;21
+1151;Villa Hidalgo;051;24
+1152;Rosario;051;26
+1153;San Jeronimo Zacualpan;051;29
+1154;Coyutla;051;30
+1155;Mococha;051;31
+1156;Villa de Cos;051;32
+1157;Ojinaga;052;6
+1158;Las Margaritas;052;5
+1159;San Luis Acatlan;052;12
+1160;San Agustin Tlaxiaca;052;13
+1161;Juchitlan;052;14
+1162;Malinalco;052;15
+1163;Lazaro Cardenas;052;16
+1164;Magdalena Tequisistlan;052;20
+1165;Chigmecatitlan;052;21
+1166;Villa Juarez;052;24
+1167;Sahuaripa;052;26
+1168;San Jose Teacalco;052;29
+1169;Cuichapa;052;30
+1170;Motul;052;31
+1171;Villa Garcia;052;32
+1172;Praxedis G. Guerrero;053;6
+1173;Mazapa de Madero;053;5
+1174;San Marcos;053;12
+1175;San Bartolo Tutotepec;053;13
+1176;Lagos de Moreno;053;14
+1177;Melchor Ocampo;053;15
+1178;Morelia;053;16
+1179;Magdalena Tlacotepec;053;20
+1180;Chignahuapan;053;21
+1181;Axtla de Terrazas;053;24
+1182;San Felipe de Jesus;053;26
+1183;San Juan Huactzinco;053;29
+1184;Cuitlahuac;053;30
+1185;Muna;053;31
+1186;Villa Gonzalez Ortega;053;32
+1187;Riva Palacio;054;6
+1188;Mazatan;054;5
+1189;San Miguel Totolapan;054;12
+1190;San Salvador;054;13
+1191;El Limon;054;14
+1192;Metepec;054;15
+1193;Morelos;054;16
+1194;Magdalena Zahuatlan;054;20
+1195;Chignautla;054;21
+1196;Xilitla;054;24
+1197;San Javier;054;26
+1198;San Lorenzo Axocomanitla;054;29
+1199;Chacaltianguis;054;30
+1200;Muxupip;054;31
+1201;Villa Hidalgo;054;32
+1202;Rosales;055;6
+1203;Metapa;055;5
+1204;Taxco de Alarcon;055;12
+1205;Santiago de Anaya;055;13
+1206;Magdalena;055;14
+1207;Mexicaltzingo;055;15
+1208;Mugica;055;16
+1209;Mariscala de Juarez;055;20
+1210;Chila;055;21
+1211;Zaragoza;055;24
+1212;San Luis Rio Colorado;055;26
+1213;San Lucas Tecopilco;055;29
+1214;Chalma;055;30
+1215;Opichen;055;31
+1216;Villanueva;055;32
+1217;Rosario;056;6
+1218;Mitontic;056;5
+1219;Tecoanapa;056;12
+1220;Santiago Tulantepec de Lugo Guerrero;056;13
+1221;Santa Maria del Oro;056;14
+1222;Morelos;056;15
+1223;Nahuatzen;056;16
+1224;Martires de Tacubaya;056;20
+1225;Chila de la Sal;056;21
+1226;Villa de Arista;056;24
+1227;San Miguel de Horcasitas;056;26
+1228;Santa Ana Nopalucan;056;29
+1229;Chiconamel;056;30
+1230;Oxkutzcab;056;31
+1231;Zacatecas;056;32
+1232;San Francisco de Borja;057;6
+1233;Motozintla;057;5
+1234;Tecpan de Galeana;057;12
+1235;Singuilucan;057;13
+1236;La Manzanilla de la Paz;057;14
+1237;Naucalpan de Juarez;057;15
+1238;Nocupetaro;057;16
+1239;Matias Romero Avendano;057;20
+1240;Honey;057;21
+1241;Matlapa;057;24
+1242;San Pedro de la Cueva;057;26
+1243;Santa Apolonia Teacalco;057;29
+1244;Chiconquiaco;057;30
+1245;Panaba;057;31
+1246;Trancoso;057;32
+1247;San Francisco de Conchos;058;6
+1248;Nicolas Ruiz;058;5
+1249;Teloloapan;058;12
+1250;Tasquillo;058;13
+1251;Mascota;058;14
+1252;Nezahualcoyotl;058;15
+1253;Nuevo Parangaricutiro;058;16
+1254;Mazatlan Villa de Flores;058;20
+1255;Chilchotla;058;21
+1256;El Naranjo;058;24
+1257;Santa Ana;058;26
+1258;Santa Catarina Ayometla;058;29
+1259;Chicontepec;058;30
+1260;Peto;058;31
+1261;Santa Maria de la Paz;058;32
+1262;San Francisco del Oro;059;6
+1263;Ocosingo;059;5
+1264;Tepecoacuilco de Trujano;059;12
+1265;Tecozautla;059;13
+1266;Mazamitla;059;14
+1267;Nextlalpan;059;15
+1268;Nuevo Urecho;059;16
+1269;Miahuatlan de Porfirio Diaz;059;20
+1270;Chinantla;059;21
+1271;Santa Cruz;059;26
+1272;Santa Cruz Quilehtla;059;29
+1273;Chinameca;059;30
+1274;Progreso;059;31
+1275;Santa Barbara;060;6
+1276;Ocotepec;060;5
+1277;Tetipac;060;12
+1278;Tenango de Doria;060;13
+1279;Mexticacan;060;14
+1280;Nicolas Romero;060;15
+1281;Numaran;060;16
+1282;Mixistlan de la Reforma;060;20
+1283;Domingo Arenas;060;21
+1284;Saric;060;26
+1285;Santa Isabel Xiloxoxtla;060;29
+1286;Chinampa de Gorostiza;060;30
+1287;Quintana Roo;060;31
+1288;Satevo;061;6
+1289;Ocozocoautla de Espinosa;061;5
+1290;Tixtla de Guerrero;061;12
+1291;Tepeapulco;061;13
+1292;Mezquitic;061;14
+1293;Nopaltepec;061;15
+1294;Ocampo;061;16
+1295;Monjas;061;20
+1296;Eloxochitlan;061;21
+1297;Soyopa;061;26
+1298;Las Choapas;061;30
+1299;Rio Lagartos;061;31
+1300;Saucillo;062;6
+1301;Ostuacan;062;5
+1302;Tlacoachistlahuaca;062;12
+1303;Tepehuacan de Guerrero;062;13
+1304;Mixtlan;062;14
+1305;Ocoyoacac;062;15
+1306;Pajacuaran;062;16
+1307;Natividad;062;20
+1308;Epatlan;062;21
+1309;Suaqui Grande;062;26
+1310;Chocaman;062;30
+1311;Sacalum;062;31
+1312;Temosachic;063;6
+1313;Osumacinta;063;5
+1314;Tlacoapa;063;12
+1315;Tepeji del Rio de Ocampo;063;13
+1316;Ocotlan;063;14
+1317;Ocuilan;063;15
+1318;Panindicuaro;063;16
+1319;Nazareno Etla;063;20
+1320;Esperanza;063;21
+1321;Tepache;063;26
+1322;Chontla;063;30
+1323;Samahil;063;31
+1324;El Tule;064;6
+1325;Oxchuc;064;5
+1326;Tlalchapa;064;12
+1327;Tepetitlan;064;13
+1328;Ojuelos de Jalisco;064;14
+1329;El Oro;064;15
+1330;Paracuaro;064;16
+1331;Nejapa de Madero;064;20
+1332;Francisco Z. Mena;064;21
+1333;Trincheras;064;26
+1334;Chumatlan;064;30
+1335;Sanahcat;064;31
+1336;Urique;065;6
+1337;Palenque;065;5
+1338;Tlalixtaquilla de Maldonado;065;12
+1339;Tetepango;065;13
+1340;Pihuamo;065;14
+1341;Otumba;065;15
+1342;Paracho;065;16
+1343;Ixpantepec Nieves;065;20
+1344;General Felipe angeles;065;21
+1345;Tubutama;065;26
+1346;Emiliano Zapata;065;30
+1347;San Felipe;065;31
+1348;Uruachi;066;6
+1349;Pantelho;066;5
+1350;Tlapa de Comonfort;066;12
+1351;Villa de Tezontepec;066;13
+1352;Poncitlan;066;14
+1353;Otzoloapan;066;15
+1354;Patzcuaro;066;16
+1355;Santiago Niltepec;066;20
+1356;Guadalupe;066;21
+1357;Ures;066;26
+1358;Espinal;066;30
+1359;Santa Elena;066;31
+1360;Valle de Zaragoza;067;6
+1361;Pantepec;067;5
+1362;Tlapehuala;067;12
+1363;Tezontepec de Aldama;067;13
+1364;Puerto Vallarta;067;14
+1365;Otzolotepec;067;15
+1366;Penjamillo;067;16
+1367;Oaxaca de Juarez;067;20
+1368;Guadalupe Victoria;067;21
+1369;Villa Hidalgo;067;26
+1370;Filomeno Mata;067;30
+1371;Seye;067;31
+1372;Pichucalco;068;5
+1373;La Union de Isidoro Montes de Oca;068;12
+1374;Tianguistengo;068;13
+1375;Villa Purificacion;068;14
+1376;Ozumba;068;15
+1377;Periban;068;16
+1378;Ocotlan de Morelos;068;20
+1379;Hermenegildo Galeana;068;21
+1380;Villa Pesqueira;068;26
+1381;Fortin;068;30
+1382;Sinanche;068;31
+1383;Pijijiapan;069;5
+1384;Xalpatlahuac;069;12
+1385;Tizayuca;069;13
+1386;Quitupan;069;14
+1387;Papalotla;069;15
+1388;La Piedad;069;16
+1389;La Pe;069;20
+1390;Huaquechula;069;21
+1391;Yecora;069;26
+1392;Gutierrez Zamora;069;30
+1393;Sotuta;069;31
+1394;El Porvenir;070;5
+1395;Xochihuehuetlan;070;12
+1396;Tlahuelilpan;070;13
+1397;El Salto;070;14
+1398;La Paz;070;15
+1399;Purepero;070;16
+1400;Pinotepa de Don Luis;070;20
+1401;Huatlatlauca;070;21
+1402;General Plutarco Elias Calles;070;26
+1403;Hidalgotitlan;070;30
+1404;Sucila;070;31
+1405;Villa Comaltitlan;071;5
+1406;Xochistlahuaca;071;12
+1407;Tlahuiltepa;071;13
+1408;San Cristobal de la Barranca;071;14
+1409;Polotitlan;071;15
+1410;Puruandiro;071;16
+1411;Pluma Hidalgo;071;20
+1412;Huauchinango;071;21
+1413;Benito Juarez;071;26
+1414;Huatusco;071;30
+1415;Sudzal;071;31
+1416;Pueblo Nuevo Solistahuacan;072;5
+1417;Zapotitlan Tablas;072;12
+1418;Tlanalapa;072;13
+1419;San Diego de Alejandria;072;14
+1420;Rayon;072;15
+1421;Querendaro;072;16
+1422;San Jose del Progreso;072;20
+1423;Huehuetla;072;21
+1424;San Ignacio Rio Muerto;072;26
+1425;Huayacocotla;072;30
+1426;Suma;072;31
+1427;Rayon;073;5
+1428;Zirandaro;073;12
+1429;Tlanchinol;073;13
+1430;San Juan de los Lagos;073;14
+1431;San Antonio la Isla;073;15
+1432;Quiroga;073;16
+1433;Putla Villa de Guerrero;073;20
+1434;Huehuetlan el Chico;073;21
+1435;Hueyapan de Ocampo;073;30
+1436;Tahdziu;073;31
+1437;Reforma;074;5
+1438;Zitlala;074;12
+1439;Tlaxcoapan;074;13
+1440;San Julian;074;14
+1441;San Felipe del Progreso;074;15
+1442;Cojumatlan de Regules;074;16
+1443;Santa Catarina Quioquitani;074;20
+1444;Huejotzingo;074;21
+1445;Huiloapan de Cuauhtemoc;074;30
+1446;Tahmek;074;31
+1447;Las Rosas;075;5
+1448;Eduardo Neri;075;12
+1449;Tolcayuca;075;13
+1450;San Marcos;075;14
+1451;San Martin de las Piramides;075;15
+1452;Los Reyes;075;16
+1453;Reforma de Pineda;075;20
+1454;Hueyapan;075;21
+1455;Ignacio de la Llave;075;30
+1456;Teabo;075;31
+1457;Sabanilla;076;5
+1458;Acatepec;076;12
+1459;Tula de Allende;076;13
+1460;San Martin de Bolanos;076;14
+1461;San Mateo Atenco;076;15
+1462;Sahuayo;076;16
+1463;La Reforma;076;20
+1464;Hueytamalco;076;21
+1465;Ilamatlan;076;30
+1466;Tecoh;076;31
+1467;Salto de Agua;077;5
+1468;Marquelia;077;12
+1469;Tulancingo de Bravo;077;13
+1470;San Martin Hidalgo;077;14
+1471;San Simon de Guerrero;077;15
+1472;San Lucas;077;16
+1473;Reyes Etla;077;20
+1474;Hueytlalpan;077;21
+1475;Isla;077;30
+1476;Tekal de Venegas;077;31
+1477;San Cristobal de las Casas;078;5
+1478;Cochoapa el Grande;078;12
+1479;Xochiatipan;078;13
+1480;San Miguel el Alto;078;14
+1481;Santo Tomas;078;15
+1482;Santa Ana Maya;078;16
+1483;Rojas de Cuauhtemoc;078;20
+1484;Huitzilan de Serdan;078;21
+1485;Ixcatepec;078;30
+1486;Tekanto;078;31
+1487;San Fernando;079;5
+1488;Jose Joaquin de Herrera;079;12
+1489;Xochicoatlan;079;13
+1490;Gomez Farias;079;14
+1491;Soyaniquilpan de Juarez;079;15
+1492;Salvador Escalante;079;16
+1493;Salina Cruz;079;20
+1494;Huitziltepec;079;21
+1495;Ixhuacan de los Reyes;079;30
+1496;Tekax;079;31
+1497;Siltepec;080;5
+1498;Juchitan;080;12
+1499;Yahualica;080;13
+1500;San Sebastian del Oeste;080;14
+1501;Sultepec;080;15
+1502;Senguio;080;16
+1503;San Agustin Amatengo;080;20
+1504;Atlequizayan;080;21
+1505;Ixhuatlan del Cafe;080;30
+1506;Tekit;080;31
+1507;Simojovel;081;5
+1508;Iliatenco;081;12
+1509;Zacualtipan de angeles;081;13
+1510;Santa Maria de los angeles;081;14
+1511;Tecamac;081;15
+1512;Susupuato;081;16
+1513;San Agustin Atenango;081;20
+1514;Ixcamilpa de Guerrero;081;21
+1515;Ixhuatlancillo;081;30
+1516;Tekom;081;31
+1517;Sitala;082;5
+1518;Zapotlan de Juarez;082;13
+1519;Sayula;082;14
+1520;Tejupilco;082;15
+1521;Tacambaro;082;16
+1522;San Agustin Chayuco;082;20
+1523;Ixcaquixtla;082;21
+1524;Ixhuatlan del Sureste;082;30
+1525;Telchac Pueblo;082;31
+1526;Socoltenango;083;5
+1527;Zempoala;083;13
+1528;Tala;083;14
+1529;Temamatla;083;15
+1530;Tancitaro;083;16
+1531;San Agustin de las Juntas;083;20
+1532;Ixtacamaxtitlan;083;21
+1533;Ixhuatlan de Madero;083;30
+1534;Telchac Puerto;083;31
+1535;Solosuchiapa;084;5
+1536;Zimapan;084;13
+1537;Talpa de Allende;084;14
+1538;Temascalapa;084;15
+1539;Tangamandapio;084;16
+1540;San Agustin Etla;084;20
+1541;Ixtepec;084;21
+1542;Ixmatlahuacan;084;30
+1543;Temax;084;31
+1544;Soyalo;085;5
+1545;Tamazula de Gordiano;085;14
+1546;Temascalcingo;085;15
+1547;Tangancicuaro;085;16
+1548;San Agustin Loxicha;085;20
+1549;Izucar de Matamoros;085;21
+1550;Ixtaczoquitlan;085;30
+1551;Temozon;085;31
+1552;Suchiapa;086;5
+1553;Tapalpa;086;14
+1554;Temascaltepec;086;15
+1555;Tanhuato;086;16
+1556;San Agustin Tlacotepec;086;20
+1557;Jalpan;086;21
+1558;Jalacingo;086;30
+1559;Tepakan;086;31
+1560;Suchiate;087;5
+1561;Tecalitlan;087;14
+1562;Temoaya;087;15
+1563;Taretan;087;16
+1564;San Agustin Yatareni;087;20
+1565;Jolalpan;087;21
+1566;Xalapa;087;30
+1567;Tetiz;087;31
+1568;Sunuapa;088;5
+1569;Tecolotlan;088;14
+1570;Tenancingo;088;15
+1571;Tarimbaro;088;16
+1572;San Andres Cabecera Nueva;088;20
+1573;Jonotla;088;21
+1574;Jalcomulco;088;30
+1575;Teya;088;31
+1576;Tapachula;089;5
+1577;Techaluta de Montenegro;089;14
+1578;Tenango del Aire;089;15
+1579;Tepalcatepec;089;16
+1580;San Andres Dinicuiti;089;20
+1581;Jopala;089;21
+1582;Jaltipan;089;30
+1583;Ticul;089;31
+1584;Tapalapa;090;5
+1585;Tenamaxtlan;090;14
+1586;Tenango del Valle;090;15
+1587;Tingambato;090;16
+1588;San Andres Huaxpaltepec;090;20
+1589;Juan C. Bonilla;090;21
+1590;Jamapa;090;30
+1591;Timucuy;090;31
+1592;Tapilula;091;5
+1593;Teocaltiche;091;14
+1594;Teoloyucan;091;15
+1595;Tingüindin;091;16
+1596;San Andres Huayapam;091;20
+1597;Juan Galindo;091;21
+1598;Jesus Carranza;091;30
+1599;Tinum;091;31
+1600;Tecpatan;092;5
+1601;Teocuitatlan de Corona;092;14
+1602;Teotihuacan;092;15
+1603;Tiquicheo de Nicolas Romero;092;16
+1604;San Andres Ixtlahuaca;092;20
+1605;Juan N. Mendez;092;21
+1606;Xico;092;30
+1607;Tixcacalcupul;092;31
+1608;Tenejapa;093;5
+1609;Tepatitlan de Morelos;093;14
+1610;Tepetlaoxtoc;093;15
+1611;Tlalpujahua;093;16
+1612;San Andres Lagunas;093;20
+1613;Lafragua;093;21
+1614;Jilotepec;093;30
+1615;Tixkokob;093;31
+1616;Teopisca;094;5
+1617;Tequila;094;14
+1618;Tepetlixpa;094;15
+1619;Tlazazalca;094;16
+1620;San Andres Nuxino;094;20
+1621;Libres;094;21
+1622;Juan Rodriguez Clara;094;30
+1623;Tixmehuac;094;31
+1624;Teuchitlan;095;14
+1625;Tepotzotlan;095;15
+1626;Tocumbo;095;16
+1627;San Andres Paxtlan;095;20
+1628;La Magdalena Tlatlauquitepec;095;21
+1629;Juchique de Ferrer;095;30
+1630;Tixpehual;095;31
+1631;Tila;096;5
+1632;Tizapan el Alto;096;14
+1633;Tequixquiac;096;15
+1634;Tumbiscatio;096;16
+1635;San Andres Sinaxtla;096;20
+1636;Mazapiltepec de Juarez;096;21
+1637;Landero y Coss;096;30
+1638;Tizimin;096;31
+1639;Tonala;097;5
+1640;Tlajomulco de Zuniga;097;14
+1641;Texcaltitlan;097;15
+1642;Turicato;097;16
+1643;San Andres Solaga;097;20
+1644;Mixtla;097;21
+1645;Lerdo de Tejada;097;30
+1646;Tunkas;097;31
+1647;Totolapa;098;5
+1648;San Pedro Tlaquepaque;098;14
+1649;Texcalyacac;098;15
+1650;Tuxpan;098;16
+1651;San Andres Teotilalpam;098;20
+1652;Molcaxac;098;21
+1653;Magdalena;098;30
+1654;Tzucacab;098;31
+1655;La Trinitaria;099;5
+1656;Toliman;099;14
+1657;Texcoco;099;15
+1658;Tuzantla;099;16
+1659;San Andres Tepetlapa;099;20
+1660;Canada Morelos;099;21
+1661;Maltrata;099;30
+1662;Uayma;099;31
+1663;Tumbala;100;5
+1664;Tomatlan;100;14
+1665;Tezoyuca;100;15
+1666;Tzintzuntzan;100;16
+1667;San Andres Yaa;100;20
+1668;Naupan;100;21
+1669;Manlio Fabio Altamirano;100;30
+1670;Ucu;100;31
+1671;Tuxtla Gutierrez;101;5
+1672;Tonala;101;14
+1673;Tianguistenco;101;15
+1674;Tzitzio;101;16
+1675;San Andres Zabache;101;20
+1676;Nauzontla;101;21
+1677;Mariano Escobedo;101;30
+1678;Uman;101;31
+1679;Tuxtla Chico;102;5
+1680;Tonaya;102;14
+1681;Timilpan;102;15
+1682;Uruapan;102;16
+1683;San Andres Zautla;102;20
+1684;Nealtican;102;21
+1685;Martinez de la Torre;102;30
+1686;Valladolid;102;31
+1687;Tuzantan;103;5
+1688;Tonila;103;14
+1689;Tlalmanalco;103;15
+1690;Venustiano Carranza;103;16
+1691;San Antonino Castillo Velasco;103;20
+1692;Nicolas Bravo;103;21
+1693;Mecatlan;103;30
+1694;Xocchel;103;31
+1695;Tzimol;104;5
+1696;Totatiche;104;14
+1697;Tlalnepantla de Baz;104;15
+1698;Villamar;104;16
+1699;San Antonino el Alto;104;20
+1700;Nopalucan;104;21
+1701;Mecayapan;104;30
+1702;Yaxcaba;104;31
+1703;Union Juarez;105;5
+1704;Tototlan;105;14
+1705;Tlatlaya;105;15
+1706;Vista Hermosa;105;16
+1707;San Antonino Monte Verde;105;20
+1708;Ocotepec;105;21
+1709;Medellin;105;30
+1710;Yaxkukul;105;31
+1711;Venustiano Carranza;106;5
+1712;Tuxcacuesco;106;14
+1713;Toluca;106;15
+1714;Yurecuaro;106;16
+1715;San Antonio Acutla;106;20
+1716;Ocoyucan;106;21
+1717;Miahuatlan;106;30
+1718;Yobain;106;31
+1719;Villa Corzo;107;5
+1720;Tuxcueca;107;14
+1721;Tonatico;107;15
+1722;Zacapu;107;16
+1723;San Antonio de la Cal;107;20
+1724;Olintla;107;21
+1725;Las Minas;107;30
+1726;Villaflores;108;5
+1727;Tuxpan;108;14
+1728;Tultepec;108;15
+1729;Zamora;108;16
+1730;San Antonio Huitepec;108;20
+1731;Oriental;108;21
+1732;Minatitlan;108;30
+1733;Yajalon;109;5
+1734;Union de San Antonio;109;14
+1735;Tultitlan;109;15
+1736;Zinaparo;109;16
+1737;San Antonio Nanahuatipam;109;20
+1738;Pahuatlan;109;21
+1739;Misantla;109;30
+1740;San Lucas;110;5
+1741;Union de Tula;110;14
+1742;Valle de Bravo;110;15
+1743;Zinapecuaro;110;16
+1744;San Antonio Sinicahua;110;20
+1745;Palmar de Bravo;110;21
+1746;Mixtla de Altamirano;110;30
+1747;Zinacantan;111;5
+1748;Valle de Guadalupe;111;14
+1749;Villa de Allende;111;15
+1750;Ziracuaretiro;111;16
+1751;San Antonio Tepetlapa;111;20
+1752;Pantepec;111;21
+1753;Moloacan;111;30
+1754;San Juan Cancuc;112;5
+1755;Valle de Juarez;112;14
+1756;Villa del Carbon;112;15
+1757;Zitacuaro;112;16
+1758;San Baltazar Chichicapam;112;20
+1759;Petlalcingo;112;21
+1760;Naolinco;112;30
+1761;Aldama;113;5
+1762;San Gabriel;113;14
+1763;Villa Guerrero;113;15
+1764;Jose Sixto Verduzco;113;16
+1765;San Baltazar Loxicha;113;20
+1766;Piaxtla;113;21
+1767;Naranjal;113;30
+1768;Benemerito de las Americas;114;5
+1769;Villa Corona;114;14
+1770;Villa Victoria;114;15
+1771;San Baltazar Yatzachi el Bajo;114;20
+1772;Puebla;114;21
+1773;Nautla;114;30
+1774;Maravilla Tenejapa;115;5
+1775;Villa Guerrero;115;14
+1776;Xonacatlan;115;15
+1777;San Bartolo Coyotepec;115;20
+1778;Quecholac;115;21
+1779;Nogales;115;30
+1780;Marques de Comillas;116;5
+1781;Villa Hidalgo;116;14
+1782;Zacazonapan;116;15
+1783;San Bartolome Ayautla;116;20
+1784;Quimixtlan;116;21
+1785;Oluta;116;30
+1786;Montecristo de Guerrero;117;5
+1787;Canadas de Obregon;117;14
+1788;Zacualpan;117;15
+1789;San Bartolome Loxicha;117;20
+1790;Rafael Lara Grajales;117;21
+1791;Omealca;117;30
+1792;San Andres Duraznal;118;5
+1793;Yahualica de Gonzalez Gallo;118;14
+1794;Zinacantepec;118;15
+1795;San Bartolome Quialana;118;20
+1796;Los Reyes de Juarez;118;21
+1797;Orizaba;118;30
+1798;Santiago el Pinar;119;5
+1799;Zacoalco de Torres;119;14
+1800;Zumpahuacan;119;15
+1801;San Bartolome Yucuane;119;20
+1802;San Andres Cholula;119;21
+1803;Otatitlan;119;30
+1804;Zapopan;120;14
+1805;Zumpango;120;15
+1806;San Bartolome Zoogocho;120;20
+1807;San Antonio Canada;120;21
+1808;Oteapan;120;30
+1809;Zapotiltic;121;14
+1810;Cuautitlan Izcalli;121;15
+1811;San Bartolo Soyaltepec;121;20
+1812;San Diego la Mesa Tochimiltzingo;121;21
+1813;Ozuluama de Mascarenas;121;30
+1814;Zapotitlan de Vadillo;122;14
+1815;Valle de Chalco Solidaridad;122;15
+1816;San Bartolo Yautepec;122;20
+1817;San Felipe Teotlalcingo;122;21
+1818;Pajapan;122;30
+1819;Zapotlan del Rey;123;14
+1820;Luvianos;123;15
+1821;San Bernardo Mixtepec;123;20
+1822;San Felipe Tepatlan;123;21
+1823;Panuco;123;30
+1824;Zapotlanejo;124;14
+1825;San Jose del Rincon;124;15
+1826;San Blas Atempa;124;20
+1827;San Gabriel Chilac;124;21
+1828;Papantla;124;30
+1829;San Ignacio Cerro Gordo;125;14
+1830;Tonanitla;125;15
+1831;San Carlos Yautepec;125;20
+1832;San Gregorio Atzompa;125;21
+1833;Paso del Macho;125;30
+1834;San Cristobal Amatlan;126;20
+1835;San Jeronimo Tecuanipan;126;21
+1836;Paso de Ovejas;126;30
+1837;San Cristobal Amoltepec;127;20
+1838;San Jeronimo Xayacatlan;127;21
+1839;La Perla;127;30
+1840;San Cristobal Lachirioag;128;20
+1841;San Jose Chiapa;128;21
+1842;Perote;128;30
+1843;San Cristobal Suchixtlahuaca;129;20
+1844;San Jose Miahuatlan;129;21
+1845;Platon Sanchez;129;30
+1846;San Dionisio del Mar;130;20
+1847;San Juan Atenco;130;21
+1848;Playa Vicente;130;30
+1849;San Dionisio Ocotepec;131;20
+1850;San Juan Atzompa;131;21
+1851;Poza Rica de Hidalgo;131;30
+1852;San Dionisio Ocotlan;132;20
+1853;San Martin Texmelucan;132;21
+1854;Las Vigas de Ramirez;132;30
+1855;San Esteban Atatlahuca;133;20
+1856;San Martin Totoltepec;133;21
+1857;Pueblo Viejo;133;30
+1858;San Felipe Jalapa de Diaz;134;20
+1859;San Matias Tlalancaleca;134;21
+1860;Puente Nacional;134;30
+1861;San Felipe Tejalapam;135;20
+1862;San Miguel Ixitlan;135;21
+1863;Rafael Delgado;135;30
+1864;San Felipe Usila;136;20
+1865;San Miguel Xoxtla;136;21
+1866;Rafael Lucio;136;30
+1867;San Francisco Cahuacua;137;20
+1868;San Nicolas Buenos Aires;137;21
+1869;Los Reyes;137;30
+1870;San Francisco Cajonos;138;20
+1871;San Nicolas de los Ranchos;138;21
+1872;Rio Blanco;138;30
+1873;San Francisco Chapulapa;139;20
+1874;San Pablo Anicano;139;21
+1875;Saltabarranca;139;30
+1876;San Francisco Chindua;140;20
+1877;San Pedro Cholula;140;21
+1878;San Andres Tenejapan;140;30
+1879;San Francisco del Mar;141;20
+1880;San Pedro Yeloixtlahuaca;141;21
+1881;San Andres Tuxtla;141;30
+1882;San Francisco Huehuetlan;142;20
+1883;San Salvador el Seco;142;21
+1884;San Juan Evangelista;142;30
+1885;San Francisco Ixhuatan;143;20
+1886;San Salvador el Verde;143;21
+1887;Santiago Tuxtla;143;30
+1888;San Francisco Jaltepetongo;144;20
+1889;San Salvador Huixcolotla;144;21
+1890;Sayula de Aleman;144;30
+1891;San Francisco Lachigolo;145;20
+1892;San Sebastian Tlacotepec;145;21
+1893;Soconusco;145;30
+1894;San Francisco Logueche;146;20
+1895;Santa Catarina Tlaltempan;146;21
+1896;Sochiapa;146;30
+1897;San Francisco Nuxano;147;20
+1898;Santa Ines Ahuatempan;147;21
+1899;Soledad Atzompa;147;30
+1900;San Francisco Ozolotepec;148;20
+1901;Santa Isabel Cholula;148;21
+1902;Soledad de Doblado;148;30
+1903;San Francisco Sola;149;20
+1904;Santiago Miahuatlan;149;21
+1905;Soteapan;149;30
+1906;San Francisco Telixtlahuaca;150;20
+1907;Huehuetlan el Grande;150;21
+1908;Tamalin;150;30
+1909;San Francisco Teopan;151;20
+1910;Santo Tomas Hueyotlipan;151;21
+1911;Tamiahua;151;30
+1912;San Francisco Tlapancingo;152;20
+1913;Soltepec;152;21
+1914;Tampico Alto;152;30
+1915;San Gabriel Mixtepec;153;20
+1916;Tecali de Herrera;153;21
+1917;Tancoco;153;30
+1918;San Ildefonso Amatlan;154;20
+1919;Tecamachalco;154;21
+1920;Tantima;154;30
+1921;San Ildefonso Sola;155;20
+1922;Tecomatlan;155;21
+1923;Tantoyuca;155;30
+1924;San Ildefonso Villa Alta;156;20
+1925;Tehuacan;156;21
+1926;Tatatila;156;30
+1927;San Jacinto Amilpas;157;20
+1928;Tehuitzingo;157;21
+1929;Castillo de Teayo;157;30
+1930;San Jacinto Tlacotepec;158;20
+1931;Tenampulco;158;21
+1932;Tecolutla;158;30
+1933;San Jeronimo Coatlan;159;20
+1934;Teopantlan;159;21
+1935;Tehuipango;159;30
+1936;San Jeronimo Silacayoapilla;160;20
+1937;Teotlalco;160;21
+1938;alamo Temapache;160;30
+1939;San Jeronimo Sosola;161;20
+1940;Tepanco de Lopez;161;21
+1941;Tempoal;161;30
+1942;San Jeronimo Taviche;162;20
+1943;Tepango de Rodriguez;162;21
+1944;Tenampa;162;30
+1945;San Jeronimo Tecoatl;163;20
+1946;Tepatlaxco de Hidalgo;163;21
+1947;Tenochtitlan;163;30
+1948;San Jorge Nuchita;164;20
+1949;Tepeaca;164;21
+1950;Teocelo;164;30
+1951;San Jose Ayuquila;165;20
+1952;Tepemaxalco;165;21
+1953;Tepatlaxco;165;30
+1954;San Jose Chiltepec;166;20
+1955;Tepeojuma;166;21
+1956;Tepetlan;166;30
+1957;San Jose del Penasco;167;20
+1958;Tepetzintla;167;21
+1959;Tepetzintla;167;30
+1960;San Jose Estancia Grande;168;20
+1961;Tepexco;168;21
+1962;Tequila;168;30
+1963;San Jose Independencia;169;20
+1964;Tepexi de Rodriguez;169;21
+1965;Jose Azueta;169;30
+1966;San Jose Lachiguiri;170;20
+1967;Tepeyahualco;170;21
+1968;Texcatepec;170;30
+1969;San Jose Tenango;171;20
+1970;Tepeyahualco de Cuauhtemoc;171;21
+1971;Texhuacan;171;30
+1972;San Juan Achiutla;172;20
+1973;Tetela de Ocampo;172;21
+1974;Texistepec;172;30
+1975;San Juan Atepec;173;20
+1976;Teteles de Avila Castillo;173;21
+1977;Tezonapa;173;30
+1978;animas Trujano;174;20
+1979;Teziutlan;174;21
+1980;Tierra Blanca;174;30
+1981;San Juan Bautista Atatlahuca;175;20
+1982;Tianguismanalco;175;21
+1983;Tihuatlan;175;30
+1984;San Juan Bautista Coixtlahuaca;176;20
+1985;Tilapa;176;21
+1986;Tlacojalpan;176;30
+1987;San Juan Bautista Cuicatlan;177;20
+1988;Tlacotepec de Benito Juarez;177;21
+1989;Tlacolulan;177;30
+1990;San Juan Bautista Guelache;178;20
+1991;Tlacuilotepec;178;21
+1992;Tlacotalpan;178;30
+1993;San Juan Bautista Jayacatlan;179;20
+1994;Tlachichuca;179;21
+1995;Tlacotepec de Mejia;179;30
+1996;San Juan Bautista Lo de Soto;180;20
+1997;Tlahuapan;180;21
+1998;Tlachichilco;180;30
+1999;San Juan Bautista Suchitepec;181;20
+2000;Tlaltenango;181;21
+2001;Tlalixcoyan;181;30
+2002;San Juan Bautista Tlacoatzintepec;182;20
+2003;Tlanepantla;182;21
+2004;Tlalnelhuayocan;182;30
+2005;San Juan Bautista Tlachichilco;183;20
+2006;Tlaola;183;21
+2007;Tlapacoyan;183;30
+2008;San Juan Bautista Tuxtepec;184;20
+2009;Tlapacoya;184;21
+2010;Tlaquilpa;184;30
+2011;San Juan Cacahuatepec;185;20
+2012;Tlapanala;185;21
+2013;Tlilapan;185;30
+2014;San Juan Cieneguilla;186;20
+2015;Tlatlauquitepec;186;21
+2016;Tomatlan;186;30
+2017;San Juan Coatzospam;187;20
+2018;Tlaxco;187;21
+2019;Tonayan;187;30
+2020;San Juan Colorado;188;20
+2021;Tochimilco;188;21
+2022;Totutla;188;30
+2023;San Juan Comaltepec;189;20
+2024;Tochtepec;189;21
+2025;Tuxpan;189;30
+2026;San Juan Cotzocon;190;20
+2027;Totoltepec de Guerrero;190;21
+2028;Tuxtilla;190;30
+2029;San Juan Chicomezuchil;191;20
+2030;Tulcingo;191;21
+2031;Ursulo Galvan;191;30
+2032;San Juan Chilateca;192;20
+2033;Tuzamapan de Galeana;192;21
+2034;Vega de Alatorre;192;30
+2035;San Juan del Estado;193;20
+2036;Tzicatlacoyan;193;21
+2037;Veracruz;193;30
+2038;San Juan del Rio;194;20
+2039;Venustiano Carranza;194;21
+2040;Villa Aldama;194;30
+2041;San Juan Diuxi;195;20
+2042;Vicente Guerrero;195;21
+2043;Xoxocotla;195;30
+2044;San Juan Evangelista Analco;196;20
+2045;Xayacatlan de Bravo;196;21
+2046;Yanga;196;30
+2047;San Juan Guelavia;197;20
+2048;Xicotepec;197;21
+2049;Yecuatla;197;30
+2050;San Juan Guichicovi;198;20
+2051;Xicotlan;198;21
+2052;Zacualpan;198;30
+2053;San Juan Ihualtepec;199;20
+2054;Xiutetelco;199;21
+2055;Zaragoza;199;30
+2056;San Juan Juquila Mixes;200;20
+2057;Xochiapulco;200;21
+2058;Zentla;200;30
+2059;San Juan Juquila Vijanos;201;20
+2060;Xochiltepec;201;21
+2061;Zongolica;201;30
+2062;San Juan Lachao;202;20
+2063;Xochitlan de Vicente Suarez;202;21
+2064;Zontecomatlan de Lopez y Fuentes;202;30
+2065;San Juan Lachigalla;203;20
+2066;Xochitlan Todos Santos;203;21
+2067;Zozocolco de Hidalgo;203;30
+2068;San Juan Lajarcia;204;20
+2069;Yaonahuac;204;21
+2070;Agua Dulce;204;30
+2071;San Juan Lalana;205;20
+2072;Yehualtepec;205;21
+2073;El Higo;205;30
+2074;San Juan de los Cues;206;20
+2075;Zacapala;206;21
+2076;Nanchital de Lazaro Cardenas del Rio;206;30
+2077;San Juan Mazatlan;207;20
+2078;Zacapoaxtla;207;21
+2079;Tres Valles;207;30
+2080;San Juan Mixtepec -Dto. 08 -;208;20
+2081;Zacatlan;208;21
+2082;Carlos A. Carrillo;208;30
+2083;San Juan Mixtepec -Dto. 26 -;209;20
+2084;Zapotitlan;209;21
+2085;Tatahuicapan de Juarez;209;30
+2086;San Juan numi;210;20
+2087;Zapotitlan de Mendez;210;21
+2088;Uxpanapa;210;30
+2089;San Juan Ozolotepec;211;20
+2090;Zaragoza;211;21
+2091;San Rafael;211;30
+2092;San Juan Petlapa;212;20
+2093;Zautla;212;21
+2094;Santiago Sochiapan;212;30
+2095;San Juan Quiahije;213;20
+2096;Zihuateutla;213;21
+2097;San Juan Quiotepec;214;20
+2098;Zinacatepec;214;21
+2099;San Juan Sayultepec;215;20
+2100;Zongozotla;215;21
+2101;San Juan Tabaa;216;20
+2102;Zoquiapan;216;21
+2103;San Juan Tamazola;217;20
+2104;Zoquitlan;217;21
+2105;San Juan Teita;218;20
+2106;San Juan Teitipac;219;20
+2107;San Juan Tepeuxila;220;20
+2108;San Juan Teposcolula;221;20
+2109;San Juan Yaee;222;20
+2110;San Juan Yatzona;223;20
+2111;San Juan Yucuita;224;20
+2112;San Lorenzo;225;20
+2113;San Lorenzo Albarradas;226;20
+2114;San Lorenzo Cacaotepec;227;20
+2115;San Lorenzo Cuaunecuiltitla;228;20
+2116;San Lorenzo Texmelucan;229;20
+2117;San Lorenzo Victoria;230;20
+2118;San Lucas Camotlan;231;20
+2119;San Lucas Ojitlan;232;20
+2120;San Lucas Quiavini;233;20
+2121;San Lucas Zoquiapam;234;20
+2122;San Luis Amatlan;235;20
+2123;San Marcial Ozolotepec;236;20
+2124;San Marcos Arteaga;237;20
+2125;San Martin de los Cansecos;238;20
+2126;San Martin Huamelulpam;239;20
+2127;San Martin Itunyoso;240;20
+2128;San Martin Lachila;241;20
+2129;San Martin Peras;242;20
+2130;San Martin Tilcajete;243;20
+2131;San Martin Toxpalan;244;20
+2132;San Martin Zacatepec;245;20
+2133;San Mateo Cajonos;246;20
+2134;Capulalpam de Mendez;247;20
+2135;San Mateo del Mar;248;20
+2136;San Mateo Yoloxochitlan;249;20
+2137;San Mateo Etlatongo;250;20
+2138;San Mateo Nejapam;251;20
+2139;San Mateo Penasco;252;20
+2140;San Mateo Pinas;253;20
+2141;San Mateo Rio Hondo;254;20
+2142;San Mateo Sindihui;255;20
+2143;San Mateo Tlapiltepec;256;20
+2144;San Melchor Betaza;257;20
+2145;San Miguel Achiutla;258;20
+2146;San Miguel Ahuehuetitlan;259;20
+2147;San Miguel Aloapam;260;20
+2148;San Miguel Amatitlan;261;20
+2149;San Miguel Amatlan;262;20
+2150;San Miguel Coatlan;263;20
+2151;San Miguel Chicahua;264;20
+2152;San Miguel Chimalapa;265;20
+2153;San Miguel del Puerto;266;20
+2154;San Miguel del Rio;267;20
+2155;San Miguel Ejutla;268;20
+2156;San Miguel el Grande;269;20
+2157;San Miguel Huautla;270;20
+2158;San Miguel Mixtepec;271;20
+2159;San Miguel Panixtlahuaca;272;20
+2160;San Miguel Peras;273;20
+2161;San Miguel Piedras;274;20
+2162;San Miguel Quetzaltepec;275;20
+2163;San Miguel Santa Flor;276;20
+2164;Villa Sola de Vega;277;20
+2165;San Miguel Soyaltepec;278;20
+2166;San Miguel Suchixtepec;279;20
+2167;Villa Talea de Castro;280;20
+2168;San Miguel Tecomatlan;281;20
+2169;San Miguel Tenango;282;20
+2170;San Miguel Tequixtepec;283;20
+2171;San Miguel Tilquiapam;284;20
+2172;San Miguel Tlacamama;285;20
+2173;San Miguel Tlacotepec;286;20
+2174;San Miguel Tulancingo;287;20
+2175;San Miguel Yotao;288;20
+2176;San Nicolas;289;20
+2177;San Nicolas Hidalgo;290;20
+2178;San Pablo Coatlan;291;20
+2179;San Pablo Cuatro Venados;292;20
+2180;San Pablo Etla;293;20
+2181;San Pablo Huitzo;294;20
+2182;San Pablo Huixtepec;295;20
+2183;San Pablo Macuiltianguis;296;20
+2184;San Pablo Tijaltepec;297;20
+2185;San Pablo Villa de Mitla;298;20
+2186;San Pablo Yaganiza;299;20
+2187;San Pedro Amuzgos;300;20
+2188;San Pedro Apostol;301;20
+2189;San Pedro Atoyac;302;20
+2190;San Pedro Cajonos;303;20
+2191;San Pedro Coxcaltepec Cantaros;304;20
+2192;San Pedro Comitancillo;305;20
+2193;San Pedro el Alto;306;20
+2194;San Pedro Huamelula;307;20
+2195;San Pedro Huilotepec;308;20
+2196;San Pedro Ixcatlan;309;20
+2197;San Pedro Ixtlahuaca;310;20
+2198;San Pedro Jaltepetongo;311;20
+2199;San Pedro Jicayan;312;20
+2200;San Pedro Jocotipac;313;20
+2201;San Pedro Juchatengo;314;20
+2202;San Pedro Martir;315;20
+2203;San Pedro Martir Quiechapa;316;20
+2204;San Pedro Martir Yucuxaco;317;20
+2205;San Pedro Mixtepec -Dto. 22 -;318;20
+2206;San Pedro Mixtepec -Dto. 26 -;319;20
+2207;San Pedro Molinos;320;20
+2208;San Pedro Nopala;321;20
+2209;San Pedro Ocopetatillo;322;20
+2210;San Pedro Ocotepec;323;20
+2211;San Pedro Pochutla;324;20
+2212;San Pedro Quiatoni;325;20
+2213;San Pedro Sochiapam;326;20
+2214;San Pedro Tapanatepec;327;20
+2215;San Pedro Taviche;328;20
+2216;San Pedro Teozacoalco;329;20
+2217;San Pedro Teutila;330;20
+2218;San Pedro Tidaa;331;20
+2219;San Pedro Topiltepec;332;20
+2220;San Pedro Totolapam;333;20
+2221;Villa de Tututepec de Melchor Ocampo;334;20
+2222;San Pedro Yaneri;335;20
+2223;San Pedro Yolox;336;20
+2224;San Pedro y San Pablo Ayutla;337;20
+2225;Villa de Etla;338;20
+2226;San Pedro y San Pablo Teposcolula;339;20
+2227;San Pedro y San Pablo Tequixtepec;340;20
+2228;San Pedro Yucunama;341;20
+2229;San Raymundo Jalpan;342;20
+2230;San Sebastian Abasolo;343;20
+2231;San Sebastian Coatlan;344;20
+2232;San Sebastian Ixcapa;345;20
+2233;San Sebastian Nicananduta;346;20
+2234;San Sebastian Rio Hondo;347;20
+2235;San Sebastian Tecomaxtlahuaca;348;20
+2236;San Sebastian Teitipac;349;20
+2237;San Sebastian Tutla;350;20
+2238;San Simon Almolongas;351;20
+2239;San Simon Zahuatlan;352;20
+2240;Santa Ana;353;20
+2241;Santa Ana Ateixtlahuaca;354;20
+2242;Santa Ana Cuauhtemoc;355;20
+2243;Santa Ana del Valle;356;20
+2244;Santa Ana Tavela;357;20
+2245;Santa Ana Tlapacoyan;358;20
+2246;Santa Ana Yareni;359;20
+2247;Santa Ana Zegache;360;20
+2248;Santa Catalina Quieri;361;20
+2249;Santa Catarina Cuixtla;362;20
+2250;Santa Catarina Ixtepeji;363;20
+2251;Santa Catarina Juquila;364;20
+2252;Santa Catarina Lachatao;365;20
+2253;Santa Catarina Loxicha;366;20
+2254;Santa Catarina Mechoacan;367;20
+2255;Santa Catarina Minas;368;20
+2256;Santa Catarina Quiane;369;20
+2257;Santa Catarina Tayata;370;20
+2258;Santa Catarina Ticua;371;20
+2259;Santa Catarina Yosonotu;372;20
+2260;Santa Catarina Zapoquila;373;20
+2261;Santa Cruz Acatepec;374;20
+2262;Santa Cruz Amilpas;375;20
+2263;Santa Cruz de Bravo;376;20
+2264;Santa Cruz Itundujia;377;20
+2265;Santa Cruz Mixtepec;378;20
+2266;Santa Cruz Nundaco;379;20
+2267;Santa Cruz Papalutla;380;20
+2268;Santa Cruz Tacache de Mina;381;20
+2269;Santa Cruz Tacahua;382;20
+2270;Santa Cruz Tayata;383;20
+2271;Santa Cruz Xitla;384;20
+2272;Santa Cruz Xoxocotlan;385;20
+2273;Santa Cruz Zenzontepec;386;20
+2274;Santa Gertrudis;387;20
+2275;Santa Ines del Monte;388;20
+2276;Santa Ines Yatzeche;389;20
+2277;Santa Lucia del Camino;390;20
+2278;Santa Lucia Miahuatlan;391;20
+2279;Santa Lucia Monteverde;392;20
+2280;Santa Lucia Ocotlan;393;20
+2281;Santa Maria Alotepec;394;20
+2282;Santa Maria Apazco;395;20
+2283;Santa Maria la Asuncion;396;20
+2284;Heroica Ciudad de Tlaxiaco;397;20
+2285;Ayoquezco de Aldama;398;20
+2286;Santa Maria Atzompa;399;20
+2287;Santa Maria Camotlan;400;20
+2288;Santa Maria Colotepec;401;20
+2289;Santa Maria Cortijo;402;20
+2290;Santa Maria Coyotepec;403;20
+2291;Santa Maria Chachoapam;404;20
+2292;Villa de Chilapa de Diaz;405;20
+2293;Santa Maria Chilchotla;406;20
+2294;Santa Maria Chimalapa;407;20
+2295;Santa Maria del Rosario;408;20
+2296;Santa Maria del Tule;409;20
+2297;Santa Maria Ecatepec;410;20
+2298;Santa Maria Guelace;411;20
+2299;Santa Maria Guienagati;412;20
+2300;Santa Maria Huatulco;413;20
+2301;Santa Maria Huazolotitlan;414;20
+2302;Santa Maria Ipalapa;415;20
+2303;Santa Maria Ixcatlan;416;20
+2304;Santa Maria Jacatepec;417;20
+2305;Santa Maria Jalapa del Marques;418;20
+2306;Santa Maria Jaltianguis;419;20
+2307;Santa Maria Lachixio;420;20
+2308;Santa Maria Mixtequilla;421;20
+2309;Santa Maria Nativitas;422;20
+2310;Santa Maria Nduayaco;423;20
+2311;Santa Maria Ozolotepec;424;20
+2312;Santa Maria Papalo;425;20
+2313;Santa Maria Penoles;426;20
+2314;Santa Maria Petapa;427;20
+2315;Santa Maria Quiegolani;428;20
+2316;Santa Maria Sola;429;20
+2317;Santa Maria Tataltepec;430;20
+2318;Santa Maria Tecomavaca;431;20
+2319;Santa Maria Temaxcalapa;432;20
+2320;Santa Maria Temaxcaltepec;433;20
+2321;Santa Maria Teopoxco;434;20
+2322;Santa Maria Tepantlali;435;20
+2323;Santa Maria Texcatitlan;436;20
+2324;Santa Maria Tlahuitoltepec;437;20
+2325;Santa Maria Tlalixtac;438;20
+2326;Santa Maria Tonameca;439;20
+2327;Santa Maria Totolapilla;440;20
+2328;Santa Maria Xadani;441;20
+2329;Santa Maria Yalina;442;20
+2330;Santa Maria Yavesia;443;20
+2331;Santa Maria Yolotepec;444;20
+2332;Santa Maria Yosoyua;445;20
+2333;Santa Maria Yucuhiti;446;20
+2334;Santa Maria Zacatepec;447;20
+2335;Santa Maria Zaniza;448;20
+2336;Santa Maria Zoquitlan;449;20
+2337;Santiago Amoltepec;450;20
+2338;Santiago Apoala;451;20
+2339;Santiago Apostol;452;20
+2340;Santiago Astata;453;20
+2341;Santiago Atitlan;454;20
+2342;Santiago Ayuquililla;455;20
+2343;Santiago Cacaloxtepec;456;20
+2344;Santiago Camotlan;457;20
+2345;Santiago Comaltepec;458;20
+2346;Santiago Chazumba;459;20
+2347;Santiago Choapam;460;20
+2348;Santiago del Rio;461;20
+2349;Santiago Huajolotitlan;462;20
+2350;Santiago Huauclilla;463;20
+2351;Santiago Ihuitlan Plumas;464;20
+2352;Santiago Ixcuintepec;465;20
+2353;Santiago Ixtayutla;466;20
+2354;Santiago Jamiltepec;467;20
+2355;Santiago Jocotepec;468;20
+2356;Santiago Juxtlahuaca;469;20
+2357;Santiago Lachiguiri;470;20
+2358;Santiago Lalopa;471;20
+2359;Santiago Laollaga;472;20
+2360;Santiago Laxopa;473;20
+2361;Santiago Llano Grande;474;20
+2362;Santiago Matatlan;475;20
+2363;Santiago Miltepec;476;20
+2364;Santiago Minas;477;20
+2365;Santiago Nacaltepec;478;20
+2366;Santiago Nejapilla;479;20
+2367;Santiago Nundiche;480;20
+2368;Santiago Nuyoo;481;20
+2369;Santiago Pinotepa Nacional;482;20
+2370;Santiago Suchilquitongo;483;20
+2371;Santiago Tamazola;484;20
+2372;Santiago Tapextla;485;20
+2373;Villa Tejupam de la Union;486;20
+2374;Santiago Tenango;487;20
+2375;Santiago Tepetlapa;488;20
+2376;Santiago Tetepec;489;20
+2377;Santiago Texcalcingo;490;20
+2378;Santiago Textitlan;491;20
+2379;Santiago Tilantongo;492;20
+2380;Santiago Tillo;493;20
+2381;Santiago Tlazoyaltepec;494;20
+2382;Santiago Xanica;495;20
+2383;Santiago Xiacui;496;20
+2384;Santiago Yaitepec;497;20
+2385;Santiago Yaveo;498;20
+2386;Santiago Yolomecatl;499;20
+2387;Santiago Yosondua;500;20
+2388;Santiago Yucuyachi;501;20
+2389;Santiago Zacatepec;502;20
+2390;Santiago Zoochila;503;20
+2391;Nuevo Zoquiapam;504;20
+2392;Santo Domingo Ingenio;505;20
+2393;Santo Domingo Albarradas;506;20
+2394;Santo Domingo Armenta;507;20
+2395;Santo Domingo Chihuitan;508;20
+2396;Santo Domingo de Morelos;509;20
+2397;Santo Domingo Ixcatlan;510;20
+2398;Santo Domingo Nuxaa;511;20
+2399;Santo Domingo Ozolotepec;512;20
+2400;Santo Domingo Petapa;513;20
+2401;Santo Domingo Roayaga;514;20
+2402;Santo Domingo Tehuantepec;515;20
+2403;Santo Domingo Teojomulco;516;20
+2404;Santo Domingo Tepuxtepec;517;20
+2405;Santo Domingo Tlatayapam;518;20
+2406;Santo Domingo Tomaltepec;519;20
+2407;Santo Domingo Tonala;520;20
+2408;Santo Domingo Tonaltepec;521;20
+2409;Santo Domingo Xagacia;522;20
+2410;Santo Domingo Yanhuitlan;523;20
+2411;Santo Domingo Yodohino;524;20
+2412;Santo Domingo Zanatepec;525;20
+2413;Santos Reyes Nopala;526;20
+2414;Santos Reyes Papalo;527;20
+2415;Santos Reyes Tepejillo;528;20
+2416;Santos Reyes Yucuna;529;20
+2417;Santo Tomas Jalieza;530;20
+2418;Santo Tomas Mazaltepec;531;20
+2419;Santo Tomas Ocotepec;532;20
+2420;Santo Tomas Tamazulapan;533;20
+2421;San Vicente Coatlan;534;20
+2422;San Vicente Lachixio;535;20
+2423;San Vicente Nunu;536;20
+2424;Silacayoapam;537;20
+2425;Sitio de Xitlapehua;538;20
+2426;Soledad Etla;539;20
+2427;Villa de Tamazulapam del Progreso;540;20
+2428;Tanetze de Zaragoza;541;20
+2429;Taniche;542;20
+2430;Tataltepec de Valdes;543;20
+2431;Teococuilco de Marcos Perez;544;20
+2432;Teotitlan de Flores Magon;545;20
+2433;Teotitlan del Valle;546;20
+2434;Teotongo;547;20
+2435;Tepelmeme Villa de Morelos;548;20
+2436;Tezoatlan de Segura y Luna;549;20
+2437;San Jeronimo Tlacochahuaya;550;20
+2438;Tlacolula de Matamoros;551;20
+2439;Tlacotepec Plumas;552;20
+2440;Tlalixtac de Cabrera;553;20
+2441;Totontepec Villa de Morelos;554;20
+2442;Trinidad Zaachila;555;20
+2443;La Trinidad Vista Hermosa;556;20
+2444;Union Hidalgo;557;20
+2445;Valerio Trujano;558;20
+2446;San Juan Bautista Valle Nacional;559;20
+2447;Villa Diaz Ordaz;560;20
+2448;Yaxe;561;20
+2449;Magdalena Yodocono de Porfirio Diaz;562;20
+2450;Yogana;563;20
+2451;Yutanduchi de Guerrero;564;20
+2452;Villa de Zaachila;565;20
+2453;San Mateo Yucutindoo;566;20
+2454;Zapotitlan Lagunas;567;20
+2455;Zapotitlan Palmas;568;20
+2456;Santa Ines de Zaragoza;569;20
+2457;Zimatlan de alvarez;570;20

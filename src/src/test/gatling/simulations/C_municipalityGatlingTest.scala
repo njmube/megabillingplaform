@@ -67,7 +67,7 @@ class C_municipalityGatlingTest extends Simulation {
             .exec(http("Create new c_municipality")
             .post("/api/c-municipalities")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "code":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_c_municipality_url"))).exitHereIfFailed
             .pause(10)
