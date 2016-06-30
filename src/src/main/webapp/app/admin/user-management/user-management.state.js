@@ -90,8 +90,8 @@
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/admin/user-management/user-management-dialog.html',
-                    controller: 'UserManagementDialogController',
+                    templateUrl: 'app/admin/user-management/user-management-edit.html',
+                    controller: 'UserManagementEditController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',

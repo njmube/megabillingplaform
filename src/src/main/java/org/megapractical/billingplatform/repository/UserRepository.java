@@ -3,6 +3,9 @@ package org.megapractical.billingplatform.repository;
 import org.megapractical.billingplatform.domain.User;
 
 import java.time.ZonedDateTime;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -27,6 +30,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     Optional<User> findOneByRfc(String rfc);
 
     Optional<User> findOneById(Long userId);
+
+    Page<User> findByLoginNotLikeAndLoginNotLike(String login1, String login2,Pageable pageable);
 
     @Override
     void delete(User t);
