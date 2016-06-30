@@ -156,9 +156,9 @@
         </div>
         <div class="form-group">
             <label class="control-label" for="password" translate="global.form.newpassword">New password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="{{'global.form.newpassword.placeholder' | translate}}"
+                   ng-model="vm.user.password" ng-minlength=8 ng-maxlength=50 required ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($‌​)$-$_]{8,50}$/">
             <div ng-show="editForm.password.$dirty && editForm.password.$invalid">
-                <input type="password" class="form-control" id="password" name="password" placeholder="{{'global.form.newpassword.placeholder' | translate}}"
-                       ng-model="vm.user.password" ng-minlength=8 ng-maxlength=50 required ng-pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($‌​)$-$_]{8,50}$/">
                 <p class="help-block"
                    ng-show="editForm.password.$error.required" translate="global.messages.validate.newpassword.required">
                     Your password is required.
@@ -221,8 +221,9 @@
         <div class="form-group">
             <label class="control-label" for="gender" translate="userManagement.gender">Gender</label>
             <select name=gender id="gender" ng-model="vm.user.gender">
-                <option name=M value=M selected> M </option>
-                <option name=F value=F> F </option>
+                <option selected="selected"> {{'global.form.gender.placeholder' | translate}} </option>
+                <option name=M value=M> {{'global.form.gender.male' | translate}} </option>
+                <option name=F value=F> {{'global.form.gender.female' | translate}} </option>
             </select>
         </div>
         <div class="form-group">
@@ -233,8 +234,10 @@
         </div>
         <div class="form-group">
             <label translate="userManagement.langKey">LangKey</label>
-            <select class="form-control" name="langKey" ng-model="vm.user.langKey"
-                    ng-options="language as language for language in vm.languages track by language">
+            <select class="form-control" name="langKey" ng-model="vm.user.langKey">
+                <option selected="selected"> {{'settings.form.language.placeholder' | translate}} </option>
+                <option name=spanish value=es> {{'settings.form.language.spanish' | translate}} </option>
+                <option name=english value=en> {{'settings.form.language.english' | translate}} </option>
             </select>
         </div>
 
