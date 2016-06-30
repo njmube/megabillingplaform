@@ -119,7 +119,7 @@
                     size: 'lg',
                     resolve: {
                         entity: ['Tax_regime', function(Tax_regime) {
-                            return Tax_regime.get({id : $stateParams.id});
+							return Tax_regime.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {

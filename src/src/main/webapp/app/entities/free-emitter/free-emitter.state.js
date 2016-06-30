@@ -53,7 +53,7 @@
         })
 		.state('free-emitter.new', {
 			parent: 'free-emitter',
-			url: '/new',
+			url: '/{login}/new',
 			data: {
 				authorities: ['ROLE_USER'],
 				pageTitle: 'megabillingplatformApp.free_emitter.home.createLabel'
@@ -66,7 +66,7 @@
 				}
 			},
 			resolve: {
-				FreeEmitterEntity: [function () {
+				/*FreeEmitterEntity: [function () {
 					return {
 						reference: null,
 						num_int: null,
@@ -76,14 +76,14 @@
 						activated: false,
 						id: null
 					};
+				}],*/
+				freeEmitterUser: ['$stateParams','User', function($stateParams, User) {
+					return User.get({login : $stateParams.login});
 				}],
-				FreeDigitalCertificateEntity: [function () {
-					return {
-						path_certificate: null,
-						path_private_key: null,
-						id: null
-					};
-				}],
+				freeEmitters: ['Free_emitter',  function(Free_emitter) {
+					console.log('get all free emitters');
+					return Free_emitter.query();
+                }],
 				translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
 					$translatePartialLoader.addPart('free_emitter');
 					$translatePartialLoader.addPart('free_digital_certificate');

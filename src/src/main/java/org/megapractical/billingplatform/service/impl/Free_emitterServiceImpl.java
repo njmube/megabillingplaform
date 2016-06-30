@@ -1,5 +1,7 @@
 package org.megapractical.billingplatform.service.impl;
 
+import org.megapractical.billingplatform.domain.User;
+import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.service.Free_emitterService;
 import org.megapractical.billingplatform.domain.Free_emitter;
 import org.megapractical.billingplatform.repository.Free_emitterRepository;
@@ -25,6 +27,9 @@ public class Free_emitterServiceImpl implements Free_emitterService{
 
     @Inject
     private Free_emitterRepository free_emitterRepository;
+
+    @Inject
+    private UserRepository userRepository;
 
     /**
      * Save a free_emitter.
@@ -73,5 +78,14 @@ public class Free_emitterServiceImpl implements Free_emitterService{
     public void delete(Long id) {
         log.debug("Request to delete Free_emitter : {}", id);
         free_emitterRepository.delete(id);
+    }
+
+    @Override
+    public Free_emitter findOneByUser(User user) {
+        log.debug("Request to get Free_emitter : {}", user);
+        Free_emitter free_emitter = free_emitterRepository.findOneByUser(user);
+
+        return free_emitter;
+
     }
 }

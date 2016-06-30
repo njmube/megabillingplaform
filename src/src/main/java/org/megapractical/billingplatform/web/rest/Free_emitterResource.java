@@ -121,7 +121,7 @@ public class Free_emitterResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<Free_emitter> getFree_emitter(@PathVariable Long id) {
-        log.debug("REST request to get Free_emitter : {}", id);
+        log.debug("REST request to get Free_emitter by Id : {}", id);
         Free_emitter free_emitter = free_emitterService.findOne(id);
         return Optional.ofNullable(free_emitter)
             .map(result -> new ResponseEntity<>(
@@ -129,7 +129,6 @@ public class Free_emitterResource {
                 HttpStatus.OK))
             .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
-
     /**
      * DELETE  /free-emitters/:id : delete the "id" free_emitter.
      *

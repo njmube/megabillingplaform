@@ -26,11 +26,11 @@
                 </a>
             </li>
             <li class="active">
-                <a ui-sref="free-emitter.new">{{'global.user.emitter.data' | translate}}</a>
-            </li>
-            <li>
-                <a ui-sref="free-cfdi.new">{{'global.user.generate.cfdi' | translate}}</a>
-            </li>
+				<a ui-sref="free-emitter.new({login : vm.account.login })">{{'global.user.emitter.data' | translate}}</a>
+			</li>
+			<li>
+				<a ui-sref="free-cfdi.new({login : vm.account.login })">{{'global.user.generate.cfdi' | translate}}</a>
+			</li>
             <li>
                 <a href="">{{'global.user.search.cfdi' | translate}}</a>
             </li>
@@ -197,7 +197,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_country" for="field_c_country">c_country</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.free_emitter.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countrys track by c_country.id" required>
+                            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.free_emitter.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countrys track by c_country.id" data-ng-change="vm.onChangeC_country()" required>
 								<option value=""></option>
 							</select>
 							<div ng-show="editForm.c_country.$invalid">
@@ -211,7 +211,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_state" for="field_c_state">c_state</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_state" name="c_state" ng-model="vm.free_emitter.c_state" ng-options="c_state as c_state.name for c_state in vm.c_states track by c_state.id">
+                            <select class="form-control" id="field_c_state" name="c_state" ng-model="vm.free_emitter.c_state" ng-options="c_state as c_state.name for c_state in vm.c_states track by c_state.id" data-ng-change="vm.onChangeC_state()">
 								<option value=""></option>
 							</select>
                         </div>
@@ -220,7 +220,7 @@
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_location" for="field_c_location">c_location</label>
 
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_location" name="c_location" ng-model="vm.free_emitter.c_location" ng-options="c_location as c_location.name for c_location in vm.c_locations track by c_location.id">
+                            <select class="form-control" id="field_c_location" name="c_location" ng-model="vm.free_emitter.c_location" ng-options="c_location as c_location.name for c_location in vm.c_locations track by c_location.id" data-ng-change="vm.onChangeC_location()">
 								<option value=""></option>
 							</select>
                         </div>
@@ -228,7 +228,7 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_municipality" for="field_c_municipality">c_municipality</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_emitter.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id">
+                            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_emitter.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id" data-ng-change="vm.onChangeC_municipality()">
 								<option value=""></option>
 							</select>
                         </div>
@@ -288,8 +288,7 @@
 					<div class="form-group">
 						
 						<button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary pull-right" style="margin: 0 15px">
-							<span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save </span> 
-							({{editForm.$invalid}}) 
+							<span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save </span>
 						</button>
 						
 						<button type="button" class="btn btn-default pull-right" onclick="window.history.back()">

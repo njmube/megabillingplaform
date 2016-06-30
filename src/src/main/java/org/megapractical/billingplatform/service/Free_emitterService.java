@@ -1,6 +1,7 @@
 package org.megapractical.billingplatform.service;
 
 import org.megapractical.billingplatform.domain.Free_emitter;
+import org.megapractical.billingplatform.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -13,7 +14,7 @@ public interface Free_emitterService {
 
     /**
      * Save a free_emitter.
-     * 
+     *
      * @param free_emitter the entity to save
      * @return the persisted entity
      */
@@ -21,7 +22,7 @@ public interface Free_emitterService {
 
     /**
      *  Get all the free_emitters.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
@@ -29,7 +30,7 @@ public interface Free_emitterService {
 
     /**
      *  Get the "id" free_emitter.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,8 +38,16 @@ public interface Free_emitterService {
 
     /**
      *  Delete the "id" free_emitter.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);
+
+    /**
+     *  Get the "user" free_emitter.
+     *
+     *  @param user  of the
+     *  @return the entity
+     */
+    Free_emitter findOneByUser(User user);
 }
