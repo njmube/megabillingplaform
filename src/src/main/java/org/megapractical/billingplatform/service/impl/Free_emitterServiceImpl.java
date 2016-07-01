@@ -82,7 +82,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
 
     @Override
     public Free_emitter findOneByUser(User user) {
-        log.debug("Request to get Free_emitter : {}", user);
+        log.debug("Request to get Free_emitter by User: {}", user);
         Free_emitter free_emitter = free_emitterRepository.findOneByUser(user);
 
         return free_emitter;

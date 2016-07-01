@@ -1,7 +1,9 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import org.megapractical.billingplatform.domain.Free_digital_certificate;
 import org.megapractical.billingplatform.domain.Free_emitter;
+import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.Free_emitterService;
@@ -109,20 +111,26 @@ public class Free_emitterResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-emitters");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
-
     /**
-     * GET  /free-emitters/:id : get the "id" free_emitter.
+     * GET  /free-emitters/:login : get the "id" free_emitter.
      *
-     * @param id the id of the free_emitter to retrieve
+     * @param login the id of the free_emitter to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the free_emitter, or with status 404 (Not Found)
      */
-    @RequestMapping(value = "/free-emitters/{id}",
+    @RequestMapping(value = "/free-emitters/{login}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Free_emitter> getFree_emitter(@PathVariable Long id) {
-        log.debug("REST request to get Free_emitter by Id : {}", id);
-        Free_emitter free_emitter = free_emitterService.findOne(id);
+    public ResponseEntity<Free_emitter> getFree_emitter(@PathVariable String login) {
+        log.debug("REST request to get Free_emitter by user Login : {}", login);
+
+        Free_emitter free_emitter = free_emitterService.findOneByUser(userRepository.findOneByLogin(login).get());
+
+        if(free_emitter == null) {
+            free_emitter = new Free_emitter();
+            free_emitter.setFree_digital_certificate(new Free_digital_certificate());
+        }
+
         return Optional.ofNullable(free_emitter)
             .map(result -> new ResponseEntity<>(
                 result,

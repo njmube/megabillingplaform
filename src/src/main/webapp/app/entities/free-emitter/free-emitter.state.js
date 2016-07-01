@@ -77,12 +77,11 @@
 						id: null
 					};
 				}],*/
-				freeEmitterUser: ['$stateParams','User', function($stateParams, User) {
+				entity: ['$stateParams', 'Free_emitter', function($stateParams, Free_emitter) {
+                            return Free_emitter.get({login : $stateParams.login});
+                        }],
+				user: ['$stateParams', 'User',  function($stateParams, User) {
 					return User.get({login : $stateParams.login});
-				}],
-				freeEmitters: ['Free_emitter',  function(Free_emitter) {
-					console.log('get all free emitters');
-					return Free_emitter.query();
                 }],
 				translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
 					$translatePartialLoader.addPart('free_emitter');

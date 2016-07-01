@@ -5,18 +5,16 @@
         .module('megabillingplatformApp')
         .controller('Free_emitterNewController', Free_emitterNewController);
 
-    Free_emitterNewController.$inject = ['$scope', '$stateParams', '$q', 'freeEmitters', 'DataUtils', 'Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_location', 'C_colony', 'C_zip_code', 'Free_digital_certificate', 'freeEmitterUser'];
+    Free_emitterNewController.$inject = ['$scope', '$stateParams', '$q', 'entity', 'DataUtils', 'Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_location', 'C_colony', 'C_zip_code', 'Free_digital_certificate', 'user'];
 
-    function Free_emitterNewController ($scope, $stateParams, $q, freeEmitters, DataUtils, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_location, C_colony, C_zip_code, Free_digital_certificate, freeEmitterUser) {
+    function Free_emitterNewController ($scope, $stateParams, $q, entity, DataUtils, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_location, C_colony, C_zip_code, Free_digital_certificate, user) {
         var vm = this;
 		
         
-        vm.account = freeEmitterUser;
+        vm.account = user;
 		
-		vm.free_emitter = null;
-		vm.free_digital_certificate = null;		
-		
-		setFreeEmitter();
+		vm.free_emitter = entity;
+		vm.free_digital_certificate = vm.free_emitter.free_digital_certificate;
 		
         vm.tax_regimes = Tax_regime.query();
         vm.c_countrys = C_country.query({pg:1});
@@ -29,43 +27,8 @@
         vm.c_colonys = null;
         vm.onChangeC_location = onChangeC_location;
         vm.c_zip_codes = C_zip_code.query();
-        
-		vm.free_emitter.user = null;
 		
-		function setFreeEmitter(){
-			var setted = false;
-			var i;
-			
-			for(i = 0; i < freeEmitters.length; i++){
-				console.log(freeEmitters[i].user.login);
-				if(freeEmitters[i].user.login == vm.account.login){
-					vm.free_emitter = freeEmitters[i];
-					vm.free_digital_certificate = vm.free_emitter.free_digital_certificate;
-					setted = true;
-					break;
-				}
-			}
-			if(!setted){
-				vm.free_emitter = {
-						reference: null,
-						num_int: null,
-						num_ext: null,
-						street: null,
-						create_date: null,
-						activated: false,
-						id: null
-					};
-								  
-				vm.free_digital_certificate = {
-						path_certificate: null,
-						path_private_key: null,
-						id: null
-					};
-			}
-			
-		}
-        
-        vm.load = function(id) {
+		vm.load = function(id) {
 			Free_emitter.get({id : id}, function(result) {
                 vm.free_emitter = result;
             });
