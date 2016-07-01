@@ -195,6 +195,11 @@ public class UserService {
             return false;
     }
 
+    public void DeletePersistenTokenByUser(User user){
+        List<PersistentToken> list = persistentTokenRepository.findByUser(user);
+        persistentTokenRepository.delete(list);
+    }
+
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthoritiesByLogin(String login) {
         return userRepository.findOneByLogin(login).map(u -> {

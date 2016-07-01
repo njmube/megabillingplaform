@@ -153,6 +153,9 @@ public class UserResource {
                 user.setActivated(managedUserDTO.isActivated());
                 user.setLangKey(managedUserDTO.getLangKey());
                 Set<Authority> authorities = user.getAuthorities();
+                if(!managedUserDTO.isActivated()){
+                    userService.DeletePersistenTokenByUser(user);
+                }
                 authorities.clear();
                 managedUserDTO.getAuthorities().stream().forEach(
                     authority -> authorities.add(authorityRepository.findOne(authority))
@@ -163,7 +166,6 @@ public class UserResource {
                         .findOne(managedUserDTO.getId())));
             })
             .orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
-
     }
 
     /**
@@ -230,6 +232,10 @@ public class UserResource {
     @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> deleteUser(@PathVariable String login) {
         log.debug("REST request to delete User: {}", login);
+        Optional<User> user1 = userRepository.findOneByLogin(login);
+        if(user1.isPresent()){
+            userService.DeletePersistenTokenByUser(user1.get());
+        }
         userService.deleteUserInformation(login);
         return ResponseEntity.ok().headers(HeaderUtil.createAlert( "userManagement.deleted", login)).build();
     }

@@ -246,11 +246,25 @@ public class AccountResource {
     @Timed
     public void invalidateSession(@PathVariable String series) throws UnsupportedEncodingException {
         String decodedSeries = URLDecoder.decode(series, "UTF-8");
-        userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(u -> {
-            persistentTokenRepository.findByUser(u).stream()
-                .filter(persistentToken -> StringUtils.equals(persistentToken.getSeries(), decodedSeries))
-                .findAny().ifPresent(t -> persistentTokenRepository.delete(decodedSeries));
-        });
+        Optional<User> user1 = userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin());
+        if(user1.isPresent()){
+            boolean administrator = false;
+            for(Authority item: user1.get().getAuthorities()){
+                if(item.getName().compareTo("ROLE_ADMIN")==0){
+                    administrator = true;
+                }
+            }
+            if(administrator){
+                persistentTokenRepository.delete(decodedSeries);
+            }
+            else{
+                userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(u -> {
+                    persistentTokenRepository.findByUser(u).stream()
+                        .filter(persistentToken -> StringUtils.equals(persistentToken.getSeries(), decodedSeries))
+                        .findAny().ifPresent(t -> persistentTokenRepository.delete(decodedSeries));
+                });
+            }
+        }
     }
 
     /**

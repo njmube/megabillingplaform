@@ -1,36 +1,36 @@
 id;name;abrev;c_country_id
-1;Aguascalientes;AGU;151
-2;Baja California;BCN;151
-3;Baja California Sur;BCS;151
-4;Campeche;CAM;151
-5;Chiapas;CHP;151
-6;Chihuahua;CHH;151
-7;Coahuila;COA;151
-8;Colima;COL;151
-9;Distrito Federal;DIF;151
-10;Durango;DUR;151
-11;Guanajuato;GUA;151
-12;Guerrero;GRO;151
-13;Hidalgo;HID;151
-14;Jalisco;JAL;151
-15;Estado de Mexico;MEX;151
-16;Michoacan;MIC;151
-17;Morelos;MOR;151
-18;Nayarit;NAY;151
-19;Nuevo Leon;NLE;151
-20;Oaxaca;OAX;151
-21;Puebla;PUE;151
-22;Queretaro;QTO;151
-23;Quintana Roo;ROO;151
-24;San Luis Potosi;SLP;151
-25;Sinaloa;SIN;151
-26;Sonora;SON;151
-27;Tabasco;TAB;151
-28;Tamaulipas;TAM;151
-29;Tlaxcala;TLA;151
-30;Veracruz;VER;151
-31;Yucatan;UC;151
-32;Zacatecas;ZAC;151
+1;Aguascalientes;AS;151
+2;Baja California;BC;151
+3;Baja California Sur;BS;151
+4;Campeche;CC;151
+5;Coahuila de Zaragoza;CL;151
+6;Colima;CM;151
+7;Chiapas;CS;151
+8;Chihuahua;CH;151
+9;Ciudad de Mexico;DF;151
+10;Durango;DG;151
+11;Guanajuato;GT;151
+12;Guerrero;GR;151
+13;Hidalgo;HG;151
+14;Jalisco;JC;151
+15;Mexico;MC;151
+16;Michoacan de Ocampo;MN;151
+17;Morelos;MS;151
+18;Nayarit;NT;151
+19;Nuevo Leon;NL;151
+20;Oaxaca;OC;151
+21;Puebla;PL;151
+22;Queretaro;QT;151
+23;Quintana Roo;QR;151
+24;San Luis Potosi;SP;151
+25;Sinaloa;SL;151
+26;Sonora;SR;151
+27;Tabasco;TC;151
+28;Tamaulipas;TS;151
+29;Tlaxcala;TL;151
+30;Veracruz de Ignacio de la Llave;VZ;151
+31;Yucatan;YN;151
+32;Zacatecas;ZS;151
 33;Alabama;AL;66
 34;Alaska;AK;66
 35;Arizona;AZ;66
