@@ -26,7 +26,7 @@
                     <label class="control-label" for="name" translate="settings.form.name">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="{{'settings.form.name.placeholder' | translate}}"
                            ng-model="vm.settingsAccount.name" ng-minlength=3 ng-maxlength=50 required
-                           ng-pattern="/^[A-Za-z]{3,50}$/" maxlength="50">
+                           ng-pattern="/^[A-ZÑa-zñ]+[A-ZÑa-zñ\s]+[A-ZÑa-zñ]$/" maxlength="50">
                     <div ng-show="form.name.$dirty && form.name.$invalid">
                         <p class="help-block"
                                ng-show="form.name.$error.required" translate="settings.messages.validate.name.required">

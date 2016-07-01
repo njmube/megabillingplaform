@@ -55,7 +55,7 @@
                     <label class="control-label" for="name" translate="global.form.name">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="{{'global.form.name.placeholder' | translate}}"
                            ng-model="vm.registerAccount.name" ng-change="vm.onChangeUser()" ng-minlength=3 ng-maxlength=50
-                           ng-pattern="/^[A-Za-z]{3,50}$/" required>
+                           ng-pattern="/^[A-ZÑa-zñ]+[A-ZÑa-zñ\s]+[A-ZÑa-zñ]$/" required>
                     <div ng-show="form.name.$dirty && form.name.$invalid">
                         <p class="help-block"
                            ng-show="form.name.$error.required" translate="register.messages.validate.name.required">
