@@ -32,6 +32,52 @@
         "createdBy": "Creado por",
         "createdDate": "Fecha de creación",
         "lastModifiedBy": "Modificado por",
-        "lastModifiedDate": "Fecha de modificación"
+        "lastModifiedDate": "Fecha de modificación",
+        "messages": {
+            "validate": {
+                "login": {
+                    "required": "Su nombre de usuario es obligatorio.",
+                    "minlength": "Su nombre de usuario debe tener al menos 3 caracteres.",
+                    "maxlength": "Su nombre de usuario no puede tener más de 50 caracteres.",
+                    "pattern": "Su nombre de usuario sólo puede contener letras minúsculas y dígitos."
+                },
+                "rfc": {
+                    "required": "Su RFC es obligatorio.",
+                    "minlength": "Su RFC debe tener al menos 12 caracteres.",
+                    "maxlength": "Su RFC no puede tener más de 13 caracteres.",
+                    "pattern": "Patrón de RFC incorrecto."
+                },
+                "name": {
+                    "required": "Su nombre es obligatorio.",
+                    "minlength": "Su nombre debe tener al menos 3 caracteres.",
+                    "maxlength": "Su nombre no puede tener más de 50 caracteres.",
+                    "pattern": "Patrón del nombre incorrecto."
+                },
+                "firtsurname": {
+                    "required": "Su apellido paterno es obligatorio.",
+                    "minlength": "Su apellido paterno debe tener al menos 3 caracteres.",
+                    "maxlength": "Su apellido paterno no puede tener más de 50 caracteres.",
+                    "pattern": "Patrón del apellido paterno incorrecto."
+                },
+                "secondsurname": {
+                    "required": "Su apellido materno es obligatorio.",
+                    "minlength": "Su apellido materno debe tener al menos 3 caracteres.",
+                    "maxlength": "Su apellido paterno no puede tener más de 50 caracteres."
+                },
+                "phone": {
+                    "required": "Su teléfono es obligatorio.",
+                    "minlength": "Su teléfono debe tener al menos 1 caracter.",
+                    "maxlength": "Su teléfono no puede tener más de 15 caracteres.",
+                    "pattern": "Patrón de teléfono incorrecto."
+                }
+            },
+            "success": "<strong>¡Registro guardado!</strong> Por favor, revise su correo electrónico para confirmar.",
+            "error": {
+                "fail": "<strong>¡El registro ha fallado!</strong> Por favor, inténtelo de nuevo más tarde.",
+                "userexists": "<strong>¡El nombre de usuario ya está registrado!</strong> Por favor, escoja otro usuario.",
+                "emailexists": "<strong>¡El correo electrónico ya está en uso!</strong> Por favor, escoja otro email.",
+                "errorRfcExists": "<strong>RFC está en uso!</strong>"
+            }
+        }
     }
 }

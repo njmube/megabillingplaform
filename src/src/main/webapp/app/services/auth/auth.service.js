@@ -17,8 +17,7 @@
             logout: logout,
             resetPasswordFinish: resetPasswordFinish,
             resetPasswordInit: resetPasswordInit,
-            updateAccount: updateAccount,
-            sugesuser: sugesuser
+            updateAccount: updateAccount
         };
 
         return service;
@@ -33,14 +32,6 @@
                 function (err) {
                     return cb(err);
                 }.bind(this)).$promise;
-        }
-
-        function sugesuser (name_f_s) {
-
-            return Register.sugesuser({name_f_s: name_f_s},
-                function (response) {
-                    return response;
-                });
         }
 
         function authorize (force) {

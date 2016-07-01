@@ -87,65 +87,6 @@ public class UserService {
             });
     }
 
-    public String sugestionUserLogin(String name, String firtsurname, String secondsurname){
-        String suguser = "";
-        ArrayList<String> list = new ArrayList<String>(10);
-        boolean find = false;
-
-        //Generacion de posibles users: name, namefs, nfirstsurname, firstsurname, nfsecondsurname, secondsurname
-        if(name.isEmpty()|| name == null){
-            if(firtsurname.isEmpty() || firtsurname == null){
-                if(secondsurname.isEmpty()){
-                    list.add("user");
-                }else
-                {
-                    list.add(secondsurname);
-                }
-            }else
-            {
-                list.add(firtsurname);
-            }
-        }else {
-            list.add(name);
-            if(!firtsurname.isEmpty() && firtsurname != null)
-            {
-                list.add(name.substring(0,0)+firtsurname);
-                list.add(firtsurname);
-                if(!secondsurname.isEmpty() && secondsurname != null)
-                {
-                    list.add(name+firtsurname.substring(0,0)+secondsurname.substring(0,0));
-                    list.add(name.substring(0,0)+firtsurname.substring(0,0)+secondsurname);
-                    list.add(secondsurname);
-                }
-            }
-        }
-
-        //Verificacion de los user generados
-
-        Optional<User> user;
-        for(int i = 0;i < list.size();i++){
-            user = userRepository.findOneByLogin(list.get(i));
-            if(user.isPresent())
-            {
-                for(int ii = 1;ii<10000;ii++){
-                    String tempsuguser = list.get(i) + ii;
-                    user = userRepository.findOneByLogin(tempsuguser);
-                    if(!user.isPresent()){
-                        list.set(i,tempsuguser);
-                        break;
-                    }
-                }
-            }
-        }
-        if(list.size()>0){
-            suguser = list.get(0);
-            for(int i = 1;i < list.size();i++){
-                suguser = suguser + ", "+list.get(i);
-            }
-        }
-        return suguser;
-    }
-
     public User createUserInformation(String login, String rfc, String password, String name,String firtsuname,String secondsurname,
                                       String email, String phone,
                                       String gender, String langKey) {
@@ -198,7 +139,7 @@ public class UserService {
             );
             user.setAuthorities(authorities);
         }
-        String encryptedPassword = passwordEncoder.encode(managedUserDTO.getPassword());
+        String encryptedPassword = passwordEncoder.encode(RandomUtil.generatePassword());
         user.setPassword(encryptedPassword);
         user.setResetKey(RandomUtil.generateResetKey());
         user.setResetDate(ZonedDateTime.now());

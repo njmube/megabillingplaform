@@ -5,7 +5,8 @@
             "ipaddress": "IP address",
             "useragent": "User Agent",
             "date": "Date",
-            "button": "Invalidate"
+            "button": "Invalidate",
+            "user": "User"
         },
         "messages": {
             "success": "<strong>Session invalidated!</strong>",

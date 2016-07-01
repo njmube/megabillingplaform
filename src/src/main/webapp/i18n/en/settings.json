@@ -36,12 +36,14 @@
                 "name": {
                     "required": "Your name is required.",
                     "minlength": "Your name is required to be at least 3 characters",
-                    "maxlength": "Your name cannot be longer than 50 characters"
+                    "maxlength": "Your name cannot be longer than 50 characters",
+                    "pattern": "Name format is incorrect."
                 },
                 "firtsurname": {
                     "required": "Your firt surname is required.",
                     "minlength": "Your firt surname is required to be at least 3 characters",
-                    "maxlength": "Your firt surname cannot be longer than 50 characters"
+                    "maxlength": "Your firt surname cannot be longer than 50 characters",
+                    "pattern": "Firt surna format is incorrect."
                 },
                 "secondsurname": {
                     "required": "Your second surname is required.",

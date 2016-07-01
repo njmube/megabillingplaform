@@ -59,8 +59,6 @@ public class UserDTO {
 
     private Set<String> authorities;
 
-
-
     public UserDTO() {
     }
 
@@ -166,8 +164,6 @@ public class UserDTO {
     public Set<String> getAuthorities() {
         return authorities;
     }
-
-
 
     @Override
     public String toString() {

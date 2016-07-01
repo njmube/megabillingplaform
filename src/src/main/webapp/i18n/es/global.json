@@ -118,7 +118,11 @@
             "oldpassword": "Contraseña anterior (*)",
             "oldpassword.placeholder": "Contraseña anterior",
             "email": "Correo Electrónico (*)",
-            "email.placeholder": "Introduzca su dirección de correo electrónico Ej: yandry.alberto@megapractical.com"
+            "email.placeholder": "Introduzca su dirección de correo electrónico Ej: yandry.alberto@megapractical.com",
+            "language": "Lenguaje",
+            "language.placeholder": "Su lenguaje",
+            "language.spanish": "Español",
+            "language.english": "Inglés"
         },
         "messages": {
             "info": {

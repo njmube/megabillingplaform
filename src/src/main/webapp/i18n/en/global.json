@@ -118,7 +118,11 @@
             "oldpassword": "Old password (*)",
             "oldpassword.placeholder": "Old password",
             "email": "E-mail (*)",
-            "email.placeholder": "Your e-mail"
+            "email.placeholder": "Your e-mail",
+            "language": "Language",
+            "language.placeholder": "Your language",
+            "language.spanish": "Spanish",
+            "language.english": "English"
         },
         "messages": {
             "info": {

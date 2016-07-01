@@ -16,6 +16,7 @@
         vm.save = save;
         vm.user = entity;
         vm.doNotMatch = null;
+        vm.onChangeUser = onChangeUser;
 
 
         JhiLanguageService.getAll().then(function (languages) {
@@ -35,19 +36,22 @@
             vm.isSaving = false;
         }
 
-        function save () {
-            if (vm.user.password !== vm.confirmPassword) {
-                vm.doNotMatch = 'ERROR';
-                vm.isSaving = false;
+        function onChangeUser(){
+            if(vm.user.name != null){
+                vm.user.login = vm.user.name.substring(0,1).toLowerCase();
+                if(vm.user.firtsurname != null)
+                    vm.user.login += vm.user.firtsurname.toLowerCase();
             }
-            else {
+
+        }
+
+        function save () {
                 vm.isSaving = true;
                 if (vm.user.id !== null) {
                     User.update(vm.user, onSaveSuccess, onSaveError);
                 } else {
                     User.save(vm.user, onSaveSuccess, onSaveError);
                 }
-            }
         }
     }
 })();

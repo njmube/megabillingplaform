@@ -8,8 +8,6 @@
     Register.$inject = ['$resource'];
 
     function Register ($resource) {
-        return $resource('api/register', {}, {
-            'sugesuser': { method: 'GET', params: {name_f_s: null}, isArray: false}
-        });
+        return $resource('api/register', {}, {});
     }
 })();

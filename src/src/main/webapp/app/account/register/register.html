@@ -54,7 +54,8 @@
                 <div class="form-group">
                     <label class="control-label" for="name" translate="global.form.name">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="{{'global.form.name.placeholder' | translate}}"
-                           ng-model="vm.registerAccount.name" ng-minlength=3 ng-maxlength=50 required>
+                           ng-model="vm.registerAccount.name" ng-change="vm.onChangeUser()" ng-minlength=3 ng-maxlength=50
+                           ng-pattern="/^[A-Za-z]{3,50}$/" required>
                     <div ng-show="form.name.$dirty && form.name.$invalid">
                         <p class="help-block"
                            ng-show="form.name.$error.required" translate="register.messages.validate.name.required">
@@ -68,12 +69,17 @@
                            ng-show="form.name.$error.maxlength" translate="register.messages.validate.name.maxlength">
                             Your name cannot be longer than 50 characters.
                         </p>
+                        <p class="help-block"
+                           ng-show="form.name.$error.pattern" translate="register.messages.validate.name.pattern">
+                            Name format is incorrect.
+                        </p>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="firtsurname" translate="global.form.firtsurname">Firt surname</label>
                     <input type="text" class="form-control" id="firtsurname" name="firtsurname" placeholder="{{'global.form.firtsurname.placeholder' | translate}}"
-                           ng-model="vm.registerAccount.firtsurname" ng-minlength=3 ng-maxlength=50 required>
+                           ng-model="vm.registerAccount.firtsurname" ng-change="vm.onChangeUser()" ng-minlength=3 ng-maxlength=50
+                           ng-pattern="/^[A-Za-z]{3,50}$/" required>
                     <div ng-show="form.firtsurname.$dirty && form.firtsurname.$invalid">
                         <p class="help-block"
                            ng-show="form.firtsurname.$error.required" translate="register.messages.validate.firtsurname.required">
@@ -86,6 +92,10 @@
                         <p class="help-block"
                            ng-show="form.firtsurname.$error.maxlength" translate="register.messages.validate.firtsurname.maxlength">
                             Your firt surname cannot be longer than 50 characters.
+                        </p>
+                        <p class="help-block"
+                           ng-show="form.firtsurname.$error.pattern" translate="register.messages.validate.firtsurname.pattern">
+                            Firt surname format is incorrect.
                         </p>
                     </div>
                 </div>
@@ -104,47 +114,14 @@
                         </p>
                         <p class="help-block"
                            ng-show="form.secondsurname.$error.maxlength" translate="register.messages.validate.secondsurname.maxlength">
-                            Your second surname cannot be longer than 13 characters.
+                            Your second surname cannot be longer than 50 characters.
                         </p>
                     </div>
                 </div>
                 <div class="form-group">
-                    <table class="table table-striped">
-                        <thead>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <label class="control-label" for="login" translate="global.form.username">Username</label>
-                                    <input type="text" class="form-control" id="login" name="login" placeholder="{{'global.form.username.placeholder' | translate}}"
-                                           ng-model="vm.registerAccount.login" ng-minlength=3 ng-maxlength=50 ng-pattern="/^[a-z0-9]*$/" required>
-                                    <div ng-show="form.login.$dirty && form.login.$invalid">
-                                        <p class="help-block"
-                                           ng-show="form.login.$error.required" translate="register.messages.validate.login.required">
-                                            Your username is required.
-                                        </p>
-                                        <p class="help-block"
-                                           ng-show="form.login.$error.minlength" translate="register.messages.validate.login.minlength">
-                                            Your username is required to be at least 3 character.
-                                        </p>
-                                        <p class="help-block"
-                                           ng-show="form.login.$error.maxlength" translate="register.messages.validate.login.maxlength">
-                                            Your username cannot be longer than 50 characters.
-                                        </p>
-                                        <p class="help-block"
-                                           ng-show="form.login.$error.pattern" translate="register.messages.validate.login.pattern">
-                                            Your username can only contain lower-case letters and digits.
-                                        </p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-primary" ng-click="vm.suges()"translate="register.form.buttonsuges">Sugerir usuario</button>
-                                    <p> </p>
-                                    <input type="text" class="input-sm form-control" ng-model="vm.usersuges" readonly>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <label class="control-label" for="login" translate="global.form.username">Username</label>
+                    <input type="text" class="form-control" id="login" name="login"
+                           ng-model="vm.registerAccount.login" readonly>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="email" translate="global.form.email">E-mail</label>

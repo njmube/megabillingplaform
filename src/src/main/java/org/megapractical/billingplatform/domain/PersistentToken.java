@@ -48,7 +48,6 @@ public class PersistentToken implements Serializable {
     @Column(name = "user_agent")
     private String userAgent;
 
-    @JsonIgnore
     @ManyToOne
     private User user;
 

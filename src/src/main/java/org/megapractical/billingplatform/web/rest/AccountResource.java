@@ -107,15 +107,6 @@ public class AccountResource {
     }
 
 
-
-    @RequestMapping(value = "/register",
-        method = RequestMethod.GET,
-        params = {"name_f_s"})
-    @Timed
-    public ResponseEntity<String> sugesUser(@RequestParam(value = "name_f_s") String name_f_s) {
-        return new ResponseEntity<String>(name_f_s,HttpStatus.OK);
-    }
-
     /**
      * GET  /authenticate : check if the user is authenticated, and return its login.
      *
@@ -209,11 +200,29 @@ public class AccountResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<List<PersistentToken>> getCurrentSessions() {
-        return userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin())
-            .map(user -> new ResponseEntity<>(
-                persistentTokenRepository.findByUser(user),
-                HttpStatus.OK))
-            .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+        Optional<User> user1 = userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin());
+        if(user1.isPresent()){
+            boolean administrator = false;
+            for(Authority item: user1.get().getAuthorities()){
+                if(item.getName().compareTo("ROLE_ADMIN")==0){
+                    administrator = true;
+                    //log.debug("Encontro el rol admin", administrator);
+                }
+            }
+            if(administrator){
+                return new ResponseEntity<>(
+                        persistentTokenRepository.findAll(),
+                        HttpStatus.OK);
+            }
+            else{
+                return userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin())
+                    .map(user -> new ResponseEntity<>(
+                        persistentTokenRepository.findByUser(user),
+                        HttpStatus.OK))
+                    .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     /**
