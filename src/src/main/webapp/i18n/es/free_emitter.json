@@ -2,39 +2,49 @@
     "megabillingplatformApp": {
         "free_emitter" : {
             "home": {
-                "title": "Emisores Gratuitos",
-				"user.title": "Usuario",
-                "createLabel": "Datos Emisor",
-                "createOrEditLabel": "Crear o editar Emisor",
-                "search": "Bésqueda por Emisor"
+                "title": "Emisor gratuito",
+                "createLabel": "Crear o editar Emisor gratuito",
+                "createOrEditLabel": "Crear o editar Emisor gratuito",
+                "search": "Búsqueda para Emisor gratuito",
+                "createLabel": "Datos del Emisor gratuito"
             },
-            "created": "Un nuevo emisor ha sido creado con el identificador {{ param }}",
-            "updated": "Un emisor ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un emisor ha sido eliminado con el identificador {{ param }}",
+            "created": "A new Free_emitter is created with identifier {{ param }}",
+            "updated": "A Free_emitter is updated with identifier {{ param }}",
+            "deleted": "A Free_emitter is deleted with identifier {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar emisor con ID: {{ id }}?"
+                "question": "Are you sure you want to delete Free_emitter {{ id }}?"
             },
-			"detail": {
-                "title": "Emisor"
+            "detail": {
+                "title": "Emisor gratuito"
             },
-            "reference": "Referencia (Opcional):",
-            "num_int": "No. Interior:",
-            "num_ext": "No. Exterior:",
-            "street": "Calle:",
-            "create_date": "Fecha Creación",
+            "reference": "Referencia",
+            "num_int": "Num int",
+            "num_ext": "Num ext",
+            "street": "Calle (*)",
+            "create_date": "Fecha de creado",
             "activated": "Activado",
-            "rfc": "RFC",
-            "social_reason": "Razón Social",
-            "email": "Correo Electrónico",
-            "tax_regime": "Régimen Fiscal",
-            "c_country": "País",
-            "c_state": "Estado",
-            "c_municipality": "Municipio",
-            "c_location": "Localidad",
+            "rfc": "RFC (*)",
+            "email": "Correo Eléctronico (*)",
+            "bussines_name": "Nombre o Razón Social (*)",
+            "location": "Localidad",
+            "intersection": "Intersección",
+            "fax": "Fax",
+            "phone1": "Teléfono #1 (*)",
+            "phone2": "Teléfono #2",
+            "path_certificate": "Ruta Certificado (*)",
+            "path_key": "Clave Privada (*)",
+            "path_logo": "Ruta Logo (*)",
+            "labelLogo": "Logo",
+            "labelFU": "Ubicación Fiscal",
+            "labelDC": "Certificado Digital",
+            "labelDE": "Datos del emisor gratuito",
+            "tax_regime": "Régimen fiscal (*)",
+            "c_country": "País (*)",
+            "c_state": "Estado / Provincia (*)",
+            "c_municipality": "Municipio / Delegación (*)",
             "c_colony": "Colonia",
-            "c_zip_code": "Código Postal",
-            "user": "Usuario",
-            "free_digital_certificate": "Certificado Digital"
+            "c_zip_code": "Código postal",
+            "user": "User"
         }
     }
 }

@@ -30,10 +30,10 @@ import java.util.Optional;
 public class C_colonyResource {
 
     private final Logger log = LoggerFactory.getLogger(C_colonyResource.class);
-
+        
     @Inject
     private C_colonyService c_colonyService;
-
+    
     /**
      * POST  /c-colonies : Create a new c_colony.
      *
@@ -55,16 +55,6 @@ public class C_colonyResource {
             .headers(HeaderUtil.createEntityCreationAlert("c_colony", result.getId().toString()))
             .body(result);
     }
-
-    /*@RequestMapping(value = "/c-coloniesbylocation" ,
-        method = RequestMethod.GET,
-        params = {"locationId"},
-        produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<C_colony>> findByLocation(
-        @RequestParam(value = "locationId") Long locationId) throws URISyntaxException {
-        List<C_colony> page = c_colonyService.findByLocation(locationId);
-        return new ResponseEntity<>(page, HttpStatus.OK);
-    }*/
 
     /**
      * PUT  /c-colonies : Updates an existing c_colony.
@@ -99,20 +89,14 @@ public class C_colonyResource {
      */
     @RequestMapping(value = "/c-colonies",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE,
-        params = {"locationId"})
+        produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<C_colony>> getAllC_colonies(@RequestParam(value = "locationId") Integer locationId, Pageable pageable)
+    public ResponseEntity<List<C_colony>> getAllC_colonies(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_colonies");
-        if(locationId == 0){
-            Page<C_colony> page = c_colonyService.findAll(pageable);
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-colonies");
-            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);}
-        else {
-            List<C_colony> page = c_colonyService.findByLocation(locationId);
-            return new ResponseEntity<>(page, HttpStatus.OK);
-        }
+        Page<C_colony> page = c_colonyService.findAll(pageable); 
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-colonies");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
     /**

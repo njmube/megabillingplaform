@@ -48,8 +48,8 @@ public class Free_receiverResourceIntTest {
 
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").withZone(ZoneId.of("Z"));
 
-    private static final String DEFAULT_RFC = "AAA121234ZLL";
-    private static final String UPDATED_RFC = "AAA121234ZZK";
+    private static final String DEFAULT_RFC = "AAAA121234PSA";
+    private static final String UPDATED_RFC = "AAA121234PKA";
     private static final String DEFAULT_BUSINESS_NAME = "AAA";
     private static final String UPDATED_BUSINESS_NAME = "BBB";
     private static final String DEFAULT_EMAIL = "algo@algo.com";
@@ -63,10 +63,10 @@ public class Free_receiverResourceIntTest {
     private static final String DEFAULT_CREATE_DATE_STR = dateTimeFormatter.format(DEFAULT_CREATE_DATE);
     private static final String DEFAULT_STREET = "AAAAA";
     private static final String UPDATED_STREET = "BBBBB";
-    private static final String DEFAULT_NO_EXT = "AAAAA";
-    private static final String UPDATED_NO_EXT = "BBBBB";
-    private static final String DEFAULT_NO_INT = "AAAAA";
-    private static final String UPDATED_NO_INT = "BBBBB";
+    private static final String DEFAULT_NO_EXT = "1";
+    private static final String UPDATED_NO_EXT = "2";
+    private static final String DEFAULT_NO_INT = "3";
+    private static final String UPDATED_NO_INT = "4";
     private static final String DEFAULT_REFERENCE = "AAAAA";
     private static final String UPDATED_REFERENCE = "BBBBB";
 

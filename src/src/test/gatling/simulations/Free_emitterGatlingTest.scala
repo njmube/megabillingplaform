@@ -67,7 +67,7 @@ class Free_emitterGatlingTest extends Simulation {
             .exec(http("Create new free_emitter")
             .post("/api/free-emitters")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "reference":"SAMPLE_TEXT", "num_int":"SAMPLE_TEXT", "num_ext":"SAMPLE_TEXT", "street":"SAMPLE_TEXT", "create_date":"2020-01-01T00:00:00.000Z", "activated":null, "rfc":"SAMPLE_TEXT", "social_reason":"SAMPLE_TEXT", "email":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "reference":"SAMPLE_TEXT", "num_int":"SAMPLE_TEXT", "num_ext":"SAMPLE_TEXT", "street":"SAMPLE_TEXT", "create_date":"2020-01-01T00:00:00.000Z", "activated":null, "rfc":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "bussines_name":"SAMPLE_TEXT", "location":"SAMPLE_TEXT", "intersection":"SAMPLE_TEXT", "fax":"SAMPLE_TEXT", "phone1":"SAMPLE_TEXT", "phone2":"SAMPLE_TEXT", "path_certificate":"SAMPLE_TEXT", "path_key":"SAMPLE_TEXT", "path_logo":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_free_emitter_url"))).exitHereIfFailed
             .pause(10)

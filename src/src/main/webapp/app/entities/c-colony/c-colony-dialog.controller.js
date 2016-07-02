@@ -5,12 +5,11 @@
         .module('megabillingplatformApp')
         .controller('C_colonyDialogController', C_colonyDialogController);
 
-    C_colonyDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'C_colony', 'C_location'];
+    C_colonyDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'C_colony'];
 
-    function C_colonyDialogController ($scope, $stateParams, $uibModalInstance, entity, C_colony, C_location) {
+    function C_colonyDialogController ($scope, $stateParams, $uibModalInstance, entity, C_colony) {
         var vm = this;
         vm.c_colony = entity;
-        vm.c_locations = C_location.query({municipalityId:-1});
         vm.load = function(id) {
             C_colony.get({id : id}, function(result) {
                 vm.c_colony = result;

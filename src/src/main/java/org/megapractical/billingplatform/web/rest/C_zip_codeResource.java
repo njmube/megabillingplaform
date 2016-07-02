@@ -20,8 +20,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing C_zip_code.
@@ -85,7 +83,6 @@ public class C_zip_codeResource {
      * GET  /c-zip-codes : get all the c_zip_codes.
      *
      * @param pageable the pagination information
-     * @param filter the filter of the request
      * @return the ResponseEntity with status 200 (OK) and the list of c_zip_codes in body
      * @throws URISyntaxException if there is an error to generate the pagination HTTP headers
      */
@@ -93,13 +90,8 @@ public class C_zip_codeResource {
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<List<C_zip_code>> getAllC_zip_codes(Pageable pageable, @RequestParam(required = false) String filter)
+    public ResponseEntity<List<C_zip_code>> getAllC_zip_codes(Pageable pageable)
         throws URISyntaxException {
-        if ("c_location-is-null".equals(filter)) {
-            log.debug("REST request to get all C_zip_codes where c_location is null");
-            return new ResponseEntity<>(c_zip_codeService.findAllWhereC_locationIsNull(),
-                    HttpStatus.OK);
-        }
         log.debug("REST request to get a page of C_zip_codes");
         Page<C_zip_code> page = c_zip_codeService.findAll(pageable); 
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-zip-codes");

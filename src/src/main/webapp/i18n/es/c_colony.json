@@ -2,23 +2,22 @@
     "megabillingplatformApp": {
         "c_colony" : {
             "home": {
-                "title": "Colonias",
-                "createLabel": "Nueva Colonia",
-                "createOrEditLabel": "Crear o editar Colonia",
-                "search": "Búsqueda para Colonia"
+                "title": "C_colonies",
+                "createLabel": "Crear nuevo C_colony",
+                "createOrEditLabel": "Crear o editar C_colony",
+                "search": "Search for C_colony"
             },
-            "created": "Una nueva colonia ha sido creado con el identificador {{ param }}",
-            "updated": "Una colonia ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Una colonia ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo C_colony ha sido creado con el identificador {{ param }}",
+            "updated": "Un C_colony ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C_colony ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar la colonia {{ id }}?"
+                "question": "¿Seguro que quiere eliminar C_colony {{ id }}?"
             },
             "detail": {
-                "title": "Colonia"
+                "title": "C_colony"
             },
-            "name": "Nombre",
-            "description": "Descripción",
-            "c_location": "Localización"
+            "name": "Name",
+            "description": "Description"
         }
     }
 }

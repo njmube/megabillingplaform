@@ -26,12 +26,6 @@ public interface C_zip_codeService {
      *  @return the list of entities
      */
     Page<C_zip_code> findAll(Pageable pageable);
-    /**
-     *  Get all the c_zip_codes where C_location is null.
-     *  
-     *  @return the list of entities
-     */
-    List<C_zip_code> findAllWhereC_locationIsNull();
 
     /**
      *  Get the "id" c_zip_code.

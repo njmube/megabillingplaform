@@ -13,8 +13,8 @@
     <include file="classpath:config/liquibase/changelog/20160501143311_added_entity_C_country.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501143605_added_entity_C_state.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501143806_added_entity_C_municipality.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160622170334_added_entity_C_colony.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501144017_added_entity_C_zip_code.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160501144335_added_entity_C_location.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501140514_added_entity_File_state.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501140617_added_entity_File_type.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160428142222_added_entity_File.xml" relativeToChangelogFile="false"/>
@@ -30,7 +30,6 @@
     <include file="classpath:config/liquibase/changelog/20160622164712_added_entity_Tax_types.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160622164831_added_entity_Cfdi_states.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160622164935_added_entity_Cfdi_types.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160622170334_added_entity_C_colony.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160624023539_added_entity_Free_digital_certificate.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160623172937_added_entity_Free_emitter.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160624033822_added_entity_C_money.xml" relativeToChangelogFile="false"/>

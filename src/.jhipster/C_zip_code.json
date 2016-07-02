@@ -1,11 +1,10 @@
 {
     "relationships": [
         {
-            "relationshipName": "c_location",
-            "otherEntityName": "c_location",
-            "relationshipType": "one-to-one",
-            "ownerSide": false,
-            "otherEntityRelationshipName": "c_zip_code"
+            "relationshipName": "c_colony",
+            "otherEntityName": "c_colony",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
         }
     ],
     "fields": [

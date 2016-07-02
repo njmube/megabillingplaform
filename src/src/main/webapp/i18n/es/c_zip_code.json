@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_zip_code" : {
             "home": {
-                "title": "Código Postal",
-                "createLabel": "Nuevo Código Postal",
-                "createOrEditLabel": "Crear o editar Código Postal",
-                "search": "Búsqueda para Código Postal"
+                "title": "C_zip_codes",
+                "createLabel": "Crear nuevo C_zip_code",
+                "createOrEditLabel": "Crear o editar C_zip_code",
+                "search": "Search for C_zip_code"
             },
-            "created": "Un nuevo código postal ha sido creado con el identificador {{ param }}",
-            "updated": "Un código postal ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un código postal ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo C_zip_code ha sido creado con el identificador {{ param }}",
+            "updated": "Un C_zip_code ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C_zip_code ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar código postal con ID: {{ id }}?"
+                "question": "¿Seguro que quiere eliminar C_zip_code {{ id }}?"
             },
             "detail": {
-                "title": "Código Postal"
+                "title": "C_zip_code"
             },
-            "postcode": "Código",
-            "c_location": "Localidad"
+            "postcode": "Postcode",
+            "c_colony": "C_colony"
         }
     }
 }

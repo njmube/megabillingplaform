@@ -124,11 +124,10 @@ public class Free_emitterResource {
     public ResponseEntity<Free_emitter> getFree_emitter(@PathVariable String login) {
         log.debug("REST request to get Free_emitter by user Login : {}", login);
 
-        Free_emitter free_emitter = free_emitterService.findOneByUser(userRepository.findOneByLogin(login).get());
+        Free_emitter free_emitter = free_emitterService.findByLogin(login);
 
         if(free_emitter == null) {
             free_emitter = new Free_emitter();
-            free_emitter.setFree_digital_certificate(new Free_digital_certificate());
         }
 
         return Optional.ofNullable(free_emitter)

@@ -5,12 +5,6 @@
             "otherEntityName": "c_state",
             "relationshipType": "many-to-one",
             "otherEntityField": "name"
-        },
-        {
-            "relationshipName": "c_location",
-            "otherEntityName": "c_location",
-            "relationshipType": "one-to-many",
-            "otherEntityRelationshipName": "c_municipality"
         }
     ],
     "fields": [

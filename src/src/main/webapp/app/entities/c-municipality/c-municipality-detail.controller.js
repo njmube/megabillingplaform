@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('C_municipalityDetailController', C_municipalityDetailController);
 
-    C_municipalityDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'C_municipality', 'C_state', 'C_location'];
+    C_municipalityDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'C_municipality', 'C_state'];
 
-    function C_municipalityDetailController($scope, $rootScope, $stateParams, entity, C_municipality, C_state, C_location) {
+    function C_municipalityDetailController($scope, $rootScope, $stateParams, entity, C_municipality, C_state) {
         var vm = this;
         vm.c_municipality = entity;
         vm.load = function (id) {

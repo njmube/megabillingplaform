@@ -2,12 +2,12 @@
     'use strict';
     angular
         .module('megabillingplatformApp')
-        .factory('C_colony', C_colony);
+        .factory('Free_emitter', Free_emitter);
 
-    C_colony.$inject = ['$resource'];
+    Free_emitter.$inject = ['$resource', 'DateUtils'];
 
-    function C_colony ($resource) {
-        var resourceUrl =  'api/c-colonies/:id';
+    function Free_emitter ($resource, DateUtils) {
+        var resourceUrl =  'api/free-emitters/:login';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
@@ -15,6 +15,7 @@
                 method: 'GET',
                 transformResponse: function (data) {
                     data = angular.fromJson(data);
+                    data.create_date = DateUtils.convertDateTimeFromServer(data.create_date);
                     return data;
                 }
             },

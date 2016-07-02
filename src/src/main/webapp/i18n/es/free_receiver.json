@@ -2,35 +2,34 @@
     "megabillingplatformApp": {
         "free_receiver" : {
             "home": {
-                "title": "Receptores",
-                "createLabel": "Nuevo Receptor",
-                "createOrEditLabel": "Crear o editar Receptor",
-                "search": "Búsqueda por Receptor"
+                "title": "Free_receivers",
+                "createLabel": "Crear nuevo Free_receiver",
+                "createOrEditLabel": "Crear o editar Free_receiver",
+                "search": "Search for Free_receiver"
             },
-            "created": "Un nuevo receptor ha sido creado con el identificador {{ param }}",
-            "updated": "Un receptor ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un receptor ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Free_receiver ha sido creado con el identificador {{ param }}",
+            "updated": "Un Free_receiver ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Free_receiver ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar receptor con el ID: {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Free_receiver {{ id }}?"
             },
             "detail": {
-                "title": "Receptor"
+                "title": "Free_receiver"
             },
-            "rfc": "RFC",
-            "business_name": "Razón Social",
-            "email": "Correo Electrónico",
-            "activated": "Activado",
-            "create_date": "Fecha de Creación",
-            "street": "Calle",
-            "no_ext": "No. Exterior",
-            "no_int": "No. Interior",
-            "reference": "Referencia",
-            "c_country": "País",
-            "c_state": "Estado",
-            "c_municipality": "Municipio",
-            "c_location": "Localidad",
-            "c_colony": "Colonia",
-            "c_zip_code": "Código Postal"
+            "rfc": "Rfc",
+            "business_name": "Business_name",
+            "email": "Email",
+            "activated": "Activated",
+            "create_date": "Create_date",
+            "street": "Street",
+            "no_ext": "No_ext",
+            "no_int": "No_int",
+            "reference": "Reference",
+            "c_country": "C_country",
+            "c_state": "C_state",
+            "c_municipality": "C_municipality",
+            "c_colony": "C_colony",
+            "c_zip_code": "C_zip_code"
         }
     }
 }

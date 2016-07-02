@@ -18,8 +18,7 @@
             },
             "name": "Name",
             "code": "Code",
-            "c_state": "C_state",
-            "c_location": "C_location"
+            "c_state": "C_state"
         }
     }
 }

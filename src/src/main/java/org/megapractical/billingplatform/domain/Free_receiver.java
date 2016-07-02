@@ -69,9 +69,6 @@ public class Free_receiver implements Serializable {
     private C_municipality c_municipality;
 
     @ManyToOne
-    private C_location c_location;
-
-    @ManyToOne
     private C_colony c_colony;
 
     @ManyToOne
@@ -179,14 +176,6 @@ public class Free_receiver implements Serializable {
 
     public void setC_municipality(C_municipality c_municipality) {
         this.c_municipality = c_municipality;
-    }
-
-    public C_location getC_location() {
-        return c_location;
-    }
-
-    public void setC_location(C_location c_location) {
-        this.c_location = c_location;
     }
 
     public C_colony getC_colony() {

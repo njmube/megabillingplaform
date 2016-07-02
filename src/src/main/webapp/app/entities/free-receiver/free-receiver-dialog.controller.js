@@ -5,15 +5,14 @@
         .module('megabillingplatformApp')
         .controller('Free_receiverDialogController', Free_receiverDialogController);
 
-    Free_receiverDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Free_receiver', 'C_country', 'C_state', 'C_municipality', 'C_location', 'C_colony', 'C_zip_code'];
+    Free_receiverDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Free_receiver', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code'];
 
-    function Free_receiverDialogController ($scope, $stateParams, $uibModalInstance, entity, Free_receiver, C_country, C_state, C_municipality, C_location, C_colony, C_zip_code) {
+    function Free_receiverDialogController ($scope, $stateParams, $uibModalInstance, entity, Free_receiver, C_country, C_state, C_municipality, C_colony, C_zip_code) {
         var vm = this;
         vm.free_receiver = entity;
         vm.c_countrys = C_country.query();
         vm.c_states = C_state.query();
         vm.c_municipalitys = C_municipality.query();
-        vm.c_locations = C_location.query();
         vm.c_colonys = C_colony.query();
         vm.c_zip_codes = C_zip_code.query();
         vm.load = function(id) {

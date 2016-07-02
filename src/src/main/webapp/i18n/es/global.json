@@ -43,6 +43,7 @@
                 "paymentMethod": "Payment_method",
                 "taxRegime": "Tax_regime",
                 "cMunicipality": "C_municipality",
+                "freeEmitter": "Free_emitter",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

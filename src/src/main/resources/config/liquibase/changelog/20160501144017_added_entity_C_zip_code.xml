@@ -25,13 +25,19 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="c_colony_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="c_colony_id"
+                                 baseTableName="c_zip_code"
+                                 constraintName="fk_c_zip_code_c_colony_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_colony"/>
         <loadData encoding="UTF-8"
                   file="config/liquibase/cps.csv"
                   separator=";"
                   tableName="c_zip_code">
         </loadData>
-
     </changeSet>
 </databaseChangeLog>

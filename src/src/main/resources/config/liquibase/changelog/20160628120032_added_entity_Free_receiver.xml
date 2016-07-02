@@ -60,7 +60,6 @@
             <column name="c_country_id" type="bigint"/>
             <column name="c_state_id" type="bigint"/>
             <column name="c_municipality_id" type="bigint"/>
-            <column name="c_location_id" type="bigint"/>
             <column name="c_colony_id" type="bigint"/>
             <column name="c_zip_code_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
@@ -84,12 +83,6 @@
                                  constraintName="fk_free_receiver_c_municipality_id"
                                  referencedColumnNames="id"
                                  referencedTableName="c_municipality"/>
-
-        <addForeignKeyConstraint baseColumnNames="c_location_id"
-                                 baseTableName="free_receiver"
-                                 constraintName="fk_free_receiver_c_location_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="c_location"/>
 
         <addForeignKeyConstraint baseColumnNames="c_colony_id"
                                  baseTableName="free_receiver"

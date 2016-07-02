@@ -19,12 +19,6 @@
             "otherEntityField": "name"
         },
         {
-            "relationshipName": "c_location",
-            "otherEntityName": "c_location",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "name"
-        },
-        {
             "relationshipName": "c_colony",
             "otherEntityName": "c_colony",
             "relationshipType": "many-to-one",

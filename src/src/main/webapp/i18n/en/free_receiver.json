@@ -28,7 +28,6 @@
             "c_country": "C_country",
             "c_state": "C_state",
             "c_municipality": "C_municipality",
-            "c_location": "C_location",
             "c_colony": "C_colony",
             "c_zip_code": "C_zip_code"
         }

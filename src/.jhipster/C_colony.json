@@ -1,11 +1,5 @@
 {
     "relationships": [
-        {
-            "relationshipName": "c_location",
-            "otherEntityName": "c_location",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "name"
-        }
     ],
     "fields": [
         {
@@ -17,7 +11,7 @@
                 "maxlength"
             ],
             "fieldValidateRulesMinlength": "3",
-            "fieldValidateRulesMaxlength": "50"
+            "fieldValidateRulesMaxlength": "255"
         },
         {
             "fieldName": "description",

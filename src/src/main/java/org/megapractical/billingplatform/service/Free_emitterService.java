@@ -1,7 +1,6 @@
 package org.megapractical.billingplatform.service;
 
 import org.megapractical.billingplatform.domain.Free_emitter;
-import org.megapractical.billingplatform.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -36,18 +35,12 @@ public interface Free_emitterService {
      */
     Free_emitter findOne(Long id);
 
+    Free_emitter findByLogin(String login);
+
     /**
      *  Delete the "id" free_emitter.
      *
      *  @param id the id of the entity
      */
     void delete(Long id);
-
-    /**
-     *  Get the "user" free_emitter.
-     *
-     *  @param user  of the
-     *  @return the entity
-     */
-    Free_emitter findOneByUser(User user);
 }

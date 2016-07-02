@@ -23,15 +23,12 @@ public class C_colony implements Serializable {
     private Long id;
 
     @NotNull
-    @Size(min = 3, max = 50)
-    @Column(name = "name", length = 50, nullable = false)
+    @Size(min = 3, max = 255)
+    @Column(name = "name", length = 255, nullable = false)
     private String name;
 
     @Column(name = "description")
     private String description;
-
-    @ManyToOne
-    private C_location c_location;
 
     public Long getId() {
         return id;
@@ -55,14 +52,6 @@ public class C_colony implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public C_location getC_location() {
-        return c_location;
-    }
-
-    public void setC_location(C_location c_location) {
-        this.c_location = c_location;
     }
 
     @Override

@@ -12,8 +12,6 @@ import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * Service Implementation for managing C_zip_code.
@@ -50,20 +48,6 @@ public class C_zip_codeServiceImpl implements C_zip_codeService{
         log.debug("Request to get all C_zip_codes");
         Page<C_zip_code> result = c_zip_codeRepository.findAll(pageable); 
         return result;
-    }
-
-
-    /**
-     *  get all the c_zip_codes where C_location is null.
-     *  @return the list of entities
-     */
-    @Transactional(readOnly = true) 
-    public List<C_zip_code> findAllWhereC_locationIsNull() {
-        log.debug("Request to get all c_zip_codes where C_location is null");
-        return StreamSupport
-            .stream(c_zip_codeRepository.findAll().spliterator(), false)
-            .filter(c_zip_code -> c_zip_code.getC_location() == null)
-            .collect(Collectors.toList());
     }
 
     /**

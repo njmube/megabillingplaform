@@ -1,14 +1,11 @@
 package org.megapractical.billingplatform.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -35,11 +32,6 @@ public class C_municipality implements Serializable {
 
     @ManyToOne
     private C_state c_state;
-
-    @OneToMany(mappedBy = "c_municipality")
-    @JsonIgnore
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<C_location> c_locations = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -71,14 +63,6 @@ public class C_municipality implements Serializable {
 
     public void setC_state(C_state c_state) {
         this.c_state = c_state;
-    }
-
-    public Set<C_location> getC_locations() {
-        return c_locations;
-    }
-
-    public void setC_locations(Set<C_location> c_locations) {
-        this.c_locations = c_locations;
     }
 
     @Override

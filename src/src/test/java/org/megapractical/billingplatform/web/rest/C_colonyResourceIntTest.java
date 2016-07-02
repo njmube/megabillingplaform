@@ -125,7 +125,7 @@ public class C_colonyResourceIntTest {
         c_colonyRepository.saveAndFlush(c_colony);
 
         // Get all the c_colonies
-        restC_colonyMockMvc.perform(get("/api/c-colonies?sort=id,desc&locationId=-1"))
+        restC_colonyMockMvc.perform(get("/api/c-colonies?sort=id,desc"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(c_colony.getId().intValue())))

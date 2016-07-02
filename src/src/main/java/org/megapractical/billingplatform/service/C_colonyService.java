@@ -13,7 +13,7 @@ public interface C_colonyService {
 
     /**
      * Save a c_colony.
-     *
+     * 
      * @param c_colony the entity to save
      * @return the persisted entity
      */
@@ -21,17 +21,15 @@ public interface C_colonyService {
 
     /**
      *  Get all the c_colonies.
-     *
+     *  
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<C_colony> findAll(Pageable pageable);
 
-    List<C_colony> findByLocation(long locationId);
-
     /**
      *  Get the "id" c_colony.
-     *
+     *  
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -39,7 +37,7 @@ public interface C_colonyService {
 
     /**
      *  Delete the "id" c_colony.
-     *
+     *  
      *  @param id the id of the entity
      */
     void delete(Long id);

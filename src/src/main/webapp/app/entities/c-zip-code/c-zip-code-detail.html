@@ -8,6 +8,11 @@
             <span>{{vm.c_zip_code.postcode}}<span>
         </dd>
         <hr>
+        <dt><span translate="megabillingplatformApp.c_zip_code.c_colony">c_colony</span></dt>
+        <dd>
+            <a ui-sref="c-colony-detail({id:vm.c_zip_code.c_colony.id})">{{vm.c_zip_code.c_colony.name}}</a>
+        </dd>
+        <hr>
     </dl>
 
     <button type="submit"

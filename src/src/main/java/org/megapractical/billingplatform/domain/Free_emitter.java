@@ -36,9 +36,11 @@ public class Free_emitter implements Serializable {
     @Column(name = "street", nullable = false)
     private String street;
 
+    @NotNull
     @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 
+    @NotNull
     @Column(name = "activated", nullable = false)
     private Boolean activated;
 
@@ -49,15 +51,44 @@ public class Free_emitter implements Serializable {
     private String rfc;
 
     @NotNull
-    @Size(min = 3, max = 50)
-    @Column(name = "social_reason", length = 50, nullable = false)
-    private String social_reason;
-
-    @NotNull
     @Size(min = 6, max = 254)
     @Pattern(regexp = "^([a-zA-Z0-9])+([_\\.\\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9])+$")
     @Column(name = "email", length = 254, nullable = false)
     private String email;
+
+    @NotNull
+    @Size(min = 3, max = 50)
+    @Column(name = "bussines_name", length = 50, nullable = false)
+    private String bussines_name;
+
+    @Column(name = "location")
+    private String location;
+
+    @Column(name = "intersection")
+    private String intersection;
+
+    @Column(name = "fax")
+    private String fax;
+
+    @NotNull
+    @Size(min = 1, max = 15)
+    @Pattern(regexp = "^[0-9]{1,15}$")
+    @Column(name = "phone_1", length = 15, nullable = false)
+    private String phone1;
+
+    @Column(name = "phone_2")
+    private String phone2;
+
+    @NotNull
+    @Column(name = "path_certificate", nullable = false)
+    private String path_certificate;
+
+    @NotNull
+    @Column(name = "path_key", nullable = false)
+    private String path_key;
+
+    @Column(name = "path_logo")
+    private String path_logo;
 
     @ManyToOne
     private Tax_regime tax_regime;
@@ -72,9 +103,6 @@ public class Free_emitter implements Serializable {
     private C_municipality c_municipality;
 
     @ManyToOne
-    private C_location c_location;
-
-    @ManyToOne
     private C_colony c_colony;
 
     @ManyToOne
@@ -83,10 +111,6 @@ public class Free_emitter implements Serializable {
     @OneToOne
     @JoinColumn(unique = true)
     private User user;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Free_digital_certificate free_digital_certificate;
 
     public Long getId() {
         return id;
@@ -152,20 +176,84 @@ public class Free_emitter implements Serializable {
         this.rfc = rfc;
     }
 
-    public String getSocial_reason() {
-        return social_reason;
-    }
-
-    public void setSocial_reason(String social_reason) {
-        this.social_reason = social_reason;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getBussines_name() {
+        return bussines_name;
+    }
+
+    public void setBussines_name(String bussines_name) {
+        this.bussines_name = bussines_name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getIntersection() {
+        return intersection;
+    }
+
+    public void setIntersection(String intersection) {
+        this.intersection = intersection;
+    }
+
+    public String getFax() {
+        return fax;
+    }
+
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
+
+    public String getPhone1() {
+        return phone1;
+    }
+
+    public void setPhone1(String phone1) {
+        this.phone1 = phone1;
+    }
+
+    public String getPhone2() {
+        return phone2;
+    }
+
+    public void setPhone2(String phone2) {
+        this.phone2 = phone2;
+    }
+
+    public String getPath_certificate() {
+        return path_certificate;
+    }
+
+    public void setPath_certificate(String path_certificate) {
+        this.path_certificate = path_certificate;
+    }
+
+    public String getPath_key() {
+        return path_key;
+    }
+
+    public void setPath_key(String path_key) {
+        this.path_key = path_key;
+    }
+
+    public String getPath_logo() {
+        return path_logo;
+    }
+
+    public void setPath_logo(String path_logo) {
+        this.path_logo = path_logo;
     }
 
     public Tax_regime getTax_regime() {
@@ -200,14 +288,6 @@ public class Free_emitter implements Serializable {
         this.c_municipality = c_municipality;
     }
 
-    public C_location getC_location() {
-        return c_location;
-    }
-
-    public void setC_location(C_location c_location) {
-        this.c_location = c_location;
-    }
-
     public C_colony getC_colony() {
         return c_colony;
     }
@@ -230,14 +310,6 @@ public class Free_emitter implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Free_digital_certificate getFree_digital_certificate() {
-        return free_digital_certificate;
-    }
-
-    public void setFree_digital_certificate(Free_digital_certificate free_digital_certificate) {
-        this.free_digital_certificate = free_digital_certificate;
     }
 
     @Override
@@ -271,8 +343,16 @@ public class Free_emitter implements Serializable {
             ", create_date='" + create_date + "'" +
             ", activated='" + activated + "'" +
             ", rfc='" + rfc + "'" +
-            ", social_reason='" + social_reason + "'" +
             ", email='" + email + "'" +
+            ", bussines_name='" + bussines_name + "'" +
+            ", location='" + location + "'" +
+            ", intersection='" + intersection + "'" +
+            ", fax='" + fax + "'" +
+            ", phone1='" + phone1 + "'" +
+            ", phone2='" + phone2 + "'" +
+            ", path_certificate='" + path_certificate + "'" +
+            ", path_key='" + path_key + "'" +
+            ", path_logo='" + path_logo + "'" +
             '}';
     }
 }

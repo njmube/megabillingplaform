@@ -21,23 +21,20 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(50)">
+            <column name="name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="description" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
-            <column name="c_location_id" type="bigint"/>
+
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
-        <addForeignKeyConstraint baseColumnNames="c_location_id"
-                                 baseTableName="c_colony"
-                                 constraintName="fk_c_colony_c_location_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="c_location"/>
-
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/colonys.csv"
+                  separator=";"
+                  tableName="c_colony">
+        </loadData>
     </changeSet>
 </databaseChangeLog>

@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,13 +21,13 @@ import java.util.List;
 public class C_colonyServiceImpl implements C_colonyService{
 
     private final Logger log = LoggerFactory.getLogger(C_colonyServiceImpl.class);
-
+    
     @Inject
     private C_colonyRepository c_colonyRepository;
-
+    
     /**
      * Save a c_colony.
-     *
+     * 
      * @param c_colony the entity to save
      * @return the persisted entity
      */
@@ -38,32 +37,16 @@ public class C_colonyServiceImpl implements C_colonyService{
         return result;
     }
 
-    public List<C_colony> findByLocation(long locationId){
-        log.debug("Request to get all C_states");
-        List<C_colony> result = c_colonyRepository.findAll();
-        if(locationId == -1){
-            return  result;
-        }
-        List<C_colony> res = new ArrayList<>();
-        for(int i = 0; i < result.size();i++){
-            if(result.get(i).getC_location().getId() == locationId){
-                res.add(result.get(i));
-            }
-        }
-        return res;
-
-    }
-
     /**
      *  Get all the c_colonies.
-     *
+     *  
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = true) 
     public Page<C_colony> findAll(Pageable pageable) {
         log.debug("Request to get all C_colonies");
-        Page<C_colony> result = c_colonyRepository.findAll(pageable);
+        Page<C_colony> result = c_colonyRepository.findAll(pageable); 
         return result;
     }
 
@@ -73,7 +56,7 @@ public class C_colonyServiceImpl implements C_colonyService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = true) 
     public C_colony findOne(Long id) {
         log.debug("Request to get C_colony : {}", id);
         C_colony c_colony = c_colonyRepository.findOne(id);
@@ -82,7 +65,7 @@ public class C_colonyServiceImpl implements C_colonyService{
 
     /**
      *  Delete the  c_colony by id.
-     *
+     *  
      *  @param id the id of the entity
      */
     public void delete(Long id) {

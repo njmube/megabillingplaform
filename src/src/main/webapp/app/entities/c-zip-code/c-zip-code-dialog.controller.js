@@ -5,12 +5,12 @@
         .module('megabillingplatformApp')
         .controller('C_zip_codeDialogController', C_zip_codeDialogController);
 
-    C_zip_codeDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'C_zip_code', 'C_location'];
+    C_zip_codeDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'C_zip_code', 'C_colony'];
 
-    function C_zip_codeDialogController ($scope, $stateParams, $uibModalInstance, entity, C_zip_code, C_location) {
+    function C_zip_codeDialogController ($scope, $stateParams, $uibModalInstance, entity, C_zip_code, C_colony) {
         var vm = this;
         vm.c_zip_code = entity;
-        vm.c_locations = C_location.query();
+        vm.c_colonys = C_colony.query();
         vm.load = function(id) {
             C_zip_code.get({id : id}, function(result) {
                 vm.c_zip_code = result;

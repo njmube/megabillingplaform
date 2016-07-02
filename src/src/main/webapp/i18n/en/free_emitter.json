@@ -2,38 +2,49 @@
     "megabillingplatformApp": {
         "free_emitter" : {
             "home": {
-                "title": "Emitters",
-                "createLabel": "New Emitter",
-                "createOrEditLabel": "Create or edit a Emitter",
-                "search": "Search for Emitter"
+                "title": "Free_emitters",
+                "createLabel": "Create a new Free_emitter",
+                "createOrEditLabel": "Create or edit a Free_emitter",
+                "search": "Search for Free_emitter",
+                "createLabel": "Data Free Emitter"
             },
-            "created": "A new emitter is created with identifier {{ param }}",
-            "updated": "A emitter is updated with identifier {{ param }}",
-            "deleted": "A emitter is deleted with identifier {{ param }}",
+            "created": "A new Free_emitter is created with identifier {{ param }}",
+            "updated": "A Free_emitter is updated with identifier {{ param }}",
+            "deleted": "A Free_emitter is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete emitter {{ id }}?"
+                "question": "Are you sure you want to delete Free_emitter {{ id }}?"
             },
             "detail": {
-                "title": "Emitter"
+                "title": "Free_emitter"
             },
             "reference": "Reference",
-            "num_int": "Num Int",
-            "num_ext": "Num Ext",
-            "street": "Street",
-            "create_date": "Create Date",
+            "num_int": "Num int",
+            "num_ext": "Num ext",
+            "street": "Street (*)",
+            "create_date": "Create date",
             "activated": "Activated",
-            "rfc": "RFC",
-            "social_reason": "Social Reason",
-            "email": "Email",
-            "tax_regime": "Tax_regime",
-            "c_country": "Country",
-            "c_state": "State",
-            "c_municipality": "Municipality",
-            "c_location": "Location",
+            "rfc": "RFC (*)",
+            "email": "Email (*)",
+            "bussines_name": "Bussines name (*)",
+            "location": "Location",
+            "intersection": "Intersection",
+            "fax": "Fax",
+            "phone1": "Phone #1 (*)",
+            "phone2": "Phone #2",
+            "path_certificate": "Path certificate (*)",
+            "path_key": "Path key (*)",
+            "path_logo": "Path logo (*)",
+            "labelLogo": "Logo",
+            "labelFU": "Fiscal Ubication",
+            "labelDC": "Digital Certificate",
+            "labelDE": "Data Free Emitter",
+            "tax_regime": "Tax_regime (*)",
+            "c_country": "Country (*)",
+            "c_state": "State (*)",
+            "c_municipality": "Municipality (*)",
             "c_colony": "Colony",
-            "c_zip_code": "Zip Code",
-            "user": "User",
-            "free_digital_certificate": "Digital Certificate"
+            "c_zip_code": "Zip_code",
+            "user": "User"
         }
     }
 }

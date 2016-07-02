@@ -3,11 +3,11 @@
 
     angular
         .module('megabillingplatformApp')
-        .controller('C_colonyController', C_colonyController);
+        .controller('Free_emitterController', Free_emitterController);
 
-    C_colonyController.$inject = ['$scope', '$state', 'C_colony', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    Free_emitterController.$inject = ['$scope', '$state', 'Free_emitter', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
 
-    function C_colonyController ($scope, $state, C_colony, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function Free_emitterController ($scope, $state, Free_emitter, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
@@ -17,7 +17,7 @@
         vm.loadAll();
 
         function loadAll () {
-            C_colony.query({
+            Free_emitter.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,
                 sort: sort()
@@ -33,7 +33,7 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
-                vm.c_colonies = data;
+                vm.free_emitters = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {

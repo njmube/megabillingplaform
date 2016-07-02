@@ -1,10 +1,10 @@
 package org.megapractical.billingplatform.service.impl;
 
 import org.megapractical.billingplatform.domain.User;
-import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.service.Free_emitterService;
 import org.megapractical.billingplatform.domain.Free_emitter;
 import org.megapractical.billingplatform.repository.Free_emitterRepository;
+import org.megapractical.billingplatform.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -13,8 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
-import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Service Implementation for managing Free_emitter.
@@ -29,8 +29,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
     private Free_emitterRepository free_emitterRepository;
 
     @Inject
-    private UserRepository userRepository;
-
+    private UserService userService;
     /**
      * Save a free_emitter.
      *
@@ -39,11 +38,17 @@ public class Free_emitterServiceImpl implements Free_emitterService{
      */
     public Free_emitter save(Free_emitter free_emitter) {
         log.debug("Request to save Free_emitter : {}", free_emitter);
-
         Free_emitter result = free_emitterRepository.save(free_emitter);
         return result;
     }
 
+    public Free_emitter findByLogin(String login){
+        Optional<User> user = userService.getUserWithAuthoritiesByLogin(login);
+        if(user.isPresent()){
+            return free_emitterRepository.findOneByUser(user.get());
+        }
+        return new Free_emitter();
+    }
     /**
      *  Get all the free_emitters.
      *
@@ -78,14 +83,5 @@ public class Free_emitterServiceImpl implements Free_emitterService{
     public void delete(Long id) {
         log.debug("Request to delete Free_emitter : {}", id);
         free_emitterRepository.delete(id);
-    }
-
-    @Override
-    public Free_emitter findOneByUser(User user) {
-        log.debug("Request to get Free_emitter by User: {}", user);
-        Free_emitter free_emitter = free_emitterRepository.findOneByUser(user);
-
-        return free_emitter;
-
     }
 }

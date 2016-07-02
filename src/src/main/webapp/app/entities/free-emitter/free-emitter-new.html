@@ -45,7 +45,7 @@
 
 <div class="row">
     <div class="col-sm-12">
-	
+
 		<jhi-alert-error></jhi-alert-error>
 		<jhi-alert></jhi-alert>
 
@@ -53,14 +53,14 @@
             <div class="row">
                 <div class="col-md-6">
 
-                    <h3 class="header smaller lighter blue">
+                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelDE">
                         Datos del Emisor
                     </h3>
                     <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.rfc" for="field_rfc">
-							Rfc
-						</label>						
-			
+							RFC
+						</label>
+
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="rfc" id="field_rfc"
 							   ng-model="vm.free_emitter.rfc"
@@ -86,6 +86,30 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.bussines_name" for="field_social_reason">
+                            Social reason
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="social_reason" id="field_social_reason"
+                                   ng-model="vm.free_emitter.bussines_name"
+                                   required ng-minlength="3" ng-maxlength="50" />
+                            <div ng-show="editForm.social_reason.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.social_reason.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.social_reason.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
+                                    This field is required to be at least 3 characters.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.social_reason.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                    This field cannot be longer than 50 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.tax_regime" for="field_tax_regime">tax_regime</label>
                         <div class="col-sm-8">
                             <select class="form-control" id="field_tax_regime" name="tax_regime" ng-model="vm.free_emitter.tax_regime" ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimes track by tax_regime.id" required>
@@ -100,34 +124,10 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.social_reason" for="field_social_reason">
-							Social_reason
-						</label>						
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" name="social_reason" id="field_social_reason"
-							   ng-model="vm.free_emitter.social_reason"
-							   required ng-minlength="3" ng-maxlength="50" />
-							<div ng-show="editForm.social_reason.$invalid">
-								<p class="help-block"
-								   ng-show="editForm.social_reason.$error.required" translate="entity.validation.required">
-									This field is required.
-								</p>
-								<p class="help-block"
-								   ng-show="editForm.social_reason.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
-									This field is required to be at least 3 characters.
-								</p>
-								<p class="help-block"
-								   ng-show="editForm.social_reason.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
-									This field cannot be longer than 50 characters.
-								</p>
-							</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.email" for="field_email">
 							Email
 						</label>
-						
+
                         <div class="col-sm-8">
                             <input type="email" class="form-control" name="email" id="field_email"
 							   ng-model="vm.free_emitter.email"
@@ -152,46 +152,101 @@
 							</div>
                         </div>
                     </div>
-					
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.fax" for="field_fax">Fax</label>
+                        <div class="col-sm-8">
+                        <input type="text" class="form-control" name="fax" id="field_fax"
+                               ng-model="vm.free_emitter.fax"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.phone1" for="field_phone1">Phone #1</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="phone1" id="field_phone1"
+                                   ng-model="vm.free_emitter.phone1"
+                                   required ng-minlength="1" ng-maxlength="15" ng-pattern="/^[0-9]{1,15}$/" />
+                            <div ng-show="editForm.phone1.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.phone1.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.phone1.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
+                                    This field is required to be at least 1 characters.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.phone1.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="15">
+                                    This field cannot be longer than 15 characters.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.phone1.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{1,15}$">
+                                    This field should follow pattern "^[0-9]{1,15}$".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.phone2" for="field_phone2">Phone #2</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="phone2" id="field_phone2"
+                                   ng-model="vm.free_emitter.phone2"
+                                />
+                        </div>
+                    </div>
 
                     <div class="space-6"></div>
 
-                    <h3 class="header smaller lighter blue">
+                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelDC">
                         Certificado Digital
                     </h3>
-					
+
 					<div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_digital_certificate.path_certificate" for="field_path_certificate">Path_certificate</label>
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_certificate" for="field_path_certificate">Path_certificate</label>
                         <div class="col-sm-8">
 							<input type="text" class="form-control" name="path_certificate" id="field_path_certificate"
-								ng-model="vm.free_digital_certificate.path_certificate"
+								ng-model="vm.free_emitter.path_certificate"
 								required />
 							<div ng-show="editForm.path_certificate.$invalid">
 								<p class="help-block"
 									ng-show="editForm.path_certificate.$error.required" translate="entity.validation.required">
 									This field is required.
 								</p>
-							</div>                           
+							</div>
 						</div>
                     </div>
-					
+
 					<div class="form-group">
-						<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_digital_certificate.path_private_key" for="field_path_private_key">Path_private_key</label>
+						<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_key" for="field_path_private_key">Path key</label>
                         <div class="col-sm-8">
 							<input type="text" class="form-control" name="path_private_key" id="field_path_private_key"
-								ng-model="vm.free_digital_certificate.path_private_key"
+								ng-model="vm.free_emitter.path_key"
 								required />
 							<div ng-show="editForm.path_private_key.$invalid">
 								<p class="help-block"
 									ng-show="editForm.path_private_key.$error.required" translate="entity.validation.required">
 									This field is required.
 								</p>
-							</div>                          
+							</div>
 						</div>
+                    </div>
+
+                    <div class="space-6"></div>
+
+                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelLogo">
+                        Logo
+                    </h3>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_logo" for="field_path_logo">Path_logo</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="path_logo" id="field_path_logo"
+                                   ng-model="vm.free_emitter.path_logo"
+                                />
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <h3 class="header smaller lighter blue">
+                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelFU">
                         Ubicación Fiscal
                     </h3>
                     <div class="form-group">
@@ -217,20 +272,27 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_location" for="field_c_location">c_location</label>
-
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_municipality" for="field_c_municipality">c_municipality</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_location" name="c_location" ng-model="vm.free_emitter.c_location" ng-options="c_location as c_location.name for c_location in vm.c_locations track by c_location.id" data-ng-change="vm.onChangeC_location()">
+                            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_emitter.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id">
 								<option value=""></option>
 							</select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_municipality" for="field_c_municipality">c_municipality</label>
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_colony" for="field_c_colony">c_colony</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_emitter.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id" data-ng-change="vm.onChangeC_municipality()">
-								<option value=""></option>
-							</select>
+                            <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_emitter.c_colony" ng-options="c_colony as c_colony.name for c_colony in vm.c_colonys track by c_colony.id">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_zip_code" for="field_c_zip_code">c_zip_code</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.free_emitter.c_zip_code" ng-options="c_zip_code as c_zip_code.postcode for c_zip_code in vm.c_zip_codes track by c_zip_code.id">
+                                <option value=""></option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -260,22 +322,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-						<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_colony" for="field_c_colony">c_colony</label>
-                        <div class="col-md-8">
-                            <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_emitter.c_colony" ng-options="c_colony as c_colony.name for c_colony in vm.c_colonys track by c_colony.id">
-								<option value=""></option>
-							</select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-						<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_zip_code" for="field_c_zip_code">c_zip_code</label>
-                        <div class="col-md-8">
-                            <select class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.free_emitter.c_zip_code" ng-options="c_zip_code as c_zip_code.postcode for c_zip_code in vm.c_zip_codes track by c_zip_code.id">
-								<option value=""></option>
-							</select>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" for="field_reference" translate="megabillingplatformApp.free_emitter.reference" for="field_reference">
                             Reference
                         </label>
@@ -284,17 +330,16 @@
                         </div>
 
                     </div>
-					
 					<div class="form-group">
-						
+
 						<button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary pull-right" style="margin: 0 15px">
 							<span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save </span>
 						</button>
-						
+
 						<button type="button" class="btn btn-default pull-right" onclick="window.history.back()">
 							<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
 						</button>
-						
+
 					</div>
                 </div>
             </div>
