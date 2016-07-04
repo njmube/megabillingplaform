@@ -66,17 +66,6 @@
 				}
 			},
 			resolve: {
-				/*FreeEmitterEntity: [function () {
-					return {
-						reference: null,
-						num_int: null,
-						num_ext: null,
-						street: null,
-						create_date: null,
-						activated: false,
-						id: null
-					};
-				}],*/
 				entity: ['$stateParams', 'Free_emitter', function($stateParams, Free_emitter) {
                             return Free_emitter.get({login : $stateParams.login});
                         }],

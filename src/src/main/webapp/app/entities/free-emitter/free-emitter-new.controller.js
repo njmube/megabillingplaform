@@ -57,10 +57,9 @@
             } else {
                 vm.free_emitter.create_date = Date.now();
                 vm.free_emitter.activated = true;
+				vm.free_emitter.user = vm.account;
                 Free_emitter.save(vm.free_emitter, onSaveSuccess, onSaveError);
             }
         };
-
-
     }
 })();
