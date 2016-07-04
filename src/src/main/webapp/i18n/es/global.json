@@ -44,6 +44,7 @@
                 "taxRegime": "Tax_regime",
                 "cMunicipality": "C_municipality",
                 "freeEmitter": "Free_emitter",
+                "configPathrootfile": "Config_pathrootfile",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -2,12 +2,12 @@
     'use strict';
     angular
         .module('megabillingplatformApp')
-        .factory('Free_digital_certificate', Free_digital_certificate);
+        .factory('Config_pathrootfile', Config_pathrootfile);
 
-    Free_digital_certificate.$inject = ['$resource'];
+    Config_pathrootfile.$inject = ['$resource'];
 
-    function Free_digital_certificate ($resource) {
-        var resourceUrl =  'api/free-digital-certificates/:id';
+    function Config_pathrootfile ($resource) {
+        var resourceUrl =  'api/config-pathrootfiles/:id';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},

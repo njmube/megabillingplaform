@@ -89,6 +89,27 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="filecertificate" type="blob">
+                <constraints nullable="true" />
+            </column>
+            <column name="filecertificate_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="filekey" type="blob">
+                <constraints nullable="true" />
+            </column>
+            <column name="filekey_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="filelogo" type="blob">
+                <constraints nullable="true" />
+            </column>
+            <column name="filelogo_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="tax_regime_id" type="bigint"/>
             <column name="c_country_id" type="bigint"/>
             <column name="c_state_id" type="bigint"/>

@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "config_pathrootfile" : {
+            "home": {
+                "title": "Config_pathrootfiles",
+                "createLabel": "Create a new Config_pathrootfile",
+                "createOrEditLabel": "Create or edit a Config_pathrootfile",
+                "search": "Search for Config_pathrootfile"
+            },
+            "created": "A new Config_pathrootfile is created with identifier {{ param }}",
+            "updated": "A Config_pathrootfile is updated with identifier {{ param }}",
+            "deleted": "A Config_pathrootfile is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Config_pathrootfile {{ id }}?"
+            },
+            "detail": {
+                "title": "Config_pathrootfile"
+            },
+            "pathrootdev": "Pathrootdev",
+            "pathrootprod": "Pathrootprod"
+        }
+    }
+}

@@ -4,35 +4,35 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myFree_digital_certificateLabel" translate="megabillingplatformApp.free_digital_certificate.home.createOrEditLabel">Create or edit a Free_digital_certificate</h4>
+        <h4 class="modal-title" id="myConfig_pathrootfileLabel" translate="megabillingplatformApp.config_pathrootfile.home.createOrEditLabel">Create or edit a Config_pathrootfile</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.free_digital_certificate.id" readonly />
+                    ng-model="vm.config_pathrootfile.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_digital_certificate.path_certificate" for="field_path_certificate">Path_certificate</label>
-            <input type="text" class="form-control" name="path_certificate" id="field_path_certificate"
-                    ng-model="vm.free_digital_certificate.path_certificate"
+            <label class="control-label" translate="megabillingplatformApp.config_pathrootfile.pathrootdev" for="field_pathrootdev">Pathrootdev</label>
+            <input type="text" class="form-control" name="pathrootdev" id="field_pathrootdev"
+                    ng-model="vm.config_pathrootfile.pathrootdev"
                     required />
-            <div ng-show="editForm.path_certificate.$invalid">
+            <div ng-show="editForm.pathrootdev.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.path_certificate.$error.required" translate="entity.validation.required">
+                    ng-show="editForm.pathrootdev.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_digital_certificate.path_private_key" for="field_path_private_key">Path_private_key</label>
-            <input type="text" class="form-control" name="path_private_key" id="field_path_private_key"
-                    ng-model="vm.free_digital_certificate.path_private_key"
+            <label class="control-label" translate="megabillingplatformApp.config_pathrootfile.pathrootprod" for="field_pathrootprod">Pathrootprod</label>
+            <input type="text" class="form-control" name="pathrootprod" id="field_pathrootprod"
+                    ng-model="vm.config_pathrootfile.pathrootprod"
                     required />
-            <div ng-show="editForm.path_private_key.$invalid">
+            <div ng-show="editForm.pathrootprod.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.path_private_key.$error.required" translate="entity.validation.required">
+                    ng-show="editForm.pathrootprod.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
             </div>

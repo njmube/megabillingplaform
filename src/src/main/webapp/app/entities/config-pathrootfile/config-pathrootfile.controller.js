@@ -3,11 +3,11 @@
 
     angular
         .module('megabillingplatformApp')
-        .controller('Free_digital_certificateController', Free_digital_certificateController);
+        .controller('Config_pathrootfileController', Config_pathrootfileController);
 
-    Free_digital_certificateController.$inject = ['$scope', '$state', 'Free_digital_certificate', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    Config_pathrootfileController.$inject = ['$scope', '$state', 'Config_pathrootfile', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
 
-    function Free_digital_certificateController ($scope, $state, Free_digital_certificate, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function Config_pathrootfileController ($scope, $state, Config_pathrootfile, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
@@ -17,7 +17,7 @@
         vm.loadAll();
 
         function loadAll () {
-            Free_digital_certificate.query({
+            Config_pathrootfile.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,
                 sort: sort()
@@ -33,7 +33,7 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
-                vm.free_digital_certificates = data;
+                vm.config_pathrootfiles = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {

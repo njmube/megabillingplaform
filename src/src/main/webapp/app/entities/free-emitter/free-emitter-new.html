@@ -200,35 +200,51 @@
                     <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelDC">
                         Certificado Digital
                     </h3>
-
-					<div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_certificate" for="field_path_certificate">Path_certificate</label>
+                    <div class="form-group" ngf-drop ngf-change="vm.setPath_Certificate($file, vm.free_emitter)">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_certificate" for="field_path_certificate">Certificate</label>
                         <div class="col-sm-8">
-							<input type="text" class="form-control" name="path_certificate" id="field_path_certificate"
-								ng-model="vm.free_emitter.path_certificate"
-								required />
-							<div ng-show="editForm.path_certificate.$invalid">
-								<p class="help-block"
-									ng-show="editForm.path_certificate.$error.required" translate="entity.validation.required">
-									This field is required.
-								</p>
-							</div>
-						</div>
+                            <div class="help-block clearfix">
+                                <a class="pull-left" ng-click="vm.openFile(vm.free_emitter.filecertificateContentType, vm.free_emitter.filecertificate)" ng-if="vm.free_emitter.filecertificate" target="_blank">open</a><br>
+                                <span class="pull-left">{{vm.free_emitter.filecertificateContentType}}, {{byteSize(vm.free_emitter.filecertificate)}}</span>
+                                <button ng-click="vm.free_emitter.filecertificate=null;vm.free_emitter.filecertificateContentType=null;"
+                                        ng-if="vm.free_emitter.filecertificate"
+                                        class="btn btn-default btn-xs pull-right">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </div>
+                            <button type="file" ngf-select class="btn btn-default btn-block"
+                                    ngf-change="vm.setPath_Certificate($file, vm.free_emitter)" translate="megabillingplatformApp.free_emitter.addblobCertificate">
+                                Add certificate
+                            </button>
+                        </div>
+                        <input type="hidden" class="form-control" name="path_certificate" id="field_path_certificate"
+                               ng-model="vm.free_emitter.filecertificate"
+                            />
+                        <input type="hidden" class="form-control" name="path_certificate_type" id="field_path_certificate_type"
+                               ng-model="vm.free_emitter.filecertificateContentType" />
                     </div>
-
-					<div class="form-group">
-						<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_key" for="field_path_private_key">Path key</label>
+                    <div class="form-group" ngf-drop ngf-change="vm.setPath_Key($file, vm.free_emitter)">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_key" for="field_path_key">Path key</label>
                         <div class="col-sm-8">
-							<input type="text" class="form-control" name="path_private_key" id="field_path_private_key"
-								ng-model="vm.free_emitter.path_key"
-								required />
-							<div ng-show="editForm.path_private_key.$invalid">
-								<p class="help-block"
-									ng-show="editForm.path_private_key.$error.required" translate="entity.validation.required">
-									This field is required.
-								</p>
-							</div>
-						</div>
+                            <div class="help-block clearfix">
+                                <a class="pull-left" ng-click="vm.openFile(vm.free_emitter.filekeyContentType, vm.free_emitter.filekey)" ng-if="vm.free_emitter.filekey" target="_blank">open</a><br>
+                                <span class="pull-left">{{vm.free_emitter.filekeyContentType}}, {{byteSize(vm.free_emitter.filekey)}}</span>
+                                <button ng-click="vm.free_emitter.filekey=null;vm.free_emitter.filekeyContentType=null;"
+                                        ng-if="vm.free_emitter.filekey"
+                                        class="btn btn-default btn-xs pull-right">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </div>
+                            <button type="file" ngf-select class="btn btn-default btn-block"
+                                    ngf-change="vm.setPath_Key($file,vm.free_emitter)" translate="megabillingplatformApp.free_emitter.addblobKey">
+                                Add key
+                            </button>
+                        </div>
+                        <input type="hidden" class="form-control" name="path_key" id="field_path_key"
+                               ng-model="vm.free_emitter.filekey"
+                            />
+                        <input type="hidden" class="form-control" name="path_key_type" id="field_path_key_type"
+                               ng-model="vm.free_emitter.filekeyContentType" />
                     </div>
 
                     <div class="space-6"></div>
@@ -236,13 +252,28 @@
                     <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelLogo">
                         Logo
                     </h3>
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_logo" for="field_path_logo">Path_logo</label>
+                    <div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.free_emitter)">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_logo" for="field_logo">Logo</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="path_logo" id="field_path_logo"
-                                   ng-model="vm.free_emitter.path_logo"
-                                />
+                            <div class="help-block clearfix">
+                                <a class="pull-left" ng-click="vm.openFile(vm.free_emitter.filelogoContentType, vm.free_emitter.filelogo)" ng-if="vm.free_emitter.filelogo" target="_blank">open</a><br>
+                                <span class="pull-left">{{vm.free_emitter.filelogoContentType}}, {{byteSize(vm.free_emitter.filelogo)}}</span>
+                                <button ng-click="vm.free_emitter.filelogo=null;vm.free_emitter.filelogoContentType=null;"
+                                        ng-if="vm.free_emitter.filelogo"
+                                        class="btn btn-default btn-xs pull-right">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                </button>
+                            </div>
+                            <button type="file" ngf-select class="btn btn-default btn-block"
+                                    ngf-change="vm.setLogo($file, vm.free_emitter)" translate="megabillingplatformApp.free_emitter.addblobLogo">
+                                Add logo
+                            </button>
                         </div>
+                        <input type="hidden" class="form-control" name="logo" id="field_logo"
+                               ng-model="vm.free_emitter.filelogo"
+                            />
+                        <input type="hidden" class="form-control" name="logo_type" id="field_logo_type"
+                               ng-model="vm.free_emitter.filelogoContentType" />
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -296,6 +327,13 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.free_emitter.location" for="field_location">Location</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="location" id="field_location"
+                                   ng-model="vm.free_emitter.location"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.free_emitter.street" for="field_street">Street</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="street" id="field_street"
@@ -324,6 +362,13 @@
 									ng-model="vm.free_emitter.location"
 									/>
 						</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.free_emitter.intersection" for="field_intersection">Intersection</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="location" id="field_intersection"
+                                   ng-model="vm.free_emitter.intersection"/>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.num_int" for="field_num_int">Num_int</label>

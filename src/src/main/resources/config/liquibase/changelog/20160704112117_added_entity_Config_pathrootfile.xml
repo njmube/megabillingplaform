@@ -14,18 +14,18 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <!--
-        Added the entity Free_digital_certificate.
+        Added the entity Config_pathrootfile.
     -->
-    <changeSet id="20160624023539" author="jhipster">
-        <createTable tableName="free_digital_certificate">
+    <changeSet id="20160704112117" author="jhipster">
+        <createTable tableName="config_pathrootfile">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="path_certificate" type="varchar(255)">
+            <column name="pathrootdev" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             
-            <column name="path_private_key" type="varchar(255)">
+            <column name="pathrootprod" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             

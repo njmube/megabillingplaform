@@ -31,9 +31,9 @@
             "fax": "Fax",
             "phone1": "Teléfono #1 (*)",
             "phone2": "Teléfono #2",
-            "path_certificate": "Ruta Certificado (*)",
+            "path_certificate": "Certificado (*)",
             "path_key": "Clave Privada (*)",
-            "path_logo": "Ruta Logo (*)",
+            "path_logo": "Logo (*)",
             "labelLogo": "Logo",
             "labelFU": "Ubicación Fiscal",
             "labelDC": "Certificado Digital",
@@ -44,7 +44,10 @@
             "c_municipality": "Municipio / Delegación (*)",
             "c_colony": "Colonia",
             "c_zip_code": "Código postal",
-            "user": "User"
+            "user": "User",
+            "addblobCertificate": "Adicionar certificado",
+            "addblobKey": "Adicionar clave privada",
+            "addblobLogo": "Adicionar logotipo"
         }
     }
 }

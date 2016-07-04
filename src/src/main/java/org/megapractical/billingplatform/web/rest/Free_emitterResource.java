@@ -1,9 +1,7 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import org.megapractical.billingplatform.domain.Free_digital_certificate;
 import org.megapractical.billingplatform.domain.Free_emitter;
-import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.Free_emitterService;
@@ -54,7 +52,7 @@ public class Free_emitterResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<Free_emitter> createFree_emitter(@Valid @RequestBody Free_emitter free_emitter) throws URISyntaxException {
-        log.debug("REST request to save Free_emitter : {}", free_emitter);
+        log.debug("REST request to create Free_emitter : {}", free_emitter);
         if (free_emitter.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "idexists", "A new free_emitter cannot already have an ID")).body(null);
         }
@@ -64,6 +62,7 @@ public class Free_emitterResource {
             .headers(HeaderUtil.createEntityCreationAlert("free_emitter", result.getId().toString()))
             .body(result);
     }
+
 
     /**
      * PUT  /free-emitters : Updates an existing free_emitter.
@@ -78,12 +77,14 @@ public class Free_emitterResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Free_emitter> updateFree_emitter(@Valid @RequestBody Free_emitter free_emitter) throws URISyntaxException {
+    public ResponseEntity<Free_emitter> updateFree_emitter(@RequestBody Free_emitter free_emitter) throws URISyntaxException {
         log.debug("REST request to update Free_emitter : {}", free_emitter);
+
         if (free_emitter.getId() == null) {
             return createFree_emitter(free_emitter);
         }
         Free_emitter result = free_emitterService.save(free_emitter);
+
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("free_emitter", free_emitter.getId().toString()))
             .body(result);
@@ -124,8 +125,10 @@ public class Free_emitterResource {
 
         if(free_emitter == null) {
             free_emitter = new Free_emitter();
+        }else
+        {
+            free_emitter = free_emitterService.getFile(free_emitter);
         }
-
         return Optional.ofNullable(free_emitter)
             .map(result -> new ResponseEntity<>(
                 result,

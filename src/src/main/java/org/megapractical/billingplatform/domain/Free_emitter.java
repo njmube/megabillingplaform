@@ -90,6 +90,27 @@ public class Free_emitter implements Serializable {
     @Column(name = "path_logo")
     private String path_logo;
 
+    @Lob
+    @Column(name = "filecertificate")
+    private byte[] filecertificate;
+
+    @Column(name = "filecertificate_content_type")    
+    private String filecertificateContentType;
+
+    @Lob
+    @Column(name = "filekey")
+    private byte[] filekey;
+
+    @Column(name = "filekey_content_type")    
+    private String filekeyContentType;
+
+    @Lob
+    @Column(name = "filelogo")
+    private byte[] filelogo;
+
+    @Column(name = "filelogo_content_type")    
+    private String filelogoContentType;
+
     @ManyToOne
     private Tax_regime tax_regime;
 
@@ -256,6 +277,54 @@ public class Free_emitter implements Serializable {
         this.path_logo = path_logo;
     }
 
+    public byte[] getFilecertificate() {
+        return filecertificate;
+    }
+
+    public void setFilecertificate(byte[] filecertificate) {
+        this.filecertificate = filecertificate;
+    }
+
+    public String getFilecertificateContentType() {
+        return filecertificateContentType;
+    }
+
+    public void setFilecertificateContentType(String filecertificateContentType) {
+        this.filecertificateContentType = filecertificateContentType;
+    }
+
+    public byte[] getFilekey() {
+        return filekey;
+    }
+
+    public void setFilekey(byte[] filekey) {
+        this.filekey = filekey;
+    }
+
+    public String getFilekeyContentType() {
+        return filekeyContentType;
+    }
+
+    public void setFilekeyContentType(String filekeyContentType) {
+        this.filekeyContentType = filekeyContentType;
+    }
+
+    public byte[] getFilelogo() {
+        return filelogo;
+    }
+
+    public void setFilelogo(byte[] filelogo) {
+        this.filelogo = filelogo;
+    }
+
+    public String getFilelogoContentType() {
+        return filelogoContentType;
+    }
+
+    public void setFilelogoContentType(String filelogoContentType) {
+        this.filelogoContentType = filelogoContentType;
+    }
+
     public Tax_regime getTax_regime() {
         return tax_regime;
     }
@@ -353,6 +422,12 @@ public class Free_emitter implements Serializable {
             ", path_certificate='" + path_certificate + "'" +
             ", path_key='" + path_key + "'" +
             ", path_logo='" + path_logo + "'" +
+            ", filecertificate='" + filecertificate + "'" +
+            ", filecertificateContentType='" + filecertificateContentType + "'" +
+            ", filekey='" + filekey + "'" +
+            ", filekeyContentType='" + filekeyContentType + "'" +
+            ", filelogo='" + filelogo + "'" +
+            ", filelogoContentType='" + filelogoContentType + "'" +
             '}';
     }
 }

@@ -165,6 +165,21 @@
         {
             "fieldName": "path_logo",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "filecertificate",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "filekey",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "filelogo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
         }
     ],
     "changelogDate": "20160623172937",

@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory
 import scala.concurrent.duration._
 
 /**
- * Performance test for the Free_emitter entity.
+ * Performance test for the Config_pathrootfile entity.
  */
-class Free_emitterGatlingTest extends Simulation {
+class Config_pathrootfileGatlingTest extends Simulation {
 
     val context: LoggerContext = LoggerFactory.getILoggerFactory.asInstanceOf[LoggerContext]
     // Log all HTTP requests
@@ -37,7 +37,7 @@ class Free_emitterGatlingTest extends Simulation {
         "X-CSRF-TOKEN" -> "${csrf_token}"
     )
 
-    val scn = scenario("Test the Free_emitter entity")
+    val scn = scenario("Test the Config_pathrootfile entity")
         .exec(http("First unauthenticated request")
         .get("/api/account")
         .headers(headers_http)
@@ -59,26 +59,26 @@ class Free_emitterGatlingTest extends Simulation {
         .check(headerRegex("Set-Cookie", "CSRF-TOKEN=(.*); [P,p]ath=/").saveAs("csrf_token")))
         .pause(10)
         .repeat(2) {
-            exec(http("Get all free_emitters")
-            .get("/api/free-emitters")
+            exec(http("Get all config_pathrootfiles")
+            .get("/api/config-pathrootfiles")
             .headers(headers_http_authenticated)
             .check(status.is(200)))
             .pause(10 seconds, 20 seconds)
-            .exec(http("Create new free_emitter")
-            .post("/api/free-emitters")
+            .exec(http("Create new config_pathrootfile")
+            .post("/api/config-pathrootfiles")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "reference":"SAMPLE_TEXT", "num_int":"SAMPLE_TEXT", "num_ext":"SAMPLE_TEXT", "street":"SAMPLE_TEXT", "create_date":"2020-01-01T00:00:00.000Z", "activated":null, "rfc":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "bussines_name":"SAMPLE_TEXT", "location":"SAMPLE_TEXT", "intersection":"SAMPLE_TEXT", "fax":"SAMPLE_TEXT", "phone1":"SAMPLE_TEXT", "phone2":"SAMPLE_TEXT", "path_certificate":"SAMPLE_TEXT", "path_key":"SAMPLE_TEXT", "path_logo":"SAMPLE_TEXT", "filecertificate":null, "filekey":null, "filelogo":null}""")).asJSON
+            .body(StringBody("""{"id":null, "pathrootdev":"SAMPLE_TEXT", "pathrootprod":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
-            .check(headerRegex("Location", "(.*)").saveAs("new_free_emitter_url"))).exitHereIfFailed
+            .check(headerRegex("Location", "(.*)").saveAs("new_config_pathrootfile_url"))).exitHereIfFailed
             .pause(10)
             .repeat(5) {
-                exec(http("Get created free_emitter")
-                .get("${new_free_emitter_url}")
+                exec(http("Get created config_pathrootfile")
+                .get("${new_config_pathrootfile_url}")
                 .headers(headers_http_authenticated))
                 .pause(10)
             }
-            .exec(http("Delete created free_emitter")
-            .delete("${new_free_emitter_url}")
+            .exec(http("Delete created config_pathrootfile")
+            .delete("${new_config_pathrootfile_url}")
             .headers(headers_http_authenticated))
             .pause(10)
         }

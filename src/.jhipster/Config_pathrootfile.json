@@ -2,23 +2,23 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "path_certificate",
+            "fieldName": "pathrootdev",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "path_private_key",
+            "fieldName": "pathrootprod",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
         }
     ],
-    "changelogDate": "20160624023539",
+    "changelogDate": "20160704112117",
     "dto": "no",
     "service": "serviceImpl",
-    "entityTableName": "free_digital_certificate",
+    "entityTableName": "config_pathrootfile",
     "pagination": "pagination"
 }

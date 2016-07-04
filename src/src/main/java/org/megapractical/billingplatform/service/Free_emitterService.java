@@ -37,6 +37,10 @@ public interface Free_emitterService {
 
     Free_emitter findByLogin(String login);
 
+    Free_emitter saveFile(Free_emitter free_emitter);
+
+    Free_emitter getFile(Free_emitter free_emitter);
+
     /**
      *  Delete the "id" free_emitter.
      *

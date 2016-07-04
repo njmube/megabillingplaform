@@ -9,17 +9,17 @@
 
     function stateConfig($stateProvider) {
         $stateProvider
-        .state('free-digital-certificate', {
+        .state('config-pathrootfile', {
             parent: 'entity',
-            url: '/free-digital-certificate?page&sort&search',
+            url: '/config-pathrootfile?page&sort&search',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'megabillingplatformApp.free_digital_certificate.home.title'
+                pageTitle: 'megabillingplatformApp.config_pathrootfile.home.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/free-digital-certificate/free-digital-certificates.html',
-                    controller: 'Free_digital_certificateController',
+                    templateUrl: 'app/entities/config-pathrootfile/config-pathrootfiles.html',
+                    controller: 'Config_pathrootfileController',
                     controllerAs: 'vm'
                 }
             },
@@ -45,109 +45,109 @@
                     };
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('free_digital_certificate');
+                    $translatePartialLoader.addPart('config_pathrootfile');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
             }
         })
-        .state('free-digital-certificate-detail', {
+        .state('config-pathrootfile-detail', {
             parent: 'entity',
-            url: '/free-digital-certificate/{id}',
+            url: '/config-pathrootfile/{id}',
             data: {
                 authorities: ['ROLE_USER'],
-                pageTitle: 'megabillingplatformApp.free_digital_certificate.detail.title'
+                pageTitle: 'megabillingplatformApp.config_pathrootfile.detail.title'
             },
             views: {
                 'content@': {
-                    templateUrl: 'app/entities/free-digital-certificate/free-digital-certificate-detail.html',
-                    controller: 'Free_digital_certificateDetailController',
+                    templateUrl: 'app/entities/config-pathrootfile/config-pathrootfile-detail.html',
+                    controller: 'Config_pathrootfileDetailController',
                     controllerAs: 'vm'
                 }
             },
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('free_digital_certificate');
+                    $translatePartialLoader.addPart('config_pathrootfile');
                     return $translate.refresh();
                 }],
-                entity: ['$stateParams', 'Free_digital_certificate', function($stateParams, Free_digital_certificate) {
-                    return Free_digital_certificate.get({id : $stateParams.id});
+                entity: ['$stateParams', 'Config_pathrootfile', function($stateParams, Config_pathrootfile) {
+                    return Config_pathrootfile.get({id : $stateParams.id});
                 }]
             }
         })
-        .state('free-digital-certificate.new', {
-            parent: 'free-digital-certificate',
+        .state('config-pathrootfile.new', {
+            parent: 'config-pathrootfile',
             url: '/new',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/free-digital-certificate/free-digital-certificate-dialog.html',
-                    controller: 'Free_digital_certificateDialogController',
+                    templateUrl: 'app/entities/config-pathrootfile/config-pathrootfile-dialog.html',
+                    controller: 'Config_pathrootfileDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
                         entity: function () {
                             return {
-                                path_certificate: null,
-                                path_private_key: null,
+                                pathrootdev: null,
+                                pathrootprod: null,
                                 id: null
                             };
                         }
                     }
                 }).result.then(function() {
-                    $state.go('free-digital-certificate', null, { reload: true });
+                    $state.go('config-pathrootfile', null, { reload: true });
                 }, function() {
-                    $state.go('free-digital-certificate');
+                    $state.go('config-pathrootfile');
                 });
             }]
         })
-        .state('free-digital-certificate.edit', {
-            parent: 'free-digital-certificate',
+        .state('config-pathrootfile.edit', {
+            parent: 'config-pathrootfile',
             url: '/{id}/edit',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/free-digital-certificate/free-digital-certificate-dialog.html',
-                    controller: 'Free_digital_certificateDialogController',
+                    templateUrl: 'app/entities/config-pathrootfile/config-pathrootfile-dialog.html',
+                    controller: 'Config_pathrootfileDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
                     size: 'lg',
                     resolve: {
-                        entity: ['Free_digital_certificate', function(Free_digital_certificate) {
-                            return Free_digital_certificate.get({id : $stateParams.id});
+                        entity: ['Config_pathrootfile', function(Config_pathrootfile) {
+                            return Config_pathrootfile.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('free-digital-certificate', null, { reload: true });
+                    $state.go('config-pathrootfile', null, { reload: true });
                 }, function() {
                     $state.go('^');
                 });
             }]
         })
-        .state('free-digital-certificate.delete', {
-            parent: 'free-digital-certificate',
+        .state('config-pathrootfile.delete', {
+            parent: 'config-pathrootfile',
             url: '/{id}/delete',
             data: {
                 authorities: ['ROLE_USER']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
-                    templateUrl: 'app/entities/free-digital-certificate/free-digital-certificate-delete-dialog.html',
-                    controller: 'Free_digital_certificateDeleteController',
+                    templateUrl: 'app/entities/config-pathrootfile/config-pathrootfile-delete-dialog.html',
+                    controller: 'Config_pathrootfileDeleteController',
                     controllerAs: 'vm',
                     size: 'md',
                     resolve: {
-                        entity: ['Free_digital_certificate', function(Free_digital_certificate) {
-                            return Free_digital_certificate.get({id : $stateParams.id});
+                        entity: ['Config_pathrootfile', function(Config_pathrootfile) {
+                            return Config_pathrootfile.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {
-                    $state.go('free-digital-certificate', null, { reload: true });
+                    $state.go('config-pathrootfile', null, { reload: true });
                 }, function() {
                     $state.go('^');
                 });
