@@ -3,30 +3,30 @@ id;name;description
 2;AFN;Afghani
 3;ALL;Lek
 4;AMD;Dram armenio
-5;ANG;Florín antillano neerlandés
+5;ANG;FlorÃ­n Antillano NeerlandÃ©s
 6;AOA;Kwanza
 7;ARS;Peso Argentino
-8;AUD;Dólar Australiano
+8;AUD;DÃ³lar Australiano
 9;AWG;Aruba Florin
 10;AZN;Azerbaijanian Manat
 11;BAM;Convertibles marca
-12;BBD;Dólar de Barbados
+12;BBD;DÃ³lar de Barbados
 13;BDT;Taka
-14;BGN;Lev búlgaro
+14;BGN;Lev BÃºlgaro
 15;BHD;Dinar de Bahrein
 16;BIF;Burundi Franc
-17;BMD;Dólar de Bermudas
-18;BND;Dólar de Brunei
+17;BMD;DÃ³lar de Bermudas
+18;BND;DÃ³lar de Brunei
 19;BOB;Boliviano
 20;BOV;Mvdol
-21;BRL;Real brasileño
-22;BSD;Dólar de las Bahamas
+21;BRL;Real BrasileÃ±o
+22;BSD;DÃ³lar de las Bahamas
 23;BTN;Ngultrum
 24;BWP;Pula
 25;BYR;Rublo bielorruso
-26;BZD;Dólar de Belice
+26;BZD;DÃ³lar de Belice
 27;CAD;Dolar Canadiense
-28;CDF;Franco congoleño
+28;CDF;Franco CongoleÃ±o
 29;CHE;WIR Euro
 30;CHF;Franco Suizo
 31;CHW;Franc WIR
@@ -35,7 +35,7 @@ id;name;description
 34;CNY;Yuan Renminbi
 35;COP;Peso Colombiano
 36;COU;Unidad de Valor real
-37;CRC;Colón costarricense
+37;CRC;ColÃ³n Costarricense
 38;CUC;Peso Convertible
 39;CUP;Peso Cubano
 40;CVE;Cabo Verde Escudo
@@ -46,9 +46,9 @@ id;name;description
 45;DZD;Dinar argelino
 46;EGP;Libra egipcia
 47;ERN;Nakfa
-48;ETB;Birr etíope
+48;ETB;Birr EtÃ­ope
 49;EUR;Euro
-50;FJD;Dólar de Fiji
+50;FJD;DÃ³lar de Fiji
 51;FKP;Libra malvinense
 52;GBP;Libra Esterlina
 53;GEL;Lari
@@ -57,37 +57,37 @@ id;name;description
 56;GMD;Dalasi
 57;GNF;Franco guineano
 58;GTQ;Quetzal
-59;GYD;Dólar guyanés
+59;GYD;DÃ³lar GuayÃ¡nas
 60;HKD;Dolar De Hong Kong
 61;HNL;Lempira
 62;HRK;Kuna
 63;HTG;Gourde
-64;HUF;Florín
+64;HUF;FlorÃ­n
 65;IDR;Rupia
-66;ILS;Nuevo Shekel Israelí
-67;INR;Rupia india
-68;IQD;Dinar iraquí
-69;IRR;Rial iraní
+66;ILS;Nuevo Shekel IsraelÃ­
+67;INR;Rupia India
+68;IQD;Dinar IraquÃ­
+69;IRR;Rial IranÃ­
 70;ISK;Corona islandesa
-71;JMD;Dólar Jamaiquino
+71;JMD;DÃ³lar Jamaiquino
 72;JOD;Dinar jordano
 73;JPY;Yen
-74;KES;Chelín keniano
+74;KES;ChelÃ­n Keniano
 75;KGS;Som
 76;KHR;Riel
 77;KMF;Franco Comoro
-78;KPW;Corea del Norte ganó
+78;KPW;Corea del Norte Won
 79;KRW;Won
-80;KWD;Dinar kuwaití
-81;KYD;Dólar de las Islas Caimán
+80;KWD;Dinar KuwaitÃ­
+81;KYD;DÃ³lar de las Islas CaimÃ¡n
 82;KZT;Tenge
 83;LAK;Kip
 84;LBP;Libra libanesa
 85;LKR;Rupia de Sri Lanka
-86;LRD;Dólar liberiano
+86;LRD;DÃ³lar liberiano
 87;LSL;Loti
-88;LYD;Dinar libio
-89;MAD;Dirham marroquí
+88;LYD;Dinar Libio
+89;MAD;Dirham MarroquÃ­
 90;MDL;Leu moldavo
 91;MGA;Ariary malgache
 92;MKD;Denar
@@ -99,38 +99,38 @@ id;name;description
 98;MVR;Rupia
 99;MWK;Kwacha
 100;MXN;Peso Mexicano
-101;MXV;México Unidad de Inversión (UDI)
+101;MXV;MÃ©xico Unidad de InversiÃ³n (UDI)
 102;MYR;Ringgit malayo
 103;MZN;Mozambique Metical
-104;NAD;Dólar de Namibia
+104;NAD;DÃ³lar de Namibia
 105;NGN;Naira
-106;NIO;Córdoba Oro
+106;NIO;CÃ³rdoba Oro
 107;NOK;Corona noruega
-108;NPR;Rupia nepalí
-109;NZD;Dólar de Nueva Zelanda
-110;OMR;Rial omaní
+108;NPR;Rupia NepalÃ­
+109;NZD;DÃ³lar de Nueva Zelanda
+110;OMR;Rial OmanÃ­
 111;PAB;Balboa
 112;PEN;Nuevo Sol
 113;PGK;Kina
 114;PHP;Peso filipino
-115;PKR;Rupia de Pakistán
+115;PKR;Rupia de PakistÃ¡n
 116;PLN;Zloty
-117;PYG;Guaraní
+117;PYG;GuaranÃ­
 118;QAR;Qatar Rial
 119;RON;Leu rumano
 120;RSD;Dinar serbio
 121;RUB;Rublo ruso
-122;RWF;Franco ruandés
-123;SAR;Riyal saudí
-124;SBD;Dólar de las Islas Salomón
+122;RWF;Franco RuandÃ©s
+123;SAR;Riyal SaudÃ­
+124;SBD;DÃ³lar de las Islas SalomÃ³n
 125;SCR;Rupia de Seychelles
 126;SDG;Libra sudanesa
 127;SEK;Corona sueca
 128;SGD;Dolar De Singapur
 129;SHP;Libra de Santa Helena
 130;SLL;Leona
-131;SOS;Chelín somalí
-132;SRD;Dólar de Suriname
+131;SOS;ChelÃ­n SomalÃ­
+132;SRD;DÃ³lar de Suriname
 133;SSP;Libra sudanesa Sur
 134;STD;Dobra
 135;SVC;Colon El Salvador
@@ -138,21 +138,21 @@ id;name;description
 137;SZL;Lilangeni
 138;THB;Baht
 139;TJS;Somoni
-140;TMT;Turkmenistán nuevo manat
+140;TMT;TurkmenistÃ¡n nuevo manat
 141;TND;Dinar tunecino
 142;TOP;Pa'anga
 143;TRY;Lira turca
-144;TTD;Dólar de Trinidad y Tobago
-145;TWD;Nuevo dólar de Taiwán
-146;TZS;Shilling tanzano
+144;TTD;DÃ³lar de Trinidad y Tobago
+145;TWD;Nuevo DÃ³lar de TaiwÃ¡n
+146;TZS;Shilling Tanzano
 147;UAH;Hryvnia
 148;UGX;Shilling de Uganda
 149;USD;Dolar americano
-150;USN;Dólar estadounidense (día siguiente)
-151;UYI;Peso Uruguay en Unidades Indexadas (URUIURUI)
+150;USN;DÃ³lar Estadounidense
+151;UYI;Peso Uruguay en Unidades Indexadas
 152;UYU;Peso Uruguayo
-153;UZS;Uzbekistán Sum
-154;VEF;Bolívar
+153;UZS;UzbekistÃ¡n Sum
+154;VEF;BolÃ­var Fuerte
 155;VND;Dong
 156;VUV;Vatu
 157;WST;Tala
@@ -163,17 +163,17 @@ id;name;description
 162;XBB;Unidad Monetaria de Bonos de Mercados Unidad Europea (UEM-6)
 163;XBC;Mercados de Bonos Unidad Europea unidad de cuenta a 9 (UCE-9)
 164;XBD;Mercados de Bonos Unidad Europea unidad de cuenta a 17 (UCE-17)
-165;XCD;Dólar del Caribe Oriental
+165;XCD;DÃ³lar del Caribe Oriental
 166;XDR;DEG (Derechos Especiales de Giro)
 167;XOF;Franco CFA BCEAO
 168;XPD;Paladio
 169;XPF;Franco CFP
 170;XPT;Platino
 171;XSU;Sucre
-172;XTS;Códigos reservados específicamente para propósitos de prueba
+172;XTS;CÃ³digos reservados especÃ­ficamente para propÃ³sitos de prueba
 173;XUA;Unidad ADB de Cuenta
-174;XXX;Los códigos asignados para las transacciones en que intervenga ninguna moneda
-175;YER;Rial yemení
+174;XXX;Los cÃ³digos asignados para las transacciones en que intervenga ninguna moneda
+175;YER;Rial Yemen
 176;ZAR;Rand
 177;ZMW;Kwacha zambiano
-178;ZWL;Zimbabwe Dólar
+178;ZWL;Zimbabwe DÃ³lar
