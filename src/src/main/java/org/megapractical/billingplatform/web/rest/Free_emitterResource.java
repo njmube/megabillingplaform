@@ -5,6 +5,7 @@ import org.megapractical.billingplatform.domain.Free_emitter;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.Free_emitterService;
+import org.megapractical.billingplatform.service.UserService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -40,6 +41,9 @@ public class Free_emitterResource {
     @Inject
     private UserRepository userRepository;
 
+    @Inject
+    private UserService userService;
+
     /**
      * POST  /free-emitters : Create a new free_emitter.
      *
@@ -57,7 +61,9 @@ public class Free_emitterResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "idexists", "A new free_emitter cannot already have an ID")).body(null);
         }
 
-        
+        free_emitter.setUser(userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin()).get());
+        free_emitter.setActivated(true);
+        free_emitter.setCreate_date(ZonedDateTime.now());
         Free_emitter result = free_emitterService.save(free_emitter);
         return ResponseEntity.created(new URI("/api/free-emitters/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_emitter", result.getId().toString()))
