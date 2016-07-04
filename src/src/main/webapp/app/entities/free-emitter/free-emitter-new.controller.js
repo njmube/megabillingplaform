@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_emitterNewController', Free_emitterNewController);
 
-    Free_emitterNewController.$inject = ['$scope', '$stateParams', '$q', 'entity', 'DataUtils', 'Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'user'];
+    Free_emitterNewController.$inject = ['$scope', '$stateParams', '$q', 'entity', 'DataUtils', 'Free_emitter_file','Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'user'];
 
-    function Free_emitterNewController ($scope, $stateParams, $q, entity, DataUtils, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, user) {
+    function Free_emitterNewController ($scope, $stateParams, $q, entity, DataUtils, Free_emitter_file, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, user) {
         var vm = this;
 
         vm.account = user;
@@ -51,15 +51,55 @@
         };
 
 		vm.save = function () {
-			vm.isSaving = true;
-            if (vm.free_emitter.id !== null) {
-                Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
-            } else {
-                vm.free_emitter.create_date = Date.now();
-                vm.free_emitter.activated = true;
-				vm.free_emitter.user = vm.account;
-                Free_emitter.save(vm.free_emitter, onSaveSuccess, onSaveError);
+            vm.isSaving = true;
+                if (vm.free_emitter.id !== null) {
+                    Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+                } else {
+                    vm.free_emitter.path_certificate = "c:";
+                    vm.free_emitter.path_key = "c:";
+                    vm.free_emitter.path_logo = "c:";
+                    vm.free_emitter.create_date = Date.now();
+                    vm.free_emitter.activated = true;
+                    Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+                }
+        };
+
+        vm.setPath_Certificate = function ($file, free_emitter) {
+            if ($file) {
+
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+                        free_emitter.filecertificate = base64Data;
+                        free_emitter.filecertificateContentType = $file.type;
+                    });
+                });
             }
         };
+        vm.setPath_Key = function ($file, free_emitter) {
+            if ($file) {
+                vm.path_key_file = $file;
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+                        free_emitter.filekey = base64Data;
+                        free_emitter.filekeyContentType = $file. type;
+                    });
+                });
+            }
+        };
+        vm.setLogo = function ($file, free_emitter) {
+            if ($file) {
+                vm.logo_file = $file;
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+                        free_emitter.filelogo = base64Data;
+                        free_emitter.filelogoContentType = $file. type;
+                    });
+                });
+            }
+        };
+
+        vm.openFile = DataUtils.openFile;
+        vm.byteSize = DataUtils.byteSize;
+
     }
 })();

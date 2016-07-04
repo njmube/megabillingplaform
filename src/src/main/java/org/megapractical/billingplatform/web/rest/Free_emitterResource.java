@@ -57,6 +57,7 @@ public class Free_emitterResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "idexists", "A new free_emitter cannot already have an ID")).body(null);
         }
 
+        
         Free_emitter result = free_emitterService.save(free_emitter);
         return ResponseEntity.created(new URI("/api/free-emitters/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_emitter", result.getId().toString()))
