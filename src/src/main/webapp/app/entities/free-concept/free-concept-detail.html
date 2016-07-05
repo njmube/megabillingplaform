@@ -1,58 +1,53 @@
 
 <div>
-    <h2><span translate="megabillingplatformApp.free_concept.detail.title">Free_concept</span> {{vm.free_concept.id}}</h2>
+    <h2><span translate="megabillingplatformApp.free_concept.detail.title">Free Concept</span> {{vm.free_concept.id}}</h2>
     <hr>
-    <dl class="dl-horizontal">
-        <dt><span translate="megabillingplatformApp.free_concept.no_identification">No_identification</dt></dt>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.free_concept.no_identification">No Identification</span></dt>
         <dd>
-            <span>{{vm.free_concept.no_identification}}<span>
+            <span>{{vm.free_concept.no_identification}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_concept.quantity">Quantity</dt></dt>
+        <dt><span translate="megabillingplatformApp.free_concept.quantity">Quantity</span></dt>
         <dd>
-            <span>{{vm.free_concept.quantity}}<span>
+            <span>{{vm.free_concept.quantity}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_concept.description">Description</dt></dt>
+        <dt><span translate="megabillingplatformApp.free_concept.description">Description</span></dt>
         <dd>
-            <span>{{vm.free_concept.description}}<span>
+            <span>{{vm.free_concept.description}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_concept.unit_value">Unit_value</dt></dt>
+        <dt><span translate="megabillingplatformApp.free_concept.unit_value">Unit Value</span></dt>
         <dd>
-            <span>{{vm.free_concept.unit_value}}<span>
+            <span>{{vm.free_concept.unit_value}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_concept.predial_number">Predial_number</dt></dt>
+        <dt><span translate="megabillingplatformApp.free_concept.predial_number">Predial Number</span></dt>
         <dd>
-            <span>{{vm.free_concept.predial_number}}<span>
+            <span>{{vm.free_concept.predial_number}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_concept.amount">Amount</dt></dt>
+        <dt><span translate="megabillingplatformApp.free_concept.amount">Amount</span></dt>
         <dd>
-            <span>{{vm.free_concept.amount}}<span>
+            <span>{{vm.free_concept.amount}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_concept.free_cfdi">free_cfdi</span></dt>
+        <dt><span translate="megabillingplatformApp.free_concept.discount">Discount</span></dt>
+        <dd>
+            <span>{{vm.free_concept.discount}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.free_concept.free_cfdi">Free Cfdi</span></dt>
         <dd>
             <a ui-sref="free-cfdi-detail({id:vm.free_concept.free_cfdi.id})">{{vm.free_concept.free_cfdi.id}}</a>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_concept.measure_unit">measure_unit</span></dt>
+        <dt><span translate="megabillingplatformApp.free_concept.measure_unit">Measure Unit</span></dt>
         <dd>
             <a ui-sref="measure-unit-detail({id:vm.free_concept.measure_unit.id})">{{vm.free_concept.measure_unit.name}}</a>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_concept.tax_transfered">tax_transfered</span></dt>
+        <dt><span translate="megabillingplatformApp.free_concept.tax_transfered">Tax Transfered</span></dt>
         <dd>
             <a ui-sref="tax-transfered-detail({id:vm.free_concept.tax_transfered.id})">{{vm.free_concept.tax_transfered.id}}</a>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.free_concept.tax_retentions">tax_retentions</span></dt>
+        <dt><span translate="megabillingplatformApp.free_concept.tax_retentions">Tax Retentions</span></dt>
         <dd>
             <a ui-sref="tax-retentions-detail({id:vm.free_concept.tax_retentions.id})">{{vm.free_concept.tax_retentions.id}}</a>
         </dd>
-        <hr>
     </dl>
 
     <button type="submit"

@@ -67,7 +67,7 @@ class Free_conceptGatlingTest extends Simulation {
             .exec(http("Create new free_concept")
             .post("/api/free-concepts")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "no_identification":"SAMPLE_TEXT", "quantity":null, "description":"SAMPLE_TEXT", "unit_value":null, "predial_number":"SAMPLE_TEXT", "amount":null}""")).asJSON
+            .body(StringBody("""{"id":null, "no_identification":"SAMPLE_TEXT", "quantity":null, "description":"SAMPLE_TEXT", "unit_value":null, "predial_number":"SAMPLE_TEXT", "amount":null, "discount":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_free_concept_url"))).exitHereIfFailed
             .pause(10)

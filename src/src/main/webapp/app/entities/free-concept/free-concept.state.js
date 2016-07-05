@@ -97,6 +97,7 @@
                                 unit_value: null,
                                 predial_number: null,
                                 amount: null,
+                                discount: null,
                                 id: null
                             };
                         }

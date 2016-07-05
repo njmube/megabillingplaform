@@ -1,5 +1,5 @@
 <div>
-    <h2 translate="megabillingplatformApp.free_concept.home.title">Free_concepts</h2>
+    <h2 translate="megabillingplatformApp.free_concept.home.title">Free Concepts</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="free-concept.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span  translate="megabillingplatformApp.free_concept.home.createLabel">
-                        Create new Free_concept
+                        Create new Free Concept
                     </span>
                 </button>
             </div>
@@ -19,16 +19,17 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="no_identification"><span translate="megabillingplatformApp.free_concept.no_identification">No_identification</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_identification"><span translate="megabillingplatformApp.free_concept.no_identification">No Identification</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="quantity"><span translate="megabillingplatformApp.free_concept.quantity">Quantity</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="description"><span translate="megabillingplatformApp.free_concept.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="unit_value"><span translate="megabillingplatformApp.free_concept.unit_value">Unit_value</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="predial_number"><span translate="megabillingplatformApp.free_concept.predial_number">Predial_number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="unit_value"><span translate="megabillingplatformApp.free_concept.unit_value">Unit Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="predial_number"><span translate="megabillingplatformApp.free_concept.predial_number">Predial Number</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="amount"><span translate="megabillingplatformApp.free_concept.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.free_concept.free_cfdi">free_cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="measure_unit.name"><span translate="megabillingplatformApp.free_concept.measure_unit">measure_unit</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tax_transfered.id"><span translate="megabillingplatformApp.free_concept.tax_transfered">tax_transfered</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tax_retentions.id"><span translate="megabillingplatformApp.free_concept.tax_retentions">tax_retentions</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="discount"><span translate="megabillingplatformApp.free_concept.discount">Discount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.free_concept.free_cfdi">Free Cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="measure_unit.name"><span translate="megabillingplatformApp.free_concept.measure_unit">Measure Unit</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax_transfered.id"><span translate="megabillingplatformApp.free_concept.tax_transfered">Tax Transfered</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax_retentions.id"><span translate="megabillingplatformApp.free_concept.tax_retentions">Tax Retentions</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -41,6 +42,7 @@
                     <td>{{free_concept.unit_value}}</td>
                     <td>{{free_concept.predial_number}}</td>
                     <td>{{free_concept.amount}}</td>
+                    <td>{{free_concept.discount}}</td>
                     <td>
                         <a ui-sref="free-cfdi-detail({id:free_concept.free_cfdi.id})">{{free_concept.free_cfdi.id}}</a>
                     </td>

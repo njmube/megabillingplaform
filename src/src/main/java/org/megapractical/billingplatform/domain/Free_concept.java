@@ -45,6 +45,10 @@ public class Free_concept implements Serializable {
     @Column(name = "amount", precision=10, scale=2, nullable = false)
     private BigDecimal amount;
 
+    @NotNull
+    @Column(name = "discount", precision=10, scale=2, nullable = false)
+    private BigDecimal discount;
+
     @ManyToOne
     private Free_cfdi free_cfdi;
 
@@ -113,6 +117,14 @@ public class Free_concept implements Serializable {
         this.amount = amount;
     }
 
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
+    }
+
     public Free_cfdi getFree_cfdi() {
         return free_cfdi;
     }
@@ -175,6 +187,7 @@ public class Free_concept implements Serializable {
             ", unit_value='" + unit_value + "'" +
             ", predial_number='" + predial_number + "'" +
             ", amount='" + amount + "'" +
+            ", discount='" + discount + "'" +
             '}';
     }
 }

@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Spring Data JPA repository for the Free_concept entity.
  */
+@SuppressWarnings("unused")
 public interface Free_conceptRepository extends JpaRepository<Free_concept,Long> {
 
 }

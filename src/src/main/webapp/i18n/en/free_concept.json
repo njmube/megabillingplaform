@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "free_concept" : {
             "home": {
-                "title": "Concepts",
-                "createLabel": "New Concept",
-                "createOrEditLabel": "Create or edit a Concept",
-                "search": "Search for Concept"
+                "title": "Free Concepts",
+                "createLabel": "Create a new Free Concept",
+                "createOrEditLabel": "Create or edit a Free Concept",
+                "search": "Search for Free Concept"
             },
-            "created": "A new concept is created with identifier {{ param }}",
-            "updated": "A concept is updated with identifier {{ param }}",
-            "deleted": "A concept is deleted with identifier {{ param }}",
+            "created": "A new Free Concept is created with identifier {{ param }}",
+            "updated": "A Free Concept is updated with identifier {{ param }}",
+            "deleted": "A Free Concept is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete concept {{ id }}?"
+                "question": "Are you sure you want to delete Free Concept {{ id }}?"
             },
             "detail": {
-                "title": "Concept"
+                "title": "Free Concept"
             },
             "no_identification": "No Identification",
             "quantity": "Quantity",
@@ -22,7 +22,8 @@
             "unit_value": "Unit Value",
             "predial_number": "Predial Number",
             "amount": "Amount",
-            "free_cfdi": "CFDI",
+            "discount": "Discount",
+            "free_cfdi": "Free Cfdi",
             "measure_unit": "Measure Unit",
             "tax_transfered": "Tax Transfered",
             "tax_retentions": "Tax Retentions"

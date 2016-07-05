@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import java.math.BigDecimal;
+import java.math.BigDecimal;;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -58,6 +58,9 @@ public class Free_conceptResourceIntTest {
 
     private static final BigDecimal DEFAULT_AMOUNT = new BigDecimal(1);
     private static final BigDecimal UPDATED_AMOUNT = new BigDecimal(2);
+
+    private static final BigDecimal DEFAULT_DISCOUNT = new BigDecimal(1);
+    private static final BigDecimal UPDATED_DISCOUNT = new BigDecimal(2);
 
     @Inject
     private Free_conceptRepository free_conceptRepository;
@@ -94,6 +97,7 @@ public class Free_conceptResourceIntTest {
         free_concept.setUnit_value(DEFAULT_UNIT_VALUE);
         free_concept.setPredial_number(DEFAULT_PREDIAL_NUMBER);
         free_concept.setAmount(DEFAULT_AMOUNT);
+        free_concept.setDiscount(DEFAULT_DISCOUNT);
     }
 
     @Test
@@ -118,6 +122,7 @@ public class Free_conceptResourceIntTest {
         assertThat(testFree_concept.getUnit_value()).isEqualTo(DEFAULT_UNIT_VALUE);
         assertThat(testFree_concept.getPredial_number()).isEqualTo(DEFAULT_PREDIAL_NUMBER);
         assertThat(testFree_concept.getAmount()).isEqualTo(DEFAULT_AMOUNT);
+        assertThat(testFree_concept.getDiscount()).isEqualTo(DEFAULT_DISCOUNT);
     }
 
     @Test
@@ -194,6 +199,24 @@ public class Free_conceptResourceIntTest {
 
     @Test
     @Transactional
+    public void checkDiscountIsRequired() throws Exception {
+        int databaseSizeBeforeTest = free_conceptRepository.findAll().size();
+        // set the field null
+        free_concept.setDiscount(null);
+
+        // Create the Free_concept, which fails.
+
+        restFree_conceptMockMvc.perform(post("/api/free-concepts")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(free_concept)))
+                .andExpect(status().isBadRequest());
+
+        List<Free_concept> free_concepts = free_conceptRepository.findAll();
+        assertThat(free_concepts).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllFree_concepts() throws Exception {
         // Initialize the database
         free_conceptRepository.saveAndFlush(free_concept);
@@ -208,7 +231,8 @@ public class Free_conceptResourceIntTest {
                 .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
                 .andExpect(jsonPath("$.[*].unit_value").value(hasItem(DEFAULT_UNIT_VALUE.intValue())))
                 .andExpect(jsonPath("$.[*].predial_number").value(hasItem(DEFAULT_PREDIAL_NUMBER.toString())))
-                .andExpect(jsonPath("$.[*].amount").value(hasItem(DEFAULT_AMOUNT.intValue())));
+                .andExpect(jsonPath("$.[*].amount").value(hasItem(DEFAULT_AMOUNT.intValue())))
+                .andExpect(jsonPath("$.[*].discount").value(hasItem(DEFAULT_DISCOUNT.intValue())));
     }
 
     @Test
@@ -227,7 +251,8 @@ public class Free_conceptResourceIntTest {
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.unit_value").value(DEFAULT_UNIT_VALUE.intValue()))
             .andExpect(jsonPath("$.predial_number").value(DEFAULT_PREDIAL_NUMBER.toString()))
-            .andExpect(jsonPath("$.amount").value(DEFAULT_AMOUNT.intValue()));
+            .andExpect(jsonPath("$.amount").value(DEFAULT_AMOUNT.intValue()))
+            .andExpect(jsonPath("$.discount").value(DEFAULT_DISCOUNT.intValue()));
     }
 
     @Test
@@ -255,6 +280,7 @@ public class Free_conceptResourceIntTest {
         updatedFree_concept.setUnit_value(UPDATED_UNIT_VALUE);
         updatedFree_concept.setPredial_number(UPDATED_PREDIAL_NUMBER);
         updatedFree_concept.setAmount(UPDATED_AMOUNT);
+        updatedFree_concept.setDiscount(UPDATED_DISCOUNT);
 
         restFree_conceptMockMvc.perform(put("/api/free-concepts")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -271,6 +297,7 @@ public class Free_conceptResourceIntTest {
         assertThat(testFree_concept.getUnit_value()).isEqualTo(UPDATED_UNIT_VALUE);
         assertThat(testFree_concept.getPredial_number()).isEqualTo(UPDATED_PREDIAL_NUMBER);
         assertThat(testFree_concept.getAmount()).isEqualTo(UPDATED_AMOUNT);
+        assertThat(testFree_concept.getDiscount()).isEqualTo(UPDATED_DISCOUNT);
     }
 
     @Test
