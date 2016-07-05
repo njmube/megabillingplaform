@@ -1,4 +1,4 @@
 id;name;description
-1;Habilitada  ;Cuenta de contribuyente habilitada para operar en el sistema
-2;Bloqueada  ;Cuenta de contribuyente bloqueada para operar en el sistema
-3;Eliminada  ;Cuenta de contribuyente eliminada por el usuario
+1;En Espera  ;Solicitud de cuenta de contribuyente en espera de aprobación
+2;Aprobada  ;Solicitud de cuenta de contribuyente aprobada.
+3;Rechazada  ;Solicitud de cuenta de contribuyente rechazada
