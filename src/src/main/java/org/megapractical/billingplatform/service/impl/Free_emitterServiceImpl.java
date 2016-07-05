@@ -30,7 +30,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
 
     private final Logger log = LoggerFactory.getLogger(Free_emitterServiceImpl.class);
 
-    private final String root = "D:\\megapractical\\Upload\\";
+    private final String root = "D:\\PrjMng\\Java MegaPractical\\Upload\\";
 
     @Inject
     private Free_emitterRepository free_emitterRepository;

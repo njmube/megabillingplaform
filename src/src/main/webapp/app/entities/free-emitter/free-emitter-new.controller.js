@@ -12,6 +12,7 @@
 
         vm.account = user;
 		vm.free_emitter = entity;
+		
         vm.tax_regimes = Tax_regime.query();
         vm.c_countrys = C_country.query({pg:1});
         vm.c_states = C_state.query({countryId:-1});
@@ -60,6 +61,7 @@
                     vm.free_emitter.path_logo = "c:";
                     vm.free_emitter.create_date = Date.now();
                     vm.free_emitter.activated = true;
+					vm.free_emitter.user = vm.account;
                     Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
                 }
         };
@@ -81,7 +83,7 @@
                 DataUtils.toBase64($file, function(base64Data) {
                     $scope.$apply(function() {
                         free_emitter.filekey = base64Data;
-                        free_emitter.filekeyContentType = $file. type;
+                        free_emitter.filekeyContentType = $file.type;
                     });
                 });
             }

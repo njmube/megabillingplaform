@@ -12,33 +12,32 @@
         vm.free_part_concept = entity;
         vm.free_concepts = Free_concept.query();
         vm.measure_units = Measure_unit.query();
+		
         vm.load = function(id) {
             Free_part_concept.get({id : id}, function(result) {
                 vm.free_part_concept = result;
             });
         };
-
-        var onSaveSuccess = function (result) {
-            $scope.$emit('megabillingplatformApp:free_part_conceptUpdate', result);
-            $uibModalInstance.close(result);
-            vm.isSaving = false;
-        };
-
-        var onSaveError = function () {
-            vm.isSaving = false;
-        };
-
+        
         vm.save = function () {
-            vm.isSaving = true;
-            if (vm.free_part_concept.id !== null) {
-                Free_part_concept.update(vm.free_part_concept, onSaveSuccess, onSaveError);
-            } else {
-                Free_part_concept.save(vm.free_part_concept, onSaveSuccess, onSaveError);
-            }
+            vm.isSaving = true;            
+			$uibModalInstance.close({
+				no_identification: vm.free_part_concept.no_identification,
+				quantity: vm.free_part_concept.quantity,
+				description: vm.free_part_concept.description,
+				unit_value: vm.free_part_concept.unit_value,
+				amount: vm.free_part_concept.amount,
+				id: null
+			});
+			vm.isSaving = false;
         };
-
+		
         vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
+        };
+		
+		vm.calcAmount = function(){
+            vm.free_part_concept.amount = vm.free_part_concept.quantity * vm.free_part_concept.unit_value;			
         };
     }
 })();

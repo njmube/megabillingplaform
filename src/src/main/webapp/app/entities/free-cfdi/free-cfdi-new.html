@@ -25,12 +25,12 @@
                     <i class="ace-icon fa fa-home light-blue bigger-150"></i>
                 </a>
             </li>
-            <li >
-                <a ui-sref="free-emitter.new">{{'global.user.emitter.data' | translate}}</a>
-            </li>
-            <li class="active">
-                <a ui-sref="free-cfdi.new">{{'global.user.generate.cfdi' | translate}}</a>
-            </li>
+            <li>
+				<a ui-sref="free-emitter.new({login : vm.account.login })">{{'global.user.emitter.data' | translate}}</a>
+			</li>
+			<li class="active">
+				<a ui-sref="free-cfdi.new({login : vm.account.login })">{{'global.user.generate.cfdi' | translate}}</a>
+			</li>
             <li>
                 <a href="">{{'global.user.search.cfdi' | translate}}</a>
             </li>
@@ -45,637 +45,763 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		<div class="tabbable">
-			<ul class="nav nav-tabs" id="tab-form-plus">
-				<li class="active">
-					<a data-toggle="tab" href="#emisor">Emisor</a>
-				</li>
-				<li>
-					<a data-toggle="tab" href="#receptor">Receptor</a>
-				</li>
-				<li>
-					<a data-toggle="tab" href="#comprobante">Comprobante</a>
-				</li>
-			</ul>
-			
-			<div class="tab-content">
-				<div id="emisor" class="tab-pane in active">
-					<form class="form-horizontal" role="form">
-						<div class="row">
-							<div class="col-md-6">
-							
-								<h3 class="header smaller lighter blue">
-									Datos Generales
-								</h3>
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-1">
-										RFC:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-1" placeholder="RFC" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-2">
-										Régimen Fiscal:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-2" placeholder="Régimen Fiscal" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-3">
-										Nombre o Razón Social:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-3" placeholder="Nombre o Razón Social" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-4">
-										Correo Electrónico:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-4" placeholder="Correo Electrónico" class="form-control" />
-									</div>
-								</div>
-								
-								<div class="checkbox ">
-									<label class="block">
-										<input name="form-field-checkbox" type="checkbox" class="ace input-lg" />
-										<span class="lbl bigger-140 header smaller lighter blue" style="width:100%"> Expedido En</span>
-									</label>
-								</div>
-								
-								<div class="space-6"></div>
-								
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-11">País:</label>
-									<div class="col-md-8">
-										<select class="form-control" id="form-req-11">
-											<option value="m">México</option>
-											<option value="e">Estados Unidos</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-12">Estado:</label>
-									<div class="col-md-8">
-										<select class="form-control" id="form-req-12">
-											<option value="m">Ciudad de México</option>
-											<option value="e">Tijuana</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-14">Localidad:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-14" placeholder="Localidad" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-13">Municipio o Delegación:</label>
-									<div class="col-md-8">
-										<select class="form-control" id="form-req-13">
-											<option value="m">Nuevo León</option>
-											<option value="e">Delegación 2</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-19">Calle:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-19" placeholder="Calle" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-17">No. Interior:</label>
-									<div class="col-md-2">
-										<input type="text" id="form-req-17" placeholder="No. Interior" class="form-control" />
-									</div>
-									<div class="col-md-6">
-										<label class="col-md-5 control-label no-padding-right" for="form-req-18">No. Exterior:</label>
-										<div class="col-md-7">
-											<input type="text" id="form-req-18" placeholder="No. Exterior" class="form-control" />
-										</div>
-									</div>
-								</div>											
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-15">Colonia:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-15" placeholder="Colonia" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-20">Código Postal:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-20" placeholder="Código Postal" class="form-control" />
-									</div>
-								</div>	
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-16">Referencia (Opcional):</label>
-									<div class="col-md-8">
-										<textarea type="text" id="form-req-16" class="form-control" rows="5"></textarea>
-									</div>
-								</div>														
-							</div>
-							<div class="col-md-6">
-								<h3 class="header smaller lighter blue">
-									Domicilio Fiscal
-								</h3>														
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-11">País:</label>
-									<div class="col-md-8">
-										<select class="form-control" id="form-req-11">
-											<option value="m">México</option>
-											<option value="e">Estados Unidos</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-12">Estado:</label>
-									<div class="col-md-8">
-										<select class="form-control" id="form-req-12">
-											<option value="m">Ciudad de México</option>
-											<option value="e">Tijuana</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-14">Localidad:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-14" placeholder="Localidad" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-13">Municipio o Delegación:</label>
-									<div class="col-md-8">
-										<select class="form-control" id="form-req-13">
-											<option value="m">Nuevo León</option>
-											<option value="e">Delegación 2</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-19">Calle:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-19" placeholder="Calle" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-17">No. Interior:</label>
-									<div class="col-md-2">
-										<input type="text" id="form-req-17" placeholder="No. Interior" class="form-control" />
-									</div>
-									<div class="col-md-6">
-										<label class="col-md-5 control-label no-padding-right" for="form-req-18">No. Exterior:</label>
-										<div class="col-md-7">
-											<input type="text" id="form-req-18" placeholder="No. Exterior" class="form-control" />
-										</div>
-									</div>
-								</div>											
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-15">Colonia:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-15" placeholder="Colonia" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-20">Código Postal:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-20" placeholder="Código Postal" class="form-control" />
-									</div>
-								</div>	
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-16">Referencia (Opcional):</label>
-									<div class="col-md-8">
-										<textarea type="text" id="form-req-16" class="form-control" rows="5"></textarea>
-									</div>
-								</div>
-								
-								
-								<h3 class="header smaller lighter blue">
-									Certificado Digital
-								</h3>
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-5">
-										Ruta Certificado:
-									</label>
-									<div class="col-sm-5">
-										<input type="file" id="id-input-file-1" />
-									</div>															
-								</div>
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-5">
-										Clave Privada:
-									</label>
-									<div class="col-sm-5">
-										<input type="file" id="id-input-file-2" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-6">
-										Clave:
-									</label>
-									<div class="col-sm-5">
-										<input type="text" id="field-6" placeholder="Clave" class="form-control" />
-									</div>
-								</div>
-								
-							</div>
-						</div>
-					</form>
-				</div>
-
-				<div id="receptor" class="tab-pane">
-					<form class="form-horizontal" role="form">
-						<div class="row">
-							<div class="col-md-6">
-							
-								<h3 class="header smaller lighter blue">
-									Datos Generales
-								</h3>
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-1">
-										RFC:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-1" placeholder="RFC" class="form-control" />
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-3">
-										Razón Social:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-3" placeholder="Razón Social" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-4">
-										Correo Electrónico:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-4" placeholder="Correo Electrónico" class="form-control" />
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-3">
-										Teléfono:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-3" placeholder="Teléfono" class="form-control" />
-									</div>
-								</div>														
-								
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-16">Dirección:</label>
-									<div class="col-md-8">
-										<textarea type="text" id="form-req-16" class="form-control" rows="5"></textarea>
-									</div>
-								</div>													
-							</div>
-							<div class="col-md-6">
-								<h3 class="header smaller lighter blue">
-									Domicilio Fiscal
-								</h3>
-								
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-11">País:</label>
-									<div class="col-md-8">
-										<select class="form-control" id="form-req-11">
-											<option value="m">México</option>
-											<option value="e">Estados Unidos</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-12">Estado:</label>
-									<div class="col-md-8">
-										<select class="form-control" id="form-req-12">
-											<option value="m">Ciudad de México</option>
-											<option value="e">Tijuana</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-14">Localidad:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-14" placeholder="Localidad" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-13">Municipio o Delegación:</label>
-									<div class="col-md-8">
-										<select class="form-control" id="form-req-13">
-											<option value="m">Nuevo León</option>
-											<option value="e">Delegación 2</option>
-										</select>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-19">Calle:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-19" placeholder="Calle" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-17">No. Interior:</label>
-									<div class="col-md-2">
-										<input type="text" id="form-req-17" placeholder="No. Interior" class="form-control" />
-									</div>
-									<div class="col-md-6">
-										<label class="col-md-5 control-label no-padding-right" for="form-req-18">No. Exterior:</label>
-										<div class="col-md-7">
-											<input type="text" id="form-req-18" placeholder="No. Exterior" class="form-control" />
-										</div>
-									</div>
-								</div>											
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-15">Colonia:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-15" placeholder="Colonia" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-20">Código Postal:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-20" placeholder="Código Postal" class="form-control" />
-									</div>
-								</div>	
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-16">Referencia (Opcional):</label>
-									<div class="col-md-8">
-										<textarea type="text" id="form-req-16" class="form-control" rows="5"></textarea>
-									</div>
-								</div>
-								
-							</div>
-						</div>
-					</form>
-				</div>
-
-				<div id="comprobante" class="tab-pane">
-					<form class="form-horizontal" role="form">
-						<div class="row">
-							<div class="col-md-6">
-							
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-2">
-										Tipo Documento:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-2" placeholder="Tipo Documento" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-3">
-										Tipo Comprobante:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-3" placeholder="Tipo Comprobante" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-4">
-										Método de Pago:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-4" placeholder="Método de Pago" class="form-control" />
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-3">
-										Forma de Pago:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-3" placeholder="Forma de Pago" class="form-control" />
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-3">
-										Serie Fiscal Original:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-3" placeholder="Serie Fiscal Original" class="form-control" />
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-3">
-										Folio Fiscal Original:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-3" placeholder="Serie Fiscal Original" class="form-control" />
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-3">
-										Fecha Folio Fiscal Original:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-3" placeholder="__/__/____" class="form-control" />
-									</div>
-								</div>
-								
-								<div class="form-group">
-									<label class="col-sm-4 control-label no-padding-right" for="field-3">
-										Monto Folio Fiscal Original:
-									</label>
-									<div class="col-sm-8">
-										<input type="text" id="field-3" placeholder="Monto Folio Fiscal Original" class="form-control" />
-									</div>
-								</div>
-							</div>
-							
-							<div class="col-md-6">
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-14">Serie:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-14" placeholder="Serie" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-14">Folio:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-14" placeholder="Folio" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-14">Moneda:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-14" placeholder="Moneda" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-14">Tipo Cambio:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-14" placeholder="Tipo Cambio" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-14">No. Cuenta:</label>
-									<div class="col-md-8">
-										<input type="text" id="form-req-14" placeholder="No. Cuenta" class="form-control" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-req-16">Condiciones de Pago:</label>
-									<div class="col-md-8">
-										<textarea type="text" id="form-req-16" class="form-control" rows="5"></textarea>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="col-md-4 control-label no-padding-right" for="form-field-1">Logo:</label>
-									<div class="col-md-5">
-										<input type="file" id="id-input-file-3" />
-									</div>
-								</div>
-							</div>
-						</div>
-					</form>
-					
-					<div class="space-24"></div>
-		
+		<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+			<uib-tabset active="active">
+				<uib-tab heading="Emisor">
 					<div class="row">
-						<div class="col-sm-12">
-							<div class="tabbable">
-								<ul class="nav nav-tabs" id="tab-form-plus">
-									<li class="active">
-										<a data-toggle="tab" href="#conceptos">Conceptos</a>
-									</li>
-									<li>
-										<a data-toggle="tab" href="#impuestos">Impuestos</a>
-									</li>
-									<li>
-										<a data-toggle="tab" href="#addenda">Addenda</a>
-									</li>
-								</ul>
-								
-								<div class="tab-content">
-									<div id="conceptos" class="tab-pane in active">
-										<table id="concepto-table" class="table table-striped table-bordered table-hover">
-											<thead>
-												<tr>
-													<th>Código</th>
-													<th>Unidad de Medida</th>
-													<th>Descripción</th>
-													<th>Cantidad</th>
-													<th>Precio Unitario</th>
-													<th>Importe</th>
-												</tr>
-											</thead>
-											<tbody>
-												
-											</tbody>
-										</table>
-										
-										<a class="btn btn-sm btn-primary" data-toggle="modal" data-target="#new-concept" href="#">
-										  Añadir Concepto
-										</a>												
-									</div>
+						<div class="col-md-6">
 
-									<div id="impuestos" class="tab-pane">
-										<form class="form-horizontal" role="form">
-										<h3 class="header smaller lighter blue">
-											Traslados
-										</h3>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-													<label class="col-sm-5 control-label no-padding-right" for="form-compl-field-1">
-														Tipo Impuesto:
-													</label>
-													<div class="col-sm-7">
-														<input type="text" id="form-compl-field-1" placeholder="Tipo Impuesto" class="form-control" />
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label class="col-sm-5 control-label no-padding-right" for="form-compl-field-2">
-														Tasa:
-													</label>
-													<div class="col-sm-7">
-														<input type="text" id="form-compl-field-2" placeholder="Tasa" class="form-control" />
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label class="col-sm-5 control-label no-padding-right" for="form-compl-field-3">
-														Importe:
-													</label>
-													<div class="col-sm-7">
-														<input type="text" id="form-compl-field-3" placeholder="Importe" class="form-control" />
-													</div>
-												</div>
-											</div>
-										</div>
-										<h3 class="header smaller lighter blue">
-											Retenciones
-										</h3>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group">
-													<label class="col-sm-5 control-label no-padding-right" for="form-compl-field-1">
-														Tipo Impuesto:
-													</label>
-													<div class="col-sm-7">
-														<input type="text" id="form-compl-field-1" placeholder="Tipo Impuesto" class="form-control" />
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label class="col-sm-5 control-label no-padding-right" for="form-compl-field-2">
-														Tasa:
-													</label>
-													<div class="col-sm-7">
-														<input type="text" id="form-compl-field-2" placeholder="Tasa" class="form-control" />
-													</div>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group">
-													<label class="col-sm-5 control-label no-padding-right" for="form-compl-field-3">
-														Importe:
-													</label>
-													<div class="col-sm-7">
-														<input type="text" id="form-compl-field-3" placeholder="Importe" class="form-control" />
-													</div>
-												</div>
-											</div>
-										</div>
-										</form>
+							<h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelDE">
+								Datos del Emisor
+							</h3>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.rfc" for="field_rfc">
+									RFC
+								</label>
+
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="rfc" id="field_rfc"
+									   ng-model="vm.free_cfdi.free_emitter.rfc"
+									   required ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$/" readonly />
+									<div ng-show="editForm.rfc.$invalid">
+										<p class="help-block"
+										   ng-show="editForm.rfc.$error.required" translate="entity.validation.required">
+											This field is required.
+										</p>
+										<p class="help-block"
+										   ng-show="editForm.rfc.$error.minlength" translate="entity.validation.minlength" translate-value-min="12">
+											This field is required to be at least 12 characters.
+										</p>
+										<p class="help-block"
+										   ng-show="editForm.rfc.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="13">
+											This field cannot be longer than 13 characters.
+										</p>
+										<p class="help-block"
+										   ng-show="editForm.rfc.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$">
+											This field should follow pattern "^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$".
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.bussines_name" for="field_social_reason">
+									Social reason
+								</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="social_reason" id="field_social_reason"
+										   ng-model="vm.free_cfdi.free_emitter.bussines_name"
+										   required ng-minlength="3" ng-maxlength="50" readonly />
+									<div ng-show="editForm.social_reason.$invalid">
+										<p class="help-block"
+										   ng-show="editForm.social_reason.$error.required" translate="entity.validation.required">
+											This field is required.
+										</p>
+										<p class="help-block"
+										   ng-show="editForm.social_reason.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
+											This field is required to be at least 3 characters.
+										</p>
+										<p class="help-block"
+										   ng-show="editForm.social_reason.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+											This field cannot be longer than 50 characters.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.tax_regime" for="field_tax_regime">tax_regime</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="field_tax_regime" name="tax_regime" ng-model="vm.free_cfdi.free_emitter.tax_regime.name"  required readonly >
+									<div ng-show="editForm.tax_regime.$invalid">
+										<p class="help-block"
+										   ng-show="editForm.tax_regime.$error.required" translate="entity.validation.required">
+											This field is required.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.email" for="field_email">
+									Email
+								</label>
+
+								<div class="col-sm-8">
+									<input type="email" class="form-control" name="email" id="field_email"
+									   ng-model="vm.free_cfdi.free_emitter.email"
+									   required ng-minlength="6" ng-maxlength="254" ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" readonly />
+									<div ng-show="editForm.email.$invalid">
+										<p class="help-block"
+										   ng-show="editForm.email.$error.required" translate="entity.validation.required">
+											This field is required.
+										</p>
+										<p class="help-block"
+										   ng-show="editForm.email.$error.minlength" translate="entity.validation.minlength" translate-value-min="6">
+											This field is required to be at least 6 characters.
+										</p>
+										<p class="help-block"
+										   ng-show="editForm.email.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="254">
+											This field cannot be longer than 254 characters.
+										</p>
+										<p class="help-block"
+										   ng-show="editForm.email.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$">
+											This field should follow pattern "^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$".
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.fax" for="field_fax">Fax</label>
+								<div class="col-sm-8">
+								<input type="text" class="form-control" name="fax" id="field_fax"
+									   ng-model="vm.free_cfdi.free_emitter.fax" readonly
+									/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.phone1" for="field_phone1">Phone #1</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="phone1" id="field_phone1"
+										   ng-model="vm.free_cfdi.free_emitter.phone1"
+										   required ng-minlength="1" ng-maxlength="15" ng-pattern="/^[0-9]{1,15}$/" readonly />
+									<div ng-show="editForm.phone1.$invalid">
+										<p class="help-block"
+										   ng-show="editForm.phone1.$error.required" translate="entity.validation.required">
+											This field is required.
+										</p>
+										<p class="help-block"
+										   ng-show="editForm.phone1.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
+											This field is required to be at least 1 characters.
+										</p>
+										<p class="help-block"
+										   ng-show="editForm.phone1.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="15">
+											This field cannot be longer than 15 characters.
+										</p>
+										<p class="help-block"
+										   ng-show="editForm.phone1.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{1,15}$">
+											This field should follow pattern "^[0-9]{1,15}$".
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.phone2" for="field_phone2">Phone #2</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="phone2" id="field_phone2"
+										   ng-model="vm.free_cfdi.free_emitter.phone2" readonly />
+								</div>
+							</div>
+
+							<div class="space-6"></div>
+
+							<h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelDC">
+								Certificado Digital
+							</h3>
+							<div class="form-group" ngf-drop ngf-change="vm.setPath_Certificate($file, vm.free_emitter)">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_certificate" for="field_path_certificate">Certificate</label>
+								<div class="col-sm-8">
+									<div class="help-block clearfix">
+										<a class="pull-left" ng-click="vm.openFile(vm.free_cfdi.free_emitter.filecertificateContentType, vm.free_cfdi.free_emitter.filecertificate)" ng-if="vm.free_cfdi.free_emitter.filecertificate" target="_blank">open</a><br>
+										<span class="pull-left">{{vm.free_cfdi.free_emitter.filecertificateContentType}}, {{byteSize(vm.free_cfdi.free_emitter.filecertificate)}}</span>										
+									</div>
+								</div>
+								<input type="hidden" class="form-control" name="path_certificate" id="field_path_certificate"
+									   ng-model="vm.free_emitter.filecertificate"
+									/>
+								<input type="hidden" class="form-control" name="path_certificate_type" id="field_path_certificate_type"
+									   ng-model="vm.free_emitter.filecertificateContentType" />
+							</div>
+							<div class="form-group" ngf-drop ngf-change="vm.setPath_Key($file, vm.free_emitter)">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_key" for="field_path_key">Path key</label>
+								<div class="col-sm-8">
+									<div class="help-block clearfix">
+										<a class="pull-left" ng-click="vm.openFile(vm.free_cfdi.free_emitter.filekeyContentType, vm.free_cfdi.free_emitter.filekey)" ng-if="vm.free_cfdi.free_emitter.filekey" target="_blank">open</a><br>
+										<span class="pull-left">{{vm.free_cfdi.free_emitter.filekeyContentType}}, {{byteSize(vm.free_cfdi.free_emitter.filekey)}}</span>
 										
 									</div>
+								</div>
+							</div>
 
-									<div id="addenda" class="tab-pane">
-										<form class="form-horizontal" role="form">
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<div class="col-sm-12">
-														<textarea type="text" id="form-adend-field-1" class="form-control" rows="5"></textarea>
-													</div>
-												</div>
-											</div>
-										</div>
-										</form>																
+							<div class="space-6"></div>
+
+							<h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelLogo">
+								Logo
+							</h3>
+							<div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.free_emitter)">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_logo" for="field_logo">Logo</label>
+								<div class="col-sm-8">
+									<div class="help-block clearfix">
+										<a class="pull-left" ng-click="vm.openFile(vm.free_cfdi.free_emitter.filelogoContentType, vm.free_cfdi.free_emitter.filelogo)" ng-if="vm.free_cfdi.free_emitter.filelogo" target="_blank">open</a><br>
+										<span class="pull-left">{{vm.free_cfdi.free_emitter.filelogoContentType}}, {{byteSize(vm.free_cfdi.free_emitter.filelogo)}}</span>
 									</div>
+								</div>
+								<input type="hidden" class="form-control" name="logo" id="field_logo"
+									   ng-model="vm.free_emitter.filelogo"
+									/>
+								<input type="hidden" class="form-control" name="logo_type" id="field_logo_type"
+									   ng-model="vm.free_emitter.filelogoContentType" />
+							</div>
+						</div>
+						<div class="col-md-6">
+							<h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelFU">
+								Ubicación Fiscal
+							</h3>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_country" for="field_c_country">c_country</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="field_c_country" name="c_country" ng-model="vm.free_cfdi.free_emitter.c_country.name" required readonly />
+									<div ng-show="editForm.c_country.$invalid">
+										<p class="help-block"
+										   ng-show="editForm.c_country.$error.required" translate="entity.validation.required">
+											This field is required.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_state" for="field_c_state">c_state</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="field_c_state" name="c_state" ng-model="vm.free_cfdi.free_emitter.c_state.name"  readonly />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_municipality" for="field_c_municipality">c_municipality</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_cfdi.free_emitter.c_municipality.name" readonly />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_colony" for="field_c_colony">c_colony</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_cfdi.free_emitter.c_colony.name" readonly />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_zip_code" for="field_c_zip_code">c_zip_code</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.free_cfdi.free_emitter.c_zip_code.postcode" readonly />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.free_emitter.location" for="field_location">Location</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" name="location" id="field_location"
+										   ng-model="vm.free_cfdi.free_emitter.location" readonly />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.free_emitter.street" for="field_street">Street</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" name="street" id="field_street"
+											ng-model="vm.free_cfdi.free_emitter.street"
+											required readonly />
+									<div ng-show="editForm.street.$invalid">
+										<p class="help-block"
+											ng-show="editForm.street.$error.required" translate="entity.validation.required">
+											This field is required.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.free_emitter.intersection" for="intersection">Intersection</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" name="intersection" id="intersection"
+											ng-model="vm.free_cfdi.free_emitter.intersection" readonly />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.num_int" for="field_num_int">Num_int</label>
+								<div class="col-md-2">
+									 <input type="text" class="form-control" name="num_int" id="field_num_int" ng-model="vm.free_cfdi.free_emitter.num_int" readonly />
+								</div>
+								<div class="col-md-6">
+									<label class="col-md-5 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.num_ext" for="field_num_ext">Num_ext</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="num_ext" id="field_num_ext" ng-model="vm.free_cfdi.free_emitter.num_ext" readonly />
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" for="field_reference" translate="megabillingplatformApp.free_emitter.reference" for="field_reference">
+									Reference
+								</label>
+								<div class="col-sm-8">
+									<textarea type="text" id="field_reference" class="form-control" rows="5" ng-model="vm.free_cfdi.free_emitter.reference"readonly></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</uib-tab>
+				
+				<uib-tab heading="Receptor">
+					<div class="row">
+						<div class="col-md-6">
+						
+							<h3 class="header smaller lighter blue">
+								Datos Generales
+							</h3>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.rfc" for="free_receiver_field_rfc">Rfc</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="free_receiver_rfc" id="free_receiver_field_rfc"
+										ng-model="vm.free_receiver.rfc"
+										required ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$/" required/>
+										<div ng-show="editForm.free_receiver_rfc.$invalid">
+											<p class="help-block"
+												ng-show="editForm.free_receiver_rfc.$error.required" translate="entity.validation.required">
+												This field is required.
+											</p>
+											<p class="help-block"
+												ng-show="editForm.free_receiver_rfc.$error.minlength" translate="entity.validation.minlength" translate-value-min="12">
+												This field is required to be at least 12 characters.
+											</p>
+											<p class="help-block"
+												ng-show="editForm.free_receiver_rfc.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="13">
+												This field cannot be longer than 13 characters.
+											</p>
+											<p class="help-block"
+												ng-show="editForm.free_receiver_rfc.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$">
+												This field should follow pattern "^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$".
+											</p>
+										</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.business_name" for="free_receiver_field_business_name">Business_name</label>
+								<div class="col-sm-8">									
+									<input type="text" class="form-control" name="free_receiver_business_name" id="free_receiver_field_business_name"
+											ng-model="vm.free_receiver.business_name"
+											required ng-minlength="3" ng-maxlength="50" />
+									<div ng-show="editForm.free_receiver_business_name.$invalid">
+										<p class="help-block"
+											ng-show="editForm.free_receiver_business_name.$error.required" translate="entity.validation.required">
+											This field is required.
+										</p>
+										<p class="help-block"
+											ng-show="editForm.free_receiver_business_name.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
+											This field is required to be at least 3 characters.
+										</p>
+										<p class="help-block"
+											ng-show="editForm.free_receiver_business_name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+											This field cannot be longer than 50 characters.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.email" for="free_receiver_field_email">Email</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" name="free_receiver_email" id="free_receiver_field_email"
+											ng-model="vm.free_receiver.email"
+											ng-minlength="6" ng-maxlength="254" ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" />
+									<div ng-show="editForm.free_receiver_email.$invalid">
+										<p class="help-block"
+											ng-show="editForm.free_receiver_email.$error.minlength" translate="entity.validation.minlength" translate-value-min="6">
+											This field is required to be at least 6 characters.
+										</p>
+										<p class="help-block"
+											ng-show="editForm.free_receiver_email.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="254">
+											This field cannot be longer than 254 characters.
+										</p>
+										<p class="help-block"
+											ng-show="editForm.free_receiver_email.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$">
+											This field should follow pattern "^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$".
+										</p>
+									</div>
+								</div>
+							</div>												
+						</div>
+						<div class="col-md-6">
+							<h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelFU">
+								Ubicación Fiscal
+							</h3>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.c_country" for="free_receiver_field_c_country">c_country</label>
+								<div class="col-md-8">
+									
+									<select class="form-control" id="free_receiver_field_c_country" name="free_receiver_c_country" ng-model="vm.free_receiver.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countrys track by c_country.id" data-ng-change="vm.onChangeC_country()" required >
+										<option value=""></option>
+									</select>
+									<div ng-show="editForm.c_country.$invalid">
+										<p class="help-block"
+										   ng-show="editForm.free_receiver_c_country.$error.required" translate="entity.validation.required">
+											This field is required.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.c_state" for="free_receiver_field_c_state">c_state</label>
+								<div class="col-md-8">									
+									<select class="form-control" id="free_receiver_field_c_state" name="free_receiver_c_state" ng-model="vm.free_receiver.c_state" ng-options="c_state as c_state.name for c_state in vm.c_states track by c_state.id" data-ng-change="vm.onChangeC_state()">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.c_municipality" for="free_receiver_field_c_municipality">c_municipality</label>
+								<div class="col-md-8">									
+									<select class="form-control" id="free_receiver_field_c_municipality" name="free_receiver_c_municipality" ng-model="vm.free_receiver.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.c_colony" for="free_receiver_field_c_colony">c_colony</label>
+								<div class="col-md-8">									
+									<select class="form-control" id="free_receiver_field_c_colony" name="free_receiver_c_colony" ng-model="vm.free_receiver.c_colony" ng-options="c_colony as c_colony.name for c_colony in vm.c_colonys track by c_colony.id">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.c_zip_code" for="free_receiver_field_c_zip_code">c_zip_code</label>
+								<div class="col-md-8">									
+									<select class="form-control" id="free_receiver_field_c_zip_code" name="free_receiver_c_zip_code" ng-model="vm.free_receiver.c_zip_code" ng-options="c_zip_code as c_zip_code.postcode for c_zip_code in vm.c_zip_codes track by c_zip_code.id">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.street" for="free_receiver_field_street">Street</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" name="free_receiver_street" id="free_receiver_field_street"
+										ng-model="vm.free_receiver.street"
+										 />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.no_ext" for="free_receiver_field_no_ext">No_ext</label>
+								<div class="col-md-2">
+									 <input type="text" class="form-control" name="free_receiver_no_ext" id="free_receiver_field_no_ext"
+										ng-model="vm.free_receiver.no_ext"
+										 />
+								</div>
+								<div class="col-md-6">
+									<label class="col-md-5 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.no_int" for="free_receiver_field_no_int">No_int</label>
+									<div class="col-md-7">
+										<input type="text" class="form-control" name="free_receiver_num_ext" id="free_receiver_field_num_ext" ng-model="vm.free_emitter.num_ext" />
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right"  translate="megabillingplatformApp.free_receiver.reference" for="free_receiver_field_reference">Reference</label>
+								<div class="col-sm-8">
+									<textarea type="text" id="free_receiver_field_reference" name="free_receiver_reference" class="form-control" rows="5" ng-model="vm.free_receiver.reference"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</uib-tab>
+				
+				<uib-tab heading="Comprobante">
+					<div class="row">
+						<div class="col-md-6">						
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.cfdi_type_doc" for="field_cfdi_type_doc">cfdi_type_doc</label>
+								<div class="col-sm-8">
+									<select class="form-control" id="field_cfdi_type_doc" name="cfdi_type_doc" ng-model="vm.free_cfdi.cfdi_type_doc" ng-options="cfdi_type_doc as cfdi_type_doc.name for cfdi_type_doc in vm.cfdi_type_docs track by cfdi_type_doc.id">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.cfdi_types" for="field_cfdi_types">cfdi_types</label>
+								<div class="col-sm-8">									
+									<select class="form-control" id="field_cfdi_types" name="cfdi_types" ng-model="vm.free_cfdi.cfdi_types" ng-options="cfdi_types as cfdi_types.name for cfdi_types in vm.cfdi_typess track by cfdi_types.id">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>							
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.payment_method" for="field_payment_method">payment_method</label>
+								<div class="col-sm-8">									
+									<select class="form-control" id="field_payment_method" name="payment_method" ng-model="vm.free_cfdi.payment_method" ng-options="payment_method as payment_method.name for payment_method in vm.payment_methods track by payment_method.id">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.way_payment" for="field_way_payment">way_payment</label>
+								<div class="col-sm-8">									
+									<select class="form-control" id="field_way_payment" name="way_payment" ng-model="vm.free_cfdi.way_payment" ng-options="way_payment as way_payment.name for way_payment in vm.way_payments track by way_payment.id">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.serial_folio_fiscal_orig" for="field_serial_folio_fiscal_orig">Serial_folio_fiscal_orig</label>
+								<div class="col-sm-8">									
+									<input type="text" class="form-control" name="serial_folio_fiscal_orig" id="field_serial_folio_fiscal_orig"
+											ng-model="vm.free_cfdi.serial_folio_fiscal_orig"
+											 />
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.folio_fiscal_orig" for="field_folio_fiscal_orig">Folio_fiscal_orig</label>
+								<div class="col-sm-8">									
+									<input type="text" class="form-control" name="folio_fiscal_orig" id="field_folio_fiscal_orig"
+											ng-model="vm.free_cfdi.folio_fiscal_orig"
+											 />
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.date_folio_fiscal_orig" for="field_date_folio_fiscal_orig">Date_folio_fiscal_orig</label>
+								<div class="col-sm-8">									
+									<div class="input-group">
+										<input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" datetime-picker="{{dateformat}}" ng-model="vm.free_cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig"
+										  />
+										<span class="input-group-btn">
+											<button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_folio_fiscal_orig')"><i class="glyphicon glyphicon-calendar"></i></button>
+										</span>
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.mont_folio_fiscal_orig" for="field_mont_folio_fiscal_orig">Mont_folio_fiscal_orig</label>
+								<div class="col-sm-8">
+									<input type="number" class="form-control" name="mont_folio_fiscal_orig" id="field_mont_folio_fiscal_orig"
+											ng-model="vm.free_cfdi.mont_folio_fiscal_orig"
+											 />
+								</div>
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.serial" for="field_serial">Serial</label>
+								<div class="col-md-8">
+									<input type="text" class="form-control" name="serial" id="field_serial"
+											ng-model="vm.free_cfdi.serial"
+											ng-minlength="1" ng-maxlength="25" />
+									<div ng-show="editForm.serial.$invalid">
+										<p class="help-block"
+											ng-show="editForm.serial.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
+											This field is required to be at least 1 characters.
+										</p>
+										<p class="help-block"
+											ng-show="editForm.serial.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="25">
+											This field cannot be longer than 25 characters.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.folio" for="field_folio">Folio</label>
+								<div class="col-md-8">									
+									<input type="text" class="form-control" name="folio" id="field_folio"
+											ng-model="vm.free_cfdi.folio"
+											ng-minlength="1" ng-maxlength="20" />
+									<div ng-show="editForm.folio.$invalid">
+										<p class="help-block"
+											ng-show="editForm.folio.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
+											This field is required to be at least 1 characters.
+										</p>
+										<p class="help-block"
+											ng-show="editForm.folio.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+											This field cannot be longer than 20 characters.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label  class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.c_money" for="field_c_money">c_money</label>
+								<div class="col-md-8">									
+									<select class="form-control" id="field_c_money" name="c_money" ng-model="vm.free_cfdi.c_money" ng-options="c_money as c_money.name for c_money in vm.c_moneys track by c_money.id">
+										<option value=""></option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.change_type" for="field_change_type">Change_type</label>
+								<div class="col-md-8">									
+									<input type="text" class="form-control" name="change_type" id="field_change_type"
+											ng-model="vm.free_cfdi.change_type"
+											ng-pattern="/[0-9]{1,14}(.([0-9]{1,6}))?/" />
+									<div ng-show="editForm.change_type.$invalid">
+										<p class="help-block"
+											ng-show="editForm.change_type.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="[0-9]{1,14}(.([0-9]{1,6}))?">
+											This field should follow pattern "[0-9]{1,14}(.([0-9]{1,6}))?".
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.account_number" for="field_account_number">Account_number</label>
+								<div class="col-md-8">									
+									<input type="text" class="form-control" name="account_number" id="field_account_number"
+											ng-model="vm.free_cfdi.account_number"
+											ng-maxlength="4" />
+									<div ng-show="editForm.account_number.$invalid">
+										<p class="help-block"
+											ng-show="editForm.account_number.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="4">
+											This field cannot be longer than 4 characters.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.payment_conditions" for="field_payment_conditions">Payment_conditions</label>
+								<div class="col-md-8">
+									<textarea class="form-control" name="payment_conditions" id="field_payment_conditions" ng-model="vm.free_cfdi.payment_conditions" rows="5"></textarea>
 								</div>
 							</div>
 						</div>
 					</div>
 					
+					<div class="space-24"></div>
+			
+					<div class="row">
+						<div class="col-sm-12">
+							<uib-tabset>						
+								<uib-tab heading="Conceptos">									
+									<table id="concepto-table" class="table table-striped table-bordered table-hover">
+										<thead>
+											<tr>
+												<th>Código</th>
+												<th>Unidad de Medida</th>
+												<th>Descripción</th>
+												<th>Cantidad</th>
+												<th>Precio Unitario</th>
+												<th>Importe</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="free_concept in vm.free_concepts">
+												<td>{{free_concept.free_concept.no_identification}}</td>
+												<td>{{free_concept.free_concept.measure_unit.name}}</td>
+												<td>{{free_concept.free_concept.description}}</td>					
+												<td>{{free_concept.free_concept.quantity}}</td>
+												<td>{{free_concept.free_concept.unit_value}}</td>
+												<td>{{free_concept.free_concept.amount}}</td>
+											</tr>											
+										</tbody>
+									</table>
+									
+									<button type="button" class="btn btn-sm btn-primary" ng-click="vm.addConcept()">
+									  Añadir Concepto
+									</button>
+								</uib-tab>
+								
+								<uib-tab heading="Addenda">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<div class="col-sm-12">
+													<textarea  class="form-control" name="addenda" id="field_addenda"
+															ng-model="vm.free_cfdi.addenda" rows="5" required></textarea>									
+													<div ng-show="editForm.subtotal.$invalid">
+														<p class="help-block"
+															ng-show="editForm.addenda.$error.required" translate="entity.validation.required">
+															This field is required.
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</uib-tab>
+							</uib-tabset>
+							
+						</div>
+					</div>
+				</uib-tab>
+			</uib-tabset>
+			
+			<div class="row">
+				<div class="col-md-5 col-md-offset-7">
+					<div class="hr hr-16 hr-dotted"></div>
+					<div class="form-group">
+						<label class="col-sm-6 control-label no-padding-right" for="form-field-15">IVA (%):</label>
+						<div class="col-sm-6">
+							<input type="text" id="form-field-15" placeholder="IVA (%)" class="form-control" value="16%" readonly />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total_tax_retention" for="field_total_tax_retention">Total_tax_retention</label>
+						<div class="col-sm-6">							
+							<input type="number" class="form-control" name="total_tax_retention" id="field_total_tax_retention"
+									ng-model="vm.free_cfdi.total_tax_retention"
+									 />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total_tax_transfered" for="field_total_tax_transfered">Total_tax_transfered</label>
+						<div class="col-sm-6">
+							<input type="number" class="form-control" name="total_tax_transfered" id="field_total_tax_transfered"
+									ng-model="vm.free_cfdi.total_tax_transfered"
+									 />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.discount" for="field_discount">Discount</label>
+						<div class="col-sm-6">
+							<input type="number" class="form-control" name="discount" id="field_discount"
+									ng-model="vm.free_cfdi.discount"
+									 />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.discount_reason" for="field_discount_reason">Discount_reason</label>
+						<div class="col-sm-6">
+							<textarea class="form-control" name="discount_reason" id="field_discount_reason"
+									ng-model="vm.free_cfdi.discount_reason" rows="5"></textarea>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.subtotal" for="field_subtotal">Subtotal</label>
+						<div class="col-sm-6">
+							<input type="number" class="form-control" name="subtotal" id="field_subtotal"
+									ng-model="vm.free_cfdi.subtotal"
+									required />
+							<div ng-show="editForm.subtotal.$invalid">
+								<p class="help-block"
+									ng-show="editForm.subtotal.$error.required" translate="entity.validation.required">
+									This field is required.
+								</p>
+								<p class="help-block"
+									ng-show="editForm.subtotal.$error.number" translate="entity.validation.number">
+									This field should be a number.
+								</p>
+							</div>
+						</div>
+					</div>										
+					<div class="form-group">
+						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total" for="field_total">Total</label>
+						<div class="col-sm-6">							
+							<input type="number" class="form-control" name="total" id="field_total"
+									ng-model="vm.free_cfdi.total"
+									required />
+							<div ng-show="editForm.total.$invalid">
+								<p class="help-block"
+									ng-show="editForm.total.$error.required" translate="entity.validation.required">
+									This field is required.
+								</p>
+								<p class="help-block"
+									ng-show="editForm.total.$error.number" translate="entity.validation.number">
+									This field should be a number.
+								</p>
+							</div>
+						</div>
+					</div>
+					
+					<div class="hr hr-16 hr-dotted"></div>
+					
+					<button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary pull-right" style="margin: 0 15px">
+						<span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save </span>
+					</button>
+
+					<button type="button" class="btn btn-default pull-right" onclick="window.history.back()">
+						<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+					</button>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
-	</div>
+</div>

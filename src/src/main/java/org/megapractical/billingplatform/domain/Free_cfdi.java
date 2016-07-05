@@ -91,16 +91,13 @@ public class Free_cfdi implements Serializable {
     @Column(name = "addenda")
     private String addenda;
 
-    @NotNull
     @Column(name = "stamp", nullable = false)
     private String stamp;
 
-    @NotNull
     @Size(max = 20)
     @Column(name = "no_certificate", length = 20, nullable = false)
     private String no_certificate;
 
-    @NotNull
     @Column(name = "certificate", nullable = false)
     private String certificate;
 
