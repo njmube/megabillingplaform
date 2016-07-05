@@ -1,0 +1,4 @@
+id;name;description
+1;Habilitada  ;Cuenta de contribuyente habilitada para operar en el sistema
+2;Bloqueada  ;Cuenta de contribuyente bloqueada para operar en el sistema
+3;Eliminada  ;Cuenta de contribuyente eliminada por el usuario
