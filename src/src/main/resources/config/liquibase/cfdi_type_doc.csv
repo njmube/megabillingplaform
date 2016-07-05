@@ -1,5 +1,11 @@
 id;name;description
-1;Factura  ;CFDI de tipo Factura
-2;Nomina  ;CFDI de tipo Nomina
-3;Nota Debito  ; CFDI de tipo Nota Debito
-4;Nota Credito  ; CFDI de tipo Nota Credito
+1;Factura ;Factura
+2;Recibo de Honorarios ;Recibo de Honorarios
+3;Recibo de Comisionistas ;Recibo de Comisionistas
+4;Recibo de Autotransporte ;Recibo de Autotransporte
+5;Recibo de Arrendamiento ;Recibo de Arrendamiento
+6;Recibo de Donativos ;Recibo de Donativos
+7;Nota de Cargo ;Nota de Cargo
+8;Nota de Crédito ;Nota de Crédito
+9;Nota de Devolución ;Nota de Devolución
+10;Carta Porte ;Carta Porte
