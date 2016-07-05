@@ -27,7 +27,6 @@
                 "way.payment": "Way Payment",
                 "payment.method": "Payment Method",
                 "free.emitter": "Free Emitter",
-                "free.digital.certificate": "Free Digital Certificate",
                 "free.reciver": "Free Reciver",
                 "complement": "Complements",
                 "cfdi.type.doc": "Types Document",
@@ -62,6 +61,10 @@
             },
             "admin": {
                 "main": "Administration",
+                "states": "States",
+                "types": "Types",
+                "nom": "Nomenclators",
+                "free.cfdi": "CFDI Free",
                 "general.data": "General Data",
                 "users": "Users",
                 "ccountry": "Country",
