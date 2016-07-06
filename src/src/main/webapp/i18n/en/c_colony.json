@@ -16,8 +16,10 @@
             "detail": {
                 "title": "C_colony"
             },
-            "name": "Name",
-            "description": "Description"
+            "code": "Code",
+            "value": "Value",
+            "c_municipality": "C_municipality",
+            "c_zip_code": "C_zip_code"
         }
     }
 }

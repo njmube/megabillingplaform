@@ -24,11 +24,17 @@ public class C_colony implements Serializable {
 
     @NotNull
     @Size(min = 3, max = 255)
-    @Column(name = "name", length = 255, nullable = false)
-    private String name;
+    @Column(name = "code", length = 255, nullable = false)
+    private String code;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "value")
+    private String value;
+
+    @ManyToOne
+    private C_municipality c_municipality;
+
+    @ManyToOne
+    private C_zip_code c_zip_code;
 
     public Long getId() {
         return id;
@@ -38,20 +44,36 @@ public class C_colony implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getCode() {
+        return code;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public String getDescription() {
-        return description;
+    public String getValue() {
+        return value;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public C_municipality getC_municipality() {
+        return c_municipality;
+    }
+
+    public void setC_municipality(C_municipality c_municipality) {
+        this.c_municipality = c_municipality;
+    }
+
+    public C_zip_code getC_zip_code() {
+        return c_zip_code;
+    }
+
+    public void setC_zip_code(C_zip_code c_zip_code) {
+        this.c_zip_code = c_zip_code;
     }
 
     @Override
@@ -78,8 +100,8 @@ public class C_colony implements Serializable {
     public String toString() {
         return "C_colony{" +
             "id=" + id +
-            ", name='" + name + "'" +
-            ", description='" + description + "'" +
+            ", code='" + code + "'" +
+            ", value='" + value + "'" +
             '}';
     }
 }

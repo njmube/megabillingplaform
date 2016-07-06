@@ -16,8 +16,8 @@
             "detail": {
                 "title": "C_zip_code"
             },
-            "postcode": "Postcode",
-            "c_colony": "C_colony"
+            "code": "Code",
+            "value": "Value"
         }
     }
 }

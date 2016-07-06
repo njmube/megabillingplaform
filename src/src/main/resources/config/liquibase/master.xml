@@ -13,8 +13,8 @@
     <include file="classpath:config/liquibase/changelog/20160501143311_added_entity_C_country.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501143605_added_entity_C_state.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501143806_added_entity_C_municipality.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160622170334_added_entity_C_colony.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501144017_added_entity_C_zip_code.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160622170334_added_entity_C_colony.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501140514_added_entity_File_state.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501140617_added_entity_File_type.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160428142222_added_entity_File.xml" relativeToChangelogFile="false"/>

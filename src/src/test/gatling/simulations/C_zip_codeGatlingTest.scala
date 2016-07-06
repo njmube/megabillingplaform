@@ -67,7 +67,7 @@ class C_zip_codeGatlingTest extends Simulation {
             .exec(http("Create new c_zip_code")
             .post("/api/c-zip-codes")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "postcode":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "code":"SAMPLE_TEXT", "value":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_c_zip_code_url"))).exitHereIfFailed
             .pause(10)

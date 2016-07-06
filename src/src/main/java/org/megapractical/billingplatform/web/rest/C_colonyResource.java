@@ -30,10 +30,10 @@ import java.util.Optional;
 public class C_colonyResource {
 
     private final Logger log = LoggerFactory.getLogger(C_colonyResource.class);
-        
+
     @Inject
     private C_colonyService c_colonyService;
-    
+
     /**
      * POST  /c-colonies : Create a new c_colony.
      *
@@ -89,14 +89,23 @@ public class C_colonyResource {
      */
     @RequestMapping(value = "/c-colonies",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"municipalityId"})
     @Timed
-    public ResponseEntity<List<C_colony>> getAllC_colonies(Pageable pageable)
+    public ResponseEntity<List<C_colony>> getAllC_colonies(@RequestParam(value = "municipalityId") Integer municipalityId,
+                                                           Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_colonies");
-        Page<C_colony> page = c_colonyService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-colonies");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(municipalityId == 0) {
+            Page<C_colony> page = c_colonyService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-colonies");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else
+        {
+            log.debug("id del municipio: "+municipalityId);
+            List<C_colony> page = c_colonyService.findByMunicipality(municipalityId);
+            return new ResponseEntity<>(page, HttpStatus.OK);
+        }
     }
 
     /**

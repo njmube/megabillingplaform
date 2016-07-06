@@ -91,7 +91,8 @@
                     resolve: {
                         entity: function () {
                             return {
-                                postcode: null,
+                                code: null,
+                                value: null,
                                 id: null
                             };
                         }

@@ -42,10 +42,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class C_colonyResourceIntTest {
 
-    private static final String DEFAULT_NAME = "AAA";
-    private static final String UPDATED_NAME = "BBB";
-    private static final String DEFAULT_DESCRIPTION = "AAAAA";
-    private static final String UPDATED_DESCRIPTION = "BBBBB";
+    private static final String DEFAULT_CODE = "AAA";
+    private static final String UPDATED_CODE = "BBB";
+    private static final String DEFAULT_VALUE = "AAAAA";
+    private static final String UPDATED_VALUE = "BBBBB";
 
     @Inject
     private C_colonyRepository c_colonyRepository;
@@ -76,8 +76,8 @@ public class C_colonyResourceIntTest {
     @Before
     public void initTest() {
         c_colony = new C_colony();
-        c_colony.setName(DEFAULT_NAME);
-        c_colony.setDescription(DEFAULT_DESCRIPTION);
+        c_colony.setCode(DEFAULT_CODE);
+        c_colony.setValue(DEFAULT_VALUE);
     }
 
     @Test
@@ -96,16 +96,16 @@ public class C_colonyResourceIntTest {
         List<C_colony> c_colonies = c_colonyRepository.findAll();
         assertThat(c_colonies).hasSize(databaseSizeBeforeCreate + 1);
         C_colony testC_colony = c_colonies.get(c_colonies.size() - 1);
-        assertThat(testC_colony.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testC_colony.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testC_colony.getCode()).isEqualTo(DEFAULT_CODE);
+        assertThat(testC_colony.getValue()).isEqualTo(DEFAULT_VALUE);
     }
 
     @Test
     @Transactional
-    public void checkNameIsRequired() throws Exception {
+    public void checkCodeIsRequired() throws Exception {
         int databaseSizeBeforeTest = c_colonyRepository.findAll().size();
         // set the field null
-        c_colony.setName(null);
+        c_colony.setCode(null);
 
         // Create the C_colony, which fails.
 
@@ -129,8 +129,8 @@ public class C_colonyResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(c_colony.getId().intValue())))
-                .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-                .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
+                .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE.toString())))
+                .andExpect(jsonPath("$.[*].value").value(hasItem(DEFAULT_VALUE.toString())));
     }
 
     @Test
@@ -144,8 +144,8 @@ public class C_colonyResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(c_colony.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE.toString()))
+            .andExpect(jsonPath("$.value").value(DEFAULT_VALUE.toString()));
     }
 
     @Test
@@ -167,8 +167,8 @@ public class C_colonyResourceIntTest {
         // Update the c_colony
         C_colony updatedC_colony = new C_colony();
         updatedC_colony.setId(c_colony.getId());
-        updatedC_colony.setName(UPDATED_NAME);
-        updatedC_colony.setDescription(UPDATED_DESCRIPTION);
+        updatedC_colony.setCode(UPDATED_CODE);
+        updatedC_colony.setValue(UPDATED_VALUE);
 
         restC_colonyMockMvc.perform(put("/api/c-colonies")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -179,8 +179,8 @@ public class C_colonyResourceIntTest {
         List<C_colony> c_colonies = c_colonyRepository.findAll();
         assertThat(c_colonies).hasSize(databaseSizeBeforeUpdate);
         C_colony testC_colony = c_colonies.get(c_colonies.size() - 1);
-        assertThat(testC_colony.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testC_colony.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testC_colony.getCode()).isEqualTo(UPDATED_CODE);
+        assertThat(testC_colony.getValue()).isEqualTo(UPDATED_VALUE);
     }
 
     @Test

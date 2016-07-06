@@ -19,18 +19,16 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="postcode"><span translate="megabillingplatformApp.c_zip_code.postcode">Postcode</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="c_colony.name"><span translate="megabillingplatformApp.c_zip_code.c_colony">c_colony</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="code"><span translate="megabillingplatformApp.c_zip_code.code">Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="value"><span translate="megabillingplatformApp.c_zip_code.value">Value</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="c_zip_code in vm.c_zip_codes track by c_zip_code.id">
                     <td><a ui-sref="c-zip-code-detail({id:c_zip_code.id})">{{c_zip_code.id}}</a></td>
-                    <td>{{c_zip_code.postcode}}</td>
-                    <td>
-                        <a ui-sref="c-colony-detail({id:c_zip_code.c_colony.id})">{{c_zip_code.c_colony.name}}</a>
-                    </td>
+                    <td>{{c_zip_code.code}}</td>
+                    <td>{{c_zip_code.value}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

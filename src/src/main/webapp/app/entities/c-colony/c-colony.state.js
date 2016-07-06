@@ -91,8 +91,8 @@
                     resolve: {
                         entity: function () {
                             return {
-                                name: null,
-                                description: null,
+                                code: null,
+                                value: null,
                                 id: null
                             };
                         }

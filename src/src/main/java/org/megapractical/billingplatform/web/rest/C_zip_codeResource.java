@@ -29,10 +29,10 @@ import java.util.Optional;
 public class C_zip_codeResource {
 
     private final Logger log = LoggerFactory.getLogger(C_zip_codeResource.class);
-        
+
     @Inject
     private C_zip_codeService c_zip_codeService;
-    
+
     /**
      * POST  /c-zip-codes : Create a new c_zip_code.
      *
@@ -93,9 +93,9 @@ public class C_zip_codeResource {
     public ResponseEntity<List<C_zip_code>> getAllC_zip_codes(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_zip_codes");
-        Page<C_zip_code> page = c_zip_codeService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-zip-codes");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            Page<C_zip_code> page = c_zip_codeService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-zip-codes");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
     /**

@@ -12,15 +12,27 @@
 
         vm.account = user;
 		vm.free_emitter = entity;
-		
         vm.tax_regimes = Tax_regime.query();
         vm.c_countrys = C_country.query({pg:1});
         vm.c_states = C_state.query({countryId:-1});
-        vm.onChangeC_country = onChangeC_country;
         vm.c_municipalitys = C_municipality.query({stateId:-1});
+
+        if(vm.free_emitter.id == null){
+            vm.c_colonys = null;
+        }
+        else
+        {
+            var municipalityId = vm.free_emitter.c_municipality.id;
+            C_colony.query({municipalityId: municipalityId}, function(result){
+                vm.c_colonys = result;
+            });
+        }
+
+        vm.onChangeC_country = onChangeC_country;
         vm.onChangeC_state = onChangeC_state;
-        vm.c_colonys = C_colony.query();
-        vm.c_zip_codes = C_zip_code.query();
+        vm.onChangeC_municipality = onChangeC_municipality;
+        vm.onChangeC_colony = onChangeC_colony;
+
 
 		vm.load = function(id) {
 			Free_emitter.get({id : id}, function(result) {
@@ -39,6 +51,20 @@
             var stateId = vm.free_emitter.c_state.id;
             C_municipality.query({stateId: stateId}, function(result){
                 vm.c_municipalitys = result;
+            });
+        }
+
+        function onChangeC_municipality () {
+            var municipalityId = vm.free_emitter.c_municipality.id;
+            C_colony.query({municipalityId: municipalityId}, function(result){
+                vm.c_colonys = result;
+            });
+        }
+
+        function onChangeC_colony(){
+
+            C_zip_code.get({id : vm.free_emitter.c_colony.c_zip_code.id}, function(result) {
+                vm.free_emitter.c_zip_code = result;
             });
         }
 
@@ -61,7 +87,7 @@
                     vm.free_emitter.path_logo = "c:";
                     vm.free_emitter.create_date = Date.now();
                     vm.free_emitter.activated = true;
-					vm.free_emitter.user = vm.account;
+
                     Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
                 }
         };
@@ -83,7 +109,7 @@
                 DataUtils.toBase64($file, function(base64Data) {
                     $scope.$apply(function() {
                         free_emitter.filekey = base64Data;
-                        free_emitter.filekeyContentType = $file.type;
+                        free_emitter.filekeyContentType = $file. type;
                     });
                 });
             }

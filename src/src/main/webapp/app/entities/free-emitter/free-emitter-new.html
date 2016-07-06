@@ -305,7 +305,9 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_municipality" for="field_c_municipality">c_municipality</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_emitter.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id">
+                            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_emitter.c_municipality"
+                                    ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id"
+                                    data-ng-change="vm.onChangeC_municipality()">
 								<option value=""></option>
 							</select>
                         </div>
@@ -313,7 +315,11 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_colony" for="field_c_colony">c_colony</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_emitter.c_colony" ng-options="c_colony as c_colony.name for c_colony in vm.c_colonys track by c_colony.id">
+                            <span>{{vm.free_emitter.c_colony.code}}</span>
+                            <span> </span>
+                            <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_emitter.c_colony"
+                                    ng-options="c_colony as c_colony.code for c_colony in vm.c_colonys track by c_colony.id"
+                                    data-ng-change="vm.onChangeC_colony()">
                                 <option value=""></option>
                             </select>
                         </div>
@@ -321,9 +327,8 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_zip_code" for="field_c_zip_code">c_zip_code</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.free_emitter.c_zip_code" ng-options="c_zip_code as c_zip_code.postcode for c_zip_code in vm.c_zip_codes track by c_zip_code.id">
-                                <option value=""></option>
-                            </select>
+                            <input type="text" class="form-control" name="location" id="field_c_zip_code"
+                                   ng-model="vm.free_emitter.c_zip_code.code" readonly/>
                         </div>
                     </div>
                     <div class="form-group">

@@ -67,7 +67,7 @@ class C_colonyGatlingTest extends Simulation {
             .exec(http("Create new c_colony")
             .post("/api/c-colonies")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "description":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "code":"SAMPLE_TEXT", "value":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_c_colony_url"))).exitHereIfFailed
             .pause(10)

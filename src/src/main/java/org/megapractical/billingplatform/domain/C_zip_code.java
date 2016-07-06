@@ -21,11 +21,11 @@ public class C_zip_code implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "postcode")
-    private String postcode;
+    @Column(name = "code")
+    private String code;
 
-    @ManyToOne
-    private C_colony c_colony;
+    @Column(name = "value")
+    private String value;
 
     public Long getId() {
         return id;
@@ -35,20 +35,20 @@ public class C_zip_code implements Serializable {
         this.id = id;
     }
 
-    public String getPostcode() {
-        return postcode;
+    public String getCode() {
+        return code;
     }
 
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public C_colony getC_colony() {
-        return c_colony;
+    public String getValue() {
+        return value;
     }
 
-    public void setC_colony(C_colony c_colony) {
-        this.c_colony = c_colony;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     @Override
@@ -75,7 +75,8 @@ public class C_zip_code implements Serializable {
     public String toString() {
         return "C_zip_code{" +
             "id=" + id +
-            ", postcode='" + postcode + "'" +
+            ", code='" + code + "'" +
+            ", value='" + value + "'" +
             '}';
     }
 }

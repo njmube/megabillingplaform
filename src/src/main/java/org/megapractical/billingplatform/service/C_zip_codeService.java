@@ -13,7 +13,7 @@ public interface C_zip_codeService {
 
     /**
      * Save a c_zip_code.
-     * 
+     *
      * @param c_zip_code the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,16 @@ public interface C_zip_codeService {
 
     /**
      *  Get all the c_zip_codes.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<C_zip_code> findAll(Pageable pageable);
 
+
     /**
      *  Get the "id" c_zip_code.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +38,7 @@ public interface C_zip_codeService {
 
     /**
      *  Delete the "id" c_zip_code.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

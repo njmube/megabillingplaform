@@ -3,14 +3,24 @@
     <h2><span translate="megabillingplatformApp.c_colony.detail.title">C_colony</span> {{vm.c_colony.id}}</h2>
     <hr>
     <dl class="dl-horizontal">
-        <dt><span translate="megabillingplatformApp.c_colony.name">Name</dt></dt>
+        <dt><span translate="megabillingplatformApp.c_colony.code">Code</dt></dt>
         <dd>
-            <span>{{vm.c_colony.name}}<span>
+            <span>{{vm.c_colony.code}}<span>
         </dd>
         <hr>
-        <dt><span translate="megabillingplatformApp.c_colony.description">Description</dt></dt>
+        <dt><span translate="megabillingplatformApp.c_colony.value">Value</dt></dt>
         <dd>
-            <span>{{vm.c_colony.description}}<span>
+            <span>{{vm.c_colony.value}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.c_colony.c_municipality">c_municipality</span></dt>
+        <dd>
+            <a ui-sref="c-municipality-detail({id:vm.c_colony.c_municipality.id})">{{vm.c_colony.c_municipality.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.c_colony.c_zip_code">c_zip_code</span></dt>
+        <dd>
+            <a ui-sref="c-zip-code-detail({id:vm.c_colony.c_zip_code.id})">{{vm.c_colony.c_zip_code.code}}</a>
         </dd>
         <hr>
     </dl>

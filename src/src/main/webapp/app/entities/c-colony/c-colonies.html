@@ -19,16 +19,24 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span translate="megabillingplatformApp.c_colony.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="description"><span translate="megabillingplatformApp.c_colony.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="code"><span translate="megabillingplatformApp.c_colony.code">Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="value"><span translate="megabillingplatformApp.c_colony.value">Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_municipality.name"><span translate="megabillingplatformApp.c_colony.c_municipality">c_municipality</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_zip_code.code"><span translate="megabillingplatformApp.c_colony.c_zip_code">c_zip_code</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="c_colony in vm.c_colonies track by c_colony.id">
                     <td><a ui-sref="c-colony-detail({id:c_colony.id})">{{c_colony.id}}</a></td>
-                    <td>{{c_colony.name}}</td>
-                    <td>{{c_colony.description}}</td>
+                    <td>{{c_colony.code}}</td>
+                    <td>{{c_colony.value}}</td>
+                    <td>
+                        <a ui-sref="c-municipality-detail({id:c_colony.c_municipality.id})">{{c_colony.c_municipality.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-zip-code-detail({id:c_colony.c_zip_code.id})">{{c_colony.c_zip_code.code}}</a>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

@@ -42,8 +42,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class C_zip_codeResourceIntTest {
 
-    private static final String DEFAULT_POSTCODE = "AAAAA";
-    private static final String UPDATED_POSTCODE = "BBBBB";
+    private static final String DEFAULT_CODE = "AAAAA";
+    private static final String UPDATED_CODE = "BBBBB";
+    private static final String DEFAULT_VALUE = "AAAAA";
+    private static final String UPDATED_VALUE = "BBBBB";
 
     @Inject
     private C_zip_codeRepository c_zip_codeRepository;
@@ -74,7 +76,8 @@ public class C_zip_codeResourceIntTest {
     @Before
     public void initTest() {
         c_zip_code = new C_zip_code();
-        c_zip_code.setPostcode(DEFAULT_POSTCODE);
+        c_zip_code.setCode(DEFAULT_CODE);
+        c_zip_code.setValue(DEFAULT_VALUE);
     }
 
     @Test
@@ -93,7 +96,8 @@ public class C_zip_codeResourceIntTest {
         List<C_zip_code> c_zip_codes = c_zip_codeRepository.findAll();
         assertThat(c_zip_codes).hasSize(databaseSizeBeforeCreate + 1);
         C_zip_code testC_zip_code = c_zip_codes.get(c_zip_codes.size() - 1);
-        assertThat(testC_zip_code.getPostcode()).isEqualTo(DEFAULT_POSTCODE);
+        assertThat(testC_zip_code.getCode()).isEqualTo(DEFAULT_CODE);
+        assertThat(testC_zip_code.getValue()).isEqualTo(DEFAULT_VALUE);
     }
 
     @Test
@@ -107,7 +111,8 @@ public class C_zip_codeResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(c_zip_code.getId().intValue())))
-                .andExpect(jsonPath("$.[*].postcode").value(hasItem(DEFAULT_POSTCODE.toString())));
+                .andExpect(jsonPath("$.[*].code").value(hasItem(DEFAULT_CODE.toString())))
+                .andExpect(jsonPath("$.[*].value").value(hasItem(DEFAULT_VALUE.toString())));
     }
 
     @Test
@@ -121,7 +126,8 @@ public class C_zip_codeResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(c_zip_code.getId().intValue()))
-            .andExpect(jsonPath("$.postcode").value(DEFAULT_POSTCODE.toString()));
+            .andExpect(jsonPath("$.code").value(DEFAULT_CODE.toString()))
+            .andExpect(jsonPath("$.value").value(DEFAULT_VALUE.toString()));
     }
 
     @Test
@@ -143,7 +149,8 @@ public class C_zip_codeResourceIntTest {
         // Update the c_zip_code
         C_zip_code updatedC_zip_code = new C_zip_code();
         updatedC_zip_code.setId(c_zip_code.getId());
-        updatedC_zip_code.setPostcode(UPDATED_POSTCODE);
+        updatedC_zip_code.setCode(UPDATED_CODE);
+        updatedC_zip_code.setValue(UPDATED_VALUE);
 
         restC_zip_codeMockMvc.perform(put("/api/c-zip-codes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -154,7 +161,8 @@ public class C_zip_codeResourceIntTest {
         List<C_zip_code> c_zip_codes = c_zip_codeRepository.findAll();
         assertThat(c_zip_codes).hasSize(databaseSizeBeforeUpdate);
         C_zip_code testC_zip_code = c_zip_codes.get(c_zip_codes.size() - 1);
-        assertThat(testC_zip_code.getPostcode()).isEqualTo(UPDATED_POSTCODE);
+        assertThat(testC_zip_code.getCode()).isEqualTo(UPDATED_CODE);
+        assertThat(testC_zip_code.getValue()).isEqualTo(UPDATED_VALUE);
     }
 
     @Test

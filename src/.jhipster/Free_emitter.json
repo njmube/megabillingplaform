@@ -28,13 +28,13 @@
             "relationshipName": "c_colony",
             "otherEntityName": "c_colony",
             "relationshipType": "many-to-one",
-            "otherEntityField": "name"
+            "otherEntityField": "code"
         },
         {
             "relationshipName": "c_zip_code",
             "otherEntityName": "c_zip_code",
             "relationshipType": "many-to-one",
-            "otherEntityField": "postcode"
+            "otherEntityField": "code"
         },
         {
             "relationshipName": "user",

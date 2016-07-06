@@ -14,32 +14,44 @@
                     ng-model="vm.c_colony.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.c_colony.name" for="field_name">Name</label>
-            <input type="text" class="form-control" name="name" id="field_name"
-                    ng-model="vm.c_colony.name"
-                    required ng-minlength="3" ng-maxlength="50" />
-            <div ng-show="editForm.name.$invalid">
+            <label class="control-label" translate="megabillingplatformApp.c_colony.code" for="field_code">Code</label>
+            <input type="text" class="form-control" name="code" id="field_code"
+                    ng-model="vm.c_colony.code"
+                    required ng-minlength="3" ng-maxlength="255" />
+            <div ng-show="editForm.code.$invalid">
                 <p class="help-block"
-                    ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                    ng-show="editForm.code.$error.required" translate="entity.validation.required">
                     This field is required.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.name.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
+                    ng-show="editForm.code.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
                     This field is required to be at least 3 characters.
                 </p>
                 <p class="help-block"
-                    ng-show="editForm.name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
-                    This field cannot be longer than 50 characters.
+                    ng-show="editForm.code.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
                 </p>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.c_colony.description" for="field_description">Description</label>
-            <input type="text" class="form-control" name="description" id="field_description"
-                    ng-model="vm.c_colony.description"
+            <label class="control-label" translate="megabillingplatformApp.c_colony.value" for="field_value">Value</label>
+            <input type="text" class="form-control" name="value" id="field_value"
+                    ng-model="vm.c_colony.value"
                      />
         </div>
 
+        <div class="form-group">
+            <label translate="megabillingplatformApp.c_colony.c_municipality" for="field_c_municipality">c_municipality</label>
+            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.c_colony.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.c_colony.c_zip_code" for="field_c_zip_code">c_zip_code</label>
+            <select class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.c_colony.c_zip_code" ng-options="c_zip_code as c_zip_code.code for c_zip_code in vm.c_zip_codes track by c_zip_code.id">
+                <option value=""></option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

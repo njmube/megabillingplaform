@@ -1,15 +1,14 @@
 {
     "relationships": [
-        {
-            "relationshipName": "c_colony",
-            "otherEntityName": "c_colony",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "name"
-        }
     ],
     "fields": [
         {
-            "fieldName": "postcode",
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldName": "value",
             "fieldType": "String",
             "fieldValidateRules": []
         }

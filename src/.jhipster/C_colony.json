@@ -1,9 +1,21 @@
 {
     "relationships": [
+        {
+            "relationshipName": "c_municipality",
+            "otherEntityName": "c_municipality",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "c_zip_code",
+            "otherEntityName": "c_zip_code",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        }
     ],
     "fields": [
         {
-            "fieldName": "name",
+            "fieldName": "code",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required",
@@ -14,7 +26,7 @@
             "fieldValidateRulesMaxlength": "255"
         },
         {
-            "fieldName": "description",
+            "fieldName": "value",
             "fieldType": "String"
         }
     ],
