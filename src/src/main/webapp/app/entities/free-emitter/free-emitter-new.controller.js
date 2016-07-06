@@ -5,13 +5,14 @@
         .module('megabillingplatformApp')
         .controller('Free_emitterNewController', Free_emitterNewController);
 
-    Free_emitterNewController.$inject = ['$scope', '$stateParams', '$q', 'entity', 'DataUtils', 'Free_emitter_file','Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'user'];
+    Free_emitterNewController.$inject = ['$scope', '$stateParams', '$q', 'entity', 'DataUtils', 'Free_emitter_file','Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'user','Type_taxpayer'];
 
-    function Free_emitterNewController ($scope, $stateParams, $q, entity, DataUtils, Free_emitter_file, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, user) {
+    function Free_emitterNewController ($scope, $stateParams, $q, entity, DataUtils, Free_emitter_file, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, user, Type_taxpayer) {
         var vm = this;
 
         vm.account = user;
 		vm.free_emitter = entity;
+        vm.type_taxpayers = Type_taxpayer.query();
         vm.tax_regimes = Tax_regime.query();
         vm.c_countrys = C_country.query({pg:1});
         vm.c_states = C_state.query({countryId:-1});

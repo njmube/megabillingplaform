@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "free_tax_retentions" : {
+            "home": {
+                "title": "Free_tax_retentions",
+                "createLabel": "Create a new Free_tax_retentions",
+                "createOrEditLabel": "Create or edit a Free_tax_retentions",
+                "search": "Search for Free_tax_retentions"
+            },
+            "created": "A new Free_tax_retentions is created with identifier {{ param }}",
+            "updated": "A Free_tax_retentions is updated with identifier {{ param }}",
+            "deleted": "A Free_tax_retentions is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Free_tax_retentions {{ id }}?"
+            },
+            "detail": {
+                "title": "Free_tax_retentions"
+            },
+            "amount": "Amount",
+            "free_concept": "Free_concept",
+            "tax_types": "Tax_types"
+        }
+    }
+}

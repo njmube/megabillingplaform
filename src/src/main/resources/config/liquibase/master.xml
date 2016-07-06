@@ -30,6 +30,7 @@
     <include file="classpath:config/liquibase/changelog/20160622164712_added_entity_Tax_types.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160622164831_added_entity_Cfdi_states.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160622164935_added_entity_Cfdi_types.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160706122536_added_entity_Type_taxpayer.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160623172937_added_entity_Free_emitter.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160624033822_added_entity_C_money.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160624040912_added_entity_Complement.xml" relativeToChangelogFile="false"/>
@@ -43,5 +44,7 @@
     <include file="classpath:config/liquibase/changelog/20160624065746_added_entity_Free_part_concept.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160624070350_added_entity_Free_customs_info.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160704112117_added_entity_Config_pathrootfile.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160706121406_added_entity_Free_tax_transfered.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160706121604_added_entity_Free_tax_retentions.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

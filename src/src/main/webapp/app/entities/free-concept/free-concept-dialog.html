@@ -1,5 +1,5 @@
 
-<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -7,209 +7,113 @@
         <h4 class="modal-title" id="myFree_conceptLabel" translate="megabillingplatformApp.free_concept.home.createOrEditLabel">Create or edit a Free_concept</h4>
     </div>
     <div class="modal-body">
-        <jhi-alert-error></jhi-alert-error>	
-		
-		<uib-tabset active="active">
-			<uib-tab heading="Datos Generales">
-				<div class="form-group">
-					<label  class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.no_identification" for="field_no_identification">No_identification</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" name="no_identification" id="field_no_identification"
-							ng-model="vm.free_concept.no_identification"
-							required />
-						<div ng-show="editForm.no_identification.$invalid">
-							<p class="help-block"
-								ng-show="editForm.no_identification.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-						</div>
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.measure_unit" for="field_measure_unit">measure_unit</label>
-					<div class="col-sm-9">
-						<select class="form-control" id="field_measure_unit" name="measure_unit" ng-model="vm.free_concept.measure_unit" ng-options="measure_unit as measure_unit.name for measure_unit in vm.measure_units track by measure_unit.id">
-							<option value=""></option>
-						</select>
-					</div>
-				</div>	
-				
-				<div class="form-group">			
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.description" for="field_description">Description</label>
-					<div class="col-sm-9">
-						<textarea class="form-control" name="description" id="field_description"
-							ng-model="vm.free_concept.description" rows="5"></textarea>
-					</div>
-				</div>
-				
-				
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.predial_number" for="field_predial_number">Predial_number</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" name="predial_number" id="field_predial_number"
-								ng-model="vm.free_concept.predial_number"
-								 />
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.unit_value" for="field_unit_value">Unit_value</label>
-					<div class="col-sm-9">
-						<input type="number" class="form-control" name="unit_value" id="field_unit_value"
-							ng-model="vm.free_concept.unit_value"
-							required />
-						<div ng-show="editForm.unit_value.$invalid">
-							<p class="help-block"
-								ng-show="editForm.unit_value.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-							<p class="help-block"
-								ng-show="editForm.unit_value.$error.number" translate="entity.validation.number">
-								This field should be a number.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.quantity" for="field_quantity">Quantity</label>			
-					<div class="col-sm-9">
-						<input type="number" class="form-control" name="quantity" id="field_quantity"
-								ng-model="vm.free_concept.quantity"
-								required />
-						<div ng-show="editForm.quantity.$invalid">
-							<p class="help-block"
-								ng-show="editForm.quantity.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-							<p class="help-block"
-								ng-show="editForm.quantity.$error.number" translate="entity.validation.number">
-								This field should be a number.
-							</p>
-						</div>
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.discount" for="field_discount">Discount</label>			
-					<div class="col-sm-9">
-						<input type="number" class="form-control" name="discount" id="field_discount"
-								ng-model="vm.free_concept.discount"
-								required />
-						<div ng-show="editForm.discount.$invalid">
-							<p class="help-block"
-								ng-show="editForm.discount.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-							<p class="help-block"
-								ng-show="editForm.discount.$error.number" translate="entity.validation.number">
-								This field should be a number.
-							</p>
-						</div>
-					</div>
-				</div> 
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.free_concept.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_concept.no_identification" for="field_no_identification">No_identification</label>
+            <input type="text" class="form-control" name="no_identification" id="field_no_identification"
+                    ng-model="vm.free_concept.no_identification"
+                    required />
+            <div ng-show="editForm.no_identification.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.no_identification.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_concept.quantity" for="field_quantity">Quantity</label>
+            <input type="number" class="form-control" name="quantity" id="field_quantity"
+                    ng-model="vm.free_concept.quantity"
+                    required />
+            <div ng-show="editForm.quantity.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.quantity.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.quantity.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_concept.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.free_concept.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_concept.unit_value" for="field_unit_value">Unit_value</label>
+            <input type="number" class="form-control" name="unit_value" id="field_unit_value"
+                    ng-model="vm.free_concept.unit_value"
+                    required />
+            <div ng-show="editForm.unit_value.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.unit_value.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.unit_value.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_concept.predial_number" for="field_predial_number">Predial_number</label>
+            <input type="text" class="form-control" name="predial_number" id="field_predial_number"
+                    ng-model="vm.free_concept.predial_number"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_concept.amount" for="field_amount">Amount</label>
+            <input type="number" class="form-control" name="amount" id="field_amount"
+                    ng-model="vm.free_concept.amount"
+                    required />
+            <div ng-show="editForm.amount.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.amount.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.amount.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_concept.discount" for="field_discount">Discount</label>
+            <input type="number" class="form-control" name="discount" id="field_discount"
+                    ng-model="vm.free_concept.discount"
+                    required />
+            <div ng-show="editForm.discount.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.discount.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.discount.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
 
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.iva" for="field_iva">IVA</label>	
-					<div class="col-sm-9">
-						<input type="number" class="form-control" id="field_iva" name="iva" ng-model="vm.iva" >
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.ieps" for="field_iva">IEPS</label>	
-					<div class="col-sm-9">
-						<input type="number" class="form-control" id="field_ieps" name="ieps" ng-model="vm.ieps" >
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.amount" for="field_amount">Amount</label>
-					<div class="col-sm-9">
-						<input type="number" class="form-control" name="amount" id="field_amount"
-								ng-model="vm.free_concept.amount"
-								required />
-						<div ng-show="editForm.amount.$invalid">
-							<p class="help-block"
-								ng-show="editForm.amount.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-							<p class="help-block"
-								ng-show="editForm.amount.$error.number" translate="entity.validation.number">
-								This field should be a number.
-							</p>
-						</div>
-					</div>
-				</div>
-			</uib-tab>
-			
-			<uib-tab heading="Información Aduanera">				
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_customs_info.number_doc" for="field_number_doc">Number_doc</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" name="number_doc" id="field_number_doc"
-								ng-model="vm.free_customs_info.number_doc"
-								required />
-						<div ng-show="editForm.number_doc.$invalid">
-							<p class="help-block"
-								ng-show="editForm.number_doc.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_customs_info.date" for="field_date">Date</label>
-					<div class="col-sm-9">
-						<div class="input-group">
-							<input id="field_date" type="text" class="form-control" name="date" uib-datepicker-popup="{{dateformat}}" ng-model="vm.free_customs_info.date" is-open="vm.datePickerOpenStatus.date"
-							required/>
-							<span class="input-group-btn">
-								<button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
-							</span>
-						</div>
-						<div ng-show="editForm.date.$invalid">
-							<p class="help-block"
-								ng-show="editForm.date.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_customs_info.customs" for="field_customs">Customs</label>
-					<div class="col-sm-9">
-						<textarea class="form-control" name="customs" id="field_customs"
-								ng-model="vm.free_customs_info.customs" rows="5"></textarea>
-					</div>				
-				</div>				
-			</uib-tab>
-			<uib-tab heading="Partes">
-				<table id="concepto-table" class="table table-striped table-bordered table-hover">
-					<thead>
-						<tr>
-							<th>Código</th>
-							<th>Descripción</th>
-							<th>Cantidad</th>
-							<th>Importe</th>
-						</tr>
-					</thead>
-					<tbody>						
-						<tr ng-repeat="free_part_concept in vm.free_part_concepts">
-							<td>{{free_part_concept.no_identification}}</td>
-							<td>{{free_part_concept.description}}</td>
-							<td>{{free_part_concept.quantity}}</td>					
-							<td>{{free_part_concept.amount}}</td>						
-						</tr>						
-					</tbody>
-				</table>
-				
-				<button type="button" class="btn btn-sm btn-primary" ng-click="vm.openFreePartConcept()">
-				  Añadir Concepto
-				</button>
-			</uib-tab>
-		</uib-tabset>
-			
+        <div class="form-group">
+            <label translate="megabillingplatformApp.free_concept.free_cfdi" for="field_free_cfdi">free_cfdi</label>
+            <select class="form-control" id="field_free_cfdi" name="free_cfdi" ng-model="vm.free_concept.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.free_cfdis track by free_cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.free_concept.measure_unit" for="field_measure_unit">measure_unit</label>
+            <select class="form-control" id="field_measure_unit" name="measure_unit" ng-model="vm.free_concept.measure_unit" ng-options="measure_unit as measure_unit.name for measure_unit in vm.measure_units track by measure_unit.id">
+                <option value=""></option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

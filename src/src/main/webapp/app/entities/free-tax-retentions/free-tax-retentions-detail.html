@@ -1,0 +1,28 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.free_tax_retentions.detail.title">Free_tax_retentions</span> {{vm.free_tax_retentions.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.free_tax_retentions.amount">Amount</dt></dt>
+        <dd>
+            <span>{{vm.free_tax_retentions.amount}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_tax_retentions.free_concept">free_concept</span></dt>
+        <dd>
+            <a ui-sref="free-concept-detail({id:vm.free_tax_retentions.free_concept.id})">{{vm.free_tax_retentions.free_concept.id}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_tax_retentions.tax_types">tax_types</span></dt>
+        <dd>
+            <a ui-sref="tax-types-detail({id:vm.free_tax_retentions.tax_types.id})">{{vm.free_tax_retentions.tax_types.name}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

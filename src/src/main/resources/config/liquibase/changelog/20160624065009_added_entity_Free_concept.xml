@@ -16,7 +16,7 @@
     <!--
         Added the entity Free_concept.
     -->
-    <changeSet id="20160624065009-1" author="jhipster">
+    <changeSet id="20160624065009" author="jhipster">
         <createTable tableName="free_concept">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
@@ -49,16 +49,22 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="free_cfdi_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="measure_unit_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
+            <column name="free_cfdi_id" type="bigint"/>
+            <column name="measure_unit_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
+        <addForeignKeyConstraint baseColumnNames="free_cfdi_id"
+                                 baseTableName="free_concept"
+                                 constraintName="fk_free_concept_free_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="free_cfdi"/>
+
+        <addForeignKeyConstraint baseColumnNames="measure_unit_id"
+                                 baseTableName="free_concept"
+                                 constraintName="fk_free_concept_measure_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="measure_unit"/>
+
     </changeSet>
 </databaseChangeLog>

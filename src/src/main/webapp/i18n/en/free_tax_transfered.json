@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "free_tax_transfered" : {
+            "home": {
+                "title": "Free_tax_transfereds",
+                "createLabel": "Create a new Free_tax_transfered",
+                "createOrEditLabel": "Create or edit a Free_tax_transfered",
+                "search": "Search for Free_tax_transfered"
+            },
+            "created": "A new Free_tax_transfered is created with identifier {{ param }}",
+            "updated": "A Free_tax_transfered is updated with identifier {{ param }}",
+            "deleted": "A Free_tax_transfered is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Free_tax_transfered {{ id }}?"
+            },
+            "detail": {
+                "title": "Free_tax_transfered"
+            },
+            "rate": "Rate",
+            "amount": "Amount",
+            "free_concept": "Free_concept",
+            "tax_types": "Tax_types"
+        }
+    }
+}

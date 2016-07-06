@@ -46,9 +46,10 @@
                 "configPathrootfile": "Config_pathrootfile",
                 "cZipCode": "C_zip_code",
                 "cColony": "C_colony",
-                "taxTransfered": "Tax Transfered",
-                "taxRetentions": "Tax Retentions",
-                "freeEmitter": "Free Emitter",
+                "freeConcept": "Free_concept",
+                "freeTaxTransfered": "Free_tax_transfered",
+                "freeTaxRetentions": "Free_tax_retentions",
+                "typeTaxpayer": "Type_taxpayer",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

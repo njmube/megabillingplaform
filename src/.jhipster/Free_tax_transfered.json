@@ -1,0 +1,34 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "free_concept",
+            "otherEntityName": "free_concept",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "tax_types",
+            "otherEntityName": "tax_types",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "rate",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160706121406",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "free_tax_transfered",
+    "pagination": "pagination"
+}

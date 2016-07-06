@@ -2,29 +2,29 @@
     "megabillingplatformApp": {
         "free_concept" : {
             "home": {
-                "title": "Free Concepts",
-                "createLabel": "Create a new Free Concept",
-                "createOrEditLabel": "Create or edit a Free Concept",
-                "search": "Search for Free Concept"
+                "title": "Free_concepts",
+                "createLabel": "Create a new Free_concept",
+                "createOrEditLabel": "Create or edit a Free_concept",
+                "search": "Search for Free_concept"
             },
-            "created": "A new Free Concept is created with identifier {{ param }}",
-            "updated": "A Free Concept is updated with identifier {{ param }}",
-            "deleted": "A Free Concept is deleted with identifier {{ param }}",
+            "created": "A new Free_concept is created with identifier {{ param }}",
+            "updated": "A Free_concept is updated with identifier {{ param }}",
+            "deleted": "A Free_concept is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Free Concept {{ id }}?"
+                "question": "Are you sure you want to delete Free_concept {{ id }}?"
             },
             "detail": {
-                "title": "Free Concept"
+                "title": "Free_concept"
             },
-            "no_identification": "No Identification",
+            "no_identification": "No_identification",
             "quantity": "Quantity",
             "description": "Description",
-            "unit_value": "Unit Value",
-            "predial_number": "Predial Number",
+            "unit_value": "Unit_value",
+            "predial_number": "Predial_number",
             "amount": "Amount",
             "discount": "Discount",
-            "free_cfdi": "Free Cfdi",
-            "measure_unit": "Measure Unit"
+            "free_cfdi": "Free_cfdi",
+            "measure_unit": "Measure_unit"
         }
     }
 }

@@ -94,26 +94,22 @@ public class Free_emitter implements Serializable {
     @Column(name = "filecertificate")
     private byte[] filecertificate;
 
-    @Column(name = "filecertificate_content_type")
+    @Column(name = "filecertificate_content_type")    
     private String filecertificateContentType;
 
     @Lob
     @Column(name = "filekey")
     private byte[] filekey;
 
-    @Column(name = "filekey_content_type")
+    @Column(name = "filekey_content_type")    
     private String filekeyContentType;
 
     @Lob
     @Column(name = "filelogo")
     private byte[] filelogo;
 
-    @Column(name = "filelogo_content_type")
+    @Column(name = "filelogo_content_type")    
     private String filelogoContentType;
-
-    @NotNull
-    @Column(name = "type_taxpayer", nullable = false)
-    private String type_taxpayer;
 
     @NotNull
     @Column(name = "accuracy", nullable = false)
@@ -140,6 +136,9 @@ public class Free_emitter implements Serializable {
     @OneToOne
     @JoinColumn(unique = true)
     private User user;
+
+    @ManyToOne
+    private Type_taxpayer type_taxpayer;
 
     public Long getId() {
         return id;
@@ -333,14 +332,6 @@ public class Free_emitter implements Serializable {
         this.filelogoContentType = filelogoContentType;
     }
 
-    public String getType_taxpayer() {
-        return type_taxpayer;
-    }
-
-    public void setType_taxpayer(String type_taxpayer) {
-        this.type_taxpayer = type_taxpayer;
-    }
-
     public Integer getAccuracy() {
         return accuracy;
     }
@@ -405,6 +396,14 @@ public class Free_emitter implements Serializable {
         this.user = user;
     }
 
+    public Type_taxpayer getType_taxpayer() {
+        return type_taxpayer;
+    }
+
+    public void setType_taxpayer(Type_taxpayer type_taxpayer) {
+        this.type_taxpayer = type_taxpayer;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -452,7 +451,6 @@ public class Free_emitter implements Serializable {
             ", filekeyContentType='" + filekeyContentType + "'" +
             ", filelogo='" + filelogo + "'" +
             ", filelogoContentType='" + filelogoContentType + "'" +
-            ", type_taxpayer='" + type_taxpayer + "'" +
             ", accuracy='" + accuracy + "'" +
             '}';
     }

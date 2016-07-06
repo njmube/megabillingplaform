@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "type_taxpayer" : {
+            "home": {
+                "title": "Type_taxpayers",
+                "createLabel": "Crear nuevo Type_taxpayer",
+                "createOrEditLabel": "Crear o editar Type_taxpayer",
+                "search": "Search for Type_taxpayer"
+            },
+            "created": "Un nuevo Type_taxpayer ha sido creado con el identificador {{ param }}",
+            "updated": "Un Type_taxpayer ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Type_taxpayer ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Type_taxpayer {{ id }}?"
+            },
+            "detail": {
+                "title": "Type_taxpayer"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

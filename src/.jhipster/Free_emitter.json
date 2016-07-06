@@ -43,6 +43,12 @@
             "otherEntityField": "login",
             "ownerSide": true,
             "otherEntityRelationshipName": "free_emitter"
+        },
+        {
+            "relationshipName": "type_taxpayer",
+            "otherEntityName": "type_taxpayer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
         }
     ],
     "fields": [
@@ -180,13 +186,6 @@
             "fieldName": "filelogo",
             "fieldType": "byte[]",
             "fieldTypeBlobContent": "any"
-        },
-        {
-            "fieldName": "type_taxpayer",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
         },
         {
             "fieldName": "accuracy",

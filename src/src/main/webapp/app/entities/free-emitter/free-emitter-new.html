@@ -86,6 +86,34 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.type_taxpayer" for="field_type_taxpayer">Type taxpayer</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_type_taxpayer" name="type_taxpayer" ng-model="vm.free_emitter.type_taxpayer" ng-options="type_taxpayer as type_taxpayer.name for type_taxpayer in vm.type_taxpayers track by type_taxpayer.id" required>
+                                <option value=""></option>
+                            </select>
+                            <div ng-show="editForm.type_taxpayer.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.type_taxpayer.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.tax_regime" for="field_tax_regime">Tax regime</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_tax_regime" name="tax_regime" ng-model="vm.free_emitter.tax_regime" ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimes track by tax_regime.id" required>
+                                <option value=""></option>
+                            </select>
+                            <div ng-show="editForm.tax_regime.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.tax_regime.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.bussines_name" for="field_social_reason">
                             Social reason
                         </label>
@@ -107,20 +135,6 @@
                                     This field cannot be longer than 50 characters.
                                 </p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.tax_regime" for="field_tax_regime">tax_regime</label>
-                        <div class="col-sm-8">
-                            <select class="form-control" id="field_tax_regime" name="tax_regime" ng-model="vm.free_emitter.tax_regime" ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimes track by tax_regime.id" required>
-								<option value=""></option>
-							</select>
-							<div ng-show="editForm.tax_regime.$invalid">
-								<p class="help-block"
-								   ng-show="editForm.tax_regime.$error.required" translate="entity.validation.required">
-									This field is required.
-								</p>
-							</div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -192,6 +206,24 @@
                             <input type="text" class="form-control" name="phone2" id="field_phone2"
                                    ng-model="vm.free_emitter.phone2"
                                 />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.accuracy" for="accuracy">Accuracy</label>
+                        <div class="col-sm-8">
+                            <select name=accuracy id="accuracy" ng-model="vm.free_emitter.accuracy">
+                                <option name="2" value="2" >2</option>
+                                <option name="3" value="3">3</option>
+                                <option name="4" value="4">4</option>
+                                <option name="5" value="5">5</option>
+                                <option name="6" value="6">6</option>
+                            </select>
+                            <div ng-show="editForm.accuracy.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.accuracy.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
                         </div>
                     </div>
 

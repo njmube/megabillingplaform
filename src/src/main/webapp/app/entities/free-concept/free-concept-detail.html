@@ -1,45 +1,53 @@
 
 <div>
-    <h2><span translate="megabillingplatformApp.free_concept.detail.title">Free Concept</span> {{vm.free_concept.id}}</h2>
+    <h2><span translate="megabillingplatformApp.free_concept.detail.title">Free_concept</span> {{vm.free_concept.id}}</h2>
     <hr>
-    <jhi-alert-error></jhi-alert-error>
-    <dl class="dl-horizontal jh-entity-details">
-        <dt><span translate="megabillingplatformApp.free_concept.no_identification">No Identification</span></dt>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.free_concept.no_identification">No_identification</dt></dt>
         <dd>
-            <span>{{vm.free_concept.no_identification}}</span>
+            <span>{{vm.free_concept.no_identification}}<span>
         </dd>
-        <dt><span translate="megabillingplatformApp.free_concept.quantity">Quantity</span></dt>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_concept.quantity">Quantity</dt></dt>
         <dd>
-            <span>{{vm.free_concept.quantity}}</span>
+            <span>{{vm.free_concept.quantity}}<span>
         </dd>
-        <dt><span translate="megabillingplatformApp.free_concept.description">Description</span></dt>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_concept.description">Description</dt></dt>
         <dd>
-            <span>{{vm.free_concept.description}}</span>
+            <span>{{vm.free_concept.description}}<span>
         </dd>
-        <dt><span translate="megabillingplatformApp.free_concept.unit_value">Unit Value</span></dt>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_concept.unit_value">Unit_value</dt></dt>
         <dd>
-            <span>{{vm.free_concept.unit_value}}</span>
+            <span>{{vm.free_concept.unit_value}}<span>
         </dd>
-        <dt><span translate="megabillingplatformApp.free_concept.predial_number">Predial Number</span></dt>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_concept.predial_number">Predial_number</dt></dt>
         <dd>
-            <span>{{vm.free_concept.predial_number}}</span>
+            <span>{{vm.free_concept.predial_number}}<span>
         </dd>
-        <dt><span translate="megabillingplatformApp.free_concept.amount">Amount</span></dt>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_concept.amount">Amount</dt></dt>
         <dd>
-            <span>{{vm.free_concept.amount}}</span>
+            <span>{{vm.free_concept.amount}}<span>
         </dd>
-        <dt><span translate="megabillingplatformApp.free_concept.discount">Discount</span></dt>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_concept.discount">Discount</dt></dt>
         <dd>
-            <span>{{vm.free_concept.discount}}</span>
+            <span>{{vm.free_concept.discount}}<span>
         </dd>
-        <dt><span translate="megabillingplatformApp.free_concept.free_cfdi">Free Cfdi</span></dt>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_concept.free_cfdi">free_cfdi</span></dt>
         <dd>
             <a ui-sref="free-cfdi-detail({id:vm.free_concept.free_cfdi.id})">{{vm.free_concept.free_cfdi.id}}</a>
         </dd>
-        <dt><span translate="megabillingplatformApp.free_concept.measure_unit">Measure Unit</span></dt>
+        <hr>
+        <dt><span translate="megabillingplatformApp.free_concept.measure_unit">measure_unit</span></dt>
         <dd>
             <a ui-sref="measure-unit-detail({id:vm.free_concept.measure_unit.id})">{{vm.free_concept.measure_unit.name}}</a>
         </dd>
+        <hr>
     </dl>
 
     <button type="submit"

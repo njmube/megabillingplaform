@@ -24,17 +24,21 @@
             <column name="name" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="value" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="description" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/rate_type.csv"
+                  separator=";"
+                  tableName="rate_type">
+        </loadData>
     </changeSet>
 </databaseChangeLog>
