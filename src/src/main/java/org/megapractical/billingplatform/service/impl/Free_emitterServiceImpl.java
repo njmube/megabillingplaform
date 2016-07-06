@@ -66,13 +66,6 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         return result;
     }
 
-    public Free_emitter findByLogin(String login){
-        Optional<User> user = userService.getUserWithAuthoritiesByLogin(login);
-        if(user.isPresent()){
-            return free_emitterRepository.findOneByUser(user.get());
-        }
-        return new Free_emitter();
-    }
     /**
      *  Get all the free_emitters.
      *
@@ -241,5 +234,14 @@ public class Free_emitterServiceImpl implements Free_emitterService{
     public void delete(Long id) {
         log.debug("Request to delete Free_emitter : {}", id);
         free_emitterRepository.delete(id);
+    }
+
+    @Override
+    public Free_emitter findOneByUser(User user) {
+        Free_emitter free_emitter = free_emitterRepository.findOneByUser(user);
+        if(free_emitter != null) {
+            return getFile(free_emitter);
+        }
+        return  free_emitter;
     }
 }

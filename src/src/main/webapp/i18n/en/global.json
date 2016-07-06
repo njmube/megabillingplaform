@@ -44,12 +44,6 @@
                 "cMunicipality": "C_municipality",
                 "freeEmitter": "Free_emitter",
                 "configPathrootfile": "Config_pathrootfile",
-                "cZipCode": "C_zip_code",
-                "cColony": "C_colony",
-                "freeConcept": "Free_concept",
-                "freeTaxTransfered": "Free_tax_transfered",
-                "freeTaxRetentions": "Free_tax_retentions",
-                "typeTaxpayer": "Type_taxpayer",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

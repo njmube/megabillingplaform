@@ -86,9 +86,11 @@
                     vm.free_emitter.path_certificate = "c:";
                     vm.free_emitter.path_key = "c:";
                     vm.free_emitter.path_logo = "c:";
+					
+					vm.free_emitter.user = vm.account;
                     vm.free_emitter.create_date = Date.now();
                     vm.free_emitter.activated = true;
-
+					console.log(vm.free_emitter);
                     Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
                 }
         };

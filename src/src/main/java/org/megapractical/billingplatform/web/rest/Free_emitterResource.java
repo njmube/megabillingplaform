@@ -41,9 +41,6 @@ public class Free_emitterResource {
     @Inject
     private UserRepository userRepository;
 
-    @Inject
-    private UserService userService;
-
     /**
      * POST  /free-emitters : Create a new free_emitter.
      *
@@ -60,10 +57,6 @@ public class Free_emitterResource {
         if (free_emitter.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "idexists", "A new free_emitter cannot already have an ID")).body(null);
         }
-
-        free_emitter.setUser(userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin()).get());
-        free_emitter.setActivated(true);
-        free_emitter.setCreate_date(ZonedDateTime.now());
         Free_emitter result = free_emitterService.save(free_emitter);
         return ResponseEntity.created(new URI("/api/free-emitters/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_emitter", result.getId().toString()))
@@ -116,7 +109,7 @@ public class Free_emitterResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
     /**
-     * GET  /free-emitters/:login : get the "id" free_emitter.
+     * GET  /free-emitters/:login : get the free_emitter by login.
      *
      * @param login the id of the free_emitter to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the free_emitter, or with status 404 (Not Found)
@@ -128,13 +121,10 @@ public class Free_emitterResource {
     public ResponseEntity<Free_emitter> getFree_emitter(@PathVariable String login) {
         log.debug("REST request to get Free_emitter by user Login : {}", login);
 
-        Free_emitter free_emitter = free_emitterService.findByLogin(login);
+        Free_emitter free_emitter = free_emitterService.findOneByUser(userRepository.findOneByLogin(login).get());
 
         if(free_emitter == null) {
             free_emitter = new Free_emitter();
-        }else
-        {
-            free_emitter = free_emitterService.getFile(free_emitter);
         }
         return Optional.ofNullable(free_emitter)
             .map(result -> new ResponseEntity<>(
