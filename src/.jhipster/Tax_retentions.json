@@ -5,6 +5,12 @@
             "otherEntityName": "tax_types",
             "relationshipType": "many-to-one",
             "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "free_concept",
+            "otherEntityName": "free_concept",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

@@ -5,17 +5,17 @@
         .module('megabillingplatformApp')
         .controller('Tax_retentionsDialogController', Tax_retentionsDialogController);
 
-    Tax_retentionsDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Tax_retentions', 'Tax_types'];
+    Tax_retentionsDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Tax_retentions', 'Tax_types', 'Free_concept'];
 
-    function Tax_retentionsDialogController ($scope, $stateParams, $uibModalInstance, entity, Tax_retentions, Tax_types) {
+    function Tax_retentionsDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Tax_retentions, Tax_types, Free_concept) {
         var vm = this;
         vm.tax_retentions = entity;
-        vm.tax_typess = Tax_types.query();
-        vm.load = function(id) {
-            Tax_retentions.get({id : id}, function(result) {
-                vm.tax_retentions = result;
-            });
-        };
+        vm.tax_types = Tax_types.query();
+        vm.free_concepts = Free_concept.query();
+
+        $timeout(function (){
+            angular.element('.form-group:eq(1)>input').focus();
+        });
 
         var onSaveSuccess = function (result) {
             $scope.$emit('megabillingplatformApp:tax_retentionsUpdate', result);

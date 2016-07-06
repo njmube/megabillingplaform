@@ -1,5 +1,5 @@
 <div>
-    <h2 translate="megabillingplatformApp.tax_retentions.home.title">Tax_retentions</h2>
+    <h2 translate="megabillingplatformApp.tax_retentions.home.title">Tax Retentions</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="tax-retentions.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span  translate="megabillingplatformApp.tax_retentions.home.createLabel">
-                        Create new Tax_retentions
+                        Create new Tax Retentions
                     </span>
                 </button>
             </div>
@@ -20,7 +20,8 @@
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="amount"><span translate="megabillingplatformApp.tax_retentions.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tax_types.name"><span translate="megabillingplatformApp.tax_retentions.tax_types">tax_types</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax_types.name"><span translate="megabillingplatformApp.tax_retentions.tax_types">Tax Types</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="free_concept.id"><span translate="megabillingplatformApp.tax_retentions.free_concept">Free Concept</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -30,6 +31,9 @@
                     <td>{{tax_retentions.amount}}</td>
                     <td>
                         <a ui-sref="tax-types-detail({id:tax_retentions.tax_types.id})">{{tax_retentions.tax_types.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="free-concept-detail({id:tax_retentions.free_concept.id})">{{tax_retentions.free_concept.id}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

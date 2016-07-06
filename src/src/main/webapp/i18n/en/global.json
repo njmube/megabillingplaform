@@ -47,6 +47,7 @@
                 "cZipCode": "C_zip_code",
                 "cColony": "C_colony",
                 "taxTransfered": "Tax Transfered",
+                "taxRetentions": "Tax Retentions",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

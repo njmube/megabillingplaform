@@ -30,6 +30,9 @@ public class Tax_retentions implements Serializable {
     @ManyToOne
     private Tax_types tax_types;
 
+    @ManyToOne
+    private Free_concept free_concept;
+
     public Long getId() {
         return id;
     }
@@ -52,6 +55,14 @@ public class Tax_retentions implements Serializable {
 
     public void setTax_types(Tax_types tax_types) {
         this.tax_types = tax_types;
+    }
+
+    public Free_concept getFree_concept() {
+        return free_concept;
+    }
+
+    public void setFree_concept(Free_concept free_concept) {
+        this.free_concept = free_concept;
     }
 
     @Override

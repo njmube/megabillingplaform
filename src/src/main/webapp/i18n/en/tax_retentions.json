@@ -3,21 +3,22 @@
         "tax_retentions" : {
             "home": {
                 "title": "Tax Retentions",
-                "createLabel": "New Tax Retention",
-                "createOrEditLabel": "Create or edit a Tax Retention",
-                "search": "Search for Tax Retention"
+                "createLabel": "Create a new Tax Retentions",
+                "createOrEditLabel": "Create or edit a Tax Retentions",
+                "search": "Search for Tax Retentions"
             },
-            "created": "A new tax retention is created with identifier {{ param }}",
-            "updated": "A tax retention is updated with identifier {{ param }}",
-            "deleted": "A tax retention is deleted with identifier {{ param }}",
+            "created": "A new Tax Retentions is created with identifier {{ param }}",
+            "updated": "A Tax Retentions is updated with identifier {{ param }}",
+            "deleted": "A Tax Retentions is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete tax retention {{ id }}?"
+                "question": "Are you sure you want to delete Tax Retentions {{ id }}?"
             },
             "detail": {
-                "title": "Tax Retention"
+                "title": "Tax Retentions"
             },
             "amount": "Amount",
-            "tax_types": "Tax Type"
+            "tax_types": "Tax Types",
+            "free_concept": "Free Concept"
         }
     }
 }
