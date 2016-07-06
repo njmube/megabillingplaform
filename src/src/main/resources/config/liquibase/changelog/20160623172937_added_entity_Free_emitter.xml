@@ -16,7 +16,7 @@
     <!--
         Added the entity Free_emitter.
     -->
-    <changeSet id="20160623172937" author="jhipster">
+    <changeSet id="20160623172937-1" author="jhipster">
         <createTable tableName="free_emitter">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
@@ -110,60 +110,43 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="tax_regime_id" type="bigint"/>
-            <column name="c_country_id" type="bigint"/>
-            <column name="c_state_id" type="bigint"/>
-            <column name="c_municipality_id" type="bigint"/>
-            <column name="c_colony_id" type="bigint"/>
-            <column name="c_zip_code_id" type="bigint"/>
+            <column name="type_taxpayer" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="accuracy" type="integer">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="tax_regime_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="c_country_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="c_state_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="c_municipality_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="c_colony_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="c_zip_code_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
             <column name="user_id" type="bigint">
-                <constraints unique="true"/>
+                <constraints unique="true" nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="free_emitter" columnName="create_date" columnDataType="datetime"/>
         
-        <addForeignKeyConstraint baseColumnNames="tax_regime_id"
-                                 baseTableName="free_emitter"
-                                 constraintName="fk_free_emitter_tax_regime_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="tax_regime"/>
-
-        <addForeignKeyConstraint baseColumnNames="c_country_id"
-                                 baseTableName="free_emitter"
-                                 constraintName="fk_free_emitter_c_country_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="c_country"/>
-
-        <addForeignKeyConstraint baseColumnNames="c_state_id"
-                                 baseTableName="free_emitter"
-                                 constraintName="fk_free_emitter_c_state_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="c_state"/>
-
-        <addForeignKeyConstraint baseColumnNames="c_municipality_id"
-                                 baseTableName="free_emitter"
-                                 constraintName="fk_free_emitter_c_municipality_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="c_municipality"/>
-
-        <addForeignKeyConstraint baseColumnNames="c_colony_id"
-                                 baseTableName="free_emitter"
-                                 constraintName="fk_free_emitter_c_colony_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="c_colony"/>
-
-        <addForeignKeyConstraint baseColumnNames="c_zip_code_id"
-                                 baseTableName="free_emitter"
-                                 constraintName="fk_free_emitter_c_zip_code_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="c_zip_code"/>
-
-        <addForeignKeyConstraint baseColumnNames="user_id"
-                                 baseTableName="free_emitter"
-                                 constraintName="fk_free_emitter_user_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="jhi_user"/>
-
     </changeSet>
 </databaseChangeLog>

@@ -5,15 +5,17 @@
         .module('megabillingplatformApp')
         .controller('Free_emitterController', Free_emitterController);
 
-    Free_emitterController.$inject = ['$scope', '$state', 'Free_emitter', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    Free_emitterController.$inject = ['$scope', '$state', 'DataUtils', 'Free_emitter', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
 
-    function Free_emitterController ($scope, $state, Free_emitter, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function Free_emitterController ($scope, $state, DataUtils, Free_emitter, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
+        vm.openFile = DataUtils.openFile;
+        vm.byteSize = DataUtils.byteSize;
         vm.loadAll();
 
         function loadAll () {

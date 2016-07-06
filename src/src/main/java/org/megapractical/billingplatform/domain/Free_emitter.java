@@ -94,22 +94,30 @@ public class Free_emitter implements Serializable {
     @Column(name = "filecertificate")
     private byte[] filecertificate;
 
-    @Column(name = "filecertificate_content_type")    
+    @Column(name = "filecertificate_content_type")
     private String filecertificateContentType;
 
     @Lob
     @Column(name = "filekey")
     private byte[] filekey;
 
-    @Column(name = "filekey_content_type")    
+    @Column(name = "filekey_content_type")
     private String filekeyContentType;
 
     @Lob
     @Column(name = "filelogo")
     private byte[] filelogo;
 
-    @Column(name = "filelogo_content_type")    
+    @Column(name = "filelogo_content_type")
     private String filelogoContentType;
+
+    @NotNull
+    @Column(name = "type_taxpayer", nullable = false)
+    private String type_taxpayer;
+
+    @NotNull
+    @Column(name = "accuracy", nullable = false)
+    private Integer accuracy;
 
     @ManyToOne
     private Tax_regime tax_regime;
@@ -325,6 +333,22 @@ public class Free_emitter implements Serializable {
         this.filelogoContentType = filelogoContentType;
     }
 
+    public String getType_taxpayer() {
+        return type_taxpayer;
+    }
+
+    public void setType_taxpayer(String type_taxpayer) {
+        this.type_taxpayer = type_taxpayer;
+    }
+
+    public Integer getAccuracy() {
+        return accuracy;
+    }
+
+    public void setAccuracy(Integer accuracy) {
+        this.accuracy = accuracy;
+    }
+
     public Tax_regime getTax_regime() {
         return tax_regime;
     }
@@ -428,6 +452,8 @@ public class Free_emitter implements Serializable {
             ", filekeyContentType='" + filekeyContentType + "'" +
             ", filelogo='" + filelogo + "'" +
             ", filelogoContentType='" + filelogoContentType + "'" +
+            ", type_taxpayer='" + type_taxpayer + "'" +
+            ", accuracy='" + accuracy + "'" +
             '}';
     }
 }

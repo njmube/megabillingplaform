@@ -21,6 +21,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -86,6 +87,26 @@ public class Free_emitterResourceIntTest {
     private static final String DEFAULT_PATH_LOGO = "AAAAA";
     private static final String UPDATED_PATH_LOGO = "BBBBB";
 
+    private static final byte[] DEFAULT_FILECERTIFICATE = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_FILECERTIFICATE = TestUtil.createByteArray(2, "1");
+    private static final String DEFAULT_FILECERTIFICATE_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_FILECERTIFICATE_CONTENT_TYPE = "image/png";
+
+    private static final byte[] DEFAULT_FILEKEY = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_FILEKEY = TestUtil.createByteArray(2, "1");
+    private static final String DEFAULT_FILEKEY_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_FILEKEY_CONTENT_TYPE = "image/png";
+
+    private static final byte[] DEFAULT_FILELOGO = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_FILELOGO = TestUtil.createByteArray(2, "1");
+    private static final String DEFAULT_FILELOGO_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_FILELOGO_CONTENT_TYPE = "image/png";
+    private static final String DEFAULT_TYPE_TAXPAYER = "AAAAA";
+    private static final String UPDATED_TYPE_TAXPAYER = "BBBBB";
+
+    private static final Integer DEFAULT_ACCURACY = 1;
+    private static final Integer UPDATED_ACCURACY = 2;
+
     @Inject
     private Free_emitterRepository free_emitterRepository;
 
@@ -132,12 +153,19 @@ public class Free_emitterResourceIntTest {
         free_emitter.setPath_certificate(DEFAULT_PATH_CERTIFICATE);
         free_emitter.setPath_key(DEFAULT_PATH_KEY);
         free_emitter.setPath_logo(DEFAULT_PATH_LOGO);
+        free_emitter.setFilecertificate(DEFAULT_FILECERTIFICATE);
+        free_emitter.setFilecertificateContentType(DEFAULT_FILECERTIFICATE_CONTENT_TYPE);
+        free_emitter.setFilekey(DEFAULT_FILEKEY);
+        free_emitter.setFilekeyContentType(DEFAULT_FILEKEY_CONTENT_TYPE);
+        free_emitter.setFilelogo(DEFAULT_FILELOGO);
+        free_emitter.setFilelogoContentType(DEFAULT_FILELOGO_CONTENT_TYPE);
+        free_emitter.setType_taxpayer(DEFAULT_TYPE_TAXPAYER);
+        free_emitter.setAccuracy(DEFAULT_ACCURACY);
     }
 
     @Test
     @Transactional
     public void createFree_emitter() throws Exception {
-        /*
         int databaseSizeBeforeCreate = free_emitterRepository.findAll().size();
 
         // Create the Free_emitter
@@ -167,13 +195,20 @@ public class Free_emitterResourceIntTest {
         assertThat(testFree_emitter.getPhone2()).isEqualTo(DEFAULT_PHONE_2);
         assertThat(testFree_emitter.getPath_certificate()).isEqualTo(DEFAULT_PATH_CERTIFICATE);
         assertThat(testFree_emitter.getPath_key()).isEqualTo(DEFAULT_PATH_KEY);
-        assertThat(testFree_emitter.getPath_logo()).isEqualTo(DEFAULT_PATH_LOGO);*/
+        assertThat(testFree_emitter.getPath_logo()).isEqualTo(DEFAULT_PATH_LOGO);
+        assertThat(testFree_emitter.getFilecertificate()).isEqualTo(DEFAULT_FILECERTIFICATE);
+        assertThat(testFree_emitter.getFilecertificateContentType()).isEqualTo(DEFAULT_FILECERTIFICATE_CONTENT_TYPE);
+        assertThat(testFree_emitter.getFilekey()).isEqualTo(DEFAULT_FILEKEY);
+        assertThat(testFree_emitter.getFilekeyContentType()).isEqualTo(DEFAULT_FILEKEY_CONTENT_TYPE);
+        assertThat(testFree_emitter.getFilelogo()).isEqualTo(DEFAULT_FILELOGO);
+        assertThat(testFree_emitter.getFilelogoContentType()).isEqualTo(DEFAULT_FILELOGO_CONTENT_TYPE);
+        assertThat(testFree_emitter.getType_taxpayer()).isEqualTo(DEFAULT_TYPE_TAXPAYER);
+        assertThat(testFree_emitter.getAccuracy()).isEqualTo(DEFAULT_ACCURACY);
     }
 
     @Test
     @Transactional
     public void checkStreetIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
         // set the field null
         free_emitter.setStreet(null);
@@ -186,13 +221,12 @@ public class Free_emitterResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_emitter> free_emitters = free_emitterRepository.findAll();
-        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkCreate_dateIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
         // set the field null
         free_emitter.setCreate_date(null);
@@ -205,13 +239,12 @@ public class Free_emitterResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_emitter> free_emitters = free_emitterRepository.findAll();
-        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkActivatedIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
         // set the field null
         free_emitter.setActivated(null);
@@ -224,13 +257,12 @@ public class Free_emitterResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_emitter> free_emitters = free_emitterRepository.findAll();
-        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkRfcIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
         // set the field null
         free_emitter.setRfc(null);
@@ -243,13 +275,12 @@ public class Free_emitterResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_emitter> free_emitters = free_emitterRepository.findAll();
-        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkEmailIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
         // set the field null
         free_emitter.setEmail(null);
@@ -262,13 +293,12 @@ public class Free_emitterResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_emitter> free_emitters = free_emitterRepository.findAll();
-        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkBussines_nameIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
         // set the field null
         free_emitter.setBussines_name(null);
@@ -281,13 +311,12 @@ public class Free_emitterResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_emitter> free_emitters = free_emitterRepository.findAll();
-        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkPhone1IsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
         // set the field null
         free_emitter.setPhone1(null);
@@ -300,13 +329,12 @@ public class Free_emitterResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_emitter> free_emitters = free_emitterRepository.findAll();
-        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkPath_certificateIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
         // set the field null
         free_emitter.setPath_certificate(null);
@@ -319,13 +347,12 @@ public class Free_emitterResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_emitter> free_emitters = free_emitterRepository.findAll();
-        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkPath_keyIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
         // set the field null
         free_emitter.setPath_key(null);
@@ -338,13 +365,48 @@ public class Free_emitterResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_emitter> free_emitters = free_emitterRepository.findAll();
-        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkType_taxpayerIsRequired() throws Exception {
+        int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
+        // set the field null
+        free_emitter.setType_taxpayer(null);
+
+        // Create the Free_emitter, which fails.
+
+        restFree_emitterMockMvc.perform(post("/api/free-emitters")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(free_emitter)))
+                .andExpect(status().isBadRequest());
+
+        List<Free_emitter> free_emitters = free_emitterRepository.findAll();
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkAccuracyIsRequired() throws Exception {
+        int databaseSizeBeforeTest = free_emitterRepository.findAll().size();
+        // set the field null
+        free_emitter.setAccuracy(null);
+
+        // Create the Free_emitter, which fails.
+
+        restFree_emitterMockMvc.perform(post("/api/free-emitters")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(free_emitter)))
+                .andExpect(status().isBadRequest());
+
+        List<Free_emitter> free_emitters = free_emitterRepository.findAll();
+        assertThat(free_emitters).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void getAllFree_emitters() throws Exception {
-        /*
         // Initialize the database
         free_emitterRepository.saveAndFlush(free_emitter);
 
@@ -369,13 +431,20 @@ public class Free_emitterResourceIntTest {
                 .andExpect(jsonPath("$.[*].phone2").value(hasItem(DEFAULT_PHONE_2.toString())))
                 .andExpect(jsonPath("$.[*].path_certificate").value(hasItem(DEFAULT_PATH_CERTIFICATE.toString())))
                 .andExpect(jsonPath("$.[*].path_key").value(hasItem(DEFAULT_PATH_KEY.toString())))
-                .andExpect(jsonPath("$.[*].path_logo").value(hasItem(DEFAULT_PATH_LOGO.toString())));*/
+                .andExpect(jsonPath("$.[*].path_logo").value(hasItem(DEFAULT_PATH_LOGO.toString())))
+                .andExpect(jsonPath("$.[*].filecertificateContentType").value(hasItem(DEFAULT_FILECERTIFICATE_CONTENT_TYPE)))
+                .andExpect(jsonPath("$.[*].filecertificate").value(hasItem(Base64Utils.encodeToString(DEFAULT_FILECERTIFICATE))))
+                .andExpect(jsonPath("$.[*].filekeyContentType").value(hasItem(DEFAULT_FILEKEY_CONTENT_TYPE)))
+                .andExpect(jsonPath("$.[*].filekey").value(hasItem(Base64Utils.encodeToString(DEFAULT_FILEKEY))))
+                .andExpect(jsonPath("$.[*].filelogoContentType").value(hasItem(DEFAULT_FILELOGO_CONTENT_TYPE)))
+                .andExpect(jsonPath("$.[*].filelogo").value(hasItem(Base64Utils.encodeToString(DEFAULT_FILELOGO))))
+                .andExpect(jsonPath("$.[*].type_taxpayer").value(hasItem(DEFAULT_TYPE_TAXPAYER.toString())))
+                .andExpect(jsonPath("$.[*].accuracy").value(hasItem(DEFAULT_ACCURACY)));
     }
 
     @Test
     @Transactional
     public void getFree_emitter() throws Exception {
-        /*
         // Initialize the database
         free_emitterRepository.saveAndFlush(free_emitter);
 
@@ -400,22 +469,28 @@ public class Free_emitterResourceIntTest {
             .andExpect(jsonPath("$.phone2").value(DEFAULT_PHONE_2.toString()))
             .andExpect(jsonPath("$.path_certificate").value(DEFAULT_PATH_CERTIFICATE.toString()))
             .andExpect(jsonPath("$.path_key").value(DEFAULT_PATH_KEY.toString()))
-            .andExpect(jsonPath("$.path_logo").value(DEFAULT_PATH_LOGO.toString()));*/
+            .andExpect(jsonPath("$.path_logo").value(DEFAULT_PATH_LOGO.toString()))
+            .andExpect(jsonPath("$.filecertificateContentType").value(DEFAULT_FILECERTIFICATE_CONTENT_TYPE))
+            .andExpect(jsonPath("$.filecertificate").value(Base64Utils.encodeToString(DEFAULT_FILECERTIFICATE)))
+            .andExpect(jsonPath("$.filekeyContentType").value(DEFAULT_FILEKEY_CONTENT_TYPE))
+            .andExpect(jsonPath("$.filekey").value(Base64Utils.encodeToString(DEFAULT_FILEKEY)))
+            .andExpect(jsonPath("$.filelogoContentType").value(DEFAULT_FILELOGO_CONTENT_TYPE))
+            .andExpect(jsonPath("$.filelogo").value(Base64Utils.encodeToString(DEFAULT_FILELOGO)))
+            .andExpect(jsonPath("$.type_taxpayer").value(DEFAULT_TYPE_TAXPAYER.toString()))
+            .andExpect(jsonPath("$.accuracy").value(DEFAULT_ACCURACY));
     }
 
     @Test
     @Transactional
     public void getNonExistingFree_emitter() throws Exception {
-        /*
         // Get the free_emitter
         restFree_emitterMockMvc.perform(get("/api/free-emitters/{id}", Long.MAX_VALUE))
-                .andExpect(status().isNotFound());*/
+                .andExpect(status().isNotFound());
     }
 
     @Test
     @Transactional
     public void updateFree_emitter() throws Exception {
-        /*
         // Initialize the database
         free_emitterService.save(free_emitter);
 
@@ -441,6 +516,14 @@ public class Free_emitterResourceIntTest {
         updatedFree_emitter.setPath_certificate(UPDATED_PATH_CERTIFICATE);
         updatedFree_emitter.setPath_key(UPDATED_PATH_KEY);
         updatedFree_emitter.setPath_logo(UPDATED_PATH_LOGO);
+        updatedFree_emitter.setFilecertificate(UPDATED_FILECERTIFICATE);
+        updatedFree_emitter.setFilecertificateContentType(UPDATED_FILECERTIFICATE_CONTENT_TYPE);
+        updatedFree_emitter.setFilekey(UPDATED_FILEKEY);
+        updatedFree_emitter.setFilekeyContentType(UPDATED_FILEKEY_CONTENT_TYPE);
+        updatedFree_emitter.setFilelogo(UPDATED_FILELOGO);
+        updatedFree_emitter.setFilelogoContentType(UPDATED_FILELOGO_CONTENT_TYPE);
+        updatedFree_emitter.setType_taxpayer(UPDATED_TYPE_TAXPAYER);
+        updatedFree_emitter.setAccuracy(UPDATED_ACCURACY);
 
         restFree_emitterMockMvc.perform(put("/api/free-emitters")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -467,13 +550,20 @@ public class Free_emitterResourceIntTest {
         assertThat(testFree_emitter.getPhone2()).isEqualTo(UPDATED_PHONE_2);
         assertThat(testFree_emitter.getPath_certificate()).isEqualTo(UPDATED_PATH_CERTIFICATE);
         assertThat(testFree_emitter.getPath_key()).isEqualTo(UPDATED_PATH_KEY);
-        assertThat(testFree_emitter.getPath_logo()).isEqualTo(UPDATED_PATH_LOGO);*/
+        assertThat(testFree_emitter.getPath_logo()).isEqualTo(UPDATED_PATH_LOGO);
+        assertThat(testFree_emitter.getFilecertificate()).isEqualTo(UPDATED_FILECERTIFICATE);
+        assertThat(testFree_emitter.getFilecertificateContentType()).isEqualTo(UPDATED_FILECERTIFICATE_CONTENT_TYPE);
+        assertThat(testFree_emitter.getFilekey()).isEqualTo(UPDATED_FILEKEY);
+        assertThat(testFree_emitter.getFilekeyContentType()).isEqualTo(UPDATED_FILEKEY_CONTENT_TYPE);
+        assertThat(testFree_emitter.getFilelogo()).isEqualTo(UPDATED_FILELOGO);
+        assertThat(testFree_emitter.getFilelogoContentType()).isEqualTo(UPDATED_FILELOGO_CONTENT_TYPE);
+        assertThat(testFree_emitter.getType_taxpayer()).isEqualTo(UPDATED_TYPE_TAXPAYER);
+        assertThat(testFree_emitter.getAccuracy()).isEqualTo(UPDATED_ACCURACY);
     }
 
     @Test
     @Transactional
     public void deleteFree_emitter() throws Exception {
-        /*
         // Initialize the database
         free_emitterService.save(free_emitter);
 
@@ -486,6 +576,6 @@ public class Free_emitterResourceIntTest {
 
         // Validate the database is empty
         List<Free_emitter> free_emitters = free_emitterRepository.findAll();
-        assertThat(free_emitters).hasSize(databaseSizeBeforeDelete - 1);*/
+        assertThat(free_emitters).hasSize(databaseSizeBeforeDelete - 1);
     }
 }

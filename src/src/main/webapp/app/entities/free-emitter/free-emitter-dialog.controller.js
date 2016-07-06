@@ -5,45 +5,28 @@
         .module('megabillingplatformApp')
         .controller('Free_emitterDialogController', Free_emitterDialogController);
 
-    Free_emitterDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'User'];
+    Free_emitterDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'DataUtils', 'entity', 'Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'User'];
 
-    function Free_emitterDialogController ($scope, $stateParams, $uibModalInstance, $q, entity, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, User) {
+    function Free_emitterDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, DataUtils, entity, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, User) {
         var vm = this;
         vm.free_emitter = entity;
         vm.tax_regimes = Tax_regime.query();
-        vm.c_countrys = C_country.query({pg:1});
-        vm.c_states =  C_state.query({countryId: -1});
-        vm.c_municipalitys = C_municipality.query({stateId: -1});
-        vm.c_colonys = C_colony.query();
+        vm.c_countries = C_country.query();
+        vm.c_states = C_state.query();
+        vm.c_municipalities = C_municipality.query();
+        vm.c_colonies = C_colony.query();
         vm.c_zip_codes = C_zip_code.query();
         vm.users = User.query();
-        vm.onChangeCountry = onChangeCountry;
-        vm.onChangeState = onChangeState;
-        vm.load = function(id) {
-            Free_emitter.get({id : id}, function(result) {
-                vm.free_emitter = result;
-            });
-        };
+
+        $timeout(function (){
+            angular.element('.form-group:eq(1)>input').focus();
+        });
 
         var onSaveSuccess = function (result) {
             $scope.$emit('megabillingplatformApp:free_emitterUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
         };
-
-        function onChangeCountry () {
-            var countryId = vm.free_emitter.c_country.id;
-            C_state.query({countryId: countryId}, function(result){
-                vm.c_states = result;
-            });
-        }
-
-        function onChangeState () {
-            var stateId = vm.free_emitter.c_state.id;
-            C_municipality.query({stateId: stateId}, function(result){
-                vm.c_municipalitys = result;
-            });
-        }
 
         var onSaveError = function () {
             vm.isSaving = false;
@@ -64,6 +47,42 @@
 
         vm.datePickerOpenStatus = {};
         vm.datePickerOpenStatus.create_date = false;
+
+        vm.setFilecertificate = function ($file, free_emitter) {
+            if ($file) {
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+                        free_emitter.filecertificate = base64Data;
+                        free_emitter.filecertificateContentType = $file.type;
+                    });
+                });
+            }
+        };
+
+        vm.setFilekey = function ($file, free_emitter) {
+            if ($file) {
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+                        free_emitter.filekey = base64Data;
+                        free_emitter.filekeyContentType = $file.type;
+                    });
+                });
+            }
+        };
+
+        vm.setFilelogo = function ($file, free_emitter) {
+            if ($file) {
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+                        free_emitter.filelogo = base64Data;
+                        free_emitter.filelogoContentType = $file.type;
+                    });
+                });
+            }
+        };
+
+        vm.openFile = DataUtils.openFile;
+        vm.byteSize = DataUtils.byteSize;
 
         vm.openCalendar = function(date) {
             vm.datePickerOpenStatus[date] = true;
