@@ -17,6 +17,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "c_state")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@NamedQuery(name = "C_state.findByC",
+    query = "select s from C_state s where s.c_country = ?1")
 public class C_state implements Serializable {
 
     private static final long serialVersionUID = 1L;

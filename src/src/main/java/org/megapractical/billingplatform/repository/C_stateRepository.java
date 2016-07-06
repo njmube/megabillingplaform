@@ -12,4 +12,6 @@ import java.util.List;
  */
 public interface C_stateRepository extends JpaRepository<C_state,Long> {
 
+    List<C_state> findByC(C_country country);
+
 }

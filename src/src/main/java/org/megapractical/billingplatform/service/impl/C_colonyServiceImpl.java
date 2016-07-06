@@ -1,5 +1,7 @@
 package org.megapractical.billingplatform.service.impl;
 
+import org.megapractical.billingplatform.domain.C_municipality;
+import org.megapractical.billingplatform.repository.C_municipalityRepository;
 import org.megapractical.billingplatform.service.C_colonyService;
 import org.megapractical.billingplatform.domain.C_colony;
 import org.megapractical.billingplatform.repository.C_colonyRepository;
@@ -25,6 +27,9 @@ public class C_colonyServiceImpl implements C_colonyService{
 
     @Inject
     private C_colonyRepository c_colonyRepository;
+
+    @Inject
+    private C_municipalityRepository c_municipalityRepository;
 
     /**
      * Save a c_colony.
@@ -53,16 +58,12 @@ public class C_colonyServiceImpl implements C_colonyService{
 
     public List<C_colony> findByMunicipality(long municipalityId){
         log.debug("Request to get all C_Colonys");
-        List<C_colony> result = c_colonyRepository.findAll();
+
         if (municipalityId == -1)
-            return result;
-        List<C_colony> res = new ArrayList<>();
-        for(int i = 0; i < result.size();i++){
-            if(result.get(i).getC_municipality().getId() == municipalityId){
-                res.add(result.get(i));
-            }
-        }
-        return res;
+            return c_colonyRepository.findAll();
+
+        C_municipality municipality=  c_municipalityRepository.findOne(municipalityId);
+        return c_colonyRepository.findByM(municipality);
     }
 
     /**

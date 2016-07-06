@@ -14,6 +14,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "c_colony")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@NamedQuery(name = "C_colony.findByM",
+    query = "select c from C_colony c where c.c_municipality = ?1")
 public class C_colony implements Serializable {
 
     private static final long serialVersionUID = 1L;

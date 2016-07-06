@@ -1,6 +1,7 @@
 package org.megapractical.billingplatform.service.impl;
 
 import org.megapractical.billingplatform.domain.C_country;
+import org.megapractical.billingplatform.repository.C_countryRepository;
 import org.megapractical.billingplatform.service.C_stateService;
 import org.megapractical.billingplatform.domain.C_state;
 import org.megapractical.billingplatform.repository.C_stateRepository;
@@ -26,6 +27,9 @@ public class C_stateServiceImpl implements C_stateService{
 
     @Inject
     private C_stateRepository c_stateRepository;
+
+    @Inject
+    private C_countryRepository c_countryRepository;
 
     /**
      * Save a c_state.
@@ -55,16 +59,11 @@ public class C_stateServiceImpl implements C_stateService{
     @Transactional(readOnly = true)
     public List<C_state> findByCountry(long countryId){
         log.debug("Request to get all C_states");
-        List<C_state> result = c_stateRepository.findAll();
+
         if (countryId == -1)
-            return result;
-        List<C_state> res = new ArrayList<>();
-        for(int i = 0; i < result.size();i++){
-            if(result.get(i).getC_country().getId() == countryId){
-                res.add(result.get(i));
-            }
-        }
-        return res;
+            return c_stateRepository.findAll();
+
+        return c_stateRepository.findByC(c_countryRepository.findOne(countryId));
     }
 
     /**

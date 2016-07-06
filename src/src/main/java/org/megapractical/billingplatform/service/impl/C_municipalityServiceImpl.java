@@ -1,5 +1,6 @@
 package org.megapractical.billingplatform.service.impl;
 
+import org.megapractical.billingplatform.repository.C_stateRepository;
 import org.megapractical.billingplatform.service.C_municipalityService;
 import org.megapractical.billingplatform.domain.C_municipality;
 import org.megapractical.billingplatform.repository.C_municipalityRepository;
@@ -25,6 +26,9 @@ public class C_municipalityServiceImpl implements C_municipalityService{
 
     @Inject
     private C_municipalityRepository c_municipalityRepository;
+
+    @Inject
+    private C_stateRepository c_stateRepository;
 
     /**
      * Save a c_municipality.
@@ -67,16 +71,11 @@ public class C_municipalityServiceImpl implements C_municipalityService{
     @Transactional(readOnly = true)
     public List<C_municipality> findByState(long stateId){
         log.debug("Request to get all C_municipality");
-        List<C_municipality> result = c_municipalityRepository.findAll();
+
         if (stateId == -1)
-            return result;
-        List<C_municipality> res = new ArrayList<>();
-        for(int i = 0; i < result.size();i++){
-            if(result.get(i).getC_state().getId() == stateId){
-                res.add(result.get(i));
-            }
-        }
-        return res;
+            return c_municipalityRepository.findAll();
+
+        return c_municipalityRepository.findByS(c_stateRepository.findOne(stateId));
     }
 
     /**
