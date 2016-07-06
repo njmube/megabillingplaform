@@ -57,14 +57,6 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="tax_transfered_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="tax_retentions_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         

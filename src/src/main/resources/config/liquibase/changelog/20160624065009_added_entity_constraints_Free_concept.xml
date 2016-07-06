@@ -20,17 +20,5 @@
                                  referencedColumnNames="id"
                                  referencedTableName="measure_unit"/>
 
-        <addForeignKeyConstraint baseColumnNames="tax_transfered_id"
-                                 baseTableName="free_concept"
-                                 constraintName="fk_free_concept_tax_transfered_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="tax_transfered"/>
-
-        <addForeignKeyConstraint baseColumnNames="tax_retentions_id"
-                                 baseTableName="free_concept"
-                                 constraintName="fk_free_concept_tax_retentions_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="tax_retentions"/>
-
     </changeSet>
 </databaseChangeLog>

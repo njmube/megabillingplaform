@@ -28,8 +28,6 @@
                     <th jh-sort-by="discount"><span translate="megabillingplatformApp.free_concept.discount">Discount</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.free_concept.free_cfdi">Free Cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="measure_unit.name"><span translate="megabillingplatformApp.free_concept.measure_unit">Measure Unit</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tax_transfered.id"><span translate="megabillingplatformApp.free_concept.tax_transfered">Tax Transfered</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tax_retentions.id"><span translate="megabillingplatformApp.free_concept.tax_retentions">Tax Retentions</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -48,12 +46,6 @@
                     </td>
                     <td>
                         <a ui-sref="measure-unit-detail({id:free_concept.measure_unit.id})">{{free_concept.measure_unit.name}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="tax-transfered-detail({id:free_concept.tax_transfered.id})">{{free_concept.tax_transfered.id}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="tax-retentions-detail({id:free_concept.tax_retentions.id})">{{free_concept.tax_retentions.id}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

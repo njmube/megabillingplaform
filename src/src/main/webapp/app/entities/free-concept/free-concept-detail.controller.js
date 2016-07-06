@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_conceptDetailController', Free_conceptDetailController);
 
-    Free_conceptDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Free_concept', 'Free_cfdi', 'Measure_unit', 'Tax_transfered', 'Tax_retentions'];
+    Free_conceptDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Free_concept', 'Free_cfdi', 'Measure_unit'];
 
-    function Free_conceptDetailController($scope, $rootScope, $stateParams, entity, Free_concept, Free_cfdi, Measure_unit, Tax_transfered, Tax_retentions) {
+    function Free_conceptDetailController($scope, $rootScope, $stateParams, entity, Free_concept, Free_cfdi, Measure_unit) {
         var vm = this;
         vm.free_concept = entity;
         

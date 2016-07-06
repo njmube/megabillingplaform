@@ -11,18 +11,6 @@
             "otherEntityName": "measure_unit",
             "relationshipType": "many-to-one",
             "otherEntityField": "name"
-        },
-        {
-            "relationshipName": "tax_transfered",
-            "otherEntityName": "tax_transfered",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipName": "tax_retentions",
-            "otherEntityName": "tax_retentions",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
         }
     ],
     "fields": [

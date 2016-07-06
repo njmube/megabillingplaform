@@ -24,9 +24,7 @@
             "amount": "Amount",
             "discount": "Discount",
             "free_cfdi": "Free Cfdi",
-            "measure_unit": "Measure Unit",
-            "tax_transfered": "Tax Transfered",
-            "tax_retentions": "Tax Retentions"
+            "measure_unit": "Measure Unit"
         }
     }
 }

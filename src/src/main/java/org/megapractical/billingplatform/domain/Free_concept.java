@@ -55,12 +55,6 @@ public class Free_concept implements Serializable {
     @ManyToOne
     private Measure_unit measure_unit;
 
-    @ManyToOne
-    private Tax_transfered tax_transfered;
-
-    @ManyToOne
-    private Tax_retentions tax_retentions;
-
     public Long getId() {
         return id;
     }
@@ -139,22 +133,6 @@ public class Free_concept implements Serializable {
 
     public void setMeasure_unit(Measure_unit measure_unit) {
         this.measure_unit = measure_unit;
-    }
-
-    public Tax_transfered getTax_transfered() {
-        return tax_transfered;
-    }
-
-    public void setTax_transfered(Tax_transfered tax_transfered) {
-        this.tax_transfered = tax_transfered;
-    }
-
-    public Tax_retentions getTax_retentions() {
-        return tax_retentions;
-    }
-
-    public void setTax_retentions(Tax_retentions tax_retentions) {
-        this.tax_retentions = tax_retentions;
     }
 
     @Override
