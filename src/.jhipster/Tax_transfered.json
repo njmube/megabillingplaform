@@ -5,12 +5,6 @@
             "otherEntityName": "tax_types",
             "relationshipType": "many-to-one",
             "otherEntityField": "name"
-        },
-        {
-            "relationshipName": "rate_type",
-            "otherEntityName": "rate_type",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "name"
         }
     ],
     "fields": [

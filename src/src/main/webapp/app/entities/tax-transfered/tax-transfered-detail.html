@@ -1,23 +1,17 @@
 
 <div>
-    <h2><span translate="megabillingplatformApp.tax_transfered.detail.title">Tax_transfered</span> {{vm.tax_transfered.id}}</h2>
+    <h2><span translate="megabillingplatformApp.tax_transfered.detail.title">Tax Transfered</span> {{vm.tax_transfered.id}}</h2>
     <hr>
-    <dl class="dl-horizontal">
-        <dt><span translate="megabillingplatformApp.tax_transfered.amount">Amount</dt></dt>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.tax_transfered.amount">Amount</span></dt>
         <dd>
-            <span>{{vm.tax_transfered.amount}}<span>
+            <span>{{vm.tax_transfered.amount}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.tax_transfered.tax_types">tax_types</span></dt>
+        <dt><span translate="megabillingplatformApp.tax_transfered.tax_types">Tax Types</span></dt>
         <dd>
             <a ui-sref="tax-types-detail({id:vm.tax_transfered.tax_types.id})">{{vm.tax_transfered.tax_types.name}}</a>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.tax_transfered.rate_type">rate_type</span></dt>
-        <dd>
-            <a ui-sref="rate-type-detail({id:vm.tax_transfered.rate_type.id})">{{vm.tax_transfered.rate_type.name}}</a>
-        </dd>
-        <hr>
     </dl>
 
     <button type="submit"

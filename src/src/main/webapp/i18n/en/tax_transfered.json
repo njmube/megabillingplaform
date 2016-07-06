@@ -3,22 +3,21 @@
         "tax_transfered" : {
             "home": {
                 "title": "Tax Transfereds",
-                "createLabel": "New Tax Transfered",
+                "createLabel": "Create a new Tax Transfered",
                 "createOrEditLabel": "Create or edit a Tax Transfered",
                 "search": "Search for Tax Transfered"
             },
-            "created": "A new tax transfered is created with identifier {{ param }}",
-            "updated": "A tax transfered is updated with identifier {{ param }}",
-            "deleted": "A tax transfered is deleted with identifier {{ param }}",
+            "created": "A new Tax Transfered is created with identifier {{ param }}",
+            "updated": "A Tax Transfered is updated with identifier {{ param }}",
+            "deleted": "A Tax Transfered is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete tax transfered {{ id }}?"
+                "question": "Are you sure you want to delete Tax Transfered {{ id }}?"
             },
             "detail": {
                 "title": "Tax Transfered"
             },
             "amount": "Amount",
-            "tax_types": "Tax Type",
-            "rate_type": "Rate Type"
+            "tax_types": "Tax Types"
         }
     }
 }

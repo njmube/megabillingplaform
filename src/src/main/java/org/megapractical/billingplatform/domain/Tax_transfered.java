@@ -30,9 +30,6 @@ public class Tax_transfered implements Serializable {
     @ManyToOne
     private Tax_types tax_types;
 
-    @ManyToOne
-    private Rate_type rate_type;
-
     public Long getId() {
         return id;
     }
@@ -55,14 +52,6 @@ public class Tax_transfered implements Serializable {
 
     public void setTax_types(Tax_types tax_types) {
         this.tax_types = tax_types;
-    }
-
-    public Rate_type getRate_type() {
-        return rate_type;
-    }
-
-    public void setRate_type(Rate_type rate_type) {
-        this.rate_type = rate_type;
     }
 
     @Override

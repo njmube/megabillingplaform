@@ -4,11 +4,11 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myTax_transferedLabel" translate="megabillingplatformApp.tax_transfered.home.createOrEditLabel">Create or edit a Tax_transfered</h4>
+        <h4 class="modal-title" id="myTax_transferedLabel" translate="megabillingplatformApp.tax_transfered.home.createOrEditLabel">Create or edit a Tax Transfered</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group">
+        <div class="form-group" ng-show="vm.tax_transfered.id">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.tax_transfered.id" readonly />
@@ -31,14 +31,8 @@
         </div>
 
         <div class="form-group">
-            <label translate="megabillingplatformApp.tax_transfered.tax_types" for="field_tax_types">tax_types</label>
-            <select class="form-control" id="field_tax_types" name="tax_types" ng-model="vm.tax_transfered.tax_types" ng-options="tax_types as tax_types.name for tax_types in vm.tax_typess track by tax_types.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="megabillingplatformApp.tax_transfered.rate_type" for="field_rate_type">rate_type</label>
-            <select class="form-control" id="field_rate_type" name="rate_type" ng-model="vm.tax_transfered.rate_type" ng-options="rate_type as rate_type.name for rate_type in vm.rate_types track by rate_type.id">
+            <label translate="megabillingplatformApp.tax_transfered.tax_types" for="field_tax_types">Tax Types</label>
+            <select class="form-control" id="field_tax_types" name="tax_types" ng-model="vm.tax_transfered.tax_types" ng-options="tax_types as tax_types.name for tax_types in vm.tax_types track by tax_types.id">
                 <option value=""></option>
             </select>
         </div>

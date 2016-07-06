@@ -2,23 +2,22 @@
     "megabillingplatformApp": {
         "tax_transfered" : {
             "home": {
-                "title": "Impuestos Transferidos",
-                "createLabel": "Nuevo Impuesto",
-                "createOrEditLabel": "Crear o editar Impuesto Transferido",
-                "search": "Búsqueda por Impuesto Transferido"
+                "title": "Tax Transfereds",
+                "createLabel": "Crear nuevo Tax Transfered",
+                "createOrEditLabel": "Crear o editar Tax Transfered",
+                "search": "Search for Tax Transfered"
             },
-            "created": "Un nuevo impuesto ha sido creado con el identificador {{ param }}",
-            "updated": "Un impuesto ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un impuesto ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Tax Transfered ha sido creado con el identificador {{ param }}",
+            "updated": "Un Tax Transfered ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Tax Transfered ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar impuesto con el ID: {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Tax Transfered {{ id }}?"
             },
             "detail": {
-                "title": "Impuesto Transferido"
+                "title": "Tax Transfered"
             },
-            "amount": "Importe",
-            "tax_types": "Tipo Impuesto",
-            "rate_type": "Tasa"
+            "amount": "Amount",
+            "tax_types": "Tax Types"
         }
     }
 }

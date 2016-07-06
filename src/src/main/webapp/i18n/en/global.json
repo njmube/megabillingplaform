@@ -46,6 +46,7 @@
                 "configPathrootfile": "Config_pathrootfile",
                 "cZipCode": "C_zip_code",
                 "cColony": "C_colony",
+                "taxTransfered": "Tax Transfered",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

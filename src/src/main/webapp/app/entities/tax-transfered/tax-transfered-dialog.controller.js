@@ -5,18 +5,16 @@
         .module('megabillingplatformApp')
         .controller('Tax_transferedDialogController', Tax_transferedDialogController);
 
-    Tax_transferedDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Tax_transfered', 'Tax_types', 'Rate_type'];
+    Tax_transferedDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Tax_transfered', 'Tax_types'];
 
-    function Tax_transferedDialogController ($scope, $stateParams, $uibModalInstance, entity, Tax_transfered, Tax_types, Rate_type) {
+    function Tax_transferedDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Tax_transfered, Tax_types) {
         var vm = this;
         vm.tax_transfered = entity;
-        vm.tax_typess = Tax_types.query();
-        vm.rate_types = Rate_type.query();
-        vm.load = function(id) {
-            Tax_transfered.get({id : id}, function(result) {
-                vm.tax_transfered = result;
-            });
-        };
+        vm.tax_types = Tax_types.query();
+
+        $timeout(function (){
+            angular.element('.form-group:eq(1)>input').focus();
+        });
 
         var onSaveSuccess = function (result) {
             $scope.$emit('megabillingplatformApp:tax_transferedUpdate', result);

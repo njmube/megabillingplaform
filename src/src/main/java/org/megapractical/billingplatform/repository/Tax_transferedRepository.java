@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Spring Data JPA repository for the Tax_transfered entity.
  */
+@SuppressWarnings("unused")
 public interface Tax_transferedRepository extends JpaRepository<Tax_transfered,Long> {
 
 }
