@@ -211,12 +211,8 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.accuracy" for="accuracy">Accuracy</label>
                         <div class="col-sm-8">
-                            <select name=accuracy id="accuracy" ng-model="vm.free_emitter.accuracy">
-                                <option name="2" value="2" >2</option>
-                                <option name="3" value="3">3</option>
-                                <option name="4" value="4">4</option>
-                                <option name="5" value="5">5</option>
-                                <option name="6" value="6">6</option>
+                            <select name="accuracy" id="accuracy" ng-model="vm.free_emitter.accuracy" ng-options="val for val in vm.accuracys track by val" required>
+                                <option value=""></option>
                             </select>
                             <div ng-show="editForm.accuracy.$invalid">
                                 <p class="help-block"

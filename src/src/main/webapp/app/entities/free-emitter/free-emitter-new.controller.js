@@ -13,6 +13,7 @@
         vm.account = user;
 		vm.free_emitter = entity;
         vm.type_taxpayers = Type_taxpayer.query();
+        vm.accuracys = [2,3,4,5,6];
         vm.tax_regimes = Tax_regime.query();
         vm.c_countrys = C_country.query({pg:1});
         vm.c_states = C_state.query({countryId:-1});
@@ -81,23 +82,19 @@
 		vm.save = function () {
             vm.isSaving = true;
                 if (vm.free_emitter.id !== null) {
-                    Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+					Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
                 } else {
                     vm.free_emitter.path_certificate = "c:";
                     vm.free_emitter.path_key = "c:";
-                    vm.free_emitter.path_logo = "c:";
-					
+                    vm.free_emitter.path_logo = "c:";					
 					vm.free_emitter.user = vm.account;
-                    vm.free_emitter.create_date = Date.now();
-                    vm.free_emitter.activated = true;
-					console.log(vm.free_emitter);
+                    vm.free_emitter.activated = true;					
                     Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
                 }
         };
 
         vm.setPath_Certificate = function ($file, free_emitter) {
             if ($file) {
-
                 DataUtils.toBase64($file, function(base64Data) {
                     $scope.$apply(function() {
                         free_emitter.filecertificate = base64Data;

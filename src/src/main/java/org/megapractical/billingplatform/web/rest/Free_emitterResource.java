@@ -3,9 +3,7 @@ package org.megapractical.billingplatform.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import org.megapractical.billingplatform.domain.Free_emitter;
 import org.megapractical.billingplatform.repository.UserRepository;
-import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.Free_emitterService;
-import org.megapractical.billingplatform.service.UserService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -57,6 +55,7 @@ public class Free_emitterResource {
         if (free_emitter.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "idexists", "A new free_emitter cannot already have an ID")).body(null);
         }
+        free_emitter.setCreate_date(ZonedDateTime.now());
         Free_emitter result = free_emitterService.save(free_emitter);
         return ResponseEntity.created(new URI("/api/free-emitters/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_emitter", result.getId().toString()))
