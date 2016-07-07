@@ -35,6 +35,7 @@
         vm.onChangeC_municipality = onChangeC_municipality;
         vm.onChangeC_colony = onChangeC_colony;
 
+        vm.onChangeRFC = onChangeRFC;
 
 		vm.load = function(id) {
 			Free_emitter.get({id : id}, function(result) {
@@ -70,6 +71,15 @@
             });
         }
 
+        function onChangeRFC(){
+            if(vm.free_emitter.rfc.length == 12){
+                vm.free_emitter.type_taxpayer = vm.type_taxpayers[0];
+            }else
+            {
+                vm.free_emitter.type_taxpayer = vm.type_taxpayers[1];
+            }
+        }
+
 		var onSaveSuccess = function (result) {
             vm.free_emitter =  result;
             vm.isSaving = false;
@@ -86,9 +96,9 @@
                 } else {
                     vm.free_emitter.path_certificate = "c:";
                     vm.free_emitter.path_key = "c:";
-                    vm.free_emitter.path_logo = "c:";					
+                    vm.free_emitter.path_logo = "c:";
 					vm.free_emitter.user = vm.account;
-                    vm.free_emitter.activated = true;					
+                    vm.free_emitter.activated = true;
                     Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
                 }
         };
