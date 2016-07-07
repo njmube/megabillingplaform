@@ -17,6 +17,9 @@
             "detail": {
                 "title": "Emisor gratuito"
             },
+            "messcertificate":"Es requerido la extensión .cer y el tamaño del fichero debe ser menor o igual a 10 Mb",
+            "messkey":"Es requerido la extensión .key  y el tamaño del fichero debe ser menor o igual a 10 Mb",
+            "messlogo":"Es requerido la extensión .png o .jpg y el tamaño del fichero debe ser menor o igual a 10 Mb",
             "reference": "Referencia",
             "num_int": "Num int",
             "num_ext": "Num ext",

@@ -19,6 +19,10 @@
         vm.c_states = C_state.query({countryId:-1});
         vm.c_municipalitys = C_municipality.query({stateId:-1});
 
+        vm.messcertificate = null;
+        vm.meskey = null;
+        vm.messlogo = null;
+
         if(vm.free_emitter.id == null){
             vm.c_colonys = null;
         }
@@ -107,8 +111,14 @@
             if ($file) {
                 DataUtils.toBase64($file, function(base64Data) {
                     $scope.$apply(function() {
-                        free_emitter.filecertificate = base64Data;
-                        free_emitter.filecertificateContentType = $file.type;
+                        if($file.size <= 10485760 && $file.name.indexOf(".cer",0)+4 == $file.name.length){
+                            free_emitter.filecertificate = base64Data;
+                            free_emitter.filecertificateContentType = $file.type;
+                            vm.messcertificate = null;
+                        }
+                        else{
+                            vm.messcertificate = true;
+                        }
                     });
                 });
             }
@@ -118,8 +128,14 @@
                 vm.path_key_file = $file;
                 DataUtils.toBase64($file, function(base64Data) {
                     $scope.$apply(function() {
-                        free_emitter.filekey = base64Data;
-                        free_emitter.filekeyContentType = $file. type;
+                        if($file.size <= 10485760 && $file.name.indexOf(".key",0)+4 == $file.name.length){
+                            free_emitter.filekey = base64Data;
+                            free_emitter.filekeyContentType = "key";
+                            vm.messkey = null;
+                        }
+                        else{
+                            vm.messkey = true;
+                        }
                     });
                 });
             }
@@ -129,12 +145,21 @@
                 vm.logo_file = $file;
                 DataUtils.toBase64($file, function(base64Data) {
                     $scope.$apply(function() {
-                        free_emitter.filelogo = base64Data;
-                        free_emitter.filelogoContentType = $file. type;
+
+                        if($file.size <= 10485760 && ($file.type == "image/png" || $file.type == "image/jpg") ){
+                            free_emitter.filelogo = base64Data;
+                            free_emitter.filelogoContentType = $file.type;
+                            vm.messlogo = null;
+                        }
+                        else{
+                            vm.messlogo = true;
+                        }
                     });
                 });
             }
         };
+
+
 
         vm.openFile = DataUtils.openFile;
         vm.byteSize = DataUtils.byteSize;

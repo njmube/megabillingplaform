@@ -17,6 +17,9 @@
             "detail": {
                 "title": "Free_emitter"
             },
+            "messcertificate":".cer file extention is required and file size <= 10 Mb",
+            "messkey":".key file extention is required and file size <= 10 Mb",
+            "messlogo":".png or .jpg file extention is required and file size <= 10 Mb",
             "reference": "Reference",
             "num_int": "Num int",
             "num_ext": "Num ext",

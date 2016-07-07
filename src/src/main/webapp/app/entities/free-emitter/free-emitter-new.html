@@ -243,6 +243,8 @@
                             />
                         <input type="hidden" class="form-control" name="path_certificate_type" id="field_path_certificate_type"
                                ng-model="vm.free_emitter.filecertificateContentType" />
+
+                        <span ng-show="vm.messcertificate" translate="megabillingplatformApp.free_emitter.messcertificate">.cer file extention is required and file size <= 10 Mb</span>
                     </div>
                     <div class="form-group" ngf-drop ngf-change="vm.setPath_Key($file, vm.free_emitter)">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_key" for="field_path_key">Path key</label>
@@ -266,6 +268,7 @@
                             />
                         <input type="hidden" class="form-control" name="path_key_type" id="field_path_key_type"
                                ng-model="vm.free_emitter.filekeyContentType" />
+                        <span ng-show="vm.messkey" translate="megabillingplatformApp.free_emitter.messkey">.key file extention is required and file size <= 10 Mb</span>
                     </div>
 
                     <div class="space-6"></div>
@@ -297,6 +300,8 @@
                             <input type="hidden" class="form-control" name="logoContentType"
                                id="field_logoContentType"
                                ng-model="vm.free_emitter.filelogoContentType" />
+                        <span ng-show="vm.messlogo" translate="megabillingplatformApp.free_emitter.messlogo">.png or .jpg file extention is required and file size <= 10 Mb</span>
+
                         </div>
                     </div>
                 <div class="col-md-6">
