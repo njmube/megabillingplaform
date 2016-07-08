@@ -373,7 +373,7 @@
 								<div class="col-sm-8">
 									<input type="text" class="form-control" name="free_receiver_rfc" id="free_receiver_field_rfc"
 										ng-model="vm.free_receiver.rfc"
-										required ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$/" required/>
+										required ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$/" required />
 										<div ng-show="editForm.free_receiver_rfc.$invalid">
 											<p class="help-block"
 												ng-show="editForm.free_receiver_rfc.$error.required" translate="entity.validation.required">
@@ -507,7 +507,7 @@
 								<div class="col-md-6">
 									<label class="col-md-5 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.no_int" for="free_receiver_field_no_int">No_int</label>
 									<div class="col-md-7">
-										<input type="text" class="form-control" name="free_receiver_num_ext" id="free_receiver_field_num_ext" ng-model="vm.free_emitter.num_ext" />
+										<input type="text" class="form-control" name="free_receiver_num_ext" id="free_receiver_field_num_ext" ng-model="vm.free_emitter.no_int" />
 									</div>
 								</div>
 							</div>
@@ -527,7 +527,7 @@
 							<div class="form-group">
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.cfdi_type_doc" for="field_cfdi_type_doc">cfdi_type_doc</label>
 								<div class="col-sm-8">
-									<select class="form-control" id="field_cfdi_type_doc" name="cfdi_type_doc" ng-model="vm.free_cfdi.cfdi_type_doc" ng-options="cfdi_type_doc as cfdi_type_doc.name for cfdi_type_doc in vm.cfdi_type_docs track by cfdi_type_doc.id">
+									<select class="form-control" id="field_cfdi_type_doc" name="cfdi_type_doc" ng-model="vm.free_cfdi.cfdi_type_doc" ng-options="cfdi_type_doc as cfdi_type_doc.name for cfdi_type_doc in vm.cfdi_type_docs track by cfdi_type_doc.id" data-ng-change="vm.updateCFDITotals()">
 										<option value=""></option>
 									</select>
 								</div>
@@ -562,7 +562,7 @@
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.serial_folio_fiscal_orig" for="field_serial_folio_fiscal_orig">Serial_folio_fiscal_orig</label>
 								<div class="col-sm-8">									
 									<input type="text" class="form-control" name="serial_folio_fiscal_orig" id="field_serial_folio_fiscal_orig"
-											ng-model="vm.free_cfdi.serial_folio_fiscal_orig"
+											ng-model="vm.free_cfdi.serial_folio_fiscal_orig" ng-disabled="vm.enableSelect()"
 											 />
 								</div>
 							</div>
@@ -571,7 +571,7 @@
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.folio_fiscal_orig" for="field_folio_fiscal_orig">Folio_fiscal_orig</label>
 								<div class="col-sm-8">									
 									<input type="text" class="form-control" name="folio_fiscal_orig" id="field_folio_fiscal_orig"
-											ng-model="vm.free_cfdi.folio_fiscal_orig"
+											ng-model="vm.free_cfdi.folio_fiscal_orig" ng-disabled="vm.enableSelect()"
 											 />
 								</div>
 							</div>
@@ -580,10 +580,10 @@
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.date_folio_fiscal_orig" for="field_date_folio_fiscal_orig">Date_folio_fiscal_orig</label>
 								<div class="col-sm-8">									
 									<div class="input-group">
-										<input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" datetime-picker="{{dateformat}}" ng-model="vm.free_cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig"
+										<input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" datetime-picker="{{dateformat}}" ng-model="vm.free_cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig" ng-disabled="vm.enableSelect()"
 										  />
 										<span class="input-group-btn">
-											<button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_folio_fiscal_orig')"><i class="glyphicon glyphicon-calendar"></i></button>
+											<button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_folio_fiscal_orig')" ng-disabled="vm.enableSelect()"><i class="glyphicon glyphicon-calendar"></i></button>
 										</span>
 									</div>
 								</div>
@@ -592,8 +592,8 @@
 							<div class="form-group">
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.mont_folio_fiscal_orig" for="field_mont_folio_fiscal_orig">Mont_folio_fiscal_orig</label>
 								<div class="col-sm-8">
-									<input type="number" class="form-control" name="mont_folio_fiscal_orig" id="field_mont_folio_fiscal_orig"
-											ng-model="vm.free_cfdi.mont_folio_fiscal_orig"
+									<input type="text" class="form-control" name="mont_folio_fiscal_orig" id="field_mont_folio_fiscal_orig"
+											ng-model="vm.free_cfdi.mont_folio_fiscal_orig" ng-disabled="vm.enableSelect()"
 											 />
 								</div>
 							</div>
@@ -678,6 +678,13 @@
 									<textarea class="form-control" name="payment_conditions" id="field_payment_conditions" ng-model="vm.free_cfdi.payment_conditions" rows="5"></textarea>
 								</div>
 							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.discount_reason" for="field_discount_reason">Discount_reason</label>
+								<div class="col-sm-8">
+									<textarea class="form-control" name="discount_reason" id="field_discount_reason"
+											ng-model="vm.free_cfdi.discount_reason" rows="5"></textarea>
+								</div>
+							</div>
 						</div>
 					</div>
 					
@@ -740,47 +747,40 @@
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" for="form-field-15">IVA (%):</label>
 						<div class="col-sm-6">
-							<input type="text" id="form-field-15" placeholder="IVA (%)" class="form-control" value="16%" readonly />
+							<input type="text" id="form-field-15" class="form-control" value="(16.00)" readonly />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total_tax_retention" for="field_total_tax_retention">Total_tax_retention</label>
 						<div class="col-sm-6">							
-							<input type="number" class="form-control" name="total_tax_retention" id="field_total_tax_retention"
-									ng-model="vm.free_cfdi.total_tax_retention"
+							<input type="text" class="form-control" name="total_tax_retention" id="field_total_tax_retention"
+									ng-model="vm.free_cfdi.total_tax_retention" readonly
 									 />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total_tax_transfered" for="field_total_tax_transfered">Total_tax_transfered</label>
 						<div class="col-sm-6">
-							<input type="number" class="form-control" name="total_tax_transfered" id="field_total_tax_transfered"
-									ng-model="vm.free_cfdi.total_tax_transfered"
+							<input type="text" class="form-control" name="total_tax_transfered" id="field_total_tax_transfered"
+									ng-model="vm.free_cfdi.total_tax_transfered" readonly
 									 />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.discount" for="field_discount">Discount</label>
 						<div class="col-sm-6">
-							<input type="number" class="form-control" name="discount" id="field_discount"
-									ng-model="vm.free_cfdi.discount"
+							<input type="text" class="form-control" name="discount" id="field_discount"
+									ng-model="vm.free_cfdi.discount" readonly
 									 />
 						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.discount_reason" for="field_discount_reason">Discount_reason</label>
-						<div class="col-sm-6">
-							<textarea class="form-control" name="discount_reason" id="field_discount_reason"
-									ng-model="vm.free_cfdi.discount_reason" rows="5"></textarea>
-						</div>
-					</div>
+					</div>				
 					
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.subtotal" for="field_subtotal">Subtotal</label>
 						<div class="col-sm-6">
-							<input type="number" class="form-control" name="subtotal" id="field_subtotal"
+							<input type="text" class="form-control" name="subtotal" id="field_subtotal"
 									ng-model="vm.free_cfdi.subtotal"
-									required />
+									required readonly />
 							<div ng-show="editForm.subtotal.$invalid">
 								<p class="help-block"
 									ng-show="editForm.subtotal.$error.required" translate="entity.validation.required">
@@ -796,9 +796,9 @@
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total" for="field_total">Total</label>
 						<div class="col-sm-6">							
-							<input type="number" class="form-control" name="total" id="field_total"
-									ng-model="vm.free_cfdi.total"
-									required />
+							<input type="text" class="form-control" name="total" id="field_total"
+									ng-model="vm.free_cfdi.total" required readonly
+									/>
 							<div ng-show="editForm.total.$invalid">
 								<p class="help-block"
 									ng-show="editForm.total.$error.required" translate="entity.validation.required">
@@ -814,7 +814,7 @@
 					
 					<div class="hr hr-16 hr-dotted"></div>
 					
-					<button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary pull-right" style="margin: 0 15px">
+					<button type="submit" ng-disabled="editForm.$invalid || vm.free_concepts.length == 0" class="btn btn-primary pull-right" style="margin: 0 15px">
 						<span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
 					</button>
 
