@@ -1,19 +1,19 @@
 id;name;description;code
-1;Efectivo;Efectivo;1
-2;Cheque;Cheque;2
-3;Transferencia;Transferencia;3
-4;Tarjetas de crédito;Tarjetas de crédito;4
-5;Monederos electrónicos;Monederos electrónicos;5
-6;Dinero electrónico;Dinero electrónico;6
-7;Tarjetas digitales;Tarjetas digitales;7
-8;Vales de despensa;Vales de despensa;8
-9;Bienes 10 Servicio;Bienes 10 Servicio;9
-10;Por cuenta de tercero;Por cuenta de tercero;10
-11;Dación en pago;Dación en pago;11
-12;Pago por subrogación;Pago por subrogación;12
-13;Pago por consignación;Pago por consignación;13
-14;Condonación;Condonación;14
-15;Cancelación;Cancelación;15
-16;Compensación;Compensación;16
-17;NA;NA;17
-18;Otros;Otros;18
+1;Efectivo;Efectivo;01
+2;Cheque;Cheque;02
+3;Transferencia;Transferencia;03
+4;Tarjetas de crédito;Tarjetas de crédito;04
+5;Monederos electrónicos;Monederos electrónicos;05
+6;Dinero electrónico;Dinero electrónico;06
+7;Tarjetas digitales;Tarjetas digitales;07
+8;Vales de despensa;Vales de despensa;08
+9;Bienes 10 Servicio;Bienes 10 Servicio;09
+10;Por cuenta de tercero;Por cuenta de tercero;010
+11;Dación en pago;Dación en pago;011
+12;Pago por subrogación;Pago por subrogación;012
+13;Pago por consignación;Pago por consignación;013
+14;Condonación;Condonación;014
+15;Cancelación;Cancelación;015
+16;Compensación;Compensación;016
+17;NA;NA;017
+18;Otros;Otros;018
