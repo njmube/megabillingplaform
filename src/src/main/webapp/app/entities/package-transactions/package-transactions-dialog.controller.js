@@ -10,7 +10,7 @@
     function Package_transactionsDialogController ($scope, $stateParams, $uibModalInstance, entity, Package_transactions, Package_state) {
         var vm = this;
         vm.package_transactions = entity;
-        vm.package_states = Package_state.query();
+        vm.package_states = Package_state.query({filtername:" "});
         vm.load = function(id) {
             Package_transactions.get({id : id}, function(result) {
                 vm.package_transactions = result;

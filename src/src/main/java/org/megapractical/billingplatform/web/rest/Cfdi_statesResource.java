@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Cfdi_statesResource {
 
     private final Logger log = LoggerFactory.getLogger(Cfdi_statesResource.class);
-        
+
     @Inject
     private Cfdi_statesService cfdi_statesService;
-    
+
     /**
      * POST  /cfdi-states : Create a new cfdi_states.
      *
@@ -89,14 +89,23 @@ public class Cfdi_statesResource {
      */
     @RequestMapping(value = "/cfdi-states",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername"})
     @Timed
-    public ResponseEntity<List<Cfdi_states>> getAllCfdi_states(Pageable pageable)
+    public ResponseEntity<List<Cfdi_states>> getAllCfdi_states(@RequestParam(value = "filtername") String filtername,
+                                                               Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Cfdi_states");
-        Page<Cfdi_states> page = cfdi_statesService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/cfdi-states");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+            Page<Cfdi_states> page = cfdi_statesService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/cfdi-states");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else
+        {
+            Page<Cfdi_states> page = cfdi_statesService.findAllByName(filtername,pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/cfdi-states");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

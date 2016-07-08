@@ -107,7 +107,7 @@ public class File_typeResourceIntTest {
         file_typeRepository.saveAndFlush(file_type);
 
         // Get all the file_types
-        restFile_typeMockMvc.perform(get("/api/file-types?sort=id,desc"))
+        restFile_typeMockMvc.perform(get("/api/file-types?sort=id,desc&filtername= "))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(file_type.getId().intValue())))

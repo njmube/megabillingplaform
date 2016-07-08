@@ -18,7 +18,8 @@
             },
             "name": "Name",
             "description": "Description",
-            "package_transations": "Package Transations"
+            "package_transations": "Package Transations",
+            "filtername": "Filter by name"
         }
     }
 }

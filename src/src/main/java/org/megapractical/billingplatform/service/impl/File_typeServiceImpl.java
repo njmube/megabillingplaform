@@ -21,13 +21,13 @@ import java.util.List;
 public class File_typeServiceImpl implements File_typeService{
 
     private final Logger log = LoggerFactory.getLogger(File_typeServiceImpl.class);
-    
+
     @Inject
     private File_typeRepository file_typeRepository;
-    
+
     /**
      * Save a file_type.
-     * 
+     *
      * @param file_type the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,21 @@ public class File_typeServiceImpl implements File_typeService{
 
     /**
      *  Get all the file_types.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<File_type> findAll(Pageable pageable) {
         log.debug("Request to get all File_types");
-        Page<File_type> result = file_typeRepository.findAll(pageable); 
+        Page<File_type> result = file_typeRepository.findAll(pageable);
+        return result;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<File_type> findAllByName(String filtername, Pageable pageable) {
+        log.debug("Request to get Request_states whith filtername: {}",filtername);
+        Page<File_type> result = file_typeRepository.findByNameStartingWith(filtername, pageable);
         return result;
     }
 
@@ -56,7 +63,7 @@ public class File_typeServiceImpl implements File_typeService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public File_type findOne(Long id) {
         log.debug("Request to get File_type : {}", id);
         File_type file_type = file_typeRepository.findOne(id);
@@ -65,7 +72,7 @@ public class File_typeServiceImpl implements File_typeService{
 
     /**
      *  Delete the  file_type by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

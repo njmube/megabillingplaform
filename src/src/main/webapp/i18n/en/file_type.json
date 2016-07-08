@@ -18,7 +18,8 @@
             },
             "name": "Name",
             "description": "Description",
-            "file": "File"
+            "file": "File",
+            "filtername": "Filter by name"
         }
     }
 }

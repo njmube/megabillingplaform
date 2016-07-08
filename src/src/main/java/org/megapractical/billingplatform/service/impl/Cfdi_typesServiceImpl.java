@@ -21,13 +21,13 @@ import java.util.List;
 public class Cfdi_typesServiceImpl implements Cfdi_typesService{
 
     private final Logger log = LoggerFactory.getLogger(Cfdi_typesServiceImpl.class);
-    
+
     @Inject
     private Cfdi_typesRepository cfdi_typesRepository;
-    
+
     /**
      * Save a cfdi_types.
-     * 
+     *
      * @param cfdi_types the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,21 @@ public class Cfdi_typesServiceImpl implements Cfdi_typesService{
 
     /**
      *  Get all the cfdi_types.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Cfdi_types> findAll(Pageable pageable) {
         log.debug("Request to get all Cfdi_types");
-        Page<Cfdi_types> result = cfdi_typesRepository.findAll(pageable); 
+        Page<Cfdi_types> result = cfdi_typesRepository.findAll(pageable);
+        return result;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Cfdi_types> findAllByName(String filtername, Pageable pageable) {
+        log.debug("Request to get Request_states whith filtername: {}",filtername);
+        Page<Cfdi_types> result = cfdi_typesRepository.findByNameStartingWith(filtername, pageable);
         return result;
     }
 
@@ -56,7 +63,7 @@ public class Cfdi_typesServiceImpl implements Cfdi_typesService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Cfdi_types findOne(Long id) {
         log.debug("Request to get Cfdi_types : {}", id);
         Cfdi_types cfdi_types = cfdi_typesRepository.findOne(id);
@@ -65,7 +72,7 @@ public class Cfdi_typesServiceImpl implements Cfdi_typesService{
 
     /**
      *  Delete the  cfdi_types by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

@@ -21,13 +21,13 @@ import java.util.List;
 public class Rate_typeServiceImpl implements Rate_typeService{
 
     private final Logger log = LoggerFactory.getLogger(Rate_typeServiceImpl.class);
-    
+
     @Inject
     private Rate_typeRepository rate_typeRepository;
-    
+
     /**
      * Save a rate_type.
-     * 
+     *
      * @param rate_type the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,21 @@ public class Rate_typeServiceImpl implements Rate_typeService{
 
     /**
      *  Get all the rate_types.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Rate_type> findAll(Pageable pageable) {
         log.debug("Request to get all Rate_types");
-        Page<Rate_type> result = rate_typeRepository.findAll(pageable); 
+        Page<Rate_type> result = rate_typeRepository.findAll(pageable);
+        return result;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Rate_type> findAllByName(String filtername, Pageable pageable) {
+        log.debug("Request to get Request_states whith filtername: {}",filtername);
+        Page<Rate_type> result = rate_typeRepository.findByNameStartingWith(filtername, pageable);
         return result;
     }
 
@@ -56,7 +63,7 @@ public class Rate_typeServiceImpl implements Rate_typeService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Rate_type findOne(Long id) {
         log.debug("Request to get Rate_type : {}", id);
         Rate_type rate_type = rate_typeRepository.findOne(id);
@@ -65,7 +72,7 @@ public class Rate_typeServiceImpl implements Rate_typeService{
 
     /**
      *  Delete the  rate_type by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

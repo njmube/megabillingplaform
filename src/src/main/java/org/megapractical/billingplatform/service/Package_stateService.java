@@ -13,7 +13,7 @@ public interface Package_stateService {
 
     /**
      * Save a package_state.
-     * 
+     *
      * @param package_state the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Package_stateService {
 
     /**
      *  Get all the package_states.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Package_state> findAll(Pageable pageable);
 
+    Page<Package_state> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" package_state.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Package_stateService {
 
     /**
      *  Delete the "id" package_state.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

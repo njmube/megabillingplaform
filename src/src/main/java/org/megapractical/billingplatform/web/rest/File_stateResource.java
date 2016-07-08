@@ -29,10 +29,10 @@ import java.util.Optional;
 public class File_stateResource {
 
     private final Logger log = LoggerFactory.getLogger(File_stateResource.class);
-        
+
     @Inject
     private File_stateService file_stateService;
-    
+
     /**
      * POST  /file-states : Create a new file_state.
      *
@@ -88,14 +88,23 @@ public class File_stateResource {
      */
     @RequestMapping(value = "/file-states",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername"})
     @Timed
-    public ResponseEntity<List<File_state>> getAllFile_states(Pageable pageable)
+    public ResponseEntity<List<File_state>> getAllFile_states(@RequestParam(value = "filtername") String filtername,
+                                                              Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of File_states");
-        Page<File_state> page = file_stateService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/file-states");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+            Page<File_state> page = file_stateService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/file-states");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else
+        {
+            Page<File_state> page = file_stateService.findAllByName(filtername,pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/file-states");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

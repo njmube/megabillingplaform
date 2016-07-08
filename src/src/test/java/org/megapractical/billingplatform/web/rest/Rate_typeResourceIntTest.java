@@ -149,7 +149,7 @@ public class Rate_typeResourceIntTest {
         rate_typeRepository.saveAndFlush(rate_type);
 
         // Get all the rate_types
-        restRate_typeMockMvc.perform(get("/api/rate-types?sort=id,desc"))
+        restRate_typeMockMvc.perform(get("/api/rate-types?sort=id,desc&filtername= "))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(rate_type.getId().intValue())))

@@ -10,8 +10,8 @@
     function FileDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, File, File_state, File_type) {
         var vm = this;
         vm.file = entity;
-        vm.file_states = File_state.query();
-        vm.file_types = File_type.query();
+        vm.file_states = File_state.query({filtername:" "});
+        vm.file_types = File_type.query({filtername:" "});
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

@@ -107,7 +107,7 @@ public class Package_stateResourceIntTest {
         package_stateRepository.saveAndFlush(package_state);
 
         // Get all the package_states
-        restPackage_stateMockMvc.perform(get("/api/package-states?sort=id,desc"))
+        restPackage_stateMockMvc.perform(get("/api/package-states?sort=id,desc&filtername= "))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(package_state.getId().intValue())))

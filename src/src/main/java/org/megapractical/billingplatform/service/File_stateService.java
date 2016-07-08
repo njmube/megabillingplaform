@@ -13,7 +13,7 @@ public interface File_stateService {
 
     /**
      * Save a file_state.
-     * 
+     *
      * @param file_state the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface File_stateService {
 
     /**
      *  Get all the file_states.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<File_state> findAll(Pageable pageable);
 
+    Page<File_state> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" file_state.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface File_stateService {
 
     /**
      *  Delete the "id" file_state.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

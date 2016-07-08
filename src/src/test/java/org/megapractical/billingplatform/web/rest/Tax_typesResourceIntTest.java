@@ -125,7 +125,7 @@ public class Tax_typesResourceIntTest {
         tax_typesRepository.saveAndFlush(tax_types);
 
         // Get all the tax_types
-        restTax_typesMockMvc.perform(get("/api/tax-types?sort=id,desc"))
+        restTax_typesMockMvc.perform(get("/api/tax-types?sort=id,desc&filtername= "))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(tax_types.getId().intValue())))

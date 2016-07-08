@@ -17,7 +17,8 @@
                 "title": "CFDI Type Documents"
             },
             "name": "Name",
-            "description": "Description"
+            "description": "Description",
+            "filtername": "Filter by name"
         }
     }
 }

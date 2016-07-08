@@ -107,7 +107,7 @@ public class File_stateResourceIntTest {
         file_stateRepository.saveAndFlush(file_state);
 
         // Get all the file_states
-        restFile_stateMockMvc.perform(get("/api/file-states?sort=id,desc"))
+        restFile_stateMockMvc.perform(get("/api/file-states?sort=id,desc&filtername= "))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(file_state.getId().intValue())))

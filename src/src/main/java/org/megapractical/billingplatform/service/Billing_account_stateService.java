@@ -13,7 +13,7 @@ public interface Billing_account_stateService {
 
     /**
      * Save a billing_account_state.
-     * 
+     *
      * @param billing_account_state the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Billing_account_stateService {
 
     /**
      *  Get all the billing_account_states.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Billing_account_state> findAll(Pageable pageable);
 
+    Page<Billing_account_state> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" billing_account_state.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Billing_account_stateService {
 
     /**
      *  Delete the "id" billing_account_state.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

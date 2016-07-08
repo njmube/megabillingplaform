@@ -21,13 +21,13 @@ import java.util.List;
 public class Request_stateServiceImpl implements Request_stateService{
 
     private final Logger log = LoggerFactory.getLogger(Request_stateServiceImpl.class);
-    
+
     @Inject
     private Request_stateRepository request_stateRepository;
-    
+
     /**
      * Save a request_state.
-     * 
+     *
      * @param request_state the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,21 @@ public class Request_stateServiceImpl implements Request_stateService{
 
     /**
      *  Get all the request_states.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Request_state> findAll(Pageable pageable) {
         log.debug("Request to get all Request_states");
-        Page<Request_state> result = request_stateRepository.findAll(pageable); 
+        Page<Request_state> result = request_stateRepository.findAll(pageable);
+        return result;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Request_state> findAllByName(String filtername, Pageable pageable) {
+        log.debug("Request to get Request_states whith filtername: {}",filtername);
+        Page<Request_state> result = request_stateRepository.findByNameStartingWith(filtername, pageable);
         return result;
     }
 
@@ -56,7 +63,7 @@ public class Request_stateServiceImpl implements Request_stateService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Request_state findOne(Long id) {
         log.debug("Request to get Request_state : {}", id);
         Request_state request_state = request_stateRepository.findOne(id);
@@ -65,7 +72,7 @@ public class Request_stateServiceImpl implements Request_stateService{
 
     /**
      *  Delete the  request_state by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

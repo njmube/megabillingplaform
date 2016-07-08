@@ -29,10 +29,10 @@ import java.util.Optional;
 public class File_typeResource {
 
     private final Logger log = LoggerFactory.getLogger(File_typeResource.class);
-        
+
     @Inject
     private File_typeService file_typeService;
-    
+
     /**
      * POST  /file-types : Create a new file_type.
      *
@@ -88,14 +88,22 @@ public class File_typeResource {
      */
     @RequestMapping(value = "/file-types",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername"})
     @Timed
-    public ResponseEntity<List<File_type>> getAllFile_types(Pageable pageable)
+    public ResponseEntity<List<File_type>> getAllFile_types(@RequestParam(value = "filtername") String filtername,
+                                                            Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of File_types");
-        Page<File_type> page = file_typeService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/file-types");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(filtername.compareTo(" ")==0 || filtername.isEmpty()){
+            Page<File_type> page = file_typeService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/file-types");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else {
+            Page<File_type> page = file_typeService.findAllByName(filtername,pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/file-types");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

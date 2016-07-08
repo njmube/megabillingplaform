@@ -17,7 +17,8 @@
                 "title": "Tipo de Impuesto"
             },
             "name": "Nombre",
-            "description": "Descripción"
+            "description": "Descripción",
+            "filtername": "Filtro por nombre"
         }
     }
 }

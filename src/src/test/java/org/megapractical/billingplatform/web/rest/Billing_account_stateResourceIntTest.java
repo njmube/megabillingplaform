@@ -107,7 +107,7 @@ public class Billing_account_stateResourceIntTest {
         billing_account_stateRepository.saveAndFlush(billing_account_state);
 
         // Get all the billing_account_states
-        restBilling_account_stateMockMvc.perform(get("/api/billing-account-states?sort=id,desc"))
+        restBilling_account_stateMockMvc.perform(get("/api/billing-account-states?sort=id,desc&filtername= "))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(billing_account_state.getId().intValue())))

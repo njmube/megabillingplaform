@@ -21,13 +21,13 @@ import java.util.List;
 public class Tax_typesServiceImpl implements Tax_typesService{
 
     private final Logger log = LoggerFactory.getLogger(Tax_typesServiceImpl.class);
-    
+
     @Inject
     private Tax_typesRepository tax_typesRepository;
-    
+
     /**
      * Save a tax_types.
-     * 
+     *
      * @param tax_types the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,21 @@ public class Tax_typesServiceImpl implements Tax_typesService{
 
     /**
      *  Get all the tax_types.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Tax_types> findAll(Pageable pageable) {
         log.debug("Request to get all Tax_types");
-        Page<Tax_types> result = tax_typesRepository.findAll(pageable); 
+        Page<Tax_types> result = tax_typesRepository.findAll(pageable);
+        return result;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Tax_types> findAllByName(String filtername, Pageable pageable) {
+        log.debug("Request to get Request_states whith filtername: {}",filtername);
+        Page<Tax_types> result = tax_typesRepository.findByNameStartingWith(filtername, pageable);
         return result;
     }
 
@@ -56,7 +63,7 @@ public class Tax_typesServiceImpl implements Tax_typesService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Tax_types findOne(Long id) {
         log.debug("Request to get Tax_types : {}", id);
         Tax_types tax_types = tax_typesRepository.findOne(id);
@@ -65,7 +72,7 @@ public class Tax_typesServiceImpl implements Tax_typesService{
 
     /**
      *  Delete the  tax_types by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

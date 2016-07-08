@@ -18,7 +18,8 @@
             },
             "name": "Nombre",
             "description": "Descripción",
-            "package_transations": "Paquete de Timbres"
+            "package_transations": "Paquete de Timbres",
+            "filtername": "Filtro por nombre"
         }
     }
 }

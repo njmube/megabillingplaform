@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Rate_typeResource {
 
     private final Logger log = LoggerFactory.getLogger(Rate_typeResource.class);
-        
+
     @Inject
     private Rate_typeService rate_typeService;
-    
+
     /**
      * POST  /rate-types : Create a new rate_type.
      *
@@ -89,14 +89,23 @@ public class Rate_typeResource {
      */
     @RequestMapping(value = "/rate-types",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername"})
     @Timed
-    public ResponseEntity<List<Rate_type>> getAllRate_types(Pageable pageable)
+    public ResponseEntity<List<Rate_type>> getAllRate_types(@RequestParam(value = "filtername") String filtername,
+                                                            Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Rate_types");
-        Page<Rate_type> page = rate_typeService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/rate-types");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+            Page<Rate_type> page = rate_typeService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/rate-types");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else
+        {
+            Page<Rate_type> page = rate_typeService.findAllByName(filtername,pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/rate-types");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

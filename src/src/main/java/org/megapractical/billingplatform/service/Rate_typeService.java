@@ -13,7 +13,7 @@ public interface Rate_typeService {
 
     /**
      * Save a rate_type.
-     * 
+     *
      * @param rate_type the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Rate_typeService {
 
     /**
      *  Get all the rate_types.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Rate_type> findAll(Pageable pageable);
 
+    Page<Rate_type> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" rate_type.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Rate_typeService {
 
     /**
      *  Delete the "id" rate_type.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

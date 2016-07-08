@@ -10,7 +10,10 @@
         var resourceUrl =  'api/billing-account-states/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true},
+            'query': {
+                method: 'GET',
+                isArray: true,
+                params: {filtername: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

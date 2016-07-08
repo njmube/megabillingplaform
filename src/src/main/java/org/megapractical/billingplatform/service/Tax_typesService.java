@@ -13,7 +13,7 @@ public interface Tax_typesService {
 
     /**
      * Save a tax_types.
-     * 
+     *
      * @param tax_types the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Tax_typesService {
 
     /**
      *  Get all the tax_types.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Tax_types> findAll(Pageable pageable);
 
+    Page<Tax_types> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" tax_types.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Tax_typesService {
 
     /**
      *  Delete the "id" tax_types.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

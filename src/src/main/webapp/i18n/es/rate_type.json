@@ -18,7 +18,8 @@
             },
             "name": "Nombre",
             "value": "Valor",
-            "description": "Descripción"
+            "description": "Descripción",
+            "filtername": "Filtro por nombre"
         }
     }
 }

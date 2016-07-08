@@ -29,10 +29,10 @@ import java.util.Optional;
 public class Request_stateResource {
 
     private final Logger log = LoggerFactory.getLogger(Request_stateResource.class);
-        
+
     @Inject
     private Request_stateService request_stateService;
-    
+
     /**
      * POST  /request-states : Create a new request_state.
      *
@@ -88,14 +88,23 @@ public class Request_stateResource {
      */
     @RequestMapping(value = "/request-states",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername"})
     @Timed
-    public ResponseEntity<List<Request_state>> getAllRequest_states(Pageable pageable)
+    public ResponseEntity<List<Request_state>> getAllRequest_states(@RequestParam(value = "filtername") String filtername,
+                                                                    Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Request_states");
-        Page<Request_state> page = request_stateService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/request-states");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(filtername.compareTo(" ")==0 || filtername.isEmpty()){
+            Page<Request_state> page = request_stateService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/request-states");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else
+        {
+            Page<Request_state> page = request_stateService.findAllByName(filtername,pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/request-states");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

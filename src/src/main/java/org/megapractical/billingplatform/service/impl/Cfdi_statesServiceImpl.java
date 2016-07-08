@@ -21,13 +21,13 @@ import java.util.List;
 public class Cfdi_statesServiceImpl implements Cfdi_statesService{
 
     private final Logger log = LoggerFactory.getLogger(Cfdi_statesServiceImpl.class);
-    
+
     @Inject
     private Cfdi_statesRepository cfdi_statesRepository;
-    
+
     /**
      * Save a cfdi_states.
-     * 
+     *
      * @param cfdi_states the entity to save
      * @return the persisted entity
      */
@@ -39,24 +39,30 @@ public class Cfdi_statesServiceImpl implements Cfdi_statesService{
 
     /**
      *  Get all the cfdi_states.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Cfdi_states> findAll(Pageable pageable) {
         log.debug("Request to get all Cfdi_states");
-        Page<Cfdi_states> result = cfdi_statesRepository.findAll(pageable); 
+        Page<Cfdi_states> result = cfdi_statesRepository.findAll(pageable);
         return result;
     }
 
+    @Transactional(readOnly = true)
+    public Page<Cfdi_states> findAllByName(String filtername, Pageable pageable) {
+        log.debug("Request to get Request_states whith filtername: {}",filtername);
+        Page<Cfdi_states> result = cfdi_statesRepository.findByNameStartingWith(filtername, pageable);
+        return result;
+    }
     /**
      *  Get one cfdi_states by id.
      *
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Cfdi_states findOne(Long id) {
         log.debug("Request to get Cfdi_states : {}", id);
         Cfdi_states cfdi_states = cfdi_statesRepository.findOne(id);
@@ -65,7 +71,7 @@ public class Cfdi_statesServiceImpl implements Cfdi_statesService{
 
     /**
      *  Delete the  cfdi_states by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

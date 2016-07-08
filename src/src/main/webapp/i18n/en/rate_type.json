@@ -18,7 +18,8 @@
             },
             "name": "Name",
             "value": "Value",
-            "description": "Description"
+            "description": "Description",
+            "filtername": "Filter by name"
         }
     }
 }

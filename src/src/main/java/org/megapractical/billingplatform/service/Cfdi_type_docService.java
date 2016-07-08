@@ -13,7 +13,7 @@ public interface Cfdi_type_docService {
 
     /**
      * Save a cfdi_type_doc.
-     * 
+     *
      * @param cfdi_type_doc the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Cfdi_type_docService {
 
     /**
      *  Get all the cfdi_type_docs.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Cfdi_type_doc> findAll(Pageable pageable);
 
+    Page<Cfdi_type_doc> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" cfdi_type_doc.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Cfdi_type_docService {
 
     /**
      *  Delete the "id" cfdi_type_doc.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

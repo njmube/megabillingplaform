@@ -13,7 +13,7 @@ public interface Cfdi_statesService {
 
     /**
      * Save a cfdi_states.
-     * 
+     *
      * @param cfdi_states the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Cfdi_statesService {
 
     /**
      *  Get all the cfdi_states.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Cfdi_states> findAll(Pageable pageable);
 
+    Page<Cfdi_states> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" cfdi_states.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Cfdi_statesService {
 
     /**
      *  Delete the "id" cfdi_states.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

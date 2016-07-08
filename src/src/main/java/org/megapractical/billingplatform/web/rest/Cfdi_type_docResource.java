@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Cfdi_type_docResource {
 
     private final Logger log = LoggerFactory.getLogger(Cfdi_type_docResource.class);
-        
+
     @Inject
     private Cfdi_type_docService cfdi_type_docService;
-    
+
     /**
      * POST  /cfdi-type-docs : Create a new cfdi_type_doc.
      *
@@ -89,14 +89,22 @@ public class Cfdi_type_docResource {
      */
     @RequestMapping(value = "/cfdi-type-docs",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername"})
     @Timed
-    public ResponseEntity<List<Cfdi_type_doc>> getAllCfdi_type_docs(Pageable pageable)
+    public ResponseEntity<List<Cfdi_type_doc>> getAllCfdi_type_docs(@RequestParam(value = "filtername") String filtername,
+                                                                    Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Cfdi_type_docs");
-        Page<Cfdi_type_doc> page = cfdi_type_docService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/cfdi-type-docs");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+            Page<Cfdi_type_doc> page = cfdi_type_docService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/cfdi-type-docs");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else {
+            Page<Cfdi_type_doc> page = cfdi_type_docService.findAllByName(filtername,pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/cfdi-type-docs");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

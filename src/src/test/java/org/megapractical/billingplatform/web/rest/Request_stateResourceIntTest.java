@@ -107,7 +107,7 @@ public class Request_stateResourceIntTest {
         request_stateRepository.saveAndFlush(request_state);
 
         // Get all the request_states
-        restRequest_stateMockMvc.perform(get("/api/request-states?sort=id,desc"))
+        restRequest_stateMockMvc.perform(get("/api/request-states?sort=id,desc&filtername= "))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(request_state.getId().intValue())))

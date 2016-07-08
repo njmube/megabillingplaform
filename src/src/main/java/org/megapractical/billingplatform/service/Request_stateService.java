@@ -13,7 +13,7 @@ public interface Request_stateService {
 
     /**
      * Save a request_state.
-     * 
+     *
      * @param request_state the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Request_stateService {
 
     /**
      *  Get all the request_states.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Request_state> findAll(Pageable pageable);
 
+    Page<Request_state> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" request_state.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Request_stateService {
 
     /**
      *  Delete the "id" request_state.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

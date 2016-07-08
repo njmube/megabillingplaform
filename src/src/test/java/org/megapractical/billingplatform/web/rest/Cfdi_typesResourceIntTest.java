@@ -125,7 +125,7 @@ public class Cfdi_typesResourceIntTest {
         cfdi_typesRepository.saveAndFlush(cfdi_types);
 
         // Get all the cfdi_types
-        restCfdi_typesMockMvc.perform(get("/api/cfdi-types?sort=id,desc"))
+        restCfdi_typesMockMvc.perform(get("/api/cfdi-types?sort=id,desc&filtername= "))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(cfdi_types.getId().intValue())))

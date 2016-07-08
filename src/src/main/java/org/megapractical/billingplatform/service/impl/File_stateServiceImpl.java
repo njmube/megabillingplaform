@@ -21,13 +21,13 @@ import java.util.List;
 public class File_stateServiceImpl implements File_stateService{
 
     private final Logger log = LoggerFactory.getLogger(File_stateServiceImpl.class);
-    
+
     @Inject
     private File_stateRepository file_stateRepository;
-    
+
     /**
      * Save a file_state.
-     * 
+     *
      * @param file_state the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,21 @@ public class File_stateServiceImpl implements File_stateService{
 
     /**
      *  Get all the file_states.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<File_state> findAll(Pageable pageable) {
         log.debug("Request to get all File_states");
-        Page<File_state> result = file_stateRepository.findAll(pageable); 
+        Page<File_state> result = file_stateRepository.findAll(pageable);
+        return result;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<File_state> findAllByName(String filtername, Pageable pageable) {
+        log.debug("Request to get Request_states whith filtername: {}",filtername);
+        Page<File_state> result = file_stateRepository.findByNameStartingWith(filtername, pageable);
         return result;
     }
 
@@ -56,7 +63,7 @@ public class File_stateServiceImpl implements File_stateService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public File_state findOne(Long id) {
         log.debug("Request to get File_state : {}", id);
         File_state file_state = file_stateRepository.findOne(id);
@@ -65,7 +72,7 @@ public class File_stateServiceImpl implements File_stateService{
 
     /**
      *  Delete the  file_state by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

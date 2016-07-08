@@ -29,10 +29,10 @@ import java.util.Optional;
 public class Billing_account_stateResource {
 
     private final Logger log = LoggerFactory.getLogger(Billing_account_stateResource.class);
-        
+
     @Inject
     private Billing_account_stateService billing_account_stateService;
-    
+
     /**
      * POST  /billing-account-states : Create a new billing_account_state.
      *
@@ -88,14 +88,23 @@ public class Billing_account_stateResource {
      */
     @RequestMapping(value = "/billing-account-states",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername"})
     @Timed
-    public ResponseEntity<List<Billing_account_state>> getAllBilling_account_states(Pageable pageable)
+    public ResponseEntity<List<Billing_account_state>> getAllBilling_account_states(@RequestParam(value = "filtername") String filtername,
+                                                                                    Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Billing_account_states");
-        Page<Billing_account_state> page = billing_account_stateService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/billing-account-states");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+            Page<Billing_account_state> page = billing_account_stateService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/billing-account-states");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
+        else {
+            Page<Billing_account_state> page = billing_account_stateService.findAllByName(filtername,pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/billing-account-states");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**
