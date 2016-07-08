@@ -37,7 +37,6 @@ public class Free_cfdi implements Serializable {
     @Column(name = "folio", length = 20)
     private String folio;
 
-    @NotNull
     @Column(name = "date_expedition", nullable = false)
     private ZonedDateTime date_expedition;
 
@@ -91,14 +90,14 @@ public class Free_cfdi implements Serializable {
     @Column(name = "addenda")
     private String addenda;
 
-    @Column(name = "stamp", nullable = false)
+    @Column(name = "stamp")
     private String stamp;
 
     @Size(max = 20)
-    @Column(name = "no_certificate", length = 20, nullable = false)
+    @Column(name = "no_certificate", length = 20)
     private String no_certificate;
 
-    @Column(name = "certificate", nullable = false)
+    @Column(name = "certificate")
     private String certificate;
 
     @ManyToOne

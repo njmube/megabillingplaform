@@ -45,6 +45,10 @@
 
 <div class="row">
 	<div class="col-sm-12">
+		
+		<jhi-alert-error></jhi-alert-error>
+		<jhi-alert></jhi-alert>
+		
 		<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
 			<uib-tabset active="active">
 				<uib-tab heading="Emisor">
@@ -84,6 +88,30 @@
 								</div>
 							</div>
 							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.type_taxpayer" for="field_type_taxpayer">Type taxpayer</label>
+								<div class="col-sm-8">
+									<input class="form-control" id="field_type_taxpayer" name="type_taxpayer" ng-model="vm.free_cfdi.free_emitter.type_taxpayer.name" required readonly />
+									<div ng-show="editForm.type_taxpayer.$invalid">
+										<p class="help-block"
+										   ng-show="editForm.type_taxpayer.$error.required" translate="entity.validation.required">
+											This field is required.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.tax_regime" for="field_tax_regime">tax_regime</label>
+								<div class="col-sm-8">
+									<input type="text" class="form-control" id="field_tax_regime" name="tax_regime" ng-model="vm.free_cfdi.free_emitter.tax_regime.name"  required readonly >
+									<div ng-show="editForm.tax_regime.$invalid">
+										<p class="help-block"
+										   ng-show="editForm.tax_regime.$error.required" translate="entity.validation.required">
+											This field is required.
+										</p>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.bussines_name" for="field_social_reason">
 									Social reason
 								</label>
@@ -107,18 +135,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-group">
-								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.tax_regime" for="field_tax_regime">tax_regime</label>
-								<div class="col-sm-8">
-									<input type="text" class="form-control" id="field_tax_regime" name="tax_regime" ng-model="vm.free_cfdi.free_emitter.tax_regime.name"  required readonly >
-									<div ng-show="editForm.tax_regime.$invalid">
-										<p class="help-block"
-										   ng-show="editForm.tax_regime.$error.required" translate="entity.validation.required">
-											This field is required.
-										</p>
-									</div>
-								</div>
-							</div>
+							
 							<div class="form-group">
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.email" for="field_email">
 									Email
@@ -187,6 +204,18 @@
 								<div class="col-sm-8">
 									<input type="text" class="form-control" name="phone2" id="field_phone2"
 										   ng-model="vm.free_cfdi.free_emitter.phone2" readonly />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.accuracy" for="accuracy">Accuracy</label>
+								<div class="col-sm-8">
+									<input type="text" name="accuracy" id="accuracy" ng-model="vm.free_cfdi.free_emitter.accuracy" required readonly />
+									<div ng-show="editForm.accuracy.$invalid">
+										<p class="help-block"
+										   ng-show="editForm.accuracy.$error.required" translate="entity.validation.required">
+											This field is required.
+										</p>
+									</div>
 								</div>
 							</div>
 
@@ -271,13 +300,13 @@
 							<div class="form-group">
 								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_colony" for="field_c_colony">c_colony</label>
 								<div class="col-md-8">
-									<input type="text" class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_cfdi.free_emitter.c_colony.name" readonly />
+									<input type="text" class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_cfdi.free_emitter.c_colony.code" readonly />
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_zip_code" for="field_c_zip_code">c_zip_code</label>
 								<div class="col-md-8">
-									<input type="text" class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.free_cfdi.free_emitter.c_zip_code.postcode" readonly />
+									<input type="text" class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.free_cfdi.free_emitter.c_zip_code.code" readonly />
 								</div>
 							</div>
 							<div class="form-group">
@@ -441,7 +470,7 @@
 							<div class="form-group">
 								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.c_municipality" for="free_receiver_field_c_municipality">c_municipality</label>
 								<div class="col-md-8">									
-									<select class="form-control" id="free_receiver_field_c_municipality" name="free_receiver_c_municipality" ng-model="vm.free_receiver.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id">
+									<select class="form-control" id="free_receiver_field_c_municipality" name="free_receiver_c_municipality" ng-model="vm.free_receiver.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id" data-ng-change="vm.onChangeC_municipality()">
 										<option value=""></option>
 									</select>
 								</div>
@@ -449,7 +478,7 @@
 							<div class="form-group">
 								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.c_colony" for="free_receiver_field_c_colony">c_colony</label>
 								<div class="col-md-8">									
-									<select class="form-control" id="free_receiver_field_c_colony" name="free_receiver_c_colony" ng-model="vm.free_receiver.c_colony" ng-options="c_colony as c_colony.name for c_colony in vm.c_colonys track by c_colony.id">
+									<select class="form-control" id="free_receiver_field_c_colony" name="free_receiver_c_colony" ng-model="vm.free_receiver.c_colony" ng-options="c_colony as c_colony.code for c_colony in vm.c_colonys track by c_colony.id" data-ng-change="vm.onChangeC_colony()">
 										<option value=""></option>
 									</select>
 								</div>
@@ -457,9 +486,7 @@
 							<div class="form-group">
 								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_receiver.c_zip_code" for="free_receiver_field_c_zip_code">c_zip_code</label>
 								<div class="col-md-8">									
-									<select class="form-control" id="free_receiver_field_c_zip_code" name="free_receiver_c_zip_code" ng-model="vm.free_receiver.c_zip_code" ng-options="c_zip_code as c_zip_code.postcode for c_zip_code in vm.c_zip_codes track by c_zip_code.id">
-										<option value=""></option>
-									</select>
+									<input type="text" class="form-control" id="free_receiver_field_c_zip_code" name="free_receiver_c_zip_code" ng-model="vm.free_receiver.c_zip_code.code" readonly />
 								</div>
 							</div>
 							<div class="form-group">
@@ -694,13 +721,7 @@
 											<div class="form-group">
 												<div class="col-sm-12">
 													<textarea  class="form-control" name="addenda" id="field_addenda"
-															ng-model="vm.free_cfdi.addenda" rows="5" required></textarea>									
-													<div ng-show="editForm.subtotal.$invalid">
-														<p class="help-block"
-															ng-show="editForm.addenda.$error.required" translate="entity.validation.required">
-															This field is required.
-														</p>
-													</div>
+															ng-model="vm.free_cfdi.addenda" rows="5"></textarea>
 												</div>
 											</div>
 										</div>
@@ -794,7 +815,7 @@
 					<div class="hr hr-16 hr-dotted"></div>
 					
 					<button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary pull-right" style="margin: 0 15px">
-						<span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save </span>
+						<span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
 					</button>
 
 					<button type="button" class="btn btn-default pull-right" onclick="window.history.back()">

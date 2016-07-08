@@ -24,7 +24,9 @@
             "amount": "Amount",
             "discount": "Discount",
             "free_cfdi": "Free_cfdi",
-            "measure_unit": "Measure_unit"
+            "measure_unit": "Measure_unit",
+            "iva": "IVA",
+            "ieps": "IEPS"
         }
     }
 }

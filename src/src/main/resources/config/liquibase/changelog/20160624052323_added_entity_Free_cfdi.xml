@@ -98,15 +98,15 @@
             </column>
             
             <column name="stamp" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             
             <column name="no_certificate" type="varchar(20)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             
             <column name="certificate" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             
             <column name="cfdi_types_id" type="bigint"/>

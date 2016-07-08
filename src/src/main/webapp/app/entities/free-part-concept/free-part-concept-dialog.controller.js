@@ -37,7 +37,9 @@
         };
 		
 		vm.calcAmount = function(){
-            vm.free_part_concept.amount = vm.free_part_concept.quantity * vm.free_part_concept.unit_value;			
+			if(vm.free_part_concept.quantity > 0 && vm.free_part_concept.unit_value){
+				vm.free_part_concept.amount = vm.free_part_concept.quantity * vm.free_part_concept.unit_value;
+			}			
         };
     }
 })();
