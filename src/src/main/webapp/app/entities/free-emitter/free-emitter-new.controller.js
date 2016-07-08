@@ -98,9 +98,7 @@
                 if (vm.free_emitter.id !== null) {
 					Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
                 } else {
-                    vm.free_emitter.path_certificate = "c:";
-                    vm.free_emitter.path_key = "c:";
-                    vm.free_emitter.path_logo = "c:";
+
 					vm.free_emitter.user = vm.account;
                     vm.free_emitter.activated = true;
                     Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
@@ -112,6 +110,7 @@
                 DataUtils.toBase64($file, function(base64Data) {
                     $scope.$apply(function() {
                         if($file.size <= 10485760 && $file.name.indexOf(".cer",0)+4 == $file.name.length){
+                            vm.free_emitter.path_certificate = $file.name;
                             free_emitter.filecertificate = base64Data;
                             free_emitter.filecertificateContentType = $file.type;
                             vm.messcertificate = null;
@@ -129,6 +128,7 @@
                 DataUtils.toBase64($file, function(base64Data) {
                     $scope.$apply(function() {
                         if($file.size <= 10485760 && $file.name.indexOf(".key",0)+4 == $file.name.length){
+                            vm.free_emitter.path_key = $file.name;
                             free_emitter.filekey = base64Data;
                             free_emitter.filekeyContentType = "key";
                             vm.messkey = null;
@@ -146,7 +146,8 @@
                 DataUtils.toBase64($file, function(base64Data) {
                     $scope.$apply(function() {
 
-                        if($file.size <= 10485760 && ($file.type == "image/png" || $file.type == "image/jpg") ){
+                        if($file.size <= 10485760 && ($file.type == "image/png" || $file.type == "image/jpeg") ){
+                            vm.free_emitter.path_logo = $file.name;
                             free_emitter.filelogo = base64Data;
                             free_emitter.filelogoContentType = $file.type;
                             vm.messlogo = null;

@@ -81,21 +81,27 @@ public class Free_emitterServiceImpl implements Free_emitterService{
 
     public Free_emitter saveFile(Free_emitter free_emitter){
         String rootDirectory = root + free_emitter.getRfc();
-        String directorio = rootDirectory;
-        File file = new File(directorio);
+
+        String directoriocer = rootDirectory+ "\\certificate";
+        File file = new File(directoriocer);
         if(!file.isDirectory()){
-            file.mkdir();
+            file.mkdirs();
+        }
+        String directoriologo = rootDirectory+ "\\logo";
+        File file1 = new File(directoriologo);
+        if(!file1.isDirectory()){
+            file1.mkdirs();
         }
 
-        rootDirectory+= "\\";
-        log.debug("Salvando ficheros en : {}", rootDirectory);
+        directoriocer+="\\";
+        directoriologo+="\\";
 
         if(free_emitter.getFilecertificate() != null){
 
             try{
                 OutputStream outputStream = null;
-                File newFile = new File(rootDirectory + "certificate");
-                free_emitter.setPath_certificate(rootDirectory + "certificate");
+                File newFile = new File(directoriocer + free_emitter.getPath_certificate());
+                free_emitter.setPath_certificate(directoriocer + free_emitter.getPath_certificate());
                 if (!newFile.exists()) {
                     newFile.createNewFile();
                 }
@@ -103,7 +109,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                 {
                     if(newFile.delete())
                     {
-                        File otherfile = new File(rootDirectory + "certificate");
+                        File otherfile = new File(directoriocer + free_emitter.getPath_certificate());
                         otherfile.createNewFile();
                         newFile = otherfile;
                     }
@@ -119,8 +125,8 @@ public class Free_emitterServiceImpl implements Free_emitterService{
 
             try{
                 OutputStream outputStream = null;
-                File newFile = new File(rootDirectory + "key");
-                free_emitter.setPath_key(rootDirectory + "key");
+                File newFile = new File(directoriocer + free_emitter.getPath_key());
+                free_emitter.setPath_key(directoriocer + free_emitter.getPath_key());
                 if (!newFile.exists()) {
                     newFile.createNewFile();
                 }
@@ -128,7 +134,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                 {
                     if(newFile.delete())
                     {
-                        File otherfile = new File(rootDirectory + "key");
+                        File otherfile = new File(directoriocer + free_emitter.getPath_key());
                         otherfile.createNewFile();
                         newFile = otherfile;
                     }
@@ -145,8 +151,8 @@ public class Free_emitterServiceImpl implements Free_emitterService{
 
             try{
                 OutputStream outputStream = null;
-                File newFile = new File(rootDirectory + "logo");
-                free_emitter.setPath_logo(rootDirectory + "logo");
+                File newFile = new File(directoriologo + free_emitter.getPath_logo());
+                free_emitter.setPath_logo(directoriologo + free_emitter.getPath_logo());
                 if (!newFile.exists()) {
                     newFile.createNewFile();
                 }
@@ -154,7 +160,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                 {
                     if(newFile.delete())
                     {
-                        File otherfile = new File(rootDirectory + "logo");
+                        File otherfile = new File(directoriologo + free_emitter.getPath_logo());
                         otherfile.createNewFile();
                         newFile = otherfile;
                     }
