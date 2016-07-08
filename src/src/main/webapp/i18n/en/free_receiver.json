@@ -2,34 +2,34 @@
     "megabillingplatformApp": {
         "free_receiver" : {
             "home": {
-                "title": "Free_receivers",
-                "createLabel": "Create a new Free_receiver",
-                "createOrEditLabel": "Create or edit a Free_receiver",
-                "search": "Search for Free_receiver"
+                "title": "Receivers",
+                "createLabel": "New Receiver",
+                "createOrEditLabel": "Create or edit a Receiver",
+                "search": "Search for Receiver"
             },
-            "created": "A new Free_receiver is created with identifier {{ param }}",
-            "updated": "A Free_receiver is updated with identifier {{ param }}",
-            "deleted": "A Free_receiver is deleted with identifier {{ param }}",
+            "created": "A new receiver is created with identifier {{ param }}",
+            "updated": "A receiver is updated with identifier {{ param }}",
+            "deleted": "A receiver is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Free_receiver {{ id }}?"
+                "question": "Are you sure you want to delete receiver {{ id }}?"
             },
             "detail": {
-                "title": "Free_receiver"
+                "title": "Receiver"
             },
             "rfc": "Rfc",
-            "business_name": "Business_name",
+            "business_name": "Business Name",
             "email": "Email",
             "activated": "Activated",
-            "create_date": "Create_date",
+            "create_date": "Create Date",
             "street": "Street",
-            "no_ext": "No_ext",
-            "no_int": "No_int",
+            "no_ext": "No External",
+            "no_int": "No Inside",
             "reference": "Reference",
-            "c_country": "C_country",
-            "c_state": "C_state",
-            "c_municipality": "C_municipality",
-            "c_colony": "C_colony",
-            "c_zip_code": "C_zip_code"
+            "c_country": "Country",
+            "c_state": "State",
+            "c_municipality": "Municipality",
+            "c_colony": "Colony",
+            "c_zip_code": "Zip Code"
         }
     }
 }
