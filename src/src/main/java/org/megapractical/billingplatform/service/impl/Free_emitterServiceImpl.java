@@ -96,8 +96,8 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         directoriocer+="\\";
         directoriologo+="\\";
 
-        if(free_emitter.getFilecertificate() != null){
-
+        if(free_emitter.getFilecertificateContentType() != null){
+            log.debug("Certificado no null");
             try{
                 OutputStream outputStream = null;
                 File newFile = new File(directoriocer + free_emitter.getPath_certificate());
@@ -120,8 +120,24 @@ public class Free_emitterServiceImpl implements Free_emitterService{
             }catch (Exception e){
 
             }
+        }else {
+            log.debug("Fichero en null");
+            try{
+                if(free_emitter.getPath_certificate() != null){
+                    if(!free_emitter.getPath_certificate().isEmpty()){
+                        File newFile = new File(free_emitter.getPath_certificate());
+                        free_emitter.setPath_certificate(null);
+                        if (newFile.exists()) {
+                            log.debug("Eliminando fichero existente");
+                            newFile.delete();
+                        }
+                    }
+                }
+            }catch (Exception e){
+
+            }
         }
-        if(free_emitter.getFilekey() != null){
+        if(free_emitter.getFilekeyContentType()!= null){
 
             try{
                 OutputStream outputStream = null;
@@ -145,9 +161,23 @@ public class Free_emitterServiceImpl implements Free_emitterService{
             }catch (Exception e){
 
             }
+        }else {
+            try{
+                if(free_emitter.getPath_key() != null){
+                    if(!free_emitter.getPath_key().isEmpty()){
+                        File newFile = new File(free_emitter.getPath_key());
+                        free_emitter.setPath_key(null);
+                        if (newFile.exists()) {
+                            newFile.delete();
+                        }
+                    }
+                }
+            }catch (Exception e){
+
+            }
         }
 
-        if(free_emitter.getFilelogo() != null){
+        if(free_emitter.getFilelogoContentType() != null){
 
             try{
                 OutputStream outputStream = null;
@@ -172,6 +202,21 @@ public class Free_emitterServiceImpl implements Free_emitterService{
 
             }
         }
+        else {
+            try{
+                if(free_emitter.getPath_logo() != null){
+                    if(!free_emitter.getPath_logo().isEmpty()){
+                        File newFile = new File(free_emitter.getPath_logo());
+                        free_emitter.setPath_logo(null);
+                        if (newFile.exists()) {
+                            newFile.delete();
+                        }
+                    }
+                }
+            }catch (Exception e){
+
+            }
+        }
         return free_emitter;
     }
 
@@ -179,47 +224,62 @@ public class Free_emitterServiceImpl implements Free_emitterService{
 
         log.debug("Leyendo ficheros : ", free_emitter);
 
-        File newFile = new File(free_emitter.getPath_certificate());
-        InputStream inputStream = null;
+        if(free_emitter.getPath_certificate() != null){
+            if(!free_emitter.getPath_certificate().isEmpty()) {
 
-        if(newFile.exists()){
-            try {
-                inputStream = new FileInputStream(newFile);
-                free_emitter.setFilecertificate(IOUtils.readFully(inputStream,1000000,true));
+                File newFile = new File(free_emitter.getPath_certificate());
+                InputStream inputStream = null;
 
-            }catch (Exception e){
+                if (newFile.exists()) {
+                    try {
+                        inputStream = new FileInputStream(newFile);
+                        free_emitter.setFilecertificate(IOUtils.readFully(inputStream, 1000000, true));
 
+                    } catch (Exception e) {
+
+                    }
+                }
+                log.debug("File certificate : {}", free_emitter.getFilecertificate());
             }
         }
-        log.debug("File certificate : {}", free_emitter.getFilecertificate());
 
-        File newFilekey = new File(free_emitter.getPath_key());
-        InputStream inputStreamkey = null;
+        if(free_emitter.getPath_key() != null) {
+            if (!free_emitter.getPath_key().isEmpty()) {
 
-        if(newFilekey.exists()){
-            try {
-                inputStreamkey = new FileInputStream(newFilekey);
-                free_emitter.setFilekey(IOUtils.readFully(inputStreamkey, 1000000, true));
+                File newFilekey = new File(free_emitter.getPath_key());
+                InputStream inputStreamkey = null;
 
-            }catch (Exception e){
+                if (newFilekey.exists()) {
+                    try {
+                        inputStreamkey = new FileInputStream(newFilekey);
+                        free_emitter.setFilekey(IOUtils.readFully(inputStreamkey, 1000000, true));
 
+                    } catch (Exception e) {
+
+                    }
+                }
+                log.debug("File key : {}", free_emitter.getFilekey());
             }
         }
-        log.debug("File key : {}", free_emitter.getFilekey());
 
-        File newFilelogo = new File(free_emitter.getPath_logo());
-        InputStream inputStreamlogo = null;
+        if(free_emitter.getPath_logo() != null) {
+            if (!free_emitter.getPath_logo().isEmpty()) {
 
-        if(newFilelogo.exists()){
-            try {
-                inputStreamlogo = new FileInputStream(newFilelogo);
-                free_emitter.setFilelogo(IOUtils.readFully(inputStreamlogo,1000000,true));
+                File newFilelogo = new File(free_emitter.getPath_logo());
+                InputStream inputStreamlogo = null;
 
-            }catch (Exception e){
+                if (newFilelogo.exists()) {
+                    try {
+                        inputStreamlogo = new FileInputStream(newFilelogo);
+                        free_emitter.setFilelogo(IOUtils.readFully(inputStreamlogo, 1000000, true));
 
+                    } catch (Exception e) {
+
+                    }
+                }
+                log.debug("File logo : {}", free_emitter.getFilelogo());
             }
         }
-        log.debug("File logo : {}", free_emitter.getFilelogo());
         return free_emitter;
     }
 

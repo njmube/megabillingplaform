@@ -17,6 +17,32 @@
             "detail": {
                 "title": "Datos Emisor"
             },
+            "messages": {
+                "validate": {
+                    "rfc": {
+                        "required": "Su RFC es obligatorio.",
+                        "minlength": "Su RFC debe tener al menos 12 caracteres.",
+                        "maxlength": "Su RFC no puede tener más de 13 caracteres.",
+                        "pattern": "Patrón de RFC incorrecto."
+                    },
+                    "phone": {
+                        "required": "Su teléfono es obligatorio.",
+                        "minlength": "Su teléfono debe tener al menos 1 caracter.",
+                        "maxlength": "Su teléfono no puede tener más de 15 caracteres.",
+                        "pattern": "Número de teléfono incorrecto."
+                    },
+                    "fax": {
+                        "pattern": "Fax incorrecto."
+                    }
+                },
+                "success": "<strong>¡Registro guardado!</strong> Por favor, revise su correo electrónico para confirmar.",
+                "error": {
+                    "fail": "<strong>¡El registro ha fallado!</strong> Por favor, inténtelo de nuevo más tarde.",
+                    "userexists": "<strong>¡El nombre de usuario ya está registrado!</strong> Por favor, escoja otro usuario.",
+                    "emailexists": "<strong>¡El correo electrónico ya está en uso!</strong> Por favor, escoja otro email.",
+                    "errorRfcExists": "<strong>RFC está en uso!</strong>"
+                }
+            },
             "messcertificate":"Es requerido la extensión .cer y el tamaño del fichero debe ser menor o igual a 10 Mb",
             "messkey":"Es requerido la extensión .key  y el tamaño del fichero debe ser menor o igual a 10 Mb",
             "messlogo":"Es requerido la extensión .png o .jpg y el tamaño del fichero debe ser menor o igual a 10 Mb",
@@ -27,7 +53,7 @@
             "create_date": "Fecha de Creado",
             "activated": "Activado",
             "rfc": "RFC (*)",
-            "accuracy": "Lugares Decimales",
+            "accuracy": "Lugares Decimales (*)",
             "type_taxpayer": "Tipo de Contribuyente (*)",
             "email": "Correo Eléctronico (*)",
             "bussines_name": "Nombre o Razón Social (*)",

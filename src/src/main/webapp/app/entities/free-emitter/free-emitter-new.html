@@ -46,9 +46,6 @@
 <div class="row">
     <div class="col-sm-12">
 
-		<jhi-alert-error></jhi-alert-error>
-		<jhi-alert></jhi-alert>
-
         <form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
             <div class="row">
                 <div class="col-md-6">
@@ -57,32 +54,31 @@
                         Datos del Emisor
                     </h3>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.rfc" for="field_rfc">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.rfc" for="rfc">
 							RFC
 						</label>
-
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="rfc" id="field_rfc"
+                            <input type="text" class="form-control" name="rfc" id="rfc"
 							   ng-model="vm.free_emitter.rfc" data-ng-change="vm.onChangeRFC()"
-							   required ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$/" />
-							<div ng-show="editForm.rfc.$invalid">
-								<p class="help-block"
-								   ng-show="editForm.rfc.$error.required" translate="entity.validation.required">
-									This field is required.
-								</p>
-								<p class="help-block"
-								   ng-show="editForm.rfc.$error.minlength" translate="entity.validation.minlength" translate-value-min="12">
-									This field is required to be at least 12 characters.
-								</p>
-								<p class="help-block"
-								   ng-show="editForm.rfc.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="13">
-									This field cannot be longer than 13 characters.
-								</p>
-								<p class="help-block"
-								   ng-show="editForm.rfc.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$">
-									This field should follow pattern "^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$".
-								</p>
-							</div>
+							   required ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$/"/>
+                            <div ng-show="editForm.rfc.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.rfc.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.rfc.$error.minlength" translate="entity.validation.minlength" translate-value-min="12">
+                                    This field is required to be at least 12 characters.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.rfc.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="13">
+                                    This field cannot be longer than 13 characters.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.rfc.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$">
+                                    This field should follow pattern "^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$".
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -134,27 +130,26 @@
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.email" for="field_email">
 							Email
 						</label>
-
                         <div class="col-sm-8">
                             <input type="email" class="form-control" name="email" id="field_email"
 							   ng-model="vm.free_emitter.email"
 							   required ng-minlength="6" ng-maxlength="254" ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" />
 							<div ng-show="editForm.email.$invalid">
 								<p class="help-block"
-								   ng-show="editForm.email.$error.required" translate="entity.validation.required">
-									This field is required.
+								   ng-show="editForm.email.$error.required" translate="global.messages.validate.email.required">
+                                    Your e-mail is required.
 								</p>
 								<p class="help-block"
-								   ng-show="editForm.email.$error.minlength" translate="entity.validation.minlength" translate-value-min="6">
-									This field is required to be at least 6 characters.
+								   ng-show="editForm.email.$error.minlength" translate="global.messages.validate.email.minlength" translate-value-min="6">
+                                    Your e-mail is required to be at least 6 characters.
 								</p>
 								<p class="help-block"
-								   ng-show="editForm.email.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="254">
-									This field cannot be longer than 254 characters.
+								   ng-show="editForm.email.$error.maxlength" translate="global.messages.validate.email.maxlength" translate-value-max="254">
+                                    Your e-mail cannot be longer than 254 characters.
 								</p>
 								<p class="help-block"
-								   ng-show="editForm.email.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$">
-									This field should follow pattern "^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$".
+								   ng-show="editForm.email.$error.pattern" translate="global.messages.validate.email.pattern" translate-value-pattern="^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$">
+                                    Your e-mail is required.
 								</p>
 							</div>
                         </div>
@@ -163,8 +158,14 @@
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.fax" for="field_fax">Fax</label>
                         <div class="col-sm-8">
                         <input type="text" class="form-control" name="fax" id="field_fax"
-                               ng-model="vm.free_emitter.fax"
-                            />
+                               ng-model="vm.free_emitter.fax" ng-pattern="/^[0-9]{1,15}$/"/>
+                            <div ng-show="editForm.fax.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.fax.$error.pattern" translate="megabillingplatformApp.free_emitter.messages.validate.fax.pattern" translate-value-pattern="^[0-9]{1,15}$">
+                                    Fax format is incorrect.
+                                </p>
+                            </div>
+
                         </div>
                     </div>
                     <div class="form-group">
@@ -175,20 +176,20 @@
                                    required ng-minlength="1" ng-maxlength="15" ng-pattern="/^[0-9]{1,15}$/" />
                             <div ng-show="editForm.phone1.$invalid">
                                 <p class="help-block"
-                                   ng-show="editForm.phone1.$error.required" translate="entity.validation.required">
-                                    This field is required.
+                                   ng-show="editForm.phone1.$error.required" translate="megabillingplatformApp.free_emitter.messages.validate.phone.required">
+                                    Your phone is required.
                                 </p>
                                 <p class="help-block"
-                                   ng-show="editForm.phone1.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
-                                    This field is required to be at least 1 characters.
+                                   ng-show="editForm.phone1.$error.minlength" translate="megabillingplatformApp.free_emitter.messages.validate.phone.minlength" translate-value-min="1">
+                                    Your phone is required to be at least 1 digit.
                                 </p>
                                 <p class="help-block"
-                                   ng-show="editForm.phone1.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="15">
-                                    This field cannot be longer than 15 characters.
+                                   ng-show="editForm.phone1.$error.maxlength" translate="megabillingplatformApp.free_emitter.messages.validate.phone.maxlength" translate-value-max="15">
+                                    Your phone cannot be longer than 15 digits.
                                 </p>
                                 <p class="help-block"
-                                   ng-show="editForm.phone1.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{1,15}$">
-                                    This field should follow pattern "^[0-9]{1,15}$".
+                                   ng-show="editForm.phone1.$error.pattern" translate="megabillingplatformApp.free_emitter.messages.validate.phone.pattern" translate-value-pattern="^[0-9]{1,15}$">
+                                    Phone format is incorrect.
                                 </p>
                             </div>
                         </div>
@@ -197,8 +198,13 @@
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.phone2" for="field_phone2">Phone #2</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="phone2" id="field_phone2"
-                                   ng-model="vm.free_emitter.phone2"
-                                />
+                                   ng-model="vm.free_emitter.phone2" ng-pattern="/^[0-9]{1,15}$/"/>
+                            <div ng-show="editForm.phone2.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.phone2.$error.pattern" translate="megabillingplatformApp.free_emitter.messages.validate.phone.pattern" translate-value-pattern="^[0-9]{1,15}$">
+                                    Phone format is incorrect.
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -221,12 +227,13 @@
                     <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelDC">
                         Certificado Digital
                     </h3>
+
                     <div class="form-group" ngf-drop ngf-change="vm.setPath_Certificate($file, vm.free_emitter)">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_certificate" for="field_path_certificate">Certificate</label>
                         <div class="col-sm-8">
                             <div class="help-block clearfix">
-                                <a class="pull-left" ng-click="vm.openFile(vm.free_emitter.filecertificateContentType, vm.free_emitter.filecertificate)" ng-if="vm.free_emitter.filecertificate" target="_blank">open</a><br>
-                                <span class="pull-left">{{vm.free_emitter.filecertificateContentType}}, {{byteSize(vm.free_emitter.filecertificate)}}</span>
+                                <a class="pull-left" ng-click="vm.openFile('', vm.free_emitter.filecertificate)" ng-if="vm.free_emitter.filecertificate" target="_blank">open</a><br>
+                                <span class="pull-left">{{vm.certificatename}}</span>
                                 <button ng-click="vm.free_emitter.filecertificate=null;vm.free_emitter.filecertificateContentType=null;"
                                         ng-if="vm.free_emitter.filecertificate"
                                         class="btn btn-default btn-xs pull-right">
@@ -250,8 +257,8 @@
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_key" for="field_path_key">Path key</label>
                         <div class="col-sm-8">
                             <div class="help-block clearfix">
-                                <a class="pull-left" ng-click="vm.openFile(vm.free_emitter.filekeyContentType, vm.free_emitter.filekey)" ng-if="vm.free_emitter.filekey" target="_blank">open</a><br>
-                                <span class="pull-left">{{vm.free_emitter.filekeyContentType}}, {{byteSize(vm.free_emitter.filekey)}}</span>
+                                <a class="pull-left" ng-click="vm.openFile('', vm.free_emitter.filekey)" ng-if="vm.free_emitter.filekey" target="_blank">open</a><br>
+                                <span class="pull-left">{{vm.keyname}}</span>
                                 <button ng-click="vm.free_emitter.filekey=null;vm.free_emitter.filekeyContentType=null;"
                                         ng-if="vm.free_emitter.filekey"
                                         class="btn btn-default btn-xs pull-right">
@@ -343,8 +350,6 @@
                     <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_colony" for="field_c_colony">c_colony</label>
                         <div class="col-md-8">
-                            <span ng-show="vm.c_colonys == null">{{vm.free_emitter.c_colony.code}}</span>
-                            <span> </span>
                             <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_emitter.c_colony"
                                     ng-options="c_colony as c_colony.code for c_colony in vm.c_colonys track by c_colony.id"
                                     data-ng-change="vm.onChangeC_colony()">
@@ -389,14 +394,14 @@
 						</div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.num_int" for="field_num_int">Num_int</label>
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.num_ext" for="field_num_ext">Num ext</label>
                         <div class="col-md-2">
-                             <input type="text" class="form-control" name="num_int" id="field_num_int" ng-model="vm.free_emitter.num_int" />
+                             <input type="text" class="form-control" name="num_ext" id="field_num_ext" ng-model="vm.free_emitter.num_ext" />
                         </div>
                         <div class="col-md-6">
-							<label class="col-md-5 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.num_ext" for="field_num_ext">Num_ext</label>
+							<label class="col-md-5 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.num_int" for="field_num_int">Num int</label>
                             <div class="col-md-7">
-                                <input type="text" class="form-control" name="num_ext" id="field_num_ext" ng-model="vm.free_emitter.num_ext" />
+                                <input type="text" class="form-control" name="num_int" id="field_num_int" ng-model="vm.free_emitter.num_int" />
                             </div>
                         </div>
                     </div>
@@ -420,6 +425,8 @@
 						</button>
 
 					</div>
+                    <jhi-alert-error></jhi-alert-error>
+                    <jhi-alert></jhi-alert>
                 </div>
             </div>
         </form>

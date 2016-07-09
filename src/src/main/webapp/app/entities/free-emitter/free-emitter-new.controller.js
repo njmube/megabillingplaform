@@ -22,6 +22,8 @@
         vm.messcertificate = null;
         vm.meskey = null;
         vm.messlogo = null;
+        vm.certificatename = "cer";
+        vm.keyname = "key";
 
         if(vm.free_emitter.id == null){
             vm.c_colonys = null;
@@ -114,6 +116,7 @@
                             free_emitter.filecertificate = base64Data;
                             free_emitter.filecertificateContentType = $file.type;
                             vm.messcertificate = null;
+                            vm.certificatename = $file.name;
                         }
                         else{
                             vm.messcertificate = true;
@@ -132,6 +135,7 @@
                             free_emitter.filekey = base64Data;
                             free_emitter.filekeyContentType = "key";
                             vm.messkey = null;
+                            vm.keyname = $file.name;
                         }
                         else{
                             vm.messkey = true;

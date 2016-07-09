@@ -79,11 +79,9 @@ public class Free_emitter implements Serializable {
     @Column(name = "phone_2")
     private String phone2;
 
-    @NotNull
     @Column(name = "path_certificate", nullable = false)
     private String path_certificate;
 
-    @NotNull
     @Column(name = "path_key", nullable = false)
     private String path_key;
 
@@ -94,21 +92,21 @@ public class Free_emitter implements Serializable {
     @Column(name = "filecertificate")
     private byte[] filecertificate;
 
-    @Column(name = "filecertificate_content_type")    
+    @Column(name = "filecertificate_content_type")
     private String filecertificateContentType;
 
     @Lob
     @Column(name = "filekey")
     private byte[] filekey;
 
-    @Column(name = "filekey_content_type")    
+    @Column(name = "filekey_content_type")
     private String filekeyContentType;
 
     @Lob
     @Column(name = "filelogo")
     private byte[] filelogo;
 
-    @Column(name = "filelogo_content_type")    
+    @Column(name = "filelogo_content_type")
     private String filelogoContentType;
 
     @NotNull
