@@ -5,7 +5,9 @@
                 "title": "Config_pathrootfiles",
                 "createLabel": "Crear nuevo Config_pathrootfile",
                 "createOrEditLabel": "Crear o editar Config_pathrootfile",
-                "search": "Search for Config_pathrootfile"
+                "search": "Search for Config_pathrootfile",
+                "freetitle":"Facturador gratuito",
+                "onlinetitle": "Facturador en línea"
             },
             "created": "Un nuevo Config_pathrootfile ha sido creado con el identificador {{ param }}",
             "updated": "Un Config_pathrootfile ha sido actualizado con el identificador {{ param }}",
@@ -16,8 +18,12 @@
             "detail": {
                 "title": "Config_pathrootfile"
             },
-            "pathrootdev": "Pathrootdev",
-            "pathrootprod": "Pathrootprod"
+            "pathrootFreeCertificate": "Ruta Certificado",
+            "pathrootFreeLogo": "Ruta Logo",
+            "pathrootFreeCfdi": "Ruta CFDI",
+            "pathrootCertificate": "Ruta Certificado",
+            "pathrootLogo": "Ruta Logo",
+            "pathrootCfdi": "Ruta CFDI"
         }
     }
 }

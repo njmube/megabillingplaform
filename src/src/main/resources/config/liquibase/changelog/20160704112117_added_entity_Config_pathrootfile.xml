@@ -21,11 +21,27 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="pathrootdev" type="varchar(255)">
+            <column name="pathroot_free_certificate" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             
-            <column name="pathrootprod" type="varchar(255)">
+            <column name="pathroot_free_logo" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="pathroot_free_cfdi" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="pathroot_certificate" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="pathroot_logo" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="pathroot_cfdi" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             

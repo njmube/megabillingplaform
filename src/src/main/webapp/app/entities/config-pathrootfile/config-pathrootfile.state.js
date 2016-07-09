@@ -77,32 +77,28 @@
         })
         .state('config-pathrootfile.new', {
             parent: 'config-pathrootfile',
-            url: '/new',
+            url: '/{id}/new',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_USER'],
+                pageTitle: 'megabillingplatformApp.config_pathrootfile.detail.title'
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/config-pathrootfile/config-pathrootfile-dialog.html',
-                    controller: 'Config_pathrootfileDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                pathrootdev: null,
-                                pathrootprod: null,
-                                id: null
-                            };
-                        }
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/config-pathrootfile/config-pathrootfile-new.html',
+                        controller: 'Config_pathrootfileNewController',
+                        controllerAs: 'vm'
                     }
-                }).result.then(function() {
-                    $state.go('config-pathrootfile', null, { reload: true });
-                }, function() {
-                    $state.go('config-pathrootfile');
-                });
-            }]
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('config_pathrootfile');
+                        return $translate.refresh();
+                    }],
+                    entity: ['$stateParams', 'Config_pathrootfile', function($stateParams, Config_pathrootfile) {
+                        return Config_pathrootfile.get({id : $stateParams.id});
+                    }]
+                }
+
         })
         .state('config-pathrootfile.edit', {
             parent: 'config-pathrootfile',

@@ -23,12 +23,28 @@ public class Config_pathrootfile implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "pathrootdev", nullable = false)
-    private String pathrootdev;
+    @Column(name = "pathroot_free_certificate", nullable = false)
+    private String pathrootFreeCertificate;
 
     @NotNull
-    @Column(name = "pathrootprod", nullable = false)
-    private String pathrootprod;
+    @Column(name = "pathroot_free_logo", nullable = false)
+    private String pathrootFreeLogo;
+
+    @NotNull
+    @Column(name = "pathroot_free_cfdi", nullable = false)
+    private String pathrootFreeCfdi;
+
+    @NotNull
+    @Column(name = "pathroot_certificate", nullable = false)
+    private String pathrootCertificate;
+
+    @NotNull
+    @Column(name = "pathroot_logo", nullable = false)
+    private String pathrootLogo;
+
+    @NotNull
+    @Column(name = "pathroot_cfdi", nullable = false)
+    private String pathrootCfdi;
 
     public Long getId() {
         return id;
@@ -38,20 +54,52 @@ public class Config_pathrootfile implements Serializable {
         this.id = id;
     }
 
-    public String getPathrootdev() {
-        return pathrootdev;
+    public String getPathrootFreeCertificate() {
+        return pathrootFreeCertificate;
     }
 
-    public void setPathrootdev(String pathrootdev) {
-        this.pathrootdev = pathrootdev;
+    public void setPathrootFreeCertificate(String pathrootFreeCertificate) {
+        this.pathrootFreeCertificate = pathrootFreeCertificate;
     }
 
-    public String getPathrootprod() {
-        return pathrootprod;
+    public String getPathrootFreeLogo() {
+        return pathrootFreeLogo;
     }
 
-    public void setPathrootprod(String pathrootprod) {
-        this.pathrootprod = pathrootprod;
+    public void setPathrootFreeLogo(String pathrootFreeLogo) {
+        this.pathrootFreeLogo = pathrootFreeLogo;
+    }
+
+    public String getPathrootFreeCfdi() {
+        return pathrootFreeCfdi;
+    }
+
+    public void setPathrootFreeCfdi(String pathrootFreeCfdi) {
+        this.pathrootFreeCfdi = pathrootFreeCfdi;
+    }
+
+    public String getPathrootCertificate() {
+        return pathrootCertificate;
+    }
+
+    public void setPathrootCertificate(String pathrootCertificate) {
+        this.pathrootCertificate = pathrootCertificate;
+    }
+
+    public String getPathrootLogo() {
+        return pathrootLogo;
+    }
+
+    public void setPathrootLogo(String pathrootLogo) {
+        this.pathrootLogo = pathrootLogo;
+    }
+
+    public String getPathrootCfdi() {
+        return pathrootCfdi;
+    }
+
+    public void setPathrootCfdi(String pathrootCfdi) {
+        this.pathrootCfdi = pathrootCfdi;
     }
 
     @Override
@@ -78,8 +126,12 @@ public class Config_pathrootfile implements Serializable {
     public String toString() {
         return "Config_pathrootfile{" +
             "id=" + id +
-            ", pathrootdev='" + pathrootdev + "'" +
-            ", pathrootprod='" + pathrootprod + "'" +
+            ", pathrootFreeCertificate='" + pathrootFreeCertificate + "'" +
+            ", pathrootFreeLogo='" + pathrootFreeLogo + "'" +
+            ", pathrootFreeCfdi='" + pathrootFreeCfdi + "'" +
+            ", pathrootCertificate='" + pathrootCertificate + "'" +
+            ", pathrootLogo='" + pathrootLogo + "'" +
+            ", pathrootCfdi='" + pathrootCfdi + "'" +
             '}';
     }
 }

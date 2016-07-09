@@ -5,7 +5,9 @@
                 "title": "Config_pathrootfiles",
                 "createLabel": "Create a new Config_pathrootfile",
                 "createOrEditLabel": "Create or edit a Config_pathrootfile",
-                "search": "Search for Config_pathrootfile"
+                "search": "Search for Config_pathrootfile",
+                "freetitle":"Free",
+                "onlinetitle": "On line"
             },
             "created": "A new Config_pathrootfile is created with identifier {{ param }}",
             "updated": "A Config_pathrootfile is updated with identifier {{ param }}",
@@ -16,8 +18,12 @@
             "detail": {
                 "title": "Config_pathrootfile"
             },
-            "pathrootdev": "Pathrootdev",
-            "pathrootprod": "Pathrootprod"
+            "pathrootFreeCertificate": "Path Certificate",
+            "pathrootFreeLogo": "Path Logo",
+            "pathrootFreeCfdi": "Path CFDI",
+            "pathrootCertificate": "Path Certificate",
+            "pathrootLogo": "Path Logo",
+            "pathrootCfdi": "Path CFDI"
         }
     }
 }

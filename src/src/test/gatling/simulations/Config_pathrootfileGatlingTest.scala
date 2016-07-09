@@ -67,7 +67,7 @@ class Config_pathrootfileGatlingTest extends Simulation {
             .exec(http("Create new config_pathrootfile")
             .post("/api/config-pathrootfiles")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "pathrootdev":"SAMPLE_TEXT", "pathrootprod":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "pathrootFreeCertificate":"SAMPLE_TEXT", "pathrootFreeLogo":"SAMPLE_TEXT", "pathrootFreeCfdi":"SAMPLE_TEXT", "pathrootCertificate":"SAMPLE_TEXT", "pathrootLogo":"SAMPLE_TEXT", "pathrootCfdi":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_config_pathrootfile_url"))).exitHereIfFailed
             .pause(10)

@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Config_pathrootfileResource {
 
     private final Logger log = LoggerFactory.getLogger(Config_pathrootfileResource.class);
-        
+
     @Inject
     private Config_pathrootfileService config_pathrootfileService;
-    
+
     /**
      * POST  /config-pathrootfiles : Create a new config_pathrootfile.
      *
@@ -94,7 +94,7 @@ public class Config_pathrootfileResource {
     public ResponseEntity<List<Config_pathrootfile>> getAllConfig_pathrootfiles(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Config_pathrootfiles");
-        Page<Config_pathrootfile> page = config_pathrootfileService.findAll(pageable); 
+        Page<Config_pathrootfile> page = config_pathrootfileService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/config-pathrootfiles");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -111,12 +111,23 @@ public class Config_pathrootfileResource {
     @Timed
     public ResponseEntity<Config_pathrootfile> getConfig_pathrootfile(@PathVariable Long id) {
         log.debug("REST request to get Config_pathrootfile : {}", id);
-        Config_pathrootfile config_pathrootfile = config_pathrootfileService.findOne(id);
-        return Optional.ofNullable(config_pathrootfile)
-            .map(result -> new ResponseEntity<>(
-                result,
-                HttpStatus.OK))
-            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        List<Config_pathrootfile> list = config_pathrootfileService.finAll();
+        if(list.size() == 0){
+            Config_pathrootfile config_pathrootfile = new Config_pathrootfile();
+            return Optional.ofNullable(config_pathrootfile)
+                .map(result -> new ResponseEntity<>(
+                    result,
+                    HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        }else {
+            Config_pathrootfile config_pathrootfile = list.get(0);
+            return Optional.ofNullable(config_pathrootfile)
+                .map(result -> new ResponseEntity<>(
+                    result,
+                    HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+        }
+
     }
 
     /**

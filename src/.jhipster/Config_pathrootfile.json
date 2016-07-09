@@ -2,14 +2,42 @@
     "relationships": [],
     "fields": [
         {
-            "fieldName": "pathrootdev",
+            "fieldName": "pathrootFreeCertificate",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "pathrootprod",
+            "fieldName": "pathrootFreeLogo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "pathrootFreeCfdi",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "pathrootCertificate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "pathrootLogo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "pathrootCfdi",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"

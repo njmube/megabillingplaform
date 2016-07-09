@@ -42,10 +42,18 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @IntegrationTest
 public class Config_pathrootfileResourceIntTest {
 
-    private static final String DEFAULT_PATHROOTDEV = "AAAAA";
-    private static final String UPDATED_PATHROOTDEV = "BBBBB";
-    private static final String DEFAULT_PATHROOTPROD = "AAAAA";
-    private static final String UPDATED_PATHROOTPROD = "BBBBB";
+    private static final String DEFAULT_PATHROOT_FREE_CERTIFICATE = "AAAAA";
+    private static final String UPDATED_PATHROOT_FREE_CERTIFICATE = "BBBBB";
+    private static final String DEFAULT_PATHROOT_FREE_LOGO = "AAAAA";
+    private static final String UPDATED_PATHROOT_FREE_LOGO = "BBBBB";
+    private static final String DEFAULT_PATHROOT_FREE_CFDI = "AAAAA";
+    private static final String UPDATED_PATHROOT_FREE_CFDI = "BBBBB";
+    private static final String DEFAULT_PATHROOT_CERTIFICATE = "AAAAA";
+    private static final String UPDATED_PATHROOT_CERTIFICATE = "BBBBB";
+    private static final String DEFAULT_PATHROOT_LOGO = "AAAAA";
+    private static final String UPDATED_PATHROOT_LOGO = "BBBBB";
+    private static final String DEFAULT_PATHROOT_CFDI = "AAAAA";
+    private static final String UPDATED_PATHROOT_CFDI = "BBBBB";
 
     @Inject
     private Config_pathrootfileRepository config_pathrootfileRepository;
@@ -76,8 +84,12 @@ public class Config_pathrootfileResourceIntTest {
     @Before
     public void initTest() {
         config_pathrootfile = new Config_pathrootfile();
-        config_pathrootfile.setPathrootdev(DEFAULT_PATHROOTDEV);
-        config_pathrootfile.setPathrootprod(DEFAULT_PATHROOTPROD);
+        config_pathrootfile.setPathrootFreeCertificate(DEFAULT_PATHROOT_FREE_CERTIFICATE);
+        config_pathrootfile.setPathrootFreeLogo(DEFAULT_PATHROOT_FREE_LOGO);
+        config_pathrootfile.setPathrootFreeCfdi(DEFAULT_PATHROOT_FREE_CFDI);
+        config_pathrootfile.setPathrootCertificate(DEFAULT_PATHROOT_CERTIFICATE);
+        config_pathrootfile.setPathrootLogo(DEFAULT_PATHROOT_LOGO);
+        config_pathrootfile.setPathrootCfdi(DEFAULT_PATHROOT_CFDI);
     }
 
     @Test
@@ -96,16 +108,20 @@ public class Config_pathrootfileResourceIntTest {
         List<Config_pathrootfile> config_pathrootfiles = config_pathrootfileRepository.findAll();
         assertThat(config_pathrootfiles).hasSize(databaseSizeBeforeCreate + 1);
         Config_pathrootfile testConfig_pathrootfile = config_pathrootfiles.get(config_pathrootfiles.size() - 1);
-        assertThat(testConfig_pathrootfile.getPathrootdev()).isEqualTo(DEFAULT_PATHROOTDEV);
-        assertThat(testConfig_pathrootfile.getPathrootprod()).isEqualTo(DEFAULT_PATHROOTPROD);
+        assertThat(testConfig_pathrootfile.getPathrootFreeCertificate()).isEqualTo(DEFAULT_PATHROOT_FREE_CERTIFICATE);
+        assertThat(testConfig_pathrootfile.getPathrootFreeLogo()).isEqualTo(DEFAULT_PATHROOT_FREE_LOGO);
+        assertThat(testConfig_pathrootfile.getPathrootFreeCfdi()).isEqualTo(DEFAULT_PATHROOT_FREE_CFDI);
+        assertThat(testConfig_pathrootfile.getPathrootCertificate()).isEqualTo(DEFAULT_PATHROOT_CERTIFICATE);
+        assertThat(testConfig_pathrootfile.getPathrootLogo()).isEqualTo(DEFAULT_PATHROOT_LOGO);
+        assertThat(testConfig_pathrootfile.getPathrootCfdi()).isEqualTo(DEFAULT_PATHROOT_CFDI);
     }
 
     @Test
     @Transactional
-    public void checkPathrootdevIsRequired() throws Exception {
+    public void checkPathrootFreeCertificateIsRequired() throws Exception {
         int databaseSizeBeforeTest = config_pathrootfileRepository.findAll().size();
         // set the field null
-        config_pathrootfile.setPathrootdev(null);
+        config_pathrootfile.setPathrootFreeCertificate(null);
 
         // Create the Config_pathrootfile, which fails.
 
@@ -120,10 +136,82 @@ public class Config_pathrootfileResourceIntTest {
 
     @Test
     @Transactional
-    public void checkPathrootprodIsRequired() throws Exception {
+    public void checkPathrootFreeLogoIsRequired() throws Exception {
         int databaseSizeBeforeTest = config_pathrootfileRepository.findAll().size();
         // set the field null
-        config_pathrootfile.setPathrootprod(null);
+        config_pathrootfile.setPathrootFreeLogo(null);
+
+        // Create the Config_pathrootfile, which fails.
+
+        restConfig_pathrootfileMockMvc.perform(post("/api/config-pathrootfiles")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(config_pathrootfile)))
+                .andExpect(status().isBadRequest());
+
+        List<Config_pathrootfile> config_pathrootfiles = config_pathrootfileRepository.findAll();
+        assertThat(config_pathrootfiles).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkPathrootFreeCfdiIsRequired() throws Exception {
+        int databaseSizeBeforeTest = config_pathrootfileRepository.findAll().size();
+        // set the field null
+        config_pathrootfile.setPathrootFreeCfdi(null);
+
+        // Create the Config_pathrootfile, which fails.
+
+        restConfig_pathrootfileMockMvc.perform(post("/api/config-pathrootfiles")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(config_pathrootfile)))
+                .andExpect(status().isBadRequest());
+
+        List<Config_pathrootfile> config_pathrootfiles = config_pathrootfileRepository.findAll();
+        assertThat(config_pathrootfiles).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkPathrootCertificateIsRequired() throws Exception {
+        int databaseSizeBeforeTest = config_pathrootfileRepository.findAll().size();
+        // set the field null
+        config_pathrootfile.setPathrootCertificate(null);
+
+        // Create the Config_pathrootfile, which fails.
+
+        restConfig_pathrootfileMockMvc.perform(post("/api/config-pathrootfiles")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(config_pathrootfile)))
+                .andExpect(status().isBadRequest());
+
+        List<Config_pathrootfile> config_pathrootfiles = config_pathrootfileRepository.findAll();
+        assertThat(config_pathrootfiles).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkPathrootLogoIsRequired() throws Exception {
+        int databaseSizeBeforeTest = config_pathrootfileRepository.findAll().size();
+        // set the field null
+        config_pathrootfile.setPathrootLogo(null);
+
+        // Create the Config_pathrootfile, which fails.
+
+        restConfig_pathrootfileMockMvc.perform(post("/api/config-pathrootfiles")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(config_pathrootfile)))
+                .andExpect(status().isBadRequest());
+
+        List<Config_pathrootfile> config_pathrootfiles = config_pathrootfileRepository.findAll();
+        assertThat(config_pathrootfiles).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkPathrootCfdiIsRequired() throws Exception {
+        int databaseSizeBeforeTest = config_pathrootfileRepository.findAll().size();
+        // set the field null
+        config_pathrootfile.setPathrootCfdi(null);
 
         // Create the Config_pathrootfile, which fails.
 
@@ -147,8 +235,12 @@ public class Config_pathrootfileResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(config_pathrootfile.getId().intValue())))
-                .andExpect(jsonPath("$.[*].pathrootdev").value(hasItem(DEFAULT_PATHROOTDEV.toString())))
-                .andExpect(jsonPath("$.[*].pathrootprod").value(hasItem(DEFAULT_PATHROOTPROD.toString())));
+                .andExpect(jsonPath("$.[*].pathrootFreeCertificate").value(hasItem(DEFAULT_PATHROOT_FREE_CERTIFICATE.toString())))
+                .andExpect(jsonPath("$.[*].pathrootFreeLogo").value(hasItem(DEFAULT_PATHROOT_FREE_LOGO.toString())))
+                .andExpect(jsonPath("$.[*].pathrootFreeCfdi").value(hasItem(DEFAULT_PATHROOT_FREE_CFDI.toString())))
+                .andExpect(jsonPath("$.[*].pathrootCertificate").value(hasItem(DEFAULT_PATHROOT_CERTIFICATE.toString())))
+                .andExpect(jsonPath("$.[*].pathrootLogo").value(hasItem(DEFAULT_PATHROOT_LOGO.toString())))
+                .andExpect(jsonPath("$.[*].pathrootCfdi").value(hasItem(DEFAULT_PATHROOT_CFDI.toString())));
     }
 
     @Test
@@ -162,8 +254,12 @@ public class Config_pathrootfileResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(config_pathrootfile.getId().intValue()))
-            .andExpect(jsonPath("$.pathrootdev").value(DEFAULT_PATHROOTDEV.toString()))
-            .andExpect(jsonPath("$.pathrootprod").value(DEFAULT_PATHROOTPROD.toString()));
+            .andExpect(jsonPath("$.pathrootFreeCertificate").value(DEFAULT_PATHROOT_FREE_CERTIFICATE.toString()))
+            .andExpect(jsonPath("$.pathrootFreeLogo").value(DEFAULT_PATHROOT_FREE_LOGO.toString()))
+            .andExpect(jsonPath("$.pathrootFreeCfdi").value(DEFAULT_PATHROOT_FREE_CFDI.toString()))
+            .andExpect(jsonPath("$.pathrootCertificate").value(DEFAULT_PATHROOT_CERTIFICATE.toString()))
+            .andExpect(jsonPath("$.pathrootLogo").value(DEFAULT_PATHROOT_LOGO.toString()))
+            .andExpect(jsonPath("$.pathrootCfdi").value(DEFAULT_PATHROOT_CFDI.toString()));
     }
 
     @Test
@@ -185,8 +281,12 @@ public class Config_pathrootfileResourceIntTest {
         // Update the config_pathrootfile
         Config_pathrootfile updatedConfig_pathrootfile = new Config_pathrootfile();
         updatedConfig_pathrootfile.setId(config_pathrootfile.getId());
-        updatedConfig_pathrootfile.setPathrootdev(UPDATED_PATHROOTDEV);
-        updatedConfig_pathrootfile.setPathrootprod(UPDATED_PATHROOTPROD);
+        updatedConfig_pathrootfile.setPathrootFreeCertificate(UPDATED_PATHROOT_FREE_CERTIFICATE);
+        updatedConfig_pathrootfile.setPathrootFreeLogo(UPDATED_PATHROOT_FREE_LOGO);
+        updatedConfig_pathrootfile.setPathrootFreeCfdi(UPDATED_PATHROOT_FREE_CFDI);
+        updatedConfig_pathrootfile.setPathrootCertificate(UPDATED_PATHROOT_CERTIFICATE);
+        updatedConfig_pathrootfile.setPathrootLogo(UPDATED_PATHROOT_LOGO);
+        updatedConfig_pathrootfile.setPathrootCfdi(UPDATED_PATHROOT_CFDI);
 
         restConfig_pathrootfileMockMvc.perform(put("/api/config-pathrootfiles")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -197,8 +297,12 @@ public class Config_pathrootfileResourceIntTest {
         List<Config_pathrootfile> config_pathrootfiles = config_pathrootfileRepository.findAll();
         assertThat(config_pathrootfiles).hasSize(databaseSizeBeforeUpdate);
         Config_pathrootfile testConfig_pathrootfile = config_pathrootfiles.get(config_pathrootfiles.size() - 1);
-        assertThat(testConfig_pathrootfile.getPathrootdev()).isEqualTo(UPDATED_PATHROOTDEV);
-        assertThat(testConfig_pathrootfile.getPathrootprod()).isEqualTo(UPDATED_PATHROOTPROD);
+        assertThat(testConfig_pathrootfile.getPathrootFreeCertificate()).isEqualTo(UPDATED_PATHROOT_FREE_CERTIFICATE);
+        assertThat(testConfig_pathrootfile.getPathrootFreeLogo()).isEqualTo(UPDATED_PATHROOT_FREE_LOGO);
+        assertThat(testConfig_pathrootfile.getPathrootFreeCfdi()).isEqualTo(UPDATED_PATHROOT_FREE_CFDI);
+        assertThat(testConfig_pathrootfile.getPathrootCertificate()).isEqualTo(UPDATED_PATHROOT_CERTIFICATE);
+        assertThat(testConfig_pathrootfile.getPathrootLogo()).isEqualTo(UPDATED_PATHROOT_LOGO);
+        assertThat(testConfig_pathrootfile.getPathrootCfdi()).isEqualTo(UPDATED_PATHROOT_CFDI);
     }
 
     @Test

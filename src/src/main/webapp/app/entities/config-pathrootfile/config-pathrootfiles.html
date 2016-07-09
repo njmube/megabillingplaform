@@ -19,16 +19,24 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="pathrootdev"><span translate="megabillingplatformApp.config_pathrootfile.pathrootdev">Pathrootdev</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="pathrootprod"><span translate="megabillingplatformApp.config_pathrootfile.pathrootprod">Pathrootprod</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pathrootFreeCertificate"><span translate="megabillingplatformApp.config_pathrootfile.pathrootFreeCertificate">PathrootFreeCertificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pathrootFreeLogo"><span translate="megabillingplatformApp.config_pathrootfile.pathrootFreeLogo">PathrootFreeLogo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pathrootFreeCfdi"><span translate="megabillingplatformApp.config_pathrootfile.pathrootFreeCfdi">PathrootFreeCfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pathrootCertificate"><span translate="megabillingplatformApp.config_pathrootfile.pathrootCertificate">PathrootCertificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pathrootLogo"><span translate="megabillingplatformApp.config_pathrootfile.pathrootLogo">PathrootLogo</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pathrootCfdi"><span translate="megabillingplatformApp.config_pathrootfile.pathrootCfdi">PathrootCfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="config_pathrootfile in vm.config_pathrootfiles track by config_pathrootfile.id">
                     <td><a ui-sref="config-pathrootfile-detail({id:config_pathrootfile.id})">{{config_pathrootfile.id}}</a></td>
-                    <td>{{config_pathrootfile.pathrootdev}}</td>
-                    <td>{{config_pathrootfile.pathrootprod}}</td>
+                    <td>{{config_pathrootfile.pathrootFreeCertificate}}</td>
+                    <td>{{config_pathrootfile.pathrootFreeLogo}}</td>
+                    <td>{{config_pathrootfile.pathrootFreeCfdi}}</td>
+                    <td>{{config_pathrootfile.pathrootCertificate}}</td>
+                    <td>{{config_pathrootfile.pathrootLogo}}</td>
+                    <td>{{config_pathrootfile.pathrootCfdi}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

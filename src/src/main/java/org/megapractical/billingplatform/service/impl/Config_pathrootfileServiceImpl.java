@@ -21,13 +21,13 @@ import java.util.List;
 public class Config_pathrootfileServiceImpl implements Config_pathrootfileService{
 
     private final Logger log = LoggerFactory.getLogger(Config_pathrootfileServiceImpl.class);
-    
+
     @Inject
     private Config_pathrootfileRepository config_pathrootfileRepository;
-    
+
     /**
      * Save a config_pathrootfile.
-     * 
+     *
      * @param config_pathrootfile the entity to save
      * @return the persisted entity
      */
@@ -37,16 +37,20 @@ public class Config_pathrootfileServiceImpl implements Config_pathrootfileServic
         return result;
     }
 
+    public List<Config_pathrootfile> finAll(){
+        return config_pathrootfileRepository.findAll();
+    }
+
     /**
      *  Get all the config_pathrootfiles.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Config_pathrootfile> findAll(Pageable pageable) {
         log.debug("Request to get all Config_pathrootfiles");
-        Page<Config_pathrootfile> result = config_pathrootfileRepository.findAll(pageable); 
+        Page<Config_pathrootfile> result = config_pathrootfileRepository.findAll(pageable);
         return result;
     }
 
@@ -56,7 +60,7 @@ public class Config_pathrootfileServiceImpl implements Config_pathrootfileServic
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Config_pathrootfile findOne(Long id) {
         log.debug("Request to get Config_pathrootfile : {}", id);
         Config_pathrootfile config_pathrootfile = config_pathrootfileRepository.findOne(id);
@@ -65,7 +69,7 @@ public class Config_pathrootfileServiceImpl implements Config_pathrootfileServic
 
     /**
      *  Delete the  config_pathrootfile by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

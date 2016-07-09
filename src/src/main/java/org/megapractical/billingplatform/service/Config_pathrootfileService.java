@@ -13,7 +13,7 @@ public interface Config_pathrootfileService {
 
     /**
      * Save a config_pathrootfile.
-     * 
+     *
      * @param config_pathrootfile the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Config_pathrootfileService {
 
     /**
      *  Get all the config_pathrootfiles.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Config_pathrootfile> findAll(Pageable pageable);
 
+    List<Config_pathrootfile> finAll();
+
     /**
      *  Get the "id" config_pathrootfile.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Config_pathrootfileService {
 
     /**
      *  Delete the "id" config_pathrootfile.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);
