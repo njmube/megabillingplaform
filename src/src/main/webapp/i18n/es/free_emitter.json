@@ -76,9 +76,9 @@
             "c_colony": "Colonia",
             "c_zip_code": "Código Postal",
             "user": "User",
-            "addblobCertificate": "Adicionar Certificado",
-            "addblobKey": "Adicionar Clave Privada",
-            "addblobLogo": "Adicionar Logo"
+            "addblobCertificate": "Buscar",
+            "addblobKey": "Buscar",
+            "addblobLogo": "Buscar"
         }
     }
 }

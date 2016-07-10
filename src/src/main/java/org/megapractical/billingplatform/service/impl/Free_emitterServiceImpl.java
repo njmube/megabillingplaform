@@ -96,7 +96,12 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         directoriocer+="\\";
         directoriologo+="\\";
 
-        if(free_emitter.getFilecertificateContentType() != null){
+        boolean actualizaCer = true;
+        if(free_emitter.getPath_certificate()!= null) {
+            if (free_emitter.getPath_certificate().contains("\\") || free_emitter.getPath_certificate().contains("/"))
+                actualizaCer = false;
+        }
+        if(free_emitter.getFilecertificateContentType() != null && actualizaCer){
             log.debug("Certificado no null");
             try{
                 OutputStream outputStream = null;
@@ -123,13 +128,15 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         }else {
             log.debug("Fichero en null");
             try{
-                if(free_emitter.getPath_certificate() != null){
-                    if(!free_emitter.getPath_certificate().isEmpty()){
-                        File newFile = new File(free_emitter.getPath_certificate());
-                        free_emitter.setPath_certificate(null);
-                        if (newFile.exists()) {
-                            log.debug("Eliminando fichero existente");
-                            newFile.delete();
+                if(free_emitter.getFilecertificateContentType() == null) {
+                    if (free_emitter.getPath_certificate() != null) {
+                        if (!free_emitter.getPath_certificate().isEmpty()) {
+                            File newFile = new File(free_emitter.getPath_certificate());
+                            free_emitter.setPath_certificate(null);
+                            if (newFile.exists()) {
+                                log.debug("Eliminando fichero existente");
+                                newFile.delete();
+                            }
                         }
                     }
                 }
@@ -137,7 +144,12 @@ public class Free_emitterServiceImpl implements Free_emitterService{
 
             }
         }
-        if(free_emitter.getFilekeyContentType()!= null){
+        boolean actualizaKey = true;
+        if(free_emitter.getPath_key()!= null) {
+            if (free_emitter.getPath_key().contains("\\") || free_emitter.getPath_key().contains("/"))
+                actualizaKey = false;
+        }
+        if(free_emitter.getFilekeyContentType()!= null && actualizaKey){
 
             try{
                 OutputStream outputStream = null;
@@ -163,12 +175,14 @@ public class Free_emitterServiceImpl implements Free_emitterService{
             }
         }else {
             try{
-                if(free_emitter.getPath_key() != null){
-                    if(!free_emitter.getPath_key().isEmpty()){
-                        File newFile = new File(free_emitter.getPath_key());
-                        free_emitter.setPath_key(null);
-                        if (newFile.exists()) {
-                            newFile.delete();
+                if(free_emitter.getFilekeyContentType()== null) {
+                    if (free_emitter.getPath_key() != null) {
+                        if (!free_emitter.getPath_key().isEmpty()) {
+                            File newFile = new File(free_emitter.getPath_key());
+                            free_emitter.setPath_key(null);
+                            if (newFile.exists()) {
+                                newFile.delete();
+                            }
                         }
                     }
                 }
@@ -177,7 +191,12 @@ public class Free_emitterServiceImpl implements Free_emitterService{
             }
         }
 
-        if(free_emitter.getFilelogoContentType() != null){
+        boolean actualizaLogo = true;
+        if(free_emitter.getPath_logo()!= null) {
+            if (free_emitter.getPath_logo().contains("\\") || free_emitter.getPath_logo().contains("/"))
+                actualizaLogo = false;
+        }
+        if(free_emitter.getFilelogoContentType() != null && actualizaLogo){
 
             try{
                 OutputStream outputStream = null;
@@ -204,12 +223,14 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         }
         else {
             try{
-                if(free_emitter.getPath_logo() != null){
-                    if(!free_emitter.getPath_logo().isEmpty()){
-                        File newFile = new File(free_emitter.getPath_logo());
-                        free_emitter.setPath_logo(null);
-                        if (newFile.exists()) {
-                            newFile.delete();
+                if(free_emitter.getFilelogoContentType() == null) {
+                    if (free_emitter.getPath_logo() != null) {
+                        if (!free_emitter.getPath_logo().isEmpty()) {
+                            File newFile = new File(free_emitter.getPath_logo());
+                            free_emitter.setPath_logo(null);
+                            if (newFile.exists()) {
+                                newFile.delete();
+                            }
                         }
                     }
                 }

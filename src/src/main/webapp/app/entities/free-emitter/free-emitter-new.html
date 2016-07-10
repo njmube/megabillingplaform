@@ -232,18 +232,25 @@
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_certificate" for="field_path_certificate">Certificate</label>
                         <div class="col-sm-8">
                             <div class="help-block clearfix">
-                                <a class="pull-left" ng-click="vm.openFile('', vm.free_emitter.filecertificate)" ng-if="vm.free_emitter.filecertificate" target="_blank">open</a><br>
-                                <span class="pull-left">{{vm.certificatename}}</span>
-                                <button ng-click="vm.free_emitter.filecertificate=null;vm.free_emitter.filecertificateContentType=null;"
-                                        ng-if="vm.free_emitter.filecertificate"
-                                        class="btn btn-default btn-xs pull-right">
-                                    <span class="glyphicon glyphicon-remove"></span>
+                                <a class="pull-left" ng-click="vm.openFile('', vm.free_emitter.filecertificate)" ng-if="vm.free_emitter.filecertificate" target="_blank">Certificate</a><br>
+
+                                <button ng-click="vm.free_emitter.filecertificate=null;vm.free_emitter.filecertificateContentType=null;vm.certificatename=null;"
+                                        ng-if="vm.free_emitter.filecertificate">
+                                    <a class="remove" href="#">
+                                        <i class=" ace-icon fa fa-times"></i>
+                                    </a>
                                 </button>
                             </div>
-                            <button type="file" ngf-select class="btn btn-default btn-block"
-                                    ngf-change="vm.setPath_Certificate($file, vm.free_emitter)" translate="megabillingplatformApp.free_emitter.addblobCertificate">
-                                Add certificate
-                            </button>
+                            <div>
+                                <label class="ace-file-input">
+                                    <input type="file" id="id-input-file-2" ngf-select ngf-change="vm.setPath_Certificate($file, vm.free_emitter)">
+                                        <span class="ace-file-container" data-title="Buscar">
+                                            <span class="ace-file-name" data-title="...">
+                                                <i class=" ace-icon fa fa-upload"></i>
+                                            </span>
+                                        </span>
+                                </label>
+                            </div>
                         </div>
                         <input type="hidden" class="form-control" name="path_certificate" id="field_path_certificate"
                                ng-model="vm.free_emitter.filecertificate"
@@ -257,18 +264,25 @@
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_key" for="field_path_key">Path key</label>
                         <div class="col-sm-8">
                             <div class="help-block clearfix">
-                                <a class="pull-left" ng-click="vm.openFile('', vm.free_emitter.filekey)" ng-if="vm.free_emitter.filekey" target="_blank">open</a><br>
-                                <span class="pull-left">{{vm.keyname}}</span>
-                                <button ng-click="vm.free_emitter.filekey=null;vm.free_emitter.filekeyContentType=null;"
-                                        ng-if="vm.free_emitter.filekey"
-                                        class="btn btn-default btn-xs pull-right">
-                                    <span class="glyphicon glyphicon-remove"></span>
+                                <a class="pull-left" ng-click="vm.openFile('', vm.free_emitter.filekey)" ng-if="vm.free_emitter.filekey" target="_blank">Key</a><br>
+
+                                <button ng-click="vm.free_emitter.filekey=null;vm.free_emitter.filekeyContentType=null;vm.keyname=null;"
+                                        ng-if="vm.free_emitter.filekey">
+                                    <a class="remove" href="#">
+                                        <i class=" ace-icon fa fa-times"></i>
+                                    </a>
                                 </button>
                             </div>
-                            <button type="file" ngf-select class="btn btn-default btn-block"
-                                    ngf-change="vm.setPath_Key($file,vm.free_emitter)" translate="megabillingplatformApp.free_emitter.addblobKey">
-                                Add key
-                            </button>
+                            <div>
+                                <label class="ace-file-input">
+                                    <input type="file" id="id-input-file-3" ngf-select ngf-change="vm.setPath_Key($file, vm.free_emitter)">
+                                        <span class="ace-file-container" data-title="Buscar">
+                                            <span class="ace-file-name" data-title="...">
+                                                <i class=" ace-icon fa fa-upload"></i>
+                                            </span>
+                                        </span>
+                                </label>
+                            </div>
                         </div>
                         <input type="hidden" class="form-control" name="path_key" id="field_path_key"
                                ng-model="vm.free_emitter.filekey"
@@ -293,15 +307,23 @@
                             <div class="help-block clearfix">
                                 <span class="pull-left">{{vm.free_emitter.filelogoContentType}}, {{byteSize(vm.free_emitter.filelogo)}}</span>
                                 <button ng-click="vm.free_emitter.filelogo=null;vm.free_emitter.filelogoContentType=null;"
-                                        ng-if="vm.free_emitter.filelogo" class="btn btn-default btn-xs pull-right">
-                                    <span class="glyphicon glyphicon-remove"></span>
+                                        ng-if="vm.free_emitter.filelogo">
+                                    <a class="remove" href="#">
+                                        <i class=" ace-icon fa fa-times"></i>
+                                    </a>
                                 </button>
                             </div>
-                                <button type="file" ngf-select class="btn btn-default btn-block" ngf-change="vm.setLogo($file, vm.free_emitter)"
-                                    accept="image/*" translate="megabillingplatformApp.free_emitter.addblobLogo">
-                                Add logo
-                                </button>
+                            <div>
+                                <label class="ace-file-input">
+                                    <input type="file" id="id-input-file-4" accept="image/*" ngf-select ngf-change="vm.setLogo($file, vm.free_emitter)">
+                                        <span class="ace-file-container" data-title="Buscar">
+                                            <span class="ace-file-name" data-title="...">
+                                                <i class=" ace-icon fa fa-upload"></i>
+                                            </span>
+                                        </span>
+                                </label>
                             </div>
+                        </div>
                             <input type="hidden" class="form-control" name="logo" id="field_logo"
                                ng-model="vm.free_emitter.filelogo"/>
                             <input type="hidden" class="form-control" name="logoContentType"

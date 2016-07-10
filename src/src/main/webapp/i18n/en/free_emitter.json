@@ -76,9 +76,9 @@
             "c_colony": "Colony",
             "c_zip_code": "Zip code",
             "user": "User",
-            "addblobCertificate": "Add certificate",
-            "addblobKey": "Add private key",
-            "addblobLogo": "Add logo"
+            "addblobCertificate": "Seach",
+            "addblobKey": "Seach",
+            "addblobLogo": "Seach"
         }
     }
 }
