@@ -14,4 +14,6 @@ import java.util.List;
 public interface Free_emitterRepository extends JpaRepository<Free_emitter,Long> {
 
     Free_emitter findOneByUser(User user);
+
+    Free_emitter findOneByRfc(String rfc);
 }

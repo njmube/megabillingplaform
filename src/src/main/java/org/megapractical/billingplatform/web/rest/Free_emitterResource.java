@@ -55,6 +55,11 @@ public class Free_emitterResource {
         if (free_emitter.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "idexists", "A new free_emitter cannot already have an ID")).body(null);
         }
+        Free_emitter rfc = free_emitterService.findOneByRfc(free_emitter.getRfc());
+        if(rfc != null){
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "rfcexists", "A new free_emitter cannot already have an RFC")).body(null);
+        }
+
         free_emitter.setCreate_date(ZonedDateTime.now());
         Free_emitter result = free_emitterService.save(free_emitter);
         return ResponseEntity.created(new URI("/api/free-emitters/" + result.getId()))
@@ -81,6 +86,11 @@ public class Free_emitterResource {
 
         if (free_emitter.getId() == null) {
             return createFree_emitter(free_emitter);
+        }
+        Free_emitter rfc = free_emitterService.findOneByRfc(free_emitter.getRfc());
+        if(rfc != null){
+            if(rfc.getId() != free_emitter.getId())
+                return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "rfcexists", "A new free_emitter cannot already have an RFC")).body(null);
         }
         Free_emitter result = free_emitterService.save(free_emitter);
 

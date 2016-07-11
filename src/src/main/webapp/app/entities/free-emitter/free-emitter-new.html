@@ -53,30 +53,24 @@
                     <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelDE">
                         Datos del Emisor
                     </h3>
+
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.rfc" for="rfc">
-							RFC
-						</label>
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.rfc" for="rfc">RFC</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="rfc" id="rfc"
-							   ng-model="vm.free_emitter.rfc" data-ng-change="vm.onChangeRFC()"
-							   required ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$/">
+                            <input type="text" class="form-control" name="rfc" id="rfc" ng-model="vm.free_emitter.rfc" data-ng-change="vm.onChangeRFC()"
+							   ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$/" required >
                             <div ng-show="editForm.rfc.$dirty && editForm.rfc.$invalid">
-                                <p class="help-block"
-                                   ng-show="editForm.rfc.$error.required" translate="megabillingplatformApp.free_emitter.messages.validate.rfc.required">
-                                    This field is required.
+                                <p class="help-block" ng-show="editForm.rfc.$error.required" translate="megabillingplatformApp.free_emitter.messages.validate.rfc.required">
+                                    Your RFC is required.
                                 </p>
-                                <p class="help-block"
-                                   ng-show="editForm.rfc.$error.minlength" translate="megabillingplatformApp.free_emitter.messages.validate.rfc.minlength">
-                                    This field is required to be at least 12 characters.
+                                <p class="help-block" ng-show="editForm.rfc.$error.minlength" translate="megabillingplatformApp.free_emitter.messages.validate.rfc.minlength">
+                                    Your RFC is required to be at least 12 character.
                                 </p>
-                                <p class="help-block"
-                                   ng-show="editForm.rfc.$error.maxlength" translate="megabillingplatformApp.free_emitter.messages.validate.rfc.maxlength">
-                                    This field cannot be longer than 13 characters.
+                                <p class="help-block" ng-show="editForm.rfc.$error.maxlength" translate="megabillingplatformApp.free_emitter.messages.validate.rfc.maxlength">
+                                    Your RFC cannot be longer than 13 characters.
                                 </p>
-                                <p class="help-block"
-                                   ng-show="editForm.rfc.$error.pattern" translate="megabillingplatformApp.free_emitter.messages.validate.rfc.pattern">
-                                    This field is incorret.
+                                <p class="help-block" ng-show="editForm.rfc.$error.pattern" translate="megabillingplatformApp.free_emitter.messages.validate.rfc.pattern">
+                                    RFC format is incorrect.
                                 </p>
                             </div>
                         </div>
@@ -136,21 +130,17 @@
 							   required ng-minlength="6" ng-maxlength="254"
                                    ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" >
 							<div ng-show="editForm.email.$dirty && editForm.email.$invalid">
-								<p class="help-block"
-								   ng-show="editForm.email.$error.required" translate="global.messages.validate.email.required">
+								<p class="help-block" ng-show="editForm.email.$error.required" translate="global.messages.validate.email.required">
                                     Your e-mail is required.
 								</p>
-								<p class="help-block"
-								   ng-show="editForm.email.$error.minlength" translate="global.messages.validate.email.minlength" translate-value-min="6">
+								<p class="help-block" ng-show="editForm.email.$error.minlength" translate="global.messages.validate.email.minlength">
                                     Your e-mail is required to be at least 6 characters.
 								</p>
-								<p class="help-block"
-								   ng-show="editForm.email.$error.maxlength" translate="global.messages.validate.email.maxlength" translate-value-max="254">
+								<p class="help-block" ng-show="editForm.email.$error.maxlength" translate="global.messages.validate.email.maxlength">
                                     Your e-mail cannot be longer than 254 characters.
 								</p>
-								<p class="help-block"
-								   ng-show="editForm.email.$error.pattern" translate="global.messages.validate.email.pattern" translate-value-pattern="^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$">
-                                    Your e-mail is required.
+								<p class="help-block" ng-show="editForm.email.$error.pattern" translate="global.messages.validate.email.pattern" >
+                                    Your e-mail is invalid.
 								</p>
 							</div>
                         </div>
@@ -162,7 +152,7 @@
                                ng-model="vm.free_emitter.fax" ng-pattern="/^[0-9]{1,15}$/">
                             <div ng-show="editForm.fax.$dirty && editForm.fax.$invalid">
                                 <p class="help-block"
-                                   ng-show="editForm.fax.$error.pattern" translate="megabillingplatformApp.free_emitter.messages.validate.fax.pattern" translate-value-pattern="^[0-9]{1,15}$">
+                                   ng-show="editForm.fax.$error.pattern" translate="megabillingplatformApp.free_emitter.messages.validate.fax.pattern" >
                                     Fax format is incorrect.
                                 </p>
                             </div>
@@ -181,15 +171,15 @@
                                     Your phone is required.
                                 </p>
                                 <p class="help-block"
-                                   ng-show="editForm.phone1.$error.minlength" translate="megabillingplatformApp.free_emitter.messages.validate.phone.minlength" translate-value-min="1">
+                                   ng-show="editForm.phone1.$error.minlength" translate="megabillingplatformApp.free_emitter.messages.validate.phone.minlength" >
                                     Your phone is required to be at least 1 digit.
                                 </p>
                                 <p class="help-block"
-                                   ng-show="editForm.phone1.$error.maxlength" translate="megabillingplatformApp.free_emitter.messages.validate.phone.maxlength" translate-value-max="15">
+                                   ng-show="editForm.phone1.$error.maxlength" translate="megabillingplatformApp.free_emitter.messages.validate.phone.maxlength" >
                                     Your phone cannot be longer than 15 digits.
                                 </p>
                                 <p class="help-block"
-                                   ng-show="editForm.phone1.$error.pattern" translate="megabillingplatformApp.free_emitter.messages.validate.phone.pattern" translate-value-pattern="^[0-9]{1,15}$">
+                                   ng-show="editForm.phone1.$error.pattern" translate="megabillingplatformApp.free_emitter.messages.validate.phone.pattern">
                                     Phone format is incorrect.
                                 </p>
                             </div>

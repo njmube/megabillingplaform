@@ -68,6 +68,10 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         return result;
     }
 
+    public Free_emitter findOneByRfc(String rfc){
+        return free_emitterRepository.findOneByRfc(rfc);
+    }
+
     /**
      *  Get all the free_emitters.
      *
