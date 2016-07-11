@@ -19,9 +19,7 @@
 		vm.current_free_concept = null;
 		
         vm.free_receiver = free_receiver_entity;
-		vm.free_receiver.c_country = {id: 151, name: "México", abrev: "MEX"};
-        vm.taxpayer_gp = false;
-		vm.type_taxpayers = Type_taxpayer.query();
+        vm.type_taxpayers = Type_taxpayer.query();
 		vm.c_countrys = C_country.query({pg:1});
         vm.c_states = C_state.query({countryId:-1});
         vm.c_municipalitys = C_municipality.query({stateId:-1});
@@ -31,7 +29,7 @@
         vm.cfdi_statess = Cfdi_states.query({filtername:" "});
         vm.payment_methods = Payment_method.query();
         vm.way_payments = Way_payment.query();
-        vm.c_moneys = C_money.query();
+        vm.c_moneys = C_money.query({pg: -1});
         vm.cfdi_type_docs = Cfdi_type_doc.query({filtername:" "});
         vm.tax_regimes = Tax_regime.query();
 		

@@ -16,16 +16,16 @@
             "detail": {
                 "title": "Free_concept"
             },
-            "no_identification": "No_identification",
-            "quantity": "Quantity",
+            "no_identification": "No_identification (*)",
+            "quantity": "Quantity (*)",
             "description": "Description",
-            "unit_value": "Unit_value",
+            "unit_value": "Unit_value (*)",
             "predial_number": "Predial_number",
-            "amount": "Amount",
-            "discount": "Discount %",
+            "amount": "Amount (*)",
+            "discount": "Discount % (*)",
             "free_cfdi": "Free_cfdi",
             "measure_unit": "Measure_unit",
-            "iva": "IVA %",
+            "iva": "IVA % (*)",
             "ieps": "IEPS %"
         }
     }

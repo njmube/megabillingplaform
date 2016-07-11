@@ -16,8 +16,8 @@
             "detail": {
                 "title": "Customs Information"
             },
-            "number_doc": "Number Document",
-            "date": "Date",
+            "number_doc": "Number Document (*)",
+            "date": "Date (*)",
             "customs": "Customs",
             "free_concept": "Concept",
             "free_part_concept": "Part Concept"

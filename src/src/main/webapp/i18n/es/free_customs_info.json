@@ -16,8 +16,8 @@
             "detail": {
                 "title": "Información Aduanera"
             },
-            "number_doc": "No. Documento",
-            "date": "Fecha",
+            "number_doc": "No. Documento (*)",
+            "date": "Fecha (*)",
             "customs": "Aduana",
             "free_concept": "Concepto",
             "free_part_concept": "Parte Concepto"

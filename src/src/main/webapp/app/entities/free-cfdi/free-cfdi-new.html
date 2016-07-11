@@ -578,7 +578,7 @@
 							<div class="form-group">
 								<label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.change_type" for="field_change_type">Change_type</label>
 								<div class="col-md-8">									
-									<input type="text" class="form-control" name="change_type" id="field_change_type"
+									<input type="text" class="form-control text-right" name="change_type" id="field_change_type"
 											ng-model="vm.free_cfdi.change_type"
 											ng-pattern="/[0-9]{1,14}(.([0-9]{1,6}))?/" />
 									<div ng-show="editForm.change_type.$invalid">
@@ -676,15 +676,23 @@
 				<div class="col-md-5 col-md-offset-7">
 					<div class="hr hr-16 hr-dotted"></div>
 					<div class="form-group">
+						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.subtotal" for="field_subtotal">Subtotal</label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control text-right" name="subtotal" id="field_subtotal"
+									ng-model="vm.free_cfdi.subtotal"
+									required readonly />
+						</div>
+					</div>
+					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" for="form-field-15">IVA (%):</label>
 						<div class="col-sm-6">
-							<input type="text" id="form-field-15" class="form-control" value="(16.00)" readonly />
+							<input type="text" id="form-field-15" class="form-control text-right" value="(16.00)" readonly />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total_tax_retention" for="field_total_tax_retention">Total_tax_retention</label>
 						<div class="col-sm-6">							
-							<input type="text" class="form-control" name="total_tax_retention" id="field_total_tax_retention"
+							<input type="text" class="form-control text-right" name="total_tax_retention" id="field_total_tax_retention"
 									ng-model="vm.free_cfdi.total_tax_retention" readonly
 									 />
 						</div>
@@ -692,7 +700,7 @@
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total_tax_transfered" for="field_total_tax_transfered">Total_tax_transfered</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" name="total_tax_transfered" id="field_total_tax_transfered"
+							<input type="text" class="form-control text-right" name="total_tax_transfered" id="field_total_tax_transfered"
 									ng-model="vm.free_cfdi.total_tax_transfered" readonly
 									 />
 						</div>
@@ -700,46 +708,19 @@
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.discount" for="field_discount">Discount</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" name="discount" id="field_discount"
+							<input type="text" class="form-control text-right" name="discount" id="field_discount"
 									ng-model="vm.free_cfdi.discount" readonly
 									 />
 						</div>
 					</div>				
 					
-					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.subtotal" for="field_subtotal">Subtotal</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control" name="subtotal" id="field_subtotal"
-									ng-model="vm.free_cfdi.subtotal"
-									required readonly />
-							<div ng-show="editForm.subtotal.$invalid">
-								<p class="help-block"
-									ng-show="editForm.subtotal.$error.required" translate="entity.validation.required">
-									This field is required.
-								</p>
-								<p class="help-block"
-									ng-show="editForm.subtotal.$error.number" translate="entity.validation.number">
-									This field should be a number.
-								</p>
-							</div>
-						</div>
-					</div>										
+														
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total" for="field_total">Total</label>
 						<div class="col-sm-6">							
-							<input type="text" class="form-control" name="total" id="field_total"
+							<input type="text" class="form-control text-right" name="total" id="field_total"
 									ng-model="vm.free_cfdi.total" required readonly
 									/>
-							<div ng-show="editForm.total.$invalid">
-								<p class="help-block"
-									ng-show="editForm.total.$error.required" translate="entity.validation.required">
-									This field is required.
-								</p>
-								<p class="help-block"
-									ng-show="editForm.total.$error.number" translate="entity.validation.number">
-									This field should be a number.
-								</p>
-							</div>
 						</div>
 					</div>
 					

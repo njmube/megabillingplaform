@@ -21,13 +21,13 @@ import java.util.List;
 public class C_moneyServiceImpl implements C_moneyService{
 
     private final Logger log = LoggerFactory.getLogger(C_moneyServiceImpl.class);
-    
+
     @Inject
     private C_moneyRepository c_moneyRepository;
-    
+
     /**
      * Save a c_money.
-     * 
+     *
      * @param c_money the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,26 @@ public class C_moneyServiceImpl implements C_moneyService{
 
     /**
      *  Get all the c_monies.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<C_money> findAll(Pageable pageable) {
         log.debug("Request to get all C_monies");
-        Page<C_money> result = c_moneyRepository.findAll(pageable); 
+        Page<C_money> result = c_moneyRepository.findAll(pageable);
+        return result;
+    }
+
+    /**
+     *  Get all the c_monies.
+     *
+     *  @return the list of entities
+     */
+    @Override
+    public List<C_money> findAll() {
+        log.debug("Request to get all C_monies");
+        List<C_money> result = c_moneyRepository.findAll();
         return result;
     }
 
@@ -56,7 +68,7 @@ public class C_moneyServiceImpl implements C_moneyService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public C_money findOne(Long id) {
         log.debug("Request to get C_money : {}", id);
         C_money c_money = c_moneyRepository.findOne(id);
@@ -65,7 +77,7 @@ public class C_moneyServiceImpl implements C_moneyService{
 
     /**
      *  Delete the  c_money by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

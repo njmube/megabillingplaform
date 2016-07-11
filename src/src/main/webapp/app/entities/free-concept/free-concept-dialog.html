@@ -17,12 +17,6 @@
 						<input type="text" class="form-control" name="no_identification" id="field_no_identification"
 							ng-model="vm.free_concept.no_identification"
 							required />
-						<div ng-show="editForm.no_identification.$invalid">
-							<p class="help-block"
-								ng-show="editForm.no_identification.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-						</div>
 					</div>
 				</div>
 				
@@ -56,44 +50,26 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.unit_value" for="field_unit_value">Unit_value</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control" name="unit_value" id="field_unit_value"
+						<input type="text" class="form-control text-right" name="unit_value" id="field_unit_value"
 							ng-model="vm.free_concept.unit_value" ng-change="vm.calcAmount()"
 							required />
-						<div ng-show="editForm.unit_value.$invalid">
-							<p class="help-block"
-								ng-show="editForm.unit_value.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-						</div>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.quantity" for="field_quantity">Quantity</label>			
 					<div class="col-sm-9">
-						<input type="text" class="form-control" name="quantity" id="field_quantity"
+						<input type="text" class="form-control text-right" name="quantity" id="field_quantity"
 								ng-model="vm.free_concept.quantity" ng-change="vm.calcAmount()"
 								required />
-						<div ng-show="editForm.quantity.$invalid">
-							<p class="help-block"
-								ng-show="editForm.quantity.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-						</div>
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.discount" for="field_discount">Discount</label>			
 					<div class="col-sm-9">
-						<input type="text" class="form-control" name="discount" id="field_discount"
+						<input type="text" class="form-control text-right" name="discount" id="field_discount"
 								ng-model="vm.free_concept.discount" ng-change="vm.calcAmount()"
 								required />
-						<div ng-show="editForm.discount.$invalid">
-							<p class="help-block"
-								ng-show="editForm.discount.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-						</div>
 					</div>
 				</div> 
 
@@ -109,26 +85,16 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.ieps" for="field_iva">IEPS</label>	
 					<div class="col-sm-9">
-						<input type="text" class="form-control" id="field_ieps" name="ieps" ng-model="vm.ieps" >
+						<input type="text" class="form-control text-right" id="field_ieps" name="ieps" ng-model="vm.ieps" >
 					</div>
 				</div>
 				
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.amount" for="field_amount">Amount</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control" name="amount" id="field_amount"
+						<input type="text" class="form-control text-right" name="amount" id="field_amount"
 								ng-model="vm.free_concept.amount"
 								required readonly />
-						<div ng-show="editForm.amount.$invalid">
-							<p class="help-block"
-								ng-show="editForm.amount.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-							<p class="help-block"
-								ng-show="editForm.amount.$error.number" translate="entity.validation.number">
-								This field should be a number.
-							</p>
-						</div>
 					</div>
 				</div>
 			</uib-tab>
@@ -140,12 +106,6 @@
 						<input type="text" class="form-control" name="number_doc" id="field_number_doc"
 								ng-model="vm.free_customs_info.number_doc"
 								required />
-						<div ng-show="editForm.number_doc.$invalid">
-							<p class="help-block"
-								ng-show="editForm.number_doc.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
-						</div>
 					</div>
 				</div>
 				<div class="form-group">
@@ -157,12 +117,6 @@
 							<span class="input-group-btn">
 								<button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
 							</span>
-						</div>
-						<div ng-show="editForm.date.$invalid">
-							<p class="help-block"
-								ng-show="editForm.date.$error.required" translate="entity.validation.required">
-								This field is required.
-							</p>
 						</div>
 					</div>
 				</div>

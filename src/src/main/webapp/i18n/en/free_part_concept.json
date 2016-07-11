@@ -16,11 +16,11 @@
             "detail": {
                 "title": "Part Concept"
             },
-            "no_identification": "No Identification",
-            "quantity": "Quantity",
+            "no_identification": "No Identification (*)",
+            "quantity": "Quantity (*)",
             "description": "Description",
-            "unit_value": "Unit Value",
-            "amount": "Amount",
+            "unit_value": "Unit Value (*)",
+            "amount": "Amount (*)",
             "free_concept": "Concept",
             "measure_unit": "Measure Unit"
         }

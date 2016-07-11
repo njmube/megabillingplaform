@@ -13,7 +13,7 @@ public interface C_moneyService {
 
     /**
      * Save a c_money.
-     * 
+     *
      * @param c_money the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,22 @@ public interface C_moneyService {
 
     /**
      *  Get all the c_monies.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<C_money> findAll(Pageable pageable);
 
     /**
+     *  Get all the c_monies.
+     *
+     *  @return the list of entities
+     */
+    List<C_money> findAll();
+
+    /**
      *  Get the "id" c_money.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +44,7 @@ public interface C_moneyService {
 
     /**
      *  Delete the "id" c_money.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

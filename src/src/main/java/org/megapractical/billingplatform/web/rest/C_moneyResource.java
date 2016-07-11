@@ -30,10 +30,10 @@ import java.util.Optional;
 public class C_moneyResource {
 
     private final Logger log = LoggerFactory.getLogger(C_moneyResource.class);
-        
+
     @Inject
     private C_moneyService c_moneyService;
-    
+
     /**
      * POST  /c-monies : Create a new c_money.
      *
@@ -89,14 +89,20 @@ public class C_moneyResource {
      */
     @RequestMapping(value = "/c-monies",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"pg"})
     @Timed
-    public ResponseEntity<List<C_money>> getAllC_monies(Pageable pageable)
+    public ResponseEntity<List<C_money>> getAllC_monies(Pageable pageable, @RequestParam(value = "pg") Integer pg)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_monies");
-        Page<C_money> page = c_moneyService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-monies");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if (pg == 0) {
+            Page<C_money> page = c_moneyService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-monies");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        } else {
+            List<C_money> page = c_moneyService.findAll();
+            return new ResponseEntity<>(page, HttpStatus.OK);
+        }
     }
 
     /**

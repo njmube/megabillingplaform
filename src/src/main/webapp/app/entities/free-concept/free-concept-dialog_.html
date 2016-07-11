@@ -27,14 +27,10 @@
         </div>
         <div class="form-group">
             <label class="control-label" translate="megabillingplatformApp.free_concept.quantity" for="field_quantity">Quantity</label>
-            <input type="number" class="form-control" name="quantity" id="field_quantity"
+            <input type="number" class="form-control text-right" name="quantity" id="field_quantity"
                     ng-model="vm.free_concept.quantity"
                     required />
             <div ng-show="editForm.quantity.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.quantity.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
                 <p class="help-block"
                     ng-show="editForm.quantity.$error.number" translate="entity.validation.number">
                     This field should be a number.
