@@ -1,7 +1,7 @@
 <div>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <h1 translate="register.title">Registration</h1>
+        <div class="col-md-6 col-md-offset-2">
+            <h2 translate="register.title">Registration</h2>
 
             <div class="alert alert-success" ng-show="vm.success" translate="register.messages.success">
                 <strong>Registration saved!</strong> Please check your email for confirmation.
@@ -27,7 +27,7 @@
                 <strong>RFC is already in use!</strong>
             </div>
         </div>
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-6 col-md-offset-2">
             <form ng-show="!vm.success" name="form" role="form" novalidate ng-submit="vm.register()" show-validation>
 
                 <div class="form-group">
@@ -42,7 +42,7 @@
                             Your RFC is required to be at least 12 character.
                         </p>
                         <p class="help-block"
-                               ng-show="form.rfc.$error.maxlength" translate="register.messages.validate.rfc.maxlength">
+                           ng-show="form.rfc.$error.maxlength" translate="register.messages.validate.rfc.maxlength">
                             Your RFC cannot be longer than 13 characters.
                         </p>
                         <p class="help-block"
