@@ -85,7 +85,7 @@
                 views: {
                     'content@': {
                         templateUrl: 'app/entities/config-pathrootfile/config-pathrootfiles-new.html',
-                        controller: 'Config_pathrootfileNewController',
+                        controller: 'Config_pathrootfilesNewController',
                         controllerAs: 'vm'
                     }
                 },
@@ -95,8 +95,9 @@
                     }],
 					translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('config_pathrootfile');
+                        $translatePartialLoader.addPart('global');
                         return $translate.refresh();
-                    }]                    
+                    }]
                 }
 
         })

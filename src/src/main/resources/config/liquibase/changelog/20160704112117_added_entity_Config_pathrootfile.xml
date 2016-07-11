@@ -24,29 +24,33 @@
             <column name="pathroot_free_certificate" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="pathroot_free_logo" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="pathroot_free_cfdi" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="pathroot_certificate" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="pathroot_logo" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="pathroot_cfdi" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/config_pathrootfile.csv"
+                  separator=";"
+                  tableName="config_pathrootfile">
+        </loadData>
     </changeSet>
 </databaseChangeLog>

@@ -2,21 +2,21 @@
     "megabillingplatformApp": {
         "config_pathrootfile" : {
             "home": {
-                "title": "Config_pathrootfiles",
-                "createLabel": "Create a new Config_pathrootfile",
-                "createOrEditLabel": "Create or edit a Config_pathrootfile",
-                "search": "Search for Config_pathrootfile",
+                "title": "Config path root",
+                "createLabel": "Create a new Config path root",
+                "createOrEditLabel": "Create or edit a Config path root",
+                "search": "Search for Config path root",
                 "freetitle":"Free",
                 "onlinetitle": "On line"
             },
-            "created": "A new Config_pathrootfile is created with identifier {{ param }}",
-            "updated": "A Config_pathrootfile is updated with identifier {{ param }}",
-            "deleted": "A Config_pathrootfile is deleted with identifier {{ param }}",
+            "created": "A new Config path root is created with identifier {{ param }}",
+            "updated": "A Config path root is updated with identifier {{ param }}",
+            "deleted": "A Config path root is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Config_pathrootfile {{ id }}?"
+                "question": "Are you sure you want to delete Config path root {{ id }}?"
             },
             "detail": {
-                "title": "Config_pathrootfile"
+                "title": "Config path root"
             },
             "pathrootFreeCertificate": "Path Certificate",
             "pathrootFreeLogo": "Path Logo",

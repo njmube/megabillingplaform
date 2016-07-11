@@ -3,11 +3,11 @@
 
     angular
         .module('megabillingplatformApp')
-        .controller('Config_pathrootfileNewController', Config_pathrootfileNewController);
+        .controller('Config_pathrootfilesNewController', Config_pathrootfilesNewController);
 
-    Config_pathrootfileNewController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Config_pathrootfile'];
+    Config_pathrootfilesNewController.$inject = ['$scope', '$stateParams', 'entity', 'Config_pathrootfile'];
 
-    function Config_pathrootfileNewController ($scope, $stateParams, $uibModalInstance, entity, Config_pathrootfile) {
+    function Config_pathrootfilesNewController ($scope, $stateParams, entity, Config_pathrootfile) {
         var vm = this;
         vm.config_pathrootfile = entity;
         vm.load = function() {
@@ -17,6 +17,7 @@
         };
 
         var onSaveSuccess = function (result) {
+            vm.config_pathrootfile = result;
             vm.isSaving = false;
         };
 

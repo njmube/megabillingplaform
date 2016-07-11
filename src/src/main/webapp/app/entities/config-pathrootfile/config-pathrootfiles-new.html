@@ -2,11 +2,7 @@
     <div class="row">
         <div class="col-md-8">
             <h1>
-                {{'global.user.title' | translate}}
-                <small>
-                    <i class="ace-icon fa fa-angle-double-right"></i>
-                    {{'megabillingplatformApp.config_pathrootfile.home.createOrEditLabel' | translate}}
-                </small>
+                {{'megabillingplatformApp.config_pathrootfile.detail.title' | translate}}
             </h1>
         </div>
         <div class="col-md-4">
@@ -25,85 +21,96 @@
         <form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
             <div class="row">
                 <div class="col-md-6">
-
-                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.config_pathrootfile.freetitle">
+                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.config_pathrootfile.home.freetitle">
                         Facturador gratuito
                     </h3>
                     <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.config_pathrootfile.pathrootFreeCertificate" for="field_pathrootFreeCertificate">PathrootFreeCertificate</label>
-                        <input type="text" class="form-control" name="pathrootFreeCertificate" id="field_pathrootFreeCertificate"
-                               ng-model="vm.config_pathrootfile.pathrootFreeCertificate"
-                               required />
-                        <div ng-show="editForm.pathrootFreeCertificate.$invalid">
-                            <p class="help-block"
-                               ng-show="editForm.pathrootFreeCertificate.$error.required" translate="entity.validation.required">
-                                This field is required.
-                            </p>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="pathrootFreeCertificate" id="field_pathrootFreeCertificate"
+                                   ng-model="vm.config_pathrootfile.pathrootFreeCertificate"
+                                   required>
+                            <div ng-show="editForm.pathrootFreeCertificate.$dirty && editForm.pathrootFreeCertificate.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.pathrootFreeCertificate.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.config_pathrootfile.pathrootFreeLogo" for="field_pathrootFreeLogo">PathrootFreeLogo</label>
-                        <input type="text" class="form-control" name="pathrootFreeLogo" id="field_pathrootFreeLogo"
-                               ng-model="vm.config_pathrootfile.pathrootFreeLogo"
-                               required />
-                        <div ng-show="editForm.pathrootFreeLogo.$invalid">
-                            <p class="help-block"
-                               ng-show="editForm.pathrootFreeLogo.$error.required" translate="entity.validation.required">
-                                This field is required.
-                            </p>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="pathrootFreeLogo" id="field_pathrootFreeLogo"
+                                   ng-model="vm.config_pathrootfile.pathrootFreeLogo"
+                                   required >
+                            <div ng-show="editForm.pathrootFreeLogo.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.pathrootFreeLogo.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.config_pathrootfile.pathrootFreeCfdi" for="field_pathrootFreeCfdi">PathrootFreeCfdi</label>
-                        <input type="text" class="form-control" name="pathrootFreeCfdi" id="field_pathrootFreeCfdi"
-                               ng-model="vm.config_pathrootfile.pathrootFreeCfdi"
-                               required />
-                        <div ng-show="editForm.pathrootFreeCfdi.$invalid">
-                            <p class="help-block"
-                               ng-show="editForm.pathrootFreeCfdi.$error.required" translate="entity.validation.required">
-                                This field is required.
-                            </p>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="pathrootFreeCfdi" id="field_pathrootFreeCfdi"
+                                   ng-model="vm.config_pathrootfile.pathrootFreeCfdi"
+                                   required >
+                            <div ng-show="editForm.pathrootFreeCfdi.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.pathrootFreeCfdi.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.config_pathrootfile.onlinetitle">
+                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.config_pathrootfile.home.onlinetitle">
                         Facturador en línea
                     </h3>
                     <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.config_pathrootfile.pathrootCertificate" for="field_pathrootCertificate">PathrootCertificate</label>
-                        <input type="text" class="form-control" name="pathrootCertificate" id="field_pathrootCertificate"
-                               ng-model="vm.config_pathrootfile.pathrootCertificate"
-                               required />
-                        <div ng-show="editForm.pathrootCertificate.$invalid">
-                            <p class="help-block"
-                               ng-show="editForm.pathrootCertificate.$error.required" translate="entity.validation.required">
-                                This field is required.
-                            </p>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="pathrootCertificate" id="field_pathrootCertificate"
+                                   ng-model="vm.config_pathrootfile.pathrootCertificate"
+                                   required >
+                            <div ng-show="editForm.pathrootCertificate.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.pathrootCertificate.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.config_pathrootfile.pathrootLogo" for="field_pathrootLogo">PathrootLogo</label>
-                        <input type="text" class="form-control" name="pathrootLogo" id="field_pathrootLogo"
-                               ng-model="vm.config_pathrootfile.pathrootLogo"
-                               required />
-                        <div ng-show="editForm.pathrootLogo.$invalid">
-                            <p class="help-block"
-                               ng-show="editForm.pathrootLogo.$error.required" translate="entity.validation.required">
-                                This field is required.
-                            </p>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="pathrootLogo" id="field_pathrootLogo"
+                                   ng-model="vm.config_pathrootfile.pathrootLogo"
+                                   required >
+                            <div ng-show="editForm.pathrootLogo.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.pathrootLogo.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.config_pathrootfile.pathrootCfdi" for="field_pathrootCfdi">PathrootCfdi</label>
-                        <input type="text" class="form-control" name="pathrootCfdi" id="field_pathrootCfdi"
-                               ng-model="vm.config_pathrootfile.pathrootCfdi"
-                               required />
-                        <div ng-show="editForm.pathrootCfdi.$invalid">
-                            <p class="help-block"
-                               ng-show="editForm.pathrootCfdi.$error.required" translate="entity.validation.required">
-                                This field is required.
-                            </p>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="pathrootCfdi" id="field_pathrootCfdi"
+                                   ng-model="vm.config_pathrootfile.pathrootCfdi"
+                                   required >
+                            <div ng-show="editForm.pathrootCfdi.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.pathrootCfdi.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
