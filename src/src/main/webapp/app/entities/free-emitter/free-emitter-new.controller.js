@@ -18,20 +18,15 @@
         vm.c_countrys = C_country.query({pg:1});
         vm.c_states = C_state.query({countryId:-1});
         vm.c_municipalitys = C_municipality.query({stateId:-1});
-
+		vm.c_colonys = null;
         vm.messcertificate = null;
         vm.meskey = null;
         vm.messlogo = null;
 
-        if(vm.free_emitter.id == null){
-            vm.c_colonys = null;
-        }
-        else
+        if(vm.free_emitter.id != null && vm.free_emitter.c_municipality != undefined)
         {
             var municipalityId = vm.free_emitter.c_municipality.id;
-            C_colony.query({municipalityId: municipalityId}, function(result){
-                vm.c_colonys = result;
-            });
+            vm.c_colonys = C_colony.query({municipalityId: municipalityId});
         }
 
         vm.onChangeC_country = onChangeC_country;

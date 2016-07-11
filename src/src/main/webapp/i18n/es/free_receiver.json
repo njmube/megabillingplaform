@@ -17,8 +17,12 @@
                 "title": "Receptor"
             },
             "rfc": "RFC (*)",
+			"taxpayer_gp": " Contribuyente Público General",
+            "foreign_resident": " Residente Extranjero",
+            "type_taxpayer": "Tipo de contribuyente (*)",
             "business_name": "Razón Social (*)",
-            "email": "Correo Electrónico (*)",
+            "email": "Correo Electrónico",
+            "phone": "Teléfono",
             "activated": "Activado",
             "create_date": "Fecha de Creación",
             "street": "Calle",

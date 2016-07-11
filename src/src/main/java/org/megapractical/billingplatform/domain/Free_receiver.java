@@ -39,9 +39,11 @@ public class Free_receiver implements Serializable {
     @Column(name = "email", length = 254)
     private String email;
 
+    @NotNull
     @Column(name = "activated", nullable = false)
     private Boolean activated;
 
+    @NotNull
     @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 
@@ -57,6 +59,11 @@ public class Free_receiver implements Serializable {
     @Column(name = "reference")
     private String reference;
 
+    @Size(min = 1, max = 15)
+    @Pattern(regexp = "^[0-9]{1,15}$")
+    @Column(name = "phone", length = 15)
+    private String phone;
+
     @ManyToOne
     private C_country c_country;
 
@@ -71,6 +78,9 @@ public class Free_receiver implements Serializable {
 
     @ManyToOne
     private C_zip_code c_zip_code;
+
+    @ManyToOne
+    private Type_taxpayer type_taxpayer;
 
     public Long getId() {
         return id;
@@ -152,6 +162,14 @@ public class Free_receiver implements Serializable {
         this.reference = reference;
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
     public C_country getC_country() {
         return c_country;
     }
@@ -192,6 +210,14 @@ public class Free_receiver implements Serializable {
         this.c_zip_code = c_zip_code;
     }
 
+    public Type_taxpayer getType_taxpayer() {
+        return type_taxpayer;
+    }
+
+    public void setType_taxpayer(Type_taxpayer type_taxpayer) {
+        this.type_taxpayer = type_taxpayer;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -225,6 +251,7 @@ public class Free_receiver implements Serializable {
             ", no_ext='" + no_ext + "'" +
             ", no_int='" + no_int + "'" +
             ", reference='" + reference + "'" +
+            ", phone='" + phone + "'" +
             '}';
     }
 }

@@ -189,7 +189,9 @@
             "max": "Este campo no puede ser mayor que {{max}}.",
             "minbytes": "Este campo debe tener como mínimo {{min}} bytes.",
             "maxbytes": "Este campo no puede tener más de {{max}} bytes.",
-            "pattern": "Este campo debe seguir el patrón {{pattern}}.",
+            "pattern": "Formato incorrecto.",
+            "email": "Dirección de correo incorrecta.",
+            "phone": "Teléfono incorrecta.",
             "number": "Este campo debe ser un número.",
             "datetimelocal": "Este campo debe ser una fecha y hora."
         }

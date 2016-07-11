@@ -100,6 +100,7 @@
                                 no_ext: null,
                                 no_int: null,
                                 reference: null,
+                                phone: null,
                                 id: null
                             };
                         }

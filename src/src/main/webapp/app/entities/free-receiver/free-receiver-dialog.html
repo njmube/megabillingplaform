@@ -4,11 +4,11 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myFree_receiverLabel" translate="megabillingplatformApp.free_receiver.home.createOrEditLabel">Create or edit a Free_receiver</h4>
+        <h4 class="modal-title" id="myFree_receiverLabel" translate="megabillingplatformApp.free_receiver.home.createOrEditLabel">Create or edit a Free Receiver</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group">
+        <div class="form-group" ng-show="vm.free_receiver.id">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.free_receiver.id" readonly />
@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_receiver.business_name" for="field_business_name">Business_name</label>
+            <label class="control-label" translate="megabillingplatformApp.free_receiver.business_name" for="field_business_name">Business Name</label>
             <input type="text" class="form-control" name="business_name" id="field_business_name"
                     ng-model="vm.free_receiver.business_name"
                     required ng-minlength="3" ng-maxlength="50" />
@@ -90,7 +90,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_receiver.create_date" for="field_create_date">Create_date</label>
+            <label class="control-label" translate="megabillingplatformApp.free_receiver.create_date" for="field_create_date">Create Date</label>
                 <div class="input-group">
                     <input id="field_create_date" type="text" class="form-control" name="create_date" datetime-picker="{{dateformat}}" ng-model="vm.free_receiver.create_date" is-open="vm.datePickerOpenStatus.create_date"
                     required  />
@@ -116,13 +116,13 @@
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_receiver.no_ext" for="field_no_ext">No_ext</label>
+            <label class="control-label" translate="megabillingplatformApp.free_receiver.no_ext" for="field_no_ext">No Ext</label>
             <input type="text" class="form-control" name="no_ext" id="field_no_ext"
                     ng-model="vm.free_receiver.no_ext"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_receiver.no_int" for="field_no_int">No_int</label>
+            <label class="control-label" translate="megabillingplatformApp.free_receiver.no_int" for="field_no_int">No Int</label>
             <input type="text" class="form-control" name="no_int" id="field_no_int"
                     ng-model="vm.free_receiver.no_int"
                      />
@@ -133,34 +133,60 @@
                     ng-model="vm.free_receiver.reference"
                      />
         </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_receiver.phone" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone"
+                    ng-model="vm.free_receiver.phone"
+                    ng-minlength="1" ng-maxlength="15" ng-pattern="/^[0-9]{1,15}$/" />
+            <div ng-show="editForm.phone.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.phone.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
+                    This field is required to be at least 1 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.phone.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="15">
+                    This field cannot be longer than 15 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.phone.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{1,15}$">
+                    This field should follow pattern "^[0-9]{1,15}$".
+                </p>
+            </div>
+        </div>
 
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_receiver.c_country" for="field_c_country">c_country</label>
-            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.free_receiver.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countrys track by c_country.id">
+            <label translate="megabillingplatformApp.free_receiver.c_country" for="field_c_country">C Country</label>
+            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.free_receiver.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countries track by c_country.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_receiver.c_state" for="field_c_state">c_state</label>
+            <label translate="megabillingplatformApp.free_receiver.c_state" for="field_c_state">C State</label>
             <select class="form-control" id="field_c_state" name="c_state" ng-model="vm.free_receiver.c_state" ng-options="c_state as c_state.name for c_state in vm.c_states track by c_state.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_receiver.c_municipality" for="field_c_municipality">c_municipality</label>
-            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_receiver.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id">
+            <label translate="megabillingplatformApp.free_receiver.c_municipality" for="field_c_municipality">C Municipality</label>
+            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_receiver.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalities track by c_municipality.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_receiver.c_colony" for="field_c_colony">c_colony</label>
-            <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_receiver.c_colony" ng-options="c_colony as c_colony.name for c_colony in vm.c_colonys track by c_colony.id">
+            <label translate="megabillingplatformApp.free_receiver.c_colony" for="field_c_colony">C Colony</label>
+            <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_receiver.c_colony" ng-options="c_colony as c_colony.name for c_colony in vm.c_colonies track by c_colony.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_receiver.c_zip_code" for="field_c_zip_code">c_zip_code</label>
+            <label translate="megabillingplatformApp.free_receiver.c_zip_code" for="field_c_zip_code">C Zip Code</label>
             <select class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.free_receiver.c_zip_code" ng-options="c_zip_code as c_zip_code.postcode for c_zip_code in vm.c_zip_codes track by c_zip_code.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.free_receiver.type_taxpayer" for="field_type_taxpayer">Type Taxpayer</label>
+            <select class="form-control" id="field_type_taxpayer" name="type_taxpayer" ng-model="vm.free_receiver.type_taxpayer" ng-options="type_taxpayer as type_taxpayer.id for type_taxpayer in vm.type_taxpayers track by type_taxpayer.id">
                 <option value=""></option>
             </select>
         </div>

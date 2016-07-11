@@ -19,7 +19,6 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,10 +30,10 @@ import java.util.Optional;
 public class Free_receiverResource {
 
     private final Logger log = LoggerFactory.getLogger(Free_receiverResource.class);
-
+        
     @Inject
     private Free_receiverService free_receiverService;
-
+    
     /**
      * POST  /free-receivers : Create a new free_receiver.
      *
@@ -51,8 +50,6 @@ public class Free_receiverResource {
         if (free_receiver.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_receiver", "idexists", "A new free_receiver cannot already have an ID")).body(null);
         }
-        free_receiver.setCreate_date(ZonedDateTime.now());
-        free_receiver.setActivated(true);
         Free_receiver result = free_receiverService.save(free_receiver);
         return ResponseEntity.created(new URI("/api/free-receivers/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_receiver", result.getId().toString()))
@@ -97,7 +94,7 @@ public class Free_receiverResource {
     public ResponseEntity<List<Free_receiver>> getAllFree_receivers(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Free_receivers");
-        Page<Free_receiver> page = free_receiverService.findAll(pageable);
+        Page<Free_receiver> page = free_receiverService.findAll(pageable); 
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-receivers");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

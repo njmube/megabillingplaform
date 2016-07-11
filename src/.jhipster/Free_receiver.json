@@ -29,6 +29,12 @@
             "otherEntityName": "c_zip_code",
             "relationshipType": "many-to-one",
             "otherEntityField": "postcode"
+        },
+        {
+            "relationshipName": "type_taxpayer",
+            "otherEntityName": "type_taxpayer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "fields": [
@@ -99,6 +105,19 @@
         {
             "fieldName": "reference",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "minlength",
+                "maxlength",
+                "pattern"
+            ],
+            "fieldValidateRulesMinlength": "1",
+            "fieldValidateRulesMaxlength": "15",
+            "fieldValidateRulesPattern": "^[0-9]{1,15}$",
+            "fieldValidateRulesPatternJava": "^[0-9]{1,15}$"
         }
     ],
     "changelogDate": "20160628120032",

@@ -189,7 +189,9 @@
             "max": "This field cannot be more than {{ max }}.",
             "minbytes": "This field should be more than {{ min }} bytes.",
             "maxbytes": "This field cannot be more than {{ max }} bytes.",
-            "pattern": "This field should follow pattern {{ pattern }}.",
+            "pattern": "Wrong Format.",
+            "email": "Wrong email address.",
+            "phone": "Wrong phone number.",
             "number": "This field should be a number.",
             "datetimelocal": "This field should be a date and time."
         }

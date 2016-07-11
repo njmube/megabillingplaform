@@ -15,7 +15,7 @@
 		vm.ieps = 0;
         vm.free_customs_info = free_custom_info_entity;		
         vm.measure_units = Measure_unit.query();
-        vm.rate_types = Rate_type.query();
+        vm.rate_types = Rate_type.query({filtername: " "});
 		vm.free_part_concepts = [];
 		
 		vm.calcAmount = function(){

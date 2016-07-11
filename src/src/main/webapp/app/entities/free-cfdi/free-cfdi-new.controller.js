@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered'];
 
-    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered) {
         
 		var vm = this;
 		
@@ -18,18 +18,21 @@
 		vm.free_concepts = [];
 		vm.current_free_concept = null;
 		
-        vm.free_receiver = free_receiver_entity;		
+        vm.free_receiver = free_receiver_entity;
+		vm.free_receiver.c_country = {id: 151, name: "México", abrev: "MEX"};
+        vm.taxpayer_gp = false;
+		vm.type_taxpayers = Type_taxpayer.query();
 		vm.c_countrys = C_country.query({pg:1});
         vm.c_states = C_state.query({countryId:-1});
         vm.c_municipalitys = C_municipality.query({stateId:-1});
 		vm.c_colonys = null;		
 		
-        vm.cfdi_typess = Cfdi_types.query();
-        vm.cfdi_statess = Cfdi_states.query();
+        vm.cfdi_typess = Cfdi_types.query({filtername:" "});
+        vm.cfdi_statess = Cfdi_states.query({filtername:" "});
         vm.payment_methods = Payment_method.query();
         vm.way_payments = Way_payment.query();
         vm.c_moneys = C_money.query();
-        vm.cfdi_type_docs = Cfdi_type_doc.query();
+        vm.cfdi_type_docs = Cfdi_type_doc.query({filtername:" "});
         vm.tax_regimes = Tax_regime.query();
 		
         vm.load = function(id) {
@@ -38,10 +41,35 @@
             });
         };
 		
+		vm.onChangeReceiverRFC = onChangeReceiverRFC;
+		vm.onClickTaxpayerGP = onClickTaxpayerGP;
+		vm.onClickForeignResident = onClickForeignResident;
+		
 		vm.onChangeC_country = onChangeC_country;
         vm.onChangeC_state = onChangeC_state;
         vm.onChangeC_municipality = onChangeC_municipality;
         vm.onChangeC_colony = onChangeC_colony;
+		
+		function onChangeReceiverRFC(){
+            if(vm.free_receiver.rfc.length == 12){
+                vm.free_receiver.type_taxpayer = vm.type_taxpayers[0];
+            }else if(vm.free_receiver.rfc.length == 13){
+                vm.free_receiver.type_taxpayer = vm.type_taxpayers[1];
+            }
+			else{
+				vm.free_receiver.type_taxpayer = null;
+			}
+        }
+		
+		function onClickTaxpayerGP(){
+            vm.free_receiver.rfc = "XAXX010101000";
+			vm.free_receiver.type_taxpayer = vm.type_taxpayers[1];
+        }
+		
+		function onClickForeignResident(){
+            vm.free_receiver.rfc = "XEXX010101000";
+			vm.free_receiver.type_taxpayer = vm.type_taxpayers[1];
+        }
 		
 		function onChangeC_country () {
 			var countryId = vm.free_receiver.c_country.id;
@@ -73,28 +101,6 @@
         var onSaveError = function () {
             vm.isSaving = false;
         };
-		
-		/*var onSaveIVASuccess = function (result) {
-			var c_cpt = vm.current_free_concept;
-			vm.free_concepts[c_cpt].free_concept_iva = result;
-		};
-		
-		var onSaveIEPSSuccess = function (result) {
-			var c_cpt = vm.current_free_concept;
-			vm.free_concepts[c_cpt].free_concept_ieps = result;
-		};
-		
-		var onSaveCustomInfoSuccess = function (result) {
-			console.log("linea 88: " + vm.current_free_concept);
-			var c_cpt = vm.current_free_concept;
-			vm.free_concepts[c_cpt].free_custom_info = result;
-		};
-		
-		var onSavePartConceptSuccess = function (result) {
-			var c_cpt = vm.current_free_concept;
-			vm.free_concepts[c_cpt].free_part_concepts[vm.current_part_concept] = result;
-			vm.current_part_concept++;
-		};*/
 		
 		var onSaveConceptSuccess = function (result) {
 			var free_concept = result;
@@ -321,6 +327,20 @@
 				return false;
 			}
 			return true;
+		};
+		
+		vm.enableAccountNumber = function(){
+			if(vm.free_cfdi.payment_method != undefined && vm.free_cfdi.payment_method.id >= 2 && vm.free_cfdi.payment_method.id <= 16 ){
+				return false;
+			}
+			return true;
+		};
+		
+		vm.enableWayPayment = function(){
+			if(vm.free_cfdi.payment_method != undefined && vm.free_cfdi.payment_method.id == 17){
+				return true;
+			}
+			return false;
 		};
     }
 })();

@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('Free_receiver Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockFree_receiver, MockC_country, MockC_state, MockC_municipality, MockC_colony, MockC_zip_code;
+        var MockEntity, MockFree_receiver, MockC_country, MockC_state, MockC_municipality, MockC_colony, MockC_zip_code, MockType_taxpayer;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -17,6 +17,7 @@ describe('Controller Tests', function() {
             MockC_municipality = jasmine.createSpy('MockC_municipality');
             MockC_colony = jasmine.createSpy('MockC_colony');
             MockC_zip_code = jasmine.createSpy('MockC_zip_code');
+            MockType_taxpayer = jasmine.createSpy('MockType_taxpayer');
             
 
             var locals = {
@@ -28,7 +29,8 @@ describe('Controller Tests', function() {
                 'C_state': MockC_state,
                 'C_municipality': MockC_municipality,
                 'C_colony': MockC_colony,
-                'C_zip_code': MockC_zip_code
+                'C_zip_code': MockC_zip_code,
+                'Type_taxpayer': MockType_taxpayer
             };
             createController = function() {
                 $injector.get('$controller')("Free_receiverDetailController", locals);

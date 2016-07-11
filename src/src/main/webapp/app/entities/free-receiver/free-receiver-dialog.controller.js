@@ -5,21 +5,21 @@
         .module('megabillingplatformApp')
         .controller('Free_receiverDialogController', Free_receiverDialogController);
 
-    Free_receiverDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Free_receiver', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code'];
+    Free_receiverDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Free_receiver', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'Type_taxpayer'];
 
-    function Free_receiverDialogController ($scope, $stateParams, $uibModalInstance, entity, Free_receiver, C_country, C_state, C_municipality, C_colony, C_zip_code) {
+    function Free_receiverDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Free_receiver, C_country, C_state, C_municipality, C_colony, C_zip_code, Type_taxpayer) {
         var vm = this;
         vm.free_receiver = entity;
-        vm.c_countrys = C_country.query();
+        vm.c_countries = C_country.query();
         vm.c_states = C_state.query();
-        vm.c_municipalitys = C_municipality.query();
-        vm.c_colonys = C_colony.query();
+        vm.c_municipalities = C_municipality.query();
+        vm.c_colonies = C_colony.query();
         vm.c_zip_codes = C_zip_code.query();
-        vm.load = function(id) {
-            Free_receiver.get({id : id}, function(result) {
-                vm.free_receiver = result;
-            });
-        };
+        vm.type_taxpayers = Type_taxpayer.query();
+
+        $timeout(function (){
+            angular.element('.form-group:eq(1)>input').focus();
+        });
 
         var onSaveSuccess = function (result) {
             $scope.$emit('megabillingplatformApp:free_receiverUpdate', result);

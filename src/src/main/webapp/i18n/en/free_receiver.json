@@ -16,9 +16,13 @@
             "detail": {
                 "title": "Receiver"
             },
-            "rfc": "Rfc",
-            "business_name": "Business Name",
+            "rfc": "RFC (*)",
+            "taxpayer_gp": " Taxpayer General Public",
+            "foreign_resident": " Foreign Resident",
+            "type_taxpayer": "Type taxpayer (*)",
+            "business_name": "Business Name (*)",
             "email": "Email",
+            "phone": "Phone",
             "activated": "Activated",
             "create_date": "Create Date",
             "street": "Street",
