@@ -84,19 +84,19 @@
             },
                 views: {
                     'content@': {
-                        templateUrl: 'app/entities/config-pathrootfile/config-pathrootfile-new.html',
+                        templateUrl: 'app/entities/config-pathrootfile/config-pathrootfiles-new.html',
                         controller: 'Config_pathrootfileNewController',
                         controllerAs: 'vm'
                     }
                 },
                 resolve: {
-                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('config_pathrootfile');
-                        return $translate.refresh();
-                    }],
                     entity: ['$stateParams', 'Config_pathrootfile', function($stateParams, Config_pathrootfile) {
                         return Config_pathrootfile.get({id : $stateParams.id});
-                    }]
+                    }],
+					translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('config_pathrootfile');
+                        return $translate.refresh();
+                    }]                    
                 }
 
         })

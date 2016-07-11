@@ -111,23 +111,19 @@ public class Config_pathrootfileResource {
     @Timed
     public ResponseEntity<Config_pathrootfile> getConfig_pathrootfile(@PathVariable Long id) {
         log.debug("REST request to get Config_pathrootfile : {}", id);
+        Config_pathrootfile config_pathrootfile = null;
         List<Config_pathrootfile> list = config_pathrootfileService.finAll();
         if(list.size() == 0){
-            Config_pathrootfile config_pathrootfile = new Config_pathrootfile();
-            return Optional.ofNullable(config_pathrootfile)
-                .map(result -> new ResponseEntity<>(
-                    result,
-                    HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+            config_pathrootfile = new Config_pathrootfile();
         }else {
-            Config_pathrootfile config_pathrootfile = list.get(0);
-            return Optional.ofNullable(config_pathrootfile)
-                .map(result -> new ResponseEntity<>(
-                    result,
-                    HttpStatus.OK))
-                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+            config_pathrootfile = list.get(0);
         }
 
+        return Optional.ofNullable(config_pathrootfile)
+            .map(result -> new ResponseEntity<>(
+                result,
+                HttpStatus.OK))
+            .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     /**
