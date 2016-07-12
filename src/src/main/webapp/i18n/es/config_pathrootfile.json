@@ -2,21 +2,21 @@
     "megabillingplatformApp": {
         "config_pathrootfile" : {
             "home": {
-                "title": "Configuración de la ruta raíz",
-                "createLabel": "Crear nuevo Configuración de la ruta raíz",
-                "createOrEditLabel": "Crear o editar Configuración de la ruta raíz",
-                "search": "Búsqueda para Configuración de la ruta raíz",
-                "freetitle":"Facturador gratuito",
-                "onlinetitle": "Facturador en línea"
+                "title": "Rutas de Archivos del Emisor",
+                "createLabel": "Nueva Rutas de Archivos",
+                "createOrEditLabel": "Crear o editar Rutas de Archivos",
+                "search": "Búsqueda para Rutas de Archivos",
+                "freetitle":"Facturador Gratuito",
+                "onlinetitle": "Facturador en Línea"
             },
-            "created": "Una nueva Configuración de la ruta raíz ha sido creada con el identificador {{ param }}",
-            "updated": "Una Configuración de la ruta raíz ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Una Configuración de la ruta raíz ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva rutas de archivos ha sido creada con el identificador {{ param }}",
+            "updated": "Una rutas de archivos ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una rutas de archivos ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Configuración de la ruta raíz {{ id }}?"
+                "question": "¿Seguro que quiere eliminar rutas de archivos {{ id }}?"
             },
             "detail": {
-                "title": "Configuración de la ruta raíz"
+                "title": "Rutas de Archivos del Emisor"
             },
             "pathrootFreeCertificate": "Ruta Certificado",
             "pathrootFreeLogo": "Ruta Logo",

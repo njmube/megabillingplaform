@@ -2,21 +2,21 @@
     "megabillingplatformApp": {
         "config_pathrootfile" : {
             "home": {
-                "title": "Config path root",
-                "createLabel": "Create a new Config path root",
-                "createOrEditLabel": "Create or edit a Config path root",
-                "search": "Search for Config path root",
+                "title": "Emitter Routes Files",
+                "createLabel": "New Routes Files",
+                "createOrEditLabel": "Create or edit a routes files",
+                "search": "Search for routes files",
                 "freetitle":"Free",
                 "onlinetitle": "On line"
             },
-            "created": "A new Config path root is created with identifier {{ param }}",
-            "updated": "A Config path root is updated with identifier {{ param }}",
-            "deleted": "A Config path root is deleted with identifier {{ param }}",
+            "created": "A new routes files root is created with identifier {{ param }}",
+            "updated": "A Config routes files is updated with identifier {{ param }}",
+            "deleted": "A Config routes files is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Config path root {{ id }}?"
+                "question": "Are you sure you want to delete routes files {{ id }}?"
             },
             "detail": {
-                "title": "Config path root"
+                "title": "Emitter Routes Files"
             },
             "pathrootFreeCertificate": "Path Certificate",
             "pathrootFreeLogo": "Path Logo",
