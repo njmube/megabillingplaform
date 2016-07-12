@@ -37,13 +37,6 @@
                 "free.concept": "Conceptos",
                 "free.part.concept": "Parte Concepto",
                 "free.customs.info": "Información Aduanera",
-                "freeReceiver": "Free_receiver",
-                "freeCfdi": "Free_cfdi",
-                "paymentMethod": "Payment_method",
-                "taxRegime": "Tax_regime",
-                "cMunicipality": "C_municipality",
-                "freeEmitter": "Free_emitter",
-                "configPathrootfile": "Config_pathrootfile",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -88,6 +81,7 @@
                 "scheduled.task": "Tareas Programadas",
                 "use.policy": "Políticas de Uso",
                 "privacy": "Privacidad",
+                "pathrootfile": "Rutas Archivos Emisor",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
             "language": "Idioma"
