@@ -38,7 +38,7 @@
             "stamp": "Sello",
             "no_certificate": "No. Certificado",
             "certificate": "Certificado",
-            "cfdi_types": "Tipo CFDI",
+            "cfdi_types": "Tipo Comprobante",
             "cfdi_states": "Estado CFDI",
             "free_emitter": "Emisor",
             "payment_method": "Método de Pago",
