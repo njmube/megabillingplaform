@@ -6,8 +6,8 @@
                 "createLabel": "New Routes Files",
                 "createOrEditLabel": "Create or edit a routes files",
                 "search": "Search for routes files",
-                "freetitle":"Free",
-                "onlinetitle": "On line"
+                "freetitle":"Ebilling Free",
+                "onlinetitle": "Ebilling On line"
             },
             "created": "A new routes files root is created with identifier {{ param }}",
             "updated": "A Config routes files is updated with identifier {{ param }}",
