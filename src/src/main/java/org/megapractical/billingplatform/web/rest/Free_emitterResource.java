@@ -88,9 +88,11 @@ public class Free_emitterResource {
             return createFree_emitter(free_emitter);
         }
         Free_emitter rfc = free_emitterService.findOneByRfc(free_emitter.getRfc());
+
         if(rfc != null){
-            if(rfc.getId() != free_emitter.getId())
+            if(rfc.getId().toString().compareTo(free_emitter.getId().toString())!=0) {
                 return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "rfcexists", "A new free_emitter cannot already have an RFC")).body(null);
+            }
         }
         Free_emitter result = free_emitterService.save(free_emitter);
 

@@ -86,10 +86,16 @@ public class Free_emitterServiceImpl implements Free_emitterService{
     }
 
     public Free_emitter saveFile(Free_emitter free_emitter){
-        Long idpath = new Long("1");
-        Config_pathrootfile config = config_pathrootfileService.findOne(idpath);
-        String root = config.getPathrootFreeCertificate();
-        String rootlogo = config.getPathrootFreeLogo();
+
+        String root = "";
+        String rootlogo = "";
+        List<Config_pathrootfile> list = config_pathrootfileService.finAll();
+        if (list.size()>0){
+            Config_pathrootfile config = list.get(0);
+            root =config.getPathrootFreeCertificate();
+            rootlogo= config.getPathrootFreeLogo();
+        }
+
         String rootDirectory = root + free_emitter.getRfc();
         String rootDirectoryLogo = rootlogo + free_emitter.getRfc();
 
@@ -142,13 +148,6 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         else
             directoriologo+= "/";
 
-        //Root Directory of certificate file
-        File direc = new File(rootdirectoryCerFile);
-        //Root Directory of certificate file
-        File direckey = new File(rootdirectoryCerKey);
-        //Root Directory of logo
-        File direclogo = new File(rootdirectoryLogo);
-
         boolean actualizaCer = true;
         if(free_emitter.getPath_certificate()!= null) {
             if (free_emitter.getPath_certificate().contains("\\") || free_emitter.getPath_certificate().contains("/"))
@@ -184,12 +183,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                 if(free_emitter.getFilecertificateContentType() == null) {
                     if (free_emitter.getPath_certificate() != null) {
                         if (!free_emitter.getPath_certificate().isEmpty()) {
-
-                            File delete = new File(free_emitter.getPath_certificate());
-                            if (delete.delete()) {
-                                log.debug("Eliminando fichero existente");
-                                free_emitter.setPath_certificate(null);
-                            }
+                            free_emitter.setPath_certificate(null);
                         }
                     }
                 }
@@ -205,7 +199,6 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         if(free_emitter.getFilekeyContentType()!= null && actualizaKey){
 
             try{
-
                     OutputStream outputStream = null;
                     File newFile = new File(directoriocerkey + free_emitter.getPath_key());
                     free_emitter.setPath_key(directoriocerkey + free_emitter.getPath_key());
@@ -230,12 +223,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                 if(free_emitter.getFilekeyContentType()== null) {
                     if (free_emitter.getPath_key() != null) {
                         if (!free_emitter.getPath_key().isEmpty()) {
-
-                            File delete = new File(free_emitter.getPath_key());
-                            if (delete.delete()) {
-                                log.debug("Eliminando key existente");
-                                free_emitter.setPath_key(null);
-                            }
+                            free_emitter.setPath_key(null);
                         }
                     }
                 }
@@ -252,7 +240,6 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         if(free_emitter.getFilelogoContentType() != null && actualizaLogo){
 
             try{
-
                     OutputStream outputStream = null;
                     File newFile = new File(directoriologo + free_emitter.getPath_logo());
                     free_emitter.setPath_logo(directoriologo + free_emitter.getPath_logo());
@@ -281,12 +268,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                 if(free_emitter.getFilelogoContentType() == null) {
                     if (free_emitter.getPath_logo() != null) {
                         if (!free_emitter.getPath_logo().isEmpty()) {
-
-                            File delete = new File(free_emitter.getPath_logo());
-                            if (delete.delete()) {
-                                log.debug("Eliminando logo existente");
-                                free_emitter.setPath_logo(null);
-                            }
+                            free_emitter.setPath_logo(null);
                         }
                     }
                 }
