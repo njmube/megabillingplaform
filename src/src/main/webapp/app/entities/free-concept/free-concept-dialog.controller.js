@@ -103,10 +103,10 @@
 					entity: function () {
 						return {
 							no_identification: null,
-							quantity: 0,
+							quantity: (0).toFixed(2),
 							description: null,
-							unit_value: 0,
-							amount: 0.00,
+							unit_value: (0).toFixed(2),
+							amount: (0).toFixed(2),
 							id: null
 						};
 					}
