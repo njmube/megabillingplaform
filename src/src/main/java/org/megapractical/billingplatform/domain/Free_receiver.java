@@ -43,7 +43,6 @@ public class Free_receiver implements Serializable {
     @Column(name = "activated", nullable = false)
     private Boolean activated;
 
-    @NotNull
     @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 

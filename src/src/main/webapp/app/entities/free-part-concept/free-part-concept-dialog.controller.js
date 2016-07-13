@@ -38,8 +38,15 @@
 		
 		vm.calcAmount = function(){
 			if(vm.free_part_concept.quantity > 0 && vm.free_part_concept.unit_value){
-				vm.free_part_concept.amount = (vm.free_part_concept.quantity * vm.free_part_concept.unit_value).toFixed(2);
+				var amount = vm.free_part_concept.quantity * vm.free_part_concept.unit_value;
+				vm.free_part_concept.amount = floorFigure(amount, 2);
 			}			
         };
+		
+		function floorFigure(figure, decimals){
+			if (!decimals) decimals = 2;
+			var d = Math.pow(10,decimals);
+			return (parseInt(figure*d)/d).toFixed(decimals);
+		}
     }
 })();

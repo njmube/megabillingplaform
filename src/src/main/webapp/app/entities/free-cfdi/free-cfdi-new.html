@@ -628,12 +628,15 @@
 									<table id="concepto-table" class="table table-striped table-bordered table-hover">
 										<thead>
 											<tr>
-												<th>Código</th>
-												<th>Unidad de Medida</th>
+												<th>No. Identificación</th>
+												<th>U/M</th>
 												<th>Descripción</th>
 												<th>Cantidad</th>
-												<th>Precio Unitario</th>
+												<th>Valor Unitario</th>
+												<th>Descuento</th>
+												<th>IVA / IEPS</th>
 												<th>Importe</th>
+												<th>...</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -643,7 +646,10 @@
 												<td>{{free_concept.free_concept.description}}</td>					
 												<td>{{free_concept.free_concept.quantity}}</td>
 												<td>{{free_concept.free_concept.unit_value}}</td>
+												<td>{{free_concept.free_concept.discount}}</td>
+												<td>{{free_concept.free_concept_iva.rate}} / {{free_concept.free_concept_ieps_val}}</td>
 												<td>{{free_concept.free_concept.amount}}</td>
+												<td><button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeConcept($index)">Eliminar</button></td>
 											</tr>											
 										</tbody>
 									</table>
@@ -686,22 +692,30 @@
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" for="form-field-15">IVA (%):</label>
 						<div class="col-sm-6">
-							<input type="text" id="form-field-15" class="form-control text-right" value="(16.00)" readonly />
+							<input type="text" id="form-field-15" class="form-control text-right" ng-model="vm.iva" readonly />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total_tax_retention" for="field_total_tax_retention">Total_tax_retention</label>
+						<label class="col-sm-6 control-label no-padding-right" for="field_ieps">IEPS</label>
 						<div class="col-sm-6">							
-							<input type="text" class="form-control text-right" name="total_tax_retention" id="field_total_tax_retention"
-									ng-model="vm.free_cfdi.total_tax_retention" readonly
+							<input type="text" class="form-control text-right" name="free_cfdi_ieps" id="field_ieps"
+									ng-model="vm.ieps" readonly
 									 />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total_tax_transfered" for="field_total_tax_transfered">Total_tax_transfered</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control text-right" name="total_tax_transfered" id="field_total_tax_transfered"
-									ng-model="vm.free_cfdi.total_tax_transfered" readonly
+						<label class="col-sm-6 control-label no-padding-right" for="field_ret_iva">RET IVA</label>
+						<div class="col-sm-6">							
+							<input type="text" class="form-control text-right" name="free_cfdi_ret_iva" id="field_ret_iva"
+									ng-model="vm.ret_iva" readonly
+									 />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-6 control-label no-padding-right" for="field_ret_isr">RET ISR</label>
+						<div class="col-sm-6">							
+							<input type="text" class="form-control text-right" name="free_cfdi_ret_isr" id="field_ret_isr"
+									ng-model="vm.ret_isr" readonly
 									 />
 						</div>
 					</div>
@@ -712,9 +726,15 @@
 									ng-model="vm.free_cfdi.discount" readonly
 									 />
 						</div>
-					</div>				
-					
-														
+					</div>	
+					<div class="form-group">
+						<label class="col-sm-6 control-label no-padding-right" for="field_subtotal_discount">Subtotal-Descuentos</label>
+						<div class="col-sm-6">							
+							<input type="text" class="form-control text-right" name="free_cfdi_subtotal_discount" id="field_subtotal_discount"
+									ng-model="vm.subtotal_discount" readonly
+									 />
+						</div>
+					</div>
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total" for="field_total">Total</label>
 						<div class="col-sm-6">							

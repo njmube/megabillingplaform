@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_conceptDialogController', Free_conceptDialogController);
 
-    Free_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$uibModal', 'free_concept_entity', 'free_custom_info_entity', 'Free_cfdi', 'Measure_unit', 'Rate_type'];
+    Free_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$uibModal', 'free_concept_entity', 'free_custom_info_entity', 'Free_cfdi', 'Measure_unit', 'Rate_type', 'Tax_types'];
 
-    function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, free_custom_info_entity, Free_cfdi, Measure_unit, Rate_type) {
+    function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, free_custom_info_entity, Free_cfdi, Measure_unit, Rate_type, Tax_types) {
         var vm = this;
 		
         vm.free_concept = free_concept_entity;
@@ -15,13 +15,15 @@
 		vm.ieps = 0;
         vm.free_customs_info = free_custom_info_entity;		
         vm.measure_units = Measure_unit.query();
-        vm.rate_types = Rate_type.query({filtername: " "});
+        vm.rate_typess = Rate_type.query({filtername: " "});
+        vm.tax_typess = Tax_types.query({filtername: " "});
 		vm.free_part_concepts = [];
 		
 		vm.calcAmount = function(){
 			/*SubTotal = (Cantidad * Precio unitario)*(1-Descuento/100)*/			
-			if(vm.free_concept.quantity > 0 && vm.free_concept.unit_value > 0){				
-				vm.free_concept.amount = ((vm.free_concept.quantity * vm.free_concept.unit_value) * (1 - vm.free_concept.discount/100)).toFixed(2);
+			if(vm.free_concept.quantity > 0 && vm.free_concept.unit_value > 0){
+				var amount = (vm.free_concept.quantity * vm.free_concept.unit_value) * (1 - vm.free_concept.discount/100)
+				vm.free_concept.amount = floorFigure(amount, 2);
 			}
 		};
 		
@@ -34,6 +36,12 @@
         var onSaveError = function () {
             vm.isSaving = false;
         };
+		
+		function floorFigure(figure, decimals){
+			if (!decimals) decimals = 2;
+			var d = Math.pow(10,decimals);
+			return (parseInt(figure*d)/d).toFixed(decimals);
+		}
 
         vm.save = function () {
             vm.isSaving = true;
@@ -50,15 +58,18 @@
 							id: null
 						},
 				free_concept_iva: {
-							rate: null,
-                            amount: vm.iva,
+							rate: vm.iva.name,
+                            amount: floorFigure(vm.free_concept.amount * vm.iva.value/100,2),
+							tax_type: vm.tax_typess[0],
                             id: null
 						},
 				free_concept_ieps: {
-							rate: null,
-                            amount: vm.ieps,
+							rate: "IEPS",
+                            amount: floorFigure(vm.free_concept.amount * vm.ieps/100,2),
+							tax_type: vm.tax_typess[2],
                             id: null
 						},
+				free_concept_ieps_val: floorFigure(vm.ieps,2),
 				free_customs_info: {
 							number_doc: vm.free_customs_info.number_doc,
 							date: vm.free_customs_info.date,
