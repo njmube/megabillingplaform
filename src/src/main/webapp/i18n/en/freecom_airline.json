@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "freecom_airline" : {
+            "home": {
+                "title": "Freecom_airlines",
+                "createLabel": "Create a new Freecom_airline",
+                "createOrEditLabel": "Create or edit a Freecom_airline",
+                "search": "Search for Freecom_airline"
+            },
+            "created": "A new Freecom_airline is created with identifier {{ param }}",
+            "updated": "A Freecom_airline is updated with identifier {{ param }}",
+            "deleted": "A Freecom_airline is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom_airline {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_airline"
+            },
+            "version": "Version",
+            "tua": "Tua",
+            "total_charge": "Total_charge",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

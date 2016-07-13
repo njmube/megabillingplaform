@@ -1,0 +1,44 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "free_cfdi",
+            "otherEntityName": "free_cfdi",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "freecom_pfic"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "key_vehicle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "license_plate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "rfcpf",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160712222643",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_pfic",
+    "pagination": "pagination"
+}

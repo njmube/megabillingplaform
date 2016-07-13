@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "freecom_taxregistration" : {
+            "home": {
+                "title": "Freecom_taxregistrations",
+                "createLabel": "Crear nuevo Freecom_taxregistration",
+                "createOrEditLabel": "Crear o editar Freecom_taxregistration",
+                "search": "Search for Freecom_taxregistration"
+            },
+            "created": "Un nuevo Freecom_taxregistration ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_taxregistration ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_taxregistration ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_taxregistration {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_taxregistration"
+            },
+            "version": "Version",
+            "folio": "Folio",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

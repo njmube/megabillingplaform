@@ -14,7 +14,7 @@ import java.util.Objects;
 /**
  * A C_state.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "c_state")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @NamedQuery(name = "C_state.findByC",

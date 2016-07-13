@@ -1,0 +1,57 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "school_level",
+            "otherEntityName": "school_level",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "free_cfdi",
+            "otherEntityName": "free_cfdi",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "freecom_educational_institutions"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name_student",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "curp",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "autrvoe",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "rfcpayment",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160712222008",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_educational_institutions",
+    "pagination": "pagination"
+}

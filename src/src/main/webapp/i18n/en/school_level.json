@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "school_level" : {
+            "home": {
+                "title": "School_levels",
+                "createLabel": "Create a new School_level",
+                "createOrEditLabel": "Create or edit a School_level",
+                "search": "Search for School_level"
+            },
+            "created": "A new School_level is created with identifier {{ param }}",
+            "updated": "A School_level is updated with identifier {{ param }}",
+            "deleted": "A School_level is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete School_level {{ id }}?"
+            },
+            "detail": {
+                "title": "School_level"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_taxregistration.detail.title">Freecom_taxregistration</span> {{vm.freecom_taxregistration.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.freecom_taxregistration.version">Version</dt></dt>
+        <dd>
+            <span>{{vm.freecom_taxregistration.version}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_taxregistration.folio">Folio</dt></dt>
+        <dd>
+            <span>{{vm.freecom_taxregistration.folio}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_taxregistration.free_cfdi">free_cfdi</span></dt>
+        <dd>
+            <a ui-sref="free-cfdi-detail({id:vm.freecom_taxregistration.free_cfdi.id})">{{vm.freecom_taxregistration.free_cfdi.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

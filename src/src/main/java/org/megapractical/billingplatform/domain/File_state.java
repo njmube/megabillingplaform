@@ -14,7 +14,7 @@ import java.util.Objects;
 /**
  * A File_state.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "file_state")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class File_state implements Serializable {

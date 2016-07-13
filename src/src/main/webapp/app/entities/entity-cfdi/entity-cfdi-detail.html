@@ -1,0 +1,33 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.entity_cfdi.detail.title">Entity_cfdi</span> {{vm.entity_cfdi.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.entity_cfdi.accounting">accounting</span></dt>
+        <dd>
+            <a ui-sref="accounting-detail({id:vm.entity_cfdi.accounting.id})">{{vm.entity_cfdi.accounting.keyaccounting}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.entity_cfdi.key_entity">key_entity</span></dt>
+        <dd>
+            <a ui-sref="key-entity-detail({id:vm.entity_cfdi.key_entity.id})">{{vm.entity_cfdi.key_entity.key}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.entity_cfdi.scope">scope</span></dt>
+        <dd>
+            <a ui-sref="scope-detail({id:vm.entity_cfdi.scope.id})">{{vm.entity_cfdi.scope.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.entity_cfdi.freecom_ine">freecom_ine</span></dt>
+        <dd>
+            <a ui-sref="freecom-ine-detail({id:vm.entity_cfdi.freecom_ine.id})">{{vm.entity_cfdi.freecom_ine.version}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

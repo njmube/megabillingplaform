@@ -1,0 +1,42 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "committee",
+            "otherEntityName": "committee",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "process_type",
+            "otherEntityName": "process_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "free_cfdi",
+            "otherEntityName": "free_cfdi",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "freecom_ine"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "3",
+            "fieldValidateRulesMaxlength": "50"
+        }
+    ],
+    "changelogDate": "20160712204117",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_ine",
+    "pagination": "pagination"
+}

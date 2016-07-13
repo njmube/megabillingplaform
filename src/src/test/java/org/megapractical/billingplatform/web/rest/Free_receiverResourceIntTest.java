@@ -48,12 +48,12 @@ public class Free_receiverResourceIntTest {
 
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").withZone(ZoneId.of("Z"));
 
-    private static final String DEFAULT_RFC = "AAAAAAAAAAAA";
-    private static final String UPDATED_RFC = "BBBBBBBBBBBB";
+    private static final String DEFAULT_RFC = "AAA121234ZZX";
+    private static final String UPDATED_RFC = "AAA121234ZZF";
     private static final String DEFAULT_BUSINESS_NAME = "AAA";
     private static final String UPDATED_BUSINESS_NAME = "BBB";
-    private static final String DEFAULT_EMAIL = "AAAAAA";
-    private static final String UPDATED_EMAIL = "BBBBBB";
+    private static final String DEFAULT_EMAIL = "algo@algo.com";
+    private static final String UPDATED_EMAIL = "algo1@algo.com";
 
     private static final Boolean DEFAULT_ACTIVATED = false;
     private static final Boolean UPDATED_ACTIVATED = true;
@@ -69,8 +69,8 @@ public class Free_receiverResourceIntTest {
     private static final String UPDATED_NO_INT = "BBBBB";
     private static final String DEFAULT_REFERENCE = "AAAAA";
     private static final String UPDATED_REFERENCE = "BBBBB";
-    private static final String DEFAULT_PHONE = "A";
-    private static final String UPDATED_PHONE = "B";
+    private static final String DEFAULT_PHONE = "1233";
+    private static final String UPDATED_PHONE = "12336";
 
     @Inject
     private Free_receiverRepository free_receiverRepository;

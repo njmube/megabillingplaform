@@ -1,0 +1,28 @@
+{
+    "megabillingplatformApp": {
+        "freecom_educational_institutions" : {
+            "home": {
+                "title": "Freecom_educational_institutions",
+                "createLabel": "Create a new Freecom_educational_institutions",
+                "createOrEditLabel": "Create or edit a Freecom_educational_institutions",
+                "search": "Search for Freecom_educational_institutions"
+            },
+            "created": "A new Freecom_educational_institutions is created with identifier {{ param }}",
+            "updated": "A Freecom_educational_institutions is updated with identifier {{ param }}",
+            "deleted": "A Freecom_educational_institutions is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom_educational_institutions {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_educational_institutions"
+            },
+            "version": "Version",
+            "name_student": "Name_student",
+            "curp": "Curp",
+            "autrvoe": "Autrvoe",
+            "rfcpayment": "Rfcpayment",
+            "school_level": "School_level",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

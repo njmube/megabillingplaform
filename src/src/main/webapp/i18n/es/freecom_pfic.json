@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "freecom_pfic" : {
+            "home": {
+                "title": "Freecom_pfics",
+                "createLabel": "Crear nuevo Freecom_pfic",
+                "createOrEditLabel": "Crear o editar Freecom_pfic",
+                "search": "Search for Freecom_pfic"
+            },
+            "created": "Un nuevo Freecom_pfic ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_pfic ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_pfic ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_pfic {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_pfic"
+            },
+            "version": "Version",
+            "key_vehicle": "Key_vehicle",
+            "license_plate": "License_plate",
+            "rfcpf": "Rfcpf",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

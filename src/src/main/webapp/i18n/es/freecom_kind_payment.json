@@ -1,0 +1,29 @@
+{
+    "megabillingplatformApp": {
+        "freecom_kind_payment" : {
+            "home": {
+                "title": "Freecom_kind_payments",
+                "createLabel": "Crear nuevo Freecom_kind_payment",
+                "createOrEditLabel": "Crear o editar Freecom_kind_payment",
+                "search": "Search for Freecom_kind_payment"
+            },
+            "created": "Un nuevo Freecom_kind_payment ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_kind_payment ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_kind_payment ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_kind_payment {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_kind_payment"
+            },
+            "version": "Version",
+            "cvepic": "Cvepic",
+            "foliosoldon": "Foliosoldon",
+            "art_piece_name": "Art_piece_name",
+            "technical_art_piece": "Technical_art_piece",
+            "year_art_piece": "Year_art_piece",
+            "dimensional_art_piece": "Dimensional_art_piece",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "freecom_donees" : {
+            "home": {
+                "title": "Freecom_donees",
+                "createLabel": "Crear nuevo Freecom_donees",
+                "createOrEditLabel": "Crear o editar Freecom_donees",
+                "search": "Search for Freecom_donees"
+            },
+            "created": "Un nuevo Freecom_donees ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_donees ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_donees ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_donees {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_donees"
+            },
+            "version": "Version",
+            "no_authorization": "No_authorization",
+            "date_authorization": "Date_authorization",
+            "legend": "Legend",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

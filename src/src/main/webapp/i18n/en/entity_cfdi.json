@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "entity_cfdi" : {
+            "home": {
+                "title": "Entity_cfdis",
+                "createLabel": "Create a new Entity_cfdi",
+                "createOrEditLabel": "Create or edit a Entity_cfdi",
+                "search": "Search for Entity_cfdi"
+            },
+            "created": "A new Entity_cfdi is created with identifier {{ param }}",
+            "updated": "A Entity_cfdi is updated with identifier {{ param }}",
+            "deleted": "A Entity_cfdi is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Entity_cfdi {{ id }}?"
+            },
+            "detail": {
+                "title": "Entity_cfdi"
+            },
+            "accounting": "Accounting",
+            "key_entity": "Key_entity",
+            "scope": "Scope",
+            "freecom_ine": "Freecom_ine"
+        }
+    }
+}

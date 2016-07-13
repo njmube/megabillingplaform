@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Digital_certificate.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "digital_certificate")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Digital_certificate implements Serializable {

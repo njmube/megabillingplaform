@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A General_data.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "general_data")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class General_data implements Serializable {

@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "freecom_taxlegends" : {
+            "home": {
+                "title": "Freecom_taxlegends",
+                "createLabel": "Crear nuevo Freecom_taxlegends",
+                "createOrEditLabel": "Crear o editar Freecom_taxlegends",
+                "search": "Search for Freecom_taxlegends"
+            },
+            "created": "Un nuevo Freecom_taxlegends ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_taxlegends ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_taxlegends ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_taxlegends {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_taxlegends"
+            },
+            "version": "Version",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

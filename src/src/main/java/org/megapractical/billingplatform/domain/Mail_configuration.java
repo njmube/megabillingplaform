@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * A Mail_configuration.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "mail_configuration")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Mail_configuration implements Serializable {

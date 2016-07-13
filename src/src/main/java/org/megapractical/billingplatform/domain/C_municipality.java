@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A C_municipality.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "c_municipality")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 @NamedQuery(name = "C_municipality.findByS",

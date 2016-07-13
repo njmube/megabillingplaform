@@ -17,7 +17,7 @@ import java.io.Serializable;
  *
  * @see org.megapractical.billingplatform.security.CustomPersistentRememberMeServices
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "jhi_persistent_token")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class PersistentToken implements Serializable {

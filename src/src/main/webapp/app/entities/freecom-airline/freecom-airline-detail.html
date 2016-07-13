@@ -1,0 +1,33 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_airline.detail.title">Freecom_airline</span> {{vm.freecom_airline.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.freecom_airline.version">Version</dt></dt>
+        <dd>
+            <span>{{vm.freecom_airline.version}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_airline.tua">Tua</dt></dt>
+        <dd>
+            <span>{{vm.freecom_airline.tua}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_airline.total_charge">Total_charge</dt></dt>
+        <dd>
+            <span>{{vm.freecom_airline.total_charge}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_airline.free_cfdi">free_cfdi</span></dt>
+        <dd>
+            <a ui-sref="free-cfdi-detail({id:vm.freecom_airline.free_cfdi.id})">{{vm.freecom_airline.free_cfdi.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,70 @@
+<div>
+    <h2 translate="megabillingplatformApp.freecom_pfic.home.title">Freecom_pfics</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="freecom-pfic.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.freecom_pfic.home.createLabel">
+                        Create new Freecom_pfic
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version"><span translate="megabillingplatformApp.freecom_pfic.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="key_vehicle"><span translate="megabillingplatformApp.freecom_pfic.key_vehicle">Key_vehicle</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="license_plate"><span translate="megabillingplatformApp.freecom_pfic.license_plate">License_plate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfcpf"><span translate="megabillingplatformApp.freecom_pfic.rfcpf">Rfcpf</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.freecom_pfic.free_cfdi">free_cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="freecom_pfic in vm.freecom_pfics track by freecom_pfic.id">
+                    <td><a ui-sref="freecom-pfic-detail({id:freecom_pfic.id})">{{freecom_pfic.id}}</a></td>
+                    <td>{{freecom_pfic.version}}</td>
+                    <td>{{freecom_pfic.key_vehicle}}</td>
+                    <td>{{freecom_pfic.license_plate}}</td>
+                    <td>{{freecom_pfic.rfcpf}}</td>
+                    <td>
+                        <a ui-sref="free-cfdi-detail({id:freecom_pfic.free_cfdi.id})">{{freecom_pfic.free_cfdi.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="freecom-pfic-detail({id:freecom_pfic.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-pfic.edit({id:freecom_pfic.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-pfic.delete({id:freecom_pfic.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

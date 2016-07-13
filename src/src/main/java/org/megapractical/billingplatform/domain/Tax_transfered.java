@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * A Tax_transfered.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "tax_transfered")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Tax_transfered implements Serializable {

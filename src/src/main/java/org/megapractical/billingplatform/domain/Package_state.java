@@ -14,7 +14,7 @@ import java.util.Objects;
 /**
  * A Package_state.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "package_state")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Package_state implements Serializable {

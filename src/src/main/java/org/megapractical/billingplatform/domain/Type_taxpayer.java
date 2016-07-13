@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Type_taxpayer.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "type_taxpayer")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Type_taxpayer implements Serializable {

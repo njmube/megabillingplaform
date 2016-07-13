@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Config_pathrootfile.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "config_pathrootfile")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Config_pathrootfile implements Serializable {

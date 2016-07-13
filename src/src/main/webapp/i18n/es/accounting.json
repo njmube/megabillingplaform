@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "accounting" : {
+            "home": {
+                "title": "Accountings",
+                "createLabel": "Crear nuevo Accounting",
+                "createOrEditLabel": "Crear o editar Accounting",
+                "search": "Search for Accounting"
+            },
+            "created": "Un nuevo Accounting ha sido creado con el identificador {{ param }}",
+            "updated": "Un Accounting ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Accounting ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Accounting {{ id }}?"
+            },
+            "detail": {
+                "title": "Accounting"
+            },
+            "keyaccounting": "Keyaccounting"
+        }
+    }
+}

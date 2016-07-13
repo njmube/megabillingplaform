@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Measure_unit.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "measure_unit")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Measure_unit implements Serializable {

@@ -1,0 +1,21 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "3",
+            "fieldValidateRulesMaxlength": "50"
+        }
+    ],
+    "changelogDate": "20160712194919",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "well_type",
+    "pagination": "pagination"
+}

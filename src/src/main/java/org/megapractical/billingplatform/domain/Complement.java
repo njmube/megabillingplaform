@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Complement.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "complement")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Complement implements Serializable {

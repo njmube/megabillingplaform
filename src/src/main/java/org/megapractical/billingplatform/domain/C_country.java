@@ -14,7 +14,7 @@ import java.util.Objects;
 /**
  * A C_country.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "c_country")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class C_country implements Serializable {

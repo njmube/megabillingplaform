@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "freecom_accreditation_ieps" : {
+            "home": {
+                "title": "Freecom_accreditation_ieps",
+                "createLabel": "Crear nuevo Freecom_accreditation_ieps",
+                "createOrEditLabel": "Crear o editar Freecom_accreditation_ieps",
+                "search": "Search for Freecom_accreditation_ieps"
+            },
+            "created": "Un nuevo Freecom_accreditation_ieps ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_accreditation_ieps ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_accreditation_ieps ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_accreditation_ieps {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_accreditation_ieps"
+            },
+            "version": "Version",
+            "c_tar": "C_tar",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

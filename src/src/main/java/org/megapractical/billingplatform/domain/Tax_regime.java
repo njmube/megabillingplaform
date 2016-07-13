@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * A Tax_regime.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "tax_regime")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Tax_regime implements Serializable {

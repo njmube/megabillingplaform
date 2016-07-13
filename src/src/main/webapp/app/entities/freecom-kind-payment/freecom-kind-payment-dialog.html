@@ -1,0 +1,120 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFreecom_kind_paymentLabel" translate="megabillingplatformApp.freecom_kind_payment.home.createOrEditLabel">Create or edit a Freecom_kind_payment</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.freecom_kind_payment.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_kind_payment.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.freecom_kind_payment.version"
+                    required />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.version.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_kind_payment.cvepic" for="field_cvepic">Cvepic</label>
+            <input type="text" class="form-control" name="cvepic" id="field_cvepic"
+                    ng-model="vm.freecom_kind_payment.cvepic"
+                    required />
+            <div ng-show="editForm.cvepic.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.cvepic.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_kind_payment.foliosoldon" for="field_foliosoldon">Foliosoldon</label>
+            <input type="text" class="form-control" name="foliosoldon" id="field_foliosoldon"
+                    ng-model="vm.freecom_kind_payment.foliosoldon"
+                    required />
+            <div ng-show="editForm.foliosoldon.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.foliosoldon.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_kind_payment.art_piece_name" for="field_art_piece_name">Art_piece_name</label>
+            <input type="text" class="form-control" name="art_piece_name" id="field_art_piece_name"
+                    ng-model="vm.freecom_kind_payment.art_piece_name"
+                    required />
+            <div ng-show="editForm.art_piece_name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.art_piece_name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_kind_payment.technical_art_piece" for="field_technical_art_piece">Technical_art_piece</label>
+            <input type="text" class="form-control" name="technical_art_piece" id="field_technical_art_piece"
+                    ng-model="vm.freecom_kind_payment.technical_art_piece"
+                    required />
+            <div ng-show="editForm.technical_art_piece.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.technical_art_piece.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_kind_payment.year_art_piece" for="field_year_art_piece">Year_art_piece</label>
+            <input type="number" class="form-control" name="year_art_piece" id="field_year_art_piece"
+                    ng-model="vm.freecom_kind_payment.year_art_piece"
+                    required />
+            <div ng-show="editForm.year_art_piece.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.year_art_piece.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.year_art_piece.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_kind_payment.dimensional_art_piece" for="field_dimensional_art_piece">Dimensional_art_piece</label>
+            <input type="text" class="form-control" name="dimensional_art_piece" id="field_dimensional_art_piece"
+                    ng-model="vm.freecom_kind_payment.dimensional_art_piece"
+                    required />
+            <div ng-show="editForm.dimensional_art_piece.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.dimensional_art_piece.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_kind_payment.free_cfdi" for="field_free_cfdi">free_cfdi</label>
+            <select class="form-control" id="field_free_cfdi" name="free_cfdi" ng-model="vm.freecom_kind_payment.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.free_cfdis | orderBy:'id' track by free_cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

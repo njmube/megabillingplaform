@@ -1,0 +1,32 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "freecom_taxlegends",
+            "otherEntityName": "freecom_taxlegends",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "version"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "tax_provision",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "norm",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "text_legend",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160712201728",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "legend",
+    "pagination": "pagination"
+}

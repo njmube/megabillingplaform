@@ -14,7 +14,7 @@ import java.util.Objects;
 /**
  * A File_type.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "file_type")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class File_type implements Serializable {

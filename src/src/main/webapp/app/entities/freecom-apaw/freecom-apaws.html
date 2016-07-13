@@ -1,0 +1,86 @@
+<div>
+    <h2 translate="megabillingplatformApp.freecom_apaw.home.title">Freecom_apaws</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="freecom-apaw.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.freecom_apaw.home.createLabel">
+                        Create new Freecom_apaw
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version"><span translate="megabillingplatformApp.freecom_apaw.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="others_well_type"><span translate="megabillingplatformApp.freecom_apaw.others_well_type">Others_well_type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="others_acquired_title"><span translate="megabillingplatformApp.freecom_apaw.others_acquired_title">Others_acquired_title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="subtotal"><span translate="megabillingplatformApp.freecom_apaw.subtotal">Subtotal</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="iva"><span translate="megabillingplatformApp.freecom_apaw.iva">Iva</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_acquisition"><span translate="megabillingplatformApp.freecom_apaw.date_acquisition">Date_acquisition</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="well_type.code"><span translate="megabillingplatformApp.freecom_apaw.well_type">well_type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="acquired_title.code"><span translate="megabillingplatformApp.freecom_apaw.acquired_title">acquired_title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="features_work_piece.code"><span translate="megabillingplatformApp.freecom_apaw.features_work_piece">features_work_piece</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.freecom_apaw.free_cfdi">free_cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="freecom_apaw in vm.freecom_apaws track by freecom_apaw.id">
+                    <td><a ui-sref="freecom-apaw-detail({id:freecom_apaw.id})">{{freecom_apaw.id}}</a></td>
+                    <td>{{freecom_apaw.version}}</td>
+                    <td>{{freecom_apaw.others_well_type}}</td>
+                    <td>{{freecom_apaw.others_acquired_title}}</td>
+                    <td>{{freecom_apaw.subtotal}}</td>
+                    <td>{{freecom_apaw.iva}}</td>
+                    <td>{{freecom_apaw.date_acquisition | date:'medium'}}</td>
+                    <td>
+                        <a ui-sref="well-type-detail({id:freecom_apaw.well_type.id})">{{freecom_apaw.well_type.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="acquired-title-detail({id:freecom_apaw.acquired_title.id})">{{freecom_apaw.acquired_title.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="features-work-piece-detail({id:freecom_apaw.features_work_piece.id})">{{freecom_apaw.features_work_piece.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="free-cfdi-detail({id:freecom_apaw.free_cfdi.id})">{{freecom_apaw.free_cfdi.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="freecom-apaw-detail({id:freecom_apaw.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-apaw.edit({id:freecom_apaw.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-apaw.delete({id:freecom_apaw.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

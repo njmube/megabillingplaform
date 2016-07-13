@@ -13,7 +13,7 @@ import java.util.Objects;
 /**
  * A Free_cfdi.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "free_cfdi")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Free_cfdi implements Serializable {

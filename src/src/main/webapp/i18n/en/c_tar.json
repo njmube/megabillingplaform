@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "c_tar" : {
+            "home": {
+                "title": "C_tars",
+                "createLabel": "Create a new C_tar",
+                "createOrEditLabel": "Create or edit a C_tar",
+                "search": "Search for C_tar"
+            },
+            "created": "A new C_tar is created with identifier {{ param }}",
+            "updated": "A C_tar is updated with identifier {{ param }}",
+            "deleted": "A C_tar is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete C_tar {{ id }}?"
+            },
+            "detail": {
+                "title": "C_tar"
+            },
+            "name": "Name"
+        }
+    }
+}

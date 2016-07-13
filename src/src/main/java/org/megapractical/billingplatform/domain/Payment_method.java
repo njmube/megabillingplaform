@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Payment_method.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "payment_method")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Payment_method implements Serializable {

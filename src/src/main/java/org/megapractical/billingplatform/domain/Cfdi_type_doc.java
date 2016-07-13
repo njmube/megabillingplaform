@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Cfdi_type_doc.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "cfdi_type_doc")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Cfdi_type_doc implements Serializable {

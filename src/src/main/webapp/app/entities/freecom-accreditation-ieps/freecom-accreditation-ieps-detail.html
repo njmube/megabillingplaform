@@ -1,0 +1,28 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_accreditation_ieps.detail.title">Freecom_accreditation_ieps</span> {{vm.freecom_accreditation_ieps.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.freecom_accreditation_ieps.version">Version</dt></dt>
+        <dd>
+            <span>{{vm.freecom_accreditation_ieps.version}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_accreditation_ieps.c_tar">c_tar</span></dt>
+        <dd>
+            <a ui-sref="c-tar-detail({id:vm.freecom_accreditation_ieps.c_tar.id})">{{vm.freecom_accreditation_ieps.c_tar.name}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_accreditation_ieps.free_cfdi">free_cfdi</span></dt>
+        <dd>
+            <a ui-sref="free-cfdi-detail({id:vm.freecom_accreditation_ieps.free_cfdi.id})">{{vm.freecom_accreditation_ieps.free_cfdi.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

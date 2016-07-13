@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * A Package_transactions.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "package_transactions")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Package_transactions implements Serializable {

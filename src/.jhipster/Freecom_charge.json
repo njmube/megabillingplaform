@@ -1,0 +1,31 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "freecom_airline",
+            "otherEntityName": "freecom_airline",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "version"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "codecharge",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160712212523",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_charge",
+    "pagination": "pagination"
+}

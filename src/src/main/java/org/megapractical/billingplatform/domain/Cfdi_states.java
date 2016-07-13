@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Cfdi_states.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "cfdi_states")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Cfdi_states implements Serializable {

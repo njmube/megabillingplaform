@@ -1,0 +1,31 @@
+{
+    "megabillingplatformApp": {
+        "freecom_apaw" : {
+            "home": {
+                "title": "Freecom_apaws",
+                "createLabel": "Crear nuevo Freecom_apaw",
+                "createOrEditLabel": "Crear o editar Freecom_apaw",
+                "search": "Search for Freecom_apaw"
+            },
+            "created": "Un nuevo Freecom_apaw ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_apaw ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_apaw ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_apaw {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_apaw"
+            },
+            "version": "Version",
+            "others_well_type": "Others_well_type",
+            "others_acquired_title": "Others_acquired_title",
+            "subtotal": "Subtotal",
+            "iva": "Iva",
+            "date_acquisition": "Date_acquisition",
+            "well_type": "Well_type",
+            "acquired_title": "Acquired_title",
+            "features_work_piece": "Features_work_piece",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Services.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "services")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Services implements Serializable {

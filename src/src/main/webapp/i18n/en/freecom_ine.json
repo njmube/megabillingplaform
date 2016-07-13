@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "freecom_ine" : {
+            "home": {
+                "title": "Freecom_ines",
+                "createLabel": "Create a new Freecom_ine",
+                "createOrEditLabel": "Create or edit a Freecom_ine",
+                "search": "Search for Freecom_ine"
+            },
+            "created": "A new Freecom_ine is created with identifier {{ param }}",
+            "updated": "A Freecom_ine is updated with identifier {{ param }}",
+            "deleted": "A Freecom_ine is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom_ine {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_ine"
+            },
+            "version": "Version",
+            "committee": "Committee",
+            "process_type": "Process_type",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

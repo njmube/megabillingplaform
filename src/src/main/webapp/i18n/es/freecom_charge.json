@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "freecom_charge" : {
+            "home": {
+                "title": "Freecom_charges",
+                "createLabel": "Crear nuevo Freecom_charge",
+                "createOrEditLabel": "Crear o editar Freecom_charge",
+                "search": "Search for Freecom_charge"
+            },
+            "created": "Un nuevo Freecom_charge ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_charge ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_charge ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_charge {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_charge"
+            },
+            "codecharge": "Codecharge",
+            "amount": "Amount",
+            "freecom_airline": "Freecom_airline"
+        }
+    }
+}

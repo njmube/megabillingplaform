@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Task.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "task")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Task implements Serializable {

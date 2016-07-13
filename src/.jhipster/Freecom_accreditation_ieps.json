@@ -1,0 +1,32 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "c_tar",
+            "otherEntityName": "c_tar",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "free_cfdi",
+            "otherEntityName": "free_cfdi",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "freecom_accreditation_ieps"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160712220809",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_accreditation_ieps",
+    "pagination": "pagination"
+}

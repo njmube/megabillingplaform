@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * A Free_receiver.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "free_receiver")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Free_receiver implements Serializable {

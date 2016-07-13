@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "scope" : {
+            "home": {
+                "title": "Scopes",
+                "createLabel": "Crear nuevo Scope",
+                "createOrEditLabel": "Crear o editar Scope",
+                "search": "Search for Scope"
+            },
+            "created": "Un nuevo Scope ha sido creado con el identificador {{ param }}",
+            "updated": "Un Scope ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Scope ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Scope {{ id }}?"
+            },
+            "detail": {
+                "title": "Scope"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

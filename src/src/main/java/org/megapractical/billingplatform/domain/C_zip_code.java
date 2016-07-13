@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * A C_zip_code.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "c_zip_code")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class C_zip_code implements Serializable {

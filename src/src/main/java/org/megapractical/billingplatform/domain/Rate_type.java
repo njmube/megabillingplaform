@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * A Rate_type.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "rate_type")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Rate_type implements Serializable {

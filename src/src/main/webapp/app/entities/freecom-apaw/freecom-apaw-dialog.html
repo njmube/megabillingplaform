@@ -1,0 +1,106 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFreecom_apawLabel" translate="megabillingplatformApp.freecom_apaw.home.createOrEditLabel">Create or edit a Freecom_apaw</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.freecom_apaw.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_apaw.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.freecom_apaw.version"
+                    required />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.version.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_apaw.others_well_type" for="field_others_well_type">Others_well_type</label>
+            <input type="text" class="form-control" name="others_well_type" id="field_others_well_type"
+                    ng-model="vm.freecom_apaw.others_well_type"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_apaw.others_acquired_title" for="field_others_acquired_title">Others_acquired_title</label>
+            <input type="text" class="form-control" name="others_acquired_title" id="field_others_acquired_title"
+                    ng-model="vm.freecom_apaw.others_acquired_title"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_apaw.subtotal" for="field_subtotal">Subtotal</label>
+            <input type="number" class="form-control" name="subtotal" id="field_subtotal"
+                    ng-model="vm.freecom_apaw.subtotal"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_apaw.iva" for="field_iva">Iva</label>
+            <input type="number" class="form-control" name="iva" id="field_iva"
+                    ng-model="vm.freecom_apaw.iva"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_apaw.date_acquisition" for="field_date_acquisition">Date_acquisition</label>
+                <div class="input-group">
+                    <input id="field_date_acquisition" type="text" class="form-control" name="date_acquisition" datetime-picker="{{dateformat}}" ng-model="vm.freecom_apaw.date_acquisition" is-open="vm.datePickerOpenStatus.date_acquisition"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_acquisition')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_acquisition.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_acquisition.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.date_acquisition.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_apaw.well_type" for="field_well_type">well_type</label>
+            <select class="form-control" id="field_well_type" name="well_type" ng-model="vm.freecom_apaw.well_type" ng-options="well_type as well_type.code for well_type in vm.well_types track by well_type.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_apaw.acquired_title" for="field_acquired_title">acquired_title</label>
+            <select class="form-control" id="field_acquired_title" name="acquired_title" ng-model="vm.freecom_apaw.acquired_title" ng-options="acquired_title as acquired_title.code for acquired_title in vm.acquired_titles track by acquired_title.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_apaw.features_work_piece" for="field_features_work_piece">features_work_piece</label>
+            <select class="form-control" id="field_features_work_piece" name="features_work_piece" ng-model="vm.freecom_apaw.features_work_piece" ng-options="features_work_piece as features_work_piece.code for features_work_piece in vm.features_work_pieces track by features_work_piece.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_apaw.free_cfdi" for="field_free_cfdi">free_cfdi</label>
+            <select class="form-control" id="field_free_cfdi" name="free_cfdi" ng-model="vm.freecom_apaw.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.free_cfdis | orderBy:'id' track by free_cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

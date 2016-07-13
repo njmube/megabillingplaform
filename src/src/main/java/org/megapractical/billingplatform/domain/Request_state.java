@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Request_state.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "request_state")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Request_state implements Serializable {

@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "process_type" : {
+            "home": {
+                "title": "Process_types",
+                "createLabel": "Create a new Process_type",
+                "createOrEditLabel": "Create or edit a Process_type",
+                "search": "Search for Process_type"
+            },
+            "created": "A new Process_type is created with identifier {{ param }}",
+            "updated": "A Process_type is updated with identifier {{ param }}",
+            "deleted": "A Process_type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Process_type {{ id }}?"
+            },
+            "detail": {
+                "title": "Process_type"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

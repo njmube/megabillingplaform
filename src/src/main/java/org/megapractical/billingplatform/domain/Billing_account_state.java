@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Billing_account_state.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "billing_account_state")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Billing_account_state implements Serializable {

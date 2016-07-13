@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * A Free_part_concept.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "free_part_concept")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Free_part_concept implements Serializable {

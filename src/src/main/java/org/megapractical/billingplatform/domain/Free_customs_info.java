@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * A Free_customs_info.
  */
-@Entity
+@javax.persistence.Entity
 @Table(name = "free_customs_info")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Free_customs_info implements Serializable {

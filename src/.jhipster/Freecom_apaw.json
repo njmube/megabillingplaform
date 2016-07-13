@@ -1,0 +1,67 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "well_type",
+            "otherEntityName": "well_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipName": "acquired_title",
+            "otherEntityName": "acquired_title",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipName": "features_work_piece",
+            "otherEntityName": "features_work_piece",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipName": "free_cfdi",
+            "otherEntityName": "free_cfdi",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "freecom_apaw"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "others_well_type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "others_acquired_title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subtotal",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "iva",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "date_acquisition",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160712201235",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_apaw",
+    "pagination": "pagination"
+}

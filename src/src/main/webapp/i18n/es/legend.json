@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "legend" : {
+            "home": {
+                "title": "Legends",
+                "createLabel": "Crear nuevo Legend",
+                "createOrEditLabel": "Crear o editar Legend",
+                "search": "Search for Legend"
+            },
+            "created": "Un nuevo Legend ha sido creado con el identificador {{ param }}",
+            "updated": "Un Legend ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Legend ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Legend {{ id }}?"
+            },
+            "detail": {
+                "title": "Legend"
+            },
+            "tax_provision": "Tax_provision",
+            "norm": "Norm",
+            "text_legend": "Text_legend",
+            "freecom_taxlegends": "Freecom_taxlegends"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "key_entity" : {
+            "home": {
+                "title": "Key_entities",
+                "createLabel": "Crear nuevo Key_entity",
+                "createOrEditLabel": "Crear o editar Key_entity",
+                "search": "Search for Key_entity"
+            },
+            "created": "Un nuevo Key_entity ha sido creado con el identificador {{ param }}",
+            "updated": "Un Key_entity ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Key_entity ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Key_entity {{ id }}?"
+            },
+            "detail": {
+                "title": "Key_entity"
+            },
+            "key": "Key"
+        }
+    }
+}
