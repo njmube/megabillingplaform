@@ -11,8 +11,8 @@
         var vm = this;
 		
         vm.free_concept = free_concept_entity;
-		vm.iva = 0;
-		vm.ieps = 0;
+		vm.iva = (0).toFixed(2);
+		vm.ieps = (0).toFixed(2);
         vm.free_customs_info = free_custom_info_entity;		
         vm.measure_units = Measure_unit.query();
         vm.rate_typess = Rate_type.query({filtername: " "});

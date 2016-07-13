@@ -286,12 +286,12 @@
 					free_concept_entity: function () {
 						return {
 							no_identification: null,
-							quantity: 0,
+							quantity: (0).toFixed(2),
 							description: null,
-							unit_value: 0,
+							unit_value: (0).toFixed(2),
 							predial_number: null,							
-							discount: 0,
-							amount: 0,
+							discount: (0).toFixed(2),
+							amount: (0).toFixed(2),
 							id: null
 						};
 					},
@@ -326,8 +326,8 @@
 			var subtotal = 0;
 			
 			var show_iva = 0;
-			var show_iva_val16 = "16 %  ";
-			var show_iva_val15 = "15 %  ";
+			var show_iva_val16 = 16.00;
+			var show_iva_val15 = 15.00;
 			var calc_iva = 0;
 			
 			var ieps = 0;
@@ -380,8 +380,6 @@
 				
 				//calculating free cfdi discount...	
 				discount = discount + vm.free_concepts[i].free_concept.quantity * vm.free_concepts[i].free_concept.unit_value * vm.free_concepts[i].free_concept.discount/100;
-				
-				
 			}
 
 			//calculating free cfdi ret iva...
