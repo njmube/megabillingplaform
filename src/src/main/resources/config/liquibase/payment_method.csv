@@ -7,13 +7,14 @@ id;name;description;code
 6;Dinero electrónico;Dinero electrónico;06
 7;Tarjetas digitales;Tarjetas digitales;07
 8;Vales de despensa;Vales de despensa;08
-9;Bienes 10 Servicio;Bienes 10 Servicio;09
-10;Por cuenta de tercero;Por cuenta de tercero;010
-11;Dación en pago;Dación en pago;011
-12;Pago por subrogación;Pago por subrogación;012
-13;Pago por consignación;Pago por consignación;013
-14;Condonación;Condonación;014
-15;Cancelación;Cancelación;015
-16;Compensación;Compensación;016
-17;NA;NA;017
-18;Otros;Otros;018
+9;Bienes;Bienes;09
+10;Servicio;Servicio;10
+11;Por cuenta de tercero;Por cuenta de tercero;11
+12;Dación en pago;Dación en pago;12
+13;Pago por subrogación;Pago por subrogación;13
+14;Pago por consignación;Pago por consignación;14
+15;Condonación;Condonación;15
+16;Cancelación;Cancelación;16
+17;Compensación;Compensación;17
+18;NA;NA;98
+19;Otros;Otros;99
