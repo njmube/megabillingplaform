@@ -370,12 +370,12 @@
 						iva_calc_val = 15/100;
 					}
 					
-					calc_iva = calc_iva + vm.free_concepts[i].free_concept.amount * iva_calc_val * (1 + vm.free_concepts[i].free_concept_ieps_val);
+					calc_iva = calc_iva + vm.free_concepts[i].free_concept.amount * iva_calc_val * (1 + vm.free_concepts[i].free_concept_ieps.rate);
 				}
 				
 				//calculating free cfdi ieps...				
 				if(vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 1 || vm.free_cfdi.cfdi_type_doc.id == 8)){					
-					ieps = ieps + vm.free_concepts[i].free_concept_ieps_val/100 * vm.free_concepts[i].free_concept.amount;
+					ieps = ieps + vm.free_concepts[i].free_concept_ieps.rate/100 * vm.free_concepts[i].free_concept.amount;
 				}
 				
 				//calculating free cfdi discount...	
