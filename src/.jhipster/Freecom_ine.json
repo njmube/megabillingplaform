@@ -32,6 +32,10 @@
             ],
             "fieldValidateRulesMinlength": "3",
             "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "ident",
+            "fieldType": "Integer"
         }
     ],
     "changelogDate": "20160712204117",

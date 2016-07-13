@@ -92,6 +92,7 @@
                         entity: function () {
                             return {
                                 version: null,
+                                ident: null,
                                 id: null
                             };
                         }

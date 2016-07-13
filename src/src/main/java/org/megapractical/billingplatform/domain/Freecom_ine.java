@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Freecom_ine.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "freecom_ine")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Freecom_ine implements Serializable {
@@ -26,6 +26,9 @@ public class Freecom_ine implements Serializable {
     @Size(min = 3, max = 50)
     @Column(name = "version", length = 50, nullable = false)
     private String version;
+
+    @Column(name = "ident")
+    private Integer ident;
 
     @ManyToOne
     private Committee committee;
@@ -51,6 +54,14 @@ public class Freecom_ine implements Serializable {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public Integer getIdent() {
+        return ident;
+    }
+
+    public void setIdent(Integer ident) {
+        this.ident = ident;
     }
 
     public Committee getCommittee() {
@@ -102,6 +113,7 @@ public class Freecom_ine implements Serializable {
         return "Freecom_ine{" +
             "id=" + id +
             ", version='" + version + "'" +
+            ", ident='" + ident + "'" +
             '}';
     }
 }

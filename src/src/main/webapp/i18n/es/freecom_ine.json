@@ -17,6 +17,7 @@
                 "title": "Freecom_ine"
             },
             "version": "Version",
+            "ident": "Ident",
             "committee": "Committee",
             "process_type": "Process_type",
             "free_cfdi": "Free_cfdi"

@@ -45,6 +45,9 @@ public class Freecom_ineResourceIntTest {
     private static final String DEFAULT_VERSION = "AAA";
     private static final String UPDATED_VERSION = "BBB";
 
+    private static final Integer DEFAULT_IDENT = 1;
+    private static final Integer UPDATED_IDENT = 2;
+
     @Inject
     private Freecom_ineRepository freecom_ineRepository;
 
@@ -75,6 +78,7 @@ public class Freecom_ineResourceIntTest {
     public void initTest() {
         freecom_ine = new Freecom_ine();
         freecom_ine.setVersion(DEFAULT_VERSION);
+        freecom_ine.setIdent(DEFAULT_IDENT);
     }
 
     @Test
@@ -94,6 +98,7 @@ public class Freecom_ineResourceIntTest {
         assertThat(freecom_ines).hasSize(databaseSizeBeforeCreate + 1);
         Freecom_ine testFreecom_ine = freecom_ines.get(freecom_ines.size() - 1);
         assertThat(testFreecom_ine.getVersion()).isEqualTo(DEFAULT_VERSION);
+        assertThat(testFreecom_ine.getIdent()).isEqualTo(DEFAULT_IDENT);
     }
 
     @Test
@@ -125,7 +130,8 @@ public class Freecom_ineResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(freecom_ine.getId().intValue())))
-                .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION.toString())));
+                .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION.toString())))
+                .andExpect(jsonPath("$.[*].ident").value(hasItem(DEFAULT_IDENT)));
     }
 
     @Test
@@ -139,7 +145,8 @@ public class Freecom_ineResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(freecom_ine.getId().intValue()))
-            .andExpect(jsonPath("$.version").value(DEFAULT_VERSION.toString()));
+            .andExpect(jsonPath("$.version").value(DEFAULT_VERSION.toString()))
+            .andExpect(jsonPath("$.ident").value(DEFAULT_IDENT));
     }
 
     @Test
@@ -162,6 +169,7 @@ public class Freecom_ineResourceIntTest {
         Freecom_ine updatedFreecom_ine = new Freecom_ine();
         updatedFreecom_ine.setId(freecom_ine.getId());
         updatedFreecom_ine.setVersion(UPDATED_VERSION);
+        updatedFreecom_ine.setIdent(UPDATED_IDENT);
 
         restFreecom_ineMockMvc.perform(put("/api/freecom-ines")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -173,6 +181,7 @@ public class Freecom_ineResourceIntTest {
         assertThat(freecom_ines).hasSize(databaseSizeBeforeUpdate);
         Freecom_ine testFreecom_ine = freecom_ines.get(freecom_ines.size() - 1);
         assertThat(testFreecom_ine.getVersion()).isEqualTo(UPDATED_VERSION);
+        assertThat(testFreecom_ine.getIdent()).isEqualTo(UPDATED_IDENT);
     }
 
     @Test

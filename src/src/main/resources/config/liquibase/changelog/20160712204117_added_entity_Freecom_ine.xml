@@ -25,6 +25,10 @@
                 <constraints nullable="false" />
             </column>
             
+            <column name="ident" type="integer">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="committee_id" type="bigint"/>
             <column name="process_type_id" type="bigint"/>
             <column name="free_cfdi_id" type="bigint">
