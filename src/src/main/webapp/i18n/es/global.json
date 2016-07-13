@@ -112,6 +112,7 @@
                 "scheduled.task": "Tareas Programadas",
                 "use.policy": "Políticas de Uso",
                 "privacy": "Privacidad",
+				"pathrootfile": "Rutas Archivos Emisor",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
             "language": "Idioma"
