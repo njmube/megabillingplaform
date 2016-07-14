@@ -16,6 +16,7 @@
         vm.free_cfdi = entity;		
         vm.free_cfdi.free_emitter = free_emitter_entity;
 		vm.free_cfdi.tax_regime = vm.free_cfdi.free_emitter.tax_regime;
+		vm.free_cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
 		vm.free_cfdi.c_money = {id: 100, name: "MXN", description: "Peso Mexicano"};
 		vm.free_concepts = [];
 		vm.current_free_concept = null;
