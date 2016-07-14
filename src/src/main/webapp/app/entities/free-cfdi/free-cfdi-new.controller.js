@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', '$timeout'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout'];
 
-    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, $timeout) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout) {
         
 		var vm = this;
 		
@@ -46,6 +46,8 @@
         vm.c_moneys = C_money.query({pg: -1});
         vm.cfdi_type_docs = Cfdi_type_doc.query({filtername:" "});
         vm.tax_regimes = Tax_regime.query();
+		
+		vm.tax_typess = Tax_types.query({filtername: " "});
 		
         vm.load = function(id) {
             Free_cfdi.get({id : id}, function(result) {
@@ -121,7 +123,7 @@
 			
 			//saving IVA in free_tax_transferred...
 			var free_tax_transfered_iva = vm.free_concepts[vm.current_free_concept].free_concept_iva;			
-			free_tax_transfered_iva.free_concept = free_concept;					
+			free_tax_transfered_iva.free_concept = free_concept;
 			if (free_tax_transfered_iva.id !== null) {
 				Free_tax_transfered.update(free_tax_transfered_iva);
 			} else {
@@ -136,6 +138,45 @@
 			} else {
 				Free_tax_transfered.save(free_tax_transfered_ieps);
 			}
+			
+			//saving IVA in free_tax_retentions
+			var amount_iva_retentions = 0;
+			//calculating free cfdi ret iva...
+			if((vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) && (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 3 || vm.free_cfdi.cfdi_type_doc.id == 5))){
+				amount_iva_retentions = 2/3 * free_concept.quantity * free_concept.unit_value;
+			}			
+			if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 4){
+				amount_iva_retentions = 0.04 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
+			}			
+			var free_tax_retentions_iva = {
+				amount: floorFigure(amount_iva_retentions, 6),
+				free_concept: free_concept,
+				tax_types: vm.tax_typess[0],
+				id: null,
+			};
+			if (free_tax_retentions_iva.id !== null) {
+                Free_tax_retentions.update(free_tax_retentions_iva);
+            } else {
+                Free_tax_retentions.save(free_tax_retentions_iva);
+            }
+			
+			//saving ISR in free_tax_retentions
+			var amount_isr_retentions = 0;
+			//calculating free cfdi ret isr...
+			if((vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) || (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5))){
+				amount_isr_retentions = 1/10 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
+			}			
+			var free_tax_retentions_isr = {
+				amount: floorFigure(amount_isr_retentions, 6),
+				free_concept: free_concept,
+				tax_types: vm.tax_typess[1],
+				id: null,
+			};
+			if (free_tax_retentions_iva.id !== null) {
+                Free_tax_retentions.update(free_tax_retentions_isr);
+            } else {
+                Free_tax_retentions.save(free_tax_retentions_isr);
+            }			
 			
 			//saving free_customs_infos
 			var free_customs_infos = vm.free_concepts[vm.current_free_concept].free_customs_infos;
@@ -156,6 +197,7 @@
 			for(j=0; j < free_part_concepts.length; j++){
 				var free_part_concept = free_part_concepts[j];
 				free_part_concept.free_concept = free_concept;
+				free_part_concept.amount = floorFigure(free_part_concept.quantity * free_part_concept.unit_value,6);
 				if (free_part_concept.id !== null) {
 					Free_part_concept.update(free_part_concept);
 				} else {
@@ -183,13 +225,13 @@
 			vm.free_receiver.business_name= null;
 			vm.free_receiver.email= null;
 			vm.free_receiver.activated= false;
-			vm.free_receiver.create_date= null;
+			vm.free_receiver.create_date= null; 
 			vm.free_receiver.street= null;
 			vm.free_receiver.no_ext= null;
 			vm.free_receiver.no_int= null;
 			vm.free_receiver.reference= null;
 			vm.free_receiver.id= null;
-			vm.free_receiver.c_country = null;
+			vm.free_receiver.c_country = {id: 151, name: "México", abrev: "MEX"};
 			vm.free_receiver.c_state = null;
 			vm.free_receiver.c_municipality = null;
 			vm.free_receiver.c_colony = null;
@@ -197,13 +239,15 @@
 			vm.free_receiver.street = null;
 			vm.free_receiver.reference = null;
 			
-			vm.free_cfdi.free_receiver = vm.free_receiver;			
+			
+			vm.free_cfdi.free_receiver = vm.free_receiver;
+			vm.free_cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
 			vm.free_cfdi.version= null;
 			vm.free_cfdi.serial= null;
 			vm.free_cfdi.folio= null;
 			vm.free_cfdi.date_expedition= null;
 			vm.free_cfdi.payment_conditions= null;
-			vm.free_cfdi.change_type= null;
+			vm.free_cfdi.change_type= (1).toFixed(2);
 			vm.free_cfdi.place_expedition= null;
 			vm.free_cfdi.account_number= null;
 			vm.free_cfdi.folio_fiscal_orig= null;
@@ -224,15 +268,16 @@
 			vm.free_cfdi.cfdi_type_doc= null;
 			vm.free_cfdi.cfdi_types= null;
 			vm.free_cfdi.way_payment= null;
-			vm.free_cfdi.payment_method= null;
-			vm.free_cfdi.c_money= null;
+			vm.free_cfdi.payment_method= null;			
+			vm.free_cfdi.c_money = {id: 100, name: "MXN", description: "Peso Mexicano"};
 			
 			vm.way_payment = null;
 			vm.way_payment_x = 0;
 			vm.way_payment_y = 0;
 			
 			vm.free_cfdi.subtotal = floorFigure(0, 2);
-			vm.iva = floorFigure(0, 2);
+			vm.show_iva = (0).toFixed(2);
+			vm.calc_iva = (0).toFixed(2);
 			vm.ieps = floorFigure(0, 2);			
 			vm.ret_iva = floorFigure(0, 2);			
 			vm.ret_isr = floorFigure(0, 2);			
@@ -248,7 +293,7 @@
 			var free_concept = vm.free_concepts[vm.current_free_concept].free_concept;
 			free_concept.free_cfdi = vm.free_cfdi;
 			var amount = free_concept.quantity * free_concept.unit_value;
-			free_concept.amount = floorFigure(amount, 2);			
+			free_concept.amount = floorFigure(amount, 6);			
 			if (free_concept.id !== null) {
 				Free_concept.update(free_concept, onSaveConceptSuccess, onSaveError);
 			} else {

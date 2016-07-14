@@ -24,16 +24,16 @@
             <column name="rate" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            
-            <column name="amount" type="decimal(10,2)">
+
+            <column name="amount" type="decimal(10,6)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="free_concept_id" type="bigint"/>
             <column name="tax_types_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <addForeignKeyConstraint baseColumnNames="free_concept_id"
                                  baseTableName="free_tax_transfered"
                                  constraintName="fk_free_tax_transfered_free_concept_id"

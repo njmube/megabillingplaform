@@ -22,7 +22,7 @@
 		vm.calcAmount = function(){
 			/*SubTotal = (Cantidad * Precio unitario)*(1-Descuento/100)*/			
 			if(vm.free_concept.quantity > 0 && vm.free_concept.unit_value > 0){
-				var amount = (vm.free_concept.quantity * vm.free_concept.unit_value) * (1 - vm.free_concept.discount/100)
+				var amount = vm.free_concept.quantity * vm.free_concept.unit_value * (1 - vm.free_concept.discount/100)
 				vm.free_concept.amount = floorFigure(amount, 2);
 			}
 		};
@@ -59,13 +59,13 @@
 						},
 				free_concept_iva: {
 							rate: floorFigure(vm.iva.value, 2),
-                            amount: floorFigure(vm.free_concept.amount * vm.iva.value/100,2),
+                            amount: floorFigure(vm.free_concept.quantity * vm.free_concept.unit_value * (1 - vm.free_concept.discount/100) * vm.iva.value/100,6),
 							tax_types: vm.tax_typess[0],
                             id: null
 						},
 				free_concept_ieps: {
 							rate: floorFigure(vm.ieps, 2),
-                            amount: floorFigure(vm.free_concept.amount * vm.ieps/100,2),
+                            amount: floorFigure(vm.free_concept.quantity * vm.free_concept.unit_value * (1 - vm.free_concept.discount/100) * vm.ieps/100,6),
 							tax_types: vm.tax_typess[2],
                             id: null
 						},

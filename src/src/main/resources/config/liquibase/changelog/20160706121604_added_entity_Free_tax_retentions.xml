@@ -21,15 +21,15 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="amount" type="decimal(10,2)">
+            <column name="amount" type="decimal(10,6)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="free_concept_id" type="bigint"/>
             <column name="tax_types_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <addForeignKeyConstraint baseColumnNames="free_concept_id"
                                  baseTableName="free_tax_retentions"
                                  constraintName="fk_free_tax_retentions_free_concept_id"

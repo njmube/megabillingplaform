@@ -24,36 +24,36 @@
             <column name="no_identification" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="quantity" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="description" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="unit_value" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="predial_number" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
-            <column name="amount" type="decimal(10,2)">
+
+            <column name="amount" type="decimal(10,6)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="discount" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="free_cfdi_id" type="bigint"/>
             <column name="measure_unit_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <addForeignKeyConstraint baseColumnNames="free_cfdi_id"
                                  baseTableName="free_concept"
                                  constraintName="fk_free_concept_free_cfdi_id"

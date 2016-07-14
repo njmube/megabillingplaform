@@ -24,7 +24,7 @@
             <column name="amount" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="tax_types_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -35,6 +35,6 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
     </changeSet>
 </databaseChangeLog>

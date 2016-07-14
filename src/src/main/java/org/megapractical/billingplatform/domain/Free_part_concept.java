@@ -36,7 +36,7 @@ public class Free_part_concept implements Serializable {
     @Column(name = "unit_value", precision=10, scale=2)
     private BigDecimal unit_value;
 
-    @Column(name = "amount", precision=10, scale=2)
+    @Column(name = "amount", precision=10, scale=6)
     private BigDecimal amount;
 
     @ManyToOne
