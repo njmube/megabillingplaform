@@ -6,6 +6,7 @@ import org.megapractical.billingplatform.repository.Free_cfdiRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
@@ -39,22 +40,25 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
         return result;
     }
 
-    public List<Free_cfdi> findCustom(Integer idFree_cfdi, String folio_fiscal, String rfc_receiver,
+    public Page<Free_cfdi> findCustom(Integer idFree_cfdi, String folio_fiscal, String rfc_receiver,
                                       LocalDate fromDate, LocalDate toDate,Integer idState,
-                                      String serie,String folio){
+                                      String serie,String folio, Pageable pageable){
 
-        List<Free_cfdi> list = new ArrayList<>();
+        Page<Free_cfdi> page = null;
+        List<Free_cfdi> all;
         if(idFree_cfdi != 0)
         {
-            List<Long> ids = new ArrayList<>();
-            ids.add(new Long(idFree_cfdi));
-            list = free_cfdiRepository.findAll(ids);
+            Free_cfdi free_cfdi= free_cfdiRepository.findOne(new Long(idFree_cfdi));
+            all = new ArrayList<>();
+            all.add(free_cfdi);
+            page = new PageImpl<Free_cfdi>(all,pageable,1);
+            return page;
         }
         else {
 
         }
 
-        return list;
+        return page;
     }
     /**
      *  Get all the free_cfdis.

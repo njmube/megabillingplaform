@@ -140,10 +140,10 @@ public class Free_cfdiResource {
         }
         else{
             log.debug("Obtener alguno");
-            List<Free_cfdi> page = free_cfdiService.findCustom(idFree_cfdi, folio_fiscal, rfc_receiver,
-                fromDate, toDate,idState,serie,folio);
-
-            return new ResponseEntity<>(page, HttpStatus.OK);
+            Page<Free_cfdi> page = free_cfdiService.findCustom(idFree_cfdi, folio_fiscal, rfc_receiver,
+                fromDate, toDate,idState,serie,folio, pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-cfdis");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         }
     }
 

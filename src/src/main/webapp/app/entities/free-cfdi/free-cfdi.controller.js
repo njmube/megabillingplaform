@@ -11,6 +11,7 @@
         var vm = this;
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
+        vm.search = search;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
@@ -34,6 +35,43 @@
                 size: paginationConstants.itemsPerPage,
                 sort: sort(),
                 idFree_cfdi: 0,
+                folio_fiscal: " ",
+                rfc_receiver: " ",
+                fromDate: fromDate,
+                toDate: toDate,
+                idState: 0,
+                serie: " ",
+                folio: " "
+            }, onSuccess, onError);
+            function sort() {
+                var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+                if (vm.predicate !== 'id') {
+                    result.push('id');
+                }
+                return result;
+            }
+            function onSuccess(data, headers) {
+                vm.links = ParseLinks.parse(headers('link'));
+                vm.totalItems = headers('X-Total-Count');
+                vm.queryCount = vm.totalItems;
+                vm.free_cfdis = data;
+                vm.page = pagingParams.page;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+        }
+
+        function search () {
+            var dateFormat = 'yyyy-MM-dd';
+            var fromDate = $filter('date')("0000-01-01", dateFormat);
+            var toDate = $filter('date')("0000-01-01", dateFormat);
+            var idFree_cfdi = vm.free_cfdi.id;
+            Free_cfdi.query({
+                page: pagingParams.page - 1,
+                size: paginationConstants.itemsPerPage,
+                sort: sort(),
+                idFree_cfdi: idFree_cfdi,
                 folio_fiscal: " ",
                 rfc_receiver: " ",
                 fromDate: fromDate,

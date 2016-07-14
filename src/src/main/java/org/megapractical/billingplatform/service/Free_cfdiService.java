@@ -29,14 +29,14 @@ public interface Free_cfdiService {
      */
     Page<Free_cfdi> findAll(Pageable pageable);
 
-    List<Free_cfdi> findCustom(Integer idFree_cfdi,
+    Page<Free_cfdi> findCustom(Integer idFree_cfdi,
                                String folio_fiscal,
                                String rfc_receiver,
                                LocalDate fromDate,
                                LocalDate toDate,
                                Integer idState,
                                String serie,
-                               String folio);
+                               String folio, Pageable pageable);
 
     /**
      *  Get the "id" free_cfdi.
