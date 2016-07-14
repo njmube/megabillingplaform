@@ -10,7 +10,9 @@
         var resourceUrl =  'api/free-cfdis/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true},
+            'query': { method: 'GET', isArray: true,
+                params: {idFree_cfdi: null,folio_fiscal: null,rfc_receiver: null,
+                    fromDate: null, toDate: null, idState: null, serie: null, folio: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

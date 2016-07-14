@@ -11,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,13 +23,13 @@ import java.util.List;
 public class Free_cfdiServiceImpl implements Free_cfdiService{
 
     private final Logger log = LoggerFactory.getLogger(Free_cfdiServiceImpl.class);
-    
+
     @Inject
     private Free_cfdiRepository free_cfdiRepository;
-    
+
     /**
      * Save a free_cfdi.
-     * 
+     *
      * @param free_cfdi the entity to save
      * @return the persisted entity
      */
@@ -37,16 +39,33 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
         return result;
     }
 
+    public List<Free_cfdi> findCustom(Integer idFree_cfdi, String folio_fiscal, String rfc_receiver,
+                                      LocalDate fromDate, LocalDate toDate,Integer idState,
+                                      String serie,String folio){
+
+        List<Free_cfdi> list = new ArrayList<>();
+        if(idFree_cfdi != 0)
+        {
+            List<Long> ids = new ArrayList<>();
+            ids.add(new Long(idFree_cfdi));
+            list = free_cfdiRepository.findAll(ids);
+        }
+        else {
+
+        }
+
+        return list;
+    }
     /**
      *  Get all the free_cfdis.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Free_cfdi> findAll(Pageable pageable) {
         log.debug("Request to get all Free_cfdis");
-        Page<Free_cfdi> result = free_cfdiRepository.findAll(pageable); 
+        Page<Free_cfdi> result = free_cfdiRepository.findAll(pageable);
         return result;
     }
 
@@ -56,7 +75,7 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Free_cfdi findOne(Long id) {
         log.debug("Request to get Free_cfdi : {}", id);
         Free_cfdi free_cfdi = free_cfdiRepository.findOne(id);
@@ -65,7 +84,7 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
 
     /**
      *  Delete the  free_cfdi by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiController', Free_cfdiController);
 
-    Free_cfdiController.$inject = ['$scope', '$state', 'Free_cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'Cfdi_states'];
+    Free_cfdiController.$inject = ['$scope', '$filter','$state', 'Free_cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'Cfdi_states'];
 
-    function Free_cfdiController ($scope, $state, Free_cfdi, ParseLinks, AlertService, pagingParams, paginationConstants, Cfdi_states) {
+    function Free_cfdiController ($scope,$filter, $state, Free_cfdi, ParseLinks, AlertService, pagingParams, paginationConstants, Cfdi_states) {
         var vm = this;
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
@@ -26,10 +26,21 @@
         vm.states = Cfdi_states.query({filtername:" "});
 
         function loadAll () {
+            var dateFormat = 'yyyy-MM-dd';
+            var fromDate = $filter('date')("0000-01-01", dateFormat);
+            var toDate = $filter('date')("0000-01-01", dateFormat);
             Free_cfdi.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,
-                sort: sort()
+                sort: sort(),
+                idFree_cfdi: 0,
+                folio_fiscal: " ",
+                rfc_receiver: " ",
+                fromDate: fromDate,
+                toDate: toDate,
+                idState: 0,
+                serie: " ",
+                folio: " "
             }, onSuccess, onError);
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
