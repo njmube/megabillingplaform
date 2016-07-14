@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('Free_cfdi Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockFree_cfdi, MockCfdi_types, MockCfdi_states, MockFree_emitter, MockPayment_method, MockWay_payment, MockC_money, MockCfdi_type_doc, MockTax_regime, MockFree_receiver;
+        var MockEntity, MockFree_cfdi, MockCfdi_types, MockCfdi_states, MockFree_emitter, MockPayment_method, MockC_money, MockCfdi_type_doc, MockTax_regime, MockFree_receiver;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -16,7 +16,6 @@ describe('Controller Tests', function() {
             MockCfdi_states = jasmine.createSpy('MockCfdi_states');
             MockFree_emitter = jasmine.createSpy('MockFree_emitter');
             MockPayment_method = jasmine.createSpy('MockPayment_method');
-            MockWay_payment = jasmine.createSpy('MockWay_payment');
             MockC_money = jasmine.createSpy('MockC_money');
             MockCfdi_type_doc = jasmine.createSpy('MockCfdi_type_doc');
             MockTax_regime = jasmine.createSpy('MockTax_regime');
@@ -32,7 +31,6 @@ describe('Controller Tests', function() {
                 'Cfdi_states': MockCfdi_states,
                 'Free_emitter': MockFree_emitter,
                 'Payment_method': MockPayment_method,
-                'Way_payment': MockWay_payment,
                 'C_money': MockC_money,
                 'Cfdi_type_doc': MockCfdi_type_doc,
                 'Tax_regime': MockTax_regime,

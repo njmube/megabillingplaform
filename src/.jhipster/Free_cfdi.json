@@ -25,12 +25,6 @@
             "otherEntityField": "name"
         },
         {
-            "relationshipName": "way_payment",
-            "otherEntityName": "way_payment",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "name"
-        },
-        {
             "relationshipName": "c_money",
             "otherEntityName": "c_money",
             "relationshipType": "many-to-one",
@@ -190,6 +184,13 @@
         },
         {
             "fieldName": "certificate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "way_payment",
             "fieldType": "String",
             "fieldValidateRules": [
                 "required"

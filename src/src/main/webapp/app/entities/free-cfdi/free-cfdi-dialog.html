@@ -4,11 +4,11 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myFree_cfdiLabel" translate="megabillingplatformApp.free_cfdi.home.createOrEditLabel">Create or edit a Free_cfdi</h4>
+        <h4 class="modal-title" id="myFree_cfdiLabel" translate="megabillingplatformApp.free_cfdi.home.createOrEditLabel">Create or edit a Free Cfdi</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group">
+        <div class="form-group" ng-show="vm.free_cfdi.id">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.free_cfdi.id" readonly />
@@ -66,7 +66,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.date_expedition" for="field_date_expedition">Date_expedition</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.date_expedition" for="field_date_expedition">Date Expedition</label>
                 <div class="input-group">
                     <input id="field_date_expedition" type="text" class="form-control" name="date_expedition" datetime-picker="{{dateformat}}" ng-model="vm.free_cfdi.date_expedition" is-open="vm.datePickerOpenStatus.date_expedition"
                     required  />
@@ -86,13 +86,13 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.payment_conditions" for="field_payment_conditions">Payment_conditions</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.payment_conditions" for="field_payment_conditions">Payment Conditions</label>
             <input type="text" class="form-control" name="payment_conditions" id="field_payment_conditions"
                     ng-model="vm.free_cfdi.payment_conditions"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.change_type" for="field_change_type">Change_type</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.change_type" for="field_change_type">Change Type</label>
             <input type="text" class="form-control" name="change_type" id="field_change_type"
                     ng-model="vm.free_cfdi.change_type"
                     ng-pattern="/[0-9]{1,14}(.([0-9]{1,6}))?/" />
@@ -104,7 +104,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.place_expedition" for="field_place_expedition">Place_expedition</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.place_expedition" for="field_place_expedition">Place Expedition</label>
             <input type="text" class="form-control" name="place_expedition" id="field_place_expedition"
                     ng-model="vm.free_cfdi.place_expedition"
                     required />
@@ -116,7 +116,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.account_number" for="field_account_number">Account_number</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.account_number" for="field_account_number">Account Number</label>
             <input type="text" class="form-control" name="account_number" id="field_account_number"
                     ng-model="vm.free_cfdi.account_number"
                     ng-maxlength="4" />
@@ -128,19 +128,19 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.folio_fiscal_orig" for="field_folio_fiscal_orig">Folio_fiscal_orig</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.folio_fiscal_orig" for="field_folio_fiscal_orig">Folio Fiscal Orig</label>
             <input type="text" class="form-control" name="folio_fiscal_orig" id="field_folio_fiscal_orig"
                     ng-model="vm.free_cfdi.folio_fiscal_orig"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.serial_folio_fiscal_orig" for="field_serial_folio_fiscal_orig">Serial_folio_fiscal_orig</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.serial_folio_fiscal_orig" for="field_serial_folio_fiscal_orig">Serial Folio Fiscal Orig</label>
             <input type="text" class="form-control" name="serial_folio_fiscal_orig" id="field_serial_folio_fiscal_orig"
                     ng-model="vm.free_cfdi.serial_folio_fiscal_orig"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.date_folio_fiscal_orig" for="field_date_folio_fiscal_orig">Date_folio_fiscal_orig</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.date_folio_fiscal_orig" for="field_date_folio_fiscal_orig">Date Folio Fiscal Orig</label>
                 <div class="input-group">
                     <input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" datetime-picker="{{dateformat}}" ng-model="vm.free_cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig"
                       />
@@ -150,19 +150,19 @@
                 </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.mont_folio_fiscal_orig" for="field_mont_folio_fiscal_orig">Mont_folio_fiscal_orig</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.mont_folio_fiscal_orig" for="field_mont_folio_fiscal_orig">Mont Folio Fiscal Orig</label>
             <input type="number" class="form-control" name="mont_folio_fiscal_orig" id="field_mont_folio_fiscal_orig"
                     ng-model="vm.free_cfdi.mont_folio_fiscal_orig"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.total_tax_retention" for="field_total_tax_retention">Total_tax_retention</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.total_tax_retention" for="field_total_tax_retention">Total Tax Retention</label>
             <input type="number" class="form-control" name="total_tax_retention" id="field_total_tax_retention"
                     ng-model="vm.free_cfdi.total_tax_retention"
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.total_tax_transfered" for="field_total_tax_transfered">Total_tax_transfered</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.total_tax_transfered" for="field_total_tax_transfered">Total Tax Transfered</label>
             <input type="number" class="form-control" name="total_tax_transfered" id="field_total_tax_transfered"
                     ng-model="vm.free_cfdi.total_tax_transfered"
                      />
@@ -174,7 +174,7 @@
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.discount_reason" for="field_discount_reason">Discount_reason</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.discount_reason" for="field_discount_reason">Discount Reason</label>
             <input type="text" class="form-control" name="discount_reason" id="field_discount_reason"
                     ng-model="vm.free_cfdi.discount_reason"
                      />
@@ -230,7 +230,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.free_cfdi.no_certificate" for="field_no_certificate">No_certificate</label>
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.no_certificate" for="field_no_certificate">No Certificate</label>
             <input type="text" class="form-control" name="no_certificate" id="field_no_certificate"
                     ng-model="vm.free_cfdi.no_certificate"
                     required ng-maxlength="20" />
@@ -257,57 +257,63 @@
                 </p>
             </div>
         </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.free_cfdi.way_payment" for="field_way_payment">Way Payment</label>
+            <input type="text" class="form-control" name="way_payment" id="field_way_payment"
+                    ng-model="vm.free_cfdi.way_payment"
+                    required />
+            <div ng-show="editForm.way_payment.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.way_payment.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
 
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_cfdi.cfdi_types" for="field_cfdi_types">cfdi_types</label>
-            <select class="form-control" id="field_cfdi_types" name="cfdi_types" ng-model="vm.free_cfdi.cfdi_types" ng-options="cfdi_types as cfdi_types.name for cfdi_types in vm.cfdi_typess track by cfdi_types.id">
+            <label translate="megabillingplatformApp.free_cfdi.cfdi_types" for="field_cfdi_types">Cfdi Types</label>
+            <select class="form-control" id="field_cfdi_types" name="cfdi_types" ng-model="vm.free_cfdi.cfdi_types" ng-options="cfdi_types as cfdi_types.name for cfdi_types in vm.cfdi_types track by cfdi_types.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_cfdi.cfdi_states" for="field_cfdi_states">cfdi_states</label>
-            <select class="form-control" id="field_cfdi_states" name="cfdi_states" ng-model="vm.free_cfdi.cfdi_states" ng-options="cfdi_states as cfdi_states.name for cfdi_states in vm.cfdi_statess track by cfdi_states.id">
+            <label translate="megabillingplatformApp.free_cfdi.cfdi_states" for="field_cfdi_states">Cfdi States</label>
+            <select class="form-control" id="field_cfdi_states" name="cfdi_states" ng-model="vm.free_cfdi.cfdi_states" ng-options="cfdi_states as cfdi_states.name for cfdi_states in vm.cfdi_states track by cfdi_states.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_cfdi.free_emitter" for="field_free_emitter">free_emitter</label>
+            <label translate="megabillingplatformApp.free_cfdi.free_emitter" for="field_free_emitter">Free Emitter</label>
             <select class="form-control" id="field_free_emitter" name="free_emitter" ng-model="vm.free_cfdi.free_emitter" ng-options="free_emitter as free_emitter.id for free_emitter in vm.free_emitters track by free_emitter.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_cfdi.payment_method" for="field_payment_method">payment_method</label>
+            <label translate="megabillingplatformApp.free_cfdi.payment_method" for="field_payment_method">Payment Method</label>
             <select class="form-control" id="field_payment_method" name="payment_method" ng-model="vm.free_cfdi.payment_method" ng-options="payment_method as payment_method.name for payment_method in vm.payment_methods track by payment_method.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_cfdi.way_payment" for="field_way_payment">way_payment</label>
-            <select class="form-control" id="field_way_payment" name="way_payment" ng-model="vm.free_cfdi.way_payment" ng-options="way_payment as way_payment.name for way_payment in vm.way_payments track by way_payment.id">
+            <label translate="megabillingplatformApp.free_cfdi.c_money" for="field_c_money">C Money</label>
+            <select class="form-control" id="field_c_money" name="c_money" ng-model="vm.free_cfdi.c_money" ng-options="c_money as c_money.name for c_money in vm.c_monies track by c_money.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_cfdi.c_money" for="field_c_money">c_money</label>
-            <select class="form-control" id="field_c_money" name="c_money" ng-model="vm.free_cfdi.c_money" ng-options="c_money as c_money.name for c_money in vm.c_moneys track by c_money.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="megabillingplatformApp.free_cfdi.cfdi_type_doc" for="field_cfdi_type_doc">cfdi_type_doc</label>
+            <label translate="megabillingplatformApp.free_cfdi.cfdi_type_doc" for="field_cfdi_type_doc">Cfdi Type Doc</label>
             <select class="form-control" id="field_cfdi_type_doc" name="cfdi_type_doc" ng-model="vm.free_cfdi.cfdi_type_doc" ng-options="cfdi_type_doc as cfdi_type_doc.name for cfdi_type_doc in vm.cfdi_type_docs track by cfdi_type_doc.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_cfdi.tax_regime" for="field_tax_regime">tax_regime</label>
+            <label translate="megabillingplatformApp.free_cfdi.tax_regime" for="field_tax_regime">Tax Regime</label>
             <select class="form-control" id="field_tax_regime" name="tax_regime" ng-model="vm.free_cfdi.tax_regime" ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimes track by tax_regime.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.free_cfdi.free_receiver" for="field_free_receiver">free_receiver</label>
+            <label translate="megabillingplatformApp.free_cfdi.free_receiver" for="field_free_receiver">Free Receiver</label>
             <select class="form-control" id="field_free_receiver" name="free_receiver" ng-model="vm.free_cfdi.free_receiver" ng-options="free_receiver as free_receiver.id for free_receiver in vm.free_receivers track by free_receiver.id">
                 <option value=""></option>
             </select>

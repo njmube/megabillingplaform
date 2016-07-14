@@ -14,9 +14,11 @@
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
-                    data = angular.fromJson(data);
-                    data.date_expedition = DateUtils.convertDateTimeFromServer(data.date_expedition);
-                    data.date_folio_fiscal_orig = DateUtils.convertDateTimeFromServer(data.date_folio_fiscal_orig);
+                    if (data) {
+                        data = angular.fromJson(data);
+                        data.date_expedition = DateUtils.convertDateTimeFromServer(data.date_expedition);
+                        data.date_folio_fiscal_orig = DateUtils.convertDateTimeFromServer(data.date_folio_fiscal_orig);
+                    }
                     return data;
                 }
             },

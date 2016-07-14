@@ -5,25 +5,23 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiDialogController', Free_cfdiDialogController);
 
-    Free_cfdiDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'Free_emitter', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'Free_receiver'];
+    Free_cfdiDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'Free_emitter', 'Payment_method', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'Free_receiver'];
 
-    function Free_cfdiDialogController ($scope, $stateParams, $uibModalInstance, entity, Free_cfdi, Cfdi_types, Cfdi_states, Free_emitter, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, Free_receiver) {
+    function Free_cfdiDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Free_cfdi, Cfdi_types, Cfdi_states, Free_emitter, Payment_method, C_money, Cfdi_type_doc, Tax_regime, Free_receiver) {
         var vm = this;
         vm.free_cfdi = entity;
-        vm.cfdi_typess = Cfdi_types.query();
-        vm.cfdi_statess = Cfdi_states.query();
+        vm.cfdi_types = Cfdi_types.query();
+        vm.cfdi_states = Cfdi_states.query();
         vm.free_emitters = Free_emitter.query();
         vm.payment_methods = Payment_method.query();
-        vm.way_payments = Way_payment.query();
-        vm.c_moneys = C_money.query();
+        vm.c_monies = C_money.query();
         vm.cfdi_type_docs = Cfdi_type_doc.query();
         vm.tax_regimes = Tax_regime.query();
         vm.free_receivers = Free_receiver.query();
-        vm.load = function(id) {
-            Free_cfdi.get({id : id}, function(result) {
-                vm.free_cfdi = result;
-            });
-        };
+
+        $timeout(function (){
+            angular.element('.form-group:eq(1)>input').focus();
+        });
 
         var onSaveSuccess = function (result) {
             $scope.$emit('megabillingplatformApp:free_cfdiUpdate', result);

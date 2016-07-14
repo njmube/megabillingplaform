@@ -39,7 +39,6 @@ public class Free_receiver implements Serializable {
     @Column(name = "email", length = 254)
     private String email;
 
-    @NotNull
     @Column(name = "activated", nullable = false)
     private Boolean activated;
 

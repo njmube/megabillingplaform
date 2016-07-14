@@ -51,7 +51,15 @@ public class Free_cfdiResource {
         if (free_cfdi.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_cfdi", "idexists", "A new free_cfdi cannot already have an ID")).body(null);
         }
+
+        free_cfdi.setVersion("3.2");
         free_cfdi.setDate_expedition(ZonedDateTime.now());
+        String place_expedition = free_cfdi.getFree_emitter().getC_country().getName() + ", " + free_cfdi.getFree_emitter().getC_state().getName() + ", " + free_cfdi.getFree_emitter().getC_municipality().getName() + ", " + free_cfdi.getFree_emitter().getC_colony().getCode() + ", " + free_cfdi.getFree_emitter().getC_zip_code().getCode();
+        free_cfdi.setPlace_expedition(place_expedition);
+        free_cfdi.setStamp("stamp");
+        free_cfdi.setNo_certificate("no_cetificate");
+        free_cfdi.setCertificate("cetificate");
+
         Free_cfdi result = free_cfdiService.save(free_cfdi);
         return ResponseEntity.created(new URI("/api/free-cfdis/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_cfdi", result.getId().toString()))

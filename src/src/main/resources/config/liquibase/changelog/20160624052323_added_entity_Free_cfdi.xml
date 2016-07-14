@@ -16,7 +16,7 @@
     <!--
         Added the entity Free_cfdi.
     -->
-    <changeSet id="20160624052323" author="jhipster">
+    <changeSet id="20160624052323-1" author="jhipster">
         <createTable tableName="free_cfdi">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
@@ -98,84 +98,57 @@
             </column>
             
             <column name="stamp" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             
             <column name="no_certificate" type="varchar(20)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             
             <column name="certificate" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             
-            <column name="cfdi_types_id" type="bigint"/>
-            <column name="cfdi_states_id" type="bigint"/>
-            <column name="free_emitter_id" type="bigint"/>
-            <column name="payment_method_id" type="bigint"/>
-            <column name="way_payment_id" type="bigint"/>
-            <column name="c_money_id" type="bigint"/>
-            <column name="cfdi_type_doc_id" type="bigint"/>
-            <column name="tax_regime_id" type="bigint"/>
-            <column name="free_receiver_id" type="bigint"/>
+            <column name="way_payment" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            
+            <column name="cfdi_types_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cfdi_states_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="free_emitter_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="payment_method_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="c_money_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="cfdi_type_doc_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="tax_regime_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="free_receiver_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="free_cfdi" columnName="date_expedition" columnDataType="datetime"/>
         <dropDefaultValue tableName="free_cfdi" columnName="date_folio_fiscal_orig" columnDataType="datetime"/>
         
-        <addForeignKeyConstraint baseColumnNames="cfdi_types_id"
-                                 baseTableName="free_cfdi"
-                                 constraintName="fk_free_cfdi_cfdi_types_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="cfdi_types"/>
-
-        <addForeignKeyConstraint baseColumnNames="cfdi_states_id"
-                                 baseTableName="free_cfdi"
-                                 constraintName="fk_free_cfdi_cfdi_states_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="cfdi_states"/>
-
-        <addForeignKeyConstraint baseColumnNames="free_emitter_id"
-                                 baseTableName="free_cfdi"
-                                 constraintName="fk_free_cfdi_free_emitter_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="free_emitter"/>
-
-        <addForeignKeyConstraint baseColumnNames="payment_method_id"
-                                 baseTableName="free_cfdi"
-                                 constraintName="fk_free_cfdi_payment_method_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="payment_method"/>
-
-        <addForeignKeyConstraint baseColumnNames="way_payment_id"
-                                 baseTableName="free_cfdi"
-                                 constraintName="fk_free_cfdi_way_payment_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="way_payment"/>
-
-        <addForeignKeyConstraint baseColumnNames="c_money_id"
-                                 baseTableName="free_cfdi"
-                                 constraintName="fk_free_cfdi_c_money_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="c_money"/>
-
-        <addForeignKeyConstraint baseColumnNames="cfdi_type_doc_id"
-                                 baseTableName="free_cfdi"
-                                 constraintName="fk_free_cfdi_cfdi_type_doc_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="cfdi_type_doc"/>
-
-        <addForeignKeyConstraint baseColumnNames="tax_regime_id"
-                                 baseTableName="free_cfdi"
-                                 constraintName="fk_free_cfdi_tax_regime_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="tax_regime"/>
-
-        <addForeignKeyConstraint baseColumnNames="free_receiver_id"
-                                 baseTableName="free_cfdi"
-                                 constraintName="fk_free_cfdi_free_receiver_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="free_receiver"/>
-
     </changeSet>
 </databaseChangeLog>

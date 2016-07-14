@@ -52,6 +52,7 @@ public class Free_receiverResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_receiver", "idexists", "A new free_receiver cannot already have an ID")).body(null);
         }
         free_receiver.setCreate_date(ZonedDateTime.now());
+        free_receiver.setActivated(true);
         Free_receiver result = free_receiverService.save(free_receiver);
         return ResponseEntity.created(new URI("/api/free-receivers/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_receiver", result.getId().toString()))

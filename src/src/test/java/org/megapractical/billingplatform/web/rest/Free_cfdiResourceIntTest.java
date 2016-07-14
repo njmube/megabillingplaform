@@ -28,7 +28,7 @@ import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.ZoneId;
-import java.math.BigDecimal;
+import java.math.BigDecimal;;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -61,8 +61,8 @@ public class Free_cfdiResourceIntTest {
     private static final String DEFAULT_DATE_EXPEDITION_STR = dateTimeFormatter.format(DEFAULT_DATE_EXPEDITION);
     private static final String DEFAULT_PAYMENT_CONDITIONS = "AAAAA";
     private static final String UPDATED_PAYMENT_CONDITIONS = "BBBBB";
-    private static final String DEFAULT_CHANGE_TYPE = "9";
-    private static final String UPDATED_CHANGE_TYPE = "10";
+    private static final String DEFAULT_CHANGE_TYPE = "AAAAA";
+    private static final String UPDATED_CHANGE_TYPE = "BBBBB";
     private static final String DEFAULT_PLACE_EXPEDITION = "AAAAA";
     private static final String UPDATED_PLACE_EXPEDITION = "BBBBB";
     private static final String DEFAULT_ACCOUNT_NUMBER = "AAAA";
@@ -103,6 +103,8 @@ public class Free_cfdiResourceIntTest {
     private static final String UPDATED_NO_CERTIFICATE = "BBBBBBBBBBBBBBBBBBBB";
     private static final String DEFAULT_CERTIFICATE = "AAAAA";
     private static final String UPDATED_CERTIFICATE = "BBBBB";
+    private static final String DEFAULT_WAY_PAYMENT = "AAAAA";
+    private static final String UPDATED_WAY_PAYMENT = "BBBBB";
 
     @Inject
     private Free_cfdiRepository free_cfdiRepository;
@@ -155,12 +157,12 @@ public class Free_cfdiResourceIntTest {
         free_cfdi.setStamp(DEFAULT_STAMP);
         free_cfdi.setNo_certificate(DEFAULT_NO_CERTIFICATE);
         free_cfdi.setCertificate(DEFAULT_CERTIFICATE);
+        free_cfdi.setWay_payment(DEFAULT_WAY_PAYMENT);
     }
 
     @Test
     @Transactional
     public void createFree_cfdi() throws Exception {
-        /*
         int databaseSizeBeforeCreate = free_cfdiRepository.findAll().size();
 
         // Create the Free_cfdi
@@ -195,7 +197,8 @@ public class Free_cfdiResourceIntTest {
         assertThat(testFree_cfdi.getAddenda()).isEqualTo(DEFAULT_ADDENDA);
         assertThat(testFree_cfdi.getStamp()).isEqualTo(DEFAULT_STAMP);
         assertThat(testFree_cfdi.getNo_certificate()).isEqualTo(DEFAULT_NO_CERTIFICATE);
-        assertThat(testFree_cfdi.getCertificate()).isEqualTo(DEFAULT_CERTIFICATE);*/
+        assertThat(testFree_cfdi.getCertificate()).isEqualTo(DEFAULT_CERTIFICATE);
+        assertThat(testFree_cfdi.getWay_payment()).isEqualTo(DEFAULT_WAY_PAYMENT);
     }
 
     @Test
@@ -219,7 +222,6 @@ public class Free_cfdiResourceIntTest {
     @Test
     @Transactional
     public void checkDate_expeditionIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_cfdiRepository.findAll().size();
         // set the field null
         free_cfdi.setDate_expedition(null);
@@ -232,7 +234,7 @@ public class Free_cfdiResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_cfdi> free_cfdis = free_cfdiRepository.findAll();
-        assertThat(free_cfdis).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_cfdis).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -292,7 +294,6 @@ public class Free_cfdiResourceIntTest {
     @Test
     @Transactional
     public void checkStampIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_cfdiRepository.findAll().size();
         // set the field null
         free_cfdi.setStamp(null);
@@ -305,13 +306,12 @@ public class Free_cfdiResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_cfdi> free_cfdis = free_cfdiRepository.findAll();
-        assertThat(free_cfdis).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_cfdis).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkNo_certificateIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_cfdiRepository.findAll().size();
         // set the field null
         free_cfdi.setNo_certificate(null);
@@ -324,13 +324,12 @@ public class Free_cfdiResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_cfdi> free_cfdis = free_cfdiRepository.findAll();
-        assertThat(free_cfdis).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_cfdis).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkCertificateIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_cfdiRepository.findAll().size();
         // set the field null
         free_cfdi.setCertificate(null);
@@ -343,7 +342,25 @@ public class Free_cfdiResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_cfdi> free_cfdis = free_cfdiRepository.findAll();
-        assertThat(free_cfdis).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_cfdis).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkWay_paymentIsRequired() throws Exception {
+        int databaseSizeBeforeTest = free_cfdiRepository.findAll().size();
+        // set the field null
+        free_cfdi.setWay_payment(null);
+
+        // Create the Free_cfdi, which fails.
+
+        restFree_cfdiMockMvc.perform(post("/api/free-cfdis")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(free_cfdi)))
+                .andExpect(status().isBadRequest());
+
+        List<Free_cfdi> free_cfdis = free_cfdiRepository.findAll();
+        assertThat(free_cfdis).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -378,7 +395,8 @@ public class Free_cfdiResourceIntTest {
                 .andExpect(jsonPath("$.[*].addenda").value(hasItem(DEFAULT_ADDENDA.toString())))
                 .andExpect(jsonPath("$.[*].stamp").value(hasItem(DEFAULT_STAMP.toString())))
                 .andExpect(jsonPath("$.[*].no_certificate").value(hasItem(DEFAULT_NO_CERTIFICATE.toString())))
-                .andExpect(jsonPath("$.[*].certificate").value(hasItem(DEFAULT_CERTIFICATE.toString())));
+                .andExpect(jsonPath("$.[*].certificate").value(hasItem(DEFAULT_CERTIFICATE.toString())))
+                .andExpect(jsonPath("$.[*].way_payment").value(hasItem(DEFAULT_WAY_PAYMENT.toString())));
     }
 
     @Test
@@ -413,7 +431,8 @@ public class Free_cfdiResourceIntTest {
             .andExpect(jsonPath("$.addenda").value(DEFAULT_ADDENDA.toString()))
             .andExpect(jsonPath("$.stamp").value(DEFAULT_STAMP.toString()))
             .andExpect(jsonPath("$.no_certificate").value(DEFAULT_NO_CERTIFICATE.toString()))
-            .andExpect(jsonPath("$.certificate").value(DEFAULT_CERTIFICATE.toString()));
+            .andExpect(jsonPath("$.certificate").value(DEFAULT_CERTIFICATE.toString()))
+            .andExpect(jsonPath("$.way_payment").value(DEFAULT_WAY_PAYMENT.toString()));
     }
 
     @Test
@@ -457,6 +476,7 @@ public class Free_cfdiResourceIntTest {
         updatedFree_cfdi.setStamp(UPDATED_STAMP);
         updatedFree_cfdi.setNo_certificate(UPDATED_NO_CERTIFICATE);
         updatedFree_cfdi.setCertificate(UPDATED_CERTIFICATE);
+        updatedFree_cfdi.setWay_payment(UPDATED_WAY_PAYMENT);
 
         restFree_cfdiMockMvc.perform(put("/api/free-cfdis")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -489,6 +509,7 @@ public class Free_cfdiResourceIntTest {
         assertThat(testFree_cfdi.getStamp()).isEqualTo(UPDATED_STAMP);
         assertThat(testFree_cfdi.getNo_certificate()).isEqualTo(UPDATED_NO_CERTIFICATE);
         assertThat(testFree_cfdi.getCertificate()).isEqualTo(UPDATED_CERTIFICATE);
+        assertThat(testFree_cfdi.getWay_payment()).isEqualTo(UPDATED_WAY_PAYMENT);
     }
 
     @Test

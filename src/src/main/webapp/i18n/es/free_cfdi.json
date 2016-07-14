@@ -46,7 +46,11 @@
             "c_money": "Moneda",
             "cfdi_type_doc": "Tipo de Documento",
             "tax_regime": "Régimen Fiscal",
-            "free_receiver": "Receptor"
+            "free_receiver": "Receptor",
+			"validation":{
+				"way_paymentxnomorey":"El primer valor no puede ser menor que le segundo.",
+				"way_paymentxynocero":"Ninguno de los dos valores numéricos de arriba pueden ser cero."
+			}
         }
     }
 }

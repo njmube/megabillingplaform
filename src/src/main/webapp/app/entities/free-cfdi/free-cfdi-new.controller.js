@@ -14,9 +14,13 @@
 		vm.account = user;
 		
         vm.free_cfdi = entity;		
-        vm.free_cfdi.free_emitter = free_emitter_entity;		
+        vm.free_cfdi.free_emitter = free_emitter_entity;
 		vm.free_concepts = [];
 		vm.current_free_concept = null;
+		vm.way_payment = null;
+		vm.way_payment_x = 0;
+		vm.way_payment_y = 0;
+		vm.free_saved_success = false;
 		
 		vm.iva = (0).toFixed(2);
 		vm.ieps = (0).toFixed(2);
@@ -102,7 +106,7 @@
             C_zip_code.get({id : vm.free_receiver.c_colony.c_zip_code.id}, function(result) {
                 vm.free_receiver.c_zip_code = result;
             });
-        }
+        }	
 
         var onSaveError = function () {
             vm.isSaving = false;
@@ -158,6 +162,7 @@
 			}
 			else{
 				resetView();
+				vm.free_saved_success = true;
 			}
 		};
 		
@@ -244,11 +249,7 @@
 		
 		var onSaveFreeReceiverSuccess = function (result) {            
 			vm.free_receiver = result;
-			vm.free_cfdi.free_receiver = vm.free_receiver;
-			
-			vm.free_cfdi.version = "3.2";
-			vm.free_cfdi.place_expedition = vm.free_cfdi.free_emitter.c_country.name + ", " + vm.free_cfdi.free_emitter.c_state.name + ", " + vm.free_cfdi.free_emitter.c_municipality.name + ", " + vm.free_cfdi.free_emitter.c_colony.name + ", " + vm.free_cfdi.free_emitter.c_zip_code.postcode;
-			
+			vm.free_cfdi.free_receiver = vm.free_receiver;			
 			if (vm.free_cfdi.id !== null) {
                 Free_cfdi.update(vm.free_cfdi, onSaveSuccess, onSaveError);
             } else {
@@ -260,8 +261,7 @@
 				
 			if (vm.free_receiver.id !== null) {
                 Free_receiver.update(vm.free_receiver, onSaveFreeReceiverSuccess, onSaveError);
-            } else {
-				vm.free_receiver.activated = true;
+            } else {				
                 Free_receiver.save(vm.free_receiver, onSaveFreeReceiverSuccess, onSaveError);
             }
         };
@@ -418,11 +418,26 @@
 			vm.free_cfdi.total = floorFigure(total, 2);			
 		};
 		
-		vm.enableSelect = function(){
-			if(vm.free_cfdi.way_payment != undefined && vm.free_cfdi.way_payment.id == 2){
+		vm.enableWithByPartiality = function(){
+			if(vm.way_payment != undefined && vm.way_payment.id == 2){
 				return false;
 			}
 			return true;
+		};
+		
+		vm.partialityChange = function(){
+			vm.free_cfdi.way_payment =  vm.way_payment.name;
+		};
+		
+		vm.wayPaymentXYChange = function(){
+			vm.free_cfdi.way_payment = vm.way_payment.name + " " + vm.way_payment_x + " de " + vm.way_payment_y;
+		};
+		
+		vm.failWayPaymentXYValidation = function(){
+			if(vm.way_payment != undefined && vm.way_payment.id == 2 && (vm.way_payment_x > vm.way_payment_y || vm.way_payment_x == 0 || vm.way_payment_y == 0)){
+				return true;
+			}			
+			return false;
 		};
 		
 		vm.enableAccountNumber = function(){
@@ -438,5 +453,13 @@
 			}
 			return false;
 		};
+		
+		vm.checkMoneyType = function(){
+			if(vm.free_cfdi.c_money != undefined && vm.free_cfdi.c_money.id == 100){
+				vm.free_cfdi.change_type = (1).toFixed(2);
+			}
+		};
+		
+		
     }
 })();

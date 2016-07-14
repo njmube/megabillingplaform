@@ -46,7 +46,11 @@
             "way_payment": "Way Payment",
             "c_money": "Money",
             "cfdi_type_doc": "Type Document",
-            "tax_regime": "Tax Regime"
+            "tax_regime": "Tax Regime",
+			"validation":{
+				"way_paymentxnomorey":"First value have to be minor than the last value",
+				"way_paymentxynocero":"Above values can not be cero"
+			}
         }
     }
 }

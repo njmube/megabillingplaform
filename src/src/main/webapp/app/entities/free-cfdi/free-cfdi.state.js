@@ -51,7 +51,31 @@
                 }]
             }
         })
-		.state('free-cfdi.new', {
+        .state('free-cfdi-detail', {
+            parent: 'entity',
+            url: '/free-cfdi/{id}',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'megabillingplatformApp.free_cfdi.detail.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/free-cfdi/free-cfdi-detail.html',
+                    controller: 'Free_cfdiDetailController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('free_cfdi');
+                    return $translate.refresh();
+                }],
+                entity: ['$stateParams', 'Free_cfdi', function($stateParams, Free_cfdi) {
+                    return Free_cfdi.get({id : $stateParams.id});
+                }]
+            }
+        })
+        .state('free-cfdi.new', {
             parent: 'free-cfdi',
             url: '/{login}/new',
             data: {
@@ -73,7 +97,7 @@
 						folio: null,
 						date_expedition: null,
 						payment_conditions: null,
-						change_type: "1.0",
+						change_type: null,
 						place_expedition: null,
 						account_number: null,
 						folio_fiscal_orig: null,
@@ -90,6 +114,7 @@
 						stamp: null,
 						no_certificate: null,
 						certificate: null,
+						way_payment: null,
 						id: null
 					};
 				}],
@@ -127,31 +152,6 @@
                 }]
             }
         })
-        .state('free-cfdi-detail', {
-            parent: 'entity',
-            url: '/free-cfdi/{id}',
-            data: {
-                authorities: ['ROLE_USER'],
-                pageTitle: 'megabillingplatformApp.free_cfdi.detail.title'
-            },
-            views: {
-                'content@': {
-                    templateUrl: 'app/entities/free-cfdi/free-cfdi-detail.html',
-                    controller: 'Free_cfdiDetailController',
-                    controllerAs: 'vm'
-                }
-            },
-            resolve: {
-                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                    $translatePartialLoader.addPart('free_cfdi');
-                    return $translate.refresh();
-                }],
-                entity: ['$stateParams', 'Free_cfdi', function($stateParams, Free_cfdi) {
-                    return Free_cfdi.get({id : $stateParams.id});
-                }]
-            }
-        })
-        
         .state('free-cfdi.edit', {
             parent: 'free-cfdi',
             url: '/{id}/edit',

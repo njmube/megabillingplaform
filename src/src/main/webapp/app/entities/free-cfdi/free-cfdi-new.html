@@ -47,7 +47,6 @@
 	<div class="col-sm-12">
 		
 		<jhi-alert-error></jhi-alert-error>
-		<jhi-alert></jhi-alert>
 		
 		<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
 			<uib-tabset active="active">
@@ -482,10 +481,38 @@
 							
 							<div class="form-group">
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.way_payment" for="field_way_payment">way_payment</label>
-								<div class="col-sm-8">									
-									<select class="form-control" id="field_way_payment" name="way_payment" ng-model="vm.free_cfdi.way_payment" ng-options="way_payment as way_payment.name for way_payment in vm.way_payments track by way_payment.id" ng-disabled="vm.enableWayPayment()">
+								<div class="col-sm-5">									
+									<select class="form-control" id="field_way_payment" name="way_payment" ng-model="vm.way_payment" ng-options="way_payment as way_payment.name for way_payment in vm.way_payments track by way_payment.id" ng-disabled="vm.enableWayPayment()" data-ng-change="vm.partialityChange()" >
 										<option value=""></option>
 									</select>
+								</div>
+								<div class="col-sm-1 no-padding-right">
+									<input type="text" class="form-control" name="way_payment_x" id="way_payment_x"
+										ng-model="vm.way_payment_x" ng-disabled="vm.enableWithByPartiality()" data-ng-change="vm.wayPaymentXYChange()"
+										required />
+								</div>
+								<label class="col-sm-1 control-label">
+									<p class="text-center">/</p>
+								</label>
+								<div class="col-sm-1 no-padding-left">
+									<input type="text" class="form-control" name="way_payment_y" id="way_payment_y"
+										ng-model="vm.way_payment_y" ng-disabled="vm.enableWithByPartiality()" data-ng-change="vm.wayPaymentXYChange()"
+										required />
+								</div>
+							</div>
+							
+							<div class="form-group" ng-show="vm.failWayPaymentXYValidation()">
+								<div class="col-sm-offset-4 col-sm-8">
+									<p class="help-block"
+									   ng-show="vm.way_payment_x > vm.way_payment_y" 
+									   translate="megabillingplatformApp.free_cfdi.validation.way_paymentxnomorey">
+										X can not be more than y.
+									</p>
+									<p class="help-block"
+									   ng-show="vm.way_payment_x == 0 || vm.way_payment_y == 0" 
+									   translate="megabillingplatformApp.free_cfdi.validation.way_paymentxynocero">
+										X and Y can not be cero.
+									</p>
 								</div>
 							</div>
 							
@@ -493,7 +520,7 @@
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.serial_folio_fiscal_orig" for="field_serial_folio_fiscal_orig">Serial_folio_fiscal_orig</label>
 								<div class="col-sm-8">									
 									<input type="text" class="form-control" name="serial_folio_fiscal_orig" id="field_serial_folio_fiscal_orig"
-											ng-model="vm.free_cfdi.serial_folio_fiscal_orig" ng-disabled="vm.enableSelect()"
+											ng-model="vm.free_cfdi.serial_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()"
 											 />
 								</div>
 							</div>
@@ -502,7 +529,7 @@
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.folio_fiscal_orig" for="field_folio_fiscal_orig">Folio_fiscal_orig</label>
 								<div class="col-sm-8">									
 									<input type="text" class="form-control" name="folio_fiscal_orig" id="field_folio_fiscal_orig"
-											ng-model="vm.free_cfdi.folio_fiscal_orig" ng-disabled="vm.enableSelect()"
+											ng-model="vm.free_cfdi.folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()"
 											 />
 								</div>
 							</div>
@@ -511,10 +538,10 @@
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.date_folio_fiscal_orig" for="field_date_folio_fiscal_orig">Date_folio_fiscal_orig</label>
 								<div class="col-sm-8">									
 									<div class="input-group">
-										<input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" datetime-picker="{{dateformat}}" ng-model="vm.free_cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig" ng-disabled="vm.enableSelect()"
+										<input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" datetime-picker="{{dateformat}}" ng-model="vm.free_cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()"
 										  />
 										<span class="input-group-btn">
-											<button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_folio_fiscal_orig')" ng-disabled="vm.enableSelect()"><i class="glyphicon glyphicon-calendar"></i></button>
+											<button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_folio_fiscal_orig')" ng-disabled="vm.enableWithByPartiality()"><i class="glyphicon glyphicon-calendar"></i></button>
 										</span>
 									</div>
 								</div>
@@ -524,7 +551,7 @@
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.mont_folio_fiscal_orig" for="field_mont_folio_fiscal_orig">Mont_folio_fiscal_orig</label>
 								<div class="col-sm-8">
 									<input type="text" class="form-control" name="mont_folio_fiscal_orig" id="field_mont_folio_fiscal_orig"
-											ng-model="vm.free_cfdi.mont_folio_fiscal_orig" ng-disabled="vm.enableSelect()"
+											ng-model="vm.free_cfdi.mont_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()"
 											 />
 								</div>
 							</div>
@@ -570,7 +597,7 @@
 							<div class="form-group">
 								<label  class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.c_money" for="field_c_money">c_money</label>
 								<div class="col-md-8">									
-									<select class="form-control" id="field_c_money" name="c_money" ng-model="vm.free_cfdi.c_money" ng-options="c_money as c_money.name for c_money in vm.c_moneys track by c_money.id">
+									<select class="form-control" id="field_c_money" name="c_money" ng-model="vm.free_cfdi.c_money" ng-options="c_money as c_money.name for c_money in vm.c_moneys track by c_money.id" data-ng-change="vm.checkMoneyType()">
 										<option value=""></option>
 									</select>
 								</div>
@@ -746,14 +773,25 @@
 					
 					<div class="hr hr-16 hr-dotted"></div>
 					
-					<button type="submit" ng-disabled="editForm.$invalid || vm.free_concepts.length == 0" class="btn btn-primary pull-right" style="margin: 0 15px">
-						<span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
-					</button>
+					<div class="form-group">
+						<button type="submit" 
+						ng-disabled="editForm.$invalid || vm.free_concepts.length == 0 || vm.way_payment_x > vm.way_payment_y || vm.way_payment_x ==0 || vm.way_payment_y == 0" 
+						class="btn btn-primary pull-right" style="margin: 0 15px">
+							<span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+						</button>
 
-					<button type="button" class="btn btn-default pull-right" onclick="window.history.back()">
-						<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
-					</button>
+						<button type="button" class="btn btn-default pull-right" onclick="window.history.back()">
+							<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+						</button>					
+					</div>					
+					
+					<div class="alert alert-success" ng-show="vm.free_saved_success">
+						Factura guardada satisfactoriamente.
+					</div>
+					
+					
 				</div>
+					
 			</div>
 		</form>
 	</div>

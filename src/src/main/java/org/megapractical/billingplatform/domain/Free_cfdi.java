@@ -13,7 +13,7 @@ import java.util.Objects;
 /**
  * A Free_cfdi.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "free_cfdi")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Free_cfdi implements Serializable {
@@ -24,7 +24,6 @@ public class Free_cfdi implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
     @Size(min = 3, max = 3)
     @Column(name = "version", length = 3, nullable = false)
     private String version;
@@ -47,7 +46,6 @@ public class Free_cfdi implements Serializable {
     @Column(name = "change_type")
     private String change_type;
 
-    @NotNull
     @Column(name = "place_expedition", nullable = false)
     private String place_expedition;
 
@@ -90,15 +88,19 @@ public class Free_cfdi implements Serializable {
     @Column(name = "addenda")
     private String addenda;
 
-    @Column(name = "stamp")
+    @Column(name = "stamp", nullable = false)
     private String stamp;
 
     @Size(max = 20)
-    @Column(name = "no_certificate", length = 20)
+    @Column(name = "no_certificate", length = 20, nullable = false)
     private String no_certificate;
 
-    @Column(name = "certificate")
+    @Column(name = "certificate", nullable = false)
     private String certificate;
+
+    @NotNull
+    @Column(name = "way_payment", nullable = false)
+    private String way_payment;
 
     @ManyToOne
     private Cfdi_types cfdi_types;
@@ -111,9 +113,6 @@ public class Free_cfdi implements Serializable {
 
     @ManyToOne
     private Payment_method payment_method;
-
-    @ManyToOne
-    private Way_payment way_payment;
 
     @ManyToOne
     private C_money c_money;
@@ -311,6 +310,14 @@ public class Free_cfdi implements Serializable {
         this.certificate = certificate;
     }
 
+    public String getWay_payment() {
+        return way_payment;
+    }
+
+    public void setWay_payment(String way_payment) {
+        this.way_payment = way_payment;
+    }
+
     public Cfdi_types getCfdi_types() {
         return cfdi_types;
     }
@@ -341,14 +348,6 @@ public class Free_cfdi implements Serializable {
 
     public void setPayment_method(Payment_method payment_method) {
         this.payment_method = payment_method;
-    }
-
-    public Way_payment getWay_payment() {
-        return way_payment;
-    }
-
-    public void setWay_payment(Way_payment way_payment) {
-        this.way_payment = way_payment;
     }
 
     public C_money getC_money() {
@@ -429,6 +428,7 @@ public class Free_cfdi implements Serializable {
             ", stamp='" + stamp + "'" +
             ", no_certificate='" + no_certificate + "'" +
             ", certificate='" + certificate + "'" +
+            ", way_payment='" + way_payment + "'" +
             '}';
     }
 }
