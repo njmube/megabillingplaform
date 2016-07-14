@@ -198,7 +198,8 @@
             "edit": "Edit",
             "save": "Save",
             "view": "View",
-            "search": "Search"
+            "search": "Search",
+            "ok": "OK"
         },
         "detail": {
             "field": "Field",

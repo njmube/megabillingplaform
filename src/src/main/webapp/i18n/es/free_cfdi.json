@@ -50,7 +50,8 @@
 			"validation":{
 				"way_paymentxnomorey":"El primer valor no puede ser menor que le segundo.",
 				"way_paymentxynocero":"Ninguno de los dos valores numéricos de arriba pueden ser cero."
-			}
+			},
+			"no_free_emitter_certificate":"Estimado usuario, para generar un comprobante usted debe tener configurado un certificado digital válido."
         }
     }
 }

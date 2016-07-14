@@ -50,7 +50,8 @@
 			"validation":{
 				"way_paymentxnomorey":"First value have to be minor than the last value",
 				"way_paymentxynocero":"Above values can not be cero"
-			}
+			},
+			"no_free_emitter_certificate":"Dear user, to generate a voucher you should have set a valid digital certificate."
         }
     }
 }
