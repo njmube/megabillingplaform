@@ -97,7 +97,7 @@
 						folio: null,
 						date_expedition: null,
 						payment_conditions: null,
-						change_type: null,
+						change_type: (1).toFixed(2),
 						place_expedition: null,
 						account_number: null,
 						folio_fiscal_orig: null,

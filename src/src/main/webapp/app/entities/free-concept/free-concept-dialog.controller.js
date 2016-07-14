@@ -60,13 +60,13 @@
 				free_concept_iva: {
 							rate: floorFigure(vm.iva.value, 2),
                             amount: floorFigure(vm.free_concept.amount * vm.iva.value/100,2),
-							tax_type: vm.tax_typess[0],
+							tax_types: vm.tax_typess[0],
                             id: null
 						},
 				free_concept_ieps: {
 							rate: floorFigure(vm.ieps, 2),
                             amount: floorFigure(vm.free_concept.amount * vm.ieps/100,2),
-							tax_type: vm.tax_typess[2],
+							tax_types: vm.tax_typess[2],
                             id: null
 						},
 				free_customs_info: {
@@ -103,7 +103,7 @@
 					entity: function () {
 						return {
 							no_identification: null,
-							quantity: (0).toFixed(2),
+							quantity: 0,
 							description: null,
 							unit_value: (0).toFixed(2),
 							amount: (0).toFixed(2),

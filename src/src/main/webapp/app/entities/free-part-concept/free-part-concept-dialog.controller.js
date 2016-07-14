@@ -23,6 +23,7 @@
             vm.isSaving = true;            
 			$uibModalInstance.close({
 				no_identification: vm.free_part_concept.no_identification,
+				measure_unit: vm.free_part_concept.measure_unit,
 				quantity: vm.free_part_concept.quantity,
 				description: vm.free_part_concept.description,
 				unit_value: vm.free_part_concept.unit_value,

@@ -15,6 +15,8 @@
 		
         vm.free_cfdi = entity;		
         vm.free_cfdi.free_emitter = free_emitter_entity;
+		vm.free_cfdi.tax_regime = vm.free_cfdi.free_emitter.tax_regime;
+		vm.free_cfdi.c_money = {id: 100, name: "MXN", description: "Peso Mexicano"};
 		vm.free_concepts = [];
 		vm.current_free_concept = null;
 		vm.way_payment = null;
@@ -22,7 +24,8 @@
 		vm.way_payment_y = 0;
 		vm.free_saved_success = false;
 		
-		vm.iva = (0).toFixed(2);
+		vm.show_iva = (0).toFixed(2);
+		vm.calc_iva = (0).toFixed(2);
 		vm.ieps = (0).toFixed(2);
 		vm.ret_iva = (0).toFixed(2);
 		vm.ret_isr = (0).toFixed(2);
@@ -341,15 +344,29 @@
 			var i;
 			for(i=0; i < vm.free_concepts.length; i++){
 				//calculating free cfdi subtotal...
-				subtotal = subtotal + vm.free_concepts[i].free_concept.amount * 1;
+				subtotal = subtotal + vm.free_concepts[i].free_concept.quantity * vm.free_concepts[i].free_concept.unit_value;
 				
 				//getting iva to show to user...
 				if(vm.free_concepts[i].free_concept_iva.rate ==  show_iva_val16 || vm.free_concepts[i].free_concept_iva.rate == show_iva_val15){
 					show_iva = vm.free_concepts[i].free_concept_iva.rate;
 				}
 				
-				//calculating free cfdi iva...
-				if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id != 1 && vm.free_cfdi.cfdi_type_doc.id != 8){
+				//calculating free cfdi iva...				
+				if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 6){
+					calc_iva = 0;
+				}
+				else if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 1){
+					var iva_calc_val = 0;
+					if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val16){
+						iva_calc_val = 16/100;
+					}
+					if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val15){
+						iva_calc_val = 15/100;
+					}
+					
+					calc_iva = calc_iva + iva_calc_val * vm.free_concepts[i].free_concept.amount * (1 + vm.free_concepts[i].free_concept_ieps.rate/100);
+				}
+				else {
 					var iva_calc_val = 0;
 					if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val16){
 						iva_calc_val = 16/100;
@@ -361,25 +378,13 @@
 					calc_iva = calc_iva + vm.free_concepts[i].free_concept.amount * iva_calc_val;
 				}
 				
-				if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 1){
-					var iva_calc_val = 0;
-					if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val16){
-						iva_calc_val = 16/100;
-					}
-					if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val15){
-						iva_calc_val = 15/100;
-					}
-					
-					calc_iva = calc_iva + vm.free_concepts[i].free_concept.amount * iva_calc_val * (1 + vm.free_concepts[i].free_concept_ieps.rate);
-				}
-				
 				//calculating free cfdi ieps...				
 				if(vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 1 || vm.free_cfdi.cfdi_type_doc.id == 8)){					
 					ieps = ieps + vm.free_concepts[i].free_concept_ieps.rate/100 * vm.free_concepts[i].free_concept.amount;
 				}
 				
-				//calculating free cfdi discount...	
-				discount = discount + vm.free_concepts[i].free_concept.quantity * vm.free_concepts[i].free_concept.unit_value * vm.free_concepts[i].free_concept.discount/100;
+				//calculationg subtotal - discount
+				subtotal_discount = subtotal_discount + vm.free_concepts[i].free_concept.amount * 1;
 			}
 
 			//calculating free cfdi ret iva...
@@ -388,20 +393,22 @@
 			}
 			
 			if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 4){
-				ret_iva = 0.04 * subtotal;
+				ret_iva = 0.04 * subtotal_discount;
 			}
 			
 			//calculating free cfdi ret isr...
 			if((vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) || (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5))){
-				ret_isr = 1/10 * subtotal;
+				ret_isr = 1/10 * subtotal_discount;
 			}
 			
 			//showing all...			
 			vm.free_cfdi.subtotal = floorFigure(subtotal, 2);
 			
 			if(show_iva != 0){
-				vm.iva = "(" + show_iva + ")";
+				vm.show_iva = show_iva;
 			}
+			
+			vm.calc_iva = floorFigure(calc_iva, 2);
 			
 			vm.ieps = floorFigure(ieps, 2);
 			
@@ -409,12 +416,12 @@
 			
 			vm.ret_isr = floorFigure(ret_isr, 2);
 			
+			discount = subtotal - subtotal_discount;
 			vm.free_cfdi.discount = floorFigure(discount, 2);
 			
-			subtotal_discount = subtotal - discount;
 			vm.subtotal_discount = floorFigure(subtotal_discount, 2);
 			
-			total = (subtotal + calc_iva + ieps) - (ret_iva +  ret_isr);
+			total = (subtotal_discount + calc_iva) - (ret_iva +  ret_isr) + ieps;
 			vm.free_cfdi.total = floorFigure(total, 2);			
 		};
 		
