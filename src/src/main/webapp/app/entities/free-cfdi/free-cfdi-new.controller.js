@@ -172,7 +172,7 @@
 				tax_types: vm.tax_typess[1],
 				id: null,
 			};
-			if (free_tax_retentions_iva.id !== null) {
+			if (free_tax_retentions_isr.id !== null) {
                 Free_tax_retentions.update(free_tax_retentions_isr);
             } else {
                 Free_tax_retentions.save(free_tax_retentions_isr);
