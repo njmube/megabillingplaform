@@ -42,7 +42,7 @@
             "cfdi_states": "Estado CFDI",
             "free_emitter": "Emisor",
             "payment_method": "Método de Pago",
-            "way_payment": "Forma de Pago",
+            "way_payment": "Forma de Pago (*)",
             "c_money": "Moneda",
             "cfdi_type_doc": "Tipo de Documento",
             "tax_regime": "Régimen Fiscal",

@@ -482,7 +482,7 @@
 							<div class="form-group">
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.way_payment" for="field_way_payment">way_payment</label>
 								<div class="col-sm-5">									
-									<select class="form-control" id="field_way_payment" name="way_payment" ng-model="vm.way_payment" ng-options="way_payment as way_payment.name for way_payment in vm.way_payments track by way_payment.id" ng-disabled="vm.enableWayPayment()" data-ng-change="vm.partialityChange()" >
+									<select class="form-control" id="field_way_payment" name="way_payment" ng-model="vm.way_payment" ng-options="way_payment as way_payment.name for way_payment in vm.way_payments track by way_payment.id" ng-disabled="vm.enableWayPayment()" data-ng-change="vm.partialityChange()" required >
 										<option value=""></option>
 									</select>
 								</div>
@@ -676,7 +676,11 @@
 												<td>{{free_concept.free_concept.discount}}</td>
 												<td>{{free_concept.free_concept_iva.rate}} / {{free_concept.free_concept_ieps.rate}}</td>
 												<td>{{free_concept.free_concept.amount}}</td>
-												<td><button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeConcept($index)">Eliminar</button></td>
+												<td>
+													<button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeConcept($index)">
+														<span class="glyphicon glyphicon-remove"></span>
+													</button>
+												</td>
 											</tr>											
 										</tbody>
 									</table>

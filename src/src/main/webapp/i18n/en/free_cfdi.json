@@ -43,7 +43,7 @@
             "free_emitter": "Emitter",
             "free_reciver": "Receiver",
             "payment_method": "Payment Method",
-            "way_payment": "Way Payment",
+            "way_payment": "Way Payment (*)",
             "c_money": "Money",
             "cfdi_type_doc": "Type Document",
             "tax_regime": "Tax Regime",

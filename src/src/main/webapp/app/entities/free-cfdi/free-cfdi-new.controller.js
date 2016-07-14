@@ -137,21 +137,24 @@
 				Free_tax_transfered.save(free_tax_transfered_ieps);
 			}
 			
-			//saving free_customs_info
-			var free_customs_info = vm.free_concepts[vm.current_free_concept].free_customs_info;			
-			free_customs_info.free_concept = free_concept;					
-			if (free_customs_info.id !== null) {
+			//saving free_customs_infos
+			var free_customs_infos = vm.free_concepts[vm.current_free_concept].free_customs_infos;
+			var i;
+			for(i=0; i < free_customs_infos.length; i++){
+				var free_customs_info = free_customs_infos[i];
+				free_customs_info.free_concept = free_concept;
+				if (free_customs_info.id !== null) {
 				Free_customs_info.update(free_customs_info);
-			} else {
-				Free_customs_info.save(free_customs_info);
+				} else {
+					Free_customs_info.save(free_customs_info);
+				}
 			}
 			
 			//saving free_part_concept
 			var free_part_concepts = vm.free_concepts[vm.current_free_concept].free_part_concepts;
-			var i;
-			vm.current_part_concept = 0;
-			for(i=0; i < free_part_concepts.length; i++){
-				var free_part_concept = free_part_concepts[i];
+			var j;
+			for(j=0; j < free_part_concepts.length; j++){
+				var free_part_concept = free_part_concepts[j];
 				free_part_concept.free_concept = free_concept;
 				if (free_part_concept.id !== null) {
 					Free_part_concept.update(free_part_concept);
@@ -223,6 +226,10 @@
 			vm.free_cfdi.way_payment= null;
 			vm.free_cfdi.payment_method= null;
 			vm.free_cfdi.c_money= null;
+			
+			vm.way_payment = null;
+			vm.way_payment_x = 0;
+			vm.way_payment_y = 0;
 			
 			vm.free_cfdi.subtotal = floorFigure(0, 2);
 			vm.iva = floorFigure(0, 2);
@@ -302,14 +309,6 @@
 							amount: (0).toFixed(2),
 							id: null
 						};
-					},
-					free_custom_info_entity: function () {
-						return {
-							number_doc: null,
-							date: null,
-							customs: null,
-							id: null
-						};			
 					},
 				}
 			}).result.then(function(result) {

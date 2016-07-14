@@ -5,19 +5,19 @@
         .module('megabillingplatformApp')
         .controller('Free_conceptDialogController', Free_conceptDialogController);
 
-    Free_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$uibModal', 'free_concept_entity', 'free_custom_info_entity', 'Free_cfdi', 'Measure_unit', 'Rate_type', 'Tax_types'];
+    Free_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$uibModal', 'free_concept_entity', 'Free_cfdi', 'Measure_unit', 'Rate_type', 'Tax_types'];
 
-    function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, free_custom_info_entity, Free_cfdi, Measure_unit, Rate_type, Tax_types) {
+    function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, Free_cfdi, Measure_unit, Rate_type, Tax_types) {
         var vm = this;
 		
         vm.free_concept = free_concept_entity;
 		vm.iva = (0).toFixed(2);
-		vm.ieps = (0).toFixed(2);
-        vm.free_customs_info = free_custom_info_entity;		
+		vm.ieps = (0).toFixed(2);	
         vm.measure_units = Measure_unit.query();
         vm.rate_typess = Rate_type.query({filtername: " "});
         vm.tax_typess = Tax_types.query({filtername: " "});
 		vm.free_part_concepts = [];
+		vm.free_customs_infos = [];
 		
 		vm.calcAmount = function(){
 			/*SubTotal = (Cantidad * Precio unitario)*(1-Descuento/100)*/			
@@ -69,12 +69,7 @@
 							tax_types: vm.tax_typess[2],
                             id: null
 						},
-				free_customs_info: {
-							number_doc: vm.free_customs_info.number_doc,
-							date: vm.free_customs_info.date,
-							customs: vm.free_customs_info.customs,
-							id: null
-						},
+				free_customs_infos: vm.free_customs_infos,
 				free_part_concepts: vm.free_part_concepts				
 					
 			});
@@ -85,14 +80,42 @@
             $uibModalInstance.dismiss('cancel');			
         };
 		
-		vm.datePickerOpenStatus = {};
+		/*vm.datePickerOpenStatus = {};
         vm.datePickerOpenStatus.date = false;
 
         vm.openCalendar = function(date) {
             vm.datePickerOpenStatus[date] = true;
-        };
+        };*/
 		
-		vm.openFreePartConcept = function(){
+		vm.addFreeCustomInfo = function(){
+			$uibModal.open({
+				templateUrl: 'app/entities/free-customs-info/free-customs-info-dialog.html',
+                controller: 'Free_customs_infoDialogController',
+				controllerAs: 'vm',
+				backdrop: 'static',
+				size: '',
+				resolve: {
+					entity: function () {
+						return {
+                                number_doc: null,
+                                date: null,
+                                customs: null,
+                                id: null
+                            };
+					}
+				}
+			}).result.then(function(result) {
+				vm.free_customs_infos.push(result);
+			}, function() {
+				
+			});
+		};
+		
+		vm.removeFreeCustomInfo = function(index){
+			vm.free_customs_infos.splice(index,1);
+		};
+		
+		vm.addFreePartConcept = function(){
 			$uibModal.open({
 				templateUrl: 'app/entities/free-part-concept/free-part-concept-dialog.html',
 				controller: 'Free_part_conceptDialogController',
@@ -116,6 +139,10 @@
 			}, function() {
 				
 			});
+		};
+		
+		vm.removeFreePartConcept = function(index){
+			vm.free_part_concepts.splice(index,1);
 		};
     }
 })();

@@ -99,34 +99,33 @@
 				</div>
 			</uib-tab>
 			
-			<uib-tab heading="Información Aduanera">				
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_customs_info.number_doc" for="field_number_doc">Number_doc</label>
-					<div class="col-sm-9">
-						<input type="text" class="form-control" name="number_doc" id="field_number_doc"
-								ng-model="vm.free_customs_info.number_doc"
-								required />
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_customs_info.date" for="field_date">Date</label>
-					<div class="col-sm-9">
-						<div class="input-group">
-							<input id="field_date" type="text" class="form-control" name="date" uib-datepicker-popup="{{dateformat}}" ng-model="vm.free_customs_info.date" is-open="vm.datePickerOpenStatus.date"
-							required/>
-							<span class="input-group-btn">
-								<button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
-							</span>
-						</div>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_customs_info.customs" for="field_customs">Customs</label>
-					<div class="col-sm-9">
-						<textarea class="form-control" name="customs" id="field_customs"
-								ng-model="vm.free_customs_info.customs" rows="5"></textarea>
-					</div>				
-				</div>				
+			<uib-tab heading="Información Aduanera">
+				<table id="concepto-table" class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>No. Documento</th>
+							<th>Fecha</th>
+							<th>Description</th>
+							<th>...</th>
+						</tr>
+					</thead>
+					<tbody>						
+						<tr ng-repeat="free_customs_info in vm.free_customs_infos">
+							<td>{{free_customs_info.number_doc}}</td>
+							<td>{{free_customs_info.date}}</td>
+							<td>{{free_customs_info.customs}}</td>					
+							<td>
+								<button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeFreeCustomInfo($index)">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+							</td>					
+						</tr>						
+					</tbody>
+				</table>
+				
+				<button type="button" class="btn btn-sm btn-primary" ng-click="vm.addFreeCustomInfo()">
+				  Añadir Información Aduanera
+				</button>								
 			</uib-tab>
 			<uib-tab heading="Partes">
 				<table id="concepto-table" class="table table-striped table-bordered table-hover">
@@ -136,6 +135,7 @@
 							<th>Descripción</th>
 							<th>Cantidad</th>
 							<th>Importe</th>
+							<th>...</th>
 						</tr>
 					</thead>
 					<tbody>						
@@ -143,12 +143,17 @@
 							<td>{{free_part_concept.no_identification}}</td>
 							<td>{{free_part_concept.description}}</td>
 							<td>{{free_part_concept.quantity}}</td>					
-							<td>{{free_part_concept.amount}}</td>						
+							<td>{{free_part_concept.amount}}</td>
+							<td>
+								<button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeFreePartConcept($index)">
+									<span class="glyphicon glyphicon-remove"></span>
+								</button>
+							</td>
 						</tr>						
 					</tbody>
 				</table>
 				
-				<button type="button" class="btn btn-sm btn-primary" ng-click="vm.openFreePartConcept()">
+				<button type="button" class="btn btn-sm btn-primary" ng-click="vm.addFreePartConcept()">
 				  Añadir Parte
 				</button>
 			</uib-tab>
