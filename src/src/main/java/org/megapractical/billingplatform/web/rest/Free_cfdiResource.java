@@ -54,7 +54,21 @@ public class Free_cfdiResource {
 
         free_cfdi.setVersion("3.2");
         free_cfdi.setDate_expedition(ZonedDateTime.now());
+
         String place_expedition = free_cfdi.getFree_emitter().getC_country().getName();
+
+        if(free_cfdi.getFree_emitter().getC_state() != null)
+            place_expedition += ", " + free_cfdi.getFree_emitter().getC_state().getName();
+
+        if(free_cfdi.getFree_emitter().getC_municipality() != null)
+            place_expedition += ", " + free_cfdi.getFree_emitter().getC_municipality().getName();
+
+        if(free_cfdi.getFree_emitter().getC_colony() != null)
+            place_expedition += ", " + free_cfdi.getFree_emitter().getC_colony().getCode();
+
+        if(free_cfdi.getFree_emitter().getC_zip_code() != null)
+            place_expedition += ", " + free_cfdi.getFree_emitter().getC_zip_code().getCode();
+
         free_cfdi.setPlace_expedition(place_expedition);
         free_cfdi.setStamp("stamp");
         free_cfdi.setNo_certificate("no_cetificate");
