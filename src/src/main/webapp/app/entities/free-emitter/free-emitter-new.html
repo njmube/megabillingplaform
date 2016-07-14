@@ -78,7 +78,7 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.type_taxpayer" for="field_type_taxpayer">Type taxpayer</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="rfc" id="field_type_taxpayer" name="type_taxpayer"
+                            <input type="text" class="form-control" id="field_type_taxpayer" name="type_taxpayer"
                                    ng-model="vm.free_emitter.type_taxpayer.name" readonly/>
                         </div>
                     </div>
@@ -329,9 +329,19 @@
                         Ubicación Fiscal
                     </h3>
                     <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" for="activated" ng-show = "vm.edit == null">
+                            <input type="checkbox" id="activated" ng-model = "vm.edit" data-ng-change="vm.clicEdit()">
+                            <span translate="entity.action.edit">Edit</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_country" for="field_c_country">c_country</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.free_emitter.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countrys track by c_country.id" data-ng-change="vm.onChangeC_country()" required>
+                            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.free_emitter.c_country"
+                                    ng-show = "vm.edit != null"
+                                    ng-options="c_country as c_country.name for c_country in vm.c_countrys track by c_country.id"
+                                    data-ng-change="vm.onChangeC_country()"
+                                    ng-selected = "vm.free_emitter.c_country = vm.free_emitter.c_country || vm.c_countrys[150]" required>
 								<option value=""></option>
 							</select>
 							<div ng-show="editForm.c_country.$dirty && editForm.c_country.$invalid">
@@ -340,12 +350,18 @@
 									This field is required.
 								</p>
 							</div>
+                            <input type="text" id="field_country" class="form-control" rows="5"
+                                   ng-model="vm.free_emitter.c_country.name" ng-show = "vm.edit == null" readonly/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.c_state" for="field_c_state">c_state</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_state" name="c_state" ng-model="vm.free_emitter.c_state" ng-options="c_state as c_state.name for c_state in vm.c_states track by c_state.id" data-ng-change="vm.onChangeC_state()">
+                            <select class="form-control" id="field_c_state" name="c_state"
+                                    ng-model="vm.free_emitter.c_state"
+                                    ng-options="c_state as c_state.name for c_state in vm.c_states track by c_state.id"
+                                    data-ng-change="vm.onChangeC_state()"
+                                    ng-show = "vm.edit != null">
 								<option value=""></option>
 							</select>
                             <div ng-show="editForm.c_state.$dirty && editForm.c_state.$invalid">
@@ -354,6 +370,8 @@
                                     This field is required.
                                 </p>
                             </div>
+                            <input type="text" id="field_state" class="form-control" rows="5"
+                                   ng-model="vm.free_emitter.c_state.name" ng-show = "vm.edit == null" readonly/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -361,7 +379,8 @@
                         <div class="col-md-8">
                             <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.free_emitter.c_municipality"
                                     ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id"
-                                    data-ng-change="vm.onChangeC_municipality()">
+                                    data-ng-change="vm.onChangeC_municipality()"
+                                    ng-show = "vm.edit != null">
 								<option value=""></option>
 							</select>
                             <div ng-show="editForm.c_municipality.$dirty && editForm.c_municipality.$invalid">
@@ -370,6 +389,8 @@
                                     This field is required.
                                 </p>
                             </div>
+                            <input type="text" id="field_municipality" class="form-control" rows="5"
+                                   ng-model="vm.free_emitter.c_municipality.name" ng-show = "vm.edit == null" readonly/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -377,9 +398,12 @@
                         <div class="col-md-8">
                             <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.free_emitter.c_colony"
                                     ng-options="c_colony as c_colony.code for c_colony in vm.c_colonys track by c_colony.id"
-                                    data-ng-change="vm.onChangeC_colony()">
+                                    data-ng-change="vm.onChangeC_colony()"
+                                    ng-show = "vm.edit != null">
                                 <option value=""></option>
                             </select>
+                            <input type="text" id="field_colony" class="form-control" rows="5"
+                                   ng-model="vm.free_emitter.c_colony.name" ng-show = "vm.edit == null" readonly/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -393,7 +417,9 @@
                         <label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.free_emitter.location" for="field_location">Location</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="location" id="field_location"
-                                   ng-model="vm.free_emitter.location"/>
+                                   ng-model="vm.free_emitter.location" ng-show = "vm.edit != null"/>
+                            <input type="text" id="field_location1" class="form-control" rows="5"
+                                   ng-model="vm.free_emitter.location" ng-show = "vm.edit == null" readonly/>
                         </div>
                     </div>
                     <div class="form-group">
@@ -401,13 +427,16 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="street" id="field_street"
 									ng-model="vm.free_emitter.street"
-									required >
+									required
+                                    ng-show = "vm.edit != null">
 							<div ng-show="editForm.street.$dirty && editForm.street.$invalid">
 								<p class="help-block"
 									ng-show="editForm.street.$error.required" translate="entity.validation.required">
 									This field is required.
 								</p>
 							</div>
+                            <input type="text" id="field_street1" class="form-control" rows="5"
+                                   ng-model="vm.free_emitter.street" ng-show = "vm.edit == null" readonly/>
 						</div>
                     </div>
 					<div class="form-group">
@@ -415,18 +444,26 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="intersection" id="intersection"
 									ng-model="vm.free_emitter.intersection"
-									/>
+                                    ng-show = "vm.edit != null"/>
+                            <input type="text" id="field_intersection" class="form-control" rows="5"
+                                   ng-model="vm.free_emitter.intersection" ng-show = "vm.edit == null" readonly/>
 						</div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.num_ext" for="field_num_ext">Num ext</label>
                         <div class="col-md-2">
-                             <input type="text" class="form-control" name="num_ext" id="field_num_ext" ng-model="vm.free_emitter.num_ext" />
+                             <input type="text" class="form-control" name="num_ext" id="field_num_ext"
+                                    ng-model="vm.free_emitter.num_ext" ng-show = "vm.edit != null"/>
+                             <input type="text" id="field_num_ext1" class="form-control" rows="5"
+                                   ng-model="vm.free_emitter.num_ext" ng-show = "vm.edit == null" readonly/>
                         </div>
                         <div class="col-md-6">
 							<label class="col-md-5 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.num_int" for="field_num_int">Num int</label>
                             <div class="col-md-7">
-                                <input type="text" class="form-control" name="num_int" id="field_num_int" ng-model="vm.free_emitter.num_int" />
+                                <input type="text" class="form-control" name="num_int" id="field_num_int"
+                                       ng-model="vm.free_emitter.num_int" ng-show = "vm.edit != null"/>
+                                <input type="text" id="field_num_int1" class="form-control" rows="5"
+                                       ng-model="vm.free_emitter.num_int" ng-show = "vm.edit == null" readonly/>
                             </div>
                         </div>
                     </div>
@@ -435,10 +472,14 @@
                             Reference
                         </label>
                         <div class="col-sm-8">
-                            <textarea type="text" id="field_reference" class="form-control" rows="5" ng-model="vm.free_emitter.reference"></textarea>
+                            <textarea type="text" id="field_reference" class="form-control" rows="5"
+                                      ng-model="vm.free_emitter.reference" ng-show = "vm.edit != null"></textarea>
+                            <textarea type="text" id="field_reference1" class="form-control" rows="5"
+                                      ng-model="vm.free_emitter.reference" ng-show = "vm.edit == null" readonly></textarea>
                         </div>
 
                     </div>
+
 					<div class="form-group">
 
 						<button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary pull-right" style="margin: 0 15px">

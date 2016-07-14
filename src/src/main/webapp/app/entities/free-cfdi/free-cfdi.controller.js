@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiController', Free_cfdiController);
 
-    Free_cfdiController.$inject = ['$scope', '$state', 'Free_cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    Free_cfdiController.$inject = ['$scope', '$state', 'Free_cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'Cfdi_states'];
 
-    function Free_cfdiController ($scope, $state, Free_cfdi, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function Free_cfdiController ($scope, $state, Free_cfdi, ParseLinks, AlertService, pagingParams, paginationConstants, Cfdi_states) {
         var vm = this;
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
@@ -15,6 +15,15 @@
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
         vm.loadAll();
+        vm.folio_fiscal = null;
+        vm.rfc_receiver = null;
+        vm.free_cfdi = null;
+        vm.dateStart = null;
+        vm.dateEnd = null;
+        vm.folio = null;
+        vm.serie = null;
+        vm.state = null;
+        vm.states = Cfdi_states.query({filtername:" "});
 
         function loadAll () {
             Free_cfdi.query({
@@ -53,6 +62,20 @@
                 search: vm.currentSearch
             });
         }
+
+        vm.datePickerOpenStatus = {};
+        vm.datePickerOpenStatus.date = false;
+
+        vm.openCalendar = function(date) {
+            vm.datePickerOpenStatus[date] = true;
+        };
+
+        vm.datePickerOpenStatus1 = {};
+        vm.datePickerOpenStatus1.date = false;
+
+        vm.openCalendar1 = function(date) {
+            vm.datePickerOpenStatus1[date] = true;
+        };
 
     }
 })();

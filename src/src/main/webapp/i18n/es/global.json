@@ -197,7 +197,8 @@
             "delete": "Eliminar",
             "edit": "Editar",
             "save": "Guardar",
-            "view": "Vista"
+            "view": "Vista",
+            "search": "Buscar"
         },
         "detail": {
             "field": "Campo",

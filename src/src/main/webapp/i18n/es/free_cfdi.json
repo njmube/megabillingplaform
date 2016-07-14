@@ -5,7 +5,7 @@
                 "title": "CFDIs",
                 "createLabel": "Nuevo CFDI",
                 "createOrEditLabel": "Crear o editar CFDI",
-                "search": "Búsqueda para CFDI"
+                "search": "Consultar CFDI"
             },
             "created": "Un nuevo comprobante ha sido creado con el identificador {{ param }}",
             "updated": "Un comprobante ha sido actualizado con el identificador {{ param }}",
