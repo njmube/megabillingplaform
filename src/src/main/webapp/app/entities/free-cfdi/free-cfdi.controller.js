@@ -25,6 +25,7 @@
         vm.serie = null;
         vm.state = null;
         vm.states = Cfdi_states.query({filtername:" "});
+        vm.cfdi_all = null;
 
         function loadAll () {
             var dateFormat = 'yyyy-MM-dd';
@@ -55,6 +56,7 @@
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
                 vm.free_cfdis = data;
+                vm.cfdi_all = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {
@@ -62,23 +64,53 @@
             }
         }
 
-        function search () {
+        function search() {
             var dateFormat = 'yyyy-MM-dd';
+
             var fromDate = $filter('date')("0000-01-01", dateFormat);
             var toDate = $filter('date')("0000-01-01", dateFormat);
-            var idFree_cfdi = vm.free_cfdi.id;
+            if(vm.dateStart != null){
+                fromDate = $filter('date')(vm.dateStart, dateFormat);
+            }
+            if(vm.dateEnd != null){
+                toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+            var foliof = " ";
+            if(vm.folio_fiscal != null && vm.folio_fiscal != ""){
+                foliof = vm.folio_fiscal;
+            }
+            var folio = " ";
+            if(vm.folio != null && vm.folio != ""){
+                folio = vm.folio;
+            }
+            var idFree_cfdi = 0;
+            if(vm.free_cfdi != null){
+                idFree_cfdi = vm.free_cfdi.id;
+            }
+            var serie = " ";
+            if(vm.serie != null && vm.serie != ""){
+                serie = vm.serie;
+            }
+            var rfcreceiver = " ";
+            if(vm.rfc_receiver != null && vm.rfc_receiver != ""){
+                rfcreceiver = vm.rfc_receiver;
+            }
+            var idstate = 0;
+            if(vm.state != null){
+                idstate = vm.state.id;
+            }
             Free_cfdi.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,
                 sort: sort(),
                 idFree_cfdi: idFree_cfdi,
-                folio_fiscal: " ",
-                rfc_receiver: " ",
+                folio_fiscal: foliof,
+                rfc_receiver: rfcreceiver,
                 fromDate: fromDate,
                 toDate: toDate,
-                idState: 0,
-                serie: " ",
-                folio: " "
+                idState: idstate,
+                serie: serie,
+                folio: folio
             }, onSuccess, onError);
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];

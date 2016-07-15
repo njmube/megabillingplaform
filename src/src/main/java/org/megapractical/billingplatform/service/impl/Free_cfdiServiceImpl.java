@@ -1,5 +1,6 @@
 package org.megapractical.billingplatform.service.impl;
 
+import org.megapractical.billingplatform.domain.Free_emitter;
 import org.megapractical.billingplatform.service.Free_cfdiService;
 import org.megapractical.billingplatform.domain.Free_cfdi;
 import org.megapractical.billingplatform.repository.Free_cfdiRepository;
@@ -40,22 +41,93 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
         return result;
     }
 
+    public Page<Free_cfdi> findByFree_emitter(Free_emitter free_emitter, Pageable pageable){
+        List<Free_cfdi> listaAll = free_cfdiRepository.findAll();
+        List<Free_cfdi> result = new ArrayList<>();
+        for(int i=0;i<listaAll.size();i++){
+            if(listaAll.get(i).getFree_emitter().toString().compareTo(free_emitter.toString())==0){
+                result.add(listaAll.get(i));
+            }
+        }
+        return new PageImpl<Free_cfdi>(result, pageable, result.size());
+    }
+
     public Page<Free_cfdi> findCustom(Integer idFree_cfdi, String folio_fiscal, String rfc_receiver,
                                       LocalDate fromDate, LocalDate toDate,Integer idState,
-                                      String serie,String folio, Pageable pageable){
+                                      String serie,String folio, Free_emitter free_emitter,Pageable pageable){
 
         Page<Free_cfdi> page = null;
         List<Free_cfdi> all;
         if(idFree_cfdi != 0)
         {
-            Free_cfdi free_cfdi= free_cfdiRepository.findOne(new Long(idFree_cfdi));
-            all = new ArrayList<>();
-            all.add(free_cfdi);
-            page = new PageImpl<Free_cfdi>(all,pageable,1);
-            return page;
+            if(idFree_cfdi != -1) {
+                Free_cfdi free_cfdi = free_cfdiRepository.findOne(new Long(idFree_cfdi));
+                all = new ArrayList<>();
+                all.add(free_cfdi);
+                page = new PageImpl<Free_cfdi>(all, pageable, 1);
+                return page;
+            }else
+            {
+                return findByFree_emitter(free_emitter,pageable);
+            }
         }
         else {
-
+            List<Free_cfdi> listaAll = free_cfdiRepository.findAll();
+            List<Free_cfdi> result = new ArrayList<>();
+            for(int i=0;i<listaAll.size();i++){
+                boolean a = true;
+                boolean b = true;
+                boolean c = true;
+                boolean d = true;
+                boolean e = true;
+                boolean f = true;
+                boolean g = true;
+                if(listaAll.get(i).getFree_emitter().toString().compareTo(free_emitter.toString())!=0){
+                    a = false;
+                }
+                if(folio_fiscal.compareTo(" ") != 0){
+                    if(folio_fiscal.compareTo(listaAll.get(i).getFolio_fiscal_orig())!=0){
+                        b = false;
+                    }
+                }
+                if(rfc_receiver.compareTo(" ") != 0){
+                    if(rfc_receiver.compareTo(listaAll.get(i).getFree_receiver().getRfc())!=0){
+                        c = false;
+                    }
+                }
+                if(idState != 0){
+                    if(idState.toString().compareTo(listaAll.get(i).getCfdi_states().getId().toString())!=0){
+                        d = false;
+                    }
+                }
+                if(serie.compareTo(" ") != 0){
+                    if(serie.compareTo(listaAll.get(i).getSerial())!=0){
+                        e = false;
+                    }
+                }
+                if(folio.compareTo(" ") != 0){
+                    if(folio.compareTo(listaAll.get(i).getFolio())!=0){
+                        f = false;
+                    }
+                }
+                if(fromDate.toString().compareTo("0001-01-01") != 0 || toDate.toString().compareTo("0001-01-01") != 0){
+                    LocalDate inicio = fromDate;
+                    LocalDate datefinal;
+                    if(fromDate.isBefore(toDate)){
+                        datefinal = toDate;
+                    }else {
+                        datefinal = LocalDate.now();
+                    }
+                    LocalDate actual = listaAll.get(i).getDate_expedition().toLocalDate();
+                    if(inicio.compareTo(actual)<0 || datefinal.compareTo(actual)>0){
+                        g = false;
+                    }
+                }
+                if(a && b && c && d && e && f && g){
+                    result.add(listaAll.get(i));
+                }
+            }
+            page = new PageImpl<Free_cfdi>(result, pageable, result.size());
         }
 
         return page;

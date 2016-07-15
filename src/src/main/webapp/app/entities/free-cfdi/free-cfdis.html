@@ -46,16 +46,16 @@
     <jhi-alert></jhi-alert>
     <div class="row">
         <div class="col-sm-12">
-            <form name="editForm" class="form-horizontal" role="form">
+            <form name="editForm" class="form-horizontal" role="form" ng-submit="vm.search()">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <div class="col-md-8">
-                                <select class="form-control" id="field_free_cfdis" name="free_cfdis" ng-model="vm.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.free_cfdis track by free_cfdi.id">
+                                <select class="form-control" id="field_free_cfdis" name="free_cfdis" ng-model="vm.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.cfdi_all track by free_cfdi.id">
                                     <option value=""></option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary pull-right" ng-submit="vm.search()">
+                            <button type="submit" class="btn btn-primary pull-right">
                                 <span translate="entity.action.search">Search</span>
                             </button>
                         </div>

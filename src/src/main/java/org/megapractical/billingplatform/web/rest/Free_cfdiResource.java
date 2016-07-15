@@ -2,7 +2,11 @@ package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import org.megapractical.billingplatform.domain.Free_cfdi;
+import org.megapractical.billingplatform.domain.Free_emitter;
+import org.megapractical.billingplatform.repository.UserRepository;
+import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.Free_cfdiService;
+import org.megapractical.billingplatform.service.Free_emitterService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -36,6 +40,12 @@ public class Free_cfdiResource {
 
     @Inject
     private Free_cfdiService free_cfdiService;
+
+    @Inject
+    private Free_emitterService free_emitterService;
+
+    @Inject
+    private UserRepository userRepository;
 
     /**
      * POST  /free-cfdis : Create a new free_cfdi.
@@ -130,20 +140,28 @@ public class Free_cfdiResource {
         Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Free_cfdis");
-        if(idFree_cfdi == 0 && folio_fiscal.compareTo(" ")==0 && rfc_receiver.compareTo(" ")==0 &&
-            fromDate.toString().compareTo("0001-01-01")==0 && toDate.toString().compareTo("0001-01-01")==0 &&
-            idState == 0 && serie.compareTo(" ")==0 && folio.compareTo(" ")==0){
-            log.debug("Obtener todos");
-            Page<Free_cfdi> page = free_cfdiService.findAll(pageable);
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-cfdis");
-            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
-        }
-        else{
-            log.debug("Obtener alguno");
-            Page<Free_cfdi> page = free_cfdiService.findCustom(idFree_cfdi, folio_fiscal, rfc_receiver,
-                fromDate, toDate,idState,serie,folio, pageable);
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-cfdis");
-            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        String login = SecurityUtils.getCurrentUserLogin();
+        Free_emitter free_emitter = free_emitterService.findOneByUser(userRepository.findOneByLogin(login).get());
+        if(free_emitter != null) {
+            if (idFree_cfdi == 0 && folio_fiscal.compareTo(" ") == 0 && rfc_receiver.compareTo(" ") == 0 &&
+                fromDate.toString().compareTo("0001-01-01") == 0 && toDate.toString().compareTo("0001-01-01") == 0 &&
+                idState == 0 && serie.compareTo(" ") == 0 && folio.compareTo(" ") == 0) {
+                log.debug("Obtener todos");
+                Page<Free_cfdi> page = free_cfdiService.findByFree_emitter(free_emitter, pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-cfdis");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            } else {
+                log.debug("Obtener alguno");
+                LocalDate inicio = fromDate;
+                LocalDate datefinal = toDate;
+                Page<Free_cfdi> page = free_cfdiService.findCustom(idFree_cfdi, folio_fiscal, rfc_receiver,
+                    inicio, datefinal, idState, serie, folio, free_emitter, pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-cfdis");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            }
+        }else
+        {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 

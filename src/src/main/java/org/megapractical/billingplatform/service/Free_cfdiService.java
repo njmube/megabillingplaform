@@ -1,6 +1,7 @@
 package org.megapractical.billingplatform.service;
 
 import org.megapractical.billingplatform.domain.Free_cfdi;
+import org.megapractical.billingplatform.domain.Free_emitter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -29,6 +30,8 @@ public interface Free_cfdiService {
      */
     Page<Free_cfdi> findAll(Pageable pageable);
 
+    Page<Free_cfdi> findByFree_emitter(Free_emitter free_emitter, Pageable pageable);
+
     Page<Free_cfdi> findCustom(Integer idFree_cfdi,
                                String folio_fiscal,
                                String rfc_receiver,
@@ -36,7 +39,9 @@ public interface Free_cfdiService {
                                LocalDate toDate,
                                Integer idState,
                                String serie,
-                               String folio, Pageable pageable);
+                               String folio,
+                               Free_emitter free_emitter,
+                               Pageable pageable);
 
     /**
      *  Get the "id" free_cfdi.
