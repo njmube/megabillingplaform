@@ -32,6 +32,8 @@
 		vm.ret_isr = (0).toFixed(2);
 		vm.subtotal_discount = (0).toFixed(2);
 		
+		vm.disabled_iva_value = -1;
+		
         vm.free_receiver = free_receiver_entity;
         vm.type_taxpayers = Type_taxpayer.query();
 		vm.c_countrys = C_country.query({pg:1});
@@ -371,6 +373,9 @@
 							id: null
 						};
 					},
+					disabled_iva_value: function () {
+						return vm.disabled_iva_value;
+					}
 				}
 			}).result.then(function(result) {
 				vm.free_concepts.push(result);
@@ -405,6 +410,8 @@
 			var subtotal_discount = 0;
 			var total = 0;
 			
+			var disabled_iva_value = -1;
+			
 			
 			var i;
 			for(i=0; i < vm.free_concepts.length; i++){
@@ -414,6 +421,14 @@
 				//getting iva to show to user...
 				if(vm.free_concepts[i].free_concept_iva.rate ==  show_iva_val16 || vm.free_concepts[i].free_concept_iva.rate == show_iva_val15){
 					show_iva = vm.free_concepts[i].free_concept_iva.rate;
+					
+					if(vm.free_concepts[i].free_concept_iva.rate ==  show_iva_val16){
+						disabled_iva_value = 15;
+					}
+					
+					if(vm.free_concepts[i].free_concept_iva.rate ==  show_iva_val15){
+						disabled_iva_value = 16;
+					}
 				}
 				
 				//calculating free cfdi iva...				
@@ -487,7 +502,9 @@
 			vm.subtotal_discount = floorFigure(subtotal_discount, 2);
 			
 			total = (subtotal_discount + calc_iva) - (ret_iva +  ret_isr) + ieps;
-			vm.free_cfdi.total = floorFigure(total, 2);			
+			vm.free_cfdi.total = floorFigure(total, 2);
+
+			vm.disabled_iva_value = disabled_iva_value;
 		};
 		
 		vm.enableWithByPartiality = function(){

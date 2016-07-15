@@ -76,7 +76,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.iva" for="field_iva">IVA</label>	
 					<div class="col-sm-9">
-						<select class="form-control" id="field_iva" name="iva" ng-model="vm.iva" ng-options="rate_type as rate_type.name for rate_type in vm.rate_typess track by rate_type.value">
+						<select class="form-control" id="field_iva" name="iva" ng-model="vm.iva" ng-options="rate_type as rate_type.name disable when rate_type.value == vm.disabled_iva_value for rate_type in vm.rate_typess track by rate_type.value">
 							<option value=""></option>
 						</select>
 					</div>

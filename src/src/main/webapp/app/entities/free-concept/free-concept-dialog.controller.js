@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_conceptDialogController', Free_conceptDialogController);
 
-    Free_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$uibModal', 'free_concept_entity', 'Free_cfdi', 'Measure_unit', 'Rate_type', 'Tax_types'];
+    Free_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$uibModal', 'free_concept_entity', 'Free_cfdi', 'Measure_unit', 'Rate_type', 'Tax_types', 'disabled_iva_value'];
 
-    function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, Free_cfdi, Measure_unit, Rate_type, Tax_types) {
+    function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, Free_cfdi, Measure_unit, Rate_type, Tax_types, disabled_iva_value) {
         var vm = this;
 		
         vm.free_concept = free_concept_entity;
@@ -18,6 +18,8 @@
         vm.tax_typess = Tax_types.query({filtername: " "});
 		vm.free_part_concepts = [];
 		vm.free_customs_infos = [];
+		
+		vm.disabled_iva_value = disabled_iva_value;
 		
 		vm.calcAmount = function(){
 			/*SubTotal = (Cantidad * Precio unitario)*(1-Descuento/100)*/			
