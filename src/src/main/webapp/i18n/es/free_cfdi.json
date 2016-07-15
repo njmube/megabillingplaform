@@ -47,6 +47,10 @@
             "cfdi_type_doc": "Tipo de Documento",
             "tax_regime": "Régimen Fiscal",
             "free_receiver": "Receptor",
+            "date_from":"Desde",
+            "date_to": "Hasta",
+            "rfc_receiver":"RFC del receptor",
+            "search_result":"Resultado de la búsqueda",
 			"validation":{
 				"way_paymentxnomorey":"El primer valor no puede ser menor que le segundo.",
 				"way_paymentxynocero":"Ninguno de los dos valores numéricos de arriba pueden ser cero."

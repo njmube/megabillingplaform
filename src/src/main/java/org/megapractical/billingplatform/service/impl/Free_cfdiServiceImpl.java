@@ -110,6 +110,7 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
                         f = false;
                     }
                 }
+                log.debug("Inicio: "+ fromDate.toString() + " final: "+ toDate.toString());
                 if(fromDate.toString().compareTo("0001-01-01") != 0 || toDate.toString().compareTo("0001-01-01") != 0){
                     LocalDate inicio = fromDate;
                     LocalDate datefinal;
@@ -119,7 +120,14 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
                         datefinal = LocalDate.now();
                     }
                     LocalDate actual = listaAll.get(i).getDate_expedition().toLocalDate();
-                    if(inicio.compareTo(actual)<0 || datefinal.compareTo(actual)>0){
+
+                    log.debug("Inicio ajustado: "+ inicio.toString() + " final ajustado: "+ datefinal.toString());
+                    log.debug("Fecha Actual: "+ actual.toString());
+
+                    if(inicio.isAfter(actual)){
+                        g = false;
+                    }
+                    if(datefinal.isBefore(actual)){
                         g = false;
                     }
                 }

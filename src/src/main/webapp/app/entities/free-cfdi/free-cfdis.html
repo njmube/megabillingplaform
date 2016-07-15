@@ -64,41 +64,45 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-4 control-label no-padding-right" translate="" for="field_folio_fiscal">Folio Fiscal</label>
+                            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.folio_fiscal_orig" for="field_folio_fiscal">Folio Fiscal</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="folio_fiscal" id="field_folio_fiscal"
                                        ng-model="vm.folio_fiscal" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label no-padding-right" translate="" for="field_date">Date start</label>
+                            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.date_from" for="field_date">Date from</label>
                             <div class="col-sm-8">
-                                <input id="field_date" type="text" class="form-control" name="date" uib-datepicker-popup="{{dateformat}}" ng-model="vm.dateStart" is-open="vm.datePickerOpenStatus.date"/>
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
-                                </span>
+                                <div class="input-group">
+                                    <input id="field_date" type="text" class="form-control" name="date" uib-datepicker-popup="{{dateformat}}" ng-model="vm.dateStart" is-open="vm.datePickerOpenStatus.date"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label no-padding-right" translate="" for="field_date1">Date end</label>
+                            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.date_to" for="field_date1">Date to</label>
                             <div class="col-sm-8">
-                                <input id="field_date1" type="text" class="form-control" name="date1" uib-datepicker-popup="{{dateformat}}" ng-model="vm.dateEnd" is-open="vm.datePickerOpenStatus1.date"/>
-                                <span class="input-group-btn">
-                                    <button type="button" class="btn btn-default" ng-click="vm.openCalendar1('date')"><i class="glyphicon glyphicon-calendar"></i></button>
-                                </span>
+                                <div class="input-group">
+                                    <input id="field_date1" type="text" class="form-control" name="date1" uib-datepicker-popup="{{dateformat}}" ng-model="vm.dateEnd" is-open="vm.datePickerOpenStatus1.date"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar1('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-sm-4 control-label no-padding-right" translate="" for="field_rfc_receiver">RFC receptor</label>
+                            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.rfc_receiver" for="field_rfc_receiver">RFC receptor</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="rfc_receiver" id="field_rfc_receiver"
                                        ng-model="vm.rfc_receiver" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label no-padding-right" translate="" for="field_state">CFDI state</label>
+                            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.cfdi_states" for="field_state">CFDI state</label>
                             <div class="col-sm-8">
                                 <select class="form-control" id="field_state" name="state" ng-model="vm.state" ng-options="state as state.name for state in vm.states track by state.id">
                                     <option value=""></option>
@@ -106,13 +110,13 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label no-padding-right" translate="" for="field_serie">Serie</label>
+                            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.serial" for="field_serie">Serie</label>
                             <div class="col-sm-2">
                                 <input type="text" class="form-control" name="serie" id="field_serie"
                                        ng-model="vm.serie" />
                             </div>
                             <div class="col-md-6">
-                                <label class="col-sm-5 control-label no-padding-right" translate="" for="field_folio">Folio</label>
+                                <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.folio" for="field_folio">Folio</label>
                                 <div class="col-sm-7">
                                     <input type="text" class="form-control" name="folio" id="field_folio"
                                            ng-model="vm.folio" />
@@ -124,7 +128,7 @@
             </form>
         </div>
     </div>
-    <h3 class="header smaller lighter blue" translate="">
+    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_cfdi.search_result">
         Resultados de la búsqueda
     </h3>
 
