@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q'];
 
-    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q) {
         
 		var vm = this;
 		
@@ -48,6 +48,22 @@
         vm.tax_regimes = Tax_regime.query();
 		
 		vm.tax_typess = Tax_types.query({filtername: " "});
+		
+		$q.all([vm.free_cfdi.$promise, vm.free_cfdi.free_emitter.$promise]).then(function() {
+			if(vm.free_cfdi.free_emitter.path_certificate == null || vm.free_cfdi.free_emitter.path_key == null){
+				$uibModal.open({
+					templateUrl: 'app/entities/free-cfdi/free-cfdi-not-free-emitter-certificate-dialog.html',
+					controller: 'Free_cfdiNotFreeEmitterCertificateDialogController',
+					controllerAs: 'vm',
+					backdrop: true,
+					size: '',
+				}).result.then(function(result) {
+					$state.go('free-emitter.new', {login: vm.account.login});				
+				}, function() {
+					$state.go('free-emitter.new', {login: vm.account.login});
+				});
+			}            
+        });
 		
         vm.load = function(id) {
             Free_cfdi.get({id : id}, function(result) {
@@ -515,19 +531,5 @@
 				vm.free_cfdi.change_type = (1).toFixed(2);
 			}
 		};
-		
-		if(vm.free_cfdi.free_emitter.filecertificateContentType == null || vm.free_cfdi.free_emitter.filekeyContentType){
-			$uibModal.open({
-				templateUrl: 'app/entities/free-cfdi/free-cfdi-not-free-emitter-certificate-dialog.html',
-				controller: 'Free_cfdiNotFreeEmitterCertificateDialogController',
-				controllerAs: 'vm',
-				backdrop: true,
-				size: '',
-			}).result.then(function(result) {
-				$state.go('free-emitter.new', {login: vm.account.login});				
-			}, function() {
-				$state.go('free-emitter.new', {login: vm.account.login});
-			});
-		}
     }
 })();
