@@ -35,7 +35,7 @@ public class Free_concept implements Serializable {
     private String description;
 
     @NotNull
-    @Column(name = "unit_value", precision=10, scale=2, nullable = false)
+    @Column(name = "unit_value", precision=10, scale=6, nullable = false)
     private BigDecimal unit_value;
 
     @Column(name = "predial_number")

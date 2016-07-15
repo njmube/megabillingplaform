@@ -62,7 +62,7 @@ public class Free_cfdi implements Serializable {
     @Column(name = "date_folio_fiscal_orig")
     private ZonedDateTime date_folio_fiscal_orig;
 
-    @Column(name = "mont_folio_fiscal_orig", precision=10, scale=2)
+    @Column(name = "mont_folio_fiscal_orig", precision=10, scale=6)
     private BigDecimal mont_folio_fiscal_orig;
 
     @Column(name = "total_tax_retention", precision=10, scale=2)
@@ -78,11 +78,11 @@ public class Free_cfdi implements Serializable {
     private String discount_reason;
 
     @NotNull
-    @Column(name = "subtotal", precision=10, scale=2, nullable = false)
+    @Column(name = "subtotal", precision=10, scale=6, nullable = false)
     private BigDecimal subtotal;
 
     @NotNull
-    @Column(name = "total", precision=10, scale=2, nullable = false)
+    @Column(name = "total", precision=10, scale=6, nullable = false)
     private BigDecimal total;
 
     @Column(name = "addenda")

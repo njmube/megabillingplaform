@@ -25,6 +25,9 @@
 		vm.way_payment_y = 0;
 		vm.free_saved_success = false;
 		
+		vm.accuracy = vm.free_cfdi.free_emitter.accuracy;
+		vm.free_cfdi.mont_folio_fiscal_orig = (0).toFixed(vm.accuracy);
+		
 		vm.show_iva = (0).toFixed(2);
 		vm.calc_iva = (0).toFixed(2);
 		vm.ieps = (0).toFixed(2);
@@ -140,21 +143,25 @@
 			var free_concept = result;
 			
 			//saving IVA in free_tax_transferred...
-			var free_tax_transfered_iva = vm.free_concepts[vm.current_free_concept].free_concept_iva;			
-			free_tax_transfered_iva.free_concept = free_concept;
-			if (free_tax_transfered_iva.id !== null) {
-				Free_tax_transfered.update(free_tax_transfered_iva);
-			} else {
-				Free_tax_transfered.save(free_tax_transfered_iva);
+			var free_tax_transfered_iva = vm.free_concepts[vm.current_free_concept].free_concept_iva;
+			if(free_tax_transfered_iva.amount > 0){
+				free_tax_transfered_iva.free_concept = free_concept;
+				if (free_tax_transfered_iva.id !== null) {
+					Free_tax_transfered.update(free_tax_transfered_iva);
+				} else {
+					Free_tax_transfered.save(free_tax_transfered_iva);
+				}
 			}
 			
 			//saving IEPS in free_tax_transferred...
-			var free_tax_transfered_ieps = vm.free_concepts[vm.current_free_concept].free_concept_ieps;			
-			free_tax_transfered_ieps.free_concept = free_concept;					
-			if (free_tax_transfered_ieps.id !== null) {
-				Free_tax_transfered.update(free_tax_transfered_ieps);
-			} else {
-				Free_tax_transfered.save(free_tax_transfered_ieps);
+			var free_tax_transfered_ieps = vm.free_concepts[vm.current_free_concept].free_concept_ieps;
+			if(free_tax_transfered_ieps.amount > 0){
+				free_tax_transfered_ieps.free_concept = free_concept;					
+				if (free_tax_transfered_ieps.id !== null) {
+					Free_tax_transfered.update(free_tax_transfered_ieps);
+				} else {
+					Free_tax_transfered.save(free_tax_transfered_ieps);
+				}
 			}
 			
 			//saving IVA in free_tax_retentions
@@ -165,36 +172,42 @@
 			}			
 			if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 4){
 				amount_iva_retentions = 0.04 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
-			}			
-			var free_tax_retentions_iva = {
-				amount: floorFigure(amount_iva_retentions, 6),
-				free_concept: free_concept,
-				tax_types: vm.tax_typess[0],
-				id: null,
-			};
-			if (free_tax_retentions_iva.id !== null) {
-                Free_tax_retentions.update(free_tax_retentions_iva);
-            } else {
-                Free_tax_retentions.save(free_tax_retentions_iva);
-            }
+			}
+			
+			if(amount_iva_retentions > 0){
+				var free_tax_retentions_iva = {
+					amount: floorFigure(amount_iva_retentions, vm.accuracy),
+					free_concept: free_concept,
+					tax_types: vm.tax_typess[0],
+					id: null,
+				};
+				if (free_tax_retentions_iva.id !== null) {
+					Free_tax_retentions.update(free_tax_retentions_iva);
+				} else {
+					Free_tax_retentions.save(free_tax_retentions_iva);
+				}
+			}
 			
 			//saving ISR in free_tax_retentions
 			var amount_isr_retentions = 0;
 			//calculating free cfdi ret isr...
 			if((vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) || (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5))){
 				amount_isr_retentions = 1/10 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
+			}
+			
+			if(amount_isr_retentions > 0){
+				var free_tax_retentions_isr = {
+					amount: floorFigure(amount_isr_retentions, vm.accuracy),
+					free_concept: free_concept,
+					tax_types: vm.tax_typess[1],
+					id: null,
+				};
+				if (free_tax_retentions_isr.id !== null) {
+					Free_tax_retentions.update(free_tax_retentions_isr);
+				} else {
+					Free_tax_retentions.save(free_tax_retentions_isr);
+				}
 			}			
-			var free_tax_retentions_isr = {
-				amount: floorFigure(amount_isr_retentions, 6),
-				free_concept: free_concept,
-				tax_types: vm.tax_typess[1],
-				id: null,
-			};
-			if (free_tax_retentions_isr.id !== null) {
-                Free_tax_retentions.update(free_tax_retentions_isr);
-            } else {
-                Free_tax_retentions.save(free_tax_retentions_isr);
-            }			
 			
 			//saving free_customs_infos
 			var free_customs_infos = vm.free_concepts[vm.current_free_concept].free_customs_infos;
@@ -237,6 +250,45 @@
 			}
 		};
 		
+		
+		
+		function saveConcept(){
+			var free_concept = vm.free_concepts[vm.current_free_concept].free_concept;
+			free_concept.free_cfdi = vm.free_cfdi;
+			var amount = free_concept.quantity * free_concept.unit_value;
+			free_concept.amount = floorFigure(amount, vm.accuracy);			
+			if (free_concept.id !== null) {
+				Free_concept.update(free_concept, onSaveConceptSuccess, onSaveError);
+			} else {
+				Free_concept.save(free_concept, onSaveConceptSuccess, onSaveError);
+			}
+		}
+		
+		var onSaveSuccess = function (result) {            
+			vm.free_cfdi = result;
+			vm.current_free_concept = 0;			
+			saveConcept();
+		};
+		
+		var onSaveFreeReceiverSuccess = function (result) {            
+			vm.free_receiver = result;
+			vm.free_cfdi.free_receiver = vm.free_receiver;			
+			if (vm.free_cfdi.id !== null) {
+                Free_cfdi.update(vm.free_cfdi, onSaveSuccess, onSaveError);
+            } else {
+                Free_cfdi.save(vm.free_cfdi, onSaveSuccess, onSaveError);
+            }
+        };
+
+        vm.save = function () {
+				
+			if (vm.free_receiver.id !== null) {
+                Free_receiver.update(vm.free_receiver, onSaveFreeReceiverSuccess, onSaveError);
+            } else {				
+                Free_receiver.save(vm.free_receiver, onSaveFreeReceiverSuccess, onSaveError);
+            }
+        };
+		
 		function resetView(){
 			
 			vm.free_receiver.rfc= null;
@@ -271,7 +323,7 @@
 			vm.free_cfdi.folio_fiscal_orig= null;
 			vm.free_cfdi.serial_folio_fiscal_orig= null;
 			vm.free_cfdi.date_folio_fiscal_orig= null;
-			vm.free_cfdi.mont_folio_fiscal_orig= null;
+			vm.free_cfdi.mont_folio_fiscal_orig= (0).toFixed(vm.accuracy);;
 			vm.free_cfdi.total_tax_retention= null;
 			vm.free_cfdi.total_tax_transfered= null;
 			vm.free_cfdi.discount= null;
@@ -293,7 +345,7 @@
 			vm.way_payment_x = 0;
 			vm.way_payment_y = 0;
 			
-			vm.free_cfdi.subtotal = floorFigure(0, 2);
+			vm.free_cfdi.subtotal = floorFigure(0, vm.accuracy);
 			vm.show_iva = (0).toFixed(2);
 			vm.calc_iva = (0).toFixed(2);
 			vm.ieps = floorFigure(0, 2);			
@@ -301,48 +353,11 @@
 			vm.ret_isr = floorFigure(0, 2);			
 			vm.free_cfdi.discount = floorFigure(0, 2);
 			vm.subtotal_discount = floorFigure(0, 2);
-			vm.free_cfdi.total = floorFigure(0, 2);
+			vm.free_cfdi.total = floorFigure(0, vm.accuracy);
 			
 			vm.free_concepts = [];
 			vm.current_free_concept = null;
 		}
-		
-		function saveConcept(){
-			var free_concept = vm.free_concepts[vm.current_free_concept].free_concept;
-			free_concept.free_cfdi = vm.free_cfdi;
-			var amount = free_concept.quantity * free_concept.unit_value;
-			free_concept.amount = floorFigure(amount, 6);			
-			if (free_concept.id !== null) {
-				Free_concept.update(free_concept, onSaveConceptSuccess, onSaveError);
-			} else {
-				Free_concept.save(free_concept, onSaveConceptSuccess, onSaveError);
-			}
-		}
-		
-		var onSaveSuccess = function (result) {            
-			vm.free_cfdi = result;
-			vm.current_free_concept = 0;			
-			saveConcept();
-		};
-		
-		var onSaveFreeReceiverSuccess = function (result) {            
-			vm.free_receiver = result;
-			vm.free_cfdi.free_receiver = vm.free_receiver;			
-			if (vm.free_cfdi.id !== null) {
-                Free_cfdi.update(vm.free_cfdi, onSaveSuccess, onSaveError);
-            } else {
-                Free_cfdi.save(vm.free_cfdi, onSaveSuccess, onSaveError);
-            }
-        };
-
-        vm.save = function () {
-				
-			if (vm.free_receiver.id !== null) {
-                Free_receiver.update(vm.free_receiver, onSaveFreeReceiverSuccess, onSaveError);
-            } else {				
-                Free_receiver.save(vm.free_receiver, onSaveFreeReceiverSuccess, onSaveError);
-            }
-        };
 
         vm.datePickerOpenStatus = {};
         vm.datePickerOpenStatus.date_folio_fiscal_orig = false;
@@ -366,15 +381,18 @@
 							no_identification: null,
 							quantity: (0).toFixed(2),
 							description: null,
-							unit_value: (0).toFixed(2),
+							unit_value: (0).toFixed(vm.accuracy),
 							predial_number: null,							
 							discount: (0).toFixed(2),
-							amount: (0).toFixed(2),
+							amount: (0).toFixed(vm.accuracy),
 							id: null
 						};
 					},
 					disabled_iva_value: function () {
 						return vm.disabled_iva_value;
+					},
+					accuracy: function () {
+						return vm.accuracy;
 					}
 				}
 			}).result.then(function(result) {
@@ -482,7 +500,7 @@
 			}
 			
 			//showing all...			
-			vm.free_cfdi.subtotal = floorFigure(subtotal, 2);
+			vm.free_cfdi.subtotal = floorFigure(subtotal, vm.accuracy);
 			
 			if(show_iva != 0){
 				vm.show_iva = show_iva;
@@ -502,9 +520,12 @@
 			vm.subtotal_discount = floorFigure(subtotal_discount, 2);
 			
 			total = (subtotal_discount + calc_iva) - (ret_iva +  ret_isr) + ieps;
-			vm.free_cfdi.total = floorFigure(total, 2);
+			vm.free_cfdi.total = floorFigure(total, vm.accuracy);
 
 			vm.disabled_iva_value = disabled_iva_value;
+			
+			vm.free_cfdi.total_tax_transfered = floorFigure(calc_iva + ieps, 2);
+			vm.free_cfdi.total_tax_retention = floorFigure(ret_iva + ret_isr, 2);
 		};
 		
 		vm.enableWithByPartiality = function(){

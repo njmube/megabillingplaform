@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_conceptDialogController', Free_conceptDialogController);
 
-    Free_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$uibModal', 'free_concept_entity', 'Free_cfdi', 'Measure_unit', 'Rate_type', 'Tax_types', 'disabled_iva_value'];
+    Free_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$uibModal', 'free_concept_entity', 'Free_cfdi', 'Measure_unit', 'Rate_type', 'Tax_types', 'disabled_iva_value', 'accuracy'];
 
-    function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, Free_cfdi, Measure_unit, Rate_type, Tax_types, disabled_iva_value) {
+    function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, Free_cfdi, Measure_unit, Rate_type, Tax_types, disabled_iva_value, accuracy) {
         var vm = this;
 		
         vm.free_concept = free_concept_entity;
@@ -20,12 +20,13 @@
 		vm.free_customs_infos = [];
 		
 		vm.disabled_iva_value = disabled_iva_value;
+		vm.accuracy = accuracy;
 		
 		vm.calcAmount = function(){
 			/*SubTotal = (Cantidad * Precio unitario)*(1-Descuento/100)*/			
 			if(vm.free_concept.quantity > 0 && vm.free_concept.unit_value > 0){
 				var amount = vm.free_concept.quantity * vm.free_concept.unit_value * (1 - vm.free_concept.discount/100)
-				vm.free_concept.amount = floorFigure(amount, 2);
+				vm.free_concept.amount = floorFigure(amount, vm.accuracy);
 			}
 		};
 		
@@ -53,7 +54,7 @@
 							quantity: vm.free_concept.quantity,
 							measure_unit: vm.free_concept.measure_unit,
 							description: vm.free_concept.description,
-							unit_value: vm.free_concept.unit_value,
+							unit_value: floorFigure(vm.free_concept.unit_value, vm.accuracy),
 							predial_number: vm.free_concept.predial_number,
 							discount: vm.free_concept.discount,
 							amount: vm.free_concept.amount,
@@ -61,13 +62,13 @@
 						},
 				free_concept_iva: {
 							rate: floorFigure(vm.iva.value, 2),
-                            amount: floorFigure(vm.free_concept.quantity * vm.free_concept.unit_value * (1 - vm.free_concept.discount/100) * vm.iva.value/100,6),
+                            amount: floorFigure(vm.free_concept.quantity * vm.free_concept.unit_value * (1 - vm.free_concept.discount/100) * vm.iva.value/100,vm.accuracy),
 							tax_types: vm.tax_typess[0],
                             id: null
 						},
 				free_concept_ieps: {
 							rate: floorFigure(vm.ieps, 2),
-                            amount: floorFigure(vm.free_concept.quantity * vm.free_concept.unit_value * (1 - vm.free_concept.discount/100) * vm.ieps/100,6),
+                            amount: floorFigure(vm.free_concept.quantity * vm.free_concept.unit_value * (1 - vm.free_concept.discount/100) * vm.ieps/100, vm.accuracy),
 							tax_types: vm.tax_typess[2],
                             id: null
 						},
@@ -130,10 +131,13 @@
 							no_identification: null,
 							quantity: 0,
 							description: null,
-							unit_value: (0).toFixed(2),
+							unit_value: (0).toFixed(vm.accuracy),
 							amount: (0).toFixed(2),
 							id: null
 						};
+					},
+					accuracy: function(){
+						return vm.accuracy;
 					}
 				}
 			}).result.then(function(result) {

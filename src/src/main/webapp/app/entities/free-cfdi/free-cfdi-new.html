@@ -655,30 +655,30 @@
 									<table id="concepto-table" class="table table-striped table-bordered table-hover">
 										<thead>
 											<tr>
-												<th>No. Identificación</th>
-												<th>U/M</th>
-												<th>Descripción</th>
-												<th>Cantidad</th>
-												<th>Valor Unitario</th>
-												<th>Descuento</th>
-												<th>IVA / IEPS</th>
-												<th>Importe</th>
-												<th>...</th>
+												<th class="text-center">No. Id</th>
+												<th class="text-center">U/M</th>
+												<th class="text-center">Descripción &nbsp;&nbsp;&nbsp;</th>
+												<th class="text-center">Cantidad</th>
+												<th class="text-center">Valor Unitario</th>
+												<th class="text-center">Descuento</th>
+												<th class="text-center">IVA / IEPS</th>
+												<th class="text-center">Importe</th>
+												<th class="text-center">Acciones</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr ng-repeat="free_concept in vm.free_concepts">
-												<td>{{free_concept.free_concept.no_identification}}</td>
-												<td>{{free_concept.free_concept.measure_unit.name}}</td>
-												<td>{{free_concept.free_concept.description}}</td>					
-												<td>{{free_concept.free_concept.quantity}}</td>
-												<td>{{free_concept.free_concept.unit_value}}</td>
-												<td>{{free_concept.free_concept.discount}}</td>
-												<td>{{free_concept.free_concept_iva.rate}} / {{free_concept.free_concept_ieps.rate}}</td>
-												<td>{{free_concept.free_concept.amount}}</td>
-												<td>
+												<td class="text-center">{{free_concept.free_concept.no_identification}}</td>
+												<td class="text-center">{{free_concept.free_concept.measure_unit.name}}</td>
+												<td class="text-center">{{free_concept.free_concept.description}}</td>					
+												<td class="text-right">{{free_concept.free_concept.quantity}}</td>
+												<td class="text-center">{{free_concept.free_concept.unit_value}}</td>
+												<td class="text-right">{{free_concept.free_concept.discount}}</td>
+												<td class="text-center">{{free_concept.free_concept_iva.rate}} / {{free_concept.free_concept_ieps.rate}}</td>
+												<td class="text-right">{{free_concept.free_concept.amount}}</td>
+												<td class="text-center">
 													<button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeConcept($index)">
-														<span class="glyphicon glyphicon-remove"></span>
+														<span class="glyphicon glyphicon-trash"></span>
 													</button>
 												</td>
 											</tr>											
@@ -792,7 +792,6 @@
 					<div class="alert alert-success" ng-show="vm.free_saved_success">
 						Factura guardada satisfactoriamente.
 					</div>
-					
 					
 				</div>
 					

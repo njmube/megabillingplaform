@@ -24,95 +24,95 @@
             <column name="version" type="varchar(3)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="serial" type="varchar(25)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="folio" type="varchar(20)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="date_expedition" type="timestamp">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="payment_conditions" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="change_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="place_expedition" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="account_number" type="varchar(4)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="folio_fiscal_orig" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="serial_folio_fiscal_orig" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="date_folio_fiscal_orig" type="timestamp">
                 <constraints nullable="true" />
             </column>
-            
-            <column name="mont_folio_fiscal_orig" type="decimal(10,2)">
+
+            <column name="mont_folio_fiscal_orig" type="decimal(10,6)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="total_tax_retention" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="total_tax_transfered" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="discount" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="discount_reason" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
-            <column name="subtotal" type="decimal(10,2)">
+
+            <column name="subtotal" type="decimal(10,6)">
                 <constraints nullable="false" />
             </column>
-            
-            <column name="total" type="decimal(10,2)">
+
+            <column name="total" type="decimal(10,6)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="addenda" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="stamp" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="no_certificate" type="varchar(20)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="certificate" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="way_payment" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="cfdi_types_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -149,6 +149,6 @@
         </createTable>
         <dropDefaultValue tableName="free_cfdi" columnName="date_expedition" columnDataType="datetime"/>
         <dropDefaultValue tableName="free_cfdi" columnName="date_folio_fiscal_orig" columnDataType="datetime"/>
-        
+
     </changeSet>
 </databaseChangeLog>
