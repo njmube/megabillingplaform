@@ -20,7 +20,8 @@
             "description": "Description",
             "path": "Path",
             "file_state": "File State",
-            "file_type": "File Type"
+            "file_type": "File Type",
+            "filtername":"Filter by name"
         }
     }
 }

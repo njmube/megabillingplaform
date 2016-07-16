@@ -21,13 +21,13 @@ import java.util.List;
 public class Cfdi_templateServiceImpl implements Cfdi_templateService{
 
     private final Logger log = LoggerFactory.getLogger(Cfdi_templateServiceImpl.class);
-    
+
     @Inject
     private Cfdi_templateRepository cfdi_templateRepository;
-    
+
     /**
      * Save a cfdi_template.
-     * 
+     *
      * @param cfdi_template the entity to save
      * @return the persisted entity
      */
@@ -37,16 +37,23 @@ public class Cfdi_templateServiceImpl implements Cfdi_templateService{
         return result;
     }
 
+    @Transactional(readOnly = true)
+    public Page<Cfdi_template> findAllByName(String filtername, Pageable pageable) {
+        log.debug("Request to get Request_states whith filtername: {}",filtername);
+        Page<Cfdi_template> result = cfdi_templateRepository.findByNameStartingWith(filtername, pageable);
+        return result;
+    }
+
     /**
      *  Get all the cfdi_templates.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Cfdi_template> findAll(Pageable pageable) {
         log.debug("Request to get all Cfdi_templates");
-        Page<Cfdi_template> result = cfdi_templateRepository.findAll(pageable); 
+        Page<Cfdi_template> result = cfdi_templateRepository.findAll(pageable);
         return result;
     }
 
@@ -56,7 +63,7 @@ public class Cfdi_templateServiceImpl implements Cfdi_templateService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Cfdi_template findOne(Long id) {
         log.debug("Request to get Cfdi_template : {}", id);
         Cfdi_template cfdi_template = cfdi_templateRepository.findOne(id);
@@ -65,7 +72,7 @@ public class Cfdi_templateServiceImpl implements Cfdi_templateService{
 
     /**
      *  Delete the  cfdi_template by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

@@ -10,10 +10,9 @@
         var resourceUrl =  'api/c-monies/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { 
-				method: 'GET', 
-				isArray: true,
-				params: {pg: null}
+            'query': {
+				method: 'GET',
+				isArray: true
 			},
             'get': {
                 method: 'GET',

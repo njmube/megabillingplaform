@@ -29,10 +29,10 @@ import java.util.Optional;
 public class TaskResource {
 
     private final Logger log = LoggerFactory.getLogger(TaskResource.class);
-        
+
     @Inject
     private TaskService taskService;
-    
+
     /**
      * POST  /tasks : Create a new task.
      *
@@ -88,14 +88,21 @@ public class TaskResource {
      */
     @RequestMapping(value = "/tasks",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername"})
     @Timed
-    public ResponseEntity<List<Task>> getAllTasks(Pageable pageable)
+    public ResponseEntity<List<Task>> getAllTasks(@RequestParam(value = "filtername") String filtername,Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Tasks");
-        Page<Task> page = taskService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/tasks");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+            Page<Task> page = taskService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/tasks");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else {
+            Page<Task> page = taskService.findAllByName(filtername,pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/tasks");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

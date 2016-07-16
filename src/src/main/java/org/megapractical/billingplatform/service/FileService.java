@@ -13,7 +13,7 @@ public interface FileService {
 
     /**
      * Save a file.
-     * 
+     *
      * @param file the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface FileService {
 
     /**
      *  Get all the files.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<File> findAll(Pageable pageable);
 
+    Page<File> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" file.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface FileService {
 
     /**
      *  Delete the "id" file.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

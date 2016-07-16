@@ -37,6 +37,7 @@
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
                 vm.file_states = data;
+                vm.file_stateS = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {
@@ -58,6 +59,11 @@
         }
 
         function onChangeName(){
+            if(vm.selectedstate != null){
+                vm.filtername = vm.selectedstate.name;
+            }else{
+                vm.filtername = " ";
+            }
             File_state.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,

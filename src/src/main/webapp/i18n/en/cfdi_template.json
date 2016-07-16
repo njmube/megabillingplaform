@@ -19,7 +19,8 @@
             "name": "Name",
             "description": "Description",
             "template": "Template",
-            "file": "File"
+            "file": "File",
+            "filtername":"Filter by name"
         }
     }
 }

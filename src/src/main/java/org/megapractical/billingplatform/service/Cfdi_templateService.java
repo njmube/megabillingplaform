@@ -13,7 +13,7 @@ public interface Cfdi_templateService {
 
     /**
      * Save a cfdi_template.
-     * 
+     *
      * @param cfdi_template the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Cfdi_templateService {
 
     /**
      *  Get all the cfdi_templates.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Cfdi_template> findAll(Pageable pageable);
 
+    Page<Cfdi_template> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" cfdi_template.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Cfdi_templateService {
 
     /**
      *  Delete the "id" cfdi_template.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

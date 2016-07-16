@@ -37,6 +37,7 @@
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
                 vm.cfdi_type_docs = data;
+                vm.cfdi_type_docS = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {
@@ -58,6 +59,11 @@
         }
 
         function onChangeName(){
+            if(vm.selectedstate != null){
+                vm.filtername = vm.selectedstate.name;
+            }else{
+                vm.filtername = " ";
+            }
             Cfdi_type_doc.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,

@@ -19,7 +19,8 @@
             "name": "Nombre",
             "description": "Descripción",
             "template": "Plantilla",
-            "file": "Fichero"
+            "file": "Fichero",
+            "filtername":"Filtro por nombre"
         }
     }
 }

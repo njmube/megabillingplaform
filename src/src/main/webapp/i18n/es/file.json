@@ -20,7 +20,8 @@
             "description": "Descripción",
             "path": "Ruta",
             "file_state": "Estado Fichero",
-            "file_type": "Tipo Fichero"
+            "file_type": "Tipo Fichero",
+            "filtername":"Filtrado por nombre"
         }
     }
 }

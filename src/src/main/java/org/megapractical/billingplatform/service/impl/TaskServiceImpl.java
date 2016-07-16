@@ -21,13 +21,13 @@ import java.util.List;
 public class TaskServiceImpl implements TaskService{
 
     private final Logger log = LoggerFactory.getLogger(TaskServiceImpl.class);
-    
+
     @Inject
     private TaskRepository taskRepository;
-    
+
     /**
      * Save a task.
-     * 
+     *
      * @param task the entity to save
      * @return the persisted entity
      */
@@ -37,16 +37,21 @@ public class TaskServiceImpl implements TaskService{
         return result;
     }
 
+    public Page<Task> findAllByName(String filtername, Pageable pageable){
+        Page<Task> result = taskRepository.findByNameStartingWith(filtername, pageable);
+        return result;
+    }
+
     /**
      *  Get all the tasks.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Task> findAll(Pageable pageable) {
         log.debug("Request to get all Tasks");
-        Page<Task> result = taskRepository.findAll(pageable); 
+        Page<Task> result = taskRepository.findAll(pageable);
         return result;
     }
 
@@ -56,7 +61,7 @@ public class TaskServiceImpl implements TaskService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Task findOne(Long id) {
         log.debug("Request to get Task : {}", id);
         Task task = taskRepository.findOne(id);
@@ -65,7 +70,7 @@ public class TaskServiceImpl implements TaskService{
 
     /**
      *  Delete the  task by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

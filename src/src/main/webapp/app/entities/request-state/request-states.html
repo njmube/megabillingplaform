@@ -19,7 +19,11 @@
             <h4 translate="megabillingplatformApp.request_state.filtername">Filter by name</h4>
             <p class="input-group">
                 <span class="input-group-addon" translate="megabillingplatformApp.request_state.name">Name</span>
-                <input type="text" class="input-sm form-control" name="filtername" ng-model="vm.filtername" ng-change="vm.onChangeName()"/>
+                <select class="chosen-select form-control" id="field_filtername" name="filtername"
+                        ng-model="vm.selectedrequest" ng-change="vm.onChangeName()"
+                        ng-options="request_state as request_state.name for request_state in vm.request_statesS track by request_state.id">
+                    <option value=""></option>
+                </select>
             </p>
         </div>
     </div>

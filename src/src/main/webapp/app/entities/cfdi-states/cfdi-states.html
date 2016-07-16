@@ -19,7 +19,11 @@
             <h4 translate="megabillingplatformApp.cfdi_states.filtername">Filter by name</h4>
             <p class="input-group">
                 <span class="input-group-addon" translate="megabillingplatformApp.cfdi_states.name">Name</span>
-                <input type="text" class="input-sm form-control" name="filtername" ng-model="vm.filtername" ng-change="vm.onChangeName()"/>
+                <select class="chosen-select form-control" id="field_filtername" name="filtername"
+                        ng-model="vm.selectedstate" ng-change="vm.onChangeName()"
+                        ng-options="cfdi_state as cfdi_state.name for cfdi_state in vm.cfdi_stateS track by cfdi_state.id">
+                    <option value=""></option>
+                </select>
             </p>
         </div>
     </div>

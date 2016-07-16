@@ -13,7 +13,7 @@ public interface TaskService {
 
     /**
      * Save a task.
-     * 
+     *
      * @param task the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface TaskService {
 
     /**
      *  Get all the tasks.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Task> findAll(Pageable pageable);
 
+    Page<Task> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" task.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface TaskService {
 
     /**
      *  Delete the "id" task.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

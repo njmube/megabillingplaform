@@ -29,10 +29,10 @@ import java.util.Optional;
 public class FileResource {
 
     private final Logger log = LoggerFactory.getLogger(FileResource.class);
-        
+
     @Inject
     private FileService fileService;
-    
+
     /**
      * POST  /files : Create a new file.
      *
@@ -88,14 +88,21 @@ public class FileResource {
      */
     @RequestMapping(value = "/files",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername"})
     @Timed
-    public ResponseEntity<List<File>> getAllFiles(Pageable pageable)
+    public ResponseEntity<List<File>> getAllFiles(@RequestParam(value = "filtername") String filtername,Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Files");
-        Page<File> page = fileService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/files");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+            Page<File> page = fileService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/files");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else {
+            Page<File> page = fileService.findAllByName(filtername,pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/files");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**
