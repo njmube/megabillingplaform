@@ -24,6 +24,7 @@ public class Free_cfdi implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     @Size(min = 3, max = 3)
     @Column(name = "version", length = 3, nullable = false)
     private String version;
@@ -36,6 +37,7 @@ public class Free_cfdi implements Serializable {
     @Column(name = "folio", length = 20)
     private String folio;
 
+    @NotNull
     @Column(name = "date_expedition", nullable = false)
     private ZonedDateTime date_expedition;
 
@@ -46,6 +48,7 @@ public class Free_cfdi implements Serializable {
     @Column(name = "change_type")
     private String change_type;
 
+    @NotNull
     @Column(name = "place_expedition", nullable = false)
     private String place_expedition;
 
@@ -62,7 +65,7 @@ public class Free_cfdi implements Serializable {
     @Column(name = "date_folio_fiscal_orig")
     private ZonedDateTime date_folio_fiscal_orig;
 
-    @Column(name = "mont_folio_fiscal_orig", precision=10, scale=6)
+    @Column(name = "mont_folio_fiscal_orig", precision=10, scale=2)
     private BigDecimal mont_folio_fiscal_orig;
 
     @Column(name = "total_tax_retention", precision=10, scale=2)
@@ -78,29 +81,35 @@ public class Free_cfdi implements Serializable {
     private String discount_reason;
 
     @NotNull
-    @Column(name = "subtotal", precision=10, scale=6, nullable = false)
+    @Column(name = "subtotal", precision=10, scale=2, nullable = false)
     private BigDecimal subtotal;
 
     @NotNull
-    @Column(name = "total", precision=10, scale=6, nullable = false)
+    @Column(name = "total", precision=10, scale=2, nullable = false)
     private BigDecimal total;
 
     @Column(name = "addenda")
     private String addenda;
 
+    @NotNull
     @Column(name = "stamp", nullable = false)
     private String stamp;
 
+    @NotNull
     @Size(max = 20)
     @Column(name = "no_certificate", length = 20, nullable = false)
     private String no_certificate;
 
+    @NotNull
     @Column(name = "certificate", nullable = false)
     private String certificate;
 
     @NotNull
     @Column(name = "way_payment", nullable = false)
     private String way_payment;
+
+    @Column(name = "path_cfdi")
+    private String path_cfdi;
 
     @ManyToOne
     private Cfdi_types cfdi_types;
@@ -318,6 +327,14 @@ public class Free_cfdi implements Serializable {
         this.way_payment = way_payment;
     }
 
+    public String getPath_cfdi() {
+        return path_cfdi;
+    }
+
+    public void setPath_cfdi(String path_cfdi) {
+        this.path_cfdi = path_cfdi;
+    }
+
     public Cfdi_types getCfdi_types() {
         return cfdi_types;
     }
@@ -429,6 +446,7 @@ public class Free_cfdi implements Serializable {
             ", no_certificate='" + no_certificate + "'" +
             ", certificate='" + certificate + "'" +
             ", way_payment='" + way_payment + "'" +
+            ", path_cfdi='" + path_cfdi + "'" +
             '}';
     }
 }
