@@ -223,12 +223,12 @@
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_certificate" for="field_path_certificate">Certificate</label>
                         <div class="col-sm-8">
                             <div class="help-block clearfix">
-                                <a class="pull-left" ng-click="vm.openFile('', vm.free_emitter.filecertificate)" ng-if="vm.free_emitter.filecertificate" target="_blank">Certificate</a><br>
+                                <a class="pull-left" ng-click="vm.openFile('', vm.free_emitter.filecertificate)" ng-if="vm.free_emitter.filecertificate" target="_blank">Certificate &nbsp;&nbsp;</a>
 
                                 <button ng-click="vm.free_emitter.filecertificate=null;vm.free_emitter.filecertificateContentType=null;vm.certificatename=null;"
                                         ng-if="vm.free_emitter.filecertificate">
                                     <a class="remove">
-                                        <i class=" ace-icon fa fa-times"></i>
+                                        <i class="glyphicon glyphicon-trash"></i>
                                     </a>
                                 </button>
                             </div>
@@ -255,12 +255,12 @@
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_key" for="field_path_key">Path key</label>
                         <div class="col-sm-8">
                             <div class="help-block clearfix">
-                                <a class="pull-left" ng-click="vm.openFile('', vm.free_emitter.filekey)" ng-if="vm.free_emitter.filekey" target="_blank">Key</a><br>
+                                <a class="pull-left" ng-click="vm.openFile('', vm.free_emitter.filekey)" ng-if="vm.free_emitter.filekey" target="_blank">Key &nbsp;&nbsp;</a>
 
                                 <button ng-click="vm.free_emitter.filekey=null;vm.free_emitter.filekeyContentType=null;vm.keyname=null;"
                                         ng-if="vm.free_emitter.filekey">
                                     <a class="remove">
-                                        <i class=" ace-icon fa fa-times"></i>
+                                        <i class="glyphicon glyphicon-trash"></i>
                                     </a>
                                 </button>
                             </div>
@@ -295,12 +295,13 @@
                                for="field_logo">Logo</label>
                         <div class="col-sm-8">
                             <img data-ng-src="{{'data:' + vm.free_emitter.filelogoContentType + ';base64,' + vm.free_emitter.filelogo}}" style="max-height: 100px;" ng-if="vm.free_emitter.filelogo"/>
+                            <br>
                             <div class="help-block clearfix">
-                                <span class="pull-left">{{vm.free_emitter.filelogoContentType}}, {{byteSize(vm.free_emitter.filelogo)}}</span>
+                                <span class="pull-left">{{vm.free_emitter.filelogoContentType}}, {{byteSize(vm.free_emitter.filelogo)}}  &nbsp;&nbsp;</span>
                                 <button ng-click="vm.free_emitter.filelogo=null;vm.free_emitter.filelogoContentType=null;"
                                         ng-if="vm.free_emitter.filelogo">
                                     <a class="remove">
-                                        <i class=" ace-icon fa fa-times"></i>
+                                        <i class="glyphicon glyphicon-trash"></i>
                                     </a>
                                 </button>
                             </div>
