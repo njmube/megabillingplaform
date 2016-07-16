@@ -21,7 +21,7 @@
                 <span class="input-group-addon" translate="megabillingplatformApp.cfdi_types.name">Name</span>
                 <select class="chosen-select form-control" id="field_filtername" name="filtername"
                         ng-model="vm.selectedstate" ng-change="vm.onChangeName()"
-                        ng-options="cfdi_types as cfdi_types.name for v in vm.cfdi_typesS track by cfdi_types.id">
+                        ng-options="cfdi_types as cfdi_types.name for cfdi_types in vm.cfdi_typesS track by cfdi_types.id">
                     <option value=""></option>
                 </select>
             </p>
