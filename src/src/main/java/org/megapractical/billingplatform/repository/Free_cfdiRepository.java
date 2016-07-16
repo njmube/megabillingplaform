@@ -2,9 +2,6 @@ package org.megapractical.billingplatform.repository;
 
 import org.megapractical.billingplatform.domain.Free_cfdi;
 
-import org.megapractical.billingplatform.domain.Free_emitter;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
 
 import java.util.List;
