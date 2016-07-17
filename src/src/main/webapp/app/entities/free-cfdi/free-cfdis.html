@@ -136,6 +136,7 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th></th>
                     <th jh-sort-by="date_expedition"><span translate="megabillingplatformApp.free_cfdi.date_expedition">Date_expedition</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="serial"><span translate="megabillingplatformApp.free_cfdi.serial">Serial</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="folio"><span translate="megabillingplatformApp.free_cfdi.folio">Folio</span> <span class="glyphicon glyphicon-sort"></span></th>
@@ -148,6 +149,14 @@
             </thead>
             <tbody>
                 <tr ng-repeat="free_cfdi in vm.free_cfdis track by free_cfdi.id">
+                    <td>
+                        <a href="">
+                            <i class="fa fa-cloud-download bigger-125"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-file-pdf-o bigger-125"></i>
+                        </a>
+                    </td>
                     <td>{{free_cfdi.date_expedition | date:'medium'}}</td>
                     <td>{{free_cfdi.serial}}</td>
                     <td>{{free_cfdi.folio}}</td>

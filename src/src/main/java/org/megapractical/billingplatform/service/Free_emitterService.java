@@ -29,6 +29,7 @@ public interface Free_emitterService {
      */
     Page<Free_emitter> findAll(Pageable pageable);
 
+
     Free_emitter findOneByRfc(String rfc);
 
     /**
