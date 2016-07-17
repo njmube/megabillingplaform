@@ -33,6 +33,12 @@
         "createdDate": "Fecha de creación",
         "lastModifiedBy": "Modificado por",
         "lastModifiedDate": "Fecha de modificación",
+        "authority":"Rol",
+        "state":"Estado del usuario",
+        "date_to":"Hasta",
+        "date_from":"Desde",
+        "search_result":"Resultado de la búsqueda",
+        "filterrfc": "RFC",
         "messages": {
             "validate": {
                 "login": {

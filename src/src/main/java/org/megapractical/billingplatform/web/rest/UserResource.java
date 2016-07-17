@@ -15,7 +15,9 @@ import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -28,6 +30,7 @@ import javax.inject.Inject;
 import java.net.URI;
 import java.net.URISyntaxException;
 import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -177,18 +180,88 @@ public class UserResource {
      */
     @RequestMapping(value = "/users",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filterrfc", "datefrom","dateto","stateuser", "role"})
     @Timed
     @Transactional(readOnly = true)
-    public ResponseEntity<List<ManagedUserDTO>> getAllUsers(Pageable pageable)
+    public ResponseEntity<List<ManagedUserDTO>> getAllUsers(
+        @RequestParam(value = "filterrfc") String filterrfc,
+        @RequestParam(value = "datefrom") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate datefrom,
+        @RequestParam(value = "dateto") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateto,
+        @RequestParam(value = "stateuser") Integer stateuser,
+        @RequestParam(value = "role") String role,
+        Pageable pageable)
         throws URISyntaxException {
-        Page<User> page = userRepository.findByLoginNotLikeAndLoginNotLike("system","anonymousUser",pageable);
+        boolean activated = true;
+        if(stateuser == 0)
+            activated = false;
 
-        List<ManagedUserDTO> managedUserDTOs = page.getContent().stream()
-            .map(ManagedUserDTO::new)
-            .collect(Collectors.toList());
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/users");
-        return new ResponseEntity<>(managedUserDTOs, headers, HttpStatus.OK);
+        if(filterrfc.compareTo(" ")==0 && datefrom.toString().compareTo("0001-01-01") == 0 &&
+            dateto.toString().compareTo("0001-01-01") == 0 && stateuser == -1 && role.compareTo(" ")==0){
+            Page<User> page = userRepository.findByLoginNotLikeAndLoginNotLike("system","anonymousUser",pageable);
+
+            List<ManagedUserDTO> managedUserDTOs = page.getContent().stream()
+                .map(ManagedUserDTO::new)
+                .collect(Collectors.toList());
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/users");
+            log.debug("Objetos DTOs : {}", managedUserDTOs);
+            return new ResponseEntity<>(managedUserDTOs, headers, HttpStatus.OK);
+        }else
+        {
+            Page<User> page;
+            if(filterrfc.compareTo(" ")!=0){
+                if(stateuser != -1){
+                    page = userRepository.findByLoginNotLikeAndLoginNotLikeAndRfcStartingWithAndActivated("system","anonymousUser",filterrfc,activated,pageable);
+                }else
+                {
+                    page = userRepository.findByLoginNotLikeAndLoginNotLikeAndRfcStartingWith("system","anonymousUser",filterrfc,pageable);
+                }
+            }else {
+                if(stateuser != -1){
+                    page = userRepository.findByLoginNotLikeAndLoginNotLikeAndActivated("system", "anonymousUser", activated, pageable);
+                }else {
+                    page = userRepository.findByLoginNotLikeAndLoginNotLike("system","anonymousUser",pageable);
+                }
+            }
+
+            List<ManagedUserDTO> managedUserDTOs = page.getContent().stream()
+                .map(ManagedUserDTO::new)
+                .collect(Collectors.toList());
+
+            List<ManagedUserDTO> other = new ArrayList<>();
+
+            for (int i = 0; i < managedUserDTOs.size();i++){
+                boolean a = true;
+                boolean b = true;
+                if(datefrom.toString().compareTo("0001-01-01") != 0 || dateto.toString().compareTo("0001-01-01") != 0){
+                    LocalDate inicio = datefrom;
+                    LocalDate datefinal;
+                    if(datefrom.isBefore(dateto)){
+                        datefinal = dateto;
+                    }else {
+                        datefinal = LocalDate.now();
+                    }
+                    LocalDate actual = managedUserDTOs.get(i).getCreatedDate().toLocalDate();
+                    if(inicio.isAfter(actual)){
+                        a = false;
+                    }
+                    if(datefinal.isBefore(actual)){
+                        a = false;
+                    }
+                }
+                if(!role.isEmpty() && role.compareTo(" ")!=0){
+                    if(!managedUserDTOs.get(i).getAuthorities().contains(role)){
+                        b = false;
+                    }
+                }
+                if(a && b){
+                    other.add(managedUserDTOs.get(i));
+                }
+            }
+            Page<ManagedUserDTO> page1 = new PageImpl<ManagedUserDTO>(other,pageable, other.size());
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page1, "/api/users");
+            return new ResponseEntity<>(other, headers, HttpStatus.OK);
+        }
     }
 
     /**

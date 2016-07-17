@@ -33,6 +33,12 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Page<User> findByLoginNotLikeAndLoginNotLike(String login1, String login2,Pageable pageable);
 
+    Page<User> findByLoginNotLikeAndLoginNotLikeAndRfcStartingWithAndActivated(String login1, String login2, String filterrfc, boolean activated, Pageable pageable);
+
+    Page<User> findByLoginNotLikeAndLoginNotLikeAndRfcStartingWith(String login1, String login2, String filterrfc, Pageable pageable);
+
+    Page<User> findByLoginNotLikeAndLoginNotLikeAndActivated(String login1, String login2,boolean activated, Pageable pageable);
+
     @Override
     void delete(User t);
 
