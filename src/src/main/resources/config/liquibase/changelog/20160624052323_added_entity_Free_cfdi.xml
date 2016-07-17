@@ -65,19 +65,19 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="mont_folio_fiscal_orig" type="decimal(10,2)">
+            <column name="mont_folio_fiscal_orig" type="decimal(10,6)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="total_tax_retention" type="decimal(10,2)">
+            <column name="total_tax_retention" type="decimal(10,6)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="total_tax_transfered" type="decimal(10,2)">
+            <column name="total_tax_transfered" type="decimal(10,6)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="discount" type="decimal(10,2)">
+            <column name="discount" type="decimal(10,6)">
                 <constraints nullable="true" />
             </column>
 
@@ -85,11 +85,11 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="subtotal" type="decimal(10,2)">
+            <column name="subtotal" type="decimal(10,6)">
                 <constraints nullable="false" />
             </column>
 
-            <column name="total" type="decimal(10,2)">
+            <column name="total" type="decimal(10,6)">
                 <constraints nullable="false" />
             </column>
 

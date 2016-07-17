@@ -46,6 +46,7 @@
             "c_money": "Moneda",
             "cfdi_type_doc": "Tipo de Documento",
             "tax_regime": "Régimen Fiscal",
+            "path_cfdi": "path CFDI",
             "free_receiver": "Receptor",
             "date_from":"Desde",
             "date_to": "Hasta",

@@ -47,6 +47,7 @@
             "c_money": "Money",
             "cfdi_type_doc": "Type Document",
             "tax_regime": "Tax Regime",
+            "path_cfdi": "path CFDI",
             "date_from":"Date from",
             "date_to": "Date to",
             "rfc_receiver":"RFC receiver",

@@ -19,6 +19,7 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,10 +31,10 @@ import java.util.Optional;
 public class Free_cfdiResource {
 
     private final Logger log = LoggerFactory.getLogger(Free_cfdiResource.class);
-        
+
     @Inject
     private Free_cfdiService free_cfdiService;
-    
+
     /**
      * POST  /free-cfdis : Create a new free_cfdi.
      *
@@ -50,6 +51,29 @@ public class Free_cfdiResource {
         if (free_cfdi.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_cfdi", "idexists", "A new free_cfdi cannot already have an ID")).body(null);
         }
+
+        free_cfdi.setVersion("3.2");
+        free_cfdi.setDate_expedition(ZonedDateTime.now());
+
+        String place_expedition = free_cfdi.getFree_emitter().getC_country().getName();
+
+        if(free_cfdi.getFree_emitter().getC_state() != null)
+            place_expedition += ", " + free_cfdi.getFree_emitter().getC_state().getName();
+
+        if(free_cfdi.getFree_emitter().getC_municipality() != null)
+            place_expedition += ", " + free_cfdi.getFree_emitter().getC_municipality().getName();
+
+        if(free_cfdi.getFree_emitter().getC_colony() != null)
+            place_expedition += ", " + free_cfdi.getFree_emitter().getC_colony().getCode();
+
+        if(free_cfdi.getFree_emitter().getC_zip_code() != null)
+            place_expedition += ", " + free_cfdi.getFree_emitter().getC_zip_code().getCode();
+
+        free_cfdi.setPlace_expedition(place_expedition);
+        free_cfdi.setStamp("stamp");
+        free_cfdi.setNo_certificate("no_cetificate");
+        free_cfdi.setCertificate("cetificate");
+
         Free_cfdi result = free_cfdiService.save(free_cfdi);
         return ResponseEntity.created(new URI("/api/free-cfdis/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_cfdi", result.getId().toString()))
@@ -94,7 +118,7 @@ public class Free_cfdiResource {
     public ResponseEntity<List<Free_cfdi>> getAllFree_cfdis(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Free_cfdis");
-        Page<Free_cfdi> page = free_cfdiService.findAll(pageable); 
+        Page<Free_cfdi> page = free_cfdiService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-cfdis");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

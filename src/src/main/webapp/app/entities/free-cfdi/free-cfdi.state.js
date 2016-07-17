@@ -115,6 +115,7 @@
 						no_certificate: null,
 						certificate: null,
 						way_payment: null,
+                        path_cfdi: null,
 						id: null
 					};
 				}],
