@@ -16,15 +16,15 @@
             "detail": {
                 "title": "Concepto"
             },
-            "no_identification": "Código (*)",
+            "no_identification": "Código",
             "quantity": "Cantidad (*)",
-            "description": "Descripción",
+            "description": "Descripción (*)",
             "unit_value": "Valor Unitario (*)",
-            "predial_number": "No. Predial",
+            "predial_number": "No. Predial  (*)",
             "amount": "Importe (*)",
-            "discount": "Descuento % (*)",
+            "discount": "Descuento %",
             "free_cfdi": "free_cfdi",
-            "measure_unit": "Unidad de Medida",
+            "measure_unit": "Unidad de Medida  (*)",
             "iva": "IVA % (*)",
             "ieps": "IEPS %"
         }

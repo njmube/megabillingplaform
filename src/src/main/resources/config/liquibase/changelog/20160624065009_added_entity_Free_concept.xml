@@ -22,7 +22,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="no_identification" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
 
             <column name="quantity" type="decimal(10,2)">
@@ -30,7 +30,7 @@
             </column>
 
             <column name="description" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
 
             <column name="unit_value" type="decimal(10,6)">
@@ -46,7 +46,7 @@
             </column>
 
             <column name="discount" type="decimal(10,2)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
 
             <column name="free_cfdi_id" type="bigint"/>

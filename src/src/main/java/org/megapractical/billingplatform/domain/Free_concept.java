@@ -23,8 +23,7 @@ public class Free_concept implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
-    @Column(name = "no_identification", nullable = false)
+    @Column(name = "no_identification")
     private String no_identification;
 
     @NotNull
@@ -45,8 +44,7 @@ public class Free_concept implements Serializable {
     @Column(name = "amount", precision=10, scale=6, nullable = false)
     private BigDecimal amount;
 
-    @NotNull
-    @Column(name = "discount", precision=10, scale=2, nullable = false)
+    @Column(name = "discount", precision=10, scale=2)
     private BigDecimal discount;
 
     @ManyToOne

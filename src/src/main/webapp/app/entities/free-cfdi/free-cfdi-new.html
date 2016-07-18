@@ -32,7 +32,7 @@
 				<a ui-sref="free-cfdi.new({login : vm.account.login })">{{'global.user.generate.cfdi' | translate}}</a>
 			</li>
             <li>
-                <a href="">{{'global.user.search.cfdi' | translate}}</a>
+                <a ui-sref="free-cfdi">{{'global.user.search.cfdi' | translate}}</a>
             </li>
             <li>
                 <a href="">{{'global.user.join.mega' | translate}}</a>
@@ -763,8 +763,21 @@
                                 <div class="col-sm-8">
 
                                     <input type="text" class="form-control" name="rfcpf" id="field_freecom_pfic_rfcpf"
-                                           ng-model="vm.freecom_pfic.rfcpf" ng-disabled="!vm.show_pfic"
+                                           ng-model="vm.freecom_pfic.rfcpf"
                                     />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-show="vm.show_accreditation_ieps">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_accreditation_ieps.c_tar" for="field_freecom_accreditation_ieps_c_tar">c_tar</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_freecom_accreditation_ieps_c_tar" name="c_tar" ng-model="vm.freecom_accreditation_ieps.c_tar" ng-options="c_tar as c_tar.name for c_tar in vm.c_tars track by c_tar.id" ng-required="vm.show_accreditation_ieps">
+                                        <option value=""></option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

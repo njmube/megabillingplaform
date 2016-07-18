@@ -157,6 +157,12 @@
                         id: null
                     };
                 }],
+                freecom_accreditation_ieps_entity: [function () {
+                    return {
+                        version: null,
+                        id: null
+                    };
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('free_cfdi');
 					$translatePartialLoader.addPart('free_emitter');
@@ -166,6 +172,7 @@
 					$translatePartialLoader.addPart('free_part_concept');
                     $translatePartialLoader.addPart('freecom_taxregistration');
                     $translatePartialLoader.addPart('freecom_pfic');
+                    $translatePartialLoader.addPart('freecom_accreditation_ieps');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps'];
 
-    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps) {
 
 		var vm = this;
 
@@ -229,6 +229,9 @@
 			var free_concept = vm.free_concepts[vm.current_free_concept].free_concept;
 			free_concept.free_cfdi = vm.free_cfdi;
 			var amount = free_concept.quantity * free_concept.unit_value;
+            if(free_concept.discount == 0){
+                free_concept.discount = null;
+            }
 			free_concept.amount = floorFigure(amount, vm.accuracy);
 			if (free_concept.id !== null) {
 				Free_concept.update(free_concept, onSaveConceptSuccess, onSaveError);
@@ -252,6 +255,11 @@
                         vm.freecom_pfic.version = "3.2";
                         vm.freecom_pfic.free_cfdi = vm.free_cfdi;
                         Freecom_pfic.save(vm.freecom_pfic);
+                        break;
+                    case "accreditation_ieps":
+                        vm.freecom_accreditation_ieps.version = "3.2";
+                        vm.freecom_accreditation_ieps.free_cfdi = vm.free_cfdi;
+                        Freecom_accreditation_ieps.save(vm.freecom_accreditation_ieps);
                         break;
                 }
             }
@@ -427,11 +435,15 @@
 
 			var disabled_iva_value = -1;
 
+            var total_tax_transfered = 0;
+            var total_tax_retention = 0;
+
 
 			var i;
 			for(i=0; i < vm.free_concepts.length; i++){
 				//calculating free cfdi subtotal...
 				subtotal = subtotal + vm.free_concepts[i].free_concept.quantity * vm.free_concepts[i].free_concept.unit_value;
+                total_tax_transfered = parseFloat(total_tax_transfered) + parseFloat(vm.free_concepts[i].free_concept_iva.amount) + parseFloat(vm.free_concepts[i].free_concept_ieps.amount);
 
 				//getting iva to show to user...
 				if(vm.free_concepts[i].free_concept_iva.rate ==  show_iva_val16 || vm.free_concepts[i].free_concept_iva.rate == show_iva_val15){
@@ -521,8 +533,10 @@
 
 			vm.disabled_iva_value = disabled_iva_value;
 
-			vm.free_cfdi.total_tax_transfered = floorFigure(calc_iva + ieps, vm.accuracy);
-			vm.free_cfdi.total_tax_retention = floorFigure(ret_iva + ret_isr, vm.accuracy);
+			vm.free_cfdi.total_tax_transfered = floorFigure(total_tax_transfered, vm.accuracy);
+
+            total_tax_retention = ret_iva + ret_isr;
+			vm.free_cfdi.total_tax_retention = floorFigure(total_tax_retention, vm.accuracy);
 		};
 
 		vm.enableWithByPartiality = function(){
@@ -548,7 +562,7 @@
 		};
 
 		vm.enableAccountNumber = function(){
-			if(vm.free_cfdi.payment_method != undefined && vm.free_cfdi.payment_method.id >= 2 && vm.free_cfdi.payment_method.id <= 16 ){
+			if(vm.free_cfdi.payment_method != undefined && ((vm.free_cfdi.payment_method.id >= 2 && vm.free_cfdi.payment_method.id <= 9) ||  (vm.free_cfdi.payment_method.id >= 10 && vm.free_cfdi.payment_method.id <= 17))){
 				return false;
 			}
 			return true;
@@ -570,7 +584,8 @@
         //Complements
         vm.complements = [
             {id: "taxregistration", name:"CFDI Registro Fiscal"},
-            {id:"pfic", name: "Persona Física Integrante de Coordinado"}
+            {id:"pfic", name: "Persona Física Integrante de Coordinado"},
+            {id:"accreditation_ieps", name: "Concepto - Acreditación del IEPS"}
         ];
 
         vm.current_complement = null;
@@ -594,12 +609,16 @@
                 case "pfic":
                     vm.show_pfic = true;
                     break;
+                case "accreditation_ieps":
+                    vm.show_accreditation_ieps = true;
+                    break;
             }
         }
 
         function resetComplementView(){
             vm.show_taxregistration = false;
             vm.show_pfic = false;
+            vm.show_accreditation_ieps = false;
         }
 
         //Tax Registration
@@ -609,6 +628,10 @@
 
         vm.show_pfic = false;
         vm.freecom_pfic = freecom_pfic_entity;
+
+        vm.show_accreditation_ieps = false;
+        vm.freecom_accreditation_ieps = freecom_accreditation_ieps_entity;
+        vm.c_tars = C_tar.query();
 
     }
 })();
