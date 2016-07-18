@@ -148,6 +148,15 @@
                         id: null
                     };
                 }],
+                freecom_pfic_entity: [function () {
+                    return {
+                        version: null,
+                        key_vehicle: null,
+                        license_plate: null,
+                        rfcpf: null,
+                        id: null
+                    };
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('free_cfdi');
 					$translatePartialLoader.addPart('free_emitter');
@@ -156,6 +165,7 @@
 					$translatePartialLoader.addPart('free_customs_info');
 					$translatePartialLoader.addPart('free_part_concept');
                     $translatePartialLoader.addPart('freecom_taxregistration');
+                    $translatePartialLoader.addPart('freecom_pfic');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

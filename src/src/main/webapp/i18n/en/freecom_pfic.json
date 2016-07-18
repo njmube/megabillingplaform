@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Freecom_pfic"
             },
-            "version": "Version",
-            "key_vehicle": "Key_vehicle",
-            "license_plate": "License_plate",
-            "rfcpf": "Rfcpf",
+            "version": "Version (*)",
+            "key_vehicle": "Key Vehicle (*)",
+            "license_plate": "License Plate (*)",
+            "rfcpf": "RFCPF",
             "free_cfdi": "Free_cfdi"
         }
     }

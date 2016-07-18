@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic'];
 
-    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic) {
 
 		var vm = this;
 
@@ -244,8 +244,14 @@
             if(vm.current_complement != null && vm.current_complement.id != null){
                 switch (vm.current_complement.id){
                     case "taxregistration":
+                        vm.freecom_taxregistration.version = "3.2";
                         vm.freecom_taxregistration.free_cfdi = vm.free_cfdi;
                         Freecom_taxregistration.save(vm.freecom_taxregistration);
+                        break;
+                    case "pfic":
+                        vm.freecom_pfic.version = "3.2";
+                        vm.freecom_pfic.free_cfdi = vm.free_cfdi;
+                        Freecom_pfic.save(vm.freecom_pfic);
                         break;
                 }
             }
@@ -335,12 +341,12 @@
 
 			vm.free_cfdi.subtotal = floorFigure(0, vm.accuracy);
 			vm.show_iva = (0).toFixed(2);
-			vm.calc_iva = (0).toFixed(2);
+			vm.calc_iva = floorFigure(0, vm.accuracy);
 			vm.ieps = floorFigure(0, 2);
 			vm.ret_iva = floorFigure(0, 2);
 			vm.ret_isr = floorFigure(0, 2);
-			vm.free_cfdi.discount = floorFigure(0, 2);
-			vm.subtotal_discount = floorFigure(0, 2);
+			vm.free_cfdi.discount = floorFigure(0, vm.accuracy);
+			vm.subtotal_discount = floorFigure(0, vm.accuracy);
 			vm.free_cfdi.total = floorFigure(0, vm.accuracy);
 
 			vm.free_concepts = [];
@@ -600,7 +606,9 @@
         vm.show_taxregistration = false;
         vm.freecom_taxregistration = freecom_taxregistration_entity
 
+
         vm.show_pfic = false;
+        vm.freecom_pfic = freecom_pfic_entity;
 
     }
 })();
