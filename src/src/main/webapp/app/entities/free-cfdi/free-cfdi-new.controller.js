@@ -562,7 +562,7 @@
 		};
 
 		vm.enableAccountNumber = function(){
-			if(vm.free_cfdi.payment_method != undefined && ((vm.free_cfdi.payment_method.id >= 2 && vm.free_cfdi.payment_method.id <= 9) ||  (vm.free_cfdi.payment_method.id >= 10 && vm.free_cfdi.payment_method.id <= 17))){
+			if(vm.free_cfdi.payment_method != undefined && vm.free_cfdi.payment_method.id >= 2 && vm.free_cfdi.payment_method.id <= 17){
 				return false;
 			}
 			return true;
