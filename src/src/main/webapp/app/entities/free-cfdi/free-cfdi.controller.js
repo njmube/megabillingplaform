@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiController', Free_cfdiController);
 
-    Free_cfdiController.$inject = ['$scope', '$filter','$state', 'Free_cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'Cfdi_states'];
+    Free_cfdiController.$inject = ['$scope', 'DataUtils','$filter','$state', 'Free_cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'Cfdi_states'];
 
-    function Free_cfdiController ($scope,$filter, $state, Free_cfdi, ParseLinks, AlertService, pagingParams, paginationConstants, Cfdi_states) {
+    function Free_cfdiController ($scope, DataUtils, $filter, $state, Free_cfdi, ParseLinks, AlertService, pagingParams, paginationConstants, Cfdi_states) {
         var vm = this;
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
@@ -158,5 +158,6 @@
             vm.datePickerOpenStatus1[date] = true;
         };
 
+        vm.openFile = DataUtils.openFile;
     }
 })();

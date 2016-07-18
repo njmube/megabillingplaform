@@ -13,11 +13,11 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
+import sun.misc.IOUtils;
+import sun.nio.ch.IOUtil;
 
 import javax.inject.Inject;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +51,10 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
     }
 
     private Free_cfdi saveXMLandPDF(Free_cfdi free_cfdi){
+        free_cfdi.setFilexml(null);
+        free_cfdi.setFilepdf(null);
+        free_cfdi.setFilepdfContentType("application/pdf");
+        free_cfdi.setFilexmlContentType("text/xml");
         String root = "";
         //<RFC_Emisor>_<RFC_Receptor>_<Fecha_Expedicion>.<xml o pdf uno de cada uno>
         int year = free_cfdi.getDate_expedition().getYear();
@@ -152,12 +156,51 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
         xml[0] = 1;
         return xml;
     }
+
+    private Free_cfdi getFile(Free_cfdi free_cfdi){
+        log.debug("Leyendo ficheros : {}", free_cfdi.getPath_cfdi());
+
+        if(free_cfdi.getPath_cfdi() != null){
+            if(!free_cfdi.getPath_cfdi().isEmpty()){
+                File newFile = new File(free_cfdi.getPath_cfdi()+".pdf");
+                InputStream inputStream = null;
+                log.debug("Direccion pdf: {}", free_cfdi.getPath_cfdi()+".pdf");
+                if (newFile.exists()) {
+                    log.debug("Fichero pdf existe");
+                    try {
+                        inputStream = new FileInputStream(newFile);
+                        byte[] arre = IOUtils.readFully(inputStream, 1000000, true);
+                        free_cfdi.setFilepdf(arre);
+                        log.debug("Leyendo PDF");
+                    } catch (Exception e) {
+                        log.debug(e.getLocalizedMessage());
+                    }
+                }
+
+                File newFile1 = new File(free_cfdi.getPath_cfdi()+".xml");
+                InputStream inputStream1 = null;
+
+                if (newFile1.exists()) {
+                    try {
+                        inputStream1 = new FileInputStream(newFile1);
+                        free_cfdi.setFilexml(IOUtils.readFully(inputStream1, 1000000, true));
+                        log.debug("Leyendo XML");
+                    } catch (Exception e) {
+
+                    }
+                }
+            }
+        }
+        return free_cfdi;
+    }
+
     public Page<Free_cfdi> findByFree_emitter(Free_emitter free_emitter, Pageable pageable){
         List<Free_cfdi> listaAll = free_cfdiRepository.findAll();
         List<Free_cfdi> result = new ArrayList<>();
         for(int i=0;i<listaAll.size();i++){
             if(listaAll.get(i).getFree_emitter().getRfc().compareTo(free_emitter.getRfc())==0){
-                result.add(listaAll.get(i));
+                Free_cfdi free = getFile(listaAll.get(i));
+                result.add(free);
             }
         }
         return new PageImpl<Free_cfdi>(result, pageable, result.size());
@@ -247,7 +290,8 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
                     }
                 }
                 if(a && b && c && d && e && f && g){
-                    result.add(listaAll.get(i));
+                    Free_cfdi free = getFile(listaAll.get(i));
+                    result.add(free);
                 }
             }
             page = new PageImpl<Free_cfdi>(result, pageable, result.size());

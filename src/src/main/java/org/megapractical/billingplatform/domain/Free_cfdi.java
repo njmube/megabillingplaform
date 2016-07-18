@@ -105,6 +105,20 @@ public class Free_cfdi implements Serializable {
     @Column(name = "path_cfdi")
     private String path_cfdi;
 
+    @Lob
+    @Column(name = "filepdf")
+    private byte[] filepdf;
+
+    @Column(name = "filepdf_content_type")
+    private String filepdfContentType;
+
+    @Lob
+    @Column(name = "filexml")
+    private byte[] filexml;
+
+    @Column(name = "filexml_content_type")
+    private String filexmlContentType;
+
     @ManyToOne
     private Cfdi_types cfdi_types;
 
@@ -329,6 +343,38 @@ public class Free_cfdi implements Serializable {
         this.path_cfdi = path_cfdi;
     }
 
+    public byte[] getFilepdf() {
+        return filepdf;
+    }
+
+    public void setFilepdf(byte[] filepdf) {
+        this.filepdf = filepdf;
+    }
+
+    public String getFilepdfContentType() {
+        return filepdfContentType;
+    }
+
+    public void setFilepdfContentType(String filepdfContentType) {
+        this.filepdfContentType = filepdfContentType;
+    }
+
+    public byte[] getFilexml() {
+        return filexml;
+    }
+
+    public void setFilexml(byte[] filexml) {
+        this.filexml = filexml;
+    }
+
+    public String getFilexmlContentType() {
+        return filexmlContentType;
+    }
+
+    public void setFilexmlContentType(String filexmlContentType) {
+        this.filexmlContentType = filexmlContentType;
+    }
+
     public Cfdi_types getCfdi_types() {
         return cfdi_types;
     }
@@ -441,6 +487,10 @@ public class Free_cfdi implements Serializable {
             ", certificate='" + certificate + "'" +
             ", way_payment='" + way_payment + "'" +
             ", path_cfdi='" + path_cfdi + "'" +
+            ", filepdf='" + filepdf + "'" +
+            ", filepdfContentType='" + filepdfContentType + "'" +
+            ", filexml='" + filexml + "'" +
+            ", filexmlContentType='" + filexmlContentType + "'" +
             '}';
     }
 }

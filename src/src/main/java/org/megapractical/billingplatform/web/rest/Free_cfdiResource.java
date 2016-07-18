@@ -148,6 +148,7 @@ public class Free_cfdiResource {
                 log.debug("Obtener todos");
                 Page<Free_cfdi> page = free_cfdiService.findByFree_emitter(free_emitter, pageable);
                 HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-cfdis");
+
                 return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
             } else {
                 log.debug("Obtener alguno");

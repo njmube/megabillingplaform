@@ -50,19 +50,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
+                            <label class="col-sm-4 control-label no-padding-right" for="field_state">CFDI</label>
                             <div class="col-md-8">
                                 <select class="form-control" id="field_free_cfdis" name="free_cfdis" ng-model="vm.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.cfdi_all track by free_cfdi.id">
                                     <option value=""></option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary pull-right">
-                                <span translate="entity.action.search">Search</span>
-                            </button>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
                         <div class="form-group">
                             <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.folio_fiscal_orig" for="field_folio_fiscal">Folio Fiscal</label>
                             <div class="col-sm-8">
@@ -123,6 +117,9 @@
                                 </div>
                             </div>
                         </div>
+                        <button type="submit" class="btn btn-primary pull-right">
+                            <span translate="entity.action.search">Search</span>
+                        </button>
                     </div>
                 </div>
             </form>
@@ -150,10 +147,10 @@
             <tbody>
                 <tr ng-repeat="free_cfdi in vm.free_cfdis track by free_cfdi.id">
                     <td>
-                        <a href="">
+                        <a ng-click="vm.openFile('text/xml', free_cfdi.filexml)" ng-if="free_cfdi.filexml">
                             <i class="fa fa-cloud-download bigger-125"></i>
                         </a>
-                        <a href="">
+                        <a ng-click="vm.openFile('application/pdf', free_cfdi.filepdf)" ng-if="free_cfdi.filepdf">
                             <i class="fa fa-file-pdf-o bigger-125"></i>
                         </a>
                     </td>

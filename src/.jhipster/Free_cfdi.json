@@ -199,6 +199,16 @@
         {
             "fieldName": "path_cfdi",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "filepdf",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "filexml",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
         }
     ],
     "changelogDate": "20160624052323",
