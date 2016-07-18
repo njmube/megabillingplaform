@@ -16,8 +16,8 @@
             "detail": {
                 "title": "Freecom_taxregistration"
             },
-            "version": "Version",
-            "folio": "Folio",
+            "version": "Versión (*)",
+            "folio": "Folio (*)",
             "free_cfdi": "Free_cfdi"
         }
     }

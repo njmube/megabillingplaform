@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration'];
 
-    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration) {
 
 		var vm = this;
 
@@ -239,7 +239,18 @@
 
 		var onSaveSuccess = function (result) {
 			vm.free_cfdi = result;
-			vm.current_free_concept = 0;
+
+            //Save complements
+            if(vm.current_complement != null && vm.current_complement.id != null){
+                switch (vm.current_complement.id){
+                    case "taxregistration":
+                        vm.freecom_taxregistration.free_cfdi = vm.free_cfdi;
+                        Freecom_taxregistration.save(vm.freecom_taxregistration);
+                        break;
+                }
+            }
+
+            vm.current_free_concept = 0;
 			saveConcept();
 		};
 
@@ -334,6 +345,9 @@
 
 			vm.free_concepts = [];
 			vm.current_free_concept = null;
+
+            vm.current_complement = null;
+            resetComplementView();
 		}
 
         vm.datePickerOpenStatus = {};
@@ -546,5 +560,47 @@
 				vm.free_cfdi.change_type = (1).toFixed(2);
 			}
 		};
+
+        //Complements
+        vm.complements = [
+            {id: "taxregistration", name:"CFDI Registro Fiscal"},
+            {id:"pfic", name: "Persona Física Integrante de Coordinado"}
+        ];
+
+        vm.current_complement = null;
+
+        vm.onChangeComplemennt = function(){
+            if(vm.current_complement != null && vm.current_complement.id != null){
+                showComplemnt();
+            }
+            else{
+                resetComplementView();
+            }
+        };
+
+        function showComplemnt(){
+            resetComplementView();
+
+            switch(vm.current_complement.id){
+                case "taxregistration":
+                    vm.show_taxregistration = true;
+                    break;
+                case "pfic":
+                    vm.show_pfic = true;
+                    break;
+            }
+        }
+
+        function resetComplementView(){
+            vm.show_taxregistration = false;
+            vm.show_pfic = false;
+        }
+
+        //Tax Registration
+        vm.show_taxregistration = false;
+        vm.freecom_taxregistration = freecom_taxregistration_entity
+
+        vm.show_pfic = false;
+
     }
 })();
