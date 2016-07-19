@@ -12,7 +12,7 @@
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET',
                 isArray: true,
-                params: {pg: null}
+                params: {pg: null,filtername: null}
             },
             'get': {
                 method: 'GET',

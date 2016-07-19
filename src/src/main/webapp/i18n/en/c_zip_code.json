@@ -17,7 +17,8 @@
                 "title": "C_zip_code"
             },
             "code": "Code",
-            "value": "Value"
+            "value": "Value",
+            "filtername":"Filter by code"
         }
     }
 }

@@ -18,7 +18,8 @@
             },
             "name": "Name",
             "code": "Code",
-            "c_state": "C_state"
+            "c_state": "C_state",
+            "filtername":"Filtro por nombre"
         }
     }
 }

@@ -13,7 +13,7 @@ public interface Payment_methodService {
 
     /**
      * Save a payment_method.
-     * 
+     *
      * @param payment_method the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Payment_methodService {
 
     /**
      *  Get all the payment_methods.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Payment_method> findAll(Pageable pageable);
 
+    Page<Payment_method> findAllByNameAndCode(String filtername, String filtercode, Pageable pageable);
+
     /**
      *  Get the "id" payment_method.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Payment_methodService {
 
     /**
      *  Delete the "id" payment_method.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

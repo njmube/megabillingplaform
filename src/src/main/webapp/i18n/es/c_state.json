@@ -19,7 +19,8 @@
             "name": "Nombre",
             "abrev": "Abreviatura",
             "c_country": "País",
-            "c_municipality": "Municipio"
+            "c_municipality": "Municipio",
+            "filtername":"Filtro por nombre"
         }
     }
 }

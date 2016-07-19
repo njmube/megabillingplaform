@@ -42,6 +42,18 @@ public class C_municipalityServiceImpl implements C_municipalityService{
         return result;
     }
 
+    public Page<C_municipality> findAllByName(String filtername, Pageable pageable){
+        log.debug("Request to get all C_colonies");
+        Page<C_municipality> result = c_municipalityRepository.findByNameStartingWith(filtername, pageable);
+        return result;
+    }
+
+    public List<C_municipality> findAllByNameL(String filtername){
+        log.debug("Request to get all C_colonies");
+        List<C_municipality> result = c_municipalityRepository.findByNameStartingWith(filtername);
+        return result;
+    }
+
     /**
      *  Get all the c_municipalities.
      *

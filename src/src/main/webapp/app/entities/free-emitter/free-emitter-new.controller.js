@@ -15,8 +15,8 @@
         vm.type_taxpayers = Type_taxpayer.query();
         vm.accuracys = [2,3,4,5,6];
         vm.tax_regimes = Tax_regime.query();
-        vm.c_countrys = C_country.query({pg:1});
-        vm.c_states = C_state.query({countryId:151});
+        vm.c_countrys = C_country.query({pg:1, filtername:" "});
+        vm.c_states = C_state.query({countryId:151, filtername:" "});
         vm.c_municipalitys = null;
 		vm.c_colonys = null;
         vm.messcertificate = null;
@@ -44,21 +44,21 @@
 
         function onChangeC_country () {
 			var countryId = vm.free_emitter.c_country.id;
-            C_state.query({countryId: countryId}, function(result){
+            C_state.query({countryId: countryId, filtername:" "}, function(result){
                 vm.c_states = result;
             });
         }
 
         function onChangeC_state () {
             var stateId = vm.free_emitter.c_state.id;
-            C_municipality.query({stateId: stateId}, function(result){
+            C_municipality.query({stateId: stateId, filtername:" "}, function(result){
                 vm.c_municipalitys = result;
             });
         }
 
         function onChangeC_municipality () {
             var municipalityId = vm.free_emitter.c_municipality.id;
-            C_colony.query({municipalityId: municipalityId}, function(result){
+            C_colony.query({municipalityId: municipalityId, filtername:" "}, function(result){
                 vm.c_colonys = result;
             });
         }

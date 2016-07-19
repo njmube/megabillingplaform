@@ -21,13 +21,13 @@ import java.util.List;
 public class Payment_methodServiceImpl implements Payment_methodService{
 
     private final Logger log = LoggerFactory.getLogger(Payment_methodServiceImpl.class);
-    
+
     @Inject
     private Payment_methodRepository payment_methodRepository;
-    
+
     /**
      * Save a payment_method.
-     * 
+     *
      * @param payment_method the entity to save
      * @return the persisted entity
      */
@@ -39,15 +39,27 @@ public class Payment_methodServiceImpl implements Payment_methodService{
 
     /**
      *  Get all the payment_methods.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Payment_method> findAll(Pageable pageable) {
         log.debug("Request to get all Payment_methods");
-        Page<Payment_method> result = payment_methodRepository.findAll(pageable); 
+        Page<Payment_method> result = payment_methodRepository.findAll(pageable);
         return result;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Payment_method> findAllByNameAndCode(String filtername,String filtercode, Pageable pageable) {
+        log.debug("Request to get Payment_method whith filtername: {}",filtername);
+        if(!filtername.isEmpty() && filtername.compareTo(" ")!=0){
+            Page<Payment_method> result = payment_methodRepository.findByNameStartingWith(filtername, pageable);
+            return result;
+        }else {
+            Page<Payment_method> result = payment_methodRepository.findByCodeStartingWith(filtercode, pageable);
+            return result;
+        }
     }
 
     /**
@@ -56,7 +68,7 @@ public class Payment_methodServiceImpl implements Payment_methodService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Payment_method findOne(Long id) {
         log.debug("Request to get Payment_method : {}", id);
         Payment_method payment_method = payment_methodRepository.findOne(id);
@@ -65,7 +77,7 @@ public class Payment_methodServiceImpl implements Payment_methodService{
 
     /**
      *  Delete the  payment_method by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

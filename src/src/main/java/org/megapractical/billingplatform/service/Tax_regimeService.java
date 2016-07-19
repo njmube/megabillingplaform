@@ -13,7 +13,7 @@ public interface Tax_regimeService {
 
     /**
      * Save a tax_regime.
-     * 
+     *
      * @param tax_regime the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Tax_regimeService {
 
     /**
      *  Get all the tax_regimes.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Tax_regime> findAll(Pageable pageable);
 
+    Page<Tax_regime> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" tax_regime.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Tax_regimeService {
 
     /**
      *  Delete the "id" tax_regime.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

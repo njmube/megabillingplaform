@@ -10,7 +10,7 @@
         var resourceUrl =  'api/c-municipalities/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true, params: {stateId: null}},
+            'query': { method: 'GET', isArray: true, params: {stateId: null,filtername:null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

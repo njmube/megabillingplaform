@@ -13,7 +13,7 @@ public interface Way_paymentService {
 
     /**
      * Save a way_payment.
-     * 
+     *
      * @param way_payment the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Way_paymentService {
 
     /**
      *  Get all the way_payments.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Way_payment> findAll(Pageable pageable);
 
+    Page<Way_payment> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" way_payment.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Way_paymentService {
 
     /**
      *  Delete the "id" way_payment.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

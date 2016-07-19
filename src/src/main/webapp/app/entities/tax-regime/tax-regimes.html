@@ -14,6 +14,19 @@
         </div>
     </div>
     <br/>
+    <div class="row">
+        <div class="col-md-4">
+            <h4 translate="megabillingplatformApp.tax_regime.filtername">Filter by name</h4>
+            <p class="input-group">
+                <span class="input-group-addon" translate="megabillingplatformApp.tax_regime.name">Name</span>
+                <select class="chosen-select form-control" id="field_filtername" name="filtername"
+                        ng-model="vm.selectedtax_regime" ng-change="vm.onChangeName()"
+                        ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimeS track by tax_regime.id">
+                    <option value=""></option>
+                </select>
+            </p>
+        </div>
+    </div>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>

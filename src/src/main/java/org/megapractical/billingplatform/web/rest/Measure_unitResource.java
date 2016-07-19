@@ -29,10 +29,10 @@ import java.util.Optional;
 public class Measure_unitResource {
 
     private final Logger log = LoggerFactory.getLogger(Measure_unitResource.class);
-        
+
     @Inject
     private Measure_unitService measure_unitService;
-    
+
     /**
      * POST  /measure-units : Create a new measure_unit.
      *
@@ -88,14 +88,23 @@ public class Measure_unitResource {
      */
     @RequestMapping(value = "/measure-units",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername"})
     @Timed
-    public ResponseEntity<List<Measure_unit>> getAllMeasure_units(Pageable pageable)
+    public ResponseEntity<List<Measure_unit>> getAllMeasure_units(@RequestParam(value = "filtername") String filtername,
+                                                                  Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Measure_units");
-        Page<Measure_unit> page = measure_unitService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/measure-units");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+            Page<Measure_unit> page = measure_unitService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/measure-units");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else
+        {
+            Page<Measure_unit> page = measure_unitService.findAllByName(filtername, pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/measure-units");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

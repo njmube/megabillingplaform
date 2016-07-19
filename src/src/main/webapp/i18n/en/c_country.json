@@ -18,7 +18,8 @@
             },
             "name": "Name",
             "abrev": "Abrev",
-            "c_state": "State"
+            "c_state": "State",
+            "filtername":"Filter by name"
         }
     }
 }

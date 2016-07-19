@@ -30,6 +30,10 @@ public interface C_stateService {
 
     List<C_state> findByCountry(long countryId);
 
+    Page<C_state> findAllByName(String filtername, Pageable pageable);
+
+    List<C_state> findAllByNameL(String filtername);
+
     /**
      *  Get the "id" c_state.
      *

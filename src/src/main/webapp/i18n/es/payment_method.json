@@ -18,7 +18,8 @@
             },
             "name": "Nombre",
             "description": "Descripción",
-            "code": "Código"
+            "code": "Código",
+            "filtername":"Filtro por nombre y código"
         }
     }
 }

@@ -10,7 +10,7 @@
         var resourceUrl =  'api/c-states/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true, params: {countryId: null}},
+            'query': { method: 'GET', isArray: true, params: {countryId: null, filtername:null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

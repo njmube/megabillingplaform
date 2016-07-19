@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Way_paymentResource {
 
     private final Logger log = LoggerFactory.getLogger(Way_paymentResource.class);
-        
+
     @Inject
     private Way_paymentService way_paymentService;
-    
+
     /**
      * POST  /way-payments : Create a new way_payment.
      *
@@ -89,14 +89,22 @@ public class Way_paymentResource {
      */
     @RequestMapping(value = "/way-payments",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername"})
     @Timed
-    public ResponseEntity<List<Way_payment>> getAllWay_payments(Pageable pageable)
+    public ResponseEntity<List<Way_payment>> getAllWay_payments(@RequestParam(value = "filtername") String filtername,
+                                                                Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Way_payments");
-        Page<Way_payment> page = way_paymentService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/way-payments");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+            Page<Way_payment> page = way_paymentService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/way-payments");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else {
+            Page<Way_payment> page = way_paymentService.findAllByName(filtername,pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/way-payments");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

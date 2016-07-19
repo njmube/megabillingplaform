@@ -19,7 +19,8 @@
             "code": "Code",
             "value": "Value",
             "c_municipality": "C_municipality",
-            "c_zip_code": "C_zip_code"
+            "c_zip_code": "C_zip_code",
+            "filtername":"Filter by code"
         }
     }
 }

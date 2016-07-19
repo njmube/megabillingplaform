@@ -27,6 +27,10 @@ public interface C_zip_codeService {
      */
     Page<C_zip_code> findAll(Pageable pageable);
 
+    Page<C_zip_code> findAllByName(String filtername, Pageable pageable);
+
+    List<C_zip_code> findAllByNameL(String filtername);
+
 
     /**
      *  Get the "id" c_zip_code.

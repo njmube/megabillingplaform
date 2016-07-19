@@ -19,6 +19,9 @@ public interface C_countryService {
      */
     C_country save(C_country c_country);
 
+    Page<C_country> findAllByName(String filtername, Pageable pageable);
+    List<C_country> findAllByNameL(String filtername);
+
     /**
      *  Get all the c_countries.
      *

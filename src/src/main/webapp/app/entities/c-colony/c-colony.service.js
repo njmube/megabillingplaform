@@ -10,7 +10,7 @@
         var resourceUrl =  'api/c-colonies/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true, params: {municipalityId: null}},
+            'query': { method: 'GET', isArray: true, params: {municipalityId: null, filtername:null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

@@ -20,7 +20,8 @@
             "description": "Descripción",
             "c_municipality": "Municipio",
             "c_zip_code": "Código Postal",
-            "c_colony": "Colonia"
+            "c_colony": "Colonia",
+            "filtername":"Filtro por nombre"
         }
     }
 }

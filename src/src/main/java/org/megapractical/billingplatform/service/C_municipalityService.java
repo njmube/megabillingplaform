@@ -29,6 +29,9 @@ public interface C_municipalityService {
 
     List<C_municipality> findByState(long stateId);
 
+    Page<C_municipality> findAllByName(String filtername, Pageable pageable);
+
+    List<C_municipality> findAllByNameL(String filtername);
     /**
      *  Get the "id" c_municipality.
      *

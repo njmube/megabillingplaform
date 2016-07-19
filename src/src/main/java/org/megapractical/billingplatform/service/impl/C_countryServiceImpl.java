@@ -37,6 +37,18 @@ public class C_countryServiceImpl implements C_countryService{
         return result;
     }
 
+    public Page<C_country> findAllByName(String filtername, Pageable pageable){
+        log.debug("Request to get all C_colonies");
+        Page<C_country> result = c_countryRepository.findByNameStartingWith(filtername, pageable);
+        return result;
+    }
+
+    public List<C_country> findAllByNameL(String filtername){
+        log.debug("Request to get all C_colonies");
+        List<C_country> result = c_countryRepository.findByNameStartingWith(filtername);
+        return result;
+    }
+
     /**
      *  Get all the c_countries.
      *

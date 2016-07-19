@@ -10,7 +10,10 @@
         var resourceUrl =  'api/payment-methods/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true},
+            'query': {
+                method: 'GET',
+                isArray: true,
+                params: {filtername: null, filtercode:null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

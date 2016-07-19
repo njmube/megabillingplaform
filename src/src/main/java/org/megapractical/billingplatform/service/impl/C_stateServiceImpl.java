@@ -43,6 +43,18 @@ public class C_stateServiceImpl implements C_stateService{
         return result;
     }
 
+    public Page<C_state> findAllByName(String filtername, Pageable pageable){
+        log.debug("Request to get all C_colonies");
+        Page<C_state> result = c_stateRepository.findByNameStartingWith(filtername, pageable);
+        return result;
+    }
+
+    public List<C_state> findAllByNameL(String filtername){
+        log.debug("Request to get all C_colonies");
+        List<C_state> result = c_stateRepository.findByNameStartingWith(filtername);
+        return result;
+    }
+
     /**
      *  Get all the c_states.
      *

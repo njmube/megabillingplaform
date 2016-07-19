@@ -88,14 +88,22 @@ public class C_zip_codeResource {
      */
     @RequestMapping(value = "/c-zip-codes",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername"})
     @Timed
-    public ResponseEntity<List<C_zip_code>> getAllC_zip_codes(Pageable pageable)
+    public ResponseEntity<List<C_zip_code>> getAllC_zip_codes(@RequestParam(value = "filtername") String filtername,
+                                                              Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_zip_codes");
+        if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
             Page<C_zip_code> page = c_zip_codeService.findAll(pageable);
             HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-zip-codes");
             return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else {
+            Page<C_zip_code> page = c_zip_codeService.findAllByName(filtername,pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-zip-codes");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

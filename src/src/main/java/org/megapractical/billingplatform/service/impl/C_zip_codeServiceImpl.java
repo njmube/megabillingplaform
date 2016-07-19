@@ -38,7 +38,17 @@ public class C_zip_codeServiceImpl implements C_zip_codeService{
         return result;
     }
 
+    public Page<C_zip_code> findAllByName(String filtername, Pageable pageable){
+        log.debug("Request to get all C_colonies");
+        Page<C_zip_code> result = c_zip_codeRepository.findByCodeStartingWith(filtername, pageable);
+        return result;
+    }
 
+    public List<C_zip_code> findAllByNameL(String filtername){
+        log.debug("Request to get all C_colonies");
+        List<C_zip_code> result = c_zip_codeRepository.findByCodeStartingWith(filtername);
+        return result;
+    }
 
     /**
      *  Get all the c_zip_codes.

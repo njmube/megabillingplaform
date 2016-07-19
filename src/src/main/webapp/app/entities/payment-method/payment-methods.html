@@ -14,6 +14,21 @@
         </div>
     </div>
     <br/>
+    <div class="row">
+        <div class="col-md-8">
+            <h4 translate="megabillingplatformApp.payment_method.filtername">Filter by name and code</h4>
+            <p class="input-group">
+                <span class="input-group-addon" translate="megabillingplatformApp.payment_method.name">Name</span>
+                <select class="chosen-select form-control" id="field_filtername" name="filtername"
+                        ng-model="vm.selectedpayment_method" ng-change="vm.onChangeName()"
+                        ng-options="payment_method as payment_method.name for payment_method in vm.payment_methodS track by payment_method.id">
+                    <option value=""></option>
+                </select>
+                <span class="input-group-addon" translate="megabillingplatformApp.payment_method.code">Code</span>
+                <input type="text" class="input-sm form-control" name="filtercode" ng-model="vm.filtercode" ng-change="vm.onChangeName()"/>
+            </p>
+        </div>
+    </div>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>

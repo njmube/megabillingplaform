@@ -90,21 +90,34 @@ public class C_colonyResource {
     @RequestMapping(value = "/c-colonies",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE,
-        params = {"municipalityId"})
+        params = {"municipalityId", "filtername"})
     @Timed
     public ResponseEntity<List<C_colony>> getAllC_colonies(@RequestParam(value = "municipalityId") Integer municipalityId,
+                                                           @RequestParam(value = "filtername") String filtername,
                                                            Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_colonies");
         if(municipalityId == 0) {
-            Page<C_colony> page = c_colonyService.findAll(pageable);
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-colonies");
-            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+                Page<C_colony> page = c_colonyService.findAll(pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-colonies");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            }else {
+                Page<C_colony> page = c_colonyService.findAllByName(filtername,pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-colonies");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            }
         }else
         {
-            log.debug("id del municipio: "+municipalityId);
-            List<C_colony> page = c_colonyService.findByMunicipality(municipalityId);
-            return new ResponseEntity<>(page, HttpStatus.OK);
+            if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+                log.debug("id del municipio: " + municipalityId);
+                List<C_colony> page = c_colonyService.findByMunicipality(municipalityId);
+                return new ResponseEntity<>(page, HttpStatus.OK);
+            }else {
+                log.debug("id del municipio: " + municipalityId);
+                List<C_colony> page = c_colonyService.findAllByNameL(filtername);
+                return new ResponseEntity<>(page, HttpStatus.OK);
+            }
         }
     }
 

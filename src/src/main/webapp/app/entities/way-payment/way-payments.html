@@ -14,6 +14,19 @@
         </div>
     </div>
     <br/>
+    <div class="row">
+        <div class="col-md-4">
+            <h4 translate="megabillingplatformApp.way_payment.filtername">Filter by name</h4>
+            <p class="input-group">
+                <span class="input-group-addon" translate="megabillingplatformApp.way_payment.name">Name</span>
+                <select class="chosen-select form-control" id="field_filtername" name="filtername"
+                        ng-model="vm.selectedway_payment" ng-change="vm.onChangeName()"
+                        ng-options="way_payment as way_payment.name for way_payment in vm.way_paymentS track by way_payment.id">
+                    <option value=""></option>
+                </select>
+            </p>
+        </div>
+    </div>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>

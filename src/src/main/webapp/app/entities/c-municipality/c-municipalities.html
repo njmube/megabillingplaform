@@ -14,6 +14,19 @@
         </div>
     </div>
     <br/>
+    <div class="row">
+        <div class="col-md-4">
+            <h4 translate="megabillingplatformApp.c_municipality.filtername">Filter by name</h4>
+            <p class="input-group">
+                <span class="input-group-addon" translate="megabillingplatformApp.c_municipality.name">Name</span>
+                <select class="chosen-select form-control" id="field_filtername" name="filtername"
+                        ng-model="vm.selectedc_municipality" ng-change="vm.onChangeName()"
+                        ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalityS track by c_municipality.id">
+                    <option value=""></option>
+                </select>
+            </p>
+        </div>
+    </div>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>

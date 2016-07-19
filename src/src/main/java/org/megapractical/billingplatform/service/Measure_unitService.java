@@ -13,7 +13,7 @@ public interface Measure_unitService {
 
     /**
      * Save a measure_unit.
-     * 
+     *
      * @param measure_unit the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Measure_unitService {
 
     /**
      *  Get all the measure_units.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Measure_unit> findAll(Pageable pageable);
 
+    Page<Measure_unit> findAllByName(String filtername, Pageable pageable);
+
     /**
      *  Get the "id" measure_unit.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Measure_unitService {
 
     /**
      *  Delete the "id" measure_unit.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

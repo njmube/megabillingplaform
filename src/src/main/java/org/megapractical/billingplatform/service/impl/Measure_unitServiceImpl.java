@@ -21,13 +21,13 @@ import java.util.List;
 public class Measure_unitServiceImpl implements Measure_unitService{
 
     private final Logger log = LoggerFactory.getLogger(Measure_unitServiceImpl.class);
-    
+
     @Inject
     private Measure_unitRepository measure_unitRepository;
-    
+
     /**
      * Save a measure_unit.
-     * 
+     *
      * @param measure_unit the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,21 @@ public class Measure_unitServiceImpl implements Measure_unitService{
 
     /**
      *  Get all the measure_units.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Measure_unit> findAll(Pageable pageable) {
         log.debug("Request to get all Measure_units");
-        Page<Measure_unit> result = measure_unitRepository.findAll(pageable); 
+        Page<Measure_unit> result = measure_unitRepository.findAll(pageable);
+        return result;
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Measure_unit> findAllByName(String filtername, Pageable pageable) {
+        log.debug("Request to get Measure_unit whith filtername: {}",filtername);
+        Page<Measure_unit> result = measure_unitRepository.findByNameStartingWith(filtername, pageable);
         return result;
     }
 
@@ -56,7 +63,7 @@ public class Measure_unitServiceImpl implements Measure_unitService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Measure_unit findOne(Long id) {
         log.debug("Request to get Measure_unit : {}", id);
         Measure_unit measure_unit = measure_unitRepository.findOne(id);
@@ -65,7 +72,7 @@ public class Measure_unitServiceImpl implements Measure_unitService{
 
     /**
      *  Delete the  measure_unit by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

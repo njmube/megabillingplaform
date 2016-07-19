@@ -20,7 +20,8 @@
             "description": "Description",
             "c_municipality": "Municipality",
             "c_zip_code": "Zip Code",
-            "c_colony": "Colony"
+            "c_colony": "Colony",
+            "filtername":"Filter by name"
         }
     }
 }

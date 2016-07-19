@@ -21,13 +21,13 @@ import java.util.List;
 public class Tax_regimeServiceImpl implements Tax_regimeService{
 
     private final Logger log = LoggerFactory.getLogger(Tax_regimeServiceImpl.class);
-    
+
     @Inject
     private Tax_regimeRepository tax_regimeRepository;
-    
+
     /**
      * Save a tax_regime.
-     * 
+     *
      * @param tax_regime the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,14 @@ public class Tax_regimeServiceImpl implements Tax_regimeService{
 
     /**
      *  Get all the tax_regimes.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Tax_regime> findAll(Pageable pageable) {
         log.debug("Request to get all Tax_regimes");
-        Page<Tax_regime> result = tax_regimeRepository.findAll(pageable); 
+        Page<Tax_regime> result = tax_regimeRepository.findAll(pageable);
         return result;
     }
 
@@ -56,16 +56,22 @@ public class Tax_regimeServiceImpl implements Tax_regimeService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Tax_regime findOne(Long id) {
         log.debug("Request to get Tax_regime : {}", id);
         Tax_regime tax_regime = tax_regimeRepository.findOne(id);
         return tax_regime;
     }
 
+    @Transactional(readOnly = true)
+    public Page<Tax_regime> findAllByName(String filtername, Pageable pageable) {
+        log.debug("Request to get Tax-regime whith filtername: {}",filtername);
+        Page<Tax_regime> result = tax_regimeRepository.findByNameStartingWith(filtername, pageable);
+        return result;
+    }
     /**
      *  Delete the  tax_regime by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

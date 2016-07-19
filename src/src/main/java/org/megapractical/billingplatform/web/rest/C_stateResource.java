@@ -103,18 +103,31 @@ public class C_stateResource {
     @RequestMapping(value = "/c-states",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE,
-        params = {"countryId"})
+        params = {"countryId", "filtername"})
     @Timed
-    public ResponseEntity<List<C_state>> getAllC_states(@RequestParam(value = "countryId") Integer countryId, Pageable pageable)
+    public ResponseEntity<List<C_state>> getAllC_states(@RequestParam(value = "countryId") Integer countryId,
+                                                        @RequestParam(value = "filtername") String filtername,
+                                                        Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_states");
         if(countryId == 0){
-            Page<C_state> page = c_stateService.findAll(pageable);
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-states");
-            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+                Page<C_state> page = c_stateService.findAll(pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-states");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            }else {
+                Page<C_state> page = c_stateService.findAllByName(filtername,pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-states");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            }
         }else {
-            List<C_state> page = c_stateService.findByCountry(countryId);
-            return new ResponseEntity<>(page, HttpStatus.OK);
+            if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+                List<C_state> page = c_stateService.findByCountry(countryId);
+                return new ResponseEntity<>(page, HttpStatus.OK);
+            }else {
+                List<C_state> page = c_stateService.findAllByNameL(filtername);
+                return new ResponseEntity<>(page, HttpStatus.OK);
+            }
         }
     }
 

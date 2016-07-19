@@ -18,7 +18,8 @@
             },
             "name": "Nombre",
             "abrev": "Abreviatura",
-            "c_state": "Estado"
+            "c_state": "Estado",
+            "filtername":"Filtro por nombre"
         }
     }
 }

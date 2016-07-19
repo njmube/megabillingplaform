@@ -43,6 +43,18 @@ public class C_colonyServiceImpl implements C_colonyService{
         return result;
     }
 
+    public Page<C_colony> findAllByName(String filtername, Pageable pageable){
+        log.debug("Request to get all C_colonies");
+        Page<C_colony> result = c_colonyRepository.findByCodeStartingWith(filtername, pageable);
+        return result;
+    }
+
+    public List<C_colony> findAllByNameL(String filtername){
+        log.debug("Request to get all C_colonies");
+        List<C_colony> result = c_colonyRepository.findByCodeStartingWith(filtername);
+        return result;
+    }
+
     /**
      *  Get all the c_colonies.
      *

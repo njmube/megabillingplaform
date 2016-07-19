@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Payment_methodResource {
 
     private final Logger log = LoggerFactory.getLogger(Payment_methodResource.class);
-        
+
     @Inject
     private Payment_methodService payment_methodService;
-    
+
     /**
      * POST  /payment-methods : Create a new payment_method.
      *
@@ -89,14 +89,25 @@ public class Payment_methodResource {
      */
     @RequestMapping(value = "/payment-methods",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"filtername","filtercode"})
     @Timed
-    public ResponseEntity<List<Payment_method>> getAllPayment_methods(Pageable pageable)
+    public ResponseEntity<List<Payment_method>> getAllPayment_methods(@RequestParam(value = "filtername") String filtername,
+                                                                      @RequestParam(value = "filtercode") String filtercode,
+                                                                      Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Payment_methods");
-        Page<Payment_method> page = payment_methodService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/payment-methods");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if((filtername.compareTo(" ")==0 || filtername.isEmpty()) &&
+            (filtercode.compareTo(" ")==0 || filtercode.isEmpty())) {
+            Page<Payment_method> page = payment_methodService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/payment-methods");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else
+        {
+            Page<Payment_method> page = payment_methodService.findAllByNameAndCode(filtername, filtercode, pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/payment-methods");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

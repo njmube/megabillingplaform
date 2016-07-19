@@ -21,13 +21,13 @@ import java.util.List;
 public class Way_paymentServiceImpl implements Way_paymentService{
 
     private final Logger log = LoggerFactory.getLogger(Way_paymentServiceImpl.class);
-    
+
     @Inject
     private Way_paymentRepository way_paymentRepository;
-    
+
     /**
      * Save a way_payment.
-     * 
+     *
      * @param way_payment the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,14 @@ public class Way_paymentServiceImpl implements Way_paymentService{
 
     /**
      *  Get all the way_payments.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Way_payment> findAll(Pageable pageable) {
         log.debug("Request to get all Way_payments");
-        Page<Way_payment> result = way_paymentRepository.findAll(pageable); 
+        Page<Way_payment> result = way_paymentRepository.findAll(pageable);
         return result;
     }
 
@@ -56,16 +56,23 @@ public class Way_paymentServiceImpl implements Way_paymentService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Way_payment findOne(Long id) {
         log.debug("Request to get Way_payment : {}", id);
         Way_payment way_payment = way_paymentRepository.findOne(id);
         return way_payment;
     }
 
+    @Transactional(readOnly = true)
+    public Page<Way_payment> findAllByName(String filtername, Pageable pageable) {
+        log.debug("Request to get Way_payment whith filtername: {}",filtername);
+        Page<Way_payment> result = way_paymentRepository.findByNameStartingWith(filtername, pageable);
+        return result;
+    }
+
     /**
      *  Delete the  way_payment by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

@@ -90,20 +90,34 @@ public class C_municipalityResource {
     @RequestMapping(value = "/c-municipalities",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE,
-        params = {"stateId"})
+        params = {"stateId", "filtername"})
     @Timed
-    public ResponseEntity<List<C_municipality>> getAllC_municipalities(@RequestParam(value = "stateId") Integer stateId, Pageable pageable)
+    public ResponseEntity<List<C_municipality>> getAllC_municipalities(@RequestParam(value = "stateId") Integer stateId,
+                                                                       @RequestParam(value = "filtername") String filtername,
+                                                                       Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of C_municipalities");
         if(stateId == 0){
-            Page<C_municipality> page = c_municipalityService.findAll(pageable);
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-municipalities");
-            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+                Page<C_municipality> page = c_municipalityService.findAll(pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-municipalities");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            }else {
+                Page<C_municipality> page = c_municipalityService.findAllByName(filtername,pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-municipalities");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            }
         }else
         {
-            log.debug("id del estado: "+stateId);
-            List<C_municipality> page = c_municipalityService.findByState(stateId);
-            return new ResponseEntity<>(page, HttpStatus.OK);
+            if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
+                log.debug("id del estado: " + stateId);
+                List<C_municipality> page = c_municipalityService.findByState(stateId);
+                return new ResponseEntity<>(page, HttpStatus.OK);
+            }else {
+                log.debug("id del estado: " + stateId);
+                List<C_municipality> page = c_municipalityService.findAllByNameL(filtername);
+                return new ResponseEntity<>(page, HttpStatus.OK);
+            }
         }
     }
 

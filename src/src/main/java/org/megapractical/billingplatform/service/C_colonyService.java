@@ -29,6 +29,9 @@ public interface C_colonyService {
 
     List<C_colony> findByMunicipality(long municipalityId);
 
+    Page<C_colony> findAllByName(String filtername, Pageable pageable);
+
+    List<C_colony> findAllByNameL(String filtername);
     /**
      *  Get the "id" c_colony.
      *
