@@ -7,11 +7,11 @@
                 "createOrEditLabel": "Crear o editar Municipio",
                 "search": "búsqueda para Municipio"
             },
-            "created": "Un nuevo Municipio ha sido creado con el identificador {{ param }}",
-            "updated": "Un Municipio ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Municipio ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo municipio ha sido creado con el identificador {{ param }}",
+            "updated": "Un municipio ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un municipio ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Municipio {{ id }}?"
+                "question": "¿Seguro que quiere eliminar municipio {{ id }}?"
             },
             "detail": {
                 "title": "Municipio"
