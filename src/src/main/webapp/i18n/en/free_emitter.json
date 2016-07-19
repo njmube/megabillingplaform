@@ -64,7 +64,7 @@
             "phone2": "Phone #2",
             "path_certificate": "Certificate (.cert)",
             "path_key": "Private key (.key)",
-            "path_logo": "Logo (JPG or PNG)",
+            "path_logo": "Logo (.jpg or .png)",
             "labelLogo": "Logo",
             "labelFU": "Fiscal Ubication",
             "labelDC": "Digital Certificate",

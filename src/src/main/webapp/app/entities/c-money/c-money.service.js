@@ -12,7 +12,8 @@
         return $resource(resourceUrl, {}, {
             'query': {
 				method: 'GET',
-				isArray: true
+				isArray: true,
+                params: {pg: null}
 			},
             'get': {
                 method: 'GET',

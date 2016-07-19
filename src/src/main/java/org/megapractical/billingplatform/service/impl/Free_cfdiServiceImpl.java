@@ -67,10 +67,10 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
             root =config.getPathrootFreeCfdi();
         }
         if(root.contains("\\")) {
-            root += year + "\\" + month + "\\" + day;
+            root += free_cfdi.getFree_emitter().getRfc()+"\\"+ year + "\\" + month + "\\" + day;
         }
         else {
-            root += year + "/" + month + "/" + day;
+            root += free_cfdi.getFree_emitter().getRfc()+"/"+ year + "/" + month + "/" + day;
         }
         File diretory = new File(root);
         if(!diretory.isDirectory()){
