@@ -1,10 +1,10 @@
 {
     "register": {
-        "title": "Registro",
+        "title": "Registro Cuentas de Usuario",
         "form": {
-            "button": "Crear Cuenta Usuario",
+            "button": "Registrar Cuenta",
             "buttonsuges": "Usuarios sugeridos",
-            "conditions": "Al hacer clic en Registrarse, aceptas las Condiciones y confirmas que leiste nuestra política de datos, incluido el uso de cookies."
+            "conditions": "Al hacer clic en 'Registrar Cuenta', aceptas las Condiciones de Uso y confirmas que leíste nuestra Política de Privacidad"
         },
         "messages": {
             "validate": {
@@ -44,12 +44,12 @@
                     "pattern": "Patrón de teléfono incorrecto."
                 }
             },
-            "success": "<strong>¡Registro guardado!</strong> Por favor, revise su correo electrónico para confirmar.",
+            "success": "<strong>¡Registrado satisfactoriamente su cuenta de usuario!</strong> <br> Por favor, revise el correo electrónico especificado para activar su cuenta de usuario. <br> Si en 7 días no activa su cuenta de usuario la misma será eliminada.",
             "error": {
-                "fail": "<strong>¡El registro ha fallado!</strong> Por favor, inténtelo de nuevo más tarde.",
-                "userexists": "<strong>¡El nombre de usuario ya está registrado!</strong> Por favor, escoja otro usuario.",
-                "emailexists": "<strong>¡El correo electrónico ya está en uso!</strong> Por favor, escoja otro email.",
-                "errorRfcExists": "<strong>RFC está en uso!</strong>"
+                "fail": "<strong>¡El registro de cuenta de usuario ha fallado!</strong> Por favor, inténtelo de nuevo nuevamente.",
+                "userexists": "<strong>¡El nombre de usuario especificado ya está registrado!</strong> Por favor, escoja otro nombre de usuario.",
+                "emailexists": "<strong>¡El correo electrónico especificado ya está en uso!</strong> Por favor, especifique otro correo electrónico.",
+                "errorRfcExists": "<strong>El RFC especificado ya está en uso!</strong>"
             }
         }
     }
