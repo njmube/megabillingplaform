@@ -1,6 +1,6 @@
 <div>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-2">
             <h2 translate="settings.title" translate-values="{username: '{{vm.settingsAccount.login}}'}">User settings for [<b>{{vm.settingsAccount.login}}</b>]</h2>
 
             <div class="alert alert-success" ng-show="vm.success" translate="settings.messages.success">
@@ -137,7 +137,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="gender" translate="settings.form.gender">Gender</label>
-                    <select name=gender id="gender" ng-model="vm.settingsAccount.gender">
+                    <select name=gender id="gender" class="form-control" ng-model="vm.settingsAccount.gender" style="width:200px">
                         <option selected="selected"> {{'global.form.gender.placeholder' | translate}} </option>
                         <option name=M value=M> {{'global.form.gender.male' | translate}} </option>
                         <option name=F value=F> {{'global.form.gender.female' | translate}} </option>
@@ -145,7 +145,7 @@
                 </div>
                 <div class="form-group">
                     <label for="langKey" translate="settings.form.language">Language</label>
-                    <select id="langKey" name="langKey" class="form-control" ng-model="vm.settingsAccount.langKey" ng-controller="JhiLanguageController as languageVm">
+                    <select id="langKey" name="langKey" class="form-control" ng-model="vm.settingsAccount.langKey" ng-controller="JhiLanguageController as languageVm" style="width:200px">
                         <option selected="selected"> {{'settings.form.language.placeholder' | translate}} </option>
                         <option name=spanish value=es> {{'settings.form.language.spanish' | translate}} </option>
                         <option name=english value=en> {{'settings.form.language.english' | translate}} </option>
