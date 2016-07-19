@@ -77,7 +77,7 @@
         })
         .state('free-cfdi.new', {
             parent: 'free-cfdi',
-            url: '/{login}/new',
+            url: '/new',
             data: {
                 authorities: ['ROLE_USER'],
                 pageTitle: 'megabillingplatformApp.free_cfdi.detail.title'
@@ -119,12 +119,9 @@
 						id: null
 					};
 				}],
-				free_emitter_entity: ['$stateParams', 'Free_emitter', function($stateParams, Free_emitter) {
-					return Free_emitter.get({login : $stateParams.login});
+				free_emitter_entity: ['Free_emitter', function(Free_emitter) {
+					return Free_emitter.get({id : 0});
 				}],
-				user: ['$stateParams', 'User',  function($stateParams, User) {
-					return User.get({login : $stateParams.login});
-                }],
 				free_receiver_entity: [function () {
 					return {
 						rfc: null,

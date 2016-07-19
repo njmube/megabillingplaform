@@ -53,7 +53,7 @@
         })
 		.state('free-emitter.new', {
 			parent: 'free-emitter',
-			url: '/{login}/new',
+			url: '/new',
 			data: {
 				authorities: ['ROLE_USER'],
 				pageTitle: 'megabillingplatformApp.free_emitter.home.createLabel'
@@ -66,12 +66,9 @@
 				}
 			},
 			resolve: {
-				entity: ['$stateParams', 'Free_emitter', function($stateParams, Free_emitter) {
-                            return Free_emitter.get({login : $stateParams.login});
+				entity: ['Free_emitter', function(Free_emitter) {
+                            return Free_emitter.get({id : 0});
                         }],
-				user: ['$stateParams', 'User',  function($stateParams, User) {
-					return User.get({login : $stateParams.login});
-                }],
 				translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
 					$translatePartialLoader.addPart('free_emitter');
 					$translatePartialLoader.addPart('global');

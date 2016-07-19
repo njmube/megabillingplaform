@@ -3,6 +3,7 @@ package org.megapractical.billingplatform.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import org.megapractical.billingplatform.domain.Free_emitter;
 import org.megapractical.billingplatform.repository.UserRepository;
+import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.Free_emitterService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
@@ -55,12 +56,20 @@ public class Free_emitterResource {
         if (free_emitter.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "idexists", "A new free_emitter cannot already have an ID")).body(null);
         }
+
+
+
         Free_emitter rfc = free_emitterService.findOneByRfc(free_emitter.getRfc());
         if(rfc != null){
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "rfcexists", "A new free_emitter cannot already have an RFC")).body(null);
         }
 
+        free_emitter.setActivated(true);
         free_emitter.setCreate_date(ZonedDateTime.now());
+
+        String login = SecurityUtils.getCurrentUserLogin();
+        free_emitter.setUser(userRepository.findOneByLogin(login).get());
+
         Free_emitter result = free_emitterService.save(free_emitter);
         return ResponseEntity.created(new URI("/api/free-emitters/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_emitter", result.getId().toString()))
@@ -120,18 +129,19 @@ public class Free_emitterResource {
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
     /**
-     * GET  /free-emitters/:login : get the free_emitter by login.
+     * GET  /free-emitters/:id : get the free_emitter by id.
      *
-     * @param login the id of the free_emitter to retrieve
+     * @param id the id of the free_emitter to retrieve
      * @return the ResponseEntity with status 200 (OK) and with body the free_emitter, or with status 404 (Not Found)
      */
-    @RequestMapping(value = "/free-emitters/{login}",
+    @RequestMapping(value = "/free-emitters/{id}",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Free_emitter> getFree_emitter(@PathVariable String login) {
-        log.debug("REST request to get Free_emitter by user Login : {}", login);
+    public ResponseEntity<Free_emitter> getFree_emitter(@PathVariable Integer id) {
+        log.debug("REST request to get Free_emitter by ID : {}", id);
 
+        String login = SecurityUtils.getCurrentUserLogin();
         Free_emitter free_emitter = free_emitterService.findOneByUser(userRepository.findOneByLogin(login).get());
 
         if(free_emitter == null) {

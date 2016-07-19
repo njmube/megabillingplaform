@@ -5,13 +5,11 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'user', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps'];
 
-    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, user, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps) {
 
 		var vm = this;
-
-		vm.account = user;
 
         vm.free_cfdi = entity;
         vm.free_cfdi.free_emitter = free_emitter_entity;
@@ -37,18 +35,18 @@
 
         vm.free_receiver = free_receiver_entity;
         vm.type_taxpayers = Type_taxpayer.query();
-		vm.c_countrys = C_country.query({pg:1});
-        vm.c_states = C_state.query({countryId:-1});
-        vm.c_municipalitys = C_municipality.query({stateId:-1});
+		vm.c_countrys = C_country.query({pg:1, filtername:" "});
+        vm.c_states = C_state.query({countryId:151, filtername:" "});
+        vm.c_municipalitys = null;
 		vm.c_colonys = null;
 
         vm.cfdi_typess = Cfdi_types.query({filtername:" "});
         vm.cfdi_statess = Cfdi_states.query({filtername:" "});
-        vm.payment_methods = Payment_method.query();
-        vm.way_payments = Way_payment.query();
+        vm.payment_methods =  Payment_method.query({filtername:" ",filtercode:" "})
+        vm.way_payments = Way_payment.query({filtername:" "})
         vm.c_moneys = C_money.query({pg: -1});
         vm.cfdi_type_docs = Cfdi_type_doc.query({filtername:" "});
-        vm.tax_regimes = Tax_regime.query();
+        vm.tax_regimes = Tax_regime.query({filtername:" "});
 
 		vm.tax_typess = Tax_types.query({filtername: " "});
 
@@ -62,9 +60,9 @@
 					backdrop: true,
 					size: ''
 				}).result.then(function(result) {
-					$state.go('free-emitter.new', {login: vm.account.login});
+					$state.go('free-emitter.new');
 				}, function() {
-					$state.go('free-emitter.new', {login: vm.account.login});
+					$state.go('free-emitter.new');
 				});
 			}
         });
@@ -109,27 +107,27 @@
 
 		function onChangeC_country () {
 			var countryId = vm.free_receiver.c_country.id;
-            C_state.query({countryId: countryId}, function(result){
+            C_state.query({countryId: countryId, filtername:" "}, function(result){
                 vm.c_states = result;
             });
         }
 
         function onChangeC_state () {
             var stateId = vm.free_receiver.c_state.id;
-            C_municipality.query({stateId: stateId}, function(result){
+            C_municipality.query({stateId: stateId, filtername:" "}, function(result){
                 vm.c_municipalitys = result;
             });
         }
 
         function onChangeC_municipality () {
             var municipalityId = vm.free_receiver.c_municipality.id;
-            C_colony.query({municipalityId: municipalityId}, function(result){
+            C_colony.query({municipalityId: municipalityId, filtername:" "}, function(result){
                 vm.c_colonys = result;
             });
         }
 
         function onChangeC_colony(){
-            C_zip_code.get({id : vm.free_receiver.c_colony.c_zip_code.id}, function(result) {
+            C_zip_code.get({id : vm.free_receiver.c_colony.c_zip_code.id, filtername:" "}, function(result) {
                 vm.free_receiver.c_zip_code = result;
             });
         }
@@ -272,7 +270,7 @@
 			vm.free_receiver = result;
 			vm.free_cfdi.free_receiver = vm.free_receiver;
             if(vm.free_cfdi.mont_folio_fiscal_orig != null && vm.free_cfdi.mont_folio_fiscal_orig > 0){
-                vm.free_cfdi.mont_folio_fiscal_orig = floorFigure(vm.free_cfdi.mont_folio_fiscal_orig, vm.account);
+                vm.free_cfdi.mont_folio_fiscal_orig = floorFigure(vm.free_cfdi.mont_folio_fiscal_orig, vm.accuracy);
             }
 			if (vm.free_cfdi.id !== null) {
                 Free_cfdi.update(vm.free_cfdi, onSaveSuccess, onSaveError);

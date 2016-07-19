@@ -5,16 +5,15 @@
         .module('megabillingplatformApp')
         .controller('Free_emitterNewController', Free_emitterNewController);
 
-    Free_emitterNewController.$inject = ['$scope', '$stateParams', '$q', 'entity', 'DataUtils', 'Free_emitter_file','Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'user','Type_taxpayer'];
+    Free_emitterNewController.$inject = ['$scope', '$stateParams', '$q', 'entity', 'DataUtils', 'Free_emitter_file','Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code','Type_taxpayer'];
 
-    function Free_emitterNewController ($scope, $stateParams, $q, entity, DataUtils, Free_emitter_file, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, user, Type_taxpayer) {
+    function Free_emitterNewController ($scope, $stateParams, $q, entity, DataUtils, Free_emitter_file, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, Type_taxpayer) {
         var vm = this;
 
-        vm.account = user;
-		vm.free_emitter = entity;
+        vm.free_emitter = entity;
         vm.type_taxpayers = Type_taxpayer.query();
         vm.accuracys = [2,3,4,5,6];
-        vm.tax_regimes = Tax_regime.query();
+        vm.tax_regimes = Tax_regime.query({filtername:" "});
         vm.c_countrys = C_country.query({pg:1, filtername:" "});
         vm.c_states = C_state.query({countryId:151, filtername:" "});
         vm.c_municipalitys = null;
@@ -64,7 +63,6 @@
         }
 
         function onChangeC_colony(){
-
             C_zip_code.get({id : vm.free_emitter.c_colony.c_zip_code.id}, function(result) {
                 vm.free_emitter.c_zip_code = result;
             });
@@ -93,10 +91,7 @@
                 if (vm.free_emitter.id !== null) {
 					Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
                 } else {
-
-					vm.free_emitter.user = vm.account;
-                    vm.free_emitter.activated = true;
-                    Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+					Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
                 }
         };
 
@@ -154,8 +149,6 @@
                 });
             }
         };
-
-
 
         vm.openFile = DataUtils.openFile;
         vm.byteSize = DataUtils.byteSize;

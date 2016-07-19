@@ -11,17 +11,17 @@
         var vm = this;
         vm.free_part_concept = entity;
         vm.free_concepts = Free_concept.query();
-        vm.measure_units = Measure_unit.query();
+        vm.measure_units = Measure_unit.query({filtername:" "});
 		vm.accuracy = accuracy;
-		
+
         vm.load = function(id) {
             Free_part_concept.get({id : id}, function(result) {
                 vm.free_part_concept = result;
             });
         };
-        
+
         vm.save = function () {
-            vm.isSaving = true;            
+            vm.isSaving = true;
 			$uibModalInstance.close({
 				no_identification: vm.free_part_concept.no_identification,
 				measure_unit: vm.free_part_concept.measure_unit,
@@ -33,18 +33,18 @@
 			});
 			vm.isSaving = false;
         };
-		
+
         vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
         };
-		
+
 		vm.calcAmount = function(){
 			if(vm.free_part_concept.quantity > 0 && vm.free_part_concept.unit_value){
 				var amount = vm.free_part_concept.quantity * vm.free_part_concept.unit_value;
 				vm.free_part_concept.amount = floorFigure(amount, vm.accuracy);
-			}			
+			}
         };
-		
+
 		function floorFigure(figure, decimals){
 			if (!decimals) decimals = 2;
 			var d = Math.pow(10,decimals);

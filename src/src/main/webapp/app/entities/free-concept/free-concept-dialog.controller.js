@@ -9,27 +9,27 @@
 
     function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, Free_cfdi, Measure_unit, Rate_type, Tax_types, disabled_iva_value, accuracy) {
         var vm = this;
-		
+
         vm.free_concept = free_concept_entity;
 		vm.iva = (0).toFixed(2);
-		vm.ieps = (0).toFixed(2);	
-        vm.measure_units = Measure_unit.query();
+		vm.ieps = (0).toFixed(2);
+        vm.measure_units = Measure_unit.query({filtername:" "});
         vm.rate_typess = Rate_type.query({filtername: " "});
         vm.tax_typess = Tax_types.query({filtername: " "});
 		vm.free_part_concepts = [];
 		vm.free_customs_infos = [];
-		
+
 		vm.disabled_iva_value = disabled_iva_value;
 		vm.accuracy = accuracy;
-		
+
 		vm.calcAmount = function(){
-			/*SubTotal = (Cantidad * Precio unitario)*(1-Descuento/100)*/			
+			/*SubTotal = (Cantidad * Precio unitario)*(1-Descuento/100)*/
 			if(vm.free_concept.quantity > 0 && vm.free_concept.unit_value > 0){
 				var amount = vm.free_concept.quantity * vm.free_concept.unit_value * (1 - vm.free_concept.discount/100)
 				vm.free_concept.amount = floorFigure(amount, vm.accuracy);
 			}
 		};
-		
+
         vm.load = function(id) {
             Free_concept.get({id : id}, function(result) {
                 vm.free_concept = result;
@@ -39,7 +39,7 @@
         var onSaveError = function () {
             vm.isSaving = false;
         };
-		
+
 		function floorFigure(figure, decimals){
 			if (!decimals) decimals = 2;
 			var d = Math.pow(10,decimals);
@@ -73,23 +73,23 @@
                             id: null
 						},
 				free_customs_infos: vm.free_customs_infos,
-				free_part_concepts: vm.free_part_concepts				
-					
+				free_part_concepts: vm.free_part_concepts
+
 			});
 			vm.isSaving = false;
         };
 
         vm.clear = function() {
-            $uibModalInstance.dismiss('cancel');			
+            $uibModalInstance.dismiss('cancel');
         };
-		
+
 		/*vm.datePickerOpenStatus = {};
         vm.datePickerOpenStatus.date = false;
 
         vm.openCalendar = function(date) {
             vm.datePickerOpenStatus[date] = true;
         };*/
-		
+
 		vm.addFreeCustomInfo = function(){
 			$uibModal.open({
 				templateUrl: 'app/entities/free-customs-info/free-customs-info-dialog.html',
@@ -110,14 +110,14 @@
 			}).result.then(function(result) {
 				vm.free_customs_infos.push(result);
 			}, function() {
-				
+
 			});
 		};
-		
+
 		vm.removeFreeCustomInfo = function(index){
 			vm.free_customs_infos.splice(index,1);
 		};
-		
+
 		vm.addFreePartConcept = function(){
 			$uibModal.open({
 				templateUrl: 'app/entities/free-part-concept/free-part-concept-dialog.html',
@@ -143,10 +143,10 @@
 			}).result.then(function(result) {
 				vm.free_part_concepts.push(result);
 			}, function() {
-				
+
 			});
 		};
-		
+
 		vm.removeFreePartConcept = function(index){
 			vm.free_part_concepts.splice(index,1);
 		};

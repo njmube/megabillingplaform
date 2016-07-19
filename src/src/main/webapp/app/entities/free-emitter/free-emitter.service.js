@@ -7,7 +7,7 @@
     Free_emitter.$inject = ['$resource', 'DateUtils'];
 
     function Free_emitter ($resource, DateUtils) {
-        var resourceUrl =  'api/free-emitters/:login';
+        var resourceUrl =  'api/free-emitters/:id';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
