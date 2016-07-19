@@ -1,10 +1,10 @@
 {
     "register": {
-        "title": "Registration",
+        "title": "Registration User Account",
         "form": {
             "button": "Register",
             "buttonsuges": "Propousal users",
-            "conditions": "Accept conditions."
+            "conditions": "<strong>! Your user account has been registered successfully! </strong> <br> Please check the specified e-mail to activate your user account. <br> If in seven days does not activate your user account it will be removed."
         },
         "messages": {
             "validate": {
