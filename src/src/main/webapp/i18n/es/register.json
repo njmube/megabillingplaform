@@ -2,7 +2,7 @@
     "register": {
         "title": "Registro",
         "form": {
-            "button": "Crear la cuenta",
+            "button": "Crear Cuenta Usuario",
             "buttonsuges": "Usuarios sugeridos",
             "conditions": "Al hacer clic en Registrarse, aceptas las Condiciones y confirmas que leiste nuestra política de datos, incluido el uso de cookies."
         },

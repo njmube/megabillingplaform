@@ -1,6 +1,6 @@
 <div>
     <div class="row">
-        <div class="col-md-6 col-md-offset-2">
+        <div class="col-md-5 col-md-offset-2">
             <h2 translate="register.title">Registration</h2>
 
             <div class="alert alert-success" ng-show="vm.success" translate="register.messages.success">
@@ -214,7 +214,7 @@
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="gender" translate="global.form.gender">Gender</label>
-                    <select name=gender id="gender" ng-model="vm.registerAccount.gender">
+                    <select name=gender id="gender" class="form-control" ng-model="vm.registerAccount.gender" style="width:200px">
                         <option selected="selected"> {{'global.form.gender.placeholder' | translate}} </option>
                         <option name=M value=M> {{'global.form.gender.male' | translate}} </option>
                         <option name=F value=F> {{'global.form.gender.female' | translate}} </option>
