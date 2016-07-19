@@ -4,7 +4,7 @@
         "form": {
             "button": "Registrar Cuenta",
             "buttonsuges": "Usuarios sugeridos",
-            "conditions": "Al hacer clic en 'Registrar Cuenta', aceptas las Condiciones de Uso y confirmas que leíste nuestra Política de Privacidad"
+            "conditions": "Al hacer clic en 'Registrar Cuenta', aceptas nuestras Condiciones de Uso y confirmas que leíste nuestra Política de Privacidad."
         },
         "messages": {
             "validate": {

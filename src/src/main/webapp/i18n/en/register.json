@@ -4,7 +4,7 @@
         "form": {
             "button": "Register",
             "buttonsuges": "Propousal users",
-            "conditions": "<strong>! Your user account has been registered successfully! </strong> <br> Please check the specified e-mail to activate your user account. <br> If in seven days does not activate your user account it will be removed."
+            "conditions": "Clicking 'Register Account', you agree to our Terms of Use and confirm that you read our Privacy Policy."
         },
         "messages": {
             "validate": {
@@ -44,7 +44,7 @@
                     "pattern": "Phone format is incorrect"
                 }
             },
-            "success": "<strong>Registration saved!</strong> Please check your email for confirmation.",
+            "success": "<strong>! Your user account has been registered successfully! </strong> <br> Please check the specified e-mail to activate your user account. <br> If in seven days does not activate your user account it will be removed.",
             "error": {
                 "fail": "<strong>Registration failed!</strong> Please try again later.",
                 "userexists": "<strong>Login name already registered!</strong> Please choose another one.",
