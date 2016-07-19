@@ -783,6 +783,38 @@
                         </div>
                     </div>
 
+                    <h3 class="header smaller lighter blue" ng-show="vm.show_taxlegends">
+                        Leyendas Fiscales
+                    </h3>
+
+                    <table id="taxlegends-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_taxlegends">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Descripción Fiscal</th>
+                                <th class="text-center">Norma</th>
+                                <th class="text-center">Texto</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="legend in vm.legends">
+                                <td class="text-center">{{legend.tax_provision}}</td>
+                                <td class="text-center">{{legend.norm}}</td>
+                                <td class="text-center">{{legend.text_legend}}</td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeLegend($index)">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                    <button type="button" class="btn btn-sm btn-primary" ng-show="vm.show_taxlegends" ng-click="vm.addLegend()">
+                        Adicionar
+                    </button>
+
                 </uib-tab>
 			</uib-tabset>
 

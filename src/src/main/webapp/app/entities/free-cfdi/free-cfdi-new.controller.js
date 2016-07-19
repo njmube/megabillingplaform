@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps', 'freecom_taxlegends_entity', 'Freecom_taxlegends', 'Legend'];
 
-    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps, freecom_taxlegends_entity, Freecom_taxlegends, Legend) {
 
 		var vm = this;
 
@@ -238,6 +238,16 @@
 			}
 		}
 
+        var onTaxLegendsSaveSucccess = function (result) {
+            var freecom_taxlegends = result;
+            var i;
+            for(i=0; i < vm.legends.length; i++){
+                var legend = vm.legends[i];
+                legend.freecom_taxlegends = freecom_taxlegends;
+                Legend.save(legend);
+            }
+        };
+
 		var onSaveSuccess = function (result) {
 			vm.free_cfdi = result;
 
@@ -258,6 +268,11 @@
                         vm.freecom_accreditation_ieps.version = "3.2";
                         vm.freecom_accreditation_ieps.free_cfdi = vm.free_cfdi;
                         Freecom_accreditation_ieps.save(vm.freecom_accreditation_ieps);
+                        break;
+                    case "taxlegends":
+                        vm.freecom_taxlegends.version = "3.2";
+                        vm.freecom_taxlegends.free_cfdi = vm.free_cfdi;
+                        Freecom_taxlegends.save(vm.freecom_taxlegends, onTaxLegendsSaveSucccess, onSaveError);
                         break;
                 }
             }
@@ -360,6 +375,7 @@
 
             vm.current_complement = null;
             resetComplementView();
+            vm.legends = [];
 		}
 
         vm.datePickerOpenStatus = {};
@@ -583,7 +599,8 @@
         vm.complements = [
             {id: "taxregistration", name:"CFDI Registro Fiscal"},
             {id:"pfic", name: "Persona Física Integrante de Coordinado"},
-            {id:"accreditation_ieps", name: "Concepto - Acreditación del IEPS"}
+            {id:"accreditation_ieps", name: "Concepto - Acreditación del IEPS"},
+            {id:"taxlegends", name: "Leyendas Fiscales"}
         ];
 
         vm.current_complement = null;
@@ -610,6 +627,9 @@
                 case "accreditation_ieps":
                     vm.show_accreditation_ieps = true;
                     break;
+                case "taxlegends":
+                    vm.show_taxlegends = true;
+                    break;
             }
         }
 
@@ -617,19 +637,54 @@
             vm.show_taxregistration = false;
             vm.show_pfic = false;
             vm.show_accreditation_ieps = false;
+            vm.show_taxlegends = false;
         }
 
         //Tax Registration
         vm.show_taxregistration = false;
-        vm.freecom_taxregistration = freecom_taxregistration_entity
+        vm.freecom_taxregistration = freecom_taxregistration_entity;
 
 
+        //PIFC
         vm.show_pfic = false;
         vm.freecom_pfic = freecom_pfic_entity;
 
+        //Accreditation IEPS
         vm.show_accreditation_ieps = false;
         vm.freecom_accreditation_ieps = freecom_accreditation_ieps_entity;
         vm.c_tars = C_tar.query();
 
+        //Tax Legends
+        vm.show_taxlegends = false;
+        vm.freecom_taxlegends = freecom_taxlegends_entity;
+        vm.legends = [];
+
+        vm.addLegend = function(){
+            $uibModal.open({
+                templateUrl: 'app/entities/legend/legend-dialog.html',
+                controller: 'LegendDialogController',
+                controllerAs: 'vm',
+                backdrop: 'static',
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return {
+                            tax_provision: null,
+                            norm: null,
+                            text_legend: null,
+                            id: null
+                        };
+                    }
+                }
+            }).result.then(function(result) {
+                vm.legends.push(result);
+            }, function() {
+
+            });
+        };
+
+        vm.removeLegend = function(index){
+            vm.legends.splice(index,1);
+        };
     }
 })();

@@ -16,9 +16,9 @@
             "detail": {
                 "title": "Legend"
             },
-            "tax_provision": "Tax_provision",
-            "norm": "Norm",
-            "text_legend": "Text_legend",
+            "tax_provision": "Descripción Fiscal",
+            "norm": "Norma",
+            "text_legend": "Texto (*)",
             "freecom_taxlegends": "Freecom_taxlegends"
         }
     }

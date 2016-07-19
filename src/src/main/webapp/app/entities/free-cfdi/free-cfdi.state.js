@@ -160,6 +160,12 @@
                         id: null
                     };
                 }],
+                freecom_taxlegends_entity: [function () {
+                    return {
+                        version: null,
+                        id: null
+                    };
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('free_cfdi');
 					$translatePartialLoader.addPart('free_emitter');
@@ -170,6 +176,8 @@
                     $translatePartialLoader.addPart('freecom_taxregistration');
                     $translatePartialLoader.addPart('freecom_pfic');
                     $translatePartialLoader.addPart('freecom_accreditation_ieps');
+                    $translatePartialLoader.addPart('freecom_taxlegends');
+                    $translatePartialLoader.addPart('legend');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
