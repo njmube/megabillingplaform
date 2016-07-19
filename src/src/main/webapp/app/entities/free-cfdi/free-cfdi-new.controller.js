@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps', 'freecom_taxlegends_entity', 'Freecom_taxlegends', 'Legend'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps', 'freecom_taxlegends_entity', 'Freecom_taxlegends', 'Legend', 'freecom_airline_entity', 'Freecom_airline', 'Freecom_charge'];
 
-    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps, freecom_taxlegends_entity, Freecom_taxlegends, Legend) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps, freecom_taxlegends_entity, Freecom_taxlegends, Legend, freecom_airline_entity, Freecom_airline, Freecom_charge) {
 
 		var vm = this;
 
@@ -248,6 +248,16 @@
             }
         };
 
+        var onAirLineSaveSucccess = function (result) {
+            var freecom_airline = result;
+            var i;
+            for(i=0; i < vm.charges.length; i++){
+                var charge = vm.charges[i];
+                charge.freecom_airline = freecom_airline;
+                Freecom_charge.save(charge);
+            }
+        };
+
 		var onSaveSuccess = function (result) {
 			vm.free_cfdi = result;
 
@@ -273,6 +283,11 @@
                         vm.freecom_taxlegends.version = "3.2";
                         vm.freecom_taxlegends.free_cfdi = vm.free_cfdi;
                         Freecom_taxlegends.save(vm.freecom_taxlegends, onTaxLegendsSaveSucccess, onSaveError);
+                        break;
+                    case "airline":
+                        vm.freecom_airline.version = "3.2";
+                        vm.freecom_airline.free_cfdi = vm.free_cfdi;
+                        Freecom_airline.save(vm.freecom_airline, onAirLineSaveSucccess, onSaveError);
                         break;
                 }
             }
@@ -376,6 +391,7 @@
             vm.current_complement = null;
             resetComplementView();
             vm.legends = [];
+            vm.charges = [];
 		}
 
         vm.datePickerOpenStatus = {};
@@ -600,7 +616,8 @@
             {id: "taxregistration", name:"CFDI Registro Fiscal"},
             {id:"pfic", name: "Persona Física Integrante de Coordinado"},
             {id:"accreditation_ieps", name: "Concepto - Acreditación del IEPS"},
-            {id:"taxlegends", name: "Leyendas Fiscales"}
+            {id:"taxlegends", name: "Leyendas Fiscales"},
+            {id:"airline", name: "Aerolíneas"}
         ];
 
         vm.current_complement = null;
@@ -630,6 +647,10 @@
                 case "taxlegends":
                     vm.show_taxlegends = true;
                     break;
+                case "airline":
+                    vm.show_airline = true;
+                    break;
+
             }
         }
 
@@ -638,6 +659,7 @@
             vm.show_pfic = false;
             vm.show_accreditation_ieps = false;
             vm.show_taxlegends = false;
+            vm.show_airline = false;
         }
 
         //Tax Registration
@@ -686,5 +708,46 @@
         vm.removeLegend = function(index){
             vm.legends.splice(index,1);
         };
+
+        //Airline
+        vm.show_airline = false;
+        vm.freecom_airline = freecom_airline_entity;
+        vm.charges = [];
+
+        vm.addCharge = function(){
+            $uibModal.open({
+                templateUrl: 'app/entities/freecom-charge/freecom-charge-dialog.html',
+                controller: 'Freecom_chargeDialogController',
+                controllerAs: 'vm',
+                backdrop: 'static',
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return {
+                            codecharge: null,
+                            amount: null,
+                            id: null
+                        };
+                    }
+                }
+            }).result.then(function(result) {
+                vm.charges.push(result);
+                updateAirLineTotalCharge();
+            }, function() {});
+        };
+
+        vm.removeCharge = function(index){
+            vm.charges.splice(index,1);
+            updateAirLineTotalCharge();
+        };
+
+        function updateAirLineTotalCharge(){
+            var total_charge = 0;
+            var i;
+            for(i = 0; i < vm.charges.length; i++){
+                total_charge = parseFloat(total_charge) + parseFloat(vm.charges[i].amount);
+            }
+            vm.freecom_airline.total_charge = floorFigure(total_charge, 2);
+        }
     }
 })();

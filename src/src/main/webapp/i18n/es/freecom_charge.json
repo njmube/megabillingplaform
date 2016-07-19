@@ -16,8 +16,8 @@
             "detail": {
                 "title": "Freecom_charge"
             },
-            "codecharge": "Codecharge",
-            "amount": "Amount",
+            "codecharge": "Código Cargo (*)",
+            "amount": "Importe (*)",
             "freecom_airline": "Freecom_airline"
         }
     }

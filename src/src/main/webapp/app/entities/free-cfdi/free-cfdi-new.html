@@ -815,6 +815,61 @@
                         Adicionar
                     </button>
 
+                    <div class="row" ng-show="vm.show_airline">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.freecom_airline.tua" for="field_freecom_airline_tua">Tua</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="tua" id="field_freecom_airline_tua"
+                                           ng-model="vm.freecom_airline.tua"
+                                           ng-required="vm.show_airline" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="header smaller lighter blue" ng-show="vm.show_airline">
+                        Otros Cargos
+                    </h3>
+
+                    <table id="charges-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_airline">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Código Cargo</th>
+                            <th class="text-center">Importe</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="charge in vm.charges">
+                                <td class="text-center">{{charge.codecharge}}</td>
+                                <td class="text-center">{{charge.amount}}</td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeCharge($index)">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <button type="button" class="btn btn-sm btn-primary" ng-show="vm.show_airline" ng-click="vm.addCharge()">
+                        Adicionar Cargo
+                    </button>
+
+                    <div class="row" ng-show="vm.show_airline">
+                        <div class="col-md-offset-8 col-md-4">
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.freecom_airline.total_charge" for="field_total_charge">Total_charge</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="total_charge" id="field_total_charge"
+                                           ng-model="vm.freecom_airline.total_charge"
+                                           ng-required="vm.show_airline" readonly />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </uib-tab>
 			</uib-tabset>
 

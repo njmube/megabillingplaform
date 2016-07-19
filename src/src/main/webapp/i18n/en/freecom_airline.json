@@ -17,8 +17,8 @@
                 "title": "Freecom_airline"
             },
             "version": "Version",
-            "tua": "Tua",
-            "total_charge": "Total_charge",
+            "tua": "TUA (*)",
+            "total_charge": "Total Charge (*)",
             "free_cfdi": "Free_cfdi"
         }
     }
