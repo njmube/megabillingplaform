@@ -388,9 +388,15 @@
 			vm.free_concepts = [];
 			vm.current_free_concept = null;
 
+            //Reset complements
             vm.current_complement = null;
             resetComplementView();
+            vm.freecom_taxregistration = { version: null, folio: null, id: null };
+            vm.freecom_pfic = { version: null, key_vehicle: null, license_plate: null, rfcpf: null, id: null };
+            vm.freecom_accreditation_ieps = { version: null, id: null };
+            vm.freecom_taxlegends = { version: null, id: null };
             vm.legends = [];
+            vm.freecom_airline = {version: null, tua: null, total_charge: null, id: null};
             vm.charges = [];
 		}
 
