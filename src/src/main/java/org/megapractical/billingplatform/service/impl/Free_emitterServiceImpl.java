@@ -2,11 +2,9 @@ package org.megapractical.billingplatform.service.impl;
 
 import org.megapractical.billingplatform.domain.Config_pathrootfile;
 import org.megapractical.billingplatform.domain.User;
-import org.megapractical.billingplatform.service.Config_pathrootfileService;
-import org.megapractical.billingplatform.service.Free_emitterService;
+import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.domain.Free_emitter;
 import org.megapractical.billingplatform.repository.Free_emitterRepository;
-import org.megapractical.billingplatform.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -40,6 +38,12 @@ public class Free_emitterServiceImpl implements Free_emitterService{
 
     @Inject
     private UserService userService;
+
+    @Inject
+    private AuditEventService auditEventService;
+
+    @Inject
+    private Audit_event_typeService audit_event_typeService;
     /**
      * Save a free_emitter.
      *
@@ -58,13 +62,22 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         }
         free_emitter = saveFile(free_emitter);
         log.debug("Save File in Service.save  : {}", free_emitter);
+
         Free_emitter result = free_emitterRepository.save(free_emitter);
+
         if (result != null){
             result.setFilecertificate(certificate);
             result.setFilekey(key);
             result.setFilelogo(logo);
+            Long id = new Long("2");
+            auditEventService.saveEvent(audit_event_typeService.findOne(id).getName(), "SUCCESS");
+        }else
+        {
+            Long id = new Long("2");
+            auditEventService.saveEvent(audit_event_typeService.findOne(id).getName(), "FAIL");
         }
         log.debug("Resultado de salvar en service : {}", free_emitter);
+
         return result;
     }
 

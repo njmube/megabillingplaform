@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.net.URISyntaxException;
 import javax.inject.Inject;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -57,18 +58,27 @@ public class AuditResource {
      */
 
     @RequestMapping(method = RequestMethod.GET,
-        params = {"fromDate", "toDate", "principal", "auditEventType"})
+        params = {"fromDate", "toDate", "principal", "auditEventType", "ip"})
     public ResponseEntity<List<AuditEvent>> getByDates(
         @RequestParam(value = "fromDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fromDate,
         @RequestParam(value = "toDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate toDate,
         @RequestParam(value = "principal") String principal,
         @RequestParam(value = "auditEventType") String auditEventType,
+        @RequestParam(value = "ip") String ip,
         Pageable pageable) throws URISyntaxException {
 
-        Page<AuditEvent> page = auditEventService.findByDates(fromDate.atTime(0, 0), toDate.atTime(23, 59),
-            principal, auditEventType, pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/audits");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if (principal.compareTo(" ") == 0 && auditEventType.compareTo(" ") == 0 &&
+            fromDate.toString().compareTo("0001-01-01") == 0 && toDate.toString().compareTo("0001-01-01") == 0 &&
+            ip.compareTo(" ") == 0) {
+            Page<AuditEvent> page = auditEventService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/audits");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else {
+            Page<AuditEvent> page = auditEventService.findByDates(fromDate, toDate,principal,
+                auditEventType, ip, pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/audits");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

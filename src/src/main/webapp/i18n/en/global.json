@@ -68,6 +68,7 @@
                 "freecomPfic": "Freecom_pfic",
                 "freecomKindPayment": "Freecom_kind_payment",
                 "entityCfdi": "Entity_cfdi",
+                "auditEventType": "Audit_event_type",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

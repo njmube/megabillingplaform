@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "audit_event_type" : {
+            "home": {
+                "title": "Audit_event_types",
+                "createLabel": "Create a new Audit_event_type",
+                "createOrEditLabel": "Create or edit a Audit_event_type",
+                "search": "Search for Audit_event_type"
+            },
+            "created": "A new Audit_event_type is created with identifier {{ param }}",
+            "updated": "A Audit_event_type is updated with identifier {{ param }}",
+            "deleted": "A Audit_event_type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Audit_event_type {{ id }}?"
+            },
+            "detail": {
+                "title": "Audit_event_type"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

@@ -1,21 +1,71 @@
 <div>
     <h2 translate="audits.title">Audits</h2>
 
+    <div class="hr hr-16 hr-dotted"></div>
+
     <div class="row">
-        <div class="col-md-8">
-            <h4 translate="audits.filter.title">Filter by date</h4>
-            <p class="input-group">
-                <span class="input-group-addon" translate="audits.filter.from">from</span>
-                <input type="date" class="input-sm form-control" name="start" ng-model="vm.fromDate" ng-change="vm.onChangeDate()" required/>
-                <span class="input-group-addon" translate="audits.filter.to">to</span>
-                <input type="date" class="input-sm form-control" name="end" ng-model="vm.toDate" ng-change="vm.onChangeDate()" required/>
-                <span class="input-group-addon" translate="audits.filter.principal">user</span>
-                <input type="text" class="input-sm form-control" name="principal" ng-model="vm.principal" ng-change="vm.onChangeDate()"/>
-                <span class="input-group-addon" translate="audits.filter.auditEventType">state</span>
-                <input type="text" class="input-sm form-control" name="auditEventType" ng-model="vm.auditEventType" ng-change="vm.onChangeDate()"/>
-            </p>
+        <div class="col-sm-12">
+            <form name="editForm" class="form-horizontal" role="form" ng-submit="vm.search()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label no-padding-right" translate="audits.filter.principal" for="filterprincipal">User</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="filterprincipal" id="filterprincipal"
+                                       ng-model="vm.principal" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label no-padding-right" translate="audits.filter.from" for="field_date">Date from</label>
+                            <div class="col-sm-8">
+                                <div class="input-group">
+                                    <input id="field_date" type="text" class="form-control" name="date" uib-datepicker-popup="{{dateformat}}" ng-model="vm.fromDate" is-open="vm.datePickerOpenStatus.date"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label no-padding-right" translate="audits.filter.to" for="field_date1">Date to</label>
+                            <div class="col-sm-8">
+                                <div class="input-group">
+                                    <input id="field_date1" type="text" class="form-control" name="date1" uib-datepicker-popup="{{dateformat}}" ng-model="vm.toDate" is-open="vm.datePickerOpenStatus1.date"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar1('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label no-padding-right" translate="audits.filter.auditEventType" for="field_state">State</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="field_state" name="state" ng-model="vm.auditEventType"
+                                        ng-options="auditEventType as auditEventType.name for auditEventType in vm.auditEventTypeS track by auditEventType.id">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label no-padding-right" translate="audits.filter.ip" for="filterip">User</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="filterip" id="filterip"
+                                       ng-model="vm.ip" />
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right">
+                            <span translate="audits.filter.search">Search</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
+    <h3 class="header smaller lighter blue" translate="audits.filter.search_result">
+        Resultados de la búsqueda
+    </h3>
 
 
     <table class="table table-condensed table-striped table-bordered table-responsive">

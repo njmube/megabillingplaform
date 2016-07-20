@@ -69,5 +69,6 @@
     <include file="classpath:config/liquibase/changelog/20160712222643_added_entity_Freecom_pfic.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160712223303_added_entity_Freecom_kind_payment.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160713002851_added_entity_Entity_cfdi.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160720020110_added_entity_Audit_event_type.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

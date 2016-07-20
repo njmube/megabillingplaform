@@ -7,6 +7,9 @@
             "to": "Hasta",
             "principal": "Usuario",
             "auditEventType": "Estado",
+            "search_result":"Resultado de la búsqueda",
+            "search":"Buscar",
+            "ip":"IP",
             "button": {
                 "weeks": "Semanas",
                 "today": "Hoy",
