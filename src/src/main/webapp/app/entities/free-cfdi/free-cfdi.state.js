@@ -185,6 +185,25 @@
                         id: null
                     };
                 }],
+                freecom_donees_entity: [function () {
+                    return {
+                        version: null,
+                        no_authorization: null,
+                        date_authorization: null,
+                        legend: null,
+                        id: null
+                    };
+                }],
+                freecom_educational_institutions_entity: [function () {
+                    return {
+                        version: null,
+                        name_student: null,
+                        curp: null,
+                        autrvoe: null,
+                        rfcpayment: null,
+                        id: null
+                    };
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('free_cfdi');
 					$translatePartialLoader.addPart('free_emitter');
@@ -200,6 +219,8 @@
                     $translatePartialLoader.addPart('freecom_airline');
                     $translatePartialLoader.addPart('freecom_charge');
                     $translatePartialLoader.addPart('freecom_apaw');
+                    $translatePartialLoader.addPart('freecom_donees');
+                    $translatePartialLoader.addPart('freecom_educational_institutions');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

@@ -927,10 +927,10 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.date_acquisition" for="field_date_acquisition">Date_acquisition</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
-                                        <input id="field_date_acquisition" type="text" class="form-control" name="date_acquisition" datetime-picker="{{dateformat}}" ng-model="vm.freecom_apaw.date_acquisition" is-open="vm.datePickerOpenStatus.date_acquisition"
+                                        <input id="field_date_acquisition" type="text" class="form-control" name="date_acquisition" datetime-picker="{{dateformat}}" ng-model="vm.freecom_apaw.date_acquisition" is-open="vm.dateApawPickerOpenStatus.date_acquisition"
                                                ng-required="vm.show_apaw"  />
                                         <span class="input-group-btn">
-                                            <button type="button" class="btn btn-default" ng-click="vm.openFreecomApawCalendar('date_acquisition')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            <button type="button" class="btn btn-default" ng-click="vm.openApawCalendar('date_acquisition')"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
                                     </div>
                                     <div ng-show="editForm.date_acquisition.$invalid">
@@ -948,6 +948,93 @@
                                     <select class="form-control" id="field_freecom_apaw_features_work_piece" name="freecom_apaw_features_work_piece" ng-model="vm.freecom_apaw.features_work_piece" ng-options="features_work_piece as features_work_piece.code for features_work_piece in vm.features_work_pieces track by features_work_piece.id" ng-required="vm.show_apaw">
                                         <option value=""></option>
                                     </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-show="vm.show_donees">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_donees.no_authorization" for="field_freecom_donees_no_authorization">No_authorization</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_donees_no_authorization" id="field_freecom_donees_no_authorization"
+                                           ng-model="vm.freecom_donees.no_authorization"
+                                           ng-required="vm.show_donees" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_donees.date_authorization" for="field_freecom_date_authorization">Date_authorization</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <input id="field_freecom_date_authorization" type="text" class="form-control" name="freecom_date_authorization" datetime-picker="{{dateformat}}" ng-model="vm.freecom_donees.date_authorization" is-open="vm.dateDoneesPickerOpenStatus.date_authorization"
+                                               ng-required="vm.show_donees"  />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="vm.openDoneesCalendar('date_authorization')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </div>
+                                    <div ng-show="editForm.freecom_date_authorization.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.date_authorization.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                                            This field should be a date and time.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_donees.legend" for="field_freecom_donees_legend">Legend</label>
+                                <div class="col-sm-8">
+                                    <textarea class="form-control" name="freecom_legend" id="field_freecom_donees_legend"
+                                              ng-model="vm.freecom_donees.legend" ng-required="vm.show_donees"
+                                              rows="5"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row" ng-show="vm.show_educational_institutions">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_educational_institutions.name_student" for="field_freecom_educational_institutions_name_student">Name_student</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="name_student" id="field_freecom_educational_institutions_name_student"
+                                           ng-model="vm.freecom_educational_institutions.name_student"
+                                           ng-required="vm.show_educational_institutions" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_educational_institutions.curp" for="field_freecom_educational_institutions_curp">Curp</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="curp" id="field_freecom_educational_institutions_curp"
+                                           ng-model="vm.freecom_educational_institutions.curp"
+                                           ng-required="vm.show_educational_institutions" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_educational_institutions.autrvoe" for="field_freecom_educational_institutions_autrvoe">Autrvoe</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="autrvoe" id="field_freecom_educational_institutions_autrvoe"
+                                           ng-model="vm.freecom_educational_institutions.autrvoe"
+                                           ng-required="vm.show_educational_institutions" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_educational_institutions.school_level" for="field_freecom_educational_institutions_school_level">school_level</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_freecom_educational_institutions_school_level" name="school_level" ng-model="vm.freecom_educational_institutions.school_level" ng-options="school_level as school_level.name for school_level in vm.school_levels track by school_level.id" ng-required="vm.show_educational_institutions" >
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_educational_institutions.rfcpayment" for="field_freecom_educational_institutions_rfcpayment">Rfcpayment</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="rfcpayment" id="field_freecom_educational_institutions_rfcpayment"
+                                           ng-model="vm.freecom_educational_institutions.rfcpayment"
+                                    />
                                 </div>
                             </div>
                         </div>

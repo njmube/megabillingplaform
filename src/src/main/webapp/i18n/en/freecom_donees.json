@@ -17,9 +17,9 @@
                 "title": "Freecom_donees"
             },
             "version": "Version",
-            "no_authorization": "No_authorization",
-            "date_authorization": "Date_authorization",
-            "legend": "Legend",
+            "no_authorization": "Authorization No. (*)",
+            "date_authorization": "Authorization Date (*)",
+            "legend": "Legend (*)",
             "free_cfdi": "Free_cfdi"
         }
     }
