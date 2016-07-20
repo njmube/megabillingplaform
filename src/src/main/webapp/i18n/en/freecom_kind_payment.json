@@ -17,12 +17,12 @@
                 "title": "Freecom_kind_payment"
             },
             "version": "Version",
-            "cvepic": "Cvepic",
-            "foliosoldon": "Foliosoldon",
-            "art_piece_name": "Art_piece_name",
-            "technical_art_piece": "Technical_art_piece",
-            "year_art_piece": "Year_art_piece",
-            "dimensional_art_piece": "Dimensional_art_piece",
+            "cvepic": "CvePIC (*)",
+            "foliosoldon": "Request Folio No. (*)",
+            "art_piece_name": "Art Piece Name (*)",
+            "technical_art_piece": "Art Piece Technical (*)",
+            "year_art_piece": "Art Piece Year (*)",
+            "dimensional_art_piece": "Art Piece Dimensions (*)",
             "free_cfdi": "Free_cfdi"
         }
     }

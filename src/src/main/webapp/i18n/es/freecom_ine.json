@@ -17,9 +17,9 @@
                 "title": "Freecom_ine"
             },
             "version": "Version",
-            "ident": "Ident",
-            "committee": "Committee",
-            "process_type": "Process_type",
+            "ident": "ID Contabilidad",
+            "committee": "Tipo Comite",
+            "process_type": "Tipo Proceso (*)",
             "free_cfdi": "Free_cfdi"
         }
     }

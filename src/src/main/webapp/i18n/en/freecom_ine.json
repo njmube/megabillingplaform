@@ -18,8 +18,8 @@
             },
             "version": "Version",
             "ident": "Ident",
-            "committee": "Committee",
-            "process_type": "Process_type",
+            "committee": "Committee Type",
+            "process_type": "Process Type (*)",
             "free_cfdi": "Free_cfdi"
         }
     }

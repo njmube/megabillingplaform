@@ -204,6 +204,25 @@
                         id: null
                     };
                 }],
+                freecom_ine_entity: [function () {
+                    return {
+                        version: null,
+                        ident: null,
+                        id: null
+                    };
+                }],
+                freecom_kind_payment_entity: [function () {
+                    return {
+                        version: null,
+                        cvepic: null,
+                        foliosoldon: null,
+                        art_piece_name: null,
+                        technical_art_piece: null,
+                        year_art_piece: null,
+                        dimensional_art_piece: null,
+                        id: null
+                    };
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('free_cfdi');
 					$translatePartialLoader.addPart('free_emitter');
@@ -221,6 +240,8 @@
                     $translatePartialLoader.addPart('freecom_apaw');
                     $translatePartialLoader.addPart('freecom_donees');
                     $translatePartialLoader.addPart('freecom_educational_institutions');
+                    $translatePartialLoader.addPart('freecom_ine');
+                    $translatePartialLoader.addPart('freecom_kind_payment');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

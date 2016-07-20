@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps', 'freecom_taxlegends_entity', 'Freecom_taxlegends', 'Legend', 'freecom_airline_entity', 'Freecom_airline', 'Freecom_charge', 'freecom_apaw_entity', 'Well_type', 'Acquired_title', 'Features_work_piece','Freecom_apaw','freecom_donees_entity', 'Freecom_donees', 'freecom_educational_institutions_entity', 'School_level', 'Freecom_educational_institutions'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps', 'freecom_taxlegends_entity', 'Freecom_taxlegends', 'Legend', 'freecom_airline_entity', 'Freecom_airline', 'Freecom_charge', 'freecom_apaw_entity', 'Well_type', 'Acquired_title', 'Features_work_piece','Freecom_apaw','freecom_donees_entity', 'Freecom_donees', 'freecom_educational_institutions_entity', 'School_level', 'Freecom_educational_institutions', 'freecom_ine_entity', 'Committee', 'Process_type', 'Freecom_ine', 'freecom_kind_payment_entity', 'Freecom_kind_payment'];
 
-    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps, freecom_taxlegends_entity, Freecom_taxlegends, Legend, freecom_airline_entity, Freecom_airline, Freecom_charge, freecom_apaw_entity, Well_type, Acquired_title, Features_work_piece, Freecom_apaw, freecom_donees_entity, Freecom_donees, freecom_educational_institutions_entity, School_level, Freecom_educational_institutions) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps, freecom_taxlegends_entity, Freecom_taxlegends, Legend, freecom_airline_entity, Freecom_airline, Freecom_charge, freecom_apaw_entity, Well_type, Acquired_title, Features_work_piece, Freecom_apaw, freecom_donees_entity, Freecom_donees, freecom_educational_institutions_entity, School_level, Freecom_educational_institutions, freecom_ine_entity, Committee, Process_type, Freecom_ine, freecom_kind_payment_entity, Freecom_kind_payment) {
 
 		var vm = this;
 
@@ -304,6 +304,17 @@
                         vm.freecom_educational_institutions.free_cfdi = vm.free_cfdi;
                         Freecom_educational_institutions.save(vm.freecom_educational_institutions);
                         break;
+                    case "ine":
+                        vm.freecom_ine.version = "3.2";
+                        vm.freecom_ine.free_cfdi = vm.free_cfdi;
+                        Freecom_ine.save(vm.freecom_ine);
+                        break;
+                    case "kind_payment":
+                        vm.freecom_kind_payment.version = "3.2";
+                        vm.freecom_kind_payment.free_cfdi = vm.free_cfdi;
+                        Freecom_kind_payment.save(vm.freecom_kind_payment);
+                        break;
+
                 }
             }
 
@@ -416,6 +427,8 @@
             vm.freecom_apaw = { version: null, others_well_type: null, others_acquired_title: null, subtotal: null, iva: null, date_acquisition: null, well_type: null, acquired_title: null, features_work_piece: null, id: null };
             vm.freecom_donees = { version: null, no_authorization: null, date_authorization: null, legend: null,  id: null };
             vm.freecom_educational_institutions = { version: null, name_student: null,  curp: null, autrvoe: null, rfcpayment: null, school_level: null, id: null };
+            vm.freecom_ine = { version: null, ident: null, process_type: null, committee: null, id: null };
+            vm.freecom_kind = { version: null, cvepic: null, foliosoldon: null, art_piece_name: null, technical_art_piece: null, year_art_piece: null, dimensional_art_piece: null, id: null };
         }
 
         vm.datePickerOpenStatus = {};
@@ -644,7 +657,9 @@
             {id:"airline", name: "Aerolíneas"},
             {id:"apaw", name: "Obras de Artes Plásticas y Antigüedades"},
             {id:"donees", name: "Donatarias"},
-            {id:"educational_institutions", name: "Concepto - Instituciones Educativas Privadas"}
+            {id:"educational_institutions", name: "Concepto - Instituciones Educativas Privadas"},
+            {id:"ine", name: "INE"},
+            {id:"kind_payment", name: "Pago en Especie"}
         ];
 
         vm.current_complement = null;
@@ -686,6 +701,14 @@
                 case "educational_institutions":
                     vm.show_educational_institutions = true;
                     break;
+                case "ine":
+                    vm.show_ine = true;
+                    break;
+                case "kind_payment":
+                    vm.show_kind_payment = true;
+                    break;
+
+
             }
         }
 
@@ -698,6 +721,8 @@
             vm.show_apaw = false;
             vm.show_donees = false;
             vm.show_educational_institutions = false;
+            vm.show_ine = false;
+            vm.show_kind_payment = false;
         }
 
         //Tax Registration
@@ -817,5 +842,15 @@
         vm.show_educational_institutions = false;
         vm.freecom_educational_institutions = freecom_educational_institutions_entity;
         vm.school_levels = School_level.query();
+
+        //Ine
+        vm.show_ine = false;
+        vm.freecom_ine = freecom_ine_entity;
+        vm.committees = Committee.query();
+        vm.process_types = Process_type.query();
+
+        //Kind Payment
+        vm.show_kind_payment = false;
+        vm.freecom_kind_payment = freecom_kind_payment_entity;
     }
 })();

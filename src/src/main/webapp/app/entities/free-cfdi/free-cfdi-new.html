@@ -1040,6 +1040,90 @@
                         </div>
                     </div>
 
+                    <div class="row" ng-show="vm.show_ine">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.committee" for="field_freecom_ine_committee">committee</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_freecom_ine_committee" name="committee" ng-model="vm.freecom_ine.committee" ng-options="committee as committee.name for committee in vm.committees track by committee.id">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.process_type" for="field_freecom_ine_process_type">process_type</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_freecom_ine_process_type" name="process_type" ng-model="vm.freecom_ine.process_type" ng-options="process_type as process_type.name for process_type in vm.process_types track by process_type.id">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.ident" for="field_freecom_ine_ident">Ident</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="ident" id="field_freecom_ine_ident"
+                                           ng-model="vm.freecom_ine.ident"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" ng-show="vm.show_kind_payment">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.freecom_kind_payment.cvepic" for="field_freecom_kind_payment_cvepic">Cvepic</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="cvepic" id="field_freecom_kind_payment_cvepic"
+                                           ng-model="vm.freecom_kind_payment.cvepic"
+                                           ng-required="vm.show_kind_payment" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.freecom_kind_payment.foliosoldon" for="field_freecom_kind_payment_foliosoldon">Foliosoldon</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="foliosoldon" id="field_freecom_kind_payment_foliosoldon"
+                                           ng-model="vm.freecom_kind_payment.foliosoldon"
+                                           ng-required="vm.show_kind_payment" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.freecom_kind_payment.art_piece_name" for="field_freecom_kind_payment_art_piece_name">Art_piece_name</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="art_piece_name" id="field_freecom_kind_payment_art_piece_name"
+                                           ng-model="vm.freecom_kind_payment.art_piece_name"
+                                           ng-required="vm.show_kind_payment" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.freecom_kind_payment.technical_art_piece" for="field_freecom_kind_payment_technical_art_piece">Technical_art_piece</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="technical_art_piece" id="field_freecom_kind_payment_technical_art_piece"
+                                           ng-model="vm.freecom_kind_payment.technical_art_piece"
+                                           ng-required="vm.show_kind_payment" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.freecom_kind_payment.year_art_piece" for="field_freecom_kind_payment_year_art_piece">Year_art_piece</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="year_art_piece" id="field_freecom_kind_payment_year_art_piece"
+                                           ng-model="vm.freecom_kind_payment.year_art_piece"
+                                           ng-required="vm.show_kind_payment" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.freecom_kind_payment.dimensional_art_piece" for="field_freecom_kind_payment_dimensional_art_piece">Dimensional_art_piece</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="dimensional_art_piece" id="field_freecom_kind_payment_dimensional_art_piece"
+                                           ng-model="vm.freecom_kind_payment.dimensional_art_piece"
+                                           ng-required="vm.show_kind_payment" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </uib-tab>
 			</uib-tabset>
 
