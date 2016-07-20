@@ -174,6 +174,17 @@
                         id: null
                     };
                 }],
+                freecom_apaw_entity: [function () {
+                    return {
+                        version: null,
+                        others_well_type: null,
+                        others_acquired_title: null,
+                        subtotal: null,
+                        iva: null,
+                        date_acquisition: null,
+                        id: null
+                    };
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('free_cfdi');
 					$translatePartialLoader.addPart('free_emitter');
@@ -188,6 +199,7 @@
                     $translatePartialLoader.addPart('legend');
                     $translatePartialLoader.addPart('freecom_airline');
                     $translatePartialLoader.addPart('freecom_charge');
+                    $translatePartialLoader.addPart('freecom_apaw');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
