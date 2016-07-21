@@ -457,7 +457,7 @@
 							<div class="form-group">
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.cfdi_type_doc" for="field_cfdi_type_doc">cfdi_type_doc</label>
 								<div class="col-sm-8">
-									<select class="form-control" id="field_cfdi_type_doc" name="cfdi_type_doc" ng-model="vm.free_cfdi.cfdi_type_doc" ng-options="cfdi_type_doc as cfdi_type_doc.name for cfdi_type_doc in vm.cfdi_type_docs track by cfdi_type_doc.id" data-ng-change="vm.onChangeCFDITypeDoc()">
+									<select class="form-control" id="field_cfdi_type_doc" name="cfdi_type_doc" ng-model="vm.free_cfdi.cfdi_type_doc" ng-options="cfdi_type_doc as cfdi_type_doc.name for cfdi_type_doc in vm.cfdi_type_docs track by cfdi_type_doc.id" data-ng-change="vm.onChangeCFDITypeDoc()" required>
 										<option value=""></option>
 									</select>
 								</div>
@@ -466,14 +466,14 @@
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.cfdi_types" for="field_cfdi_types">cfdi_types</label>
 								<div class="col-sm-8">
                                     <input type="text" class="form-control" id="field_cfdi_types" name="cfdi_types" ng-model="vm.free_cfdi.cfdi_types.name"
-                                           readonly />
+                                           readonly required />
 
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.payment_method" for="field_payment_method">payment_method</label>
 								<div class="col-sm-8">
-									<select class="form-control" id="field_payment_method" name="payment_method" ng-model="vm.free_cfdi.payment_method" ng-options="payment_method as payment_method.name for payment_method in vm.payment_methods track by payment_method.id">
+									<select class="form-control" id="field_payment_method" name="payment_method" ng-model="vm.free_cfdi.payment_method" ng-options="payment_method as payment_method.name for payment_method in vm.payment_methods track by payment_method.id" required>
 										<option value=""></option>
 									</select>
 								</div>
