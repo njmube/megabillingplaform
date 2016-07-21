@@ -1,20 +1,11 @@
 id;name;description;code
 1;Efectivo;Efectivo;01
-2;Cheque;Cheque;02
-3;Transferencia;Transferencia;03
-4;Tarjetas de crédito;Tarjetas de crédito;04
-5;Monederos electrónicos;Monederos electrónicos;05
-6;Dinero electrónico;Dinero electrónico;06
-7;Tarjetas digitales;Tarjetas digitales;07
-8;Vales de despensa;Vales de despensa;08
-9;Bienes;Bienes;09
-10;Servicio;Servicio;10
-11;Por cuenta de tercero;Por cuenta de tercero;11
-12;Dación en pago;Dación en pago;12
-13;Pago por subrogación;Pago por subrogación;13
-14;Pago por consignación;Pago por consignación;14
-15;Condonación;Condonación;15
-16;Cancelación;Cancelación;16
-17;Compensación;Compensación;17
-18;NA;NA;98
-19;Otros;Otros;99
+2;Cheque Nominativo;Cheque Nominativo;02
+3;Transferencia Electrónica de Fondos;Transferencia Electrónica de Fondos;03
+4;Tarjetas de Crédito;Tarjetas de Crédito;04
+5;Monedero Electrónico;Monedero Electrónico;05
+6;Dinero Electrónico;Dinero Electrónico;06
+7;Vales de Despensa;Vales de Despensa;08
+8;Tarjeta de Débito;28
+9;Tarjeta de Servicio;29
+10;Otros;Otros;99
