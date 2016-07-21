@@ -65,7 +65,7 @@
             },
             "admin": {
                 "main": "Administración",
-                "cstates": "Estados",
+                "states": "Estados",
                 "types": "Tipos",
                 "general.catalogs": "Catálogos Generales",
                 "free.cfdi": "CFDI Gratuito",
