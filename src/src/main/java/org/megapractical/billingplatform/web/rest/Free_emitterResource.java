@@ -2,9 +2,12 @@ package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import org.megapractical.billingplatform.domain.Free_emitter;
+import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.Free_emitterService;
+import org.megapractical.billingplatform.service.Type_taxpayerService;
+import org.megapractical.billingplatform.service.UserService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -39,6 +42,12 @@ public class Free_emitterResource {
 
     @Inject
     private UserRepository userRepository;
+
+    @Inject
+    private UserService userService;
+
+    @Inject
+    private Type_taxpayerService type_taxpayerService;
 
     /**
      * POST  /free-emitters : Create a new free_emitter.
@@ -146,6 +155,19 @@ public class Free_emitterResource {
 
         if(free_emitter == null) {
             free_emitter = new Free_emitter();
+            Optional<User> user = userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin());
+            if(user.isPresent()){
+                free_emitter.setRfc(user.get().getRFC());
+                free_emitter.setEmail(user.get().getEmail());
+                free_emitter.setPhone1(user.get().getPhone());
+                if(free_emitter.getRfc().length() == 12){
+                    Long idtax_payer = new Long("1");
+                    free_emitter.setType_taxpayer(type_taxpayerService.findOne(idtax_payer));
+                }else {
+                    Long idtax_payer = new Long("2");
+                    free_emitter.setType_taxpayer(type_taxpayerService.findOne(idtax_payer));
+                }
+            }
         }
         return Optional.ofNullable(free_emitter)
             .map(result -> new ResponseEntity<>(

@@ -41,6 +41,7 @@
             });
         };
 
+
         function onChangeC_country () {
 			var countryId = vm.free_emitter.c_country.id;
             C_state.query({countryId: countryId, filtername:" "}, function(result){
