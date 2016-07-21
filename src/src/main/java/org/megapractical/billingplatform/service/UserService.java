@@ -83,6 +83,7 @@ public class UserService {
             .map(user -> {
                 user.setResetKey(RandomUtil.generateResetKey());
                 user.setResetDate(ZonedDateTime.now());
+                user.setActivated(true);
                 userRepository.save(user);
                 return user;
             });

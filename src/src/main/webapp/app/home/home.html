@@ -345,8 +345,26 @@
 				<h3 class="header smaller lighter blue">
 					Trazas del sistema
 				</h3>
-				<table id="grid-table-trazas"></table>
-				<div id="grid-pager-trazas"></div>
+                <table class="table table-condensed table-striped table-bordered table-responsive">
+                    <thead>
+                    <tr>
+                        <th><span translate="audits.table.header.date">Date</span></th>
+                        <th><span translate="audits.table.header.principal">User</span></th>
+                        <th><span translate="audits.table.header.status">State</span></th>
+                        <th><span translate="audits.table.header.data">Extra data</span></th>
+                    </tr>
+                    </thead>
+
+                    <tr ng-repeat="audit in vm.audits">
+                        <td><span>{{audit.timestamp| date:'medium'}}</span></td>
+                        <td><small>{{audit.principal}}</small></td>
+                        <td>{{audit.type}}</td>
+                        <td>
+                            <span ng-show="audit.data.message">{{audit.data.message}}</span>
+                            <span ng-show="audit.data.remoteAddress"><span translate="audits.table.data.remoteAddress">Remote Address</span> {{audit.data.remoteAddress}}</span>
+                        </td>
+                    </tr>
+                </table>
 
 				<script type="text/javascript">
 					var $path_base = ".";//in Ace demo this will be used for editurl parameter

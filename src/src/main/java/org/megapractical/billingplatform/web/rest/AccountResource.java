@@ -202,6 +202,7 @@ public class AccountResource {
     public ResponseEntity<List<PersistentToken>> getCurrentSessions() {
         Optional<User> user1 = userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin());
         if(user1.isPresent()){
+
             boolean administrator = false;
             for(Authority item: user1.get().getAuthorities()){
                 if(item.getName().compareTo("ROLE_ADMIN")==0){

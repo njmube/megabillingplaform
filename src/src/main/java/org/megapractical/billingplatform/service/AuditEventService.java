@@ -50,6 +50,7 @@ public class AuditEventService {
     }
 
     public Page<AuditEvent> findAll(Pageable pageable) {
+
         return persistenceAuditEventRepository.findAll(pageable)
             .map(persistentAuditEvents -> auditEventConverter.convertToAuditEvent(persistentAuditEvents));
     }
@@ -83,21 +84,24 @@ public class AuditEventService {
             }
         }
         List<AuditEvent> result = new ArrayList<>();
-        for(int i = 0;i<list.size();i++){
-            boolean OK = true;
+        if(list.size()>0) {
+            for (int i = list.size() - 1; i >= 0; i--) {
+                boolean OK = true;
 
-            if(ip.compareTo(" ")!=0){
-                log.debug("remoteAddress: {}",list.get(i).getData().get("remoteAddress"));
-                if(list.get(i).getData().get("remoteAddress")!=null){
-                    if(list.get(i).getData().get("remoteAddress").compareTo(ip)!=0){
-                        OK = false;
+                if (ip.compareTo(" ") != 0) {
+                    log.debug("remoteAddress: {}", list.get(i).getData().get("remoteAddress"));
+                    if (list.get(i).getData().get("remoteAddress") != null) {
+                        if (list.get(i).getData().get("remoteAddress").compareTo(ip) != 0) {
+                            OK = false;
+                        }
                     }
                 }
-            }
-            if(OK){
-                result.add(auditEventConverter.convertToAuditEvent(list.get(i)));
+                if (OK) {
+                    result.add(auditEventConverter.convertToAuditEvent(list.get(i)));
+                }
             }
         }
+
         Page<AuditEvent> page = new PageImpl<AuditEvent>(result,pageable,result.size());
 
         return page;
