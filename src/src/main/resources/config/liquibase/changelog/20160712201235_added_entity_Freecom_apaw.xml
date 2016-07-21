@@ -45,39 +45,39 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="well_type_id" type="bigint"/>
-            <column name="acquired_title_id" type="bigint"/>
-            <column name="features_work_piece_id" type="bigint"/>
             <column name="free_cfdi_id" type="bigint">
                 <constraints unique="true"/>
             </column>
+            <column name="c_well_type_id" type="bigint"/>
+            <column name="c_acquired_title_id" type="bigint"/>
+            <column name="c_features_work_piece_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="freecom_apaw" columnName="date_acquisition" columnDataType="datetime"/>
         
-        <addForeignKeyConstraint baseColumnNames="well_type_id"
-                                 baseTableName="freecom_apaw"
-                                 constraintName="fk_freecom_apaw_well_type_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="well_type"/>
-
-        <addForeignKeyConstraint baseColumnNames="acquired_title_id"
-                                 baseTableName="freecom_apaw"
-                                 constraintName="fk_freecom_apaw_acquired_title_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="acquired_title"/>
-
-        <addForeignKeyConstraint baseColumnNames="features_work_piece_id"
-                                 baseTableName="freecom_apaw"
-                                 constraintName="fk_freecom_apaw_features_work_piece_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="features_work_piece"/>
-
         <addForeignKeyConstraint baseColumnNames="free_cfdi_id"
                                  baseTableName="freecom_apaw"
                                  constraintName="fk_freecom_apaw_free_cfdi_id"
                                  referencedColumnNames="id"
                                  referencedTableName="free_cfdi"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_well_type_id"
+                                 baseTableName="freecom_apaw"
+                                 constraintName="fk_freecom_apaw_c_well_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_well_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_acquired_title_id"
+                                 baseTableName="freecom_apaw"
+                                 constraintName="fk_freecom_apaw_c_acquired_title_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_acquired_title"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_features_work_piece_id"
+                                 baseTableName="freecom_apaw"
+                                 constraintName="fk_freecom_apaw_c_features_work_piece_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_features_work_piece"/>
 
     </changeSet>
 </databaseChangeLog>

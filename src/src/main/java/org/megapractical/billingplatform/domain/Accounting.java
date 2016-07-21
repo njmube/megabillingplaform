@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Accounting.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "accounting")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Accounting implements Serializable {
@@ -25,6 +25,9 @@ public class Accounting implements Serializable {
     @NotNull
     @Column(name = "keyaccounting", nullable = false)
     private Integer keyaccounting;
+
+    @ManyToOne
+    private Entity_cfdi entity_cfdi;
 
     public Long getId() {
         return id;
@@ -40,6 +43,14 @@ public class Accounting implements Serializable {
 
     public void setKeyaccounting(Integer keyaccounting) {
         this.keyaccounting = keyaccounting;
+    }
+
+    public Entity_cfdi getEntity_cfdi() {
+        return entity_cfdi;
+    }
+
+    public void setEntity_cfdi(Entity_cfdi entity_cfdi) {
+        this.entity_cfdi = entity_cfdi;
     }
 
     @Override

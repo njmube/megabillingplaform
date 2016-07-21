@@ -5,12 +5,11 @@
         .module('megabillingplatformApp')
         .controller('Freecom_educational_institutionsDialogController', Freecom_educational_institutionsDialogController);
 
-    Freecom_educational_institutionsDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Freecom_educational_institutions', 'School_level', 'Free_cfdi'];
+    Freecom_educational_institutionsDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Freecom_educational_institutions', 'Free_cfdi', 'C_school_level'];
 
-    function Freecom_educational_institutionsDialogController ($scope, $stateParams, $uibModalInstance, $q, entity, Freecom_educational_institutions, School_level, Free_cfdi) {
+    function Freecom_educational_institutionsDialogController ($scope, $stateParams, $uibModalInstance, $q, entity, Freecom_educational_institutions, Free_cfdi, C_school_level) {
         var vm = this;
         vm.freecom_educational_institutions = entity;
-        vm.school_levels = School_level.query();
         vm.free_cfdis = Free_cfdi.query({filter: 'freecom_educational_institutions-is-null'});
         $q.all([vm.freecom_educational_institutions.$promise, vm.free_cfdis.$promise]).then(function() {
             if (!vm.freecom_educational_institutions.free_cfdi || !vm.freecom_educational_institutions.free_cfdi.id) {
@@ -20,6 +19,7 @@
         }).then(function(free_cfdi) {
             vm.free_cfdis.push(free_cfdi);
         });
+        vm.c_school_levels = C_school_level.query();
         vm.load = function(id) {
             Freecom_educational_institutions.get({id : id}, function(result) {
                 vm.freecom_educational_institutions = result;

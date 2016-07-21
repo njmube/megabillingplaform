@@ -41,24 +41,24 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="school_level_id" type="bigint"/>
             <column name="free_cfdi_id" type="bigint">
                 <constraints unique="true"/>
             </column>
+            <column name="c_school_level_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
-        <addForeignKeyConstraint baseColumnNames="school_level_id"
-                                 baseTableName="freecom_educational_institutions"
-                                 constraintName="fk_freecom_educational_institutions_school_level_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="school_level"/>
-
         <addForeignKeyConstraint baseColumnNames="free_cfdi_id"
                                  baseTableName="freecom_educational_institutions"
                                  constraintName="fk_freecom_educational_institutions_free_cfdi_id"
                                  referencedColumnNames="id"
                                  referencedTableName="free_cfdi"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_school_level_id"
+                                 baseTableName="freecom_educational_institutions"
+                                 constraintName="fk_freecom_educational_institutions_c_school_level_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_school_level"/>
 
     </changeSet>
 </databaseChangeLog>

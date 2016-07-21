@@ -5,11 +5,12 @@
         .module('megabillingplatformApp')
         .controller('AccountingDialogController', AccountingDialogController);
 
-    AccountingDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Accounting'];
+    AccountingDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Accounting', 'Entity_cfdi'];
 
-    function AccountingDialogController ($scope, $stateParams, $uibModalInstance, entity, Accounting) {
+    function AccountingDialogController ($scope, $stateParams, $uibModalInstance, entity, Accounting, Entity_cfdi) {
         var vm = this;
         vm.accounting = entity;
+        vm.entity_cfdis = Entity_cfdi.query();
         vm.load = function(id) {
             Accounting.get({id : id}, function(result) {
                 vm.accounting = result;

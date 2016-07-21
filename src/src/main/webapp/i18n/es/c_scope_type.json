@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "c_scope_type" : {
+            "home": {
+                "title": "C_scope_types",
+                "createLabel": "Crear nuevo C_scope_type",
+                "createOrEditLabel": "Crear o editar C_scope_type",
+                "search": "Search for C_scope_type"
+            },
+            "created": "Un nuevo C_scope_type ha sido creado con el identificador {{ param }}",
+            "updated": "Un C_scope_type ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C_scope_type ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar C_scope_type {{ id }}?"
+            },
+            "detail": {
+                "title": "C_scope_type"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

@@ -48,6 +48,18 @@
                 "scope.type": "Scope Type",
                 "tar": "TAR",
                 "school.level": "School Level",
+                "freecomApaw": "Freecom_apaw",
+                "cWellType": "C_well_type",
+                "cAcquiredTitle": "C_acquired_title",
+                "cFeaturesWorkPiece": "C_features_work_piece",
+                "entityCfdi": "Entity_cfdi",
+                "cScopeType": "C_scope_type",
+                "accounting": "Accounting",
+                "cCommitteeType": "C_committee_type",
+                "cProcessType": "C_process_type",
+                "cSchoolLevel": "C_school_level",
+                "freecomIne": "Freecom_ine",
+                "freecomEducationalInstitutions": "Freecom_educational_institutions",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

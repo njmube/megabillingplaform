@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('AccountingDetailController', AccountingDetailController);
 
-    AccountingDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Accounting'];
+    AccountingDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Accounting', 'Entity_cfdi'];
 
-    function AccountingDetailController($scope, $rootScope, $stateParams, entity, Accounting) {
+    function AccountingDetailController($scope, $rootScope, $stateParams, entity, Accounting, Entity_cfdi) {
         var vm = this;
         vm.accounting = entity;
         vm.load = function (id) {

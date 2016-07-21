@@ -1,28 +1,22 @@
 {
     "relationships": [
         {
-            "relationshipName": "accounting",
-            "otherEntityName": "accounting",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "keyaccounting"
-        },
-        {
             "relationshipName": "key_entity",
             "otherEntityName": "key_entity",
             "relationshipType": "many-to-one",
             "otherEntityField": "key"
         },
         {
-            "relationshipName": "scope",
-            "otherEntityName": "scope",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "name"
-        },
-        {
             "relationshipName": "freecom_ine",
             "otherEntityName": "freecom_ine",
             "relationshipType": "many-to-one",
             "otherEntityField": "version"
+        },
+        {
+            "relationshipName": "c_scope_type",
+            "otherEntityName": "c_scope_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
         }
     ],
     "fields": [],

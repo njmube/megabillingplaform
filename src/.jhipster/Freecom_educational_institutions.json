@@ -1,18 +1,18 @@
 {
     "relationships": [
         {
-            "relationshipName": "school_level",
-            "otherEntityName": "school_level",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "name"
-        },
-        {
             "relationshipName": "free_cfdi",
             "otherEntityName": "free_cfdi",
             "relationshipType": "one-to-one",
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "freecom_educational_institutions"
+        },
+        {
+            "relationshipName": "c_school_level",
+            "otherEntityName": "c_school_level",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
         }
     ],
     "fields": [

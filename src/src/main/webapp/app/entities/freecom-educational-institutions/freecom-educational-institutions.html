@@ -24,8 +24,8 @@
                     <th jh-sort-by="curp"><span translate="megabillingplatformApp.freecom_educational_institutions.curp">Curp</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="autrvoe"><span translate="megabillingplatformApp.freecom_educational_institutions.autrvoe">Autrvoe</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="rfcpayment"><span translate="megabillingplatformApp.freecom_educational_institutions.rfcpayment">Rfcpayment</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="school_level.name"><span translate="megabillingplatformApp.freecom_educational_institutions.school_level">school_level</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.freecom_educational_institutions.free_cfdi">free_cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_school_level.name"><span translate="megabillingplatformApp.freecom_educational_institutions.c_school_level">c_school_level</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -38,10 +38,10 @@
                     <td>{{freecom_educational_institutions.autrvoe}}</td>
                     <td>{{freecom_educational_institutions.rfcpayment}}</td>
                     <td>
-                        <a ui-sref="school-level-detail({id:freecom_educational_institutions.school_level.id})">{{freecom_educational_institutions.school_level.name}}</a>
+                        <a ui-sref="free-cfdi-detail({id:freecom_educational_institutions.free_cfdi.id})">{{freecom_educational_institutions.free_cfdi.id}}</a>
                     </td>
                     <td>
-                        <a ui-sref="free-cfdi-detail({id:freecom_educational_institutions.free_cfdi.id})">{{freecom_educational_institutions.free_cfdi.id}}</a>
+                        <a ui-sref="c-school-level-detail({id:freecom_educational_institutions.c_school_level.id})">{{freecom_educational_institutions.c_school_level.name}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

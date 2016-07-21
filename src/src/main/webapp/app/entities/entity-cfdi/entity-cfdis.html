@@ -19,10 +19,9 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="accounting.keyaccounting"><span translate="megabillingplatformApp.entity_cfdi.accounting">accounting</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="key_entity.key"><span translate="megabillingplatformApp.entity_cfdi.key_entity">key_entity</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="scope.name"><span translate="megabillingplatformApp.entity_cfdi.scope">scope</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="freecom_ine.version"><span translate="megabillingplatformApp.entity_cfdi.freecom_ine">freecom_ine</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_scope_type.name"><span translate="megabillingplatformApp.entity_cfdi.c_scope_type">c_scope_type</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -30,16 +29,13 @@
                 <tr ng-repeat="entity_cfdi in vm.entity_cfdis track by entity_cfdi.id">
                     <td><a ui-sref="entity-cfdi-detail({id:entity_cfdi.id})">{{entity_cfdi.id}}</a></td>
                     <td>
-                        <a ui-sref="accounting-detail({id:entity_cfdi.accounting.id})">{{entity_cfdi.accounting.keyaccounting}}</a>
-                    </td>
-                    <td>
                         <a ui-sref="key-entity-detail({id:entity_cfdi.key_entity.id})">{{entity_cfdi.key_entity.key}}</a>
                     </td>
                     <td>
-                        <a ui-sref="scope-detail({id:entity_cfdi.scope.id})">{{entity_cfdi.scope.name}}</a>
+                        <a ui-sref="freecom-ine-detail({id:entity_cfdi.freecom_ine.id})">{{entity_cfdi.freecom_ine.version}}</a>
                     </td>
                     <td>
-                        <a ui-sref="freecom-ine-detail({id:entity_cfdi.freecom_ine.id})">{{entity_cfdi.freecom_ine.version}}</a>
+                        <a ui-sref="c-scope-type-detail({id:entity_cfdi.c_scope_type.id})">{{entity_cfdi.c_scope_type.name}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

@@ -5,14 +5,11 @@
         .module('megabillingplatformApp')
         .controller('Freecom_apawDialogController', Freecom_apawDialogController);
 
-    Freecom_apawDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Freecom_apaw', 'Well_type', 'Acquired_title', 'Features_work_piece', 'Free_cfdi'];
+    Freecom_apawDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Freecom_apaw', 'Free_cfdi', 'C_well_type', 'C_acquired_title', 'C_features_work_piece'];
 
-    function Freecom_apawDialogController ($scope, $stateParams, $uibModalInstance, $q, entity, Freecom_apaw, Well_type, Acquired_title, Features_work_piece, Free_cfdi) {
+    function Freecom_apawDialogController ($scope, $stateParams, $uibModalInstance, $q, entity, Freecom_apaw, Free_cfdi, C_well_type, C_acquired_title, C_features_work_piece) {
         var vm = this;
         vm.freecom_apaw = entity;
-        vm.well_types = Well_type.query();
-        vm.acquired_titles = Acquired_title.query();
-        vm.features_work_pieces = Features_work_piece.query();
         vm.free_cfdis = Free_cfdi.query({filter: 'freecom_apaw-is-null'});
         $q.all([vm.freecom_apaw.$promise, vm.free_cfdis.$promise]).then(function() {
             if (!vm.freecom_apaw.free_cfdi || !vm.freecom_apaw.free_cfdi.id) {
@@ -22,6 +19,9 @@
         }).then(function(free_cfdi) {
             vm.free_cfdis.push(free_cfdi);
         });
+        vm.c_well_types = C_well_type.query();
+        vm.c_acquired_titles = C_acquired_title.query();
+        vm.c_features_work_pieces = C_features_work_piece.query();
         vm.load = function(id) {
             Freecom_apaw.get({id : id}, function(result) {
                 vm.freecom_apaw = result;

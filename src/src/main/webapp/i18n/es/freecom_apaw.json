@@ -17,15 +17,15 @@
                 "title": "Freecom_apaw"
             },
             "version": "Version",
-            "others_well_type": "Otros Tipo Bien",
-            "others_acquired_title": "Otros Títulos Adquiridos",
+            "others_well_type": "Others_well_type",
+            "others_acquired_title": "Others_acquired_title",
             "subtotal": "Subtotal",
-            "iva": "IVA",
-            "date_acquisition": "Fecha Adquisición (*)",
-            "well_type": "Tipo Bien (*)",
-            "acquired_title": "Título Adquirido",
-            "features_work_piece": "Características Obra o Pieza (*)",
-            "free_cfdi": "Free_cfdi"
+            "iva": "Iva",
+            "date_acquisition": "Date_acquisition",
+            "free_cfdi": "Free_cfdi",
+            "c_well_type": "C_well_type",
+            "c_acquired_title": "C_acquired_title",
+            "c_features_work_piece": "C_features_work_piece"
         }
     }
 }

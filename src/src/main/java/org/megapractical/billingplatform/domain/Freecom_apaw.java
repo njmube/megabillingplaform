@@ -13,7 +13,7 @@ import java.util.Objects;
 /**
  * A Freecom_apaw.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "freecom_apaw")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Freecom_apaw implements Serializable {
@@ -44,18 +44,18 @@ public class Freecom_apaw implements Serializable {
     @Column(name = "date_acquisition", nullable = false)
     private ZonedDateTime date_acquisition;
 
-    @ManyToOne
-    private Well_type well_type;
-
-    @ManyToOne
-    private Acquired_title acquired_title;
-
-    @ManyToOne
-    private Features_work_piece features_work_piece;
-
     @OneToOne
     @JoinColumn(unique = true)
     private Free_cfdi free_cfdi;
+
+    @ManyToOne
+    private C_well_type c_well_type;
+
+    @ManyToOne
+    private C_acquired_title c_acquired_title;
+
+    @ManyToOne
+    private C_features_work_piece c_features_work_piece;
 
     public Long getId() {
         return id;
@@ -113,36 +113,36 @@ public class Freecom_apaw implements Serializable {
         this.date_acquisition = date_acquisition;
     }
 
-    public Well_type getWell_type() {
-        return well_type;
-    }
-
-    public void setWell_type(Well_type well_type) {
-        this.well_type = well_type;
-    }
-
-    public Acquired_title getAcquired_title() {
-        return acquired_title;
-    }
-
-    public void setAcquired_title(Acquired_title acquired_title) {
-        this.acquired_title = acquired_title;
-    }
-
-    public Features_work_piece getFeatures_work_piece() {
-        return features_work_piece;
-    }
-
-    public void setFeatures_work_piece(Features_work_piece features_work_piece) {
-        this.features_work_piece = features_work_piece;
-    }
-
     public Free_cfdi getFree_cfdi() {
         return free_cfdi;
     }
 
     public void setFree_cfdi(Free_cfdi free_cfdi) {
         this.free_cfdi = free_cfdi;
+    }
+
+    public C_well_type getC_well_type() {
+        return c_well_type;
+    }
+
+    public void setC_well_type(C_well_type c_well_type) {
+        this.c_well_type = c_well_type;
+    }
+
+    public C_acquired_title getC_acquired_title() {
+        return c_acquired_title;
+    }
+
+    public void setC_acquired_title(C_acquired_title c_acquired_title) {
+        this.c_acquired_title = c_acquired_title;
+    }
+
+    public C_features_work_piece getC_features_work_piece() {
+        return c_features_work_piece;
+    }
+
+    public void setC_features_work_piece(C_features_work_piece c_features_work_piece) {
+        this.c_features_work_piece = c_features_work_piece;
     }
 
     @Override

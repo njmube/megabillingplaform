@@ -30,12 +30,6 @@ public class Freecom_ine implements Serializable {
     @Column(name = "ident")
     private Integer ident;
 
-    @ManyToOne
-    private Committee committee;
-
-    @ManyToOne
-    private Process_type process_type;
-
     @OneToOne
     @JoinColumn(unique = true)
     private Free_cfdi free_cfdi;
@@ -62,22 +56,6 @@ public class Freecom_ine implements Serializable {
 
     public void setIdent(Integer ident) {
         this.ident = ident;
-    }
-
-    public Committee getCommittee() {
-        return committee;
-    }
-
-    public void setCommittee(Committee committee) {
-        this.committee = committee;
-    }
-
-    public Process_type getProcess_type() {
-        return process_type;
-    }
-
-    public void setProcess_type(Process_type process_type) {
-        this.process_type = process_type;
     }
 
     public Free_cfdi getFree_cfdi() {

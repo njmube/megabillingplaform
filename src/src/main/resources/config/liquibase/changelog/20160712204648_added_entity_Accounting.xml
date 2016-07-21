@@ -25,8 +25,15 @@
                 <constraints nullable="false" />
             </column>
             
+            <column name="entity_cfdi_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
+        <addForeignKeyConstraint baseColumnNames="entity_cfdi_id"
+                                 baseTableName="accounting"
+                                 constraintName="fk_accounting_entity_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="entity_cfdi"/>
+
     </changeSet>
 </databaseChangeLog>

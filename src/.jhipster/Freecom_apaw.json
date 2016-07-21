@@ -1,30 +1,30 @@
 {
     "relationships": [
         {
-            "relationshipName": "well_type",
-            "otherEntityName": "well_type",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "code"
-        },
-        {
-            "relationshipName": "acquired_title",
-            "otherEntityName": "acquired_title",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "code"
-        },
-        {
-            "relationshipName": "features_work_piece",
-            "otherEntityName": "features_work_piece",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "code"
-        },
-        {
             "relationshipName": "free_cfdi",
             "otherEntityName": "free_cfdi",
             "relationshipType": "one-to-one",
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "freecom_apaw"
+        },
+        {
+            "relationshipName": "c_well_type",
+            "otherEntityName": "c_well_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipName": "c_acquired_title",
+            "otherEntityName": "c_acquired_title",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipName": "c_features_work_piece",
+            "otherEntityName": "c_features_work_piece",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
         }
     ],
     "fields": [

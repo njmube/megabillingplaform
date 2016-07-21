@@ -25,10 +25,10 @@
                     <th jh-sort-by="subtotal"><span translate="megabillingplatformApp.freecom_apaw.subtotal">Subtotal</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="iva"><span translate="megabillingplatformApp.freecom_apaw.iva">Iva</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="date_acquisition"><span translate="megabillingplatformApp.freecom_apaw.date_acquisition">Date_acquisition</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="well_type.code"><span translate="megabillingplatformApp.freecom_apaw.well_type">well_type</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="acquired_title.code"><span translate="megabillingplatformApp.freecom_apaw.acquired_title">acquired_title</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="features_work_piece.code"><span translate="megabillingplatformApp.freecom_apaw.features_work_piece">features_work_piece</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.freecom_apaw.free_cfdi">free_cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_well_type.code"><span translate="megabillingplatformApp.freecom_apaw.c_well_type">c_well_type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_acquired_title.code"><span translate="megabillingplatformApp.freecom_apaw.c_acquired_title">c_acquired_title</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_features_work_piece.code"><span translate="megabillingplatformApp.freecom_apaw.c_features_work_piece">c_features_work_piece</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -42,16 +42,16 @@
                     <td>{{freecom_apaw.iva}}</td>
                     <td>{{freecom_apaw.date_acquisition | date:'medium'}}</td>
                     <td>
-                        <a ui-sref="well-type-detail({id:freecom_apaw.well_type.id})">{{freecom_apaw.well_type.code}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="acquired-title-detail({id:freecom_apaw.acquired_title.id})">{{freecom_apaw.acquired_title.code}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="features-work-piece-detail({id:freecom_apaw.features_work_piece.id})">{{freecom_apaw.features_work_piece.code}}</a>
-                    </td>
-                    <td>
                         <a ui-sref="free-cfdi-detail({id:freecom_apaw.free_cfdi.id})">{{freecom_apaw.free_cfdi.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-well-type-detail({id:freecom_apaw.c_well_type.id})">{{freecom_apaw.c_well_type.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-acquired-title-detail({id:freecom_apaw.c_acquired_title.id})">{{freecom_apaw.c_acquired_title.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-features-work-piece-detail({id:freecom_apaw.c_features_work_piece.id})">{{freecom_apaw.c_features_work_piece.code}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

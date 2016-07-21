@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('Freecom_educational_institutions Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockFreecom_educational_institutions, MockSchool_level, MockFree_cfdi;
+        var MockEntity, MockFreecom_educational_institutions, MockFree_cfdi, MockC_school_level;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -12,8 +12,8 @@ describe('Controller Tests', function() {
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
             MockFreecom_educational_institutions = jasmine.createSpy('MockFreecom_educational_institutions');
-            MockSchool_level = jasmine.createSpy('MockSchool_level');
             MockFree_cfdi = jasmine.createSpy('MockFree_cfdi');
+            MockC_school_level = jasmine.createSpy('MockC_school_level');
             
 
             var locals = {
@@ -21,8 +21,8 @@ describe('Controller Tests', function() {
                 '$rootScope': $rootScope,
                 'entity': MockEntity ,
                 'Freecom_educational_institutions': MockFreecom_educational_institutions,
-                'School_level': MockSchool_level,
-                'Free_cfdi': MockFree_cfdi
+                'Free_cfdi': MockFree_cfdi,
+                'C_school_level': MockC_school_level
             };
             createController = function() {
                 $injector.get('$controller')("Freecom_educational_institutionsDetailController", locals);

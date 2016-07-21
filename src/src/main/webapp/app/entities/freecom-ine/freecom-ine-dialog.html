@@ -41,18 +41,6 @@
         </div>
 
         <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_ine.committee" for="field_committee">committee</label>
-            <select class="form-control" id="field_committee" name="committee" ng-model="vm.freecom_ine.committee" ng-options="committee as committee.name for committee in vm.committees track by committee.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_ine.process_type" for="field_process_type">process_type</label>
-            <select class="form-control" id="field_process_type" name="process_type" ng-model="vm.freecom_ine.process_type" ng-options="process_type as process_type.name for process_type in vm.process_types track by process_type.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
             <label translate="megabillingplatformApp.freecom_ine.free_cfdi" for="field_free_cfdi">free_cfdi</label>
             <select class="form-control" id="field_free_cfdi" name="free_cfdi" ng-model="vm.freecom_ine.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.free_cfdis | orderBy:'id' track by free_cfdi.id">
                 <option value=""></option>

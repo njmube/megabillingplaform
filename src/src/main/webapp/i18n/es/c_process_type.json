@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "c_process_type" : {
+            "home": {
+                "title": "C_process_types",
+                "createLabel": "Crear nuevo C_process_type",
+                "createOrEditLabel": "Crear o editar C_process_type",
+                "search": "Search for C_process_type"
+            },
+            "created": "Un nuevo C_process_type ha sido creado con el identificador {{ param }}",
+            "updated": "Un C_process_type ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C_process_type ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar C_process_type {{ id }}?"
+            },
+            "detail": {
+                "title": "C_process_type"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

@@ -1,18 +1,6 @@
 {
     "relationships": [
         {
-            "relationshipName": "committee",
-            "otherEntityName": "committee",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "name"
-        },
-        {
-            "relationshipName": "process_type",
-            "otherEntityName": "process_type",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "name"
-        },
-        {
             "relationshipName": "free_cfdi",
             "otherEntityName": "free_cfdi",
             "relationshipType": "one-to-one",

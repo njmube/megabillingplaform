@@ -16,10 +16,9 @@
             "detail": {
                 "title": "Entity_cfdi"
             },
-            "accounting": "Accounting",
             "key_entity": "Key_entity",
-            "scope": "Scope",
-            "freecom_ine": "Freecom_ine"
+            "freecom_ine": "Freecom_ine",
+            "c_scope_type": "C_scope_type"
         }
     }
 }

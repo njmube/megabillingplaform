@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * A Entity_cfdi.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "entity_cfdi")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Entity_cfdi implements Serializable {
@@ -22,16 +22,13 @@ public class Entity_cfdi implements Serializable {
     private Long id;
 
     @ManyToOne
-    private Accounting accounting;
-
-    @ManyToOne
     private Key_entity key_entity;
 
     @ManyToOne
-    private Scope scope;
+    private Freecom_ine freecom_ine;
 
     @ManyToOne
-    private Freecom_ine freecom_ine;
+    private C_scope_type c_scope_type;
 
     public Long getId() {
         return id;
@@ -39,14 +36,6 @@ public class Entity_cfdi implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Accounting getAccounting() {
-        return accounting;
-    }
-
-    public void setAccounting(Accounting accounting) {
-        this.accounting = accounting;
     }
 
     public Key_entity getKey_entity() {
@@ -57,20 +46,20 @@ public class Entity_cfdi implements Serializable {
         this.key_entity = key_entity;
     }
 
-    public Scope getScope() {
-        return scope;
-    }
-
-    public void setScope(Scope scope) {
-        this.scope = scope;
-    }
-
     public Freecom_ine getFreecom_ine() {
         return freecom_ine;
     }
 
     public void setFreecom_ine(Freecom_ine freecom_ine) {
         this.freecom_ine = freecom_ine;
+    }
+
+    public C_scope_type getC_scope_type() {
+        return c_scope_type;
+    }
+
+    public void setC_scope_type(C_scope_type c_scope_type) {
+        this.c_scope_type = c_scope_type;
     }
 
     @Override

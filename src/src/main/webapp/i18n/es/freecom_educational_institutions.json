@@ -17,12 +17,12 @@
                 "title": "Freecom_educational_institutions"
             },
             "version": "Version",
-            "name_student": "Nombre Alumno (*)",
-            "curp": "CURP (*)",
+            "name_student": "Name_student",
+            "curp": "Curp",
             "autrvoe": "Autrvoe",
-            "rfcpayment": "RFC Pago (*)",
-            "school_level": "Nivel Educativo (*)",
-            "free_cfdi": "Free_cfdi"
+            "rfcpayment": "Rfcpayment",
+            "free_cfdi": "Free_cfdi",
+            "c_school_level": "C_school_level"
         }
     }
 }

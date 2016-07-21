@@ -21,36 +21,29 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="accounting_id" type="bigint"/>
             <column name="key_entity_id" type="bigint"/>
-            <column name="scope_id" type="bigint"/>
             <column name="freecom_ine_id" type="bigint"/>
+            <column name="c_scope_type_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
-        <addForeignKeyConstraint baseColumnNames="accounting_id"
-                                 baseTableName="entity_cfdi"
-                                 constraintName="fk_entity_cfdi_accounting_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="accounting"/>
-
         <addForeignKeyConstraint baseColumnNames="key_entity_id"
                                  baseTableName="entity_cfdi"
                                  constraintName="fk_entity_cfdi_key_entity_id"
                                  referencedColumnNames="id"
                                  referencedTableName="key_entity"/>
 
-        <addForeignKeyConstraint baseColumnNames="scope_id"
-                                 baseTableName="entity_cfdi"
-                                 constraintName="fk_entity_cfdi_scope_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="scope"/>
-
         <addForeignKeyConstraint baseColumnNames="freecom_ine_id"
                                  baseTableName="entity_cfdi"
                                  constraintName="fk_entity_cfdi_freecom_ine_id"
                                  referencedColumnNames="id"
                                  referencedTableName="freecom_ine"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_scope_type_id"
+                                 baseTableName="entity_cfdi"
+                                 constraintName="fk_entity_cfdi_c_scope_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_scope_type"/>
 
     </changeSet>
 </databaseChangeLog>

@@ -1,8 +1,8 @@
-id;code
-1;01
-2;02
-3;03
-4;04
-5;05
-6;06
-7;07
+id;code;name
+1;1;Firmadas
+2;2;Fechadas
+3;3;Enmarcadas
+4;4;Armelladas
+5;5;Alambrados
+6;6;Número de serie
+7;7;Dos o más de las características anteriores

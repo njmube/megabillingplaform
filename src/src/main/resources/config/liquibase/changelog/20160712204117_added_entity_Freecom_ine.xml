@@ -29,26 +29,12 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="committee_id" type="bigint"/>
-            <column name="process_type_id" type="bigint"/>
             <column name="free_cfdi_id" type="bigint">
                 <constraints unique="true"/>
             </column>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
-        <addForeignKeyConstraint baseColumnNames="committee_id"
-                                 baseTableName="freecom_ine"
-                                 constraintName="fk_freecom_ine_committee_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="committee"/>
-
-        <addForeignKeyConstraint baseColumnNames="process_type_id"
-                                 baseTableName="freecom_ine"
-                                 constraintName="fk_freecom_ine_process_type_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="process_type"/>
-
         <addForeignKeyConstraint baseColumnNames="free_cfdi_id"
                                  baseTableName="freecom_ine"
                                  constraintName="fk_freecom_ine_free_cfdi_id"

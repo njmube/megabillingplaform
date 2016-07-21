@@ -69,14 +69,14 @@
         </div>
 
         <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_educational_institutions.school_level" for="field_school_level">school_level</label>
-            <select class="form-control" id="field_school_level" name="school_level" ng-model="vm.freecom_educational_institutions.school_level" ng-options="school_level as school_level.name for school_level in vm.school_levels track by school_level.id">
+            <label translate="megabillingplatformApp.freecom_educational_institutions.free_cfdi" for="field_free_cfdi">free_cfdi</label>
+            <select class="form-control" id="field_free_cfdi" name="free_cfdi" ng-model="vm.freecom_educational_institutions.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.free_cfdis | orderBy:'id' track by free_cfdi.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_educational_institutions.free_cfdi" for="field_free_cfdi">free_cfdi</label>
-            <select class="form-control" id="field_free_cfdi" name="free_cfdi" ng-model="vm.freecom_educational_institutions.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.free_cfdis | orderBy:'id' track by free_cfdi.id">
+            <label translate="megabillingplatformApp.freecom_educational_institutions.c_school_level" for="field_c_school_level">c_school_level</label>
+            <select class="form-control" id="field_c_school_level" name="c_school_level" ng-model="vm.freecom_educational_institutions.c_school_level" ng-options="c_school_level as c_school_level.name for c_school_level in vm.c_school_levels track by c_school_level.id">
                 <option value=""></option>
             </select>
         </div>

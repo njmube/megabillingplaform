@@ -1,5 +1,5 @@
-id;code
-1;01
-2;02
-3;03
-4;04
+id;code;name
+1;1;Pincturas
+2;2;Grabados
+3;3;Esculturas
+4;4;Otros

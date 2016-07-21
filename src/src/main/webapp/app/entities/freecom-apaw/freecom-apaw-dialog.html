@@ -71,26 +71,26 @@
         </div>
 
         <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_apaw.well_type" for="field_well_type">well_type</label>
-            <select class="form-control" id="field_well_type" name="well_type" ng-model="vm.freecom_apaw.well_type" ng-options="well_type as well_type.code for well_type in vm.well_types track by well_type.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_apaw.acquired_title" for="field_acquired_title">acquired_title</label>
-            <select class="form-control" id="field_acquired_title" name="acquired_title" ng-model="vm.freecom_apaw.acquired_title" ng-options="acquired_title as acquired_title.code for acquired_title in vm.acquired_titles track by acquired_title.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_apaw.features_work_piece" for="field_features_work_piece">features_work_piece</label>
-            <select class="form-control" id="field_features_work_piece" name="features_work_piece" ng-model="vm.freecom_apaw.features_work_piece" ng-options="features_work_piece as features_work_piece.code for features_work_piece in vm.features_work_pieces track by features_work_piece.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
             <label translate="megabillingplatformApp.freecom_apaw.free_cfdi" for="field_free_cfdi">free_cfdi</label>
             <select class="form-control" id="field_free_cfdi" name="free_cfdi" ng-model="vm.freecom_apaw.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.free_cfdis | orderBy:'id' track by free_cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_apaw.c_well_type" for="field_c_well_type">c_well_type</label>
+            <select class="form-control" id="field_c_well_type" name="c_well_type" ng-model="vm.freecom_apaw.c_well_type" ng-options="c_well_type as c_well_type.code for c_well_type in vm.c_well_types track by c_well_type.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_apaw.c_acquired_title" for="field_c_acquired_title">c_acquired_title</label>
+            <select class="form-control" id="field_c_acquired_title" name="c_acquired_title" ng-model="vm.freecom_apaw.c_acquired_title" ng-options="c_acquired_title as c_acquired_title.code for c_acquired_title in vm.c_acquired_titles track by c_acquired_title.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_apaw.c_features_work_piece" for="field_c_features_work_piece">c_features_work_piece</label>
+            <select class="form-control" id="field_c_features_work_piece" name="c_features_work_piece" ng-model="vm.freecom_apaw.c_features_work_piece" ng-options="c_features_work_piece as c_features_work_piece.code for c_features_work_piece in vm.c_features_work_pieces track by c_features_work_piece.id">
                 <option value=""></option>
             </select>
         </div>

@@ -5,13 +5,11 @@
         .module('megabillingplatformApp')
         .controller('Freecom_ineDialogController', Freecom_ineDialogController);
 
-    Freecom_ineDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Freecom_ine', 'Committee', 'Process_type', 'Free_cfdi'];
+    Freecom_ineDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Freecom_ine', 'Free_cfdi'];
 
-    function Freecom_ineDialogController ($scope, $stateParams, $uibModalInstance, $q, entity, Freecom_ine, Committee, Process_type, Free_cfdi) {
+    function Freecom_ineDialogController ($scope, $stateParams, $uibModalInstance, $q, entity, Freecom_ine, Free_cfdi) {
         var vm = this;
         vm.freecom_ine = entity;
-        vm.committees = Committee.query();
-        vm.process_types = Process_type.query();
         vm.free_cfdis = Free_cfdi.query({filter: 'freecom_ine-is-null'});
         $q.all([vm.freecom_ine.$promise, vm.free_cfdis.$promise]).then(function() {
             if (!vm.freecom_ine.free_cfdi || !vm.freecom_ine.free_cfdi.id) {

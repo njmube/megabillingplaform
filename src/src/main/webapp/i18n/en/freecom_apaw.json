@@ -17,15 +17,15 @@
                 "title": "Freecom_apaw"
             },
             "version": "Version",
-            "others_well_type": "Others Well Type",
-            "others_acquired_title": "Others Acquired Titles",
+            "others_well_type": "Others_well_type",
+            "others_acquired_title": "Others_acquired_title",
             "subtotal": "Subtotal",
-            "iva": "IVA",
-            "date_acquisition": "Acquisition Date (*)",
-            "well_type": "Well Type (*)",
-            "acquired_title": "Acquired Title",
-            "features_work_piece": "Work Features (*)",
-            "free_cfdi": "Free_cfdi"
+            "iva": "Iva",
+            "date_acquisition": "Date_acquisition",
+            "free_cfdi": "Free_cfdi",
+            "c_well_type": "C_well_type",
+            "c_acquired_title": "C_acquired_title",
+            "c_features_work_piece": "C_features_work_piece"
         }
     }
 }

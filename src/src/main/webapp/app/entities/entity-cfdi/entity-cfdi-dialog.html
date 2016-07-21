@@ -15,26 +15,20 @@
         </div>
 
         <div class="form-group">
-            <label translate="megabillingplatformApp.entity_cfdi.accounting" for="field_accounting">accounting</label>
-            <select class="form-control" id="field_accounting" name="accounting" ng-model="vm.entity_cfdi.accounting" ng-options="accounting as accounting.keyaccounting for accounting in vm.accountings track by accounting.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
             <label translate="megabillingplatformApp.entity_cfdi.key_entity" for="field_key_entity">key_entity</label>
             <select class="form-control" id="field_key_entity" name="key_entity" ng-model="vm.entity_cfdi.key_entity" ng-options="key_entity as key_entity.key for key_entity in vm.key_entitys track by key_entity.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.entity_cfdi.scope" for="field_scope">scope</label>
-            <select class="form-control" id="field_scope" name="scope" ng-model="vm.entity_cfdi.scope" ng-options="scope as scope.name for scope in vm.scopes track by scope.id">
+            <label translate="megabillingplatformApp.entity_cfdi.freecom_ine" for="field_freecom_ine">freecom_ine</label>
+            <select class="form-control" id="field_freecom_ine" name="freecom_ine" ng-model="vm.entity_cfdi.freecom_ine" ng-options="freecom_ine as freecom_ine.version for freecom_ine in vm.freecom_ines track by freecom_ine.id">
                 <option value=""></option>
             </select>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.entity_cfdi.freecom_ine" for="field_freecom_ine">freecom_ine</label>
-            <select class="form-control" id="field_freecom_ine" name="freecom_ine" ng-model="vm.entity_cfdi.freecom_ine" ng-options="freecom_ine as freecom_ine.version for freecom_ine in vm.freecom_ines track by freecom_ine.id">
+            <label translate="megabillingplatformApp.entity_cfdi.c_scope_type" for="field_c_scope_type">c_scope_type</label>
+            <select class="form-control" id="field_c_scope_type" name="c_scope_type" ng-model="vm.entity_cfdi.c_scope_type" ng-options="c_scope_type as c_scope_type.name for c_scope_type in vm.c_scope_types track by c_scope_type.id">
                 <option value=""></option>
             </select>
         </div>

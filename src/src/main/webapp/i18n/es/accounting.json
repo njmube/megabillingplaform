@@ -16,7 +16,8 @@
             "detail": {
                 "title": "Accounting"
             },
-            "keyaccounting": "Keyaccounting"
+            "keyaccounting": "Keyaccounting",
+            "entity_cfdi": "Entity_cfdi"
         }
     }
 }

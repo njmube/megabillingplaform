@@ -20,6 +20,7 @@
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="keyaccounting"><span translate="megabillingplatformApp.accounting.keyaccounting">Keyaccounting</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="entity_cfdi.id"><span translate="megabillingplatformApp.accounting.entity_cfdi">entity_cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -27,6 +28,9 @@
                 <tr ng-repeat="accounting in vm.accountings track by accounting.id">
                     <td><a ui-sref="accounting-detail({id:accounting.id})">{{accounting.id}}</a></td>
                     <td>{{accounting.keyaccounting}}</td>
+                    <td>
+                        <a ui-sref="entity-cfdi-detail({id:accounting.entity_cfdi.id})">{{accounting.entity_cfdi.id}}</a>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

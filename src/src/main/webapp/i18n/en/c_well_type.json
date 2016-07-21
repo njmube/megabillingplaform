@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "c_well_type" : {
+            "home": {
+                "title": "C_well_types",
+                "createLabel": "Create a new C_well_type",
+                "createOrEditLabel": "Create or edit a C_well_type",
+                "search": "Search for C_well_type"
+            },
+            "created": "A new C_well_type is created with identifier {{ param }}",
+            "updated": "A C_well_type is updated with identifier {{ param }}",
+            "deleted": "A C_well_type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete C_well_type {{ id }}?"
+            },
+            "detail": {
+                "title": "C_well_type"
+            },
+            "code": "Code",
+            "name": "Name"
+        }
+    }
+}

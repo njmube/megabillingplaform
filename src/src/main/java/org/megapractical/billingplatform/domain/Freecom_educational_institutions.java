@@ -11,7 +11,7 @@ import java.util.Objects;
 /**
  * A Freecom_educational_institutions.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "freecom_educational_institutions")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Freecom_educational_institutions implements Serializable {
@@ -41,12 +41,12 @@ public class Freecom_educational_institutions implements Serializable {
     @Column(name = "rfcpayment")
     private String rfcpayment;
 
-    @ManyToOne
-    private School_level school_level;
-
     @OneToOne
     @JoinColumn(unique = true)
     private Free_cfdi free_cfdi;
+
+    @ManyToOne
+    private C_school_level c_school_level;
 
     public Long getId() {
         return id;
@@ -96,20 +96,20 @@ public class Freecom_educational_institutions implements Serializable {
         this.rfcpayment = rfcpayment;
     }
 
-    public School_level getSchool_level() {
-        return school_level;
-    }
-
-    public void setSchool_level(School_level school_level) {
-        this.school_level = school_level;
-    }
-
     public Free_cfdi getFree_cfdi() {
         return free_cfdi;
     }
 
     public void setFree_cfdi(Free_cfdi free_cfdi) {
         this.free_cfdi = free_cfdi;
+    }
+
+    public C_school_level getC_school_level() {
+        return c_school_level;
+    }
+
+    public void setC_school_level(C_school_level c_school_level) {
+        this.c_school_level = c_school_level;
     }
 
     @Override
