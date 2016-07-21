@@ -132,6 +132,8 @@
             });
         }
 
+
+
         var onSaveError = function () {
             vm.isSaving = false;
         };
@@ -647,6 +649,20 @@
 				vm.free_cfdi.change_type = (1).toFixed(2);
 			}
 		};
+
+        vm.onChangeCFDITypeDoc = function(){
+            if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id >= 1 && vm.free_cfdi.cfdi_type_doc.id <= 7){
+                vm.free_cfdi.cfdi_types = vm.cfdi_typess[0];
+            }
+            else if(vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 8 || vm.free_cfdi.cfdi_type_doc.id == 9)){
+                vm.free_cfdi.cfdi_types = vm.cfdi_typess[1];
+            }
+            else if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 10 ){
+                vm.free_cfdi.cfdi_types = vm.cfdi_typess[2];
+            }
+
+            vm.updateCFDITotals();
+        };
 
         //Complements
         vm.complements = [

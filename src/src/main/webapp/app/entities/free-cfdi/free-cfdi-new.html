@@ -457,7 +457,7 @@
 							<div class="form-group">
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.cfdi_type_doc" for="field_cfdi_type_doc">cfdi_type_doc</label>
 								<div class="col-sm-8">
-									<select class="form-control" id="field_cfdi_type_doc" name="cfdi_type_doc" ng-model="vm.free_cfdi.cfdi_type_doc" ng-options="cfdi_type_doc as cfdi_type_doc.name for cfdi_type_doc in vm.cfdi_type_docs track by cfdi_type_doc.id" data-ng-change="vm.updateCFDITotals()">
+									<select class="form-control" id="field_cfdi_type_doc" name="cfdi_type_doc" ng-model="vm.free_cfdi.cfdi_type_doc" ng-options="cfdi_type_doc as cfdi_type_doc.name for cfdi_type_doc in vm.cfdi_type_docs track by cfdi_type_doc.id" data-ng-change="vm.onChangeCFDITypeDoc()">
 										<option value=""></option>
 									</select>
 								</div>
@@ -465,9 +465,9 @@
 							<div class="form-group">
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.cfdi_types" for="field_cfdi_types">cfdi_types</label>
 								<div class="col-sm-8">
-									<select class="form-control" id="field_cfdi_types" name="cfdi_types" ng-model="vm.free_cfdi.cfdi_types" ng-options="cfdi_types as cfdi_types.name for cfdi_types in vm.cfdi_typess track by cfdi_types.id">
-										<option value=""></option>
-									</select>
+                                    <input type="text" class="form-control" id="field_cfdi_types" name="cfdi_types" ng-model="vm.free_cfdi.cfdi_types.name"
+                                           readonly />
+
 								</div>
 							</div>
 							<div class="form-group">
