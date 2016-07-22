@@ -6,13 +6,14 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
 /**
  * A Free_emitter.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "free_emitter")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Free_emitter implements Serializable {
@@ -36,15 +37,17 @@ public class Free_emitter implements Serializable {
     @Column(name = "street", nullable = false)
     private String street;
 
+    @NotNull
     @Column(name = "create_date", nullable = false)
     private ZonedDateTime create_date;
 
+    @NotNull
     @Column(name = "activated", nullable = false)
     private Boolean activated;
 
     @NotNull
     @Size(min = 12, max = 13)
-    @Pattern(regexp = "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?$")
+    @Pattern(regexp = "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$")
     @Column(name = "rfc", length = 13, nullable = false)
     private String rfc;
 
@@ -77,10 +80,10 @@ public class Free_emitter implements Serializable {
     @Column(name = "phone_2")
     private String phone2;
 
-    @Column(name = "path_certificate", nullable = false)
+    @Column(name = "path_certificate")
     private String path_certificate;
 
-    @Column(name = "path_key", nullable = false)
+    @Column(name = "path_key")
     private String path_key;
 
     @Column(name = "path_logo")
@@ -90,26 +93,35 @@ public class Free_emitter implements Serializable {
     @Column(name = "filecertificate")
     private byte[] filecertificate;
 
-    @Column(name = "filecertificate_content_type")
+    @Column(name = "filecertificate_content_type")    
     private String filecertificateContentType;
 
     @Lob
     @Column(name = "filekey")
     private byte[] filekey;
 
-    @Column(name = "filekey_content_type")
+    @Column(name = "filekey_content_type")    
     private String filekeyContentType;
 
     @Lob
     @Column(name = "filelogo")
     private byte[] filelogo;
 
-    @Column(name = "filelogo_content_type")
+    @Column(name = "filelogo_content_type")    
     private String filelogoContentType;
 
     @NotNull
     @Column(name = "accuracy", nullable = false)
     private Integer accuracy;
+
+    @Column(name = "valid_certificate")
+    private Boolean valid_certificate;
+
+    @Column(name = "info_certificate")
+    private String info_certificate;
+
+    @Column(name = "date_certificate")
+    private LocalDate date_certificate;
 
     @ManyToOne
     private Tax_regime tax_regime;
@@ -336,6 +348,30 @@ public class Free_emitter implements Serializable {
         this.accuracy = accuracy;
     }
 
+    public Boolean isValid_certificate() {
+        return valid_certificate;
+    }
+
+    public void setValid_certificate(Boolean valid_certificate) {
+        this.valid_certificate = valid_certificate;
+    }
+
+    public String getInfo_certificate() {
+        return info_certificate;
+    }
+
+    public void setInfo_certificate(String info_certificate) {
+        this.info_certificate = info_certificate;
+    }
+
+    public LocalDate getDate_certificate() {
+        return date_certificate;
+    }
+
+    public void setDate_certificate(LocalDate date_certificate) {
+        this.date_certificate = date_certificate;
+    }
+
     public Tax_regime getTax_regime() {
         return tax_regime;
     }
@@ -448,6 +484,9 @@ public class Free_emitter implements Serializable {
             ", filelogo='" + filelogo + "'" +
             ", filelogoContentType='" + filelogoContentType + "'" +
             ", accuracy='" + accuracy + "'" +
+            ", valid_certificate='" + valid_certificate + "'" +
+            ", info_certificate='" + info_certificate + "'" +
+            ", date_certificate='" + date_certificate + "'" +
             '}';
     }
 }

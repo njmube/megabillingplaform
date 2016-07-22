@@ -24,96 +24,108 @@
             <column name="reference" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="num_int" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="num_ext" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="street" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="create_date" type="timestamp">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="activated" type="bit">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="rfc" type="varchar(13)">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="email" type="varchar(254)">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="bussines_name" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="location" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="intersection" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="fax" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="phone_1" type="varchar(15)">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="phone_2" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="path_certificate" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="path_key" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="path_logo" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="filecertificate" type="blob">
                 <constraints nullable="true" />
             </column>
             <column name="filecertificate_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="filekey" type="blob">
                 <constraints nullable="true" />
             </column>
             <column name="filekey_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="filelogo" type="blob">
                 <constraints nullable="true" />
             </column>
             <column name="filelogo_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="accuracy" type="integer">
                 <constraints nullable="false" />
             </column>
-
+            
+            <column name="valid_certificate" type="bit">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="info_certificate" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="date_certificate" type="date">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="tax_regime_id" type="bigint"/>
             <column name="c_country_id" type="bigint"/>
             <column name="c_state_id" type="bigint"/>
@@ -127,7 +139,7 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="free_emitter" columnName="create_date" columnDataType="datetime"/>
-
+        
         <addForeignKeyConstraint baseColumnNames="tax_regime_id"
                                  baseTableName="free_emitter"
                                  constraintName="fk_free_emitter_tax_regime_id"

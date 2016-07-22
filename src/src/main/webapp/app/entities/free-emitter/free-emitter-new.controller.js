@@ -22,6 +22,10 @@
         vm.meskey = null;
         vm.messlogo = null;
         vm.edit = null;
+        vm.rfccertificate = "RFC";
+        vm.razon = "Razon Social";
+        vm.datecertificate = "Fecha";
+        vm.days = "Dias";
 
         vm.onChangeC_country = onChangeC_country;
         vm.onChangeC_state = onChangeC_state;

@@ -283,48 +283,34 @@
                         <span ng-show="vm.messkey" translate="megabillingplatformApp.free_emitter.messkey">.key file extention is required and file size <= 10 Mb</span>
                     </div>
 
-                    <div class="space-6"></div>
-
-                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelLogo">
-                        Logo
-                    </h3>
-                    <div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.free_emitter)" ngf-
-                         pattern="'image/*'">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-default pull-right" ng-click=""
+                                ng-if="vm.free_emitter.filekey && vm.free_emitter.filecertificate">
+                            <span translate="megabillingplatformApp.free_emitter.validate">Validate</span>
+                        </button>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right"
-                               translate="megabillingplatformApp.free_emitter.path_logo"
-                               for="field_logo">Logo</label>
+                               translate="megabillingplatformApp.free_emitter.certificateinfo">
+                            Certificate information
+                        </label>
                         <div class="col-sm-8">
-                            <img data-ng-src="{{'data:' + vm.free_emitter.filelogoContentType + ';base64,' + vm.free_emitter.filelogo}}" style="max-height: 100px;" ng-if="vm.free_emitter.filelogo"/>
-                            <br>
-                            <div class="help-block clearfix">
-                                <span class="pull-left">{{vm.free_emitter.filelogoContentType}}, {{byteSize(vm.free_emitter.filelogo)}}  &nbsp;&nbsp;</span>
-                                <button ng-click="vm.free_emitter.filelogo=null;vm.free_emitter.filelogoContentType=null;"
-                                        ng-if="vm.free_emitter.filelogo">
-                                    <a class="remove">
-                                        <i class="glyphicon glyphicon-trash"></i>
-                                    </a>
-                                </button>
+                            <div class="form-group">
+                                <span>{{vm.rfccertificate}}</span>
                             </div>
-                            <div>
-                                <label class="ace-file-input">
-                                    <input type="file" id="id-input-file-4" accept="image/*" ngf-select ngf-change="vm.setLogo($file, vm.free_emitter)">
-                                        <span class="ace-file-container" data-title="Buscar">
-                                            <span class="ace-file-name" data-title="...">
-                                                <i class=" ace-icon fa fa-upload"></i>
-                                            </span>
-                                        </span>
-                                </label>
+                            <div class="form-group">
+                                <span>{{vm.razon}}</span>
                             </div>
-                        </div>
-                            <input type="hidden" class="form-control" name="logo" id="field_logo"
-                               ng-model="vm.free_emitter.filelogo"/>
-                            <input type="hidden" class="form-control" name="logoContentType"
-                               id="field_logoContentType"
-                               ng-model="vm.free_emitter.filelogoContentType" />
-                        <span ng-show="vm.messlogo" translate="megabillingplatformApp.free_emitter.messlogo">.png or .jpg file extention is required and file size <= 10 Mb</span>
-
+                            <div class="form-group">
+                                <span>{{vm.datecertificate}}</span>
+                            </div>
+                            <div class="form-group">
+                                <span>{{vm.days}}</span>
+                            </div>
                         </div>
                     </div>
+                </div>
+
                 <div class="col-md-6">
                     <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelFU">
                         Ubicación Fiscal
@@ -478,6 +464,48 @@
                             <textarea type="text" id="field_reference1" class="form-control" rows="5"
                                       ng-model="vm.free_emitter.reference" ng-show = "vm.edit == null" readonly></textarea>
                         </div>
+
+                    </div>
+
+                    <div class="space-6"></div>
+
+                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelLogo">
+                        Logo
+                    </h3>
+                    <div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.free_emitter)" ngf-
+                         pattern="'image/*'">
+                        <label class="col-sm-4 control-label no-padding-right"
+                               translate="megabillingplatformApp.free_emitter.path_logo"
+                               for="field_logo">Logo</label>
+                        <div class="col-sm-8">
+                            <img data-ng-src="{{'data:' + vm.free_emitter.filelogoContentType + ';base64,' + vm.free_emitter.filelogo}}" style="max-height: 100px;" ng-if="vm.free_emitter.filelogo"/>
+                            <br>
+                            <div class="help-block clearfix">
+                                <span class="pull-left">{{vm.free_emitter.filelogoContentType}}, {{byteSize(vm.free_emitter.filelogo)}}  &nbsp;&nbsp;</span>
+                                <button ng-click="vm.free_emitter.filelogo=null;vm.free_emitter.filelogoContentType=null;"
+                                        ng-if="vm.free_emitter.filelogo">
+                                    <a class="remove">
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                    </a>
+                                </button>
+                            </div>
+                            <div>
+                                <label class="ace-file-input">
+                                    <input type="file" id="id-input-file-4" accept="image/*" ngf-select ngf-change="vm.setLogo($file, vm.free_emitter)">
+                                        <span class="ace-file-container" data-title="Buscar">
+                                            <span class="ace-file-name" data-title="...">
+                                                <i class=" ace-icon fa fa-upload"></i>
+                                            </span>
+                                        </span>
+                                </label>
+                            </div>
+                        </div>
+                        <input type="hidden" class="form-control" name="logo" id="field_logo"
+                               ng-model="vm.free_emitter.filelogo"/>
+                        <input type="hidden" class="form-control" name="logoContentType"
+                               id="field_logoContentType"
+                               ng-model="vm.free_emitter.filelogoContentType" />
+                        <span ng-show="vm.messlogo" translate="megabillingplatformApp.free_emitter.messlogo">.png or .jpg file extention is required and file size <= 10 Mb</span>
 
                     </div>
 

@@ -78,7 +78,9 @@
             "user": "User",
             "addblobCertificate": "Buscar",
             "addblobKey": "Buscar",
-            "addblobLogo": "Buscar"
+            "addblobLogo": "Buscar",
+            "validate":"Validate",
+            "certificateinfo":"Certificate information"
         }
     }
 }
