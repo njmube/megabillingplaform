@@ -74,6 +74,7 @@ public class Free_emitterResource {
         }
 
         free_emitter.setActivated(true);
+        free_emitter.setValid_certificate(true);
         free_emitter.setCreate_date(ZonedDateTime.now());
 
         String login = SecurityUtils.getCurrentUserLogin();
