@@ -191,7 +191,8 @@
             "save": "Save",
             "view": "View",
             "search": "Search",
-            "ok": "OK"
+            "ok": "OK",
+            "accept":"Accept"
         },
         "detail": {
             "field": "Field",

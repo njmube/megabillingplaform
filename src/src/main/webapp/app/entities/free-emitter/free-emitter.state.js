@@ -76,42 +76,30 @@
 				}]
 			}
 		})
-        /*.state('free-emitter.new', {
-            parent: 'free-emitter',
-            url: '/new',
+        .state('passCertificate', {
+            parent: 'free-emitter.new',
+            url: '/passCertificate',
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/free-emitter/free-emitter-dialog.html',
-                    controller: 'Free_emitterDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                reference: null,
-                                num_int: null,
-                                num_ext: null,
-                                street: null,
-                                create_date: null,
-                                activated: false,
-                                rfc: null,
-                                social_reason: null,
-                                email: null,
-                                id: null
-                            };
-                        }
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/free-emitter/free-emitter-new.html',
+                        controller: 'Free_emitterNewController',
+                        controllerAs: 'vm'
                     }
-                }).result.then(function() {
-                    $state.go('free-emitter', null, { reload: true });
-                }, function() {
-                    $state.go('free-emitter');
-                });
-            }]
-        })*/
+                },
+                resolve: {
+                    entity: ['Free_emitter', function(Free_emitter) {
+                        return Free_emitter.get({id : 0});
+                    }],
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('free_emitter');
+                        $translatePartialLoader.addPart('global');
+                        return $translate.refresh();
+                    }]
+                }
+        })
         .state('free-emitter.edit', {
             parent: 'free-emitter',
             url: '/{id}/edit',

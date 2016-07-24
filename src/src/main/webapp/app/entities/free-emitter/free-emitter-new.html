@@ -283,30 +283,23 @@
                         <span ng-show="vm.messkey" translate="megabillingplatformApp.free_emitter.messkey">.key file extention is required and file size <= 10 Mb</span>
                     </div>
 
-                    <div class="form-group">
-                        <button type="button" class="btn btn-default pull-right" ng-click=""
-                                ng-if="vm.free_emitter.filekey && vm.free_emitter.filecertificate">
-                            <span translate="megabillingplatformApp.free_emitter.validate">Validate</span>
+                    <div class="form-group" ng-if="vm.free_emitter.filekey && vm.free_emitter.filecertificate">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.pass" for="pass">Password</label>
+                        <div class="col-sm-4">
+                            <input type="password" class="form-control" name="pass" id="pass" ng-model="vm.free_emitter.pass_certificate">
+                        </div>
+                        <button type="button" ng-click = "vm.onValidate()" class="btn btn-primary pull-right" style="margin: 0 15px">
+                            <span translate="megabillingplatformApp.free_emitter.validate">Validate </span>
                         </button>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right"
+                        <label class="col-sm-4 control-label no-padding-right" for="field_info"
                                translate="megabillingplatformApp.free_emitter.certificateinfo">
                             Certificate information
                         </label>
                         <div class="col-sm-8">
-                            <div class="form-group">
-                                <span>{{vm.rfccertificate}}</span>
-                            </div>
-                            <div class="form-group">
-                                <span>{{vm.razon}}</span>
-                            </div>
-                            <div class="form-group">
-                                <span>{{vm.datecertificate}}</span>
-                            </div>
-                            <div class="form-group">
-                                <span>{{vm.days}}</span>
-                            </div>
+                            <textarea type="text" id="field_info" class="form-control" rows="3"
+                                      ng-model="vm.free_emitter.info_certificate" readonly></textarea>
                         </div>
                     </div>
                 </div>
@@ -455,7 +448,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" for="field_reference" translate="megabillingplatformApp.free_emitter.reference" for="field_reference">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.reference" for="field_reference">
                             Reference
                         </label>
                         <div class="col-sm-8">

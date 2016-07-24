@@ -17,6 +17,7 @@
         vm.user = entity;
         vm.doNotMatch = null;
         vm.onChangeUser = onChangeUser;
+        var cont = 1;
 
 
         JhiLanguageService.getAll().then(function (languages) {
@@ -32,8 +33,21 @@
             $uibModalInstance.close(result);
         }
 
-        function onSaveError () {
+        function onSaveError (response) {
             vm.isSaving = false;
+            if (response.status === 400 && response.data === 'login already in use') {
+                vm.errorUserExists = 'ERROR';
+                if(cont < 10)
+                {
+                    vm.user.login = vm.user.name.substring(0,1)+ vm.user.firtsurname+ "0"+cont;
+                    cont++;
+                }
+                else
+                {
+                    vm.user.login += cont;
+                    cont++;
+                }
+            }
         }
 
         function onChangeUser(){
@@ -42,7 +56,6 @@
                 if(vm.user.firtsurname != null)
                     vm.user.login += vm.user.firtsurname.toLowerCase();
             }
-
         }
 
         function save () {

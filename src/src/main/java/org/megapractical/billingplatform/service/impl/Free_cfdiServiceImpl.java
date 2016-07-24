@@ -206,6 +206,7 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
         return new PageImpl<Free_cfdi>(result, pageable, result.size());
     }
 
+
     public Page<Free_cfdi> findCustom(Integer idFree_cfdi, String folio_fiscal, String rfc_receiver,
                                LocalDate fromDate,LocalDate toDate,Integer idState,String serie,String folio,Free_emitter free_emitter,
                                Pageable pageable){

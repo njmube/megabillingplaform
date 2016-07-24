@@ -5,6 +5,7 @@ import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.domain.Free_emitter;
 import org.megapractical.billingplatform.repository.Free_emitterRepository;
+import org.megapractical.utils.jutils.UCertificate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -17,6 +18,10 @@ import sun.nio.ch.IOUtil;
 
 import javax.inject.Inject;
 import java.io.*;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -85,6 +90,17 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         return free_emitterRepository.findOneByRfc(rfc);
     }
 
+    public String[] validateCertificate(byte[] cert, byte[]key, String pass){
+        String[] response = new String[2];
+        response[0] = "3";
+        response[1] = "Error validation";
+        try{
+            return UCertificate.validate(cert, key, pass);
+        }catch (Exception ex){
+            return response;
+        }
+    }
+
     /**
      *  Get all the free_emitters.
      *
@@ -96,6 +112,18 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         log.debug("Request to get all Free_emitters");
         Page<Free_emitter> result = free_emitterRepository.findAll(pageable);
         return result;
+    }
+
+    private LocalDate convertDate(Date date){
+        String datestring = date.toString();
+        String [] cadenas = datestring.split(" ");
+        if(cadenas.length == 6){
+            int year = Integer.parseInt(cadenas[5]);
+            int day = Integer.parseInt(cadenas[2]);
+            //DateTimeFormatter format = DateT
+        }else
+            return LocalDate.MIN;
+        return LocalDate.now();
     }
 
     public Free_emitter saveFile(Free_emitter free_emitter){
@@ -167,36 +195,51 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                 actualizaCer = false;
         }
         if(free_emitter.getFilecertificateContentType() != null && actualizaCer){
-            log.debug("Certificado no null");
             try{
                 log.debug("Directorio base de file: {}",rootdirectoryCerFile);
 
-                    OutputStream outputStream = null;
-                    File newFile = new File(directoriocerfile + free_emitter.getPath_certificate());
-                    free_emitter.setPath_certificate(directoriocerfile + free_emitter.getPath_certificate());
-                    if (!newFile.exists()) {
+                OutputStream outputStream = null;
+                File newFile = new File(directoriocerfile + free_emitter.getPath_certificate());
+                free_emitter.setPath_certificate(directoriocerfile + free_emitter.getPath_certificate());
+                if (!newFile.exists()) {
                         newFile.createNewFile();
-                    } else {
-                        if (newFile.delete()) {
-                            File otherfile = new File(directoriocerfile + free_emitter.getPath_certificate());
-                            otherfile.createNewFile();
-                            newFile = otherfile;
-                        }
-                    }
-                    outputStream = new FileOutputStream(newFile);
-                    outputStream.write(free_emitter.getFilecertificate());
-                    free_emitter.setFilecertificate(null);
+                }
+                outputStream = new FileOutputStream(newFile);
+                outputStream.write(free_emitter.getFilecertificate());
+                free_emitter.setFilecertificate(null);
+                //Se setean los datos del certificado a free_emitter
+                log.debug("Sacando info del certificado");
+                log.debug("Certificado valido: {}",UCertificate.isEnabled(newFile));
+                free_emitter.setValid_certificate(UCertificate.isEnabled(newFile));
+                Date date = UCertificate.getCertExpirationDate(newFile);
+                Date created = UCertificate.getCertCreationDate(newFile);
+                log.debug("Expiracion del certificado " + date.toString());
+                log.debug("Creacion del certificado " + created.toString());
+
+                LocalDate expirate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                LocalDate createddate = created.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                log.debug("Expiracion del certificado " + expirate.toString());
+                log.debug("Creacion del certificado " + createddate.toString());
+                free_emitter.setDate_certificate(expirate);
+                String info = "RFC: "+UCertificate.getCertPersonRFC(newFile)+", "+"Razón social: "+
+                    UCertificate.getCertPersonName(newFile)+
+                    ", "+ "Fechas del certificado: " + createddate.toString()+" - "+expirate.toString()+
+                    ", Cantidad de días válidos: "+UCertificate.getCertValidDay(newFile).toString();
+                log.debug("Info del certificado " + info);
+                free_emitter.setInfo_certificate(info);
 
             }catch (Exception e){
-
+                log.debug("Exception de salvar fichero {}", e.toString());
             }
         }else {
-            log.debug("Fichero en null");
             try{
                 if(free_emitter.getFilecertificateContentType() == null) {
                     if (free_emitter.getPath_certificate() != null) {
                         if (!free_emitter.getPath_certificate().isEmpty()) {
                             free_emitter.setPath_certificate(null);
+                            free_emitter.setValid_certificate(false);
+                            free_emitter.setDate_certificate(null);
+                            free_emitter.setInfo_certificate(null);
                         }
                     }
                 }
@@ -217,12 +260,6 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                     free_emitter.setPath_key(directoriocerkey + free_emitter.getPath_key());
                     if (!newFile.exists()) {
                         newFile.createNewFile();
-                    } else {
-                        if (newFile.delete()) {
-                            File otherfile = new File(directoriocerkey + free_emitter.getPath_key());
-                            otherfile.createNewFile();
-                            newFile = otherfile;
-                        }
                     }
                     outputStream = new FileOutputStream(newFile);
                     outputStream.write(free_emitter.getFilekey());
@@ -258,15 +295,6 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                     free_emitter.setPath_logo(directoriologo + free_emitter.getPath_logo());
                     if (!newFile.exists()) {
                         newFile.createNewFile();
-                    }
-                    else
-                    {
-                        if(newFile.delete())
-                        {
-                            File otherfile = new File(directoriologo + free_emitter.getPath_logo());
-                            otherfile.createNewFile();
-                            newFile = otherfile;
-                        }
                     }
                     outputStream = new FileOutputStream(newFile);
                     outputStream.write(free_emitter.getFilelogo());

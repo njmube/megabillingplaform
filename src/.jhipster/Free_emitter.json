@@ -199,6 +199,10 @@
         {
             "fieldName": "date_certificate",
             "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "pass_certificate",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20160623172937",

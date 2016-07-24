@@ -66,15 +66,12 @@ public class Free_emitterResource {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "idexists", "A new free_emitter cannot already have an ID")).body(null);
         }
 
-
-
         Free_emitter rfc = free_emitterService.findOneByRfc(free_emitter.getRfc());
         if(rfc != null){
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "rfcexists", "A new free_emitter cannot already have an RFC")).body(null);
         }
 
         free_emitter.setActivated(true);
-        free_emitter.setValid_certificate(true);
         free_emitter.setCreate_date(ZonedDateTime.now());
 
         String login = SecurityUtils.getCurrentUserLogin();
@@ -103,21 +100,29 @@ public class Free_emitterResource {
     public ResponseEntity<Free_emitter> updateFree_emitter(@RequestBody Free_emitter free_emitter) throws URISyntaxException {
         log.debug("REST request to update Free_emitter : {}", free_emitter);
 
-        if (free_emitter.getId() == null) {
-            return createFree_emitter(free_emitter);
-        }
-        Free_emitter rfc = free_emitterService.findOneByRfc(free_emitter.getRfc());
+        if(free_emitter.getPass_certificate() != null){
+            String [] response = free_emitterService.validateCertificate(free_emitter.getFilecertificate(), free_emitter.getFilekey(), free_emitter.getPass_certificate());
+            free_emitter.setInfo_certificate(response[1]);
+            free_emitter.setPass_certificate(null);
+            return new ResponseEntity<Free_emitter>(free_emitter,HttpStatus.OK);
 
-        if(rfc != null){
-            if(rfc.getId().toString().compareTo(free_emitter.getId().toString())!=0) {
-                return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "rfcexists", "A new free_emitter cannot already have an RFC")).body(null);
+        }else {
+            if (free_emitter.getId() == null) {
+                return createFree_emitter(free_emitter);
             }
-        }
-        Free_emitter result = free_emitterService.save(free_emitter);
+            Free_emitter rfc = free_emitterService.findOneByRfc(free_emitter.getRfc());
 
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert("free_emitter", free_emitter.getId().toString()))
-            .body(result);
+            if (rfc != null) {
+                if (rfc.getId().toString().compareTo(free_emitter.getId().toString()) != 0) {
+                    return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "rfcexists", "A new free_emitter cannot already have an RFC")).body(null);
+                }
+            }
+            Free_emitter result = free_emitterService.save(free_emitter);
+
+            return ResponseEntity.ok()
+                .headers(HeaderUtil.createEntityUpdateAlert("free_emitter", free_emitter.getId().toString()))
+                .body(result);
+        }
     }
 
     /**

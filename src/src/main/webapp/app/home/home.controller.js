@@ -14,6 +14,7 @@
         vm.isAuthenticated = null;
         vm.isNoAdmin = null;
         var today = new Date();
+        vm.page = 1;
         vm.toDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
 
         var dateFormat = 'yyyy-MM-dd';
@@ -23,12 +24,14 @@
         var auditEventType = " ";
         var ip = " ";
         vm.audits = AuditsService.query({
+            page: vm.page -1,
             size:15,
             fromDate: fromDate,
             toDate: toDate,
             principal: principal,
             auditEventType: auditEventType,
             ip:ip});
+
         vm.login = LoginService.open;
         $scope.$on('authenticationSuccess', function() {
             getAccount();

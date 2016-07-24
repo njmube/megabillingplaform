@@ -21,6 +21,8 @@ public interface Free_emitterService {
      */
     Free_emitter save(Free_emitter free_emitter);
 
+    String[] validateCertificate(byte[] cert, byte[]key, String pass);
+
     /**
      *  Get all the free_emitters.
      *

@@ -123,6 +123,9 @@ public class Free_emitter implements Serializable {
     @Column(name = "date_certificate")
     private LocalDate date_certificate;
 
+    @Column(name = "pass_certificate")
+    private String pass_certificate;
+
     @ManyToOne
     private Tax_regime tax_regime;
 
@@ -372,6 +375,14 @@ public class Free_emitter implements Serializable {
         this.date_certificate = date_certificate;
     }
 
+    public String getPass_certificate() {
+        return pass_certificate;
+    }
+
+    public void setPass_certificate(String pass_certificate) {
+        this.pass_certificate = pass_certificate;
+    }
+
     public Tax_regime getTax_regime() {
         return tax_regime;
     }
@@ -487,6 +498,7 @@ public class Free_emitter implements Serializable {
             ", valid_certificate='" + valid_certificate + "'" +
             ", info_certificate='" + info_certificate + "'" +
             ", date_certificate='" + date_certificate + "'" +
+            ", pass_certificate='" + pass_certificate + "'" +
             '}';
     }
 }

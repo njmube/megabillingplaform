@@ -101,8 +101,8 @@ public class AuditEventService {
                 }
             }
         }
-
-        Page<AuditEvent> page = new PageImpl<AuditEvent>(result,pageable,result.size());
+        int currentTotal=pageable.getOffset() + pageable.getPageSize();
+        Page<AuditEvent> page = new PageImpl<AuditEvent>(result,pageable,currentTotal);
 
         return page;
     }

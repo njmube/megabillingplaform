@@ -80,7 +80,14 @@
             "addblobKey": "Buscar",
             "addblobLogo": "Buscar",
             "validate":"Validate",
-            "certificateinfo":"Certificate information"
+            "certificateinfo":"Información del certificado: ",
+            "rfc_certificate":"RFC: ",
+            "bussines_name_certificate":"Razón social: ",
+            "certificate_dates":"Fechas certificado: ",
+            "valid_days":"Cantidad de días restantes: ",
+            "pass":"Contraseña del certificado: ",
+            "passtitle":"Enter the password",
+            "validate":"Validar"
         }
     }
 }

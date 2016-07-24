@@ -191,7 +191,8 @@
             "save": "Guardar",
             "view": "Vista",
             "search": "Buscar",
-            "ok": "OK"
+            "ok": "OK",
+            "accept":"Aceptar"
         },
         "detail": {
             "field": "Campo",

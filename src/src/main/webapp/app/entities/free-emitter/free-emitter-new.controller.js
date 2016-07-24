@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_emitterNewController', Free_emitterNewController);
 
-    Free_emitterNewController.$inject = ['$scope', '$stateParams', '$q', 'entity', 'DataUtils', 'Free_emitter_file','Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code','Type_taxpayer'];
+    Free_emitterNewController.$inject = ['$scope', '$stateParams', '$uibModal', '$q', 'entity', 'DataUtils', 'Free_emitter_file','Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code','Type_taxpayer'];
 
-    function Free_emitterNewController ($scope, $stateParams, $q, entity, DataUtils, Free_emitter_file, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, Type_taxpayer) {
+    function Free_emitterNewController ($scope, $stateParams, $uibModal, $q, entity, DataUtils, Free_emitter_file, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, Type_taxpayer) {
         var vm = this;
 
         vm.free_emitter = entity;
@@ -22,18 +22,15 @@
         vm.meskey = null;
         vm.messlogo = null;
         vm.edit = null;
-        vm.rfccertificate = "RFC";
-        vm.razon = "Razon Social";
-        vm.datecertificate = "Fecha";
-        vm.days = "Dias";
 
         vm.onChangeC_country = onChangeC_country;
         vm.onChangeC_state = onChangeC_state;
         vm.onChangeC_municipality = onChangeC_municipality;
         vm.onChangeC_colony = onChangeC_colony;
         vm.clicEdit = clicEdit;
-
         vm.onChangeRFC = onChangeRFC;
+        vm.onValidate = onValidate;
+
 
         function clicEdit(){
             vm.edit = 'OK';
@@ -45,6 +42,9 @@
             });
         };
 
+        function onValidate(){
+            Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+        }
 
         function onChangeC_country () {
 			var countryId = vm.free_emitter.c_country.id;
@@ -93,6 +93,7 @@
 
 		vm.save = function () {
             vm.isSaving = true;
+            vm.free_emitter.pass_certificate = null;
                 if (vm.free_emitter.id !== null) {
 					Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
                 } else {
@@ -157,6 +158,7 @@
 
         vm.openFile = DataUtils.openFile;
         vm.byteSize = DataUtils.byteSize;
+
 
     }
 })();
