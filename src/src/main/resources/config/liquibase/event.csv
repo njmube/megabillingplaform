@@ -1,0 +1,34 @@
+id;name;description
+1;Registro de Usuario; Registro de Usuario
+2;Inicio de sesión; Inicio de sesión
+3;Cierre de sesión; Cerre de sesión
+4;Cierre de sesión por inactividad; Cierre de sesión por inactividad
+5;Contraseña restablecida; Contraseña restablecida
+6;Cambio de Contraseña; Cambio de Contraseña
+7;Bloqueo de usuario; Bloqueo de usuario
+8;Activación de usuario; Activación de usuario
+9;Eliminación de usuario; Eliminación de usuario
+10;Modificación de usuario; Modificación de usuario
+11;Visualización de perfil de usuario; Visualización de perfil de usuario
+12;Timbrado de CFDI; Timbrado de CFDI
+13;Cancelación de CFDI; Cancelación de CFDI
+14;Consulta de CFDI; Consulta de CFDI
+15;Registro de contribuyente emisor; Registro de contribuyente emisor
+16;Afiliación de contribuyente; Afiliación de contribuyente
+17;Envío de notificación; Envío de notificación
+18;Descarga de CFDI; Descarga de CFDI
+19;Visualización CFDI en PDF; Visualización CFDI en PDF
+20;Recuperación de acuse de cancelación; Recuperación de acuse de cancelación
+21;Consulta de usuarios registrados; Consulta de usuarios registrados
+22;Reporte de usuarios; Reporte de usuarios
+23;Reporte de CFDI; Reporte de CFDI
+24;Error de conexión con servicio de timbrado; Error de conexión con servicio de timbrado
+25;Error de conexión con servicio de CSD; Error de conexión con servicio de timbrado
+26;Creación de cuenta contribuyente; Creación de cuenta contribuyente
+27;Activación de cuenta contribuyente; Activación de cuenta contribuyente
+28;Bloqueo de cuenta contribuyente; Bloqueo de cuenta contribuyente
+29;Eliminación de cuenta contribuyente; Eliminación de cuenta contribuyente
+30;Consulta a las trazas; Consulta a las trazas
+
+
+
