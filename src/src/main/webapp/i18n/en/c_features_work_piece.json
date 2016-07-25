@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "c_features_work_piece" : {
             "home": {
-                "title": "C_features_work_pieces",
-                "createLabel": "Create a new C_features_work_piece",
-                "createOrEditLabel": "Create or edit a C_features_work_piece",
-                "search": "Search for C_features_work_piece"
+                "title": "Features Work Pieces",
+                "createLabel": "New Piece",
+                "createOrEditLabel": "Create or edit a Features Work Piece",
+                "search": "Search for Features Work Piece"
             },
-            "created": "A new C_features_work_piece is created with identifier {{ param }}",
-            "updated": "A C_features_work_piece is updated with identifier {{ param }}",
-            "deleted": "A C_features_work_piece is deleted with identifier {{ param }}",
+            "created": "A new features work piece is created with identifier {{ param }}",
+            "updated": "A features work piece is updated with identifier {{ param }}",
+            "deleted": "A features work piece is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete C_features_work_piece {{ id }}?"
+                "question": "Are you sure you want to delete features work piece {{ id }}?"
             },
             "detail": {
-                "title": "C_features_work_piece"
+                "title": "Features Work Piece"
             },
             "code": "Code",
             "name": "Name"

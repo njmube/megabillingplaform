@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "c_committee_type" : {
             "home": {
-                "title": "C_committee_types",
-                "createLabel": "Create a new C_committee_type",
-                "createOrEditLabel": "Create or edit a C_committee_type",
-                "search": "Search for C_committee_type"
+                "title": "Committee Types",
+                "createLabel": "New Committee Type",
+                "createOrEditLabel": "Create or edit a Committee Type",
+                "search": "Search for Committee Type"
             },
-            "created": "A new C_committee_type is created with identifier {{ param }}",
-            "updated": "A C_committee_type is updated with identifier {{ param }}",
-            "deleted": "A C_committee_type is deleted with identifier {{ param }}",
+            "created": "A new committee type is created with identifier {{ param }}",
+            "updated": "A committee type is updated with identifier {{ param }}",
+            "deleted": "A committee type is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete C_committee_type {{ id }}?"
+                "question": "Are you sure you want to delete committee type {{ id }}?"
             },
             "detail": {
-                "title": "C_committee_type"
+                "title": "Committee Type"
             },
             "name": "Name",
             "description": "Description"

@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_features_work_piece" : {
             "home": {
-                "title": "C_features_work_pieces",
-                "createLabel": "Crear nuevo C_features_work_piece",
-                "createOrEditLabel": "Crear o editar C_features_work_piece",
-                "search": "Search for C_features_work_piece"
+                "title": "Características Obras de Arte",
+                "createLabel": "Nueva Característica",
+                "createOrEditLabel": "Crear o editar Característica",
+                "search": "Búsqueda por Característica"
             },
-            "created": "Un nuevo C_features_work_piece ha sido creado con el identificador {{ param }}",
-            "updated": "Un C_features_work_piece ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C_features_work_piece ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nuevo característica ha sido creado con el identificador {{ param }}",
+            "updated": "Una característica ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una característica ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C_features_work_piece {{ id }}?"
+                "question": "¿Seguro que quiere eliminar la característica con ID: {{ id }}?"
             },
             "detail": {
-                "title": "C_features_work_piece"
+                "title": "Características Obras de Arte"
             },
-            "code": "Code",
-            "name": "Name"
+            "code": "Código",
+            "name": "Nombre"
         }
     }
 }

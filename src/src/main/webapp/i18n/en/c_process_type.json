@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "c_process_type" : {
             "home": {
-                "title": "C_process_types",
-                "createLabel": "Create a new C_process_type",
-                "createOrEditLabel": "Create or edit a C_process_type",
-                "search": "Search for C_process_type"
+                "title": "Process Types",
+                "createLabel": "New Process Type",
+                "createOrEditLabel": "Create or edit a Process Type",
+                "search": "Search for Process Type"
             },
-            "created": "A new C_process_type is created with identifier {{ param }}",
-            "updated": "A C_process_type is updated with identifier {{ param }}",
-            "deleted": "A C_process_type is deleted with identifier {{ param }}",
+            "created": "A new process type is created with identifier {{ param }}",
+            "updated": "A process type is updated with identifier {{ param }}",
+            "deleted": "A process type is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete C_process_type {{ id }}?"
+                "question": "Are you sure you want to delete process type {{ id }}?"
             },
             "detail": {
-                "title": "C_process_type"
+                "title": "Process Types"
             },
             "name": "Name",
             "description": "Description"

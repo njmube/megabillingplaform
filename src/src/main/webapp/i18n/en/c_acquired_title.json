@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "c_acquired_title" : {
             "home": {
-                "title": "C_acquired_titles",
-                "createLabel": "Create a new C_acquired_title",
-                "createOrEditLabel": "Create or edit a C_acquired_title",
-                "search": "Search for C_acquired_title"
+                "title": "Acquired Titles",
+                "createLabel": "New Title",
+                "createOrEditLabel": "Create or edit a Acquired Title",
+                "search": "Search for Acquired Title"
             },
-            "created": "A new C_acquired_title is created with identifier {{ param }}",
-            "updated": "A C_acquired_title is updated with identifier {{ param }}",
-            "deleted": "A C_acquired_title is deleted with identifier {{ param }}",
+            "created": "A new acquired title is created with identifier {{ param }}",
+            "updated": "A acquired title is updated with identifier {{ param }}",
+            "deleted": "A acquired title is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete C_acquired_title {{ id }}?"
+                "question": "Are you sure you want to delete acquired title {{ id }}?"
             },
             "detail": {
-                "title": "C_acquired_title"
+                "title": "Acquired Title"
             },
             "code": "Code",
             "name": "Name"

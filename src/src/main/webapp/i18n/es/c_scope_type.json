@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_scope_type" : {
             "home": {
-                "title": "C_scope_types",
-                "createLabel": "Crear nuevo C_scope_type",
-                "createOrEditLabel": "Crear o editar C_scope_type",
-                "search": "Search for C_scope_type"
+                "title": "Tipos Ámbitos",
+                "createLabel": "Nuevo Tipo Ámbito",
+                "createOrEditLabel": "Crear o editar Tipo Ámbito",
+                "search": "Búsqueda por Tipo Ámbito"
             },
-            "created": "Un nuevo C_scope_type ha sido creado con el identificador {{ param }}",
-            "updated": "Un C_scope_type ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C_scope_type ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo tipo ámbito ha sido creado con el identificador {{ param }}",
+            "updated": "Un tipo ámbito ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un tipo ámbito ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C_scope_type {{ id }}?"
+                "question": "¿Seguro que quiere eliminar el tipo ámbito con ID: {{ id }}?"
             },
             "detail": {
-                "title": "C_scope_type"
+                "title": "Tipos Ámbitos"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Nombre",
+            "description": "Descripción"
         }
     }
 }

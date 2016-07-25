@@ -5,7 +5,7 @@
                 "title": "Money",
                 "createLabel": "New Money",
                 "createOrEditLabel": "Create or edit a money",
-                "search": "Search for C_money"
+                "search": "Search for Money"
             },
             "created": "A new money is created with identifier {{ param }}",
             "updated": "A money is updated with identifier {{ param }}",

@@ -2,21 +2,21 @@
     "megabillingplatformApp": {
         "c_tar" : {
             "home": {
-                "title": "C_tars",
-                "createLabel": "Crear nuevo C_tar",
-                "createOrEditLabel": "Crear o editar C_tar",
-                "search": "Search for C_tar"
+                "title": "Códigos TAR",
+                "createLabel": "Nuevo TAR Código",
+                "createOrEditLabel": "Crear o editar Código TAR",
+                "search": "Búsqueda por Código TAR"
             },
-            "created": "Un nuevo C_tar ha sido creado con el identificador {{ param }}",
-            "updated": "Un C_tar ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C_tar ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo código tar ha sido creado con el identificador {{ param }}",
+            "updated": "Un código tar ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un código tar ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C_tar {{ id }}?"
+                "question": "¿Seguro que quiere eliminar el código tar con ID: {{ id }}?"
             },
             "detail": {
-                "title": "C_tar"
+                "title": "Códigos TAR"
             },
-            "name": "Name"
+            "name": "Nombre"
         }
     }
 }

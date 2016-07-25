@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "c_school_level" : {
             "home": {
-                "title": "C_school_levels",
-                "createLabel": "Create a new C_school_level",
-                "createOrEditLabel": "Create or edit a C_school_level",
-                "search": "Search for C_school_level"
+                "title": "School Levels",
+                "createLabel": "New School Level",
+                "createOrEditLabel": "Create or edit a School Level",
+                "search": "Search for School Level"
             },
-            "created": "A new C_school_level is created with identifier {{ param }}",
-            "updated": "A C_school_level is updated with identifier {{ param }}",
-            "deleted": "A C_school_level is deleted with identifier {{ param }}",
+            "created": "A new school level is created with identifier {{ param }}",
+            "updated": "A school level is updated with identifier {{ param }}",
+            "deleted": "A school level is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete C_school_level {{ id }}?"
+                "question": "Are you sure you want to delete school level {{ id }}?"
             },
             "detail": {
-                "title": "C_school_level"
+                "title": "School Levels"
             },
             "name": "Name",
             "description": "Description"

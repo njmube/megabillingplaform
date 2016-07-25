@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_committee_type" : {
             "home": {
-                "title": "C_committee_types",
-                "createLabel": "Crear nuevo C_committee_type",
-                "createOrEditLabel": "Crear o editar C_committee_type",
-                "search": "Search for C_committee_type"
+                "title": "Tipos Comite",
+                "createLabel": "Nuevo Tipo Comite",
+                "createOrEditLabel": "Crear o editar Tipo Comite",
+                "search": "Search for Tipo Comite"
             },
-            "created": "Un nuevo C_committee_type ha sido creado con el identificador {{ param }}",
-            "updated": "Un C_committee_type ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C_committee_type ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo tipo comite ha sido creado con el identificador {{ param }}",
+            "updated": "Un tipo comite ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un tipo comite ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C_committee_type {{ id }}?"
+                "question": "¿Seguro que quiere eliminar tipo comite {{ id }}?"
             },
             "detail": {
-                "title": "C_committee_type"
+                "title": "Tipo Comite"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Nombre",
+            "description": "Descripción"
         }
     }
 }

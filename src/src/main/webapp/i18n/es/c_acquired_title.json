@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_acquired_title" : {
             "home": {
-                "title": "C_acquired_titles",
-                "createLabel": "Crear nuevo C_acquired_title",
-                "createOrEditLabel": "Crear o editar C_acquired_title",
-                "search": "Search for C_acquired_title"
+                "title": "Títulos Adquiridos",
+                "createLabel": "Nuevo Título",
+                "createOrEditLabel": "Crear o editar Título Adquirido",
+                "search": "Búsqueda por Título Adquirido"
             },
-            "created": "Un nuevo C_acquired_title ha sido creado con el identificador {{ param }}",
-            "updated": "Un C_acquired_title ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C_acquired_title ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo título adquirido ha sido creado con el identificador {{ param }}",
+            "updated": "Un título adquirido ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un título adquirido ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C_acquired_title {{ id }}?"
+                "question": "¿Seguro que quiere eliminar título adquirido {{ id }}?"
             },
             "detail": {
-                "title": "C_acquired_title"
+                "title": "Título Adquirido"
             },
-            "code": "Code",
-            "name": "Name"
+            "code": "Código",
+            "name": "Nombre"
         }
     }
 }
