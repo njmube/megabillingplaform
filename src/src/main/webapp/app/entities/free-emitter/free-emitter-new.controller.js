@@ -94,6 +94,7 @@
 		vm.save = function () {
             vm.isSaving = true;
             vm.free_emitter.pass_certificate = null;
+            vm.free_emitter.info_certificate = null;
                 if (vm.free_emitter.id !== null) {
 					Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
                 } else {

@@ -203,6 +203,26 @@
         {
             "fieldName": "pass_certificate",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "rfc_certificate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "bussines_name_cert",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date_created_cert",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date_expiration_cert",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valid_days_cert",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20160623172937",

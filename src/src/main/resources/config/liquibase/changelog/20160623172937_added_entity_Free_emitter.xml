@@ -130,6 +130,26 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="rfc_certificate" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="bussines_name_cert" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="date_created_cert" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="date_expiration_cert" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="valid_days_cert" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="tax_regime_id" type="bigint"/>
             <column name="c_country_id" type="bigint"/>
             <column name="c_state_id" type="bigint"/>

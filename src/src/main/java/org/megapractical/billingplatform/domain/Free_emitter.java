@@ -126,6 +126,21 @@ public class Free_emitter implements Serializable {
     @Column(name = "pass_certificate")
     private String pass_certificate;
 
+    @Column(name = "rfc_certificate")
+    private String rfc_certificate;
+
+    @Column(name = "bussines_name_cert")
+    private String bussines_name_cert;
+
+    @Column(name = "date_created_cert")
+    private String date_created_cert;
+
+    @Column(name = "date_expiration_cert")
+    private String date_expiration_cert;
+
+    @Column(name = "valid_days_cert")
+    private String valid_days_cert;
+
     @ManyToOne
     private Tax_regime tax_regime;
 
@@ -383,6 +398,46 @@ public class Free_emitter implements Serializable {
         this.pass_certificate = pass_certificate;
     }
 
+    public String getRfc_certificate() {
+        return rfc_certificate;
+    }
+
+    public void setRfc_certificate(String rfc_certificate) {
+        this.rfc_certificate = rfc_certificate;
+    }
+
+    public String getBussines_name_cert() {
+        return bussines_name_cert;
+    }
+
+    public void setBussines_name_cert(String bussines_name_cert) {
+        this.bussines_name_cert = bussines_name_cert;
+    }
+
+    public String getDate_created_cert() {
+        return date_created_cert;
+    }
+
+    public void setDate_created_cert(String date_created_cert) {
+        this.date_created_cert = date_created_cert;
+    }
+
+    public String getDate_expiration_cert() {
+        return date_expiration_cert;
+    }
+
+    public void setDate_expiration_cert(String date_expiration_cert) {
+        this.date_expiration_cert = date_expiration_cert;
+    }
+
+    public String getValid_days_cert() {
+        return valid_days_cert;
+    }
+
+    public void setValid_days_cert(String valid_days_cert) {
+        this.valid_days_cert = valid_days_cert;
+    }
+
     public Tax_regime getTax_regime() {
         return tax_regime;
     }
@@ -499,6 +554,11 @@ public class Free_emitter implements Serializable {
             ", info_certificate='" + info_certificate + "'" +
             ", date_certificate='" + date_certificate + "'" +
             ", pass_certificate='" + pass_certificate + "'" +
+            ", rfc_certificate='" + rfc_certificate + "'" +
+            ", bussines_name_cert='" + bussines_name_cert + "'" +
+            ", date_created_cert='" + date_created_cert + "'" +
+            ", date_expiration_cert='" + date_expiration_cert + "'" +
+            ", valid_days_cert='" + valid_days_cert + "'" +
             '}';
     }
 }

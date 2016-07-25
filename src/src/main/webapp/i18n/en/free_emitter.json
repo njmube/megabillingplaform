@@ -80,14 +80,16 @@
             "addblobKey": "Seach",
             "addblobLogo": "Seach",
             "validate":"Validate",
-            "certificateinfo":"Certificate information: ",
+            "certificateinfo":"Digital certificate information",
             "rfc_certificate":"RFC: ",
             "bussines_name_certificate":"Bussines name: ",
-            "certificate_dates":"Certificate dates: ",
+            "date_created_cert":"Date created: ",
+            "date_expiration_cert":"Date expiration: ",
             "valid_days":"Valid days: ",
             "pass":"Password certificate: ",
             "passtitle":"Enter the password",
-            "validate":"Validate"
+            "validate":"Validate",
+            "resultvalidation":"Result of validation"
         }
     }
 }

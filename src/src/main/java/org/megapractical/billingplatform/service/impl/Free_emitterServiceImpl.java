@@ -209,7 +209,6 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                 free_emitter.setFilecertificate(null);
                 //Se setean los datos del certificado a free_emitter
                 log.debug("Sacando info del certificado");
-                log.debug("Certificado valido: {}",UCertificate.isEnabled(newFile));
                 free_emitter.setValid_certificate(UCertificate.isEnabled(newFile));
                 Date date = UCertificate.getCertExpirationDate(newFile);
                 Date created = UCertificate.getCertCreationDate(newFile);
@@ -218,15 +217,15 @@ public class Free_emitterServiceImpl implements Free_emitterService{
 
                 LocalDate expirate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
                 LocalDate createddate = created.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-                log.debug("Expiracion del certificado " + expirate.toString());
-                log.debug("Creacion del certificado " + createddate.toString());
+
                 free_emitter.setDate_certificate(expirate);
-                String info = "RFC: "+UCertificate.getCertPersonRFC(newFile)+", "+"Razón social: "+
-                    UCertificate.getCertPersonName(newFile)+
-                    ", "+ "Fechas del certificado: " + createddate.toString()+" - "+expirate.toString()+
-                    ", Cantidad de días válidos: "+UCertificate.getCertValidDay(newFile).toString();
-                log.debug("Info del certificado " + info);
-                free_emitter.setInfo_certificate(info);
+                free_emitter.setRfc_certificate(UCertificate.getCertPersonRFC(newFile));
+                free_emitter.setBussines_name_cert(UCertificate.getCertPersonName(newFile));
+                free_emitter.setDate_created_cert(createddate.toString());
+                free_emitter.setDate_expiration_cert(expirate.toString());
+                free_emitter.setValid_days_cert(UCertificate.getCertValidDay(newFile).toString());
+
+                free_emitter.setInfo_certificate(null);
 
             }catch (Exception e){
                 log.debug("Exception de salvar fichero {}", e.toString());
@@ -240,6 +239,11 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                             free_emitter.setValid_certificate(false);
                             free_emitter.setDate_certificate(null);
                             free_emitter.setInfo_certificate(null);
+                            free_emitter.setRfc_certificate(null);
+                            free_emitter.setBussines_name_cert(null);
+                            free_emitter.setDate_created_cert(null);
+                            free_emitter.setDate_expiration_cert(null);
+                            free_emitter.setValid_days_cert(null);
                         }
                     }
                 }
