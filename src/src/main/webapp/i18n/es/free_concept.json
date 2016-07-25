@@ -21,7 +21,7 @@
             "description": "Descripción (*)",
             "unit_value": "Valor Unitario (*)",
             "predial_number": "No. Predial",
-            "amount": "Importe (*)",
+            "amount": "Importe",
             "discount": "Descuento %",
             "free_cfdi": "free_cfdi",
             "measure_unit": "Unidad de Medida  (*)",

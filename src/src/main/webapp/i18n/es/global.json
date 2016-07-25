@@ -211,7 +211,7 @@
             "maxbytes": "Este campo no puede tener más de {{max}} bytes.",
             "pattern": "Formato incorrecto.",
             "email": "Dirección de correo incorrecta.",
-            "phone": "Teléfono incorrecta.",
+            "phone": "Teléfono incorrecto.",
             "number": "Este campo debe ser un número.",
             "datetimelocal": "Este campo debe ser una fecha y hora."
         }

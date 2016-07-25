@@ -292,13 +292,13 @@
 									</div>
 									<div class="radio">
 										<label style="padding-left:7px">
-											<input name="form-field-radio" type="radio" class="ace" ng-click="vm.onClickTaxpayerGP()" />
+											<input id="free_receiver_special_type_taxpayer" name="free_receiver_special_type" type="radio" class="ace" ng-click="vm.onClickTaxpayerGP()" />
 											<span class="lbl" translate="megabillingplatformApp.free_receiver.taxpayer_gp">Taxpayer General Public</span>
 										</label>
 									</div>
 									<div class="radio">
 										<label style="padding-left:7px">
-											<input name="form-field-radio" type="radio" class="ace" ng-click="vm.onClickForeignResident()" />
+											<input id="free_receiver_special_type_foreign" name="free_receiver_special_type" type="radio" class="ace" ng-click="vm.onClickForeignResident()" ng-model="vm.receiver_type" value="foreign" />
 											<span class="lbl" translate="megabillingplatformApp.free_receiver.foreign_resident">Foreign Resident</span>
 										</label>
 									</div>
@@ -335,7 +335,7 @@
 								<div class="col-sm-8">
 									<input type="text" class="form-control" name="free_receiver_email" id="free_receiver_field_email"
 											ng-model="vm.free_receiver.email"
-											ng-minlength="6" ng-maxlength="254" ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" />
+											ng-minlength="6" ng-maxlength="254" ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" required />
 									<div ng-show="editForm.free_receiver_email.$invalid">
 										<p class="help-block"
 											ng-show="editForm.free_receiver_email.$error.minlength" translate="entity.validation.minlength" translate-value-min="6">
@@ -661,7 +661,7 @@
 												<th class="text-center">Cantidad</th>
 												<th class="text-center">Valor Unitario</th>
 												<th class="text-center">Descuento</th>
-												<th class="text-center">IVA / IEPS</th>
+												<th class="text-center">IVA / IEPS (%)</th>
 												<th class="text-center">Importe</th>
 												<th class="text-center">Acciones</th>
 											</tr>
@@ -669,12 +669,12 @@
 										<tbody>
 											<tr ng-repeat="free_concept in vm.free_concepts">
 												<td class="text-center">{{free_concept.free_concept.no_identification}}</td>
-												<td class="text-center">{{free_concept.free_concept.measure_unit.name}}</td>
-												<td class="text-center">{{free_concept.free_concept.description}}</td>
+												<td class="text-left">{{free_concept.free_concept.measure_unit.name}}</td>
+												<td class="text-left">{{free_concept.free_concept.description}}</td>
 												<td class="text-right">{{free_concept.free_concept.quantity}}</td>
-												<td class="text-center">{{free_concept.free_concept.unit_value}}</td>
+												<td class="text-right">{{free_concept.free_concept.unit_value}}</td>
 												<td class="text-right">{{free_concept.free_concept.discount}}</td>
-												<td class="text-center">{{free_concept.free_concept_iva.rate}} / {{free_concept.free_concept_ieps.rate}}</td>
+												<td class="text-right">{{free_concept.free_concept_iva.rate}} / {{free_concept.free_concept_ieps.rate}}</td>
 												<td class="text-right">{{free_concept.free_concept.amount}}</td>
 												<td class="text-center">
 													<button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeConcept($index)">
@@ -727,6 +727,7 @@
 
                     <div class="space-6"></div>
 
+                    <!--//Tax Registration-->
                     <div class="row" ng-show="vm.show_taxregistration">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -740,6 +741,7 @@
                         </div>
                     </div>
 
+                    <!--//PIFC-->
                     <div class="row" ng-show="vm.show_pfic">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -770,6 +772,7 @@
                         </div>
                     </div>
 
+                    <!--//Accreditation IEPS-->
                     <div class="row" ng-show="vm.show_accreditation_ieps">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -783,6 +786,7 @@
                         </div>
                     </div>
 
+                    <!--//Tax Legends-->
                     <h3 class="header smaller lighter blue" ng-show="vm.show_taxlegends">
                         Leyendas Fiscales
                     </h3>
@@ -815,6 +819,7 @@
                         Adicionar
                     </button>
 
+                    <!--//AirLine-->
                     <div class="row" ng-show="vm.show_airline">
                         <div class="col-md-4">
                             <div class="form-group">
@@ -870,12 +875,13 @@
                         </div>
                     </div>
 
+                    <!--//Apaw-->
                     <div class="row" ng-show="vm.show_apaw">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.well_type" for="field_well_type">well_type</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="field_well_type" name="well_type" ng-model="vm.freecom_apaw.well_type" ng-options="well_type as well_type.code for well_type in vm.well_types track by well_type.id" ng-required="vm.show_apaw">
+                                    <select class="form-control" id="field_well_type" name="well_type" ng-model="vm.freecom_apaw.c_well_type" ng-options="well_type as well_type.code for well_type in vm.c_well_types track by well_type.id" ng-required="vm.show_apaw">
                                         <option value=""></option>
                                     </select>
                                 </div>
@@ -883,7 +889,6 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.others_well_type" for="field_others_well_type">Others_well_type</label>
                                 <div class="col-sm-8">
-
                                     <input type="text" class="form-control" name="others_well_type" id="field_others_well_type"
                                            ng-model="vm.freecom_apaw.others_well_type"
                                     />
@@ -892,7 +897,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.acquired_title" for="field_freecom_apaw_acquired_title">acquired_title</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="field_freecom_apaw_acquired_title" name="acquired_title" ng-model="vm.freecom_apaw.acquired_title" ng-options="acquired_title as acquired_title.code for acquired_title in vm.acquired_titles track by acquired_title.id">
+                                    <select class="form-control" id="field_freecom_apaw_acquired_title" name="acquired_title" ng-model="vm.freecom_apaw.c_acquired_title" ng-options="acquired_title as acquired_title.code for acquired_title in vm.c_acquired_titles track by acquired_title.id">
                                         <option value=""></option>
                                     </select>
                                 </div>
@@ -945,7 +950,7 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.features_work_piece" for="field_freecom_apaw_features_work_piece">features_work_piece</label>
                                 <div class="col-sm-8">
 
-                                    <select class="form-control" id="field_freecom_apaw_features_work_piece" name="freecom_apaw_features_work_piece" ng-model="vm.freecom_apaw.features_work_piece" ng-options="features_work_piece as features_work_piece.code for features_work_piece in vm.features_work_pieces track by features_work_piece.id" ng-required="vm.show_apaw">
+                                    <select class="form-control" id="field_freecom_apaw_features_work_piece" name="freecom_apaw_features_work_piece" ng-model="vm.freecom_apaw.c_features_work_piece" ng-options="features_work_piece as features_work_piece.code for features_work_piece in vm.c_features_work_pieces track by features_work_piece.id" ng-required="vm.show_apaw">
                                         <option value=""></option>
                                     </select>
                                 </div>
@@ -953,6 +958,7 @@
                         </div>
                     </div>
 
+                    <!--//Donees-->
                     <div class="row" ng-show="vm.show_donees">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -993,6 +999,7 @@
                         </div>
                     </div>
 
+                    <!--//Educational Institutions-->
                     <div class="row" ng-show="vm.show_educational_institutions">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -1024,7 +1031,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_educational_institutions.school_level" for="field_freecom_educational_institutions_school_level">school_level</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="field_freecom_educational_institutions_school_level" name="school_level" ng-model="vm.freecom_educational_institutions.school_level" ng-options="school_level as school_level.name for school_level in vm.school_levels track by school_level.id" ng-required="vm.show_educational_institutions" >
+                                    <select class="form-control" id="field_freecom_educational_institutions_school_level" name="school_level" ng-model="vm.freecom_educational_institutions.c_school_level" ng-options="school_level as school_level.name for school_level in vm.c_school_levels track by school_level.id" ng-required="vm.show_educational_institutions" >
                                         <option value=""></option>
                                     </select>
                                 </div>
@@ -1040,26 +1047,9 @@
                         </div>
                     </div>
 
+                    <!--//Ine-->
                     <div class="row" ng-show="vm.show_ine">
                         <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.committee" for="field_freecom_ine_committee">committee</label>
-                                <div class="col-sm-8">
-                                    <select class="form-control" id="field_freecom_ine_committee" name="committee" ng-model="vm.freecom_ine.committee" ng-options="committee as committee.name for committee in vm.committees track by committee.id">
-                                        <option value=""></option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.process_type" for="field_freecom_ine_process_type">process_type</label>
-                                <div class="col-sm-8">
-                                    <select class="form-control" id="field_freecom_ine_process_type" name="process_type" ng-model="vm.freecom_ine.process_type" ng-options="process_type as process_type.name for process_type in vm.process_types track by process_type.id">
-                                        <option value=""></option>
-                                    </select>
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.ident" for="field_freecom_ine_ident">Ident</label>
                                 <div class="col-sm-8">
@@ -1071,6 +1061,7 @@
                         </div>
                     </div>
 
+                    <!--//Kind Payment-->
                     <div class="row" ng-show="vm.show_kind_payment">
                         <div class="col-md-6">
                             <div class="form-group">

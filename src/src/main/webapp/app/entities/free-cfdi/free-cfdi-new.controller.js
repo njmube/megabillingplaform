@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps', 'freecom_taxlegends_entity', 'Freecom_taxlegends', 'Legend', 'freecom_airline_entity', 'Freecom_airline', 'Freecom_charge', 'freecom_apaw_entity', 'Well_type', 'Acquired_title', 'Features_work_piece','Freecom_apaw','freecom_donees_entity', 'Freecom_donees', 'freecom_educational_institutions_entity', 'School_level', 'Freecom_educational_institutions', 'freecom_ine_entity', 'Committee', 'Process_type', 'Freecom_ine', 'freecom_kind_payment_entity', 'Freecom_kind_payment'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps', 'freecom_taxlegends_entity', 'Freecom_taxlegends', 'Legend', 'freecom_airline_entity', 'Freecom_airline', 'Freecom_charge', 'freecom_apaw_entity', 'C_well_type', 'C_acquired_title', 'C_features_work_piece','Freecom_apaw','freecom_donees_entity', 'Freecom_donees', 'freecom_educational_institutions_entity', 'C_school_level', 'Freecom_educational_institutions', 'freecom_ine_entity', 'Freecom_ine', 'freecom_kind_payment_entity', 'Freecom_kind_payment'];
 
-    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps, freecom_taxlegends_entity, Freecom_taxlegends, Legend, freecom_airline_entity, Freecom_airline, Freecom_charge, freecom_apaw_entity, Well_type, Acquired_title, Features_work_piece, Freecom_apaw, freecom_donees_entity, Freecom_donees, freecom_educational_institutions_entity, School_level, Freecom_educational_institutions, freecom_ine_entity, Committee, Process_type, Freecom_ine, freecom_kind_payment_entity, Freecom_kind_payment) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps, freecom_taxlegends_entity, Freecom_taxlegends, Legend, freecom_airline_entity, Freecom_airline, Freecom_charge, freecom_apaw_entity, C_well_type, C_acquired_title, C_features_work_piece, Freecom_apaw, freecom_donees_entity, Freecom_donees, freecom_educational_institutions_entity, C_school_level, Freecom_educational_institutions, freecom_ine_entity, Freecom_ine, freecom_kind_payment_entity, Freecom_kind_payment) {
 
 		var vm = this;
 
@@ -83,26 +83,30 @@
         vm.onChangeC_colony = onChangeC_colony;
 
 		function onChangeReceiverRFC(){
-            if(vm.free_receiver.rfc.length == 12){
+            if(vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12){
                 vm.free_receiver.type_taxpayer = vm.type_taxpayers[0];
-            }else if(vm.free_receiver.rfc.length == 13){
+            }else if(vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 13){
                 vm.free_receiver.type_taxpayer = vm.type_taxpayers[1];
             }
 			else{
 				vm.free_receiver.type_taxpayer = null;
 			}
+
+            document.getElementById('free_receiver_special_type_taxpayer').checked = false;
+            document.getElementById('free_receiver_special_type_foreign').checked = false;
+            vm.free_receiver.business_name = null;
         }
 
 		function onClickTaxpayerGP(){
-            vm.free_receiver.rfc = "XAXX010101000";
+            vm.free_receiver.rfc = 'XAXX010101000';
 			vm.free_receiver.type_taxpayer = vm.type_taxpayers[1];
-			vm.free_receiver.business_name = "Contribuyente Público General";
+			vm.free_receiver.business_name = 'Contribuyente Público General';
         }
 
 		function onClickForeignResident(){
-            vm.free_receiver.rfc = "XEXX010101000";
+            vm.free_receiver.rfc = 'XEXX010101000';
 			vm.free_receiver.type_taxpayer = vm.type_taxpayers[1];
-			vm.free_receiver.business_name = "Residente Extranjero";
+			vm.free_receiver.business_name = 'Residente Extranjero';
         }
 
 		function onChangeC_country () {
@@ -267,52 +271,52 @@
             if(vm.current_complement != null && vm.current_complement.id != null){
                 switch (vm.current_complement.id){
                     case "taxregistration":
-                        vm.freecom_taxregistration.version = "3.2";
+                        vm.freecom_taxregistration.version = "1.0";
                         vm.freecom_taxregistration.free_cfdi = vm.free_cfdi;
                         Freecom_taxregistration.save(vm.freecom_taxregistration);
                         break;
                     case "pfic":
-                        vm.freecom_pfic.version = "3.2";
+                        vm.freecom_pfic.version = "1.0";
                         vm.freecom_pfic.free_cfdi = vm.free_cfdi;
                         Freecom_pfic.save(vm.freecom_pfic);
                         break;
                     case "accreditation_ieps":
-                        vm.freecom_accreditation_ieps.version = "3.2";
+                        vm.freecom_accreditation_ieps.version = "1.0";
                         vm.freecom_accreditation_ieps.free_cfdi = vm.free_cfdi;
                         Freecom_accreditation_ieps.save(vm.freecom_accreditation_ieps);
                         break;
                     case "taxlegends":
-                        vm.freecom_taxlegends.version = "3.2";
+                        vm.freecom_taxlegends.version = "1.0";
                         vm.freecom_taxlegends.free_cfdi = vm.free_cfdi;
                         Freecom_taxlegends.save(vm.freecom_taxlegends, onTaxLegendsSaveSucccess, onSaveError);
                         break;
                     case "airline":
-                        vm.freecom_airline.version = "3.2";
+                        vm.freecom_airline.version = "1.0";
                         vm.freecom_airline.free_cfdi = vm.free_cfdi;
                         Freecom_airline.save(vm.freecom_airline, onAirLineSaveSucccess, onSaveError);
                         break;
                     case "apaw":
-                        vm.freecom_apaw.version = "3.2";
+                        vm.freecom_apaw.version = "1.0";
                         vm.freecom_apaw.free_cfdi = vm.free_cfdi;
                         Freecom_apaw.save(vm.freecom_apaw);
                         break;
                     case "donees":
-                        vm.freecom_donees.version = "3.2";
+                        vm.freecom_donees.version = "1.0";
                         vm.freecom_donees.free_cfdi = vm.free_cfdi;
                         Freecom_donees.save(vm.freecom_donees);
                         break;
                     case "educational_institutions":
-                        vm.freecom_educational_institutions.version = "3.2";
+                        vm.freecom_educational_institutions.version = "1.0";
                         vm.freecom_educational_institutions.free_cfdi = vm.free_cfdi;
                         Freecom_educational_institutions.save(vm.freecom_educational_institutions);
                         break;
                     case "ine":
-                        vm.freecom_ine.version = "3.2";
+                        vm.freecom_ine.version = "1.0";
                         vm.freecom_ine.free_cfdi = vm.free_cfdi;
                         Freecom_ine.save(vm.freecom_ine);
                         break;
                     case "kind_payment":
-                        vm.freecom_kind_payment.version = "3.2";
+                        vm.freecom_kind_payment.version = "1.0";
                         vm.freecom_kind_payment.free_cfdi = vm.free_cfdi;
                         Freecom_kind_payment.save(vm.freecom_kind_payment);
                         break;
@@ -426,10 +430,10 @@
             vm.legends = [];
             vm.freecom_airline = {version: null, tua: null, total_charge: null, id: null};
             vm.charges = [];
-            vm.freecom_apaw = { version: null, others_well_type: null, others_acquired_title: null, subtotal: null, iva: null, date_acquisition: null, well_type: null, acquired_title: null, features_work_piece: null, id: null };
+            vm.freecom_apaw = { version: null, others_well_type: null, others_acquired_title: null, subtotal: null, iva: null, date_acquisition: null, c_well_type: null, c_acquired_title: null, c_features_work_piece: null, id: null };
             vm.freecom_donees = { version: null, no_authorization: null, date_authorization: null, legend: null,  id: null };
-            vm.freecom_educational_institutions = { version: null, name_student: null,  curp: null, autrvoe: null, rfcpayment: null, school_level: null, id: null };
-            vm.freecom_ine = { version: null, ident: null, process_type: null, committee: null, id: null };
+            vm.freecom_educational_institutions = { version: null, name_student: null,  curp: null, autrvoe: null, rfcpayment: null, c_school_level: null, id: null };
+            vm.freecom_ine = { version: null, ident: null, id: null };
             vm.freecom_kind = { version: null, cvepic: null, foliosoldon: null, art_piece_name: null, technical_art_piece: null, year_art_piece: null, dimensional_art_piece: null, id: null };
         }
 
@@ -832,9 +836,9 @@
         //Apaw
         vm.show_apaw = false;
         vm.freecom_apaw = freecom_apaw_entity;
-        vm.well_types = Well_type.query();
-        vm.acquired_titles = Acquired_title.query();
-        vm.features_work_pieces = Features_work_piece.query();
+        vm.c_well_types = C_well_type.query();
+        vm.c_acquired_titles = C_acquired_title.query();
+        vm.c_features_work_pieces = C_features_work_piece.query();
 
         vm.dateApawPickerOpenStatus = {};
         vm.dateApawPickerOpenStatus.date_acquisition = false;
@@ -857,13 +861,11 @@
         //Educational Institutions
         vm.show_educational_institutions = false;
         vm.freecom_educational_institutions = freecom_educational_institutions_entity;
-        vm.school_levels = School_level.query();
+        vm.c_school_levels = C_school_level.query();
 
         //Ine
         vm.show_ine = false;
         vm.freecom_ine = freecom_ine_entity;
-        vm.committees = Committee.query();
-        vm.process_types = Process_type.query();
 
         //Kind Payment
         vm.show_kind_payment = false;

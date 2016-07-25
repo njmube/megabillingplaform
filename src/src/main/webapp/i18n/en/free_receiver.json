@@ -21,7 +21,7 @@
             "foreign_resident": " Foreign Resident",
             "type_taxpayer": "Type taxpayer (*)",
             "business_name": "Business Name (*)",
-            "email": "Email",
+            "email": "Email (*)",
             "phone": "Phone",
             "activated": "Activated",
             "create_date": "Create Date",
