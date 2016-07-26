@@ -25,7 +25,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="quantity" type="decimal(10,2)">
+            <column name="quantity" type="decimal(24,2)">
                 <constraints nullable="false" />
             </column>
 
@@ -33,7 +33,7 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="unit_value" type="decimal(10,6)">
+            <column name="unit_value" type="decimal(24,6)">
                 <constraints nullable="false" />
             </column>
 
@@ -41,7 +41,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="amount" type="decimal(10,6)">
+            <column name="amount" type="decimal(24,6)">
                 <constraints nullable="false" />
             </column>
 

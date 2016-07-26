@@ -254,11 +254,11 @@
         };
 
         var onAirLineSaveSucccess = function (result) {
-            var freecom_airline = result;
+            var freecom_airline_saved = result;
             var i;
             for(i=0; i < vm.charges.length; i++){
                 var charge = vm.charges[i];
-                charge.freecom_airline = freecom_airline;
+                charge.freecom_airline = freecom_airline_saved;
                 Freecom_charge.save(charge);
             }
         };

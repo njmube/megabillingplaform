@@ -27,7 +27,7 @@ public class Free_tax_transfered implements Serializable {
     private BigDecimal rate;
 
     @NotNull
-    @Column(name = "amount", precision=10, scale=6, nullable = false)
+    @Column(name = "amount", precision=24, scale=6, nullable = false)
     private BigDecimal amount;
 
     @ManyToOne
