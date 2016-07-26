@@ -101,6 +101,28 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         }
     }
 
+    public Free_emitter InfoCertificate(Free_emitter free_emitter){
+        try {
+            Date date = UCertificate.getCertExpirationDate(free_emitter.getFilecertificate());
+            Date created = UCertificate.getCertCreationDate(free_emitter.getFilecertificate());
+            log.debug("Expiracion del certificado " + date.toString());
+            log.debug("Creacion del certificado " + created.toString());
+
+            LocalDate expirate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate createddate = created.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            free_emitter.setDate_certificate(expirate);
+            free_emitter.setRfc_certificate(UCertificate.getCertPersonRFC(free_emitter.getFilecertificate()));
+            free_emitter.setBussines_name_cert(UCertificate.getCertPersonName(free_emitter.getFilecertificate()));
+            free_emitter.setDate_created_cert(createddate.toString());
+            free_emitter.setDate_expiration_cert(expirate.toString());
+            free_emitter.setValid_days_cert(UCertificate.getCertValidDay(free_emitter.getFilecertificate()).toString());
+        }catch (Exception ex){
+
+        }
+        return free_emitter;
+    }
+
     /**
      *  Get all the free_emitters.
      *

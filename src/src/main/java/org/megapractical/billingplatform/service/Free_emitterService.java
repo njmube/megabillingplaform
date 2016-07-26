@@ -42,6 +42,8 @@ public interface Free_emitterService {
      */
     Free_emitter findOne(Long id);
 
+    Free_emitter InfoCertificate(Free_emitter free_emitter);
+
     Free_emitter saveFile(Free_emitter free_emitter);
 
     Free_emitter getFile(Free_emitter free_emitter);
