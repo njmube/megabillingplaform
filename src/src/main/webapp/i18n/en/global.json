@@ -173,6 +173,19 @@
                     "minlength": "Your e-mail is required to be at least 6 characters.",
                     "maxlength": "Your e-mail cannot be longer than 254 characters.",
                     "pattern": "Your e-mail is invalid."
+                },
+				"rfc": {
+                    "required": "RFC is required.",
+                    "invalid": "Your RFC is not valid.",
+                    "minlength": "Your RFC is required to be at least 12 characters.",
+                    "maxlength": "Your RFC cannot be longer than 13 characters.",
+                    "pattern": "Your RFC format is incorrect."
+                },
+				"curp": {
+                    "required": "CURP is required.",
+                    "invalid": "Your CURP is not valid.",
+                    "length": "Your CURP is required to be 18 characters.",
+                    "pattern": "Your CURP format is incorrect."
                 }
             }
         },

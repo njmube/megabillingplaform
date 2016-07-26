@@ -173,6 +173,19 @@
                     "minlength": "Se requiere que su correo electrónico tenga por lo menos 6 caracteres",
                     "maxlength": "Su correo electrónico no puede tener más de 254 caracteres",
                     "pattern": "Su correo electrónico no es válido."
+                },
+				"rfc": {
+                    "required": "Se requiere un RFC.",
+                    "invalid": "Su RFC no es válido.",
+                    "minlength": "Su RFC debe tener al menos 12 caracteres.",
+                    "maxlength": "Su RFC no puede tener más de 13 caracteres.",
+                    "pattern": "Su RFC es incorrecto."
+                },
+				"curp": {
+                    "required": "Se requiere un CURP.",
+                    "invalid": "Su CURP no es válido.",
+                    "length": "Su CURP debe tener 18 caracteres.",
+                    "pattern": "Su CURP es incorrecto.."
                 }
             }
         },
