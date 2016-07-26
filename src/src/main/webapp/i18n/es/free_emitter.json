@@ -55,7 +55,7 @@
             "rfc": "RFC (*)",
             "accuracy": "Lugares Decimales (*)",
             "type_taxpayer": "Tipo de Contribuyente (*)",
-            "email": "Correo Eléctronico (*)",
+            "email": "Correo Electrónico (*)",
             "bussines_name": "Nombre o Razón Social (*)",
             "location": "Localidad",
             "intersection": "Intersección",
