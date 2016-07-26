@@ -11,7 +11,7 @@
         var vm = this;
         vm.free_part_concept = entity;
         vm.free_concepts = Free_concept.query();
-        vm.measure_units = Measure_unit.query({filtername:" "});
+        vm.measure_units = Measure_unit.query({pg: -1, filtername:" "});
 		vm.accuracy = accuracy;
 
         vm.load = function(id) {

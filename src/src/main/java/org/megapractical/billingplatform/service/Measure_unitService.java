@@ -43,4 +43,11 @@ public interface Measure_unitService {
      *  @param id the id of the entity
      */
     void delete(Long id);
+
+    /**
+     *  Get all the measure_units.
+     *
+     *  @return the list of entities
+     */
+    List<Measure_unit> findAll();
 }

@@ -17,6 +17,7 @@
                 "title": "Concepto"
             },
             "no_identification": "Código",
+            "no_identification_repeated": "El código es un valor único, no se puede repetir.",
             "quantity": "Cantidad (*)",
             "description": "Descripción (*)",
             "unit_value": "Valor Unitario (*)",

@@ -89,18 +89,25 @@ public class Measure_unitResource {
     @RequestMapping(value = "/measure-units",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE,
-        params = {"filtername"})
+        params = {"pg", "filtername"})
     @Timed
-    public ResponseEntity<List<Measure_unit>> getAllMeasure_units(@RequestParam(value = "filtername") String filtername,
+    public ResponseEntity<List<Measure_unit>> getAllMeasure_units(@RequestParam(value = "filtername") String filtername, @RequestParam(value = "pg") Integer pg,
                                                                   Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Measure_units");
-        if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
-            Page<Measure_unit> page = measure_unitService.findAll(pageable);
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/measure-units");
-            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
-        }else
-        {
+        if(filtername.compareTo(" ") == 0 || filtername.isEmpty()) {
+
+            if(pg == 0) {
+                Page<Measure_unit> page = measure_unitService.findAll(pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/measure-units");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            }
+            else{
+                List<Measure_unit> page = measure_unitService.findAll();
+                return new ResponseEntity<>(page, HttpStatus.OK);
+            }
+        }
+        else {
             Page<Measure_unit> page = measure_unitService.findAllByName(filtername, pageable);
             HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/measure-units");
             return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);

@@ -5,21 +5,23 @@
         .module('megabillingplatformApp')
         .controller('Free_conceptDialogController', Free_conceptDialogController);
 
-    Free_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$uibModal', 'free_concept_entity', 'Free_cfdi', 'Measure_unit', 'Rate_type', 'Tax_types', 'disabled_iva_value', 'accuracy'];
+    Free_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$uibModal', 'free_concept_entity', 'Free_cfdi', 'Measure_unit', 'Rate_type', 'Tax_types', 'disabled_iva_value', 'free_concept_ids', 'accuracy'];
 
-    function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, Free_cfdi, Measure_unit, Rate_type, Tax_types, disabled_iva_value, accuracy) {
+    function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, Free_cfdi, Measure_unit, Rate_type, Tax_types, disabled_iva_value, free_concept_ids, accuracy) {
         var vm = this;
 
         vm.free_concept = free_concept_entity;
-		vm.iva = (0).toFixed(2);
+		vm.iva = null;
 		vm.ieps = (0).toFixed(2);
-        vm.measure_units = Measure_unit.query({filtername:" "});
+        vm.measure_units = Measure_unit.query({pg: -1, filtername:" "});
         vm.rate_typess = Rate_type.query({filtername: " "});
         vm.tax_typess = Tax_types.query({filtername: " "});
 		vm.free_part_concepts = [];
 		vm.free_customs_infos = [];
 
 		vm.disabled_iva_value = disabled_iva_value;
+		vm.free_concept_ids = free_concept_ids;
+		vm.free_concept_id_valid = true;
 		vm.accuracy = accuracy;
 
 		vm.calcAmount = function(){
@@ -29,6 +31,23 @@
 				vm.free_concept.amount = floorFigure(amount, vm.accuracy);
 			}
 		};
+
+        vm.onNoIdentificationChange = function(){
+            var i;
+            var exist = false;
+            for(i = 0; i < vm.free_concept_ids.length; i++){
+                if(vm.free_concept_ids[i] == vm.free_concept.no_identification){
+                    vm.free_concept_id_valid = false;
+                    exist = true;
+                    break;
+                }
+            }
+
+            if(!exist){
+                vm.free_concept_id_valid = true;
+            }
+
+        };
 
         vm.load = function(id) {
             Free_concept.get({id : id}, function(result) {

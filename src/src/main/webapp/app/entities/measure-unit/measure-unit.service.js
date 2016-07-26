@@ -13,7 +13,7 @@
             'query': {
                 method: 'GET',
                 isArray: true,
-                params: {filtername: null}},
+                params: {pg: null, filtername: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

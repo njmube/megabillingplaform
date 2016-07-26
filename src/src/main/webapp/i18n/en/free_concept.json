@@ -17,6 +17,7 @@
                 "title": "Free_concept"
             },
             "no_identification": "No Identification",
+            "no_identification_repeated": "The identification value is a unique value. It can not be repeated.",
             "quantity": "Quantity (*)",
             "description": "Description (*)",
             "unit_value": "Unit value (*)",

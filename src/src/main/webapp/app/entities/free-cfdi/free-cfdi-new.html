@@ -656,13 +656,13 @@
 										<thead>
 											<tr>
 												<th class="text-center">No. Id</th>
-												<th class="text-center">U/M</th>
-												<th class="text-center">Descripción &nbsp;&nbsp;&nbsp;</th>
-												<th class="text-center">Cantidad</th>
-												<th class="text-center">Valor Unitario</th>
-												<th class="text-center">Descuento</th>
-												<th class="text-center">IVA / IEPS (%)</th>
-												<th class="text-center">Importe</th>
+												<th class="text-left">U/M</th>
+												<th class="text-left">Descripción &nbsp;&nbsp;&nbsp;</th>
+												<th class="text-right">Cantidad</th>
+												<th class="text-right">Valor Unitario</th>
+												<th class="text-right">Descuento</th>
+												<th class="text-right">IVA / IEPS (%)</th>
+												<th class="text-right">Importe</th>
 												<th class="text-center">Acciones</th>
 											</tr>
 										</thead>
@@ -1130,13 +1130,13 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" for="form-field-15">IVA ({{vm.show_iva}} %):</label>
+						<label class="col-sm-6 control-label no-padding-right" for="form-field-15">IVA ({{vm.show_iva}} %): $</label>
 						<div class="col-sm-6">
 							<input type="text" id="form-field-15" class="form-control text-right" ng-model="vm.calc_iva" readonly />
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" for="field_ieps">IEPS</label>
+						<label class="col-sm-6 control-label no-padding-right" for="field_ieps">IEPS: $</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control text-right" name="free_cfdi_ieps" id="field_ieps"
 									ng-model="vm.ieps" readonly
@@ -1144,7 +1144,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" for="field_ret_iva">RET IVA</label>
+						<label class="col-sm-6 control-label no-padding-right" for="field_ret_iva">RET IVA: $</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control text-right" name="free_cfdi_ret_iva" id="field_ret_iva"
 									ng-model="vm.ret_iva" readonly
@@ -1152,7 +1152,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" for="field_ret_isr">RET ISR</label>
+						<label class="col-sm-6 control-label no-padding-right" for="field_ret_isr">RET ISR: $</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control text-right" name="free_cfdi_ret_isr" id="field_ret_isr"
 									ng-model="vm.ret_isr" readonly
@@ -1168,7 +1168,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" for="field_subtotal_discount">Subtotal-Descuentos</label>
+						<label class="col-sm-6 control-label no-padding-right" for="field_subtotal_discount">Subtotal-Descuentos: $</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control text-right" name="free_cfdi_subtotal_discount" id="field_subtotal_discount"
 									ng-model="vm.subtotal_discount" readonly

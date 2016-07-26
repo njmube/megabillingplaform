@@ -17,6 +17,7 @@
 		vm.free_cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
 		vm.free_cfdi.c_money = {id: 100, name: "MXN", description: "Peso Mexicano"};
 		vm.free_concepts = [];
+		vm.free_concept_ids = [];
 		vm.current_free_concept = null;
 		vm.way_payment = null;
 		vm.way_payment_x = 0;
@@ -136,8 +137,6 @@
             });
         }
 
-
-
         var onSaveError = function () {
             vm.isSaving = false;
         };
@@ -162,7 +161,7 @@
 			//saving IVA in free_tax_retentions
 			var amount_iva_retentions = 0;
 			//calculating free cfdi ret iva...
-			if((vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) && (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 3 || vm.free_cfdi.cfdi_type_doc.id == 5))){
+			if((vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) && (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 3 || vm.free_cfdi.cfdi_type_doc.id == 5))){
 				amount_iva_retentions = 2/3 * free_concept.quantity * free_concept.unit_value;
 			}
 			if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 4){
@@ -182,7 +181,7 @@
 			//saving ISR in free_tax_retentions
 			var amount_isr_retentions = 0;
 			//calculating free cfdi ret isr...
-			if((vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) || (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5))){
+			if((vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) || (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5))){
 				amount_isr_retentions = 1/10 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
 			}
 
@@ -469,12 +468,16 @@
 					disabled_iva_value: function () {
 						return vm.disabled_iva_value;
 					},
+                    free_concept_ids: function () {
+                        return vm.free_concept_ids;
+                    },
 					accuracy: function () {
 						return vm.accuracy;
 					}
 				}
 			}).result.then(function(result) {
 				vm.free_concepts.push(result);
+				vm.free_concept_ids.push(result.free_concept.no_identification);
 				vm.updateCFDITotals();
 			}, function() {
 			});
@@ -482,6 +485,7 @@
 
 		vm.removeConcept = function(index){
 			vm.free_concepts.splice(index,1);
+			vm.free_concept_ids.splice(index,1);
 			vm.updateCFDITotals();
 		};
 
@@ -568,7 +572,7 @@
 			}
 
 			//calculating free cfdi ret iva...
-			if((vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) && (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 3 || vm.free_cfdi.cfdi_type_doc.id == 5))){
+			if((vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) && (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 3 || vm.free_cfdi.cfdi_type_doc.id == 5))){
 				ret_iva = 2/3 * subtotal;
 			}
 
@@ -577,7 +581,7 @@
 			}
 
 			//calculating free cfdi ret isr...
-			if((vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) || (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5))){
+			if((vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) || (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5))){
 				ret_isr = 1/10 * subtotal_discount;
 			}
 

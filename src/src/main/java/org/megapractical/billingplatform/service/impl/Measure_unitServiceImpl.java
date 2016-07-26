@@ -79,4 +79,11 @@ public class Measure_unitServiceImpl implements Measure_unitService{
         log.debug("Request to delete Measure_unit : {}", id);
         measure_unitRepository.delete(id);
     }
+
+    @Override
+    public List<Measure_unit> findAll() {
+        log.debug("Request to get all Measure_units");
+        List<Measure_unit> result = measure_unitRepository.findAll();
+        return result;
+    }
 }

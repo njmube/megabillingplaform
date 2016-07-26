@@ -15,8 +15,13 @@
 					<label  class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.no_identification" for="field_no_identification">No_identification</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control" name="no_identification" id="field_no_identification"
-							ng-model="vm.free_concept.no_identification"
+							ng-model="vm.free_concept.no_identification" data-ng-change="vm.onNoIdentificationChange()"
 							/>
+                        <div ng-show="!vm.free_concept_id_valid">
+                            <p class="help-block" translate="megabillingplatformApp.free_concept.no_identification_repeated">
+                                The identification value is a unique value.
+                            </p>
+                        </div>
 					</div>
 				</div>
 
@@ -76,7 +81,7 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.iva" for="field_iva">IVA</label>
 					<div class="col-sm-9">
-						<select class="form-control" id="field_iva" name="iva" ng-model="vm.iva" ng-options="rate_type as rate_type.name disable when rate_type.value == vm.disabled_iva_value for rate_type in vm.rate_typess track by rate_type.value" required>
+						<select class="form-control" id="field_iva" name="iva" ng-model="vm.iva" ng-options="rate_type as rate_type.name disable when rate_type.value == vm.disabled_iva_value for rate_type in vm.rate_typess track by rate_type.value" required >
 							<option value=""></option>
 						</select>
 					</div>
@@ -164,7 +169,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving || !vm.free_concept_id_valid" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
         </button>
     </div>
