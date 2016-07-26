@@ -51,6 +51,7 @@
             AuditsService.query({
                 page: vm.page -1,
                 size: 20,
+                pg:0,
                 fromDate: fromDate,
                 toDate: toDate,
                 principal: principal,

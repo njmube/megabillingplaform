@@ -56,7 +56,7 @@ public class AuditEventService {
     }
 
     public Page<AuditEvent> findByDates(LocalDate fromDate, LocalDate toDate,String principal,
-                                        String auditEventType, String ip, Pageable pageable) {
+                                        String auditEventType, String ip, Pageable pageable, Integer pg) {
         LocalDateTime from = fromDate.atStartOfDay();
         LocalDateTime to = toDate.atStartOfDay();
         if(toDate.toString().compareTo("0001-01-01") == 0){
@@ -84,6 +84,8 @@ public class AuditEventService {
             }
         }
         List<AuditEvent> result = new ArrayList<>();
+
+        int contpg = 1;
         if(list.size()>0) {
             for (int i = list.size() - 1; i >= 0; i--) {
                 boolean OK = true;
@@ -97,14 +99,31 @@ public class AuditEventService {
                     }
                 }
                 if (OK) {
-                    result.add(auditEventConverter.convertToAuditEvent(list.get(i)));
+                    if(pg != 0){
+                        if(contpg <= pg){
+                            result.add(auditEventConverter.convertToAuditEvent(list.get(i)));
+                            contpg++;
+                        }
+                        else {
+                            break;
+                        }
+                    }else
+                    {
+                        result.add(auditEventConverter.convertToAuditEvent(list.get(i)));
+                    }
                 }
             }
         }
-        int currentTotal=pageable.getOffset() + pageable.getPageSize();
-        Page<AuditEvent> page = new PageImpl<AuditEvent>(result,pageable,currentTotal);
+        if(pg == 0) {
+            int currentTotal = pageable.getOffset() + pageable.getPageSize();
+            Page<AuditEvent> page = new PageImpl<AuditEvent>(result, pageable, currentTotal);
+            return page;
+        }else {
+            log.debug("arreglo devuelto trazas: {}", result);
 
-        return page;
+            Page<AuditEvent> page = new PageImpl<AuditEvent>(result);
+            return page;
+        }
     }
 
     public Optional<AuditEvent> find(Long id) {

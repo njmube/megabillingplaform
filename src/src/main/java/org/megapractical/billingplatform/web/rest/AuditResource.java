@@ -4,6 +4,8 @@ import org.megapractical.billingplatform.service.AuditEventService;
 
 import java.time.LocalDate;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.actuate.audit.AuditEvent;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +29,8 @@ import java.util.List;
 public class AuditResource {
 
     private AuditEventService auditEventService;
+
+    private final Logger log = LoggerFactory.getLogger(AuditEventService.class);
 
     @Inject
     public AuditResource(AuditEventService auditEventService) {
@@ -58,8 +62,9 @@ public class AuditResource {
      */
 
     @RequestMapping(method = RequestMethod.GET,
-        params = {"fromDate", "toDate", "principal", "auditEventType", "ip"})
+        params = {"pg","fromDate", "toDate", "principal", "auditEventType", "ip"})
     public ResponseEntity<List<AuditEvent>> getByDates(
+        @RequestParam(value = "pg") Integer pg,
         @RequestParam(value = "fromDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fromDate,
         @RequestParam(value = "toDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate toDate,
         @RequestParam(value = "principal") String principal,
@@ -75,7 +80,7 @@ public class AuditResource {
             return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         }else {
             Page<AuditEvent> page = auditEventService.findByDates(fromDate, toDate,principal,
-                auditEventType, ip, pageable);
+                auditEventType, ip, pageable, pg);
             HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/audits");
             return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         }

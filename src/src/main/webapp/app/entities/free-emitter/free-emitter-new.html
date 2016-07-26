@@ -288,7 +288,7 @@
                         <div class="col-sm-4">
                             <input type="password" class="form-control" name="pass" id="pass" ng-model="vm.free_emitter.pass_certificate">
                         </div>
-                        <button type="button" ng-click = "vm.onValidate()" class="btn btn-primary pull-right" style="margin: 0 15px">
+                        <button type="button"  ng-if="vm.free_emitter.pass_certificate" ng-click = "vm.onValidate()" class="btn btn-primary pull-right" style="margin: 0 15px">
                             <span translate="megabillingplatformApp.free_emitter.validate">Validate </span>
                         </button>
                     </div>

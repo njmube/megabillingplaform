@@ -24,8 +24,7 @@
         var auditEventType = " ";
         var ip = " ";
         vm.audits = AuditsService.query({
-            page: vm.page -1,
-            size:15,
+            pg:10,
             fromDate: fromDate,
             toDate: toDate,
             principal: principal,
