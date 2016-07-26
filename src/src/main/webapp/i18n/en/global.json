@@ -192,7 +192,8 @@
             "view": "View",
             "search": "Search",
             "ok": "OK",
-            "accept":"Accept"
+            "accept":"Accept",
+            "viewall":"View all"
         },
         "detail": {
             "field": "Field",

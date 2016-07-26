@@ -43,7 +43,9 @@
         };
 
         function onValidate(){
-            Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+            if(vm.free_emitter.pass_certificate != null && vm.free_emitter.pass_certificate != ""){
+                Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+            }
         }
 
         function onChangeC_country () {

@@ -79,10 +79,16 @@ public class AuditResource {
             HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/audits");
             return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         }else {
-            Page<AuditEvent> page = auditEventService.findByDates(fromDate, toDate,principal,
-                auditEventType, ip, pageable, pg);
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/audits");
-            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            if(pg == 0) {
+                Page<AuditEvent> page = auditEventService.findByDates(fromDate, toDate, principal,
+                    auditEventType, ip, pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/audits");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            }else
+            {
+                List<AuditEvent> list = auditEventService.findPG(pg);
+                return new ResponseEntity<>(list, HttpStatus.OK);
+            }
         }
     }
 

@@ -56,7 +56,7 @@ public class AuditEventService {
     }
 
     public Page<AuditEvent> findByDates(LocalDate fromDate, LocalDate toDate,String principal,
-                                        String auditEventType, String ip, Pageable pageable, Integer pg) {
+                                        String auditEventType, String ip, Pageable pageable) {
         LocalDateTime from = fromDate.atStartOfDay();
         LocalDateTime to = toDate.atStartOfDay();
         if(toDate.toString().compareTo("0001-01-01") == 0){
@@ -99,31 +99,33 @@ public class AuditEventService {
                     }
                 }
                 if (OK) {
-                    if(pg != 0){
-                        if(contpg <= pg){
-                            result.add(auditEventConverter.convertToAuditEvent(list.get(i)));
-                            contpg++;
-                        }
-                        else {
-                            break;
-                        }
-                    }else
-                    {
+                   result.add(auditEventConverter.convertToAuditEvent(list.get(i)));
+                }
+            }
+        }
+        int currentTotal = pageable.getOffset() + pageable.getPageSize();
+        Page<AuditEvent> page = new PageImpl<AuditEvent>(result, pageable, currentTotal);
+        return page;
+    }
+
+    public List<AuditEvent> findPG(Integer pg){
+        List<PersistentAuditEvent> list = persistenceAuditEventRepository.findAll();
+        List<AuditEvent> result = new ArrayList<>();
+
+        int contpg = 1;
+        if(list.size()>0) {
+            for (int i = list.size() - 1; i >= 0; i--) {
+                if(pg != 0) {
+                    if (contpg <= pg) {
                         result.add(auditEventConverter.convertToAuditEvent(list.get(i)));
+                        contpg++;
+                    } else {
+                        break;
                     }
                 }
             }
         }
-        if(pg == 0) {
-            int currentTotal = pageable.getOffset() + pageable.getPageSize();
-            Page<AuditEvent> page = new PageImpl<AuditEvent>(result, pageable, currentTotal);
-            return page;
-        }else {
-            log.debug("arreglo devuelto trazas: {}", result);
-
-            Page<AuditEvent> page = new PageImpl<AuditEvent>(result);
-            return page;
-        }
+        return result;
     }
 
     public Optional<AuditEvent> find(Long id) {

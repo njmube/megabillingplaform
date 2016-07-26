@@ -192,7 +192,8 @@
             "view": "Vista",
             "search": "Buscar",
             "ok": "OK",
-            "accept":"Aceptar"
+            "accept":"Aceptar",
+            "viewall":"Ver todas"
         },
         "detail": {
             "field": "Campo",
