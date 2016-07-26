@@ -473,7 +473,7 @@
 							<div class="form-group">
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.payment_method" for="field_payment_method">payment_method</label>
 								<div class="col-sm-8">
-									<select class="form-control" id="field_payment_method" name="payment_method" ng-model="vm.free_cfdi.payment_method" ng-options="payment_method as payment_method.name for payment_method in vm.payment_methods track by payment_method.id" required>
+									<select class="form-control" id="field_payment_method" name="payment_method" ng-model="vm.free_cfdi.payment_method" ng-options="payment_method as payment_method.name + ' ('+payment_method.code + ')' for payment_method in vm.payment_methods track by payment_method.id" required>
 										<option value=""></option>
 									</select>
 								</div>

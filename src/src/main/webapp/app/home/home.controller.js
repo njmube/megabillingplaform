@@ -23,17 +23,23 @@
         var principal = " ";
         var auditEventType = " ";
         var ip = " ";
-        vm.audits = AuditsService.query({
-            pg:10,
-            fromDate: fromDate,
-            toDate: toDate,
-            principal: principal,
-            auditEventType: auditEventType,
-            ip:ip});
 
-        vm.login = LoginService.open;
+        vm.audits = null;
+        vm.login = null;
+
         $scope.$on('authenticationSuccess', function() {
             getAccount();
+
+            vm.audits = AuditsService.query({
+                pg: 10,
+                fromDate: fromDate,
+                toDate: toDate,
+                principal: principal,
+                auditEventType: auditEventType,
+                ip: ip
+            });
+
+            vm.login = LoginService.open;
         });
 
         getAccount();
@@ -48,8 +54,7 @@
 				if(vm.account != null){
 					vm.isNoAdmin = vm.account.authorities.indexOf('ROLE_ADMIN') == -1;
 
-					if(!vm.isNoAdmin)
-					{
+					if(!vm.isNoAdmin){
 						$('#sidebar').attr('class','sidebar responsive');
 						$('#sidebar-shortcuts').attr('style','');
 						$('#sidebar-options').attr('style','');

@@ -15,6 +15,12 @@
         vm.settingsAccount = null;
         vm.success = null;
 
+        vm.genders = [{code:'M', name: 'global.form.gender.male'}, {code: 'F', name: 'global.form.gender.female'}];
+        vm.current_gender = null;
+
+        vm.langs = [{key:'en', name: 'settings.form.language.english'}, {key: 'es', name: 'settings.form.language.spanish'}];
+        vm.current_lang = null;
+
         /**
          * Store the "settings account" in a separate variable, and not in the shared "account" variable.
          */
@@ -33,22 +39,57 @@
             };
         };
 
+        vm.onGenderChange = function(){
+            if(vm.current_gender != null){
+                vm.settingsAccount.gender = vm.current_gender.code;
+            }
+            else{
+                vm.settingsAccount.gender = null;
+            }
+        };
+
+        vm.onLangChange = function(){
+            if(vm.current_lang != null){
+                vm.settingsAccount.langKey = vm.current_lang.key;
+            }
+            else{
+                vm.settingsAccount.langKey = null;
+            }
+        };
+
         Principal.identity().then(function(account) {
             vm.settingsAccount = copyAccount(account);
+
+            if(vm.settingsAccount.gender == 'M'){
+                vm.current_gender =  vm.genders[0];
+            }
+            else if(vm.settingsAccount.gender == 'F'){
+                vm.current_gender =  vm.genders[1];
+            }
+
+            if(vm.settingsAccount.langKey == 'en'){
+                vm.current_lang =  vm.langs[0];
+            }
+            else if(vm.settingsAccount.langKey == 'es'){
+                vm.current_lang =  vm.langs[1];
+            }
         });
 
         function save () {
             Auth.updateAccount(vm.settingsAccount).then(function() {
                 vm.error = null;
                 vm.success = 'OK';
+
                 Principal.identity(true).then(function(account) {
                     vm.settingsAccount = copyAccount(account);
                 });
+
                 JhiLanguageService.getCurrent().then(function(current) {
                     if (vm.settingsAccount.langKey !== current) {
                         $translate.use(vm.settingsAccount.langKey);
                     }
                 });
+
             }).catch(function() {
                 vm.success = null;
                 vm.error = 'ERROR';

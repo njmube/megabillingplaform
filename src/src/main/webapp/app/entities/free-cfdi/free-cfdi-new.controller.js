@@ -352,6 +352,7 @@
 		function resetView(){
 
 			vm.free_receiver.rfc= null;
+            vm.free_receiver.type_taxpayer = null;
 			vm.free_receiver.business_name= null;
 			vm.free_receiver.email= null;
 			vm.free_receiver.activated= false;
@@ -369,6 +370,8 @@
 			vm.free_receiver.street = null;
 			vm.free_receiver.reference = null;
 
+            document.getElementById('free_receiver_special_type_taxpayer').checked = false;
+            document.getElementById('free_receiver_special_type_foreign').checked = false;
 
 			vm.free_cfdi.free_receiver = vm.free_receiver;
 			vm.free_cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
