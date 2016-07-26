@@ -1,3 +1,4 @@
 id;name;description
 1;CREATED-FREE-EMITTER;Se crea una entidad free_emitter
 2;UPDATE-FREE-EMITTER;Se actualiza entidad free_emitter
+3;AUTHENTICATION;Se intenta la autenticación

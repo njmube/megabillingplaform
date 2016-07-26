@@ -110,10 +110,12 @@ public class Free_emitterResource {
             return new ResponseEntity<Free_emitter>(free_emitter,HttpStatus.OK);
 
         }else {
-            free_emitter = free_emitterService.InfoCertificate(free_emitter);
-            if(free_emitter.getRfc().compareTo(free_emitter.getRfc_certificate())!=0){
-                free_emitter.setInfo_certificate("ERROR: Emitter RFC is diferent to Certificate RFC");
-                return ResponseEntity.badRequest().body(free_emitter);
+            if(free_emitter.getFilecertificate() != null) {
+                free_emitter = free_emitterService.InfoCertificate(free_emitter);
+                if (free_emitter.getRfc().compareTo(free_emitter.getRfc_certificate()) != 0) {
+                    free_emitter.setInfo_certificate("ERROR: Emitter RFC is diferent to Certificate RFC");
+                    return ResponseEntity.badRequest().header("ERROR: Emitter RFC is diferent to Certificate RFC").body(null);
+                }
             }
 
             if (free_emitter.getId() == null) {

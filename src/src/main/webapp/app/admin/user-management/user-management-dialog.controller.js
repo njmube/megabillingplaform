@@ -35,6 +35,7 @@
 
         function onSaveError (response) {
             vm.isSaving = false;
+            vm.messages = response.data;
             if (response.status === 400 && response.data === 'login already in use') {
                 vm.errorUserExists = 'ERROR';
                 if(cont < 10)

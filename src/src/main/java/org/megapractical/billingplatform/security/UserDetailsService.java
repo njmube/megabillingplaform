@@ -3,6 +3,8 @@ package org.megapractical.billingplatform.security;
 import org.megapractical.billingplatform.domain.Authority;
 import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.repository.UserRepository;
+import org.megapractical.billingplatform.service.AuditEventService;
+import org.megapractical.billingplatform.service.Audit_event_typeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
@@ -27,16 +29,25 @@ public class UserDetailsService implements org.springframework.security.core.use
     @Inject
     private UserRepository userRepository;
 
+    @Inject
+    private AuditEventService auditEventService;
+
+    @Inject
+    private Audit_event_typeService audit_event_typeService;
+
     @Override
     @Transactional
     public UserDetails loadUserByUsername(final String login) {
+
         log.debug("Authenticating {}", login);
         String lowercaseLogin = login.toLowerCase();
         Optional<User> userFromDatabase = userRepository.findOneByLogin(lowercaseLogin);
 
         return userFromDatabase.map(user -> {
             if (!user.getActivated()) {
+                
                 throw new UserNotActivatedException("User " + lowercaseLogin + " was not activated");
+
             }
             List<GrantedAuthority> grantedAuthorities = user.getAuthorities().stream()
                     .map(authority -> new SimpleGrantedAuthority(authority.getName()))

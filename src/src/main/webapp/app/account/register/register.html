@@ -224,7 +224,12 @@
                 <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" translate="register.form.button">Register</button>
             </form>
             <p></p>
-            <p translate="register.form.conditions">Al hacer clic en Registrarse, aceptas las Condiciones y confirmas que leiste nuestra política de datos, incluido el uso de cookies.</p>
+            <p ng-show="!vm.success" translate="register.form.conditions">Al hacer clic en Registrarse, aceptas las Condiciones y confirmas que leiste nuestra política de datos, incluido el uso de cookies.</p>
+            <button ng-show="vm.success" type="submit"
+                    onclick="window.history.back()"
+                    class="btn btn-info">
+                <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+            </button>
         </div>
     </div>
 </div>
