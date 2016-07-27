@@ -45,7 +45,7 @@ public class UserDetailsService implements org.springframework.security.core.use
 
         return userFromDatabase.map(user -> {
             if (!user.getActivated()) {
-                
+
                 throw new UserNotActivatedException("User " + lowercaseLogin + " was not activated");
 
             }

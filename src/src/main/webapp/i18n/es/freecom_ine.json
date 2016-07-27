@@ -18,7 +18,9 @@
             },
             "version": "Version",
             "ident": "Ident",
-            "free_cfdi": "Free_cfdi"
+            "free_cfdi": "Free_cfdi",
+            "c_committee_type": "C_committee_type",
+            "c_process_type": "C_process_type"
         }
     }
 }

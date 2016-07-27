@@ -103,9 +103,18 @@ public class Free_emitterResource {
         if(free_emitter.getPass_certificate() != null){
             String [] response = free_emitterService.validateCertificate(free_emitter.getFilecertificate(), free_emitter.getFilekey(), free_emitter.getPass_certificate());
             free_emitter.setInfo_certificate(response[1]);
+
             free_emitter = free_emitterService.InfoCertificate(free_emitter);
             if(free_emitter.getRfc().compareTo(free_emitter.getRfc_certificate())!=0)
                 free_emitter.setInfo_certificate("ERROR: Emitter RFC is diferent to Certificate RFC");
+            if(response[0].compareTo("0")!=0){
+                free_emitter.setDate_certificate(null);
+                free_emitter.setRfc_certificate(null);
+                free_emitter.setBussines_name_cert(null);
+                free_emitter.setDate_created_cert(null);
+                free_emitter.setDate_expiration_cert(null);
+                free_emitter.setValid_days_cert(null);
+            }
             free_emitter.setPass_certificate(null);
             return new ResponseEntity<Free_emitter>(free_emitter,HttpStatus.OK);
 

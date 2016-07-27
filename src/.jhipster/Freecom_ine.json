@@ -7,6 +7,18 @@
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "freecom_ine"
+        },
+        {
+            "relationshipName": "c_committee_type",
+            "otherEntityName": "c_committee_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "c_process_type",
+            "otherEntityName": "c_process_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
         }
     ],
     "fields": [

@@ -22,6 +22,8 @@
                     <th jh-sort-by="version"><span translate="megabillingplatformApp.freecom_ine.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="ident"><span translate="megabillingplatformApp.freecom_ine.ident">Ident</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.freecom_ine.free_cfdi">free_cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_committee_type.name"><span translate="megabillingplatformApp.freecom_ine.c_committee_type">c_committee_type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_process_type.name"><span translate="megabillingplatformApp.freecom_ine.c_process_type">c_process_type</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -32,6 +34,12 @@
                     <td>{{freecom_ine.ident}}</td>
                     <td>
                         <a ui-sref="free-cfdi-detail({id:freecom_ine.free_cfdi.id})">{{freecom_ine.free_cfdi.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-committee-type-detail({id:freecom_ine.c_committee_type.id})">{{freecom_ine.c_committee_type.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-process-type-detail({id:freecom_ine.c_process_type.id})">{{freecom_ine.c_process_type.name}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

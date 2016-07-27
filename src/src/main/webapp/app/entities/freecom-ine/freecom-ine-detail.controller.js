@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Freecom_ineDetailController', Freecom_ineDetailController);
 
-    Freecom_ineDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Freecom_ine', 'Free_cfdi'];
+    Freecom_ineDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Freecom_ine', 'Free_cfdi', 'C_committee_type', 'C_process_type'];
 
-    function Freecom_ineDetailController($scope, $rootScope, $stateParams, entity, Freecom_ine, Free_cfdi) {
+    function Freecom_ineDetailController($scope, $rootScope, $stateParams, entity, Freecom_ine, Free_cfdi, C_committee_type, C_process_type) {
         var vm = this;
         vm.freecom_ine = entity;
         vm.load = function (id) {

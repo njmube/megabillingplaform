@@ -32,6 +32,8 @@
             <column name="free_cfdi_id" type="bigint">
                 <constraints unique="true"/>
             </column>
+            <column name="c_committee_type_id" type="bigint"/>
+            <column name="c_process_type_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
@@ -40,6 +42,18 @@
                                  constraintName="fk_freecom_ine_free_cfdi_id"
                                  referencedColumnNames="id"
                                  referencedTableName="free_cfdi"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_committee_type_id"
+                                 baseTableName="freecom_ine"
+                                 constraintName="fk_freecom_ine_c_committee_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_committee_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_process_type_id"
+                                 baseTableName="freecom_ine"
+                                 constraintName="fk_freecom_ine_c_process_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_process_type"/>
 
     </changeSet>
 </databaseChangeLog>

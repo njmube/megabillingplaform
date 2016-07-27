@@ -34,6 +34,12 @@ public class Freecom_ine implements Serializable {
     @JoinColumn(unique = true)
     private Free_cfdi free_cfdi;
 
+    @ManyToOne
+    private C_committee_type c_committee_type;
+
+    @ManyToOne
+    private C_process_type c_process_type;
+
     public Long getId() {
         return id;
     }
@@ -64,6 +70,22 @@ public class Freecom_ine implements Serializable {
 
     public void setFree_cfdi(Free_cfdi free_cfdi) {
         this.free_cfdi = free_cfdi;
+    }
+
+    public C_committee_type getC_committee_type() {
+        return c_committee_type;
+    }
+
+    public void setC_committee_type(C_committee_type c_committee_type) {
+        this.c_committee_type = c_committee_type;
+    }
+
+    public C_process_type getC_process_type() {
+        return c_process_type;
+    }
+
+    public void setC_process_type(C_process_type c_process_type) {
+        this.c_process_type = c_process_type;
     }
 
     @Override

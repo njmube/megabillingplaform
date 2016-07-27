@@ -46,6 +46,18 @@
                 <option value=""></option>
             </select>
         </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_ine.c_committee_type" for="field_c_committee_type">c_committee_type</label>
+            <select class="form-control" id="field_c_committee_type" name="c_committee_type" ng-model="vm.freecom_ine.c_committee_type" ng-options="c_committee_type as c_committee_type.name for c_committee_type in vm.c_committee_types track by c_committee_type.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_ine.c_process_type" for="field_c_process_type">c_process_type</label>
+            <select class="form-control" id="field_c_process_type" name="c_process_type" ng-model="vm.freecom_ine.c_process_type" ng-options="c_process_type as c_process_type.name for c_process_type in vm.c_process_types track by c_process_type.id">
+                <option value=""></option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
