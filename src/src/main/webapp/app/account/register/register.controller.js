@@ -45,7 +45,7 @@
                 vm.errorUserExists = null;
                 vm.errorEmailExists = null;
                 vm.errorRfcExists = null;
-
+                vm.registerAccount.creator = 'System';
                 Auth.createAccount(vm.registerAccount).then(function () {
                     vm.success = 'OK';
                 }).catch(function (response) {

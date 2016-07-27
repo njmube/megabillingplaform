@@ -91,7 +91,7 @@ public class UserService {
 
     public User createUserInformation(String login, String rfc, String password, String name,String firtsuname,String secondsurname,
                                       String email, String phone,
-                                      String gender, String langKey) {
+                                      String gender, String langKey, String creator) {
 
         User newUser = new User();
         Authority authority = authorityRepository.findOne("ROLE_USER");
@@ -108,6 +108,7 @@ public class UserService {
         newUser.setPhone(phone);
         newUser.setGender(gender);
         newUser.setLangKey(langKey);
+        newUser.setCreator(creator);
         // new user is not active
         newUser.setActivated(false);
         // new user gets registration key
@@ -129,6 +130,7 @@ public class UserService {
         user.setEmail(managedUserDTO.getEmail());
         user.setPhone(managedUserDTO.getPhone());
         user.setGender(managedUserDTO.getGender());
+        user.setCreator(managedUserDTO.getCreator());
         if (managedUserDTO.getLangKey() == null) {
             user.setLangKey("en"); // default language
         } else {
@@ -152,7 +154,7 @@ public class UserService {
     }
 
     public void updateUserInformation(String rfc, String name, String firtsurname, String secondsurname,
-                                      String email, String phone, String gender, String langKey) {
+                                      String email, String phone, String gender, String langKey, String creator) {
         userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(u -> {
             u.setRFC(rfc);
             u.setName(name);
@@ -162,6 +164,7 @@ public class UserService {
             u.setPhone(phone);
             u.setGender(gender);
             u.setLangKey(langKey);
+            u.setCreator(creator);
             userRepository.save(u);
             log.debug("Changed Information for User: {}", u);
         });

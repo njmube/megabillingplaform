@@ -123,6 +123,12 @@ public class Free_emitterResource {
                 free_emitter = free_emitterService.InfoCertificate(free_emitter);
                 if (free_emitter.getRfc().compareTo(free_emitter.getRfc_certificate()) != 0) {
                     free_emitter.setInfo_certificate("ERROR: Emitter RFC is diferent to Certificate RFC");
+                    free_emitter.setDate_certificate(null);
+                    free_emitter.setRfc_certificate(null);
+                    free_emitter.setBussines_name_cert(null);
+                    free_emitter.setDate_created_cert(null);
+                    free_emitter.setDate_expiration_cert(null);
+                    free_emitter.setValid_days_cert(null);
                     return ResponseEntity.badRequest().header("ERROR: Emitter RFC is diferent to Certificate RFC").body(null);
                 }
             }

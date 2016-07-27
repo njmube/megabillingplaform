@@ -76,7 +76,7 @@ public class AccountResource {
                         User user = userService.createUserInformation(userDTO.getLogin(), userDTO.getRFC(),
                             userDTO.getPassword(), userDTO.getName(), userDTO.getFirtsurname(), userDTO.getSecondsurname(),
                             userDTO.getEmail().toLowerCase(),
-                            userDTO.getPhone(), userDTO.getGender(), userDTO.getLangKey());
+                            userDTO.getPhone(), userDTO.getGender(), userDTO.getLangKey(), userDTO.getCreator());
                         String baseUrl = request.getScheme() + // "http"
                             "://" +                                // "://"
                             request.getServerName() +              // "myhost"
@@ -163,7 +163,7 @@ public class AccountResource {
                 userService.updateUserInformation(userDTO.getRFC(),userDTO.getName(),
                     userDTO.getFirtsurname(),userDTO.getSecondsurname(),userDTO.getEmail(),
                     userDTO.getPhone(),
-                    userDTO.getGender(), userDTO.getLangKey());
+                    userDTO.getGender(), userDTO.getLangKey(), userDTO.getCreator());
                 return new ResponseEntity<String>(HttpStatus.OK);
             })
             .orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));

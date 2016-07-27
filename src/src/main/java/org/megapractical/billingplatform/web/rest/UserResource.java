@@ -6,6 +6,7 @@ import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.repository.AuthorityRepository;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.security.AuthoritiesConstants;
+import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.MailService;
 import org.megapractical.billingplatform.service.UserService;
 import org.megapractical.billingplatform.web.rest.dto.ManagedUserDTO;
@@ -106,6 +107,8 @@ public class UserResource {
         } else if(userRepository.findOneByRfc(managedUserDTO.getRFC()).isPresent()){
             return new ResponseEntity<>("rfc already in use", textPlainHeaders, HttpStatus.BAD_REQUEST);
         }else{
+            if(managedUserDTO.getCreator() == null)
+                managedUserDTO.setCreator(SecurityUtils.getCurrentUserLogin());
             User newUser = userService.createUser(managedUserDTO);
             String baseUrl = request.getScheme() + // "http"
             "://" +                                // "://"
@@ -161,6 +164,7 @@ public class UserResource {
                 user.setGender(managedUserDTO.getGender());
                 user.setActivated(managedUserDTO.isActivated());
                 user.setLangKey(managedUserDTO.getLangKey());
+                user.setCreator(managedUserDTO.getCreator());
                 Set<Authority> authorities = user.getAuthorities();
                 if(!managedUserDTO.isActivated()){
                     userService.DeletePersistenTokenByUser(user);

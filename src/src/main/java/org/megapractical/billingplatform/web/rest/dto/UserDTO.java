@@ -52,6 +52,8 @@ public class UserDTO {
 
     private String gender;
 
+    private String creator;
+
     private boolean activated;
 
     @Size(min = 2, max = 5)
@@ -65,13 +67,13 @@ public class UserDTO {
     public UserDTO(User user) {
         this(user.getLogin(),user.getRFC(), null, user.getName(), user.getFirtsurname(),user.getSecondsurname(),
             user.getEmail(),user.getPhone(),
-            user.getGender(), user.getActivated(), user.getLangKey(),
+            user.getGender(), user.getActivated(), user.getLangKey(),user.getCreator(),
             user.getAuthorities().stream().map(Authority::getName)
                 .collect(Collectors.toSet()));
     }
 
     public UserDTO(String login, String rfc, String password, String name,String firtsurname,String secondsurname,
-                   String email, String phone, String gender, boolean activated, String langKey, Set<String> authorities) {
+                   String email, String phone, String gender, boolean activated, String langKey, String creator,Set<String> authorities) {
 
         this.login = login;
         this.password = password;
@@ -85,6 +87,7 @@ public class UserDTO {
         this.activated = activated;
         this.langKey = langKey;
         this.authorities = authorities;
+        this.creator = creator;
     }
 
     public String getPassword() {
@@ -151,6 +154,14 @@ public class UserDTO {
         this.gender = gender;
     }
 
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
     public void setActivated(boolean activated){this.activated = activated;}
 
     public boolean isActivated() {
@@ -178,6 +189,7 @@ public class UserDTO {
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +
             ", authorities=" + authorities +
+            ", creator='" + creator + '\'' +
             "}";
     }
 }

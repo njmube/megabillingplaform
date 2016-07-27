@@ -55,6 +55,7 @@
             <column name="lang_key" type="varchar(5)"/>
             <column name="activation_key" type="varchar(20)"/>
             <column name="reset_key" type="varchar(20)"/>
+            <column name="creator" type="varchar(50)"/>
             <column name="created_by" type="varchar(50)">
                 <constraints nullable="false"/>
             </column>

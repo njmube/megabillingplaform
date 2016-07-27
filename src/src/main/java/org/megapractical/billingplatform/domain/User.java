@@ -35,7 +35,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
     private String login;
 
     @NotNull
-    @Pattern(regexp = "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]?")
+    @Pattern(regexp = "^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}")
     @Size(min = 12, max = 13)
     @Column(length = 50, nullable = false)
     private String rfc;
@@ -74,6 +74,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @Column(length = 50, nullable = false)
     private String gender;
+
+    @Column(length = 50)
+    private String creator;
 
     @NotNull
     @Column(nullable = false)
@@ -206,6 +209,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
         this.activationKey = activationKey;
     }
 
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
     public String getResetKey() {
         return resetKey;
     }
@@ -283,6 +294,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +
+            ", creator='" + creator + '\'' +
             "}";
     }
 }
