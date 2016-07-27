@@ -151,7 +151,7 @@
 							quantity: 0,
 							description: null,
 							unit_value: (0).toFixed(vm.accuracy),
-							amount: (0).toFixed(2),
+							amount: (0).toFixed(vm.accuracy),
 							id: null
 						};
 					},

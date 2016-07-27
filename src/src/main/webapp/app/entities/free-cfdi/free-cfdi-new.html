@@ -672,10 +672,10 @@
 												<td class="text-left">{{free_concept.free_concept.measure_unit.name}}</td>
 												<td class="text-left">{{free_concept.free_concept.description}}</td>
 												<td class="text-right">{{free_concept.free_concept.quantity}}</td>
-												<td class="text-right">{{free_concept.free_concept.unit_value}}</td>
+												<td class="text-right">{{free_concept.free_concept.unit_value | uimeganumberformat}}</td>
 												<td class="text-right">{{free_concept.free_concept.discount}}</td>
 												<td class="text-right">{{free_concept.free_concept_iva.rate}} / {{free_concept.free_concept_ieps.rate}}</td>
-												<td class="text-right">{{free_concept.free_concept.amount}}</td>
+												<td class="text-right">{{free_concept.free_concept.amount | uimeganumberformat}}</td>
 												<td class="text-center">
 													<button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeConcept($index)">
 														<span class="glyphicon glyphicon-trash"></span>
@@ -1154,21 +1154,23 @@
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.subtotal" for="field_subtotal">Subtotal</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control text-right" name="subtotal" id="field_subtotal"
-									ng-model="vm.free_cfdi.subtotal"
+                                   ui-mega-number-format ng-model="vm.free_cfdi.subtotal"
 									required readonly />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" for="form-field-15">IVA ({{vm.show_iva}} %): $</label>
 						<div class="col-sm-6">
-							<input type="text" id="form-field-15" class="form-control text-right" ng-model="vm.calc_iva" readonly />
+							<input type="text" id="form-field-15" class="form-control text-right"
+                                   ui-mega-number-format ng-model="vm.calc_iva" readonly
+                                    />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="col-sm-6 control-label no-padding-right" for="field_ieps">IEPS: $</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control text-right" name="free_cfdi_ieps" id="field_ieps"
-									ng-model="vm.ieps" readonly
+                                   ui-mega-number-format ng-model="vm.ieps" readonly
 									 />
 						</div>
 					</div>
@@ -1176,7 +1178,7 @@
 						<label class="col-sm-6 control-label no-padding-right" for="field_ret_iva">RET IVA: $</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control text-right" name="free_cfdi_ret_iva" id="field_ret_iva"
-									ng-model="vm.ret_iva" readonly
+                                   ui-mega-number-format ng-model="vm.ret_iva" readonly
 									 />
 						</div>
 					</div>
@@ -1184,7 +1186,7 @@
 						<label class="col-sm-6 control-label no-padding-right" for="field_ret_isr">RET ISR: $</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control text-right" name="free_cfdi_ret_isr" id="field_ret_isr"
-									ng-model="vm.ret_isr" readonly
+                                   ui-mega-number-format ng-model="vm.ret_isr" readonly
 									 />
 						</div>
 					</div>
@@ -1192,7 +1194,7 @@
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.discount" for="field_discount">Discount</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control text-right" name="discount" id="field_discount"
-									ng-model="vm.free_cfdi.discount" readonly
+                                   ui-mega-number-format ng-model="vm.free_cfdi.discount" readonly
 									 />
 						</div>
 					</div>
@@ -1200,7 +1202,7 @@
 						<label class="col-sm-6 control-label no-padding-right" for="field_subtotal_discount">Subtotal-Descuentos: $</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control text-right" name="free_cfdi_subtotal_discount" id="field_subtotal_discount"
-									ng-model="vm.subtotal_discount" readonly
+                                   ui-mega-number-format ng-model="vm.subtotal_discount" readonly
 									 />
 						</div>
 					</div>
@@ -1208,7 +1210,7 @@
 						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total" for="field_total">Total</label>
 						<div class="col-sm-6">
 							<input type="text" class="form-control text-right" name="total" id="field_total"
-									ng-model="vm.free_cfdi.total" required readonly
+                                   ui-mega-number-format ng-model="vm.free_cfdi.total" required readonly
 									/>
 						</div>
 					</div>

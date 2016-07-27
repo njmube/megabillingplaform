@@ -9,7 +9,7 @@
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group">
-            <label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_part_concept.no_identification" for="field_no_identification">No_identification</label>			
+            <label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_part_concept.no_identification" for="field_no_identification">No_identification</label>
 			<div class="col-sm-9">
 				<input type="text" class="form-control" name="no_identification" id="field_no_identification"
 						ng-model="vm.free_part_concept.no_identification"
@@ -17,7 +17,7 @@
 			</div>
         </div>
 		<div class="form-group">
-            <label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_part_concept.measure_unit" for="field_measure_unit">measure_unit</label>					
+            <label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_part_concept.measure_unit" for="field_measure_unit">measure_unit</label>
 			<div class="col-sm-9">
 				<select class="form-control" id="field_measure_unit" name="measure_unit" ng-model="vm.free_part_concept.measure_unit" ng-options="measure_unit as measure_unit.name for measure_unit in vm.measure_units track by measure_unit.id">
 					<option value=""></option>
@@ -25,14 +25,14 @@
 			</div>
         </div>
 		<div class="form-group">
-            <label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_part_concept.description" for="field_description">Description</label>			
+            <label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_part_concept.description" for="field_description">Description</label>
 			<div class="col-sm-9">
 				<textarea class="form-control" name="description" id="field_description"
 						ng-model="vm.free_part_concept.description" rows="5"></textarea>
 			</div>
         </div>
 		<div class="form-group">
-            <label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_part_concept.unit_value" for="field_unit_value">Unit_value</label>		
+            <label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_part_concept.unit_value" for="field_unit_value">Unit_value</label>
 			<div class="col-sm-9">
 				<input type="text" class="form-control text-right" name="unit_value" id="field_unit_value"
 						ng-model="vm.free_part_concept.unit_value" ng-change="vm.calcAmount()"
@@ -40,24 +40,24 @@
 			</div>
         </div>
         <div class="form-group">
-            <label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_part_concept.quantity" for="field_quantity">Quantity</label>			
+            <label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_part_concept.quantity" for="field_quantity">Quantity</label>
 			<div class="col-sm-9">
 				<input type="text" class="form-control text-right" name="quantity" id="field_quantity"
 						ng-model="vm.free_part_concept.quantity" ng-change="vm.calcAmount()"
 						required />
 			</div>
         </div>
-        
-        
+
+
         <div class="form-group">
-            <label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_part_concept.amount" for="field_amount">Amount</label>		
+            <label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_part_concept.amount" for="field_amount">Amount</label>
 			<div class="col-sm-9">
 				<input type="text" class="form-control text-right" name="amount" id="field_amount"
-						ng-model="vm.free_part_concept.amount"
+                       ui-mega-number-format ng-model="vm.free_part_concept.amount"
 						readonly />
 			</div>
         </div>
-        
+
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

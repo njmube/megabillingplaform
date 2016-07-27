@@ -98,7 +98,7 @@
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.amount" for="field_amount">Amount</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control text-right" name="amount" id="field_amount"
-								ng-model="vm.free_concept.amount"
+                               ui-mega-number-format ng-model="vm.free_concept.amount"
 								required readonly />
 					</div>
 				</div>
@@ -148,7 +148,7 @@
 							<td>{{free_part_concept.no_identification}}</td>
 							<td>{{free_part_concept.description}}</td>
 							<td>{{free_part_concept.quantity}}</td>
-							<td>{{free_part_concept.amount}}</td>
+							<td>{{free_part_concept.amount | uimeganumberformat}}</td>
 							<td>
 								<button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeFreePartConcept($index)">
 									<span class="glyphicon glyphicon-trash"></span>
