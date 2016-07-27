@@ -60,6 +60,7 @@
                 "cSchoolLevel": "C_school_level",
                 "freecomIne": "Freecom_ine",
                 "freecomEducationalInstitutions": "Freecom_educational_institutions",
+                "cStateEvent": "C_state_event",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "c_state_event" : {
+            "home": {
+                "title": "State events",
+                "createLabel": "Create a new State event",
+                "createOrEditLabel": "Create or edit a State event",
+                "search": "Search for State event"
+            },
+            "created": "A new State event is created with identifier {{ param }}",
+            "updated": "A State event is updated with identifier {{ param }}",
+            "deleted": "A State event is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete State event {{ id }}?"
+            },
+            "detail": {
+                "title": "State event"
+            },
+            "name": "Name"
+        }
+    }
+}

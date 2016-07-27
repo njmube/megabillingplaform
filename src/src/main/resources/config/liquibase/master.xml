@@ -70,5 +70,6 @@
     <include file="classpath:config/liquibase/changelog/20160713002851_added_entity_Entity_cfdi.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160712204648_added_entity_Accounting.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160720020110_added_entity_Audit_event_type.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160727154234_added_entity_C_state_event.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
