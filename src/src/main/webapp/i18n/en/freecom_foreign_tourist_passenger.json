@@ -1,0 +1,31 @@
+{
+    "megabillingplatformApp": {
+        "freecom_foreign_tourist_passenger" : {
+            "home": {
+                "title": "Freecom_foreign_tourist_passengers",
+                "createLabel": "Create a new Freecom_foreign_tourist_passenger",
+                "createOrEditLabel": "Create or edit a Freecom_foreign_tourist_passenger",
+                "search": "Search for Freecom_foreign_tourist_passenger"
+            },
+            "created": "A new Freecom_foreign_tourist_passenger is created with identifier {{ param }}",
+            "updated": "A Freecom_foreign_tourist_passenger is updated with identifier {{ param }}",
+            "deleted": "A Freecom_foreign_tourist_passenger is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom_foreign_tourist_passenger {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_foreign_tourist_passenger"
+            },
+            "version": "Version",
+            "date_traffic": "Date_traffic",
+            "typeid": "Typeid",
+            "numerid": "Numerid",
+            "nationality": "Nationality",
+            "transportcompany": "Transportcompany",
+            "idtransport": "Idtransport",
+            "c_transit_type": "C_transit_type",
+            "c_type_road": "C_type_road",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

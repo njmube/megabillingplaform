@@ -1,0 +1,130 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFreecom_foreign_tourist_passengerLabel" translate="megabillingplatformApp.freecom_foreign_tourist_passenger.home.createOrEditLabel">Create or edit a Freecom_foreign_tourist_passenger</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.freecom_foreign_tourist_passenger.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_foreign_tourist_passenger.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.freecom_foreign_tourist_passenger.version"
+                    required />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.version.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_foreign_tourist_passenger.date_traffic" for="field_date_traffic">Date_traffic</label>
+                <div class="input-group">
+                    <input id="field_date_traffic" type="text" class="form-control" name="date_traffic" datetime-picker="{{dateformat}}" ng-model="vm.freecom_foreign_tourist_passenger.date_traffic" is-open="vm.datePickerOpenStatus.date_traffic"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_traffic')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_traffic.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_traffic.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.date_traffic.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_foreign_tourist_passenger.typeid" for="field_typeid">Typeid</label>
+            <input type="text" class="form-control" name="typeid" id="field_typeid"
+                    ng-model="vm.freecom_foreign_tourist_passenger.typeid"
+                    required />
+            <div ng-show="editForm.typeid.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.typeid.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_foreign_tourist_passenger.numerid" for="field_numerid">Numerid</label>
+            <input type="text" class="form-control" name="numerid" id="field_numerid"
+                    ng-model="vm.freecom_foreign_tourist_passenger.numerid"
+                    required />
+            <div ng-show="editForm.numerid.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.numerid.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_foreign_tourist_passenger.nationality" for="field_nationality">Nationality</label>
+            <input type="text" class="form-control" name="nationality" id="field_nationality"
+                    ng-model="vm.freecom_foreign_tourist_passenger.nationality"
+                    required />
+            <div ng-show="editForm.nationality.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nationality.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_foreign_tourist_passenger.transportcompany" for="field_transportcompany">Transportcompany</label>
+            <input type="text" class="form-control" name="transportcompany" id="field_transportcompany"
+                    ng-model="vm.freecom_foreign_tourist_passenger.transportcompany"
+                    required />
+            <div ng-show="editForm.transportcompany.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.transportcompany.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_foreign_tourist_passenger.idtransport" for="field_idtransport">Idtransport</label>
+            <input type="text" class="form-control" name="idtransport" id="field_idtransport"
+                    ng-model="vm.freecom_foreign_tourist_passenger.idtransport"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_foreign_tourist_passenger.c_transit_type" for="field_c_transit_type">c_transit_type</label>
+            <select class="form-control" id="field_c_transit_type" name="c_transit_type" ng-model="vm.freecom_foreign_tourist_passenger.c_transit_type" ng-options="c_transit_type as c_transit_type.name for c_transit_type in vm.c_transit_types track by c_transit_type.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_foreign_tourist_passenger.c_type_road" for="field_c_type_road">c_type_road</label>
+            <select class="form-control" id="field_c_type_road" name="c_type_road" ng-model="vm.freecom_foreign_tourist_passenger.c_type_road" ng-options="c_type_road as c_type_road.name for c_type_road in vm.c_type_roads track by c_type_road.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_foreign_tourist_passenger.free_cfdi" for="field_free_cfdi">free_cfdi</label>
+            <select class="form-control" id="field_free_cfdi" name="free_cfdi" ng-model="vm.freecom_foreign_tourist_passenger.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.free_cfdis track by free_cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

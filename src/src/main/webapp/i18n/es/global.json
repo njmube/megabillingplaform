@@ -62,6 +62,15 @@
                 "freecomEducationalInstitutions": "Freecom_educational_institutions",
                 "cStateEvent": "C_state_event",
                 "generalData": "General_data",
+                "cTypeOperation": "C_type_operation",
+                "freecomForeignExchange": "Freecom_foreign_exchange",
+                "freecomLocalTaxes": "Freecom_local_taxes",
+                "freecomRetentionsTransfered": "Freecom_retentions_transfered",
+                "cTransitType": "C_transit_type",
+                "cTypeRoad": "C_type_road",
+                "freecomForeignTouristPassenger": "Freecom_foreign_tourist_passenger",
+                "cFederalEntity": "C_federal_entity",
+                "freecomPartialConstructionServices": "Freecom_partial_construction_services",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

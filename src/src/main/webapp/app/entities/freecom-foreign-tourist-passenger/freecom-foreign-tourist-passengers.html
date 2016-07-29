@@ -1,0 +1,84 @@
+<div>
+    <h2 translate="megabillingplatformApp.freecom_foreign_tourist_passenger.home.title">Freecom_foreign_tourist_passengers</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="freecom-foreign-tourist-passenger.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.freecom_foreign_tourist_passenger.home.createLabel">
+                        Create new Freecom_foreign_tourist_passenger
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version"><span translate="megabillingplatformApp.freecom_foreign_tourist_passenger.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_traffic"><span translate="megabillingplatformApp.freecom_foreign_tourist_passenger.date_traffic">Date_traffic</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="typeid"><span translate="megabillingplatformApp.freecom_foreign_tourist_passenger.typeid">Typeid</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numerid"><span translate="megabillingplatformApp.freecom_foreign_tourist_passenger.numerid">Numerid</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nationality"><span translate="megabillingplatformApp.freecom_foreign_tourist_passenger.nationality">Nationality</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="transportcompany"><span translate="megabillingplatformApp.freecom_foreign_tourist_passenger.transportcompany">Transportcompany</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="idtransport"><span translate="megabillingplatformApp.freecom_foreign_tourist_passenger.idtransport">Idtransport</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_transit_type.name"><span translate="megabillingplatformApp.freecom_foreign_tourist_passenger.c_transit_type">c_transit_type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_type_road.name"><span translate="megabillingplatformApp.freecom_foreign_tourist_passenger.c_type_road">c_type_road</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.freecom_foreign_tourist_passenger.free_cfdi">free_cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="freecom_foreign_tourist_passenger in vm.freecom_foreign_tourist_passengers track by freecom_foreign_tourist_passenger.id">
+                    <td><a ui-sref="freecom-foreign-tourist-passenger-detail({id:freecom_foreign_tourist_passenger.id})">{{freecom_foreign_tourist_passenger.id}}</a></td>
+                    <td>{{freecom_foreign_tourist_passenger.version}}</td>
+                    <td>{{freecom_foreign_tourist_passenger.date_traffic | date:'medium'}}</td>
+                    <td>{{freecom_foreign_tourist_passenger.typeid}}</td>
+                    <td>{{freecom_foreign_tourist_passenger.numerid}}</td>
+                    <td>{{freecom_foreign_tourist_passenger.nationality}}</td>
+                    <td>{{freecom_foreign_tourist_passenger.transportcompany}}</td>
+                    <td>{{freecom_foreign_tourist_passenger.idtransport}}</td>
+                    <td>
+                        <a ui-sref="c-transit-type-detail({id:freecom_foreign_tourist_passenger.c_transit_type.id})">{{freecom_foreign_tourist_passenger.c_transit_type.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-type-road-detail({id:freecom_foreign_tourist_passenger.c_type_road.id})">{{freecom_foreign_tourist_passenger.c_type_road.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="free-cfdi-detail({id:freecom_foreign_tourist_passenger.free_cfdi.id})">{{freecom_foreign_tourist_passenger.free_cfdi.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="freecom-foreign-tourist-passenger-detail({id:freecom_foreign_tourist_passenger.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-foreign-tourist-passenger.edit({id:freecom_foreign_tourist_passenger.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-foreign-tourist-passenger.delete({id:freecom_foreign_tourist_passenger.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

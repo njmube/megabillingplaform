@@ -1,0 +1,128 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFreecom_partial_construction_servicesLabel" translate="megabillingplatformApp.freecom_partial_construction_services.home.createOrEditLabel">Create or edit a Freecom_partial_construction_services</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.freecom_partial_construction_services.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_partial_construction_services.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.freecom_partial_construction_services.version"
+                    required />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.version.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_partial_construction_services.street" for="field_street">Street</label>
+            <input type="text" class="form-control" name="street" id="field_street"
+                    ng-model="vm.freecom_partial_construction_services.street"
+                    required />
+            <div ng-show="editForm.street.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.street.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_partial_construction_services.noext" for="field_noext">Noext</label>
+            <input type="text" class="form-control" name="noext" id="field_noext"
+                    ng-model="vm.freecom_partial_construction_services.noext"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_partial_construction_services.noint" for="field_noint">Noint</label>
+            <input type="text" class="form-control" name="noint" id="field_noint"
+                    ng-model="vm.freecom_partial_construction_services.noint"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_partial_construction_services.colony" for="field_colony">Colony</label>
+            <input type="text" class="form-control" name="colony" id="field_colony"
+                    ng-model="vm.freecom_partial_construction_services.colony"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_partial_construction_services.location" for="field_location">Location</label>
+            <input type="text" class="form-control" name="location" id="field_location"
+                    ng-model="vm.freecom_partial_construction_services.location"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_partial_construction_services.reference" for="field_reference">Reference</label>
+            <input type="text" class="form-control" name="reference" id="field_reference"
+                    ng-model="vm.freecom_partial_construction_services.reference"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_partial_construction_services.municipality" for="field_municipality">Municipality</label>
+            <input type="text" class="form-control" name="municipality" id="field_municipality"
+                    ng-model="vm.freecom_partial_construction_services.municipality"
+                    required />
+            <div ng-show="editForm.municipality.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.municipality.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_partial_construction_services.zipcode" for="field_zipcode">Zipcode</label>
+            <input type="text" class="form-control" name="zipcode" id="field_zipcode"
+                    ng-model="vm.freecom_partial_construction_services.zipcode"
+                    required />
+            <div ng-show="editForm.zipcode.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.zipcode.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_partial_construction_services.numperlicoaut" for="field_numperlicoaut">Numperlicoaut</label>
+            <input type="text" class="form-control" name="numperlicoaut" id="field_numperlicoaut"
+                    ng-model="vm.freecom_partial_construction_services.numperlicoaut"
+                    required />
+            <div ng-show="editForm.numperlicoaut.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.numperlicoaut.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_partial_construction_services.free_cfdi" for="field_free_cfdi">free_cfdi</label>
+            <select class="form-control" id="field_free_cfdi" name="free_cfdi" ng-model="vm.freecom_partial_construction_services.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.free_cfdis track by free_cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_partial_construction_services.c_federal_entity" for="field_c_federal_entity">c_federal_entity</label>
+            <select class="form-control" id="field_c_federal_entity" name="c_federal_entity" ng-model="vm.freecom_partial_construction_services.c_federal_entity" ng-options="c_federal_entity as c_federal_entity.code for c_federal_entity in vm.c_federal_entitys track by c_federal_entity.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

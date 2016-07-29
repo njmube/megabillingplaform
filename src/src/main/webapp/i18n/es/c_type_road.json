@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "c_type_road" : {
+            "home": {
+                "title": "C_type_roads",
+                "createLabel": "Crear nuevo C_type_road",
+                "createOrEditLabel": "Crear o editar C_type_road",
+                "search": "Search for C_type_road"
+            },
+            "created": "Un nuevo C_type_road ha sido creado con el identificador {{ param }}",
+            "updated": "Un C_type_road ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C_type_road ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar C_type_road {{ id }}?"
+            },
+            "detail": {
+                "title": "C_type_road"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

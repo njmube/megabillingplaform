@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "freecom_foreign_exchange" : {
+            "home": {
+                "title": "Freecom_foreign_exchanges",
+                "createLabel": "Create a new Freecom_foreign_exchange",
+                "createOrEditLabel": "Create or edit a Freecom_foreign_exchange",
+                "search": "Search for Freecom_foreign_exchange"
+            },
+            "created": "A new Freecom_foreign_exchange is created with identifier {{ param }}",
+            "updated": "A Freecom_foreign_exchange is updated with identifier {{ param }}",
+            "deleted": "A Freecom_foreign_exchange is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom_foreign_exchange {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_foreign_exchange"
+            },
+            "c_type_operation": "C_type_operation",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

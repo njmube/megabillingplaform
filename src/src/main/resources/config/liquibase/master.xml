@@ -71,5 +71,14 @@
     <include file="classpath:config/liquibase/changelog/20160712204648_added_entity_Accounting.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160720020110_added_entity_Audit_event_type.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160727154234_added_entity_C_state_event.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729114805_added_entity_C_type_operation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729115046_added_entity_Freecom_foreign_exchange.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729115442_added_entity_Freecom_local_taxes.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729115935_added_entity_Freecom_retentions_transfered.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729120130_added_entity_C_transit_type.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729120226_added_entity_C_type_road.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729120824_added_entity_Freecom_foreign_tourist_passenger.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729121109_added_entity_C_federal_entity.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729131312_added_entity_Freecom_partial_construction_services.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

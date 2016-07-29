@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "c_type_operation" : {
+            "home": {
+                "title": "C_type_operations",
+                "createLabel": "Crear nuevo C_type_operation",
+                "createOrEditLabel": "Crear o editar C_type_operation",
+                "search": "Search for C_type_operation"
+            },
+            "created": "Un nuevo C_type_operation ha sido creado con el identificador {{ param }}",
+            "updated": "Un C_type_operation ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C_type_operation ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar C_type_operation {{ id }}?"
+            },
+            "detail": {
+                "title": "C_type_operation"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

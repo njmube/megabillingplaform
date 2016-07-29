@@ -1,0 +1,22 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "c_type_operation",
+            "otherEntityName": "c_type_operation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "free_cfdi",
+            "otherEntityName": "free_cfdi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20160729115046",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_foreign_exchange",
+    "pagination": "pagination"
+}

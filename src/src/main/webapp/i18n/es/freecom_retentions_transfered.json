@@ -1,0 +1,28 @@
+{
+    "megabillingplatformApp": {
+        "freecom_retentions_transfered" : {
+            "home": {
+                "title": "Freecom_retentions_transfereds",
+                "createLabel": "Crear nuevo Freecom_retentions_transfered",
+                "createOrEditLabel": "Crear o editar Freecom_retentions_transfered",
+                "search": "Search for Freecom_retentions_transfered"
+            },
+            "created": "Un nuevo Freecom_retentions_transfered ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_retentions_transfered ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_retentions_transfered ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_retentions_transfered {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_retentions_transfered"
+            },
+            "implocretentions": "Implocretentions",
+            "retentionrate": "Retentionrate",
+            "amountretentions": "Amountretentions",
+            "imploctransfered": "Imploctransfered",
+            "transferedrate": "Transferedrate",
+            "amounttransfered": "Amounttransfered",
+            "freecom_local_taxes": "Freecom_local_taxes"
+        }
+    }
+}

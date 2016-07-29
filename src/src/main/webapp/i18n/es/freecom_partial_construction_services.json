@@ -1,0 +1,33 @@
+{
+    "megabillingplatformApp": {
+        "freecom_partial_construction_services" : {
+            "home": {
+                "title": "Freecom_partial_construction_services",
+                "createLabel": "Crear nuevo Freecom_partial_construction_services",
+                "createOrEditLabel": "Crear o editar Freecom_partial_construction_services",
+                "search": "Search for Freecom_partial_construction_services"
+            },
+            "created": "Un nuevo Freecom_partial_construction_services ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_partial_construction_services ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_partial_construction_services ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_partial_construction_services {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_partial_construction_services"
+            },
+            "version": "Version",
+            "street": "Street",
+            "noext": "Noext",
+            "noint": "Noint",
+            "colony": "Colony",
+            "location": "Location",
+            "reference": "Reference",
+            "municipality": "Municipality",
+            "zipcode": "Zipcode",
+            "numperlicoaut": "Numperlicoaut",
+            "free_cfdi": "Free_cfdi",
+            "c_federal_entity": "C_federal_entity"
+        }
+    }
+}

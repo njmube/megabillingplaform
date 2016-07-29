@@ -1,0 +1,74 @@
+<div>
+    <h2 translate="megabillingplatformApp.freecom_retentions_transfered.home.title">Freecom_retentions_transfereds</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="freecom-retentions-transfered.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.freecom_retentions_transfered.home.createLabel">
+                        Create new Freecom_retentions_transfered
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="implocretentions"><span translate="megabillingplatformApp.freecom_retentions_transfered.implocretentions">Implocretentions</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="retentionrate"><span translate="megabillingplatformApp.freecom_retentions_transfered.retentionrate">Retentionrate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amountretentions"><span translate="megabillingplatformApp.freecom_retentions_transfered.amountretentions">Amountretentions</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="imploctransfered"><span translate="megabillingplatformApp.freecom_retentions_transfered.imploctransfered">Imploctransfered</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="transferedrate"><span translate="megabillingplatformApp.freecom_retentions_transfered.transferedrate">Transferedrate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amounttransfered"><span translate="megabillingplatformApp.freecom_retentions_transfered.amounttransfered">Amounttransfered</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_local_taxes.id"><span translate="megabillingplatformApp.freecom_retentions_transfered.freecom_local_taxes">freecom_local_taxes</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="freecom_retentions_transfered in vm.freecom_retentions_transfereds track by freecom_retentions_transfered.id">
+                    <td><a ui-sref="freecom-retentions-transfered-detail({id:freecom_retentions_transfered.id})">{{freecom_retentions_transfered.id}}</a></td>
+                    <td>{{freecom_retentions_transfered.implocretentions}}</td>
+                    <td>{{freecom_retentions_transfered.retentionrate}}</td>
+                    <td>{{freecom_retentions_transfered.amountretentions}}</td>
+                    <td>{{freecom_retentions_transfered.imploctransfered}}</td>
+                    <td>{{freecom_retentions_transfered.transferedrate}}</td>
+                    <td>{{freecom_retentions_transfered.amounttransfered}}</td>
+                    <td>
+                        <a ui-sref="freecom-local-taxes-detail({id:freecom_retentions_transfered.freecom_local_taxes.id})">{{freecom_retentions_transfered.freecom_local_taxes.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="freecom-retentions-transfered-detail({id:freecom_retentions_transfered.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-retentions-transfered.edit({id:freecom_retentions_transfered.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-retentions-transfered.delete({id:freecom_retentions_transfered.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

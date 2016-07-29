@@ -1,0 +1,21 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160729121109",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "c_federal_entity",
+    "pagination": "pagination"
+}
