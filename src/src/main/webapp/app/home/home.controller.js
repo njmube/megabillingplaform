@@ -7,7 +7,7 @@
 
     HomeController.$inject = ['$scope', 'Principal', 'AuditsService','LoginService','$filter'];
 
-    function HomeController ($scope, Principal,AuditsService,  LoginService, $filter) {
+    function HomeController ($scope, Principal, AuditsService,  LoginService, $filter) {
         var vm = this;
 
         vm.account = null;
@@ -51,15 +51,16 @@
             Principal.identity().then(function(account) {
                 vm.account = account;
 				vm.isAuthenticated = Principal.isAuthenticated;
-				if(vm.account != null){
-					vm.isNoAdmin = vm.account.authorities.indexOf('ROLE_ADMIN') == -1;
 
-					if(!vm.isNoAdmin){
-						$('#sidebar').attr('class','sidebar responsive');
-						$('#sidebar-shortcuts').attr('style','');
-						$('#sidebar-options').attr('style','');
-					}
-				}
+                if(vm.account != null){
+                    vm.isNoAdmin = vm.account.authorities.indexOf('ROLE_ADMIN') == -1;
+
+                    if(!vm.isNoAdmin){
+                        $('#sidebar').attr('class','sidebar responsive');
+                        $('#sidebar-shortcuts').attr('style','');
+                        $('#sidebar-options').attr('style','');
+                    }
+                }
             });
         }
     }

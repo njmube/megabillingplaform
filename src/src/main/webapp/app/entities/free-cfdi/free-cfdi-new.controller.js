@@ -53,6 +53,17 @@
 
 		$q.all([vm.free_cfdi.$promise, vm.free_cfdi.free_emitter.$promise]).then(function() {
             vm.accuracy = vm.free_cfdi.free_emitter.accuracy;
+
+            vm.free_cfdi.subtotal = (0).toFixed(vm.accuracy);
+            vm.show_iva = (0).toFixed(vm.accuracy);
+            vm.calc_iva = (0).toFixed(vm.accuracy);
+            vm.ieps = (0).toFixed(vm.accuracy);
+            vm.ret_iva = (0).toFixed(vm.accuracy);
+            vm.ret_isr = (0).toFixed(vm.accuracy);
+            vm.free_cfdi.discount = (0).toFixed(vm.accuracy);
+            vm.subtotal_discount = (0).toFixed(vm.accuracy);
+            vm.free_cfdi.total = (0).toFixed(vm.accuracy);
+
 			if(vm.free_cfdi.free_emitter.valid_certificate == null || vm.free_cfdi.free_emitter.valid_certificate == false){
 				$uibModal.open({
 					templateUrl: 'app/entities/free-cfdi/free-cfdi-not-free-emitter-certificate-dialog.html',

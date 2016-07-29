@@ -15,12 +15,15 @@
         vm.inProduction = ENV === 'prod';
         vm.login = login;
 		vm.account = null;
-        vm.logout = logout;
+
+		vm.logout = logout;
         vm.$state = $state;
 
         function login () {
             LoginService.open();
         }
+
+        getAccount();
 
 		$scope.$on('authenticationSuccess', function() {
             getAccount();
@@ -30,6 +33,16 @@
 
 			Principal.identity().then(function(account) {
                 vm.account = account;
+
+                if(vm.account != null){
+                    vm.isNoAdmin = vm.account.authorities.indexOf('ROLE_ADMIN') == -1;
+
+                    if(!vm.isNoAdmin){
+                        $('#sidebar').attr('class','sidebar responsive');
+                        $('#sidebar-shortcuts').attr('style','');
+                        $('#sidebar-options').attr('style','');
+                    }
+                }
             });
         }
 
