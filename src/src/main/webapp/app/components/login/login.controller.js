@@ -41,10 +41,10 @@
             }).then(function () {
                 vm.authenticationError = false;
                 $uibModalInstance.close();
-				
+
 				$rootScope.$broadcast('authenticationSuccess');
 				$state.go('home');
-				
+
 				// If we're redirected to login, our
                 // previousState is already set in the authExpiredInterceptor. When login succesful go to stored state
                 /*if ($rootScope.redirected && $rootScope.previousStateName) {
