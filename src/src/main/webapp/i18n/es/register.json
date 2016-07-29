@@ -47,7 +47,7 @@
             "success": "<strong> ¡Su cuenta de usuario ha sido registrada satisfactoriamente! </strong> <br> Por favor, revise el correo electrónico especificado para activar su cuenta de usuario. <br> Si en 7 días no activa su cuenta de usuario la misma será eliminada.",
             "error": {
                 "fail": "<strong>¡El registro de cuenta de usuario ha fallado!</strong> Por favor, inténtelo de nuevo nuevamente.",
-                "userexists": "<strong>¡El nombre de usuario especificado ya está registrado!</strong> Por favor, escoja otro nombre de usuario.",
+                "userexists": "<strong>¡El nombre de usuario especificado ya está registrado!</strong> Le proponemos otro nombre de usuario.",
                 "emailexists": "<strong>¡El correo electrónico especificado ya está en uso!</strong> Por favor, especifique otro correo electrónico.",
                 "errorRfcExists": "<strong>El RFC especificado ya está en uso!</strong>"
             }

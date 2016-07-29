@@ -56,6 +56,8 @@ public class General_dataResourceIntTest {
     private static final String UPDATED_ADREES = "BBBBB";
     private static final String DEFAULT_PHONES = "AAAAA";
     private static final String UPDATED_PHONES = "BBBBB";
+    private static final String DEFAULT_PATH_ROOT = "AAAAA";
+    private static final String UPDATED_PATH_ROOT = "BBBBB";
 
     @Inject
     private General_dataRepository general_dataRepository;
@@ -92,6 +94,7 @@ public class General_dataResourceIntTest {
         general_data.setLogoContentType(DEFAULT_LOGO_CONTENT_TYPE);
         general_data.setAdrees(DEFAULT_ADREES);
         general_data.setPhones(DEFAULT_PHONES);
+        general_data.setPath_root(DEFAULT_PATH_ROOT);
     }
 
     @Test
@@ -116,6 +119,7 @@ public class General_dataResourceIntTest {
         assertThat(testGeneral_data.getLogoContentType()).isEqualTo(DEFAULT_LOGO_CONTENT_TYPE);
         assertThat(testGeneral_data.getAdrees()).isEqualTo(DEFAULT_ADREES);
         assertThat(testGeneral_data.getPhones()).isEqualTo(DEFAULT_PHONES);
+        assertThat(testGeneral_data.getPath_root()).isEqualTo(DEFAULT_PATH_ROOT);
     }
 
     @Test
@@ -134,7 +138,8 @@ public class General_dataResourceIntTest {
                 .andExpect(jsonPath("$.[*].logoContentType").value(hasItem(DEFAULT_LOGO_CONTENT_TYPE)))
                 .andExpect(jsonPath("$.[*].logo").value(hasItem(Base64Utils.encodeToString(DEFAULT_LOGO))))
                 .andExpect(jsonPath("$.[*].adrees").value(hasItem(DEFAULT_ADREES.toString())))
-                .andExpect(jsonPath("$.[*].phones").value(hasItem(DEFAULT_PHONES.toString())));
+                .andExpect(jsonPath("$.[*].phones").value(hasItem(DEFAULT_PHONES.toString())))
+                .andExpect(jsonPath("$.[*].path_root").value(hasItem(DEFAULT_PATH_ROOT.toString())));
     }
 
     @Test
@@ -153,7 +158,8 @@ public class General_dataResourceIntTest {
             .andExpect(jsonPath("$.logoContentType").value(DEFAULT_LOGO_CONTENT_TYPE))
             .andExpect(jsonPath("$.logo").value(Base64Utils.encodeToString(DEFAULT_LOGO)))
             .andExpect(jsonPath("$.adrees").value(DEFAULT_ADREES.toString()))
-            .andExpect(jsonPath("$.phones").value(DEFAULT_PHONES.toString()));
+            .andExpect(jsonPath("$.phones").value(DEFAULT_PHONES.toString()))
+            .andExpect(jsonPath("$.path_root").value(DEFAULT_PATH_ROOT.toString()));
     }
 
     @Test
@@ -181,6 +187,7 @@ public class General_dataResourceIntTest {
         updatedGeneral_data.setLogoContentType(UPDATED_LOGO_CONTENT_TYPE);
         updatedGeneral_data.setAdrees(UPDATED_ADREES);
         updatedGeneral_data.setPhones(UPDATED_PHONES);
+        updatedGeneral_data.setPath_root(UPDATED_PATH_ROOT);
 
         restGeneral_dataMockMvc.perform(put("/api/general-data")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -197,6 +204,7 @@ public class General_dataResourceIntTest {
         assertThat(testGeneral_data.getLogoContentType()).isEqualTo(UPDATED_LOGO_CONTENT_TYPE);
         assertThat(testGeneral_data.getAdrees()).isEqualTo(UPDATED_ADREES);
         assertThat(testGeneral_data.getPhones()).isEqualTo(UPDATED_PHONES);
+        assertThat(testGeneral_data.getPath_root()).isEqualTo(UPDATED_PATH_ROOT);
     }
 
     @Test

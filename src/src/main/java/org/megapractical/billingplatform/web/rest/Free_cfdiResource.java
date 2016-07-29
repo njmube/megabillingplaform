@@ -161,7 +161,7 @@ public class Free_cfdiResource {
             }
         }else
         {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_cfdi", "notfound", "Free CFDI not found")).body(null);
         }
     }
 

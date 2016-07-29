@@ -21,13 +21,13 @@ import java.util.List;
 public class General_dataServiceImpl implements General_dataService{
 
     private final Logger log = LoggerFactory.getLogger(General_dataServiceImpl.class);
-    
+
     @Inject
     private General_dataRepository general_dataRepository;
-    
+
     /**
      * Save a general_data.
-     * 
+     *
      * @param general_data the entity to save
      * @return the persisted entity
      */
@@ -37,16 +37,20 @@ public class General_dataServiceImpl implements General_dataService{
         return result;
     }
 
+    public List<General_data> findAll(){
+        return general_dataRepository.findAll();
+    }
+
     /**
      *  Get all the general_data.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<General_data> findAll(Pageable pageable) {
         log.debug("Request to get all General_data");
-        Page<General_data> result = general_dataRepository.findAll(pageable); 
+        Page<General_data> result = general_dataRepository.findAll(pageable);
         return result;
     }
 
@@ -56,7 +60,7 @@ public class General_dataServiceImpl implements General_dataService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public General_data findOne(Long id) {
         log.debug("Request to get General_data : {}", id);
         General_data general_data = general_dataRepository.findOne(id);
@@ -65,7 +69,7 @@ public class General_dataServiceImpl implements General_dataService{
 
     /**
      *  Delete the  general_data by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

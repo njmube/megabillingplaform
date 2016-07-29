@@ -61,6 +61,7 @@
                 "freecomIne": "Freecom_ine",
                 "freecomEducationalInstitutions": "Freecom_educational_institutions",
                 "cStateEvent": "C_state_event",
+                "generalData": "General_data",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
@@ -145,7 +146,8 @@
             "language": "Language",
             "language.placeholder": "Your language",
             "language.spanish": "Spanish",
-            "language.english": "English"
+            "language.english": "English",
+            "photo":"Photo"
         },
         "messages": {
             "info": {
@@ -187,7 +189,8 @@
                     "invalid": "Your CURP is not valid.",
                     "length": "Your CURP is required to be 18 characters.",
                     "pattern": "Your CURP format is incorrect."
-                }
+                },
+                "messphoto":"Es requerido la extensión .png o .jpg y el tamaño del fichero debe ser menor o igual a 10 Mb"
             }
         },
         "field": {
@@ -207,7 +210,8 @@
             "search": "Search",
             "ok": "OK",
             "accept":"Accept",
-            "viewall":"View all"
+            "viewall":"View all",
+            "add":"Add"
         },
         "detail": {
             "field": "Field",
@@ -238,7 +242,9 @@
         "userexists": "Login name already used!",
         "emailexists": "E-mail is already in use!",
         "idexists": "A new {{ entityName }} cannot already have an ID",
-        "rfcexists": "RFC already in use!"
+        "rfcexists": "RFC already in use!",
+        "diferentRFC":"ERROR: Emitter RFC is diferent to Certificate RFC",
+        "notfound":"Free CFDI not found"
     },
     "footer": "This is your footer"
 }

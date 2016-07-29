@@ -5,6 +5,8 @@ import org.megapractical.billingplatform.domain.Authority;
 import org.megapractical.billingplatform.domain.User;
 import java.time.LocalDate;
 import org.hibernate.validator.constraints.Email;
+
+import javax.persistence.Lob;
 import javax.validation.constraints.*;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -59,6 +61,13 @@ public class UserDTO {
     @Size(min = 2, max = 5)
     private String langKey;
 
+    @Lob
+    private byte[] filephoto;
+
+    private String filephotoContentType;
+
+    private String path_photo;
+
     private Set<String> authorities;
 
     public UserDTO() {
@@ -67,13 +76,15 @@ public class UserDTO {
     public UserDTO(User user) {
         this(user.getLogin(),user.getRFC(), null, user.getName(), user.getFirtsurname(),user.getSecondsurname(),
             user.getEmail(),user.getPhone(),
-            user.getGender(), user.getActivated(), user.getLangKey(),user.getCreator(),
+            user.getGender(), user.getActivated(), user.getLangKey(),user.getCreator(),user.getFilephoto(),
+            user.getFilephotoContentType(),user.getPath_photo(),
             user.getAuthorities().stream().map(Authority::getName)
                 .collect(Collectors.toSet()));
     }
 
     public UserDTO(String login, String rfc, String password, String name,String firtsurname,String secondsurname,
-                   String email, String phone, String gender, boolean activated, String langKey, String creator,Set<String> authorities) {
+                   String email, String phone, String gender, boolean activated, String langKey,
+                   String creator,byte[]filephoto, String filephotoContentType, String path_photo,Set<String> authorities) {
 
         this.login = login;
         this.password = password;
@@ -88,6 +99,9 @@ public class UserDTO {
         this.langKey = langKey;
         this.authorities = authorities;
         this.creator = creator;
+        this.filephoto = filephoto;
+        this.filephotoContentType = filephotoContentType;
+        this.path_photo = path_photo;
     }
 
     public String getPassword() {
@@ -170,6 +184,30 @@ public class UserDTO {
 
     public String getLangKey() {
         return langKey;
+    }
+
+    public byte[] getFilephoto() {
+        return filephoto;
+    }
+
+    public void setFilephoto(byte[] filephoto) {
+        this.filephoto = filephoto;
+    }
+
+    public String getFilephotoContentType() {
+        return filephotoContentType;
+    }
+
+    public void setFilephotoContentType(String filephotoContentType) {
+        this.filephotoContentType = filephotoContentType;
+    }
+
+    public String getPath_photo() {
+        return path_photo;
+    }
+
+    public void setPath_photo(String path_photo) {
+        this.path_photo = path_photo;
     }
 
     public Set<String> getAuthorities() {

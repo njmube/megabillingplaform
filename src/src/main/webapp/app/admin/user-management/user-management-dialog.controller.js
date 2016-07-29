@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('UserManagementDialogController',UserManagementDialogController);
 
-    UserManagementDialogController.$inject = ['$stateParams', '$uibModalInstance', 'entity', 'User', 'JhiLanguageService'];
+    UserManagementDialogController.$inject = ['$scope', '$stateParams', 'DataUtils','$uibModalInstance', 'entity', 'User', 'JhiLanguageService'];
 
-    function UserManagementDialogController ($stateParams, $uibModalInstance, entity, User, JhiLanguageService) {
+    function UserManagementDialogController ($scope, $stateParams, DataUtils, $uibModalInstance, entity, User, JhiLanguageService) {
         var vm = this;
 
         vm.authorities = ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_ADMIN_CF', 'ROLE_AFILITATED', 'ROLE_OPERADOR', 'ROLE_USER_CF'];
@@ -68,5 +68,28 @@
                     User.save(vm.user, onSaveSuccess, onSaveError);
                 }
         }
+
+        vm.setPhoto = function ($file, user) {
+            if ($file) {
+                vm.photo_file = $file;
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+
+                        if($file.size <= 10485760 && ($file.type == "image/png" || $file.type == "image/jpeg") ){
+                            vm.user.path_photo = $file.name;
+                            user.filephoto = base64Data;
+                            user.filephotoContentType = $file.type;
+                            vm.messphoto = null;
+                        }
+                        else{
+                            vm.messphoto = true;
+                        }
+                    });
+                });
+            }
+        };
+
+        vm.openFile = DataUtils.openFile;
+        vm.byteSize = DataUtils.byteSize;
     }
 })();

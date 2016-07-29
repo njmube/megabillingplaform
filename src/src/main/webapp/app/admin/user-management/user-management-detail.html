@@ -128,6 +128,14 @@
             </tr>
             <tr>
                 <td>
+                    <span translate="userManagement.photo">Photo</span>
+                </td>
+                <td>
+                    <img data-ng-src="{{'data:' + vm.user.filephotoContentType + ';base64,' + vm.user.filephoto}}" style="max-height: 100px;" ng-if="vm.user.filephoto"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <span translate="userManagement.profiles">Profiles</span>
                 </td>
                 <td>

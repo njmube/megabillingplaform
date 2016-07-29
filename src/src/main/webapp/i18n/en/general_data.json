@@ -2,25 +2,26 @@
     "megabillingplatformApp": {
         "general_data" : {
             "home": {
-                "title": "General Data",
-                "createLabel": "Create a new General Data",
-                "createOrEditLabel": "Create or edit a General Data",
-                "search": "Search for General Data"
+                "title": "General_data",
+                "createLabel": "Create a new General_data",
+                "createOrEditLabel": "Create or edit a General_data",
+                "search": "Search for General_data"
             },
-            "created": "A new general data is created with identifier {{ param }}",
-            "updated": "A general data is updated with identifier {{ param }}",
-            "deleted": "A general data is deleted with identifier {{ param }}",
+            "created": "A new General_data is created with identifier {{ param }}",
+            "updated": "A General_data is updated with identifier {{ param }}",
+            "deleted": "A General_data is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete general data {{ id }}?"
+                "question": "Are you sure you want to delete General_data {{ id }}?"
             },
             "detail": {
-                "title": "general data"
+                "title": "General_data"
             },
-            "platform_name": "Platform Name",
-            "format_date": "Date Format",
+            "platform_name": "Platform_name",
+            "format_date": "Format_date",
             "logo": "Logo",
-            "adrees": "Adreess",
-            "phones": "Phones"
+            "adrees": "Adrees",
+            "phones": "Phones",
+            "path_root": "Path_root"
         }
     }
 }

@@ -4,14 +4,13 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * A General_data.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "general_data")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class General_data implements Serializable {
@@ -22,7 +21,6 @@ public class General_data implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
     @Column(name = "platform_name")
     private String platform_name;
 
@@ -33,7 +31,7 @@ public class General_data implements Serializable {
     @Column(name = "logo")
     private byte[] logo;
 
-    @Column(name = "logo_content_type")
+    @Column(name = "logo_content_type")    
     private String logoContentType;
 
     @Column(name = "adrees")
@@ -41,6 +39,9 @@ public class General_data implements Serializable {
 
     @Column(name = "phones")
     private String phones;
+
+    @Column(name = "path_root")
+    private String path_root;
 
     public Long getId() {
         return id;
@@ -98,6 +99,14 @@ public class General_data implements Serializable {
         this.phones = phones;
     }
 
+    public String getPath_root() {
+        return path_root;
+    }
+
+    public void setPath_root(String path_root) {
+        this.path_root = path_root;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -128,6 +137,7 @@ public class General_data implements Serializable {
             ", logoContentType='" + logoContentType + "'" +
             ", adrees='" + adrees + "'" +
             ", phones='" + phones + "'" +
+            ", path_root='" + path_root + "'" +
             '}';
     }
 }

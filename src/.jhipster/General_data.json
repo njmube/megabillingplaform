@@ -25,6 +25,10 @@
         {
             "fieldName": "phones",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "path_root",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20160506123343",

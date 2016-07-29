@@ -2,6 +2,7 @@ package org.megapractical.billingplatform.service;
 
 import org.joda.time.DateTime;
 import org.megapractical.billingplatform.domain.Authority;
+import org.megapractical.billingplatform.domain.General_data;
 import org.megapractical.billingplatform.domain.PersistentToken;
 import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.repository.AuthorityRepository;
@@ -10,6 +11,9 @@ import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.util.RandomUtil;
 import org.megapractical.billingplatform.web.rest.dto.ManagedUserDTO;
+
+import java.io.*;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.LocalDate;
 import org.slf4j.Logger;
@@ -18,6 +22,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sun.misc.IOUtils;
 
 import java.time.ZonedDateTime;
 import javax.inject.Inject;
@@ -46,6 +51,9 @@ public class UserService {
     @Inject
     private AuthorityRepository authorityRepository;
 
+    @Inject
+    private General_dataService general_dataService;
+
     public Optional<User> activateRegistration(String key) {
         log.debug("Activating user for activation key {}", key);
         return userRepository.findOneByActivationKey(key)
@@ -53,8 +61,10 @@ public class UserService {
                 // activate given user for the registration key.
                 user.setActivated(true);
                 user.setActivationKey(null);
+                user = saveFile(user);
                 userRepository.save(user);
                 log.debug("Activated user: {}", user);
+                user = getFile(user);
                 return user;
             });
     }
@@ -72,7 +82,9 @@ public class UserService {
                user.setResetKey(null);
                user.setResetDate(null);
                user.setActivated(true);
+               user = saveFile(user);
                userRepository.save(user);
+               user = getFile(user);
                return user;
            });
     }
@@ -84,14 +96,17 @@ public class UserService {
                 user.setResetKey(RandomUtil.generateResetKey());
                 user.setResetDate(ZonedDateTime.now());
                 user.setActivated(true);
+                user = saveFile(user);
                 userRepository.save(user);
+                user = getFile(user);
                 return user;
             });
     }
 
     public User createUserInformation(String login, String rfc, String password, String name,String firtsuname,String secondsurname,
                                       String email, String phone,
-                                      String gender, String langKey, String creator) {
+                                      String gender, String langKey, String creator,byte[]filephoto,
+                                      String filephotoContentType, String path_photo) {
 
         User newUser = new User();
         Authority authority = authorityRepository.findOne("ROLE_USER");
@@ -109,13 +124,18 @@ public class UserService {
         newUser.setGender(gender);
         newUser.setLangKey(langKey);
         newUser.setCreator(creator);
+        newUser.setFilephoto(filephoto);
+        newUser.setFilephotoContentType(filephotoContentType);
+        newUser.setPath_photo(path_photo);
         // new user is not active
         newUser.setActivated(false);
         // new user gets registration key
         newUser.setActivationKey(RandomUtil.generateActivationKey());
         authorities.add(authority);
         newUser.setAuthorities(authorities);
+        newUser = saveFile(newUser);
         userRepository.save(newUser);
+        newUser = getFile(newUser);
         log.debug("Created Information for User: {}", newUser);
         return newUser;
     }
@@ -131,6 +151,9 @@ public class UserService {
         user.setPhone(managedUserDTO.getPhone());
         user.setGender(managedUserDTO.getGender());
         user.setCreator(managedUserDTO.getCreator());
+        user.setFilephoto(managedUserDTO.getFilephoto());
+        user.setFilephotoContentType(managedUserDTO.getFilephotoContentType());
+        user.setPath_photo(managedUserDTO.getPath_photo());
         if (managedUserDTO.getLangKey() == null) {
             user.setLangKey("en"); // default language
         } else {
@@ -148,13 +171,16 @@ public class UserService {
         user.setResetKey(RandomUtil.generateResetKey());
         user.setResetDate(ZonedDateTime.now());
         user.setActivated(managedUserDTO.isActivated());
+        user = saveFile(user);
         userRepository.save(user);
+        user = getFile(user);
         log.debug("Created Information for User: {}", user);
         return user;
     }
 
     public void updateUserInformation(String rfc, String name, String firtsurname, String secondsurname,
-                                      String email, String phone, String gender, String langKey, String creator) {
+                                      String email, String phone, String gender, String langKey, String creator,
+                                      byte[]filephoto, String filephotoContentType, String path_photo) {
         userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(u -> {
             u.setRFC(rfc);
             u.setName(name);
@@ -165,9 +191,104 @@ public class UserService {
             u.setGender(gender);
             u.setLangKey(langKey);
             u.setCreator(creator);
+            u.setFilephoto(filephoto);
+            u.setFilephotoContentType(filephotoContentType);
+            u.setPath_photo(path_photo);
+            u = saveFile(u);
+
             userRepository.save(u);
             log.debug("Changed Information for User: {}", u);
         });
+    }
+
+    public User saveFile(User user){
+
+        String root = "";
+        String rootlogo = "";
+        List<General_data> list = general_dataService.findAll();
+        if (list.size()>0){
+            General_data config = list.get(0);
+            root =config.getPath_root();
+        }
+
+        String rootDirectory = root + user.getLogin();
+
+        String directoriophotofile = rootDirectory;
+        if(rootDirectory.contains("\\")) {
+            directoriophotofile += "\\";
+        }
+        else {
+            directoriophotofile += "/";
+        }
+
+        File file = new File(directoriophotofile);
+        if(!file.isDirectory()){
+            file.mkdirs();
+        }
+
+        boolean actualizaPhoto = true;
+        if(user.getPath_photo()!= null) {
+            if (user.getPath_photo().contains("\\") || user.getPath_photo().contains("/"))
+                actualizaPhoto = false;
+        }
+
+        if(user.getFilephotoContentType() != null && actualizaPhoto){
+
+            try{
+                OutputStream outputStream = null;
+                File newFile = new File(directoriophotofile + user.getPath_photo());
+                user.setPath_photo(directoriophotofile + user.getPath_photo());
+                if (!newFile.exists()) {
+                    newFile.createNewFile();
+                }
+                outputStream = new FileOutputStream(newFile);
+                outputStream.write(user.getFilephoto());
+                user.setFilephoto(null);
+
+            }catch (Exception e){
+
+            }
+        }
+        else {
+            try{
+                if(user.getFilephotoContentType() == null) {
+                    if (user.getPath_photo() != null) {
+                        if (!user.getPath_photo().isEmpty()) {
+                            user.setPath_photo(null);
+                        }
+                    }
+                }
+            }catch (Exception e){
+
+            }
+        }
+        return user;
+    }
+
+    public User getFile(User user){
+
+        log.debug("Leyendo fichero del user en: {}", user.getPath_photo());
+
+        if(user.getPath_photo() != null){
+            if (!user.getPath_photo().isEmpty()) {
+
+                File newFile = new File(user.getPath_photo());
+                InputStream inputStream = null;
+
+                if (newFile.exists()) {
+                    log.debug("Existe el fichero");
+                    try {
+                        inputStream = new FileInputStream(newFile);
+                        user.setFilephoto(IOUtils.readFully(inputStream, 1000000, false));
+                    } catch (Exception e) {
+                        log.debug("Exception de lectura: " + e.toString());
+                    }
+                }
+                log.debug("File photo : {}", user.getFilephoto());
+            }
+        }
+
+        return user;
     }
 
     public void deleteUserInformation(String login) {
@@ -191,7 +312,9 @@ public class UserService {
             userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(u -> {
                 String encryptedPassword = passwordEncoder.encode(temp[1]);
                 u.setPassword(encryptedPassword);
+                u = saveFile(u);
                 userRepository.save(u);
+
                 log.debug("Changed password for User: {}", u);
             });
             return true;
@@ -209,6 +332,7 @@ public class UserService {
     public Optional<User> getUserWithAuthoritiesByLogin(String login) {
         return userRepository.findOneByLogin(login).map(u -> {
             u.getAuthorities().size();
+            u = getFile(u);
             //log.debug("Este es el user: ", u);
             return u;
         });
@@ -218,6 +342,7 @@ public class UserService {
     public User getUserWithAuthorities(Long id) {
         User user = userRepository.findOne(id);
         user.getAuthorities().size(); // eagerly load the association
+        user = getFile(user);
         return user;
     }
 
@@ -225,6 +350,7 @@ public class UserService {
     public User getUserWithAuthorities() {
         User user = userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).get();
         user.getAuthorities().size(); // eagerly load the association
+        user = getFile(user);
         return user;
     }
 

@@ -76,7 +76,8 @@ public class AccountResource {
                         User user = userService.createUserInformation(userDTO.getLogin(), userDTO.getRFC(),
                             userDTO.getPassword(), userDTO.getName(), userDTO.getFirtsurname(), userDTO.getSecondsurname(),
                             userDTO.getEmail().toLowerCase(),
-                            userDTO.getPhone(), userDTO.getGender(), userDTO.getLangKey(), userDTO.getCreator());
+                            userDTO.getPhone(), userDTO.getGender(), userDTO.getLangKey(), userDTO.getCreator(),userDTO.getFilephoto(),
+                            userDTO.getFilephotoContentType(),userDTO.getPath_photo());
                         String baseUrl = request.getScheme() + // "http"
                             "://" +                                // "://"
                             request.getServerName() +              // "myhost"
@@ -88,6 +89,44 @@ public class AccountResource {
                         return new ResponseEntity<>(HttpStatus.CREATED);
                     })
             ));
+    }
+    @RequestMapping(value = "/register",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"login"})
+    @Timed
+    public ResponseEntity<List<String>> sugesLogin(@RequestParam(value = "login") String login){
+        Optional<User> user = userRepository.findOneByLogin(login);
+        if(user.isPresent()){
+            login = propousalUser(login);
+        }
+        log.debug("Login retornado: " + login);
+        List<String> list = new ArrayList<>();
+        list.add(login);
+        ResponseEntity<List<String>> response = new ResponseEntity<List<String>>(list,HttpStatus.OK);
+        log.debug("Response del metodo: {}",response);
+        return response;
+    }
+
+    private String propousalUser(String login){
+        String temp = login;
+        boolean ban = true;
+        int cont = 1;
+
+        while (ban){
+            if(cont<10){
+                login = temp+ "0"+ cont;
+            }
+            else{
+                login = temp + cont;
+            }
+            if(userRepository.findOneByLogin(login).isPresent()){
+                cont++;
+            }else {
+                ban = false;
+            }
+        }
+        return login;
     }
 
     /**
@@ -163,7 +202,8 @@ public class AccountResource {
                 userService.updateUserInformation(userDTO.getRFC(),userDTO.getName(),
                     userDTO.getFirtsurname(),userDTO.getSecondsurname(),userDTO.getEmail(),
                     userDTO.getPhone(),
-                    userDTO.getGender(), userDTO.getLangKey(), userDTO.getCreator());
+                    userDTO.getGender(), userDTO.getLangKey(), userDTO.getCreator(),
+                    userDTO.getFilephoto(),userDTO.getFilephotoContentType(),userDTO.getPath_photo());
                 return new ResponseEntity<String>(HttpStatus.OK);
             })
             .orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));

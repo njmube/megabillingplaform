@@ -162,6 +162,39 @@
                 <option name=F value=F> {{'global.form.gender.female' | translate}} </option>
             </select>
         </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setPhoto($file, vm.user)" ngf-pattern="'image/*'">
+            <label class="col-sm-4 control-label no-padding-right" translate="global.form.photo" for="field_photo">Photo</label>
+            <div class="col-sm-8">
+                <img data-ng-src="{{'data:' + vm.user.filephotoContentType + ';base64,' + vm.user.filephoto}}" style="max-height: 100px;" ng-if="vm.user.filephoto"/>
+                <br>
+                <div class="help-block clearfix">
+                    <span class="pull-left">{{vm.user.filephotoContentType}}&nbsp;&nbsp;</span>
+                    <button ng-click="vm.user.filephoto=null;vm.user.filephotoContentType=null;"
+                            ng-if="vm.user.filephoto">
+                        <a class="remove">
+                            <i class="glyphicon glyphicon-trash"></i>
+                        </a>
+                    </button>
+                </div>
+                <div>
+                    <label class="ace-file-input">
+                        <input type="file" id="id-input-file-4" accept="image/*" ngf-select ngf-change="vm.setPhoto($file, vm.user)">
+                                        <span class="ace-file-container" data-title="Buscar">
+                                            <span class="ace-file-name" data-title="...">
+                                                <i class=" ace-icon fa fa-upload"></i>
+                                            </span>
+                                        </span>
+                    </label>
+                </div>
+            </div>
+            <input type="hidden" class="form-control" name="photo" id="field_photo"
+                   ng-model="vm.user.filephoto"/>
+            <input type="hidden" class="form-control" name="photoContentType"
+                   id="field_photoContentType"
+                   ng-model="vm.user.filephotoContentType" />
+            <span ng-show="vm.messphoto" translate="global.messages.validate.messphoto">.png or .jpg file extention is required and file size <= 10 Mb</span>
+
+        </div>
         <div class="form-group">
             <label for="activated">
                 <input type="checkbox" id="activated" ng-model="vm.user.activated">

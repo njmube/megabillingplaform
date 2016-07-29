@@ -67,7 +67,7 @@ class General_dataGatlingTest extends Simulation {
             .exec(http("Create new general_data")
             .post("/api/general-data")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "platform_name":"SAMPLE_TEXT", "format_date":"SAMPLE_TEXT", "logo":null, "adrees":"SAMPLE_TEXT", "phones":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "platform_name":"SAMPLE_TEXT", "format_date":"SAMPLE_TEXT", "logo":null, "adrees":"SAMPLE_TEXT", "phones":"SAMPLE_TEXT", "path_root":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_general_data_url"))).exitHereIfFailed
             .pause(10)

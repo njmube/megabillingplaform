@@ -13,7 +13,7 @@ public interface General_dataService {
 
     /**
      * Save a general_data.
-     * 
+     *
      * @param general_data the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface General_dataService {
 
     /**
      *  Get all the general_data.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<General_data> findAll(Pageable pageable);
 
+    List<General_data> findAll();
+
     /**
      *  Get the "id" general_data.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface General_dataService {
 
     /**
      *  Delete the "id" general_data.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

@@ -39,6 +39,7 @@
         "date_from":"Desde",
         "search_result":"Resultado de la búsqueda",
         "filterrfc": "RFC",
+        "photo":"Foto",
         "messages": {
             "validate": {
                 "login": {

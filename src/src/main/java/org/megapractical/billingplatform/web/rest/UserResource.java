@@ -165,6 +165,9 @@ public class UserResource {
                 user.setActivated(managedUserDTO.isActivated());
                 user.setLangKey(managedUserDTO.getLangKey());
                 user.setCreator(managedUserDTO.getCreator());
+                user.setFilephoto(managedUserDTO.getFilephoto());
+                user.setFilephotoContentType(managedUserDTO.getFilephotoContentType());
+                user.setPath_photo(managedUserDTO.getPath_photo());
                 Set<Authority> authorities = user.getAuthorities();
                 if(!managedUserDTO.isActivated()){
                     userService.DeletePersistenTokenByUser(user);

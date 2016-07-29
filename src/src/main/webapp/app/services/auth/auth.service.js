@@ -17,6 +17,7 @@
             logout: logout,
             resetPasswordFinish: resetPasswordFinish,
             resetPasswordInit: resetPasswordInit,
+            suges: suges,
             updateAccount: updateAccount
         };
 
@@ -77,6 +78,9 @@
             }).$promise;
         }
 
+        function suges(login){
+            return Register.query({login:login});
+        }
 
         function createAccount (account, callback) {
             var cb = callback || angular.noop;

@@ -6,9 +6,9 @@
         .controller('RegisterController', RegisterController);
 
 
-    RegisterController.$inject = ['$translate', '$timeout', 'Auth', 'LoginService'];
+    RegisterController.$inject = ['$scope','$translate', '$timeout','DataUtils', 'Auth', 'LoginService', 'Register'];
 
-    function RegisterController ($translate, $timeout, Auth, LoginService) {
+    function RegisterController ($scope,$translate, $timeout, DataUtils, Auth, LoginService, Register) {
         var vm = this;
 
         vm.doNotMatch = null;
@@ -17,6 +17,7 @@
         vm.errorRfcExists = null;
         vm.login = LoginService.open;
         vm.register = register;
+        vm.suges = suges;
         vm.registerAccount = {};
         vm.success = null;
         vm.usersuges = null;
@@ -33,6 +34,15 @@
                     vm.registerAccount.login += vm.registerAccount.firtsurname.toLowerCase();
             }
 
+        }
+
+        function suges(){
+            if(vm.registerAccount.login != null && vm.registerAccount.login != ""){
+                vm.registerAccount.login = Register.query({login:vm.registerAccount.login});
+            }
+            else{
+                vm.registerAccount.login = Register.query({login:"user"});
+            }
         }
 
         function register () {
@@ -54,7 +64,7 @@
                         vm.errorUserExists = 'ERROR';
                         if(cont < 10)
                         {
-                            vm.registerAccount.login = vm.registerAccount.name.substring(0,1)+ vm.registerAccount.firtsurname+ "0"+cont;
+                            vm.registerAccount.login = vm.registerAccount.name.substring(0,1).toLowerCase()+ vm.registerAccount.firtsurname.toLowerCase()+ "0"+cont;
                             cont++;
                         }
                         else
@@ -72,5 +82,28 @@
                 });
             }
         }
+
+        vm.setPhoto = function ($file, registerAccount) {
+            if ($file) {
+                vm.photo_file = $file;
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+
+                        if($file.size <= 10485760 && ($file.type == "image/png" || $file.type == "image/jpeg") ){
+                            vm.registerAccount.path_photo = $file.name;
+                            registerAccount.filephoto = base64Data;
+                            registerAccount.filephotoContentType = $file.type;
+                            vm.messphoto = null;
+                        }
+                        else{
+                            vm.messphoto = true;
+                        }
+                    });
+                });
+            }
+        };
+
+        vm.openFile = DataUtils.openFile;
+        vm.byteSize = DataUtils.byteSize;
     }
 })();

@@ -89,7 +89,8 @@
             "pass":"Contraseña del certificado: ",
             "passtitle":"Enter the password",
             "validate":"Validar",
-            "resultvalidation":"Resultado de la validación"
+            "resultvalidation":"Resultado de la validación",
+            "messvalidate":"Es requerida la correcta validación del certificado digital"
         }
     }
 }

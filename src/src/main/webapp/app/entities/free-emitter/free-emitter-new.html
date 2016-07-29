@@ -215,11 +215,23 @@
 
                     <div class="space-6"></div>
 
-                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelDC">
+                    <div class="form-group">
+                        <h2 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.certificateinfo">
+                            Certificate information
+                        </h2>
+                        <button ng-if= "vm.free_emitter.filecertificate || vm.free_emitter.filekey" type="button" class="btn btn-default pull-right" ng-click = "vm.clearInfor()">
+                            <span translate="entity.action.delete">Borrar</span>
+                        </button>
+                        <button type="button" class="btn btn-primary pull-right" style="margin: 0 15px" ng-click = "vm.showInfo = true;vm.free_emitter.info_certificate=null;">
+                            <span translate="entity.action.add">Adicionar</span>
+                        </button>
+                    </div>
+
+                    <h3 ng-if="vm.showInfo || vm.free_emitter.rfc_certificate" class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelDC">
                         Certificado Digital
                     </h3>
 
-                    <div class="form-group" ngf-drop ngf-change="vm.setPath_Certificate($file, vm.free_emitter)">
+                    <div class="form-group" ng-if="vm.showInfo" ngf-drop ngf-change="vm.setPath_Certificate($file, vm.free_emitter)">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_certificate" for="field_path_certificate">Certificate</label>
                         <div class="col-sm-8">
                             <div class="help-block clearfix">
@@ -251,7 +263,7 @@
 
                         <span ng-show="vm.messcertificate" translate="megabillingplatformApp.free_emitter.messcertificate">.cer file extention is required and file size <= 10 Mb</span>
                     </div>
-                    <div class="form-group" ngf-drop ngf-change="vm.setPath_Key($file, vm.free_emitter)">
+                    <div class="form-group" ng-if="vm.showInfo" ngf-drop ngf-change="vm.setPath_Key($file, vm.free_emitter)">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_key" for="field_path_key">Path key</label>
                         <div class="col-sm-8">
                             <div class="help-block clearfix">
@@ -283,7 +295,7 @@
                         <span ng-show="vm.messkey" translate="megabillingplatformApp.free_emitter.messkey">.key file extention is required and file size <= 10 Mb</span>
                     </div>
 
-                    <div class="form-group" ng-if="vm.free_emitter.filekey && vm.free_emitter.filecertificate">
+                    <div class="form-group" ng-if="vm.free_emitter.filekey && vm.free_emitter.filecertificate && vm.showInfo">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.pass" for="pass">Password</label>
                         <div class="col-sm-4">
                             <input type="password" class="form-control" name="pass" id="pass" ng-model="vm.free_emitter.pass_certificate">
@@ -302,10 +314,7 @@
                                       ng-model="vm.free_emitter.info_certificate" readonly></textarea>
                         </div>
                     </div>
-                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.certificateinfo">
-                        Certificate information
-                    </h3>
-                    <div class="form-group">
+                    <div class="form-group" ng-if="vm.free_emitter.rfc_certificate">
                         <label class="col-sm-4 control-label no-padding-right"
                                translate="megabillingplatformApp.free_emitter.rfc_certificate">
                             RFC
@@ -316,7 +325,7 @@
                             </label>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-if="vm.free_emitter.bussines_name_cert">
                         <label class="col-sm-4 control-label no-padding-right"
                                translate="megabillingplatformApp.free_emitter.bussines_name_certificate">
                             Bussines name
@@ -327,7 +336,7 @@
                             </label>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-if="vm.free_emitter.date_created_cert">
                         <label class="col-sm-4 control-label no-padding-right"
                                translate="megabillingplatformApp.free_emitter.date_created_cert">
                             Date created
@@ -338,7 +347,7 @@
                             </label>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-if="vm.free_emitter.date_expiration_cert">
                         <label class="col-sm-4 control-label no-padding-right"
                                translate="megabillingplatformApp.free_emitter.date_expiration_cert">
                             Date expiration
@@ -349,7 +358,7 @@
                             </label>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-if="vm.free_emitter.valid_days_cert">
                         <label class="col-sm-4 control-label no-padding-right"
                                translate="megabillingplatformApp.free_emitter.valid_days">
                             Valid days
@@ -571,6 +580,9 @@
 						</button>
 
 					</div>
+                    <div class="form-group">
+                        <span class="help-block" ng-show = "vm.messvalidate" translate="megabillingplatformApp.free_emitter.messvalidate">Debe validar antes de salvar</span>
+                    </div>
                     <jhi-alert-error></jhi-alert-error>
                     <jhi-alert></jhi-alert>
                 </div>

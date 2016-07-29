@@ -98,6 +98,15 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "reset_date", nullable = true)
     private ZonedDateTime resetDate = null;
 
+    @Lob
+    @Column(name = "filephoto")
+    private byte[] filephoto;
+
+    @Column(name = "filephoto_content_type")
+    private String filephotoContentType;
+
+    @Column(name = "path_photo")
+    private String path_photo;
 
     @JsonIgnore
     @ManyToMany
@@ -239,6 +248,30 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setLangKey(String langKey) {
         this.langKey = langKey;
+    }
+
+    public byte[] getFilephoto() {
+        return filephoto;
+    }
+
+    public void setFilephoto(byte[] filephoto) {
+        this.filephoto = filephoto;
+    }
+
+    public String getFilephotoContentType() {
+        return filephotoContentType;
+    }
+
+    public void setFilephotoContentType(String filephotoContentType) {
+        this.filephotoContentType = filephotoContentType;
+    }
+
+    public String getPath_photo() {
+        return path_photo;
+    }
+
+    public void setPath_photo(String path_photo) {
+        this.path_photo = path_photo;
     }
 
     public Set<Authority> getAuthorities() {

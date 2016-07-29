@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('SettingsController', SettingsController);
 
-    SettingsController.$inject = ['Principal', 'Auth', 'JhiLanguageService', '$translate'];
+    SettingsController.$inject = ['$scope', 'Principal', 'Auth','DataUtils', 'JhiLanguageService', '$translate'];
 
-    function SettingsController (Principal, Auth, JhiLanguageService, $translate) {
+    function SettingsController ($scope, Principal, Auth, DataUtils, JhiLanguageService, $translate) {
         var vm = this;
 
         vm.error = null;
@@ -35,7 +35,11 @@
                 langKey: account.langKey,
                 phone: account.phone,
                 gender: account.gender,
-                login: account.login
+                login: account.login,
+                creator: account.creator,
+                path_photo: account.path_photo,
+                filephoto: account.filephoto,
+                filephotoContentType: account.filephotoContentType
             };
         };
 
@@ -95,5 +99,29 @@
                 vm.error = 'ERROR';
             });
         }
+
+        vm.setPhoto = function ($file, settingsAccount) {
+            if ($file) {
+                vm.photo_file = $file;
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+
+                        if($file.size <= 10485760 && ($file.type == "image/png" || $file.type == "image/jpeg") ){
+                            vm.settingsAccount.path_photo = $file.name;
+                            settingsAccount.filephoto = base64Data;
+                            settingsAccount.filephotoContentType = $file.type;
+                            vm.messphoto = null;
+                        }
+                        else{
+                            vm.messphoto = true;
+                        }
+                    });
+                });
+            }
+        };
+
+        vm.openFile = DataUtils.openFile;
+        vm.byteSize = DataUtils.byteSize;
+
     }
 })();

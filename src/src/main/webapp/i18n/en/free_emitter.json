@@ -89,7 +89,8 @@
             "pass":"Password certificate: ",
             "passtitle":"Enter the password",
             "validate":"Validate",
-            "resultvalidation":"Result of validation"
+            "resultvalidation":"Result of validation",
+            "messvalidate":"Correct validation of digital certificate is required"
         }
     }
 }

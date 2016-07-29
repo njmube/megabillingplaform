@@ -12,6 +12,7 @@
 
         vm.free_emitter = entity;
         vm.type_taxpayers = Type_taxpayer.query();
+        vm.showInfo = false;
         vm.accuracys = [2,3,4,5,6];
         vm.tax_regimes = Tax_regime.query({filtername:" "});
         vm.c_countrys = C_country.query({pg:1, filtername:" "});
@@ -22,6 +23,7 @@
         vm.meskey = null;
         vm.messlogo = null;
         vm.edit = null;
+        vm.clearInfor = clearInfor;
 
         vm.onChangeC_country = onChangeC_country;
         vm.onChangeC_state = onChangeC_state;
@@ -36,6 +38,23 @@
             vm.edit = 'OK';
         }
 
+        function clearInfor(){
+            vm.free_emitter.pass_certificate = null;
+            vm.free_emitter.info_certificate = null;
+            vm.free_emitter.filecertificate = null;
+            vm.free_emitter.filecertificateContentType=null;
+            vm.certificatename=null;
+            vm.free_emitter.filekey=null;
+            vm.free_emitter.filekeyContentType=null;
+            vm.keyname=null;
+            vm.free_emitter.rfc_certificate = null;
+            vm.free_emitter.bussines_name_cert = null;
+            vm.free_emitter.date_created_cert = null;
+            vm.free_emitter.date_expiration_cert = null;
+            vm.free_emitter.valid_days_cert = null;
+            vm.showInfo = false;
+        }
+
 		vm.load = function(id) {
 			Free_emitter.get({id : id}, function(result) {
                 vm.free_emitter = result;
@@ -44,6 +63,8 @@
 
         function onValidate(){
             if(vm.free_emitter.pass_certificate != null && vm.free_emitter.pass_certificate != ""){
+                vm.messvalidate = false;
+                vm.showInfo = false;
                 Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
             }
         }
@@ -85,6 +106,7 @@
         }
 
 		var onSaveSuccess = function (result) {
+            vm.showInfo = false;
             vm.free_emitter =  result;
             vm.isSaving = false;
         };
@@ -94,14 +116,32 @@
         };
 
 		vm.save = function () {
-            vm.isSaving = true;
-            vm.free_emitter.pass_certificate = null;
-            vm.free_emitter.info_certificate = null;
-                if (vm.free_emitter.id !== null) {
-					Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
-                } else {
-					Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+            if(vm.free_emitter.filecertificate != null){
+                if(vm.free_emitter.rfc_certificate != null){
+                    vm.isSaving = true;
+                    vm.free_emitter.pass_certificate = null;
+                    vm.free_emitter.info_certificate = null;
+                    vm.messvalidate = false;
+                    if (vm.free_emitter.id !== null) {
+                        Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+                    } else {
+                        Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+                    }
+                }else{
+                    vm.messvalidate = true;
                 }
+            }
+            else{
+                vm.isSaving = true;
+                vm.free_emitter.pass_certificate = null;
+                vm.free_emitter.info_certificate = null;
+                vm.messvalidate = false;
+                if (vm.free_emitter.id !== null) {
+                    Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+                } else {
+                    Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+                }
+            }
         };
 
         vm.setPath_Certificate = function ($file, free_emitter) {

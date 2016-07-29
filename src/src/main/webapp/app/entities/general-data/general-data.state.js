@@ -97,6 +97,7 @@
                                 logoContentType: null,
                                 adrees: null,
                                 phones: null,
+                                path_root: null,
                                 id: null
                             };
                         }
