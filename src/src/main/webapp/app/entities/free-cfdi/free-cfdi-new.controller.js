@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', '$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps', 'freecom_taxlegends_entity', 'Freecom_taxlegends', 'Legend', 'freecom_airline_entity', 'Freecom_airline', 'Freecom_charge', 'freecom_apaw_entity', 'C_well_type', 'C_acquired_title', 'C_features_work_piece','Freecom_apaw','freecom_donees_entity', 'Freecom_donees', 'freecom_educational_institutions_entity', 'C_school_level', 'Freecom_educational_institutions', 'freecom_ine_entity', 'C_committee_type', 'C_process_type', 'Freecom_ine', 'freecom_kind_payment_entity', 'Freecom_kind_payment'];
+    Free_cfdiNewController.$inject = ['$scope', '$stateParams', 'entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', 'Rate_type','$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps', 'freecom_taxlegends_entity', 'Freecom_taxlegends', 'Legend', 'freecom_airline_entity', 'Freecom_airline', 'Freecom_charge', 'freecom_apaw_entity', 'C_well_type', 'C_acquired_title', 'C_features_work_piece','Freecom_apaw','freecom_donees_entity', 'Freecom_donees', 'freecom_educational_institutions_entity', 'C_school_level', 'Freecom_educational_institutions', 'freecom_ine_entity', 'C_committee_type', 'C_process_type', 'Freecom_ine', 'freecom_kind_payment_entity', 'Freecom_kind_payment'];
 
-    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps, freecom_taxlegends_entity, Freecom_taxlegends, Legend, freecom_airline_entity, Freecom_airline, Freecom_charge, freecom_apaw_entity, C_well_type, C_acquired_title, C_features_work_piece, Freecom_apaw, freecom_donees_entity, Freecom_donees, freecom_educational_institutions_entity, C_school_level, Freecom_educational_institutions, freecom_ine_entity, C_committee_type, C_process_type, Freecom_ine, freecom_kind_payment_entity, Freecom_kind_payment) {
+    function Free_cfdiNewController ($scope, $stateParams, entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, Rate_type, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps, freecom_taxlegends_entity, Freecom_taxlegends, Legend, freecom_airline_entity, Freecom_airline, Freecom_charge, freecom_apaw_entity, C_well_type, C_acquired_title, C_features_work_piece, Freecom_apaw, freecom_donees_entity, Freecom_donees, freecom_educational_institutions_entity, C_school_level, Freecom_educational_institutions, freecom_ine_entity, C_committee_type, C_process_type, Freecom_ine, freecom_kind_payment_entity, Freecom_kind_payment) {
 
 		var vm = this;
 
@@ -32,8 +32,6 @@
 		vm.ret_isr = (0).toFixed(2);
 		vm.subtotal_discount = (0).toFixed(2);
 
-		vm.disabled_iva_value = -1;
-
         vm.free_receiver = free_receiver_entity;
         vm.type_taxpayers = Type_taxpayer.query();
 		vm.c_countrys = C_country.query({pg:1, filtername:" "});
@@ -50,6 +48,9 @@
         vm.tax_regimes = Tax_regime.query({filtername:" "});
 
 		vm.tax_typess = Tax_types.query({filtername: " "});
+
+        vm.rate_typess = Rate_type.query({filtername: " "});
+        vm.valid_rate_typess = [];
 
 		$q.all([vm.free_cfdi.$promise, vm.free_cfdi.free_emitter.$promise]).then(function() {
             vm.accuracy = vm.free_cfdi.free_emitter.accuracy;
@@ -147,6 +148,192 @@
                 vm.free_receiver.c_zip_code = result;
             });
         }
+
+        vm.addConcept = function(){
+            $uibModal.open({
+                templateUrl: 'app/entities/free-concept/free-concept-dialog.html',
+                controller: 'Free_conceptDialogController',
+                controllerAs: 'vm',
+                backdrop: true,
+                size: '',
+                resolve: {
+                    free_concept_entity: function () {
+                        return {
+                            no_identification: null,
+                            quantity: (0).toFixed(2),
+                            description: null,
+                            unit_value: (0).toFixed(vm.accuracy),
+                            predial_number: null,
+                            discount: (0).toFixed(2),
+                            amount: (0).toFixed(vm.accuracy),
+                            id: null
+                        };
+                    },
+                    rate_typess: function () {
+                        return vm.valid_rate_typess;
+                    },
+                    free_concept_ids: function () {
+                        return vm.free_concept_ids;
+                    },
+                    accuracy: function () {
+                        return vm.accuracy;
+                    },
+                    disable_ieps: function () {
+                        var disable = true;
+                        if(vm.free_cfdi.cfdi_type_doc != null && (vm.free_cfdi.cfdi_type_doc.id == 1 || vm.free_cfdi.cfdi_type_doc.id == 8)){
+                            disable = false;
+                        }
+                        return disable;
+                    }
+                }
+            }).result.then(function(result) {
+                vm.free_concepts.push(result);
+                vm.free_concept_ids.push(result.free_concept.no_identification);
+                vm.updateCFDITotals();
+            }, function() {
+            });
+        };
+
+        vm.removeConcept = function(index){
+            vm.free_concepts.splice(index,1);
+            vm.free_concept_ids.splice(index,1);
+            vm.updateCFDITotals();
+        };
+
+        function floorFigure(figure, decimals){
+            if (!decimals) decimals = 2;
+            var d = Math.pow(10,decimals);
+            return (parseInt(figure*d)/d).toFixed(decimals);
+        }
+
+        function updateValidRateTypes(except){
+            vm.valid_rate_typess = [];
+            var i;
+            for(i=0; i < vm.rate_typess.length; i++){
+                if(vm.rate_typess[i].value != except){
+                    vm.valid_rate_typess.push(vm.rate_typess[i])
+                }
+            }
+        }
+
+        vm.updateCFDITotals = function(){
+            var subtotal = 0;
+
+            var show_iva = 0;
+            var show_iva_val16 = 16.00;
+            var show_iva_val15 = 15.00;
+            var calc_iva = 0;
+
+            var ieps = 0;
+            var ret_iva = 0;
+            var ret_isr = 0;
+            var discount = 0;
+            var subtotal_discount = 0;
+            var total = 0;
+
+            var disabled_iva_value = -1;
+
+            var total_tax_transfered = 0;
+            var total_tax_retention = 0;
+
+
+            var i;
+            for(i=0; i < vm.free_concepts.length; i++){
+                //calculating free cfdi subtotal...
+                subtotal = subtotal + vm.free_concepts[i].free_concept.quantity * vm.free_concepts[i].free_concept.unit_value;
+                total_tax_transfered = parseFloat(total_tax_transfered) + parseFloat(vm.free_concepts[i].free_concept_iva.amount) + parseFloat(vm.free_concepts[i].free_concept_ieps.amount);
+
+                //getting iva to show to user...
+                if(vm.free_concepts[i].free_concept_iva.rate ==  show_iva_val16 || vm.free_concepts[i].free_concept_iva.rate == show_iva_val15){
+                    show_iva = vm.free_concepts[i].free_concept_iva.rate;
+
+                    if(vm.free_concepts[i].free_concept_iva.rate ==  show_iva_val16){
+                        updateValidRateTypes(15);
+                    }
+
+                    if(vm.free_concepts[i].free_concept_iva.rate ==  show_iva_val15){
+                        updateValidRateTypes(15);
+                    }
+                }
+
+                //calculating free cfdi iva...
+                if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 6){
+                    calc_iva = 0;
+                }
+                else if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 1){
+                    var iva_calc_val = 0;
+                    if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val16){
+                        iva_calc_val = 16/100;
+                    }
+                    if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val15){
+                        iva_calc_val = 15/100;
+                    }
+
+                    calc_iva = calc_iva + iva_calc_val * vm.free_concepts[i].free_concept.amount * (1 + vm.free_concepts[i].free_concept_ieps.rate/100);
+                }
+                else {
+                    var iva_calc_val = 0;
+                    if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val16){
+                        iva_calc_val = 16/100;
+                    }
+                    if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val15){
+                        iva_calc_val = 15/100;
+                    }
+
+                    calc_iva = calc_iva + vm.free_concepts[i].free_concept.amount * iva_calc_val;
+                }
+
+                //calculating free cfdi ieps...
+                if(vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 1 || vm.free_cfdi.cfdi_type_doc.id == 8)){
+                    ieps = ieps + vm.free_concepts[i].free_concept_ieps.rate/100 * vm.free_concepts[i].free_concept.amount;
+                }
+
+                //calculationg subtotal - discount
+                subtotal_discount = parseFloat(subtotal_discount) + parseFloat(vm.free_concepts[i].free_concept.amount);
+            }
+
+            //calculating free cfdi ret iva and ret isr...
+            if((vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) || (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5))){
+                ret_iva = 2/3 * subtotal;
+                ret_isr = 1/10 * subtotal_discount;
+            }
+            else if(vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12 && vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 3){
+                ret_iva = 2/3 * subtotal;
+            }
+            else if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 4){
+                ret_iva = 0.04 * subtotal_discount;
+            }
+
+            //showing all...
+            vm.free_cfdi.subtotal = floorFigure(subtotal, vm.accuracy);
+
+            if(show_iva != 0){
+                vm.show_iva = show_iva;
+            }
+
+            vm.calc_iva = floorFigure(calc_iva, vm.accuracy);
+
+            vm.ieps = floorFigure(ieps, vm.accuracy);
+
+            vm.ret_iva = floorFigure(ret_iva, vm.accuracy);
+
+            vm.ret_isr = floorFigure(ret_isr, vm.accuracy);
+
+            discount = subtotal - subtotal_discount;
+            vm.free_cfdi.discount = floorFigure(discount, vm.accuracy);
+
+            vm.subtotal_discount = floorFigure(subtotal_discount, vm.accuracy);
+
+            total = (subtotal_discount + calc_iva) - (ret_iva +  ret_isr) + ieps;
+            vm.free_cfdi.total = floorFigure(total, vm.accuracy);
+
+            vm.disabled_iva_value = disabled_iva_value;
+
+            vm.free_cfdi.total_tax_transfered = floorFigure(total_tax_transfered, vm.accuracy);
+
+            total_tax_retention = ret_iva + ret_isr;
+            vm.free_cfdi.total_tax_retention = floorFigure(total_tax_retention, vm.accuracy);
+        };
 
         var onSaveError = function () {
             vm.isSaving = false;
@@ -461,177 +648,6 @@
 
 		vm.openFile = DataUtils.openFile;
 
-		vm.addConcept = function(){
-			$uibModal.open({
-				templateUrl: 'app/entities/free-concept/free-concept-dialog.html',
-				controller: 'Free_conceptDialogController',
-				controllerAs: 'vm',
-				backdrop: true,
-				size: '',
-				resolve: {
-					free_concept_entity: function () {
-						return {
-							no_identification: null,
-							quantity: (0).toFixed(2),
-							description: null,
-							unit_value: (0).toFixed(vm.accuracy),
-							predial_number: null,
-							discount: (0).toFixed(2),
-							amount: (0).toFixed(vm.accuracy),
-							id: null
-						};
-					},
-					disabled_iva_value: function () {
-						return vm.disabled_iva_value;
-					},
-                    free_concept_ids: function () {
-                        return vm.free_concept_ids;
-                    },
-					accuracy: function () {
-						return vm.accuracy;
-					}
-				}
-			}).result.then(function(result) {
-				vm.free_concepts.push(result);
-				vm.free_concept_ids.push(result.free_concept.no_identification);
-				vm.updateCFDITotals();
-			}, function() {
-			});
-		};
-
-		vm.removeConcept = function(index){
-			vm.free_concepts.splice(index,1);
-			vm.free_concept_ids.splice(index,1);
-			vm.updateCFDITotals();
-		};
-
-		function floorFigure(figure, decimals){
-			if (!decimals) decimals = 2;
-			var d = Math.pow(10,decimals);
-			return (parseInt(figure*d)/d).toFixed(decimals);
-		}
-
-		vm.updateCFDITotals = function(){
-			var subtotal = 0;
-
-			var show_iva = 0;
-			var show_iva_val16 = 16.00;
-			var show_iva_val15 = 15.00;
-			var calc_iva = 0;
-
-			var ieps = 0;
-			var ret_iva = 0;
-			var ret_isr = 0;
-			var discount = 0;
-			var subtotal_discount = 0;
-			var total = 0;
-
-			var disabled_iva_value = -1;
-
-            var total_tax_transfered = 0;
-            var total_tax_retention = 0;
-
-
-			var i;
-			for(i=0; i < vm.free_concepts.length; i++){
-				//calculating free cfdi subtotal...
-				subtotal = subtotal + vm.free_concepts[i].free_concept.quantity * vm.free_concepts[i].free_concept.unit_value;
-                total_tax_transfered = parseFloat(total_tax_transfered) + parseFloat(vm.free_concepts[i].free_concept_iva.amount) + parseFloat(vm.free_concepts[i].free_concept_ieps.amount);
-
-				//getting iva to show to user...
-				if(vm.free_concepts[i].free_concept_iva.rate ==  show_iva_val16 || vm.free_concepts[i].free_concept_iva.rate == show_iva_val15){
-					show_iva = vm.free_concepts[i].free_concept_iva.rate;
-
-					if(vm.free_concepts[i].free_concept_iva.rate ==  show_iva_val16){
-						disabled_iva_value = 15;
-					}
-
-					if(vm.free_concepts[i].free_concept_iva.rate ==  show_iva_val15){
-						disabled_iva_value = 16;
-					}
-				}
-
-				//calculating free cfdi iva...
-				if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 6){
-					calc_iva = 0;
-				}
-				else if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 1){
-					var iva_calc_val = 0;
-					if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val16){
-						iva_calc_val = 16/100;
-					}
-					if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val15){
-						iva_calc_val = 15/100;
-					}
-
-					calc_iva = calc_iva + iva_calc_val * vm.free_concepts[i].free_concept.amount * (1 + vm.free_concepts[i].free_concept_ieps.rate/100);
-				}
-				else {
-					var iva_calc_val = 0;
-					if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val16){
-						iva_calc_val = 16/100;
-					}
-					if(vm.free_concepts[i].free_concept_iva.rate == show_iva_val15){
-						iva_calc_val = 15/100;
-					}
-
-					calc_iva = calc_iva + vm.free_concepts[i].free_concept.amount * iva_calc_val;
-				}
-
-				//calculating free cfdi ieps...
-				if(vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 1 || vm.free_cfdi.cfdi_type_doc.id == 8)){
-					ieps = ieps + vm.free_concepts[i].free_concept_ieps.rate/100 * vm.free_concepts[i].free_concept.amount;
-				}
-
-				//calculationg subtotal - discount
-				subtotal_discount = subtotal_discount + vm.free_concepts[i].free_concept.amount * 1;
-			}
-
-			//calculating free cfdi ret iva...
-			if((vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) && (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 3 || vm.free_cfdi.cfdi_type_doc.id == 5))){
-				ret_iva = 2/3 * subtotal;
-			}
-
-			if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 4){
-				ret_iva = 0.04 * subtotal_discount;
-			}
-
-			//calculating free cfdi ret isr...
-			if((vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) || (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5))){
-				ret_isr = 1/10 * subtotal_discount;
-			}
-
-			//showing all...
-			vm.free_cfdi.subtotal = floorFigure(subtotal, vm.accuracy);
-
-			if(show_iva != 0){
-				vm.show_iva = show_iva;
-			}
-
-			vm.calc_iva = floorFigure(calc_iva, vm.accuracy);
-
-			vm.ieps = floorFigure(ieps, vm.accuracy);
-
-			vm.ret_iva = floorFigure(ret_iva, vm.accuracy);
-
-			vm.ret_isr = floorFigure(ret_isr, vm.accuracy);
-
-			discount = subtotal - subtotal_discount;
-			vm.free_cfdi.discount = floorFigure(discount, vm.accuracy);
-
-			vm.subtotal_discount = floorFigure(subtotal_discount, vm.accuracy);
-
-			total = (subtotal_discount + calc_iva) - (ret_iva +  ret_isr) + ieps;
-			vm.free_cfdi.total = floorFigure(total, vm.accuracy);
-
-			vm.disabled_iva_value = disabled_iva_value;
-
-			vm.free_cfdi.total_tax_transfered = floorFigure(total_tax_transfered, vm.accuracy);
-
-            total_tax_retention = ret_iva + ret_isr;
-			vm.free_cfdi.total_tax_retention = floorFigure(total_tax_retention, vm.accuracy);
-		};
-
 		vm.enableWithByPartiality = function(){
 			if(vm.way_payment != undefined && vm.way_payment.id == 2){
 				return false;
@@ -685,7 +701,16 @@
                 vm.free_cfdi.cfdi_types = vm.cfdi_typess[2];
             }
 
+            if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 6 ){
+                vm.valid_rate_typess = [];
+                vm.valid_rate_typess.push(vm.rate_typess[1]);
+            }
+            else {
+                vm.valid_rate_typess = vm.rate_typess;
+            }
+
             vm.updateCFDITotals();
+
         };
 
         //Complements

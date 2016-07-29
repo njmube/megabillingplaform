@@ -5,24 +5,24 @@
         .module('megabillingplatformApp')
         .controller('Free_conceptDialogController', Free_conceptDialogController);
 
-    Free_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$uibModal', 'free_concept_entity', 'Free_cfdi', 'Measure_unit', 'Rate_type', 'Tax_types', 'disabled_iva_value', 'free_concept_ids', 'accuracy'];
+    Free_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$uibModal', 'free_concept_entity', 'Free_cfdi', 'Measure_unit', 'rate_typess', 'Tax_types', 'free_concept_ids', 'accuracy','disable_ieps'];
 
-    function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, Free_cfdi, Measure_unit, Rate_type, Tax_types, disabled_iva_value, free_concept_ids, accuracy) {
+    function Free_conceptDialogController ($scope, $stateParams, $uibModalInstance, $uibModal, free_concept_entity, Free_cfdi, Measure_unit, rate_typess, Tax_types, free_concept_ids, accuracy, disable_ieps) {
         var vm = this;
 
         vm.free_concept = free_concept_entity;
 		vm.iva = null;
 		vm.ieps = (0).toFixed(2);
         vm.measure_units = Measure_unit.query({pg: -1, filtername:" "});
-        vm.rate_typess = Rate_type.query({filtername: " "});
+        vm.rate_typess = rate_typess;
         vm.tax_typess = Tax_types.query({filtername: " "});
 		vm.free_part_concepts = [];
 		vm.free_customs_infos = [];
 
-		vm.disabled_iva_value = disabled_iva_value;
 		vm.free_concept_ids = free_concept_ids;
 		vm.free_concept_id_valid = true;
 		vm.accuracy = accuracy;
+        vm.disable_ieps = disable_ieps;
 
 		vm.calcAmount = function(){
 			/*SubTotal = (Cantidad * Precio unitario)*(1-Descuento/100)*/
@@ -81,7 +81,7 @@
 						},
 				free_concept_iva: {
 							rate: floorFigure(vm.iva.value, 2),
-                            amount: floorFigure(vm.free_concept.quantity * vm.free_concept.unit_value * (1 - vm.free_concept.discount/100) * vm.iva.value/100,vm.accuracy),
+                            amount: floorFigure(vm.free_concept.quantity * vm.free_concept.unit_value * (1 - vm.free_concept.discount/100) * vm.iva.value/100, vm.accuracy),
 							tax_types: vm.tax_typess[0],
                             id: null
 						},
