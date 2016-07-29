@@ -227,7 +227,8 @@
             "value": "Value"
         },
         "delete": {
-            "title": "Confirm delete operation"
+            "title": "Confirm delete operation",
+            "confirmation":"Do you want to delete the digital certificate?"
         },
         "validation": {
             "required": "This field is required.",

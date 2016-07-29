@@ -113,14 +113,17 @@ public class Free_emitterResource {
                 free_emitter.setDate_created_cert(null);
                 free_emitter.setDate_expiration_cert(null);
                 free_emitter.setValid_days_cert(null);
-            }
-            if(response[0].compareTo("0")!=0){
-                free_emitter.setDate_certificate(null);
-                free_emitter.setRfc_certificate(null);
-                free_emitter.setBussines_name_cert(null);
-                free_emitter.setDate_created_cert(null);
-                free_emitter.setDate_expiration_cert(null);
-                free_emitter.setValid_days_cert(null);
+            }else {
+                if (response[0].compareTo("0") != 0) {
+                    free_emitter.setDate_certificate(null);
+                    free_emitter.setRfc_certificate(null);
+                    free_emitter.setBussines_name_cert(null);
+                    free_emitter.setDate_created_cert(null);
+                    free_emitter.setDate_expiration_cert(null);
+                    free_emitter.setValid_days_cert(null);
+                } else {
+                    free_emitter.setInfo_certificate(null);
+                }
             }
             free_emitter.setPass_certificate(null);
             return new ResponseEntity<Free_emitter>(free_emitter,HttpStatus.OK);

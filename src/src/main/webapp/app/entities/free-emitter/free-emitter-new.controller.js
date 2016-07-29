@@ -39,20 +39,31 @@
         }
 
         function clearInfor(){
-            vm.free_emitter.pass_certificate = null;
-            vm.free_emitter.info_certificate = null;
-            vm.free_emitter.filecertificate = null;
-            vm.free_emitter.filecertificateContentType=null;
-            vm.certificatename=null;
-            vm.free_emitter.filekey=null;
-            vm.free_emitter.filekeyContentType=null;
-            vm.keyname=null;
-            vm.free_emitter.rfc_certificate = null;
-            vm.free_emitter.bussines_name_cert = null;
-            vm.free_emitter.date_created_cert = null;
-            vm.free_emitter.date_expiration_cert = null;
-            vm.free_emitter.valid_days_cert = null;
-            vm.showInfo = false;
+
+            $uibModal.open({
+                templateUrl: 'app/entities/free-emitter/confirmation-delete-cert.html',
+                controller: 'Confirmation_delete_certController',
+                controllerAs: 'vm',
+                backdrop: true,
+                size: ''
+            }).result.then(function(result) {
+                    vm.free_emitter.pass_certificate = null;
+                    vm.free_emitter.info_certificate = null;
+                    vm.free_emitter.filecertificate = null;
+                    vm.free_emitter.filecertificateContentType=null;
+                    vm.certificatename=null;
+                    vm.free_emitter.filekey=null;
+                    vm.free_emitter.filekeyContentType=null;
+                    vm.keyname=null;
+                    vm.free_emitter.rfc_certificate = null;
+                    vm.free_emitter.bussines_name_cert = null;
+                    vm.free_emitter.date_created_cert = null;
+                    vm.free_emitter.date_expiration_cert = null;
+                    vm.free_emitter.valid_days_cert = null;
+                    vm.showInfo = false;
+                }, function() {
+                });
+
         }
 
 		vm.load = function(id) {
@@ -64,7 +75,7 @@
         function onValidate(){
             if(vm.free_emitter.pass_certificate != null && vm.free_emitter.pass_certificate != ""){
                 vm.messvalidate = false;
-                vm.showInfo = false;
+
                 Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
             }
         }
@@ -106,9 +117,15 @@
         }
 
 		var onSaveSuccess = function (result) {
-            vm.showInfo = false;
+
             vm.free_emitter =  result;
             vm.isSaving = false;
+            if(vm.free_emitter.info_certificate != null){
+                vm.showInfo = true;
+            }else
+            {
+                vm.showInfo = false;
+            }
         };
 
         var onSaveError = function () {

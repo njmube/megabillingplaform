@@ -227,7 +227,8 @@
             "value": "Valor"
         },
         "delete": {
-            "title": "Confirmar operación de borrado"
+            "title": "Confirmar operación de borrado",
+            "confirmation":"¿Desea eliminar los datos del certificado digital?"
         },
         "validation": {
             "required": "Este campo es obligatorio.",
