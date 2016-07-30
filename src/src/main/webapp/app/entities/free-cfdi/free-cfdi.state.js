@@ -51,6 +51,48 @@
                 }]
             }
         })
+        .state('free-cfdi-admin', {
+                parent: 'entity',
+                url: '/free-cfdi-admin?page&sort&search',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'megabillingplatformApp.free_cfdi.home.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/free-cfdi/free-cfdi-admin.html',
+                        controller: 'Free_cfdiController',
+                        controllerAs: 'vm'
+                    }
+                },
+                params: {
+                    page: {
+                        value: '1',
+                        squash: true
+                    },
+                    sort: {
+                        value: 'id,asc',
+                        squash: true
+                    },
+                    search: null
+                },
+                resolve: {
+                    pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                        return {
+                            page: PaginationUtil.parsePage($stateParams.page),
+                            sort: $stateParams.sort,
+                            predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                            ascending: PaginationUtil.parseAscending($stateParams.sort),
+                            search: $stateParams.search
+                        };
+                    }],
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('free_cfdi');
+                        $translatePartialLoader.addPart('global');
+                        return $translate.refresh();
+                    }]
+                }
+            })
         .state('free-cfdi-detail', {
             parent: 'entity',
             url: '/free-cfdi/{id}',
