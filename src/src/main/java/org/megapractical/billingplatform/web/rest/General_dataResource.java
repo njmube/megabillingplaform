@@ -29,10 +29,10 @@ import java.util.Optional;
 public class General_dataResource {
 
     private final Logger log = LoggerFactory.getLogger(General_dataResource.class);
-        
+
     @Inject
     private General_dataService general_dataService;
-    
+
     /**
      * POST  /general-data : Create a new general_data.
      *
@@ -93,7 +93,7 @@ public class General_dataResource {
     public ResponseEntity<List<General_data>> getAllGeneral_data(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of General_data");
-        Page<General_data> page = general_dataService.findAll(pageable); 
+        Page<General_data> page = general_dataService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/general-data");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -110,7 +110,15 @@ public class General_dataResource {
     @Timed
     public ResponseEntity<General_data> getGeneral_data(@PathVariable Long id) {
         log.debug("REST request to get General_data : {}", id);
+        if(id == 0){
+            if(general_dataService.findAll().size() != 0){
+                id = general_dataService.findAll().get(0).getId();
+            }
+        }
         General_data general_data = general_dataService.findOne(id);
+        if(general_data == null){
+            general_data = new General_data();
+        }
         return Optional.ofNullable(general_data)
             .map(result -> new ResponseEntity<>(
                 result,

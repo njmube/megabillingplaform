@@ -5,7 +5,7 @@
             "ipaddress": "Dirección IP",
             "useragent": "Agente de usuario",
             "date": "Fecha",
-            "button": "Invalidar",
+            "button": "Invalidar y reportar",
             "user": "Usuario"
         },
         "messages": {

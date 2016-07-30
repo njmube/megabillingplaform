@@ -77,37 +77,26 @@
         })
         .state('general-data.new', {
             parent: 'general-data',
-            url: '/new',
+            url: '/{id}/new',
             data: {
                 authorities: ['ROLE_USER']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
-                $uibModal.open({
-                    templateUrl: 'app/entities/general-data/general-data-dialog.html',
-                    controller: 'General_dataDialogController',
-                    controllerAs: 'vm',
-                    backdrop: 'static',
-                    size: 'lg',
-                    resolve: {
-                        entity: function () {
-                            return {
-                                platform_name: null,
-                                format_date: null,
-                                logo: null,
-                                logoContentType: null,
-                                adrees: null,
-                                phones: null,
-                                path_root: null,
-                                id: null
-                            };
-                        }
+            views: {
+                    'content@': {
+                        templateUrl: 'app/entities/general-data/general-data-new.html',
+                        controller: 'General_dataNewController',
+                        controllerAs: 'vm'
                     }
-                }).result.then(function() {
-                    $state.go('general-data', null, { reload: true });
-                }, function() {
-                    $state.go('general-data');
-                });
-            }]
+                },
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('general_data');
+                    return $translate.refresh();
+                }],
+                entity: ['$stateParams', 'General_data', function($stateParams, General_data) {
+                    return General_data.get({id : $stateParams.id});
+                }]
+            }
         })
         .state('general-data.edit', {
             parent: 'general-data',

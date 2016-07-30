@@ -296,13 +296,30 @@ public class AccountResource {
                 }
             }
             if(administrator){
+                Optional<User> admin = userRepository.findOneByLogin("admin");
+                PersistentToken token = persistentTokenRepository.findOne(decodedSeries);
+                if(admin.isPresent()){
+                    String mailtoadmin = "Reporte de sesión eliminada. Usuario: " + token.getUser().getLogin() +
+                        ". Dirección IP: " + token.getIpAddress();
+                    log.debug("Mensaje de reporte: " + mailtoadmin);
+                    mailService.sendEmail(admin.get().getEmail(),"Reporte de sesión",mailtoadmin,false,false);
+                }
                 persistentTokenRepository.delete(decodedSeries);
             }
             else{
                 userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin()).ifPresent(u -> {
                     persistentTokenRepository.findByUser(u).stream()
                         .filter(persistentToken -> StringUtils.equals(persistentToken.getSeries(), decodedSeries))
-                        .findAny().ifPresent(t -> persistentTokenRepository.delete(decodedSeries));
+                        .findAny().ifPresent(t -> {
+
+                        Optional<User> admin = userRepository.findOneByLogin("admin");
+                        if(admin.isPresent()){
+                            String mailtoadmin = "Reporte de sesión eliminada. Usuario: " + u.getLogin() +
+                                ". Dirección IP: " + t.getIpAddress();
+                            log.debug("Mensaje de reporte: " + mailtoadmin);
+                            mailService.sendEmail(admin.get().getEmail(),"Reporte de sesión",mailtoadmin,false,false);
+                        }
+                        persistentTokenRepository.delete(decodedSeries);});
                 });
             }
         }
