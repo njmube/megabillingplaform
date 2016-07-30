@@ -42,6 +42,16 @@ public interface Free_cfdiService {
                                Free_emitter free_emitter,
                                Pageable pageable);
 
+    Page<Free_cfdi> findCustomAdmin(Integer idFree_cfdi,
+                               String folio_fiscal,
+                               String rfc_receiver,
+                               LocalDate fromDate,
+                               LocalDate toDate,
+                               Integer idState,
+                               String serie,
+                               String folio,
+                               Pageable pageable);
+
     /**
      *  Get the "id" free_cfdi.
      *
