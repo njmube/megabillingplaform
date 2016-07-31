@@ -265,6 +265,18 @@
                         id: null
                     };
                 }],
+                freecom_foreign_tourist_passenger_entity: [function () {
+                        return {
+                            version: null,
+                            date_traffic: null,
+                            typeid: null,
+                            numerid: null,
+                            nationality: null,
+                            transportcompany: null,
+                            idtransport: null,
+                            id: null
+                        };
+                    }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('free_cfdi');
 					$translatePartialLoader.addPart('free_emitter');
@@ -284,6 +296,7 @@
                     $translatePartialLoader.addPart('freecom_educational_institutions');
                     $translatePartialLoader.addPart('freecom_ine');
                     $translatePartialLoader.addPart('freecom_kind_payment');
+                    $translatePartialLoader.addPart('freecom_foreign_tourist_passenger');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

@@ -17,14 +17,14 @@
                 "title": "Freecom_foreign_tourist_passenger"
             },
             "version": "Version",
-            "date_traffic": "Date_traffic",
-            "typeid": "Typeid",
-            "numerid": "Numerid",
-            "nationality": "Nationality",
-            "transportcompany": "Transportcompany",
-            "idtransport": "Idtransport",
-            "c_transit_type": "C_transit_type",
-            "c_type_road": "C_type_road",
+            "date_traffic": "Traffic Date (*)",
+            "typeid": "Type ID (*)",
+            "numerid": "Number ID (*)",
+            "nationality": "Nationality (*)",
+            "transportcompany": "Transport Company (*)",
+            "idtransport": "Transport ID",
+            "c_transit_type": "Transit Type (*)",
+            "c_type_road": "Road type (*)",
             "free_cfdi": "Free_cfdi"
         }
     }
