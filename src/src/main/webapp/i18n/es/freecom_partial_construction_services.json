@@ -17,17 +17,17 @@
                 "title": "Freecom_partial_construction_services"
             },
             "version": "Version",
-            "street": "Street",
-            "noext": "Noext",
-            "noint": "Noint",
-            "colony": "Colony",
-            "location": "Location",
-            "reference": "Reference",
-            "municipality": "Municipality",
-            "zipcode": "Zipcode",
-            "numperlicoaut": "Numperlicoaut",
+            "street": "Calle (*)",
+            "noext": "No. Exterior",
+            "noint": "No. Interior",
+            "colony": "Colonia",
+            "location": "Localidad",
+            "reference": "Referencia",
+            "municipality": "Municipio (*)",
+            "zipcode": "Código Postal (*)",
+            "numperlicoaut": "NumPerLicoAut (*)",
             "free_cfdi": "Free_cfdi",
-            "c_federal_entity": "C_federal_entity"
+            "c_federal_entity": "Entidad Federal (*)"
         }
     }
 }

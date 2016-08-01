@@ -1247,6 +1247,102 @@
                         </div>
                     </div>
 
+                    <!--//Partial Construction Services-->
+                    <div class="row" ng-show="vm.show_partial_construction_services">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.numperlicoaut" for="field_freecom_partial_construction_services_numperlicoaut">Numperlicoaut</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_partial_construction_services_numperlicoaut" id="field_freecom_partial_construction_services_numperlicoaut"
+                                           ng-model="vm.freecom_partial_construction_services.numperlicoaut"
+                                           ng-required="vm.show_partial_construction_services" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="header smaller lighter blue" ng-show="vm.show_partial_construction_services">
+                        Datos del Inmueble
+                    </h3>
+                    <div class="row" ng-show="vm.show_partial_construction_services">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.street" for="field_freecom_partial_construction_services_street">Street</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_partial_construction_services_street" id="field_freecom_partial_construction_services_street"
+                                           ng-model="vm.freecom_partial_construction_services.street"
+                                           ng-required="vm.show_partial_construction_services" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.noext" for="field_freecom_partial_construction_services_noext">Noext</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_partial_construction_services_noext" id="field_freecom_partial_construction_services_noext"
+                                           ng-model="vm.freecom_partial_construction_services.noext"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.noint" for="field_freecom_partial_construction_services_noint">Noint</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_partial_construction_services_noint" id="field_freecom_partial_construction_services_noint"
+                                           ng-model="vm.freecom_partial_construction_services.noint"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.colony" for="field_freecom_partial_construction_services_colony">Colony</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_partial_construction_services_colony" id="field_freecom_partial_construction_services_colony"
+                                           ng-model="vm.freecom_partial_construction_services.colony"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.location" for="field_freecom_partial_construction_services_location">Location</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_partial_construction_services_location" id="field_freecom_partial_construction_services_location"
+                                           ng-model="vm.freecom_partial_construction_services.location"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.reference" for="field_freecom_partial_construction_services_reference">Reference</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_partial_construction_services_reference" id="field_freecom_partial_construction_services_reference"
+                                           ng-model="vm.freecom_partial_construction_services.reference"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.municipality" for="field_freecom_partial_construction_services_municipality">Municipality</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_partial_construction_services_municipality" id="field_freecom_partial_construction_services_municipality"
+                                           ng-model="vm.freecom_partial_construction_services.municipality"
+                                           ng-required="vm.show_partial_construction_services" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.c_federal_entity" for="field_freecom_partial_construction_services_c_federal_entity">c_federal_entity</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_freecom_partial_construction_services_c_federal_entity" name="freecom_partial_construction_services_c_federal_entity" ng-model="vm.freecom_partial_construction_services.c_federal_entity" ng-options="c_federal_entity as c_federal_entity.code for c_federal_entity in vm.c_federal_entitys track by c_federal_entity.id" ng-required="vm.show_partial_construction_services">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.zipcode" for="field_freecom_partial_construction_services_zipcode">Zipcode</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_partial_construction_services_zipcode" id="field_freecom_partial_construction_services_zipcode"
+                                           ng-model="vm.freecom_partial_construction_services.zipcode"
+                                           ng-required="vm.show_partial_construction_services" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </uib-tab>
 			</uib-tabset>
 

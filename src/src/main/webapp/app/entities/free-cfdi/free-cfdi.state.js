@@ -277,6 +277,21 @@
                             id: null
                         };
                     }],
+                freecom_partial_construction_services_entity: [function () {
+                    return {
+                        version: null,
+                        street: null,
+                        noext: null,
+                        noint: null,
+                        colony: null,
+                        location: null,
+                        reference: null,
+                        municipality: null,
+                        zipcode: null,
+                        numperlicoaut: null,
+                        id: null
+                    };
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('free_cfdi');
 					$translatePartialLoader.addPart('free_emitter');
@@ -297,6 +312,7 @@
                     $translatePartialLoader.addPart('freecom_ine');
                     $translatePartialLoader.addPart('freecom_kind_payment');
                     $translatePartialLoader.addPart('freecom_foreign_tourist_passenger');
+                    $translatePartialLoader.addPart('freecom_partial_construction_services');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
