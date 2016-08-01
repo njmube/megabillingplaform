@@ -16,7 +16,7 @@
             "detail": {
                 "title": "C_federal_entity"
             },
-            "code": "Code",
+            "name": "Name",
             "description": "Description"
         }
     }

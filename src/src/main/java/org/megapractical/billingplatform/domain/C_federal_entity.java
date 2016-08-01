@@ -23,8 +23,8 @@ public class C_federal_entity implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "code", nullable = false)
-    private String code;
+    @Column(name = "name", nullable = false)
+    private String name;
 
     @Column(name = "description")
     private String description;
@@ -37,12 +37,12 @@ public class C_federal_entity implements Serializable {
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
+    public String getName() {
+        return name;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -77,7 +77,7 @@ public class C_federal_entity implements Serializable {
     public String toString() {
         return "C_federal_entity{" +
             "id=" + id +
-            ", code='" + code + "'" +
+            ", name='" + name + "'" +
             ", description='" + description + "'" +
             '}';
     }
