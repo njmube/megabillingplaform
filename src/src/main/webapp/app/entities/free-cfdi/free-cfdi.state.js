@@ -292,6 +292,11 @@
                         id: null
                     };
                 }],
+                freecom_foreign_exchange_entity: [function () {
+                    return {
+                        id: null
+                    };
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('free_cfdi');
 					$translatePartialLoader.addPart('free_emitter');
@@ -313,6 +318,7 @@
                     $translatePartialLoader.addPart('freecom_kind_payment');
                     $translatePartialLoader.addPart('freecom_foreign_tourist_passenger');
                     $translatePartialLoader.addPart('freecom_partial_construction_services');
+                    $translatePartialLoader.addPart('freecom_foreign_exchange');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

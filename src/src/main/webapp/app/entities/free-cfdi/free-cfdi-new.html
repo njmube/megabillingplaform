@@ -1343,6 +1343,20 @@
                         </div>
                     </div>
 
+                    <!--// Foreign Exchange-->
+                    <div class="row" ng-show="vm.show_foreign_exchange">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_foreign_exchange.c_type_operation" for="field_freecom_foreign_exchange_c_type_operation">c_type_operation</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_freecom_foreign_exchange_c_type_operation" name="freecom_foreign_exchange_c_type_operation" ng-model="vm.freecom_foreign_exchange.c_type_operation" ng-options="c_type_operation as c_type_operation.name for c_type_operation in vm.c_type_operations track by c_type_operation.id" ng-required="vm.show_foreign_exchange">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </uib-tab>
 			</uib-tabset>
 
