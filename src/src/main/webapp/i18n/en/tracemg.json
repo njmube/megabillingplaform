@@ -1,0 +1,32 @@
+{
+    "megabillingplatformApp": {
+        "tracemg" : {
+            "home": {
+                "title": "Traces",
+                "createLabel": "Create a new Trace",
+                "createOrEditLabel": "Create or edit a Trace",
+                "search": "Search for Trace"
+            },
+            "created": "A new Trace is created with identifier {{ param }}",
+            "updated": "A Trace is updated with identifier {{ param }}",
+            "deleted": "A Trace is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Trace {{ id }}?"
+            },
+            "detail": {
+                "title": "Trace"
+            },
+            "principal": "User",
+            "timestamp": "Timestamp",
+            "ip": "Ip",
+            "audit_event_type": "Name",
+            "c_state_event": "State",
+            "audit_event_type_description":"Description",
+            "from":"From",
+            "to":"To",
+            "auditEventType":"Audit event type",
+            "search":"Search",
+            "search_result":"Search result"
+        }
+    }
+}

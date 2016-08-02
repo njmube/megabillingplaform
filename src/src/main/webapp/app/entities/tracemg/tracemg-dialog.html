@@ -1,0 +1,82 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTracemgLabel" translate="megabillingplatformApp.tracemg.home.createOrEditLabel">Create or edit a Tracemg</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.tracemg.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.tracemg.principal" for="field_principal">Principal</label>
+            <input type="text" class="form-control" name="principal" id="field_principal"
+                    ng-model="vm.tracemg.principal"
+                    required />
+            <div ng-show="editForm.principal.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.principal.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.tracemg.timestamp" for="field_timestamp">Timestamp</label>
+                <div class="input-group">
+                    <input id="field_timestamp" type="text" class="form-control" name="timestamp" datetime-picker="{{dateformat}}" ng-model="vm.tracemg.timestamp" is-open="vm.datePickerOpenStatus.timestamp"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('timestamp')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.timestamp.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.timestamp.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.timestamp.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.tracemg.ip" for="field_ip">Ip</label>
+            <input type="text" class="form-control" name="ip" id="field_ip"
+                    ng-model="vm.tracemg.ip"
+                    required />
+            <div ng-show="editForm.ip.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.ip.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.tracemg.audit_event_type" for="field_audit_event_type">audit_event_type</label>
+            <select class="form-control" id="field_audit_event_type" name="audit_event_type" ng-model="vm.tracemg.audit_event_type" ng-options="audit_event_type as audit_event_type.name for audit_event_type in vm.audit_event_types track by audit_event_type.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.tracemg.c_state_event" for="field_c_state_event">c_state_event</label>
+            <select class="form-control" id="field_c_state_event" name="c_state_event" ng-model="vm.tracemg.c_state_event" ng-options="c_state_event as c_state_event.name for c_state_event in vm.c_state_events track by c_state_event.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

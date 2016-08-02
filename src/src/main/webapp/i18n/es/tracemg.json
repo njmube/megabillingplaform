@@ -1,0 +1,32 @@
+{
+    "megabillingplatformApp": {
+        "tracemg" : {
+            "home": {
+                "title": "Trazas",
+                "createLabel": "Crear nuevo Traza",
+                "createOrEditLabel": "Crear o editar Traza",
+                "search": "Búsqueda para Traza"
+            },
+            "created": "Una nueva Traza ha sido creado con el identificador {{ param }}",
+            "updated": "Una Traza ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Traza ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Traza {{ id }}?"
+            },
+            "detail": {
+                "title": "Traza"
+            },
+            "principal": "User",
+            "timestamp": "Fecha",
+            "ip": "Ip",
+            "audit_event_type": "Nombre",
+            "c_state_event": "Estado",
+            "audit_event_type_description":"Descripción",
+            "from":"Desde",
+            "to":"Hasta",
+            "auditEventType":"Tipo de evento",
+            "search":"Buscar",
+            "search_result":"Resultado de la búsqueda"
+        }
+    }
+}

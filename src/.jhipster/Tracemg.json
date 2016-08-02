@@ -1,0 +1,44 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "audit_event_type",
+            "otherEntityName": "audit_event_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "c_state_event",
+            "otherEntityName": "c_state_event",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "principal",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "timestamp",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ip",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160802012047",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "tracemg",
+    "pagination": "pagination"
+}
