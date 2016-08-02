@@ -80,5 +80,6 @@
     <include file="classpath:config/liquibase/changelog/20160729120824_added_entity_Freecom_foreign_tourist_passenger.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160729121109_added_entity_C_federal_entity.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160729131312_added_entity_Freecom_partial_construction_services.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160802012047_added_entity_Tracemg.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

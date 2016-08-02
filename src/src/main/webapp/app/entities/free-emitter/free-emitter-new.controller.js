@@ -75,7 +75,7 @@
         function onValidate(){
             if(vm.free_emitter.pass_certificate != null && vm.free_emitter.pass_certificate != ""){
                 vm.messvalidate = false;
-
+                vm.free_emitter.info_certificate = 'validating...';
                 Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
             }
         }
@@ -136,7 +136,7 @@
             if(vm.free_emitter.filecertificate != null){
                 if(vm.free_emitter.rfc_certificate != null){
                     vm.isSaving = true;
-                    vm.free_emitter.pass_certificate = null;
+
                     vm.free_emitter.info_certificate = null;
                     vm.messvalidate = false;
                     if (vm.free_emitter.id !== null) {
@@ -150,7 +150,6 @@
             }
             else{
                 vm.isSaving = true;
-                vm.free_emitter.pass_certificate = null;
                 vm.free_emitter.info_certificate = null;
                 vm.messvalidate = false;
                 if (vm.free_emitter.id !== null) {

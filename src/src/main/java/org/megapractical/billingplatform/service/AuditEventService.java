@@ -83,6 +83,7 @@ public class AuditEventService {
                 list = persistenceAuditEventRepository.findAllByAuditEventDateBetweenAndPrincipalStartingWithAndAuditEventTypeStartingWith(from,to,principal, auditEventType);
             }
         }
+
         List<AuditEvent> result = new ArrayList<>();
 
         int contpg = 1;

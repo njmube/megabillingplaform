@@ -71,6 +71,8 @@
                 "freecomForeignTouristPassenger": "Freecom_foreign_tourist_passenger",
                 "cFederalEntity": "C_federal_entity",
                 "freecomPartialConstructionServices": "Freecom_partial_construction_services",
+                "trace": "Trace",
+                "tracemg": "Tracemg",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

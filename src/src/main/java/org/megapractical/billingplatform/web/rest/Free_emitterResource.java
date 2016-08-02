@@ -100,7 +100,7 @@ public class Free_emitterResource {
     public ResponseEntity<Free_emitter> updateFree_emitter(@RequestBody Free_emitter free_emitter) throws URISyntaxException {
         log.debug("REST request to update Free_emitter : {}", free_emitter);
 
-        if(free_emitter.getPass_certificate() != null){
+        if(free_emitter.getPass_certificate() != null && free_emitter.getInfo_certificate()!= null){
             String [] response = free_emitterService.validateCertificate(free_emitter.getFilecertificate(), free_emitter.getFilekey(), free_emitter.getPass_certificate());
             free_emitter.setInfo_certificate(response[1]);
 
@@ -125,7 +125,6 @@ public class Free_emitterResource {
                     free_emitter.setInfo_certificate(null);
                 }
             }
-            free_emitter.setPass_certificate(null);
             return new ResponseEntity<Free_emitter>(free_emitter,HttpStatus.OK);
 
         }else {

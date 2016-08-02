@@ -1,5 +1,7 @@
 package org.megapractical.billingplatform.security;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.AbstractAuthenticationTargetUrlRequestHandler;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
@@ -17,6 +19,7 @@ import java.io.IOException;
 public class AjaxLogoutSuccessHandler extends AbstractAuthenticationTargetUrlRequestHandler
     implements LogoutSuccessHandler {
 
+    private final Logger log = LoggerFactory.getLogger(UserDetailsService.class);
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response,
         Authentication authentication)

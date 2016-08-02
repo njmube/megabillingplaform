@@ -76,7 +76,7 @@ public class C_federal_entityResourceIntTest {
     @Before
     public void initTest() {
         c_federal_entity = new C_federal_entity();
-        c_federal_entity.setCode(DEFAULT_CODE);
+        c_federal_entity.setName(DEFAULT_CODE);
         c_federal_entity.setDescription(DEFAULT_DESCRIPTION);
     }
 
@@ -96,7 +96,7 @@ public class C_federal_entityResourceIntTest {
         List<C_federal_entity> c_federal_entities = c_federal_entityRepository.findAll();
         assertThat(c_federal_entities).hasSize(databaseSizeBeforeCreate + 1);
         C_federal_entity testC_federal_entity = c_federal_entities.get(c_federal_entities.size() - 1);
-        assertThat(testC_federal_entity.getCode()).isEqualTo(DEFAULT_CODE);
+        assertThat(testC_federal_entity.getName()).isEqualTo(DEFAULT_CODE);
         assertThat(testC_federal_entity.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
     }
 
@@ -105,7 +105,7 @@ public class C_federal_entityResourceIntTest {
     public void checkCodeIsRequired() throws Exception {
         int databaseSizeBeforeTest = c_federal_entityRepository.findAll().size();
         // set the field null
-        c_federal_entity.setCode(null);
+        c_federal_entity.setName(null);
 
         // Create the C_federal_entity, which fails.
 
@@ -167,7 +167,7 @@ public class C_federal_entityResourceIntTest {
         // Update the c_federal_entity
         C_federal_entity updatedC_federal_entity = new C_federal_entity();
         updatedC_federal_entity.setId(c_federal_entity.getId());
-        updatedC_federal_entity.setCode(UPDATED_CODE);
+        updatedC_federal_entity.setName(UPDATED_CODE);
         updatedC_federal_entity.setDescription(UPDATED_DESCRIPTION);
 
         restC_federal_entityMockMvc.perform(put("/api/c-federal-entities")
@@ -179,7 +179,7 @@ public class C_federal_entityResourceIntTest {
         List<C_federal_entity> c_federal_entities = c_federal_entityRepository.findAll();
         assertThat(c_federal_entities).hasSize(databaseSizeBeforeUpdate);
         C_federal_entity testC_federal_entity = c_federal_entities.get(c_federal_entities.size() - 1);
-        assertThat(testC_federal_entity.getCode()).isEqualTo(UPDATED_CODE);
+        assertThat(testC_federal_entity.getName()).isEqualTo(UPDATED_CODE);
         assertThat(testC_federal_entity.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
     }
 
