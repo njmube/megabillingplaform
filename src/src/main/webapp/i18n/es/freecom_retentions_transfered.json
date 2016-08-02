@@ -16,12 +16,12 @@
             "detail": {
                 "title": "Freecom_retentions_transfered"
             },
-            "implocretentions": "Implocretentions",
-            "retentionrate": "Retentionrate",
-            "amountretentions": "Amountretentions",
-            "imploctransfered": "Imploctransfered",
-            "transferedrate": "Transferedrate",
-            "amounttransfered": "Amounttransfered",
+            "implocretentions": "Impuesto Local (Ret) (*)",
+            "retentionrate": "Tasa (Ret) (*)",
+            "amountretentions": "Importe (Ret) (*)",
+            "imploctransfered": "Impuesto Local (Trasl) (*)",
+            "transferedrate": "Tasa (Trasl) (*)",
+            "amounttransfered": "Importe (Trasl) (*)",
             "freecom_local_taxes": "Freecom_local_taxes"
         }
     }

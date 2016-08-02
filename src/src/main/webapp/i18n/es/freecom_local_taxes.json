@@ -17,8 +17,8 @@
                 "title": "Freecom_local_taxes"
             },
             "version": "Version",
-            "total_retentions": "Total_retentions",
-            "total_transfered": "Total_transfered",
+            "total_retentions": "Total Renciones",
+            "total_transfered": "Total Traslados",
             "free_cfdi": "Free_cfdi"
         }
     }

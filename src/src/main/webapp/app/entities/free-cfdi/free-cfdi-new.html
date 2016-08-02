@@ -1357,6 +1357,68 @@
                         </div>
                     </div>
 
+                    <!--//Local Taxes-->
+                    <h1 class="smaller lighter blue" ng-show="vm.show_local_taxes">
+                        Impuestos Locales
+                    </h1>
+
+                    <table id="taxes-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_local_taxes">
+                        <thead>
+                        <tr>
+                            <th class="text-left">Impuesto Local  (Ret / Trasl)</th>
+                            <th class="text-right">Tasa  (Ret / Trasl)</th>
+                            <th class="text-right">Importe  (Ret / Trasl)</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="freecom_ret_transf in vm.freecom_ret_transfs">
+                            <td class="text-left">{{freecom_ret_transf.implocretentions}} / {{freecom_ret_transf.imploctransfered}}</td>
+                            <td class="text-right">{{freecom_ret_transf.retentionrate}} / {{freecom_ret_transf.transferedrate}}</td>
+                            <td class="text-right">{{freecom_ret_transf.amountretentions}} / {{freecom_ret_transf.amounttransfered}}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeFreecomRetTransf($index)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <button type="button" class="btn btn-sm btn-primary"  ng-show="vm.show_local_taxes" ng-click="vm.addFreecomRetTransf()">
+                        Adicionar Impuesto
+                    </button>
+
+                    <div class="row" ng-show="vm.show_local_taxes">
+                        <div class="col-md-4 col-md-offset-8">
+                            <h3 class="header smaller lighter blue">
+                                Totales
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="vm.show_local_taxes">
+                        <div class="col-md-4 col-md-offset-8">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_local_taxes.total_retentions" for="field_freecom_local_taxes_total_retentions">Total_retentions</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_local_taxes_total_retentions" id="field_freecom_local_taxes_total_retentions"
+                                           ng-model="vm.freecom_local_taxes.total_retentions"
+                                           ng-required="vm.show_local_taxes" readonly/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_local_taxes.total_transfered" for="field_freecom_local_taxes_total_transfered">Total_transfered</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_local_taxes_total_transfered" id="field_freecom_local_taxes_total_transfered"
+                                           ng-model="vm.freecom_local_taxes.total_transfered"
+                                           ng-required="vm.show_local_taxes" readonly />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </uib-tab>
 			</uib-tabset>
 
