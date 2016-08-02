@@ -113,7 +113,17 @@ public class TracemgResource {
             HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/tracemgs");
             return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         }else {
-            Page<Tracemg> page = tracemgService.findAll(pageable);
+            ZonedDateTime from = fromDate.atStartOfDay(ZoneId.systemDefault());
+            ZonedDateTime to = ZonedDateTime.now();
+            if(toDate.toString().compareTo("0001-01-01") != 0) {
+                toDate = toDate.plusDays(1);
+                to = toDate.atStartOfDay(ZoneId.systemDefault());
+            }
+            if(from.isAfter(to)){
+                to = from;
+            }
+            log.debug("Fechas de la busqueda: " + from.toString() + " - " + to.toString());
+            Page<Tracemg> page = tracemgService.findCustom(from,to,principal,auditEventType,ip,pageable);
             HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/tracemgs");
             return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         }

@@ -24,21 +24,21 @@
             <column name="principal" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="timestamp" type="timestamp">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="ip" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="audit_event_type_id" type="bigint"/>
             <column name="c_state_event_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="tracemg" columnName="timestamp" columnDataType="datetime"/>
-        
+
         <addForeignKeyConstraint baseColumnNames="audit_event_type_id"
                                  baseTableName="tracemg"
                                  constraintName="fk_tracemg_audit_event_type_id"

@@ -1,10 +1,14 @@
 package org.megapractical.billingplatform.security;
 
+import org.megapractical.billingplatform.domain.Audit_event_type;
 import org.megapractical.billingplatform.domain.Authority;
+import org.megapractical.billingplatform.domain.C_state_event;
 import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.service.AuditEventService;
 import org.megapractical.billingplatform.service.Audit_event_typeService;
+import org.megapractical.billingplatform.service.C_state_eventService;
+import org.megapractical.billingplatform.service.TracemgService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,10 +34,13 @@ public class UserDetailsService implements org.springframework.security.core.use
     private UserRepository userRepository;
 
     @Inject
-    private AuditEventService auditEventService;
+    private Audit_event_typeService audit_event_typeService;
 
     @Inject
-    private Audit_event_typeService audit_event_typeService;
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
 
     @Override
     @Transactional
@@ -45,6 +52,11 @@ public class UserDetailsService implements org.springframework.security.core.use
 
         return userFromDatabase.map(user -> {
             if (!user.getActivated()) {
+                Long idauditevent = new Long("3");
+                Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                Long idstate = new Long("2");
+                C_state_event c_state_event = c_state_eventService.findOne(idstate);
+                tracemgService.saveTraceUser(lowercaseLogin,audit_event_type,c_state_event);
 
                 throw new UserNotActivatedException("User " + lowercaseLogin + " was not activated");
 

@@ -16,7 +16,7 @@
             "detail": {
                 "title": "Traza"
             },
-            "principal": "User",
+            "principal": "Usuario",
             "timestamp": "Fecha",
             "ip": "Ip",
             "audit_event_type": "Nombre",

@@ -11,4 +11,6 @@ import java.util.List;
  */
 public interface Audit_event_typeRepository extends JpaRepository<Audit_event_type,Long> {
 
+    Audit_event_type findByName(String name);
+
 }

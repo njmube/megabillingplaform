@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'AuditsService','LoginService','$filter'];
+    HomeController.$inject = ['$scope', 'Principal', 'Tracemg','LoginService','$filter'];
 
-    function HomeController ($scope, Principal, AuditsService,  LoginService, $filter) {
+    function HomeController ($scope, Principal, Tracemg,  LoginService, $filter) {
         var vm = this;
 
         vm.account = null;
@@ -19,7 +19,7 @@
 
         var dateFormat = 'yyyy-MM-dd';
         var fromDate = $filter('date')("0000-01-01", dateFormat);
-        var toDate = $filter('date')(vm.toDate, dateFormat);
+        var toDate = $filter('date')("0000-01-01", dateFormat);
         var principal = " ";
         var auditEventType = " ";
         var ip = " ";
@@ -30,8 +30,9 @@
         $scope.$on('authenticationSuccess', function() {
             getAccount();
 
-            vm.audits = AuditsService.query({
-                pg: 10,
+            vm.tracemgs = Tracemg.query({
+                page: 0,
+                size: 10,
                 fromDate: fromDate,
                 toDate: toDate,
                 principal: principal,

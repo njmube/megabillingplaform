@@ -47,7 +47,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-4 control-label no-padding-right" translate="tracemg.ip" for="filterip">IP</label>
+                            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.tracemg.ip" for="filterip">IP</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="filterip" id="filterip"
                                        ng-model="vm.ip" />
@@ -68,24 +68,22 @@
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="principal"><span translate="megabillingplatformApp.tracemg.principal">Principal</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="timestamp"><span translate="megabillingplatformApp.tracemg.timestamp">Timestamp</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="audit_event_type.name"><span translate="megabillingplatformApp.tracemg.audit_event_type">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="audit_event_type.name"><span translate="megabillingplatformApp.tracemg.audit_event_type_description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="audit_event_type.description"><span translate="megabillingplatformApp.tracemg.audit_event_type_description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="timestamp"><span translate="megabillingplatformApp.tracemg.timestamp">Timestamp</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="c_state_event.name"><span translate="megabillingplatformApp.tracemg.c_state_event">State</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="principal"><span translate="megabillingplatformApp.tracemg.principal">Principal</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="ip"><span translate="megabillingplatformApp.tracemg.ip">Ip</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="tracemg in vm.tracemgs track by tracemg.id">
-                    <td><a ui-sref="tracemg-detail({id:tracemg.id})">{{tracemg.id}}</a></td>
-                    <td><span>{{tracemg.principal}}</span></td>
-                    <td><span>{{tracemg.timestamp | date:'medium'}}</span></td>
                     <td><span>{{tracemg.audit_event_type.name}}</span></td>
                     <td><span>{{tracemg.audit_event_type.description}}</span></td>
+                    <td><span>{{tracemg.timestamp | date:'medium'}}</span></td>
                     <td><span>{{tracemg.c_state_event.name}}</span></td>
+                    <td><span>{{tracemg.principal}}</span></td>
                     <td><span>{{tracemg.ip}}</span></td>
                 </tr>
             </tbody>

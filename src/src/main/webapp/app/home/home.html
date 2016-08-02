@@ -345,28 +345,31 @@
 				<h3 class="header smaller lighter blue">
 					Trazas del sistema
 				</h3>
-                <a href="#/audits">
+                <a href="#/tracemg">
                     {{'entity.action.viewall' | translate}}
                 </a>
                 <table class="table table-condensed table-striped table-bordered table-responsive">
                     <thead>
                     <tr>
-                        <th><span translate="audits.table.header.date">Date</span></th>
-                        <th><span translate="audits.table.header.principal">User</span></th>
-                        <th><span translate="audits.table.header.status">State</span></th>
-                        <th><span translate="audits.table.header.data">Extra data</span></th>
+                        <th><span translate="megabillingplatformApp.tracemg.audit_event_type">Name</span></th>
+                        <th><span translate="megabillingplatformApp.tracemg.audit_event_type_description">Description</span></th>
+                        <th><span translate="megabillingplatformApp.tracemg.timestamp">Timestamp</span></th>
+                        <th><span translate="megabillingplatformApp.tracemg.c_state_event">State</span></th>
+                        <th><span translate="megabillingplatformApp.tracemg.principal">Principal</span></th>
+                        <th><span translate="megabillingplatformApp.tracemg.ip">Ip</span></th>
+                        <th></th>
                     </tr>
                     </thead>
-
-                    <tr ng-repeat="audit in vm.audits">
-                        <td><span>{{audit.timestamp| date:'medium'}}</span></td>
-                        <td><small>{{audit.principal}}</small></td>
-                        <td>{{audit.type}}</td>
-                        <td>
-                            <span ng-show="audit.data.message">{{audit.data.message}}</span>
-                            <span ng-show="audit.data.remoteAddress"><span translate="audits.table.data.remoteAddress">Remote Address</span> {{audit.data.remoteAddress}}</span>
-                        </td>
+                    <tbody>
+                    <tr ng-repeat="tracemg in vm.tracemgs track by tracemg.id">
+                        <td><span>{{tracemg.audit_event_type.name}}</span></td>
+                        <td><span>{{tracemg.audit_event_type.description}}</span></td>
+                        <td><span>{{tracemg.timestamp | date:'medium'}}</span></td>
+                        <td><span>{{tracemg.c_state_event.name}}</span></td>
+                        <td><span>{{tracemg.principal}}</span></td>
+                        <td><span>{{tracemg.ip}}</span></td>
                     </tr>
+                    </tbody>
                 </table>
 
 				<script type="text/javascript">

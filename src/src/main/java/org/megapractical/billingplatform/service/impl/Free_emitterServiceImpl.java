@@ -41,6 +41,8 @@ public class Free_emitterServiceImpl implements Free_emitterService{
     @Inject
     private Free_emitterRepository free_emitterRepository;
 
+    @Inject
+    private TracemgService tracemgService;
 
     @Inject
     private UserService userService;
@@ -80,12 +82,12 @@ public class Free_emitterServiceImpl implements Free_emitterService{
             result.setFilelogo(logo);
             Long id = new Long("2");
             Long idtypeevent = new Long("1");
-            auditEventService.saveEvent(audit_event_typeService.findOne(id).getName(), c_state_eventService.findOne(idtypeevent).getName());
+            tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
         }else
         {
             Long id = new Long("2");
             Long idtypeevent = new Long("2");
-            auditEventService.saveEvent(audit_event_typeService.findOne(id).getName(), c_state_eventService.findOne(idtypeevent).getName());
+            tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
         }
         log.debug("Resultado de salvar en service : {}", free_emitter);
 

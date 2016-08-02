@@ -37,6 +37,8 @@ public interface Audit_event_typeService {
      */
     Audit_event_type findOne(Long id);
 
+    Audit_event_type findByName(String name);
+
     /**
      *  Delete the "id" audit_event_type.
      *

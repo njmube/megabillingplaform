@@ -37,6 +37,9 @@ public class Audit_event_typeServiceImpl implements Audit_event_typeService{
         return result;
     }
 
+    public Audit_event_type findByName(String name){
+        return audit_event_typeRepository.findByName(name);
+    }
     /**
      *  Get all the audit_event_types.
      *

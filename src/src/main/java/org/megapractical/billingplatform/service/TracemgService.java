@@ -32,7 +32,11 @@ public interface TracemgService {
 
     Tracemg saveTrace(Audit_event_type audit_event_type, C_state_event c_state_event);
 
+    Tracemg saveTraceUser(String user, Audit_event_type audit_event_type, C_state_event c_state_event);
+
     Page<Tracemg> findAll(ZonedDateTime from, ZonedDateTime to, Pageable pageable);
+
+    Page<Tracemg> findCustom(ZonedDateTime from, ZonedDateTime to,String principal, String auditEventType, String ip, Pageable pageable);
 
     /**
      *  Get the "id" tracemg.

@@ -25,6 +25,7 @@
                 mainTranslatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate,$translatePartialLoader) {
                     $translatePartialLoader.addPart('home');
                     $translatePartialLoader.addPart('audits');
+                    $translatePartialLoader.addPart('tracemg');
                     return $translate.refresh();
                 }]
             }
