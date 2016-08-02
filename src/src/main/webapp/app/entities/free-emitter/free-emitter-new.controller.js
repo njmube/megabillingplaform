@@ -24,6 +24,7 @@
         vm.messlogo = null;
         vm.edit = null;
         vm.clearInfor = clearInfor;
+        vm.add = add;
 
         vm.onChangeC_country = onChangeC_country;
         vm.onChangeC_state = onChangeC_state;
@@ -64,6 +65,24 @@
                 }, function() {
                 });
 
+        }
+
+        function add(){
+            $uibModal.open({
+                templateUrl: 'app/entities/free-emitter/validate.html',
+                controller: 'ValidateController',
+                controllerAs: 'vm',
+                backdrop: true,
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return vm.free_emitter;
+                    }
+                }
+            }).result.then(function(result) {
+                    vm.free_emitter = result.free_emitter;
+                }, function() {
+                });
         }
 
 		vm.load = function(id) {

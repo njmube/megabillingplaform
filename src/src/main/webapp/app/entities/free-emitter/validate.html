@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form name="editForm" class="form-horizontal" role="form">
+    <div class="row">
+        <div class="col-md-12">
+            <div style="border: 2px solid #62b6e9;">
+                <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelDC">
+                    Certificado Digital
+                </h3>
+                <div class="form-group" ngf-drop ngf-change="vm.setPath_Certificate($file, vm.free_emitter)">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_certificate" for="field_path_certificate">Certificate</label>
+                    <div class="col-sm-8">
+                        <div class="help-block clearfix">
+                            <a class="pull-left" ng-click="vm.openFile('', vm.free_emitter.filecertificate)" ng-if="vm.free_emitter.filecertificate" target="_blank">Certificate &nbsp;&nbsp;</a>
+
+                            <button ng-click="vm.free_emitter.filecertificate=null;vm.free_emitter.filecertificateContentType=null;vm.certificatename=null;"
+                                    ng-if="vm.free_emitter.filecertificate">
+                                <a class="remove">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </a>
+                            </button>
+                        </div>
+                        <div>
+                            <label class="ace-file-input">
+                                <input type="file" id="id-input-file-2" ngf-select ngf-change="vm.setPath_Certificate($file, vm.free_emitter)">
+                                                    <span class="ace-file-container" data-title="Buscar">
+                                                        <span class="ace-file-name" data-title="...">
+                                                            <i class=" ace-icon fa fa-upload"></i>
+                                                        </span>
+                                                    </span>
+                            </label>
+                        </div>
+                    </div>
+                    <input type="hidden" class="form-control" name="path_certificate" id="field_path_certificate"
+                           ng-model="vm.free_emitter.filecertificate"
+                        />
+                    <input type="hidden" class="form-control" name="path_certificate_type" id="field_path_certificate_type"
+                           ng-model="vm.free_emitter.filecertificateContentType" />
+
+                    <span ng-show="vm.messcertificate" translate="megabillingplatformApp.free_emitter.messcertificate">.cer file extention is required and file size <= 10 Mb</span>
+                </div>
+                <div class="form-group" ngf-drop ngf-change="vm.setPath_Key($file, vm.free_emitter)">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_key" for="field_path_key">Path key</label>
+                    <div class="col-sm-8">
+                        <div class="help-block clearfix">
+                            <a class="pull-left" ng-click="vm.openFile('', vm.free_emitter.filekey)" ng-if="vm.free_emitter.filekey" target="_blank">Key &nbsp;&nbsp;</a>
+
+                            <button ng-click="vm.free_emitter.filekey=null;vm.free_emitter.filekeyContentType=null;vm.keyname=null;"
+                                    ng-if="vm.free_emitter.filekey">
+                                <a class="remove">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </a>
+                            </button>
+                        </div>
+                        <div>
+                            <label class="ace-file-input">
+                                <input type="file" id="id-input-file-3" ngf-select ngf-change="vm.setPath_Key($file, vm.free_emitter)">
+                                                    <span class="ace-file-container" data-title="Buscar">
+                                                        <span class="ace-file-name" data-title="...">
+                                                            <i class=" ace-icon fa fa-upload"></i>
+                                                        </span>
+                                                    </span>
+                            </label>
+                        </div>
+                    </div>
+                    <input type="hidden" class="form-control" name="path_key" id="field_path_key"
+                           ng-model="vm.free_emitter.filekey"
+                        />
+                    <input type="hidden" class="form-control" name="path_key_type" id="field_path_key_type"
+                           ng-model="vm.free_emitter.filekeyContentType" />
+                    <span ng-show="vm.messkey" translate="megabillingplatformApp.free_emitter.messkey">.key file extention is required and file size <= 10 Mb</span>
+                </div>
+                <div class="form-group" ng-if="vm.free_emitter.filekey && vm.free_emitter.filecertificate">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.pass" for="pass">Password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" name="pass" id="pass" ng-model="vm.free_emitter.pass_certificate">
+                    </div>
+                    <button type="button"  ng-click = "vm.onValidate()" class="btn btn-primary pull-right" style="margin: 0 15px">
+                        <span translate="megabillingplatformApp.free_emitter.validate">Validate </span>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-8">
+                        <span>{{vm.free_emitter.info_certificate | uppercase}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
