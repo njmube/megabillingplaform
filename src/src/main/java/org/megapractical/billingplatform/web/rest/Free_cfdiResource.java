@@ -1,15 +1,10 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import org.megapractical.billingplatform.domain.Authority;
-import org.megapractical.billingplatform.domain.Free_cfdi;
-import org.megapractical.billingplatform.domain.Free_emitter;
-import org.megapractical.billingplatform.domain.User;
+import org.megapractical.billingplatform.domain.*;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.security.SecurityUtils;
-import org.megapractical.billingplatform.service.Free_cfdiService;
-import org.megapractical.billingplatform.service.Free_emitterService;
-import org.megapractical.billingplatform.service.UserService;
+import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -53,6 +48,15 @@ public class Free_cfdiResource {
     @Inject
     private UserService userService;
 
+    @Inject
+    private Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
+
     /**
      * POST  /free-cfdis : Create a new free_cfdi.
      *
@@ -67,6 +71,12 @@ public class Free_cfdiResource {
     public ResponseEntity<Free_cfdi> createFree_cfdi(@Valid @RequestBody Free_cfdi free_cfdi) throws URISyntaxException {
         log.debug("REST request to save Free_cfdi : {}", free_cfdi);
         if (free_cfdi.getId() != null) {
+            Long idauditevent = new Long("4");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            Long idstate = new Long("2");
+            c_state_event = c_state_eventService.findOne(idstate);
+            tracemgService.saveTrace(audit_event_type,c_state_event);
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_cfdi", "idexists", "A new free_cfdi cannot already have an ID")).body(null);
         }
 
@@ -93,6 +103,12 @@ public class Free_cfdiResource {
         free_cfdi.setCertificate("cetificate");
 
         Free_cfdi result = free_cfdiService.save(free_cfdi);
+        Long idauditevent = new Long("4");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTrace(audit_event_type, c_state_event);
         return ResponseEntity.created(new URI("/api/free-cfdis/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_cfdi", result.getId().toString()))
             .body(result);
@@ -162,6 +178,12 @@ public class Free_cfdiResource {
                     log.debug("Obtener todos para el admin");
                     Page<Free_cfdi> page = free_cfdiService.findAll(pageable);
                     HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-cfdis");
+                    Long idauditevent = new Long("36");
+                    Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                    C_state_event c_state_event;
+                    Long idstate = new Long("1");
+                    c_state_event = c_state_eventService.findOne(idstate);
+                    tracemgService.saveTrace(audit_event_type, c_state_event);
 
                     return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
                 }else
@@ -172,11 +194,24 @@ public class Free_cfdiResource {
                     Page<Free_cfdi> page = free_cfdiService.findCustomAdmin(idFree_cfdi, folio_fiscal, rfc_receiver,
                         inicio, datefinal, idState, serie, folio, pageable);
                     HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-cfdis");
+                    Long idauditevent = new Long("36");
+                    Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                    C_state_event c_state_event;
+                    Long idstate = new Long("1");
+                    c_state_event = c_state_eventService.findOne(idstate);
+                    tracemgService.saveTrace(audit_event_type, c_state_event);
                     return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
                 }
             }else{
                 Free_emitter free_emitter = free_emitterService.findOneByUser(userRepository.findOneByLogin(login).get());
                 if(free_emitter != null) {
+                    Long idauditevent = new Long("36");
+                    Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                    C_state_event c_state_event;
+                    Long idstate = new Long("1");
+                    c_state_event = c_state_eventService.findOne(idstate);
+                    tracemgService.saveTrace(audit_event_type, c_state_event);
+
                     if (idFree_cfdi == 0 && folio_fiscal.compareTo(" ") == 0 && rfc_receiver.compareTo(" ") == 0 &&
                         fromDate.toString().compareTo("0001-01-01") == 0 && toDate.toString().compareTo("0001-01-01") == 0 &&
                         idState == 0 && serie.compareTo(" ") == 0 && folio.compareTo(" ") == 0) {
@@ -196,10 +231,22 @@ public class Free_cfdiResource {
                     }
                 }else
                 {
+                    Long idauditevent = new Long("36");
+                    Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                    C_state_event c_state_event;
+                    Long idstate = new Long("2");
+                    c_state_event = c_state_eventService.findOne(idstate);
+                    tracemgService.saveTrace(audit_event_type, c_state_event);
                     return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_cfdi", "notfound", "Free CFDI not found")).body(null);
                 }
             }
         }
+        Long idauditevent = new Long("36");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("2");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTrace(audit_event_type, c_state_event);
         return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_cfdi", "notfound", "Free CFDI not found")).body(null);
 
     }
@@ -216,6 +263,13 @@ public class Free_cfdiResource {
     @Timed
     public ResponseEntity<Free_cfdi> getFree_cfdi(@PathVariable Long id) {
         log.debug("REST request to get Free_cfdi : {}", id);
+        Long idauditevent = new Long("36");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTrace(audit_event_type, c_state_event);
+
         Free_cfdi free_cfdi = free_cfdiService.findOne(id);
         return Optional.ofNullable(free_cfdi)
             .map(result -> new ResponseEntity<>(

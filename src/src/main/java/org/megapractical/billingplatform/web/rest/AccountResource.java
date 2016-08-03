@@ -1,14 +1,11 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import org.megapractical.billingplatform.domain.Authority;
-import org.megapractical.billingplatform.domain.PersistentToken;
-import org.megapractical.billingplatform.domain.User;
+import org.megapractical.billingplatform.domain.*;
 import org.megapractical.billingplatform.repository.PersistentTokenRepository;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.security.SecurityUtils;
-import org.megapractical.billingplatform.service.MailService;
-import org.megapractical.billingplatform.service.UserService;
+import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.web.rest.dto.KeyAndPasswordDTO;
 import org.megapractical.billingplatform.web.rest.dto.UserDTO;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
@@ -50,6 +47,15 @@ public class AccountResource {
     @Inject
     private MailService mailService;
 
+    @Inject
+    private Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
+
     /**
      * POST  /register : register the user.
      *
@@ -84,6 +90,13 @@ public class AccountResource {
                             ":" +                                  // ":"
                             request.getServerPort() +              // "80"
                             request.getContextPath();              // "/myContextPath" or "" if deployed in root context
+
+                        Long idauditevent = new Long("20");
+                        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                        C_state_event c_state_event;
+                        Long idstate = new Long("1");
+                        c_state_event = c_state_eventService.findOne(idstate);
+                        tracemgService.saveTraceUser(user.getLogin(),audit_event_type, c_state_event);
 
                         mailService.sendActivationEmail(user, baseUrl);
                         return new ResponseEntity<>(HttpStatus.CREATED);
@@ -140,8 +153,16 @@ public class AccountResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     public ResponseEntity<String> activateAccount(@RequestParam(value = "key") String key) {
+
         return userService.activateRegistration(key)
-            .map(user -> new ResponseEntity<String>(HttpStatus.OK))
+            .map(user -> {
+                Long idauditevent = new Long("34");
+                Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                C_state_event c_state_event;
+                Long idstate = new Long("1");
+                c_state_event = c_state_eventService.findOne(idstate);
+                tracemgService.saveTraceUser(user.getLogin(),audit_event_type, c_state_event);
+                return new ResponseEntity<String>(HttpStatus.OK);})
             .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
@@ -172,7 +193,14 @@ public class AccountResource {
     @Timed
     public ResponseEntity<UserDTO> getAccount() {
         return Optional.ofNullable(userService.getUserWithAuthorities())
-            .map(user -> new ResponseEntity<>(new UserDTO(user), HttpStatus.OK))
+            .map(user -> {
+                Long idauditevent = new Long("35");
+                Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                C_state_event c_state_event;
+                Long idstate = new Long("1");
+                c_state_event = c_state_eventService.findOne(idstate);
+                tracemgService.saveTraceUser(user.getLogin(),audit_event_type, c_state_event);
+                return new ResponseEntity<>(new UserDTO(user), HttpStatus.OK); })
             .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
@@ -221,12 +249,32 @@ public class AccountResource {
     @Timed
     public ResponseEntity<?> changePassword(@RequestBody String password) {
         if (!checkPasswordLength(password)) {
+            Long idauditevent = new Long("29");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            Long idstate = new Long("2");
+            c_state_event = c_state_eventService.findOne(idstate);
+            tracemgService.saveTrace(audit_event_type, c_state_event);
             return new ResponseEntity<>("Incorrect password", HttpStatus.BAD_REQUEST);
         }
-        if(userService.changePassword(password))
+        if(userService.changePassword(password)) {
+            Long idauditevent = new Long("29");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            Long idstate = new Long("1");
+            c_state_event = c_state_eventService.findOne(idstate);
+            tracemgService.saveTrace(audit_event_type, c_state_event);
             return new ResponseEntity<>(HttpStatus.OK);
-        else
+        }
+        else {
+            Long idauditevent = new Long("29");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            Long idstate = new Long("2");
+            c_state_event = c_state_eventService.findOne(idstate);
+            tracemgService.saveTrace(audit_event_type, c_state_event);
             return new ResponseEntity<>("Incorrect old password", HttpStatus.BAD_REQUEST);
+        }
     }
 
     /**
@@ -242,7 +290,12 @@ public class AccountResource {
     public ResponseEntity<List<PersistentToken>> getCurrentSessions() {
         Optional<User> user1 = userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin());
         if(user1.isPresent()){
-
+            Long idauditevent = new Long("30");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            Long idstate = new Long("1");
+            c_state_event = c_state_eventService.findOne(idstate);
+            tracemgService.saveTrace(audit_event_type, c_state_event);
             boolean administrator = false;
             for(Authority item: user1.get().getAuthorities()){
                 if(item.getName().compareTo("ROLE_ADMIN")==0){
@@ -263,6 +316,12 @@ public class AccountResource {
                     .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
             }
         }
+        Long idauditevent = new Long("30");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("2");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTrace(audit_event_type, c_state_event);
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
@@ -289,6 +348,13 @@ public class AccountResource {
         String decodedSeries = URLDecoder.decode(series, "UTF-8");
         Optional<User> user1 = userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin());
         if(user1.isPresent()){
+            Long idauditevent = new Long("31");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            Long idstate = new Long("1");
+            c_state_event = c_state_eventService.findOne(idstate);
+            tracemgService.saveTrace(audit_event_type, c_state_event);
+
             boolean administrator = false;
             for(Authority item: user1.get().getAuthorities()){
                 if(item.getName().compareTo("ROLE_ADMIN")==0){
@@ -345,6 +411,13 @@ public class AccountResource {
                     ":" +
                     request.getServerPort() +
                     request.getContextPath();
+                Long idauditevent = new Long("32");
+                Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                C_state_event c_state_event;
+                Long idstate = new Long("1");
+                c_state_event = c_state_eventService.findOne(idstate);
+                tracemgService.saveTrace(audit_event_type, c_state_event);
+
                 mailService.sendPasswordResetMail(user, baseUrl);
                 return new ResponseEntity<>("e-mail was sent", HttpStatus.OK);
             }).orElse(new ResponseEntity<>("e-mail address not registered", HttpStatus.BAD_REQUEST));
@@ -363,8 +436,22 @@ public class AccountResource {
     @Timed
     public ResponseEntity<String> finishPasswordReset(@RequestBody KeyAndPasswordDTO keyAndPassword) {
         if (!checkPasswordLength(keyAndPassword.getNewPassword())) {
+            Long idauditevent = new Long("33");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            Long idstate = new Long("2");
+            c_state_event = c_state_eventService.findOne(idstate);
+            tracemgService.saveTrace(audit_event_type, c_state_event);
+
             return new ResponseEntity<>("Incorrect password", HttpStatus.BAD_REQUEST);
         }
+        Long idauditevent = new Long("33");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTrace(audit_event_type, c_state_event);
+
         return userService.completePasswordReset(keyAndPassword.getNewPassword(), keyAndPassword.getKey())
               .map(user -> new ResponseEntity<String>(HttpStatus.OK))
               .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));

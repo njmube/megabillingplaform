@@ -1,14 +1,15 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import org.megapractical.billingplatform.domain.Audit_event_type;
 import org.megapractical.billingplatform.domain.Authority;
+import org.megapractical.billingplatform.domain.C_state_event;
 import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.repository.AuthorityRepository;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.security.AuthoritiesConstants;
 import org.megapractical.billingplatform.security.SecurityUtils;
-import org.megapractical.billingplatform.service.MailService;
-import org.megapractical.billingplatform.service.UserService;
+import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.web.rest.dto.ManagedUserDTO;
 import org.megapractical.billingplatform.web.rest.dto.UserDTO;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
@@ -78,6 +79,15 @@ public class UserResource {
     @Inject
     private UserService userService;
 
+    @Inject
+    private Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
+
     /**
      * POST  /users  : Creates a new user.
      * <p>
@@ -116,6 +126,21 @@ public class UserResource {
             ":" +                                  // ":"
             request.getServerPort() +              // "80"
             request.getContextPath();              // "/myContextPath" or "" if deployed in root context
+            //Audit user created
+            Long idauditevent = new Long("26");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            if(newUser != null){
+                Long idstate = new Long("1");
+                c_state_event = c_state_eventService.findOne(idstate);
+            }
+            else
+            {
+                Long idstate = new Long("2");
+                c_state_event = c_state_eventService.findOne(idstate);
+            }
+            tracemgService.saveTrace(audit_event_type, c_state_event);
+
             mailService.sendCreationEmail(newUser, baseUrl);
             return ResponseEntity.created(new URI("/api/users/" + newUser.getLogin()))
                 .headers(HeaderUtil.createAlert( "userManagement.created", newUser.getLogin()))
@@ -143,14 +168,35 @@ public class UserResource {
         textPlainHeaders.setContentType(MediaType.TEXT_PLAIN);
         Optional<User> existingUser = userRepository.findOneByEmail(managedUserDTO.getEmail());
         if (existingUser.isPresent() && (!existingUser.get().getId().equals(managedUserDTO.getId()))) {
+            Long idauditevent = new Long("27");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            Long idstate = new Long("2");
+            c_state_event = c_state_eventService.findOne(idstate);
+
+            tracemgService.saveTrace(audit_event_type, c_state_event);
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("userManagement", "emailexists", "E-mail already in use")).body(null);
         }
         existingUser = userRepository.findOneByLogin(managedUserDTO.getLogin());
         if (existingUser.isPresent() && (!existingUser.get().getId().equals(managedUserDTO.getId()))) {
+            Long idauditevent = new Long("27");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            Long idstate = new Long("2");
+            c_state_event = c_state_eventService.findOne(idstate);
+
+            tracemgService.saveTrace(audit_event_type, c_state_event);
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("userManagement", "userexists", "Login already in use")).body(null);
         }
         existingUser = userRepository.findOneByRfc(managedUserDTO.getRFC());
         if (existingUser.isPresent() && (!existingUser.get().getId().equals(managedUserDTO.getId()))) {
+            Long idauditevent = new Long("27");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            Long idstate = new Long("2");
+            c_state_event = c_state_eventService.findOne(idstate);
+
+            tracemgService.saveTrace(audit_event_type, c_state_event);
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("userManagement", "rfcexists", "rfc already in use")).body(null);
         }
         return userRepository
@@ -169,19 +215,34 @@ public class UserResource {
                 user.setFilephotoContentType(managedUserDTO.getFilephotoContentType());
                 user.setPath_photo(managedUserDTO.getPath_photo());
                 Set<Authority> authorities = user.getAuthorities();
-                if(!managedUserDTO.isActivated()){
+                if (!managedUserDTO.isActivated()) {
                     userService.DeletePersistenTokenByUser(user);
                 }
                 authorities.clear();
                 managedUserDTO.getAuthorities().stream().forEach(
                     authority -> authorities.add(authorityRepository.findOne(authority))
                 );
+                Long idauditevent = new Long("27");
+                Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                C_state_event c_state_event;
+                Long idstate = new Long("1");
+                c_state_event = c_state_eventService.findOne(idstate);
+
+                tracemgService.saveTrace(audit_event_type, c_state_event);
                 return ResponseEntity.ok()
                     .headers(HeaderUtil.createAlert("userManagement.updated", managedUserDTO.getLogin()))
                     .body(new ManagedUserDTO(userRepository
                         .findOne(managedUserDTO.getId())));
             })
-            .orElseGet(() -> new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
+            .orElseGet(() -> {
+                Long idauditevent = new Long("27");
+                Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                C_state_event c_state_event;
+                Long idstate = new Long("2");
+                c_state_event = c_state_eventService.findOne(idstate);
+
+                tracemgService.saveTrace(audit_event_type, c_state_event);
+                return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);});
     }
 
     /**
@@ -196,7 +257,7 @@ public class UserResource {
         produces = MediaType.APPLICATION_JSON_VALUE,
         params = {"filterrfc", "datefrom","dateto","stateuser", "role"})
     @Timed
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = false)
     public ResponseEntity<List<ManagedUserDTO>> getAllUsers(
         @RequestParam(value = "filterrfc") String filterrfc,
         @RequestParam(value = "datefrom") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate datefrom,
@@ -205,6 +266,14 @@ public class UserResource {
         @RequestParam(value = "role") String role,
         Pageable pageable)
         throws URISyntaxException {
+        Long idauditevent = new Long("21");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+
+        tracemgService.saveTrace(audit_event_type, c_state_event);
+
         boolean activated = true;
         if(stateuser == 0)
             activated = false;
@@ -289,6 +358,13 @@ public class UserResource {
     @Timed
     public ResponseEntity<ManagedUserDTO> getUser(@PathVariable String login) {
         log.debug("REST request to get User : {}", login);
+        Long idauditevent = new Long("21");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTrace(audit_event_type, c_state_event);
+
         return userService.getUserWithAuthoritiesByLogin(login)
                 .map(ManagedUserDTO::new)
                 .map(managedUserDTO -> new ResponseEntity<>(managedUserDTO, HttpStatus.OK))
@@ -323,6 +399,13 @@ public class UserResource {
             userService.DeletePersistenTokenByUser(user1.get());
         }
         userService.deleteUserInformation(login);
+        Long idauditevent = new Long("28");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTrace(audit_event_type, c_state_event);
+
         return ResponseEntity.ok().headers(HeaderUtil.createAlert( "userManagement.deleted", login)).build();
     }
 }

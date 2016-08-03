@@ -1,8 +1,13 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import org.megapractical.billingplatform.domain.Audit_event_type;
+import org.megapractical.billingplatform.domain.C_state_event;
 import org.megapractical.billingplatform.domain.Free_receiver;
+import org.megapractical.billingplatform.service.Audit_event_typeService;
+import org.megapractical.billingplatform.service.C_state_eventService;
 import org.megapractical.billingplatform.service.Free_receiverService;
+import org.megapractical.billingplatform.service.TracemgService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -35,6 +40,16 @@ public class Free_receiverResource {
     @Inject
     private Free_receiverService free_receiverService;
 
+    @Inject
+    private Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
+
+
     /**
      * POST  /free-receivers : Create a new free_receiver.
      *
@@ -49,11 +64,23 @@ public class Free_receiverResource {
     public ResponseEntity<Free_receiver> createFree_receiver(@Valid @RequestBody Free_receiver free_receiver) throws URISyntaxException {
         log.debug("REST request to save Free_receiver : {}", free_receiver);
         if (free_receiver.getId() != null) {
+            Long idauditevent = new Long("5");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            Long idstate = new Long("2");
+            c_state_event = c_state_eventService.findOne(idstate);
+            tracemgService.saveTrace(audit_event_type, c_state_event);
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_receiver", "idexists", "A new free_receiver cannot already have an ID")).body(null);
         }
         free_receiver.setCreate_date(ZonedDateTime.now());
         free_receiver.setActivated(true);
         Free_receiver result = free_receiverService.save(free_receiver);
+        Long idauditevent = new Long("5");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTrace(audit_event_type, c_state_event);
         return ResponseEntity.created(new URI("/api/free-receivers/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_receiver", result.getId().toString()))
             .body(result);

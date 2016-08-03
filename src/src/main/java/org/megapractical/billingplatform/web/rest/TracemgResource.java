@@ -1,7 +1,11 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import org.megapractical.billingplatform.domain.Audit_event_type;
+import org.megapractical.billingplatform.domain.C_state_event;
 import org.megapractical.billingplatform.domain.Tracemg;
+import org.megapractical.billingplatform.service.Audit_event_typeService;
+import org.megapractical.billingplatform.service.C_state_eventService;
 import org.megapractical.billingplatform.service.TracemgService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
@@ -37,6 +41,13 @@ public class TracemgResource {
 
     @Inject
     private TracemgService tracemgService;
+
+    @Inject
+    private Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    private C_state_eventService c_state_eventService;
+
 
     /**
      * POST  /tracemgs : Create a new tracemg.
@@ -104,6 +115,14 @@ public class TracemgResource {
                                                         Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Tracemgs");
+
+        Long idauditevent = new Long("22");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTrace(audit_event_type, c_state_event);
+
         if (principal.compareTo(" ") == 0 && auditEventType.compareTo(" ") == 0 &&
             fromDate.toString().compareTo("0001-01-01") == 0 && toDate.toString().compareTo("0001-01-01") == 0 &&
             ip.compareTo(" ") == 0) {

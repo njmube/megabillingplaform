@@ -1,6 +1,8 @@
 package org.megapractical.billingplatform.service;
 
 import org.megapractical.billingplatform.config.JHipsterProperties;
+import org.megapractical.billingplatform.domain.Audit_event_type;
+import org.megapractical.billingplatform.domain.C_state_event;
 import org.megapractical.billingplatform.domain.User;
 
 import org.apache.commons.lang.CharEncoding;
@@ -48,6 +50,15 @@ public class MailService {
 
     @Inject
     private SpringTemplateEngine templateEngine;
+
+    @Inject
+    private Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
 
     /**
      * System default email address that sends the e-mails.
@@ -106,6 +117,12 @@ public class MailService {
         String content = templateEngine.process("activationEmail", context);
         String subject = messageSource.getMessage("email.activation.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
+        Long idauditevent = new Long("25");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTraceUser(user.getLogin(), audit_event_type, c_state_event);
     }
 
     @Async
@@ -118,6 +135,12 @@ public class MailService {
         String content = templateEngine.process("creationEmail", context);
         String subject = messageSource.getMessage("email.activation.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
+        Long idauditevent = new Long("23");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTraceUser(user.getLogin(), audit_event_type, c_state_event);
     }
 
     @Async
@@ -130,6 +153,12 @@ public class MailService {
         String content = templateEngine.process("passwordResetEmail", context);
         String subject = messageSource.getMessage("email.reset.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
+        Long idauditevent = new Long("24");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTraceUser(user.getLogin(), audit_event_type, c_state_event);
     }
 
 }

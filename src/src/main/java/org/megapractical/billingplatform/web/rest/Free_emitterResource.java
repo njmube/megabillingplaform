@@ -5,9 +5,7 @@ import org.megapractical.billingplatform.domain.Free_emitter;
 import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.security.SecurityUtils;
-import org.megapractical.billingplatform.service.Free_emitterService;
-import org.megapractical.billingplatform.service.Type_taxpayerService;
-import org.megapractical.billingplatform.service.UserService;
+import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -49,6 +47,15 @@ public class Free_emitterResource {
     @Inject
     private Type_taxpayerService type_taxpayerService;
 
+    @Inject
+    private Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
+
     /**
      * POST  /free-emitters : Create a new free_emitter.
      *
@@ -63,11 +70,18 @@ public class Free_emitterResource {
     public ResponseEntity<Free_emitter> createFree_emitter(@Valid @RequestBody Free_emitter free_emitter) throws URISyntaxException {
         log.debug("REST request to create Free_emitter : {}", free_emitter);
         if (free_emitter.getId() != null) {
+            Long id = new Long("1");
+            Long idtypeevent = new Long("2");
+            tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "idexists", "A new free_emitter cannot already have an ID")).body(null);
         }
 
         Free_emitter rfc = free_emitterService.findOneByRfc(free_emitter.getRfc());
         if(rfc != null){
+            Long id = new Long("1");
+            Long idtypeevent = new Long("2");
+            tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "rfcexists", "A new free_emitter cannot already have an RFC")).body(null);
         }
 
@@ -78,6 +92,10 @@ public class Free_emitterResource {
         free_emitter.setUser(userRepository.findOneByLogin(login).get());
 
         Free_emitter result = free_emitterService.save(free_emitter);
+        Long id = new Long("1");
+        Long idtypeevent = new Long("1");
+        tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+
         return ResponseEntity.created(new URI("/api/free-emitters/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_emitter", result.getId().toString()))
             .body(result);
@@ -149,10 +167,18 @@ public class Free_emitterResource {
 
             if (rfc != null) {
                 if (rfc.getId().toString().compareTo(free_emitter.getId().toString()) != 0) {
+                    Long id = new Long("2");
+                    Long idtypeevent = new Long("2");
+                    tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+
                     return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "rfcexists", "A new free_emitter cannot already have an RFC")).body(null);
                 }
             }
             Free_emitter result = free_emitterService.save(free_emitter);
+            Long id = new Long("2");
+            Long idtypeevent = new Long("1");
+            tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+
 
             return ResponseEntity.ok()
                 .headers(HeaderUtil.createEntityUpdateAlert("free_emitter", free_emitter.getId().toString()))

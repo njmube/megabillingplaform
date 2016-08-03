@@ -30,14 +30,6 @@ public class Free_receiverServiceImpl implements Free_receiverService{
     @Inject
     private Free_receiverRepository free_receiverRepository;
 
-    @Inject
-    private Audit_event_typeService audit_event_typeService;
-
-    @Inject
-    private C_state_eventService c_state_eventService;
-
-    @Inject
-    private TracemgService tracemgService;
 
     /**
      * Save a free_receiver.
@@ -48,19 +40,7 @@ public class Free_receiverServiceImpl implements Free_receiverService{
     public Free_receiver save(Free_receiver free_receiver) {
         log.debug("Request to save Free_receiver : {}", free_receiver);
         Free_receiver result = free_receiverRepository.save(free_receiver);
-        Long idauditevent = new Long("5");
-        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
-        C_state_event c_state_event;
-        if(result != null){
-            Long idstate = new Long("1");
-            c_state_event = c_state_eventService.findOne(idstate);
-        }
-        else
-        {
-            Long idstate = new Long("2");
-            c_state_event = c_state_eventService.findOne(idstate);
-        }
-        tracemgService.saveTrace(audit_event_type, c_state_event);
+
         return result;
     }
 
