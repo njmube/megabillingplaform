@@ -1,8 +1,13 @@
 package org.megapractical.billingplatform.service.impl;
 
+import org.megapractical.billingplatform.domain.Audit_event_type;
+import org.megapractical.billingplatform.domain.C_state_event;
+import org.megapractical.billingplatform.service.Audit_event_typeService;
 import org.megapractical.billingplatform.service.C_countryService;
 import org.megapractical.billingplatform.domain.C_country;
 import org.megapractical.billingplatform.repository.C_countryRepository;
+import org.megapractical.billingplatform.service.C_state_eventService;
+import org.megapractical.billingplatform.service.TracemgService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -25,6 +30,15 @@ public class C_countryServiceImpl implements C_countryService{
     @Inject
     private C_countryRepository c_countryRepository;
 
+    @Inject
+    private Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
+
     /**
      * Save a c_country.
      *
@@ -34,6 +48,19 @@ public class C_countryServiceImpl implements C_countryService{
     public C_country save(C_country c_country) {
         log.debug("Request to save C_country : {}", c_country);
         C_country result = c_countryRepository.save(c_country);
+        Long idauditevent = new Long("14");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        if(result != null){
+            Long idstate = new Long("1");
+            c_state_event = c_state_eventService.findOne(idstate);
+        }
+        else
+        {
+            Long idstate = new Long("2");
+            c_state_event = c_state_eventService.findOne(idstate);
+        }
+        tracemgService.saveTrace(audit_event_type, c_state_event);
         return result;
     }
 
@@ -90,5 +117,11 @@ public class C_countryServiceImpl implements C_countryService{
     public void delete(Long id) {
         log.debug("Request to delete C_country : {}", id);
         c_countryRepository.delete(id);
+        Long idauditevent = new Long("15");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTrace(audit_event_type, c_state_event);
     }
 }
