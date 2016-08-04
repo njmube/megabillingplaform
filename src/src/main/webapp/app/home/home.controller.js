@@ -57,9 +57,17 @@
                     vm.isNoAdmin = vm.account.authorities.indexOf('ROLE_ADMIN') == -1;
 
                     if(!vm.isNoAdmin){
-                        $('#sidebar').attr('class','sidebar responsive');
+                        //$('#sidebar').attr('class','sidebar responsive');
+                        $('#sidebar').attr('class','sidebar responsive sidebar-fixed sidebar-scroll');
+                        $('#sidebar').attr('data-sidebar','true');
+                        $('#sidebar').attr('data-sidebar-scroll','true');
+                        $('#sidebar').attr('data-sidebar-hover','true');
+                        $('.nav-wrap, .scroll-content').css('max-height',($(window).height() - 55) + 'px');
+                        $('.scroll-track .scroll-active').css('height',($(window).height() - 55) + 'px');
                         $('#sidebar-shortcuts').attr('style','');
                         $('#sidebar-options').attr('style','');
+
+                        console.log();
                     }
                 }
             });

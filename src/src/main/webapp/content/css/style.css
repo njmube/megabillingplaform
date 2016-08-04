@@ -139,7 +139,7 @@ ul.nav-pills{
     bottom: 0px;
     padding: 8px;
     line-height: 36px;
-    border-top: 0px; 
+    border-top: 0px;
     background: #fff;
     color: #000;
 }
@@ -170,8 +170,8 @@ a.user-registration:hover{
 	text-decoration: none;
 }
 
-.form-home label{	
-	color: #fff; 
+.form-home label{
+	color: #fff;
 	margin-right: 52px;
 	font-size: 13px;
 }
