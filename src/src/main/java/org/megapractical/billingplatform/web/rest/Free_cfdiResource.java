@@ -110,7 +110,9 @@ public class Free_cfdiResource {
         free_cfdi.setNo_certificate("no_cetificate");
         free_cfdi.setCertificate("cetificate");
 
+        free_cfdi_dto.setFreeCFDI(free_cfdi);
         Free_cfdi result = free_cfdiService.save(free_cfdi_dto);
+
         Long idauditevent = new Long("4");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;
