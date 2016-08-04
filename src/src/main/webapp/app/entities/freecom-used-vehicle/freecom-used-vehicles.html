@@ -1,0 +1,84 @@
+<div>
+    <h2 translate="megabillingplatformApp.freecom_used_vehicle.home.title">Freecom_used_vehicles</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="freecom-used-vehicle.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.freecom_used_vehicle.home.createLabel">
+                        Create new Freecom_used_vehicle
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version"><span translate="megabillingplatformApp.freecom_used_vehicle.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="acquisition_amount"><span translate="megabillingplatformApp.freecom_used_vehicle.acquisition_amount">Acquisition_amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="monto_enajenacion"><span translate="megabillingplatformApp.freecom_used_vehicle.monto_enajenacion">Monto_enajenacion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="key_vehicle"><span translate="megabillingplatformApp.freecom_used_vehicle.key_vehicle">Key_vehicle</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="brand"><span translate="megabillingplatformApp.freecom_used_vehicle.brand">Brand</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="type"><span translate="megabillingplatformApp.freecom_used_vehicle.type">Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="model"><span translate="megabillingplatformApp.freecom_used_vehicle.model">Model</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_engine"><span translate="megabillingplatformApp.freecom_used_vehicle.number_engine">Number_engine</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_serie"><span translate="megabillingplatformApp.freecom_used_vehicle.no_serie">No_serie</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="niv"><span translate="megabillingplatformApp.freecom_used_vehicle.niv">Niv</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="value"><span translate="megabillingplatformApp.freecom_used_vehicle.value">Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.freecom_used_vehicle.free_cfdi">free_cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="freecom_used_vehicle in vm.freecom_used_vehicles track by freecom_used_vehicle.id">
+                    <td><a ui-sref="freecom-used-vehicle-detail({id:freecom_used_vehicle.id})">{{freecom_used_vehicle.id}}</a></td>
+                    <td>{{freecom_used_vehicle.version}}</td>
+                    <td>{{freecom_used_vehicle.acquisition_amount}}</td>
+                    <td>{{freecom_used_vehicle.monto_enajenacion}}</td>
+                    <td>{{freecom_used_vehicle.key_vehicle}}</td>
+                    <td>{{freecom_used_vehicle.brand}}</td>
+                    <td>{{freecom_used_vehicle.type}}</td>
+                    <td>{{freecom_used_vehicle.model}}</td>
+                    <td>{{freecom_used_vehicle.number_engine}}</td>
+                    <td>{{freecom_used_vehicle.no_serie}}</td>
+                    <td>{{freecom_used_vehicle.niv}}</td>
+                    <td>{{freecom_used_vehicle.value}}</td>
+                    <td>
+                        <a ui-sref="free-cfdi-detail({id:freecom_used_vehicle.free_cfdi.id})">{{freecom_used_vehicle.free_cfdi.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="freecom-used-vehicle-detail({id:freecom_used_vehicle.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-used-vehicle.edit({id:freecom_used_vehicle.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-used-vehicle.delete({id:freecom_used_vehicle.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

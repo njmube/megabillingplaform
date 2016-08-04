@@ -73,6 +73,13 @@
                 "freecomPartialConstructionServices": "Freecom_partial_construction_services",
                 "trace": "Trace",
                 "tracemg": "Tracemg",
+                "freecomStoreroomPaybill": "Freecom_storeroom_paybill",
+                "freecomPaybillConcept": "Freecom_paybill_concept",
+                "freecomUsedVehicle": "Freecom_used_vehicle",
+                "freecomVehicleCustomsInformation": "Freecom_vehicle_customs_information",
+                "cClass": "C_class",
+                "freecomDestructionCertificate": "Freecom_destruction_certificate",
+                "freecomInfoCustomsDestruction": "Freecom_info_customs_destruction",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

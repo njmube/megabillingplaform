@@ -141,6 +141,9 @@ public class Free_emitter implements Serializable {
     @Column(name = "valid_days_cert")
     private String valid_days_cert;
 
+    @Column(name = "number_certificate")
+    private String number_certificate;
+
     @ManyToOne
     private Tax_regime tax_regime;
 
@@ -438,6 +441,14 @@ public class Free_emitter implements Serializable {
         this.valid_days_cert = valid_days_cert;
     }
 
+    public String getNumber_certificate() {
+        return number_certificate;
+    }
+
+    public void setNumber_certificate(String number_certificate) {
+        this.number_certificate = number_certificate;
+    }
+
     public Tax_regime getTax_regime() {
         return tax_regime;
     }
@@ -559,6 +570,7 @@ public class Free_emitter implements Serializable {
             ", date_created_cert='" + date_created_cert + "'" +
             ", date_expiration_cert='" + date_expiration_cert + "'" +
             ", valid_days_cert='" + valid_days_cert + "'" +
+            ", number_certificate='" + number_certificate + "'" +
             '}';
     }
 }

@@ -150,6 +150,10 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="number_certificate" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="tax_regime_id" type="bigint"/>
             <column name="c_country_id" type="bigint"/>
             <column name="c_state_id" type="bigint"/>

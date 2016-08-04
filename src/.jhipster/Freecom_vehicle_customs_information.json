@@ -1,0 +1,35 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "freecom_used_vehicle",
+            "otherEntityName": "freecom_used_vehicle",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "number",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date_expedition",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "customs",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160804150011",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_vehicle_customs_information",
+    "pagination": "pagination"
+}

@@ -48,6 +48,7 @@
                 backdrop: true,
                 size: ''
             }).result.then(function(result) {
+                    vm.free_emitter.number_certificate = null;
                     vm.free_emitter.pass_certificate = null;
                     vm.free_emitter.info_certificate = null;
                     vm.free_emitter.filecertificate = null;

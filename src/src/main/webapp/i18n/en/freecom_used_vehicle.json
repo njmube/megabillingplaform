@@ -1,0 +1,33 @@
+{
+    "megabillingplatformApp": {
+        "freecom_used_vehicle" : {
+            "home": {
+                "title": "Freecom_used_vehicles",
+                "createLabel": "Create a new Freecom_used_vehicle",
+                "createOrEditLabel": "Create or edit a Freecom_used_vehicle",
+                "search": "Search for Freecom_used_vehicle"
+            },
+            "created": "A new Freecom_used_vehicle is created with identifier {{ param }}",
+            "updated": "A Freecom_used_vehicle is updated with identifier {{ param }}",
+            "deleted": "A Freecom_used_vehicle is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom_used_vehicle {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_used_vehicle"
+            },
+            "version": "Version",
+            "acquisition_amount": "Acquisition_amount",
+            "monto_enajenacion": "Monto_enajenacion",
+            "key_vehicle": "Key_vehicle",
+            "brand": "Brand",
+            "type": "Type",
+            "model": "Model",
+            "number_engine": "Number_engine",
+            "no_serie": "No_serie",
+            "niv": "Niv",
+            "value": "Value",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

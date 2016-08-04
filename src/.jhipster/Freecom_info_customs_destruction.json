@@ -1,0 +1,42 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "freecom_destruction_certificate",
+            "otherEntityName": "freecom_destruction_certificate",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "freecom_info_customs_destruction"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "numpedimp",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "40"
+        },
+        {
+            "fieldName": "date_expedition",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "customs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160804151653",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_info_customs_destruction",
+    "pagination": "pagination"
+}

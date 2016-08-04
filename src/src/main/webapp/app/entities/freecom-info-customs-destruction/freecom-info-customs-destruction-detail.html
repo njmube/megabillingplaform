@@ -1,0 +1,33 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_info_customs_destruction.detail.title">Freecom_info_customs_destruction</span> {{vm.freecom_info_customs_destruction.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.freecom_info_customs_destruction.numpedimp">Numpedimp</dt></dt>
+        <dd>
+            <span>{{vm.freecom_info_customs_destruction.numpedimp}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_info_customs_destruction.date_expedition">Date_expedition</dt></dt>
+        <dd>
+            <span>{{vm.freecom_info_customs_destruction.date_expedition | date:'mediumDate'}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_info_customs_destruction.customs">Customs</dt></dt>
+        <dd>
+            <span>{{vm.freecom_info_customs_destruction.customs}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_info_customs_destruction.freecom_destruction_certificate">freecom_destruction_certificate</span></dt>
+        <dd>
+            <a ui-sref="freecom-destruction-certificate-detail({id:vm.freecom_info_customs_destruction.freecom_destruction_certificate.id})">{{vm.freecom_info_customs_destruction.freecom_destruction_certificate.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

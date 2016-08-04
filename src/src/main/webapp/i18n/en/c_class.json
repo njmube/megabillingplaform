@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "c_class" : {
+            "home": {
+                "title": "C_classes",
+                "createLabel": "Create a new C_class",
+                "createOrEditLabel": "Create or edit a C_class",
+                "search": "Search for C_class"
+            },
+            "created": "A new C_class is created with identifier {{ param }}",
+            "updated": "A C_class is updated with identifier {{ param }}",
+            "deleted": "A C_class is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete C_class {{ id }}?"
+            },
+            "detail": {
+                "title": "C_class"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

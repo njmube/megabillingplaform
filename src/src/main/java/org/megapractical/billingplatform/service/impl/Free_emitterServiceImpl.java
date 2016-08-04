@@ -104,6 +104,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
             LocalDate expirate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDate createddate = created.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
+            free_emitter.setNumber_certificate(UCertificate.getCertNumber(free_emitter.getFilecertificate()));
             free_emitter.setDate_certificate(expirate);
             free_emitter.setRfc_certificate(UCertificate.getCertPersonRFC(free_emitter.getFilecertificate()));
             free_emitter.setBussines_name_cert(UCertificate.getCertPersonName(free_emitter.getFilecertificate()));

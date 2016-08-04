@@ -1,0 +1,100 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFreecom_storeroom_paybillLabel" translate="megabillingplatformApp.freecom_storeroom_paybill.home.createOrEditLabel">Create or edit a Freecom_storeroom_paybill</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.freecom_storeroom_paybill.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_storeroom_paybill.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.freecom_storeroom_paybill.version"
+                    required />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.version.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_storeroom_paybill.type_operation" for="field_type_operation">Type_operation</label>
+            <input type="text" class="form-control" name="type_operation" id="field_type_operation"
+                    ng-model="vm.freecom_storeroom_paybill.type_operation"
+                    required />
+            <div ng-show="editForm.type_operation.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.type_operation.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_storeroom_paybill.employer_registration" for="field_employer_registration">Employer_registration</label>
+            <input type="text" class="form-control" name="employer_registration" id="field_employer_registration"
+                    ng-model="vm.freecom_storeroom_paybill.employer_registration"
+                    ng-maxlength="20" />
+            <div ng-show="editForm.employer_registration.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.employer_registration.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                    This field cannot be longer than 20 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_storeroom_paybill.account_number" for="field_account_number">Account_number</label>
+            <input type="text" class="form-control" name="account_number" id="field_account_number"
+                    ng-model="vm.freecom_storeroom_paybill.account_number"
+                    required ng-maxlength="20" />
+            <div ng-show="editForm.account_number.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.account_number.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.account_number.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                    This field cannot be longer than 20 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_storeroom_paybill.total" for="field_total">Total</label>
+            <input type="number" class="form-control" name="total" id="field_total"
+                    ng-model="vm.freecom_storeroom_paybill.total"
+                    required />
+            <div ng-show="editForm.total.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.total.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.total.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_storeroom_paybill.free_cfdi" for="field_free_cfdi">free_cfdi</label>
+            <select class="form-control" id="field_free_cfdi" name="free_cfdi" ng-model="vm.freecom_storeroom_paybill.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.free_cfdis track by free_cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

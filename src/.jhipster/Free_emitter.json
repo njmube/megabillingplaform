@@ -223,6 +223,10 @@
         {
             "fieldName": "valid_days_cert",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "number_certificate",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20160623172937",

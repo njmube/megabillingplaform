@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "freecom_storeroom_paybill" : {
+            "home": {
+                "title": "Freecom_storeroom_paybills",
+                "createLabel": "Create a new Freecom_storeroom_paybill",
+                "createOrEditLabel": "Create or edit a Freecom_storeroom_paybill",
+                "search": "Search for Freecom_storeroom_paybill"
+            },
+            "created": "A new Freecom_storeroom_paybill is created with identifier {{ param }}",
+            "updated": "A Freecom_storeroom_paybill is updated with identifier {{ param }}",
+            "deleted": "A Freecom_storeroom_paybill is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom_storeroom_paybill {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_storeroom_paybill"
+            },
+            "version": "Version",
+            "type_operation": "Type_operation",
+            "employer_registration": "Employer_registration",
+            "account_number": "Account_number",
+            "total": "Total",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

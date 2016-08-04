@@ -90,7 +90,8 @@
             "passtitle":"Enter the password",
             "validate":"Validate",
             "resultvalidation":"Result of validation",
-            "messvalidate":"Correct validation of digital certificate is required"
+            "messvalidate":"Correct validation of digital certificate is required",
+            "number_certificate":"Number certificate: "
         }
     }
 }

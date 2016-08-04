@@ -1,0 +1,66 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFreecom_vehicle_customs_informationLabel" translate="megabillingplatformApp.freecom_vehicle_customs_information.home.createOrEditLabel">Create or edit a Freecom_vehicle_customs_information</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.freecom_vehicle_customs_information.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_vehicle_customs_information.number" for="field_number">Number</label>
+            <input type="text" class="form-control" name="number" id="field_number"
+                    ng-model="vm.freecom_vehicle_customs_information.number"
+                    required />
+            <div ng-show="editForm.number.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_vehicle_customs_information.date_expedition" for="field_date_expedition">Date_expedition</label>
+                <div class="input-group">
+                    <input id="field_date_expedition" type="text" class="form-control" name="date_expedition" uib-datepicker-popup="{{dateformat}}" ng-model="vm.freecom_vehicle_customs_information.date_expedition" is-open="vm.datePickerOpenStatus.date_expedition"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_expedition')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_expedition.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_expedition.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_vehicle_customs_information.customs" for="field_customs">Customs</label>
+            <input type="text" class="form-control" name="customs" id="field_customs"
+                    ng-model="vm.freecom_vehicle_customs_information.customs"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_vehicle_customs_information.freecom_used_vehicle" for="field_freecom_used_vehicle">freecom_used_vehicle</label>
+            <select class="form-control" id="field_freecom_used_vehicle" name="freecom_used_vehicle" ng-model="vm.freecom_vehicle_customs_information.freecom_used_vehicle" ng-options="freecom_used_vehicle as freecom_used_vehicle.id for freecom_used_vehicle in vm.freecom_used_vehicles track by freecom_used_vehicle.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

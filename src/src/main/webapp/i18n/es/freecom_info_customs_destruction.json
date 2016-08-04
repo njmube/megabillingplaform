@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "freecom_info_customs_destruction" : {
+            "home": {
+                "title": "Freecom_info_customs_destructions",
+                "createLabel": "Crear nuevo Freecom_info_customs_destruction",
+                "createOrEditLabel": "Crear o editar Freecom_info_customs_destruction",
+                "search": "Search for Freecom_info_customs_destruction"
+            },
+            "created": "Un nuevo Freecom_info_customs_destruction ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_info_customs_destruction ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_info_customs_destruction ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_info_customs_destruction {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_info_customs_destruction"
+            },
+            "numpedimp": "Numpedimp",
+            "date_expedition": "Date_expedition",
+            "customs": "Customs",
+            "freecom_destruction_certificate": "Freecom_destruction_certificate"
+        }
+    }
+}

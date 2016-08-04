@@ -90,7 +90,8 @@
             "passtitle":"Enter the password",
             "validate":"Validar",
             "resultvalidation":"Resultado de la validación",
-            "messvalidate":"Es requerida la correcta validación del certificado digital"
+            "messvalidate":"Es requerida la correcta validación del certificado digital",
+            "number_certificate":"Número de certificado: "
         }
     }
 }
