@@ -557,13 +557,86 @@
 		var onSaveFreeReceiverSuccess = function (result) {
 			vm.free_receiver = result;
 			vm.free_cfdi.free_receiver = vm.free_receiver;
+
             if(vm.free_cfdi.mont_folio_fiscal_orig != null && vm.free_cfdi.mont_folio_fiscal_orig > 0){
                 vm.free_cfdi.mont_folio_fiscal_orig = floorFigure(vm.free_cfdi.mont_folio_fiscal_orig, vm.accuracy);
             }
+
+            var free_concept;
+            var free_concepts = [];
+
+            var free_tax_transfereds = [];
+            var free_tax_transfered_iva;
+            var free_tax_transfered_ieps;
+
+            var free_tax_retentions = [];
+            var amount_iva_retentions;
+            var free_tax_retentions_iva;
+            var amount_isr_retentions;
+            var free_tax_retentions_isr;
+
+            var i;
+            for(i=0; i < vm.free_concepts.length; i++){
+                free_concept = vm.free_concepts[i].free_concept;
+                free_concepts.push(free_concept);
+
+                //getting IVA for free_tax_transferred...
+                free_tax_transfered_iva = vm.free_concepts[i].free_concept_iva;
+                if(free_tax_transfered_iva.amount > 0){
+                    free_tax_transfereds.push(free_tax_transfered_iva);
+                }
+
+                //getting IEPS for free_tax_transferred...
+                free_tax_transfered_ieps = vm.free_concepts[i].free_concept_ieps;
+                if(free_tax_transfered_ieps.amount > 0){
+                    free_tax_transfereds.push(free_tax_transfered_ieps);
+                }
+
+                //getting IVA for free_tax_retentions
+                amount_iva_retentions = 0;
+                //calculating free cfdi ret iva...
+                if((vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) && (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 3 || vm.free_cfdi.cfdi_type_doc.id == 5))){
+                    amount_iva_retentions = 2/3 * free_concept.quantity * free_concept.unit_value;
+                }
+                if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 4){
+                    amount_iva_retentions = 0.04 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
+                }
+
+                if(amount_iva_retentions > 0){
+                    free_tax_retentions_iva = {
+                        amount: floorFigure(amount_iva_retentions, vm.accuracy),
+                        id: null
+                    };
+                    free_tax_retentions.push(free_tax_retentions_iva);
+                }
+
+                //getting ISR for free_tax_retentions
+                amount_isr_retentions = 0;
+                //calculating free cfdi ret isr...
+                if((vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) || (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5))){
+                    amount_isr_retentions = 1/10 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
+                }
+
+                if(amount_isr_retentions > 0){
+                    free_tax_retentions_isr = {
+                        amount: floorFigure(amount_isr_retentions, vm.accuracy),
+                        id: null
+                    };
+                    free_tax_retentions.push(free_tax_retentions_isr);
+                }
+            }
+
+            var free_cfdi_dto = {
+                freeCFDI: vm.free_cfdi,
+                concepts: free_concepts,
+                freeTaxTransfereds: free_tax_transfereds,
+                freeTaxRetentions: free_tax_retentions
+            };
+
 			if (vm.free_cfdi.id !== null) {
-                Free_cfdi.update(vm.free_cfdi, onSaveSuccess, onSaveError);
+                Free_cfdi.update(free_cfdi_dto, onSaveSuccess, onSaveError);
             } else {
-                Free_cfdi.save(vm.free_cfdi, onSaveSuccess, onSaveError);
+                Free_cfdi.save(free_cfdi_dto, onSaveSuccess, onSaveError);
             }
         };
 

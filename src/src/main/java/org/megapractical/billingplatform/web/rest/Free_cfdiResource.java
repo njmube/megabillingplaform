@@ -5,6 +5,10 @@ import org.megapractical.billingplatform.domain.*;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.*;
+import org.megapractical.billingplatform.service.Free_cfdiService;
+import org.megapractical.billingplatform.service.Free_emitterService;
+import org.megapractical.billingplatform.service.UserService;
+import org.megapractical.billingplatform.web.rest.dto.Free_cfdiDTO;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -60,7 +64,7 @@ public class Free_cfdiResource {
     /**
      * POST  /free-cfdis : Create a new free_cfdi.
      *
-     * @param free_cfdi the free_cfdi to create
+     * @param free_cfdi_dto the free_cfdi_dto to create free_cfdi
      * @return the ResponseEntity with status 201 (Created) and with body the new free_cfdi, or with status 400 (Bad Request) if the free_cfdi has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
@@ -68,7 +72,11 @@ public class Free_cfdiResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Free_cfdi> createFree_cfdi(@Valid @RequestBody Free_cfdi free_cfdi) throws URISyntaxException {
+    //public ResponseEntity<Free_cfdi> createFree_cfdi(@Valid @RequestBody Free_cfdi free_cfdi) throws URISyntaxException {
+    public ResponseEntity<Free_cfdi> createFree_cfdi(@Valid @RequestBody Free_cfdiDTO free_cfdi_dto) throws URISyntaxException {
+
+        Free_cfdi free_cfdi = free_cfdi_dto.getFreeCFDI();
+
         log.debug("REST request to save Free_cfdi : {}", free_cfdi);
         if (free_cfdi.getId() != null) {
             Long idauditevent = new Long("4");
@@ -102,13 +110,15 @@ public class Free_cfdiResource {
         free_cfdi.setNo_certificate("no_cetificate");
         free_cfdi.setCertificate("cetificate");
 
-        Free_cfdi result = free_cfdiService.save(free_cfdi);
+        Free_cfdi result = free_cfdiService.save(free_cfdi_dto);
         Long idauditevent = new Long("4");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;
         Long idstate = new Long("1");
         c_state_event = c_state_eventService.findOne(idstate);
         tracemgService.saveTrace(audit_event_type, c_state_event);
+
+
         return ResponseEntity.created(new URI("/api/free-cfdis/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_cfdi", result.getId().toString()))
             .body(result);
@@ -117,7 +127,7 @@ public class Free_cfdiResource {
     /**
      * PUT  /free-cfdis : Updates an existing free_cfdi.
      *
-     * @param free_cfdi the free_cfdi to update
+     * @param free_cfdi_dto the free_cfdi to update
      * @return the ResponseEntity with status 200 (OK) and with body the updated free_cfdi,
      * or with status 400 (Bad Request) if the free_cfdi is not valid,
      * or with status 500 (Internal Server Error) if the free_cfdi couldnt be updated
@@ -127,12 +137,13 @@ public class Free_cfdiResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Free_cfdi> updateFree_cfdi(@Valid @RequestBody Free_cfdi free_cfdi) throws URISyntaxException {
+    public ResponseEntity<Free_cfdi> updateFree_cfdi(@Valid @RequestBody Free_cfdiDTO free_cfdi_dto) throws URISyntaxException {
+        Free_cfdi free_cfdi = free_cfdi_dto.getFreeCFDI();
         log.debug("REST request to update Free_cfdi : {}", free_cfdi);
         if (free_cfdi.getId() == null) {
-            return createFree_cfdi(free_cfdi);
+            return createFree_cfdi(free_cfdi_dto);
         }
-        Free_cfdi result = free_cfdiService.save(free_cfdi);
+        Free_cfdi result = free_cfdiService.save(free_cfdi_dto);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("free_cfdi", free_cfdi.getId().toString()))
             .body(result);

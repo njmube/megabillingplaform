@@ -2,6 +2,7 @@ package org.megapractical.billingplatform.service;
 
 import org.megapractical.billingplatform.domain.Free_cfdi;
 import org.megapractical.billingplatform.domain.Free_emitter;
+import org.megapractical.billingplatform.web.rest.dto.Free_cfdiDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -16,10 +17,10 @@ public interface Free_cfdiService {
     /**
      * Save a free_cfdi.
      *
-     * @param free_cfdi the entity to save
+     * @param free_cfdi_dto the entity to save
      * @return the persisted entity
      */
-    Free_cfdi save(Free_cfdi free_cfdi);
+    Free_cfdi save(Free_cfdiDTO free_cfdi_dto);
 
     /**
      *  Get all the free_cfdis.
