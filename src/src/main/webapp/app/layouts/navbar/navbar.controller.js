@@ -43,7 +43,7 @@
                         $('#sidebar').attr('data-sidebar-scroll','true');
                         $('#sidebar').attr('data-sidebar-hover','true');
                         $('.nav-wrap, .scroll-content').css('max-height',($(window).height() - 55) + 'px');
-                        $('.scroll-track .scroll-active').css('height',($(window).height() - 55) + 'px');
+                        $('.scroll-track.scroll-active').css('height',($(window).height() - 55) + 'px');
                         $('#sidebar-shortcuts').attr('style','');
                         $('#sidebar-options').attr('style','');
                     }
