@@ -1,10 +1,15 @@
 package org.megapractical.billingplatform.security;
 
+import org.megapractical.billingplatform.domain.Audit_event_type;
+import org.megapractical.billingplatform.domain.C_state_event;
 import org.megapractical.billingplatform.domain.PersistentToken;
 import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.repository.PersistentTokenRepository;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.config.JHipsterProperties;
+import org.megapractical.billingplatform.service.Audit_event_typeService;
+import org.megapractical.billingplatform.service.C_state_eventService;
+import org.megapractical.billingplatform.service.TracemgService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.env.Environment;
@@ -69,6 +74,15 @@ public class CustomPersistentRememberMeServices extends
 
     @Inject
     private UserRepository userRepository;
+
+    @Inject
+    private Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
 
     @Inject
     public CustomPersistentRememberMeServices(JHipsterProperties jHipsterProperties, org.springframework.security.core.userdetails
@@ -146,6 +160,13 @@ public class CustomPersistentRememberMeServices extends
             } catch (RememberMeAuthenticationException rmae) {
                 log.debug("No persistent token found, so no token could be deleted");
             }
+        }
+        if(authentication != null) {
+            Long idauditevent = new Long("37");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            Long idstate = new Long("1");
+            C_state_event c_state_event = c_state_eventService.findOne(idstate);
+            tracemgService.saveTraceUser(authentication.getName(), audit_event_type, c_state_event);
         }
         super.logout(request, response, authentication);
     }

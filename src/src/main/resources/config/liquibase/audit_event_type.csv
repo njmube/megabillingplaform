@@ -35,3 +35,4 @@ id;name;description
 34;ACTIVATION-ACCOUNT;Se activa la cuenta de usuario
 35;ACCOUNT-REPORT;Se consulta la cuenta del usuario actual
 36;FREE-CFDI-REPORT;Se consulta free_cfdi
+37;LOGOUT;Se realiza logout de la sessión

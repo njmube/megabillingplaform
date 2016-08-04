@@ -39,6 +39,7 @@ public class AjaxAuthenticationFailureHandler extends SimpleUrlAuthenticationFai
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
         AuthenticationException exception) throws IOException, ServletException {
 
+        log.debug("Fallo de la autenticacion: {}",request.toString());
         Long idauditevent = new Long("3");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
 
