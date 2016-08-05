@@ -51,6 +51,7 @@
             "date_from":"Date from",
             "date_to": "Date to",
             "rfc_receiver":"RFC receiver",
+            "generate":"Generate",
             "search_result":"Search result",
 			"validation":{
 				"way_paymentxnomorey":"First value have to be minor than the last value",

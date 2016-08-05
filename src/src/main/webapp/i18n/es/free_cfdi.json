@@ -51,6 +51,7 @@
             "date_from":"Desde",
             "date_to": "Hasta",
             "rfc_receiver":"RFC del receptor",
+            "generate":"Generar",
             "search_result":"Resultado de la búsqueda",
 			"validation":{
 				"way_paymentxnomorey":"El primer valor no puede ser menor que le segundo.",
