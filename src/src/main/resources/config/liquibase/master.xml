@@ -88,5 +88,9 @@
     <include file="classpath:config/liquibase/changelog/20160804150149_added_entity_C_class.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160804150941_added_entity_Freecom_destruction_certificate.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160804151653_added_entity_Freecom_info_customs_destruction.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160805130726_added_entity_Freecom_tax_type.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160805131037_added_entity_Freecom_fuel_consumption.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160805131543_added_entity_Freecom_concept_fuel.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160805131933_added_entity_Freecom_determined.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

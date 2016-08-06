@@ -1,0 +1,70 @@
+<div>
+    <h2 translate="megabillingplatformApp.freecom_determined.home.title">Freecom_determineds</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="freecom-determined.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.freecom_determined.home.createLabel">
+                        Create new Freecom_determined
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rate"><span translate="megabillingplatformApp.freecom_determined.rate">Rate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amount"><span translate="megabillingplatformApp.freecom_determined.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_concept_fuel.identifier"><span translate="megabillingplatformApp.freecom_determined.freecom_concept_fuel">freecom_concept_fuel</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_tax_type.name"><span translate="megabillingplatformApp.freecom_determined.freecom_tax_type">freecom_tax_type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="freecom_determined in vm.freecom_determineds track by freecom_determined.id">
+                    <td><a ui-sref="freecom-determined-detail({id:freecom_determined.id})">{{freecom_determined.id}}</a></td>
+                    <td>{{freecom_determined.rate}}</td>
+                    <td>{{freecom_determined.amount}}</td>
+                    <td>
+                        <a ui-sref="freecom-concept-fuel-detail({id:freecom_determined.freecom_concept_fuel.id})">{{freecom_determined.freecom_concept_fuel.identifier}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="freecom-tax-type-detail({id:freecom_determined.freecom_tax_type.id})">{{freecom_determined.freecom_tax_type.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="freecom-determined-detail({id:freecom_determined.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-determined.edit({id:freecom_determined.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-determined.delete({id:freecom_determined.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

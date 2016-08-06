@@ -1,0 +1,63 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_concept_fuel.detail.title">Freecom_concept_fuel</span> {{vm.freecom_concept_fuel.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.freecom_concept_fuel.identifier">Identifier</dt></dt>
+        <dd>
+            <span>{{vm.freecom_concept_fuel.identifier}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_concept_fuel.date_expedition">Date_expedition</dt></dt>
+        <dd>
+            <span>{{vm.freecom_concept_fuel.date_expedition | date:'medium'}}</span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_concept_fuel.rfc">Rfc</dt></dt>
+        <dd>
+            <span>{{vm.freecom_concept_fuel.rfc}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_concept_fuel.key_station">Key_station</dt></dt>
+        <dd>
+            <span>{{vm.freecom_concept_fuel.key_station}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_concept_fuel.quantity">Quantity</dt></dt>
+        <dd>
+            <span>{{vm.freecom_concept_fuel.quantity}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_concept_fuel.fuel_name">Fuel_name</dt></dt>
+        <dd>
+            <span>{{vm.freecom_concept_fuel.fuel_name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_concept_fuel.folio_operation">Folio_operation</dt></dt>
+        <dd>
+            <span>{{vm.freecom_concept_fuel.folio_operation}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_concept_fuel.unit_value">Unit_value</dt></dt>
+        <dd>
+            <span>{{vm.freecom_concept_fuel.unit_value}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_concept_fuel.amount">Amount</dt></dt>
+        <dd>
+            <span>{{vm.freecom_concept_fuel.amount}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_concept_fuel.freecom_fuel_consumption">freecom_fuel_consumption</span></dt>
+        <dd>
+            <a ui-sref="freecom-fuel-consumption-detail({id:vm.freecom_concept_fuel.freecom_fuel_consumption.id})">{{vm.freecom_concept_fuel.freecom_fuel_consumption.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

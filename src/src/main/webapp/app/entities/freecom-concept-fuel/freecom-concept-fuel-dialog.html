@@ -1,0 +1,164 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFreecom_concept_fuelLabel" translate="megabillingplatformApp.freecom_concept_fuel.home.createOrEditLabel">Create or edit a Freecom_concept_fuel</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.freecom_concept_fuel.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_concept_fuel.identifier" for="field_identifier">Identifier</label>
+            <input type="text" class="form-control" name="identifier" id="field_identifier"
+                    ng-model="vm.freecom_concept_fuel.identifier"
+                    required />
+            <div ng-show="editForm.identifier.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.identifier.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_concept_fuel.date_expedition" for="field_date_expedition">Date_expedition</label>
+                <div class="input-group">
+                    <input id="field_date_expedition" type="text" class="form-control" name="date_expedition" datetime-picker="{{dateformat}}" ng-model="vm.freecom_concept_fuel.date_expedition" is-open="vm.datePickerOpenStatus.date_expedition"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_expedition')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_expedition.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_expedition.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.date_expedition.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_concept_fuel.rfc" for="field_rfc">Rfc</label>
+            <input type="text" class="form-control" name="rfc" id="field_rfc"
+                    ng-model="vm.freecom_concept_fuel.rfc"
+                    required />
+            <div ng-show="editForm.rfc.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.rfc.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_concept_fuel.key_station" for="field_key_station">Key_station</label>
+            <input type="text" class="form-control" name="key_station" id="field_key_station"
+                    ng-model="vm.freecom_concept_fuel.key_station"
+                    required ng-maxlength="10" />
+            <div ng-show="editForm.key_station.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.key_station.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.key_station.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="10">
+                    This field cannot be longer than 10 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_concept_fuel.quantity" for="field_quantity">Quantity</label>
+            <input type="number" class="form-control" name="quantity" id="field_quantity"
+                    ng-model="vm.freecom_concept_fuel.quantity"
+                    required />
+            <div ng-show="editForm.quantity.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.quantity.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.quantity.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_concept_fuel.fuel_name" for="field_fuel_name">Fuel_name</label>
+            <input type="text" class="form-control" name="fuel_name" id="field_fuel_name"
+                    ng-model="vm.freecom_concept_fuel.fuel_name"
+                    required />
+            <div ng-show="editForm.fuel_name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.fuel_name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_concept_fuel.folio_operation" for="field_folio_operation">Folio_operation</label>
+            <input type="text" class="form-control" name="folio_operation" id="field_folio_operation"
+                    ng-model="vm.freecom_concept_fuel.folio_operation"
+                    required />
+            <div ng-show="editForm.folio_operation.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.folio_operation.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_concept_fuel.unit_value" for="field_unit_value">Unit_value</label>
+            <input type="number" class="form-control" name="unit_value" id="field_unit_value"
+                    ng-model="vm.freecom_concept_fuel.unit_value"
+                    required />
+            <div ng-show="editForm.unit_value.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.unit_value.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.unit_value.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_concept_fuel.amount" for="field_amount">Amount</label>
+            <input type="number" class="form-control" name="amount" id="field_amount"
+                    ng-model="vm.freecom_concept_fuel.amount"
+                    required />
+            <div ng-show="editForm.amount.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.amount.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.amount.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_concept_fuel.freecom_fuel_consumption" for="field_freecom_fuel_consumption">freecom_fuel_consumption</label>
+            <select class="form-control" id="field_freecom_fuel_consumption" name="freecom_fuel_consumption" ng-model="vm.freecom_concept_fuel.freecom_fuel_consumption" ng-options="freecom_fuel_consumption as freecom_fuel_consumption.id for freecom_fuel_consumption in vm.freecom_fuel_consumptions track by freecom_fuel_consumption.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

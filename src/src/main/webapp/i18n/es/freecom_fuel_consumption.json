@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "freecom_fuel_consumption" : {
+            "home": {
+                "title": "Freecom_fuel_consumptions",
+                "createLabel": "Crear nuevo Freecom_fuel_consumption",
+                "createOrEditLabel": "Crear o editar Freecom_fuel_consumption",
+                "search": "Search for Freecom_fuel_consumption"
+            },
+            "created": "Un nuevo Freecom_fuel_consumption ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_fuel_consumption ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_fuel_consumption ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_fuel_consumption {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_fuel_consumption"
+            },
+            "version": "Version",
+            "type_operation": "Type_operation",
+            "account_number": "Account_number",
+            "subtotal": "Subtotal",
+            "total": "Total",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

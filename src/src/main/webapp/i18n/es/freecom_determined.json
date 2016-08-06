@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "freecom_determined" : {
+            "home": {
+                "title": "Freecom_determineds",
+                "createLabel": "Crear nuevo Freecom_determined",
+                "createOrEditLabel": "Crear o editar Freecom_determined",
+                "search": "Search for Freecom_determined"
+            },
+            "created": "Un nuevo Freecom_determined ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_determined ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_determined ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_determined {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_determined"
+            },
+            "rate": "Rate",
+            "amount": "Amount",
+            "freecom_concept_fuel": "Freecom_concept_fuel",
+            "freecom_tax_type": "Freecom_tax_type"
+        }
+    }
+}

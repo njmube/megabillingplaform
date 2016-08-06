@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "freecom_tax_type" : {
+            "home": {
+                "title": "Freecom_tax_types",
+                "createLabel": "Crear nuevo Freecom_tax_type",
+                "createOrEditLabel": "Crear o editar Freecom_tax_type",
+                "search": "Search for Freecom_tax_type"
+            },
+            "created": "Un nuevo Freecom_tax_type ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_tax_type ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_tax_type ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_tax_type {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_tax_type"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

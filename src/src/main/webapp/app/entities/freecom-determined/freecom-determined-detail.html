@@ -1,0 +1,33 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_determined.detail.title">Freecom_determined</span> {{vm.freecom_determined.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.freecom_determined.rate">Rate</dt></dt>
+        <dd>
+            <span>{{vm.freecom_determined.rate}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_determined.amount">Amount</dt></dt>
+        <dd>
+            <span>{{vm.freecom_determined.amount}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_determined.freecom_concept_fuel">freecom_concept_fuel</span></dt>
+        <dd>
+            <a ui-sref="freecom-concept-fuel-detail({id:vm.freecom_determined.freecom_concept_fuel.id})">{{vm.freecom_determined.freecom_concept_fuel.identifier}}</a>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_determined.freecom_tax_type">freecom_tax_type</span></dt>
+        <dd>
+            <a ui-sref="freecom-tax-type-detail({id:vm.freecom_determined.freecom_tax_type.id})">{{vm.freecom_determined.freecom_tax_type.name}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

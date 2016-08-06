@@ -1,0 +1,21 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160805130726",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_tax_type",
+    "pagination": "pagination"
+}

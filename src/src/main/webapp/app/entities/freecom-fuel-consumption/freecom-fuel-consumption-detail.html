@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_fuel_consumption.detail.title">Freecom_fuel_consumption</span> {{vm.freecom_fuel_consumption.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.freecom_fuel_consumption.version">Version</dt></dt>
+        <dd>
+            <span>{{vm.freecom_fuel_consumption.version}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_fuel_consumption.type_operation">Type_operation</dt></dt>
+        <dd>
+            <span>{{vm.freecom_fuel_consumption.type_operation}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_fuel_consumption.account_number">Account_number</dt></dt>
+        <dd>
+            <span>{{vm.freecom_fuel_consumption.account_number}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_fuel_consumption.subtotal">Subtotal</dt></dt>
+        <dd>
+            <span>{{vm.freecom_fuel_consumption.subtotal}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_fuel_consumption.total">Total</dt></dt>
+        <dd>
+            <span>{{vm.freecom_fuel_consumption.total}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_fuel_consumption.free_cfdi">free_cfdi</span></dt>
+        <dd>
+            <a ui-sref="free-cfdi-detail({id:vm.freecom_fuel_consumption.free_cfdi.id})">{{vm.freecom_fuel_consumption.free_cfdi.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

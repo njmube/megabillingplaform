@@ -80,6 +80,10 @@
                 "cClass": "C_class",
                 "freecomDestructionCertificate": "Freecom_destruction_certificate",
                 "freecomInfoCustomsDestruction": "Freecom_info_customs_destruction",
+                "freecomTaxType": "Freecom_tax_type",
+                "freecomFuelConsumption": "Freecom_fuel_consumption",
+                "freecomConceptFuel": "Freecom_concept_fuel",
+                "freecomDetermined": "Freecom_determined",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
