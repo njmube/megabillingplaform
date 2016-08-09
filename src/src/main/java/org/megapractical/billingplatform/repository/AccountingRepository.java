@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Spring Data JPA repository for the Accounting entity.
  */
+@SuppressWarnings("unused")
 public interface AccountingRepository extends JpaRepository<Accounting,Long> {
 
 }

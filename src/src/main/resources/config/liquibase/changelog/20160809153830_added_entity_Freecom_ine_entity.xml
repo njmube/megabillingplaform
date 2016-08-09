@@ -14,18 +14,22 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <!--
-        Added the entity Accounting.
+        Added the entity Freecom_ine_entity.
     -->
-    <changeSet id="20160712204648-1" author="jhipster">
-        <createTable tableName="accounting">
+    <changeSet id="20160809153830-1" author="jhipster">
+        <createTable tableName="freecom_ine_entity">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="keyaccounting" type="integer">
-                <constraints nullable="false" />
+            <column name="key_entity_id" type="bigint">
+                <constraints nullable="true" />
             </column>
-            
-            <column name="freecom_ine_entity_id" type="bigint">
+
+            <column name="freecom_ine_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="c_scope_type_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

@@ -8,12 +8,12 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A Entity_cfdi.
+ * A Freecom_ine_entity.
  */
 @Entity
-@Table(name = "entity_cfdi")
+@Table(name = "freecom_ine_entity")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Entity_cfdi implements Serializable {
+public class Freecom_ine_entity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -70,11 +70,11 @@ public class Entity_cfdi implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Entity_cfdi entity_cfdi = (Entity_cfdi) o;
-        if(entity_cfdi.id == null || id == null) {
+        Freecom_ine_entity freecom_ine_entity = (Freecom_ine_entity) o;
+        if(freecom_ine_entity.id == null || id == null) {
             return false;
         }
-        return Objects.equals(id, entity_cfdi.id);
+        return Objects.equals(id, freecom_ine_entity.id);
     }
 
     @Override
@@ -84,7 +84,7 @@ public class Entity_cfdi implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity_cfdi{" +
+        return "Freecom_ine_entity{" +
             "id=" + id +
             '}';
     }

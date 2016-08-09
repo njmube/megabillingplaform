@@ -2,19 +2,21 @@
     'use strict';
     angular
         .module('megabillingplatformApp')
-        .factory('Entity_cfdi', Entity_cfdi);
+        .factory('Freecom_ine_entity', Freecom_ine_entity);
 
-    Entity_cfdi.$inject = ['$resource'];
+    Freecom_ine_entity.$inject = ['$resource'];
 
-    function Entity_cfdi ($resource) {
-        var resourceUrl =  'api/entity-cfdis/:id';
+    function Freecom_ine_entity ($resource) {
+        var resourceUrl =  'api/freecom-ine-entities/:id';
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
-                    data = angular.fromJson(data);
+                    if (data) {
+                        data = angular.fromJson(data);
+                    }
                     return data;
                 }
             },

@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "freecom_ine_entity" : {
+            "home": {
+                "title": "Freecom Ine Entities",
+                "createLabel": "Create a new Freecom Ine Entity",
+                "createOrEditLabel": "Create or edit a Freecom Ine Entity",
+                "search": "Search for Freecom Ine Entity"
+            },
+            "created": "A new Freecom Ine Entity is created with identifier {{ param }}",
+            "updated": "A Freecom Ine Entity is updated with identifier {{ param }}",
+            "deleted": "A Freecom Ine Entity is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom Ine Entity {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Ine Entity"
+            },
+            "key_entity": "Key Entity",
+            "freecom_ine": "Freecom Ine",
+            "c_scope_type": "C Scope Type"
+        }
+    }
+}

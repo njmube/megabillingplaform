@@ -4,25 +4,25 @@
             "relationshipName": "key_entity",
             "otherEntityName": "key_entity",
             "relationshipType": "many-to-one",
-            "otherEntityField": "key"
+            "otherEntityField": "id"
         },
         {
             "relationshipName": "freecom_ine",
             "otherEntityName": "freecom_ine",
             "relationshipType": "many-to-one",
-            "otherEntityField": "version"
+            "otherEntityField": "id"
         },
         {
             "relationshipName": "c_scope_type",
             "otherEntityName": "c_scope_type",
             "relationshipType": "many-to-one",
-            "otherEntityField": "name"
+            "otherEntityField": "id"
         }
     ],
     "fields": [],
-    "changelogDate": "20160713002851",
+    "changelogDate": "20160809153830",
     "dto": "no",
     "service": "serviceImpl",
-    "entityTableName": "entity_cfdi",
-    "pagination": "pagination"
+    "entityTableName": "freecom_ine_entity",
+    "pagination": "pager"
 }

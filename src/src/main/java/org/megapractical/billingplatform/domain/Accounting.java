@@ -27,7 +27,7 @@ public class Accounting implements Serializable {
     private Integer keyaccounting;
 
     @ManyToOne
-    private Entity_cfdi entity_cfdi;
+    private Freecom_ine_entity freecom_ine_entity;
 
     public Long getId() {
         return id;
@@ -45,12 +45,12 @@ public class Accounting implements Serializable {
         this.keyaccounting = keyaccounting;
     }
 
-    public Entity_cfdi getEntity_cfdi() {
-        return entity_cfdi;
+    public Freecom_ine_entity getFreecom_ine_entity() {
+        return freecom_ine_entity;
     }
 
-    public void setEntity_cfdi(Entity_cfdi entity_cfdi) {
-        this.entity_cfdi = entity_cfdi;
+    public void setFreecom_ine_entity(Freecom_ine_entity freecom_ine_entity) {
+        this.freecom_ine_entity = freecom_ine_entity;
     }
 
     @Override

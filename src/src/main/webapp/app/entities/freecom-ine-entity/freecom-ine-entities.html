@@ -1,13 +1,13 @@
 <div>
-    <h2 translate="megabillingplatformApp.entity_cfdi.home.title">Entity_cfdis</h2>
+    <h2 translate="megabillingplatformApp.freecom_ine_entity.home.title">Freecom Ine Entities</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="entity-cfdi.new" >
+                <button class="btn btn-primary" ui-sref="freecom-ine-entity.new" >
                     <span class="glyphicon glyphicon-plus"></span>
-                    <span  translate="megabillingplatformApp.entity_cfdi.home.createLabel">
-                        Create new Entity_cfdi
+                    <span  translate="megabillingplatformApp.freecom_ine_entity.home.createLabel">
+                        Create new Freecom Ine Entity
                     </span>
                 </button>
             </div>
@@ -19,40 +19,40 @@
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="key_entity.key"><span translate="megabillingplatformApp.entity_cfdi.key_entity">key_entity</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="freecom_ine.version"><span translate="megabillingplatformApp.entity_cfdi.freecom_ine">freecom_ine</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="c_scope_type.name"><span translate="megabillingplatformApp.entity_cfdi.c_scope_type">c_scope_type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="key_entity.id"><span translate="megabillingplatformApp.freecom_ine_entity.key_entity">Key Entity</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_ine.id"><span translate="megabillingplatformApp.freecom_ine_entity.freecom_ine">Freecom Ine</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_scope_type.id"><span translate="megabillingplatformApp.freecom_ine_entity.c_scope_type">C Scope Type</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="entity_cfdi in vm.entity_cfdis track by entity_cfdi.id">
-                    <td><a ui-sref="entity-cfdi-detail({id:entity_cfdi.id})">{{entity_cfdi.id}}</a></td>
+                <tr ng-repeat="freecom_ine_entity in vm.freecom_ine_entities track by freecom_ine_entity.id">
+                    <td><a ui-sref="freecom-ine-entity-detail({id:freecom_ine_entity.id})">{{freecom_ine_entity.id}}</a></td>
                     <td>
-                        <a ui-sref="key-entity-detail({id:entity_cfdi.key_entity.id})">{{entity_cfdi.key_entity.key}}</a>
+                        <a ui-sref="key-entity-detail({id:freecom_ine_entity.key_entity.id})">{{freecom_ine_entity.key_entity.id}}</a>
                     </td>
                     <td>
-                        <a ui-sref="freecom-ine-detail({id:entity_cfdi.freecom_ine.id})">{{entity_cfdi.freecom_ine.version}}</a>
+                        <a ui-sref="freecom-ine-detail({id:freecom_ine_entity.freecom_ine.id})">{{freecom_ine_entity.freecom_ine.id}}</a>
                     </td>
                     <td>
-                        <a ui-sref="c-scope-type-detail({id:entity_cfdi.c_scope_type.id})">{{entity_cfdi.c_scope_type.name}}</a>
+                        <a ui-sref="c-scope-type-detail({id:freecom_ine_entity.c_scope_type.id})">{{freecom_ine_entity.c_scope_type.id}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"
-                                    ui-sref="entity-cfdi-detail({id:entity_cfdi.id})"
+                                    ui-sref="freecom-ine-entity-detail({id:freecom_ine_entity.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="entity-cfdi.edit({id:entity_cfdi.id})"
+                                    ui-sref="freecom-ine-entity.edit({id:freecom_ine_entity.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
                             </button>
                             <button type="submit"
-                                    ui-sref="entity-cfdi.delete({id:entity_cfdi.id})"
+                                    ui-sref="freecom-ine-entity.delete({id:freecom_ine_entity.id})"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
@@ -65,6 +65,6 @@
     </div>
     <div class="text-center">
         <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
-        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
     </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
 </div>

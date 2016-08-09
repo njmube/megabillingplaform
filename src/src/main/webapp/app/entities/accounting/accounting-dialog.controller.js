@@ -5,17 +5,16 @@
         .module('megabillingplatformApp')
         .controller('AccountingDialogController', AccountingDialogController);
 
-    AccountingDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Accounting', 'Entity_cfdi'];
+    AccountingDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Accounting', 'Freecom_ine_entity'];
 
-    function AccountingDialogController ($scope, $stateParams, $uibModalInstance, entity, Accounting, Entity_cfdi) {
+    function AccountingDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Accounting, Freecom_ine_entity) {
         var vm = this;
         vm.accounting = entity;
-        vm.entity_cfdis = Entity_cfdi.query();
-        vm.load = function(id) {
-            Accounting.get({id : id}, function(result) {
-                vm.accounting = result;
-            });
-        };
+        vm.freecom_ine_entities = Freecom_ine_entity.query();
+
+        $timeout(function (){
+            angular.element('.form-group:eq(1)>input').focus();
+        });
 
         var onSaveSuccess = function (result) {
             $scope.$emit('megabillingplatformApp:accountingUpdate', result);

@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_ine_entity.detail.title">Freecom Ine Entity</span> {{vm.freecom_ine_entity.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.freecom_ine_entity.key_entity">Key Entity</span></dt>
+        <dd>
+            <a ui-sref="key-entity-detail({id:vm.freecom_ine_entity.key_entity.id})">{{vm.freecom_ine_entity.key_entity.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ine_entity.freecom_ine">Freecom Ine</span></dt>
+        <dd>
+            <a ui-sref="freecom-ine-detail({id:vm.freecom_ine_entity.freecom_ine.id})">{{vm.freecom_ine_entity.freecom_ine.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ine_entity.c_scope_type">C Scope Type</span></dt>
+        <dd>
+            <a ui-sref="c-scope-type-detail({id:vm.freecom_ine_entity.c_scope_type.id})">{{vm.freecom_ine_entity.c_scope_type.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

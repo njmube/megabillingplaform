@@ -3,11 +3,11 @@
 
     angular
         .module('megabillingplatformApp')
-        .controller('Entity_cfdiController', Entity_cfdiController);
+        .controller('Freecom_ine_entityController', Freecom_ine_entityController);
 
-    Entity_cfdiController.$inject = ['$scope', '$state', 'Entity_cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    Freecom_ine_entityController.$inject = ['$scope', '$state', 'Freecom_ine_entity', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
 
-    function Entity_cfdiController ($scope, $state, Entity_cfdi, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function Freecom_ine_entityController ($scope, $state, Freecom_ine_entity, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
@@ -17,7 +17,7 @@
         vm.loadAll();
 
         function loadAll () {
-            Entity_cfdi.query({
+            Freecom_ine_entity.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,
                 sort: sort()
@@ -33,7 +33,7 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
-                vm.entity_cfdis = data;
+                vm.freecom_ine_entities = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {
