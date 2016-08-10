@@ -131,6 +131,7 @@
                     <span translate="userManagement.photo">Photo</span>
                 </td>
                 <td>
+                    <img src="content/images/avatars/user.png" style="max-height: 100px;" ng-if="vm.user.filephoto==null"/>
                     <img data-ng-src="{{'data:' + vm.user.filephotoContentType + ';base64,' + vm.user.filephoto}}" style="max-height: 100px;" ng-if="vm.user.filephoto"/>
                 </td>
             </tr>

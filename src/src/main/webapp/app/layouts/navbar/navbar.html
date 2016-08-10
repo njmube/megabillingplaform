@@ -221,7 +221,7 @@
 				</li>
 				<li ui-sref-active="active" uib-dropdown class="dropdown pointer light-blue" ng-switch-when="true">
 					<a class="dropdown-toggle" uib-dropdown-toggle href="">
-						<img class="nav-user-photo" src="content/images/avatars/user.jpg" alt="Yandry's Photo" />
+						<img class="nav-user-photo" data-ng-src="{{'data:' + vm.account.filephotoContentType + ';base64,' + vm.account.filephoto}}" alt="Photo" />
 						<span class="user-info">
 							<small>{{vm.account.firtsurname}} {{vm.account.secondsurname}},</small>
 							{{vm.account.name}}

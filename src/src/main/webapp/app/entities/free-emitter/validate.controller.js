@@ -25,7 +25,7 @@
         };
 
         function onValidate(){
-            if(vm.free_emitter.pass_certificate != null && vm.free_emitter.pass_certificate != ""){
+            if(vm.free_emitter.pass_certificate != null && vm.free_emitter.pass_certificate != "" && vm.free_emitter.filekey!=null && vm.free_emitter.filecertificate!=null){
                 vm.messvalidate = false;
                 vm.free_emitter.info_certificate = 'validating...';
                 Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
@@ -101,6 +101,10 @@
                     });
                 });
             }
+        };
+
+        vm.cancel = function () {
+            $uibModalInstance.dismiss('cancel');
         };
 
         vm.openFile = DataUtils.openFile;

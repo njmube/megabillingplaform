@@ -269,6 +269,15 @@ public class UserService {
 
         log.debug("Leyendo fichero del user en: {}", user.getPath_photo());
 
+        String root = "";
+        List<General_data> list = general_dataService.findAll();
+        if (list.size()>0){
+            General_data config = list.get(0);
+            root =config.getPath_root();
+        }
+
+        String rootDirectory = root + "default_photo.png";
+
         if(user.getPath_photo() != null){
             if (!user.getPath_photo().isEmpty()) {
 
@@ -284,7 +293,52 @@ public class UserService {
                         log.debug("Exception de lectura: " + e.toString());
                     }
                 }
+                else {
+                    File newFile1 = new File(rootDirectory);
+                    InputStream inputStream1 = null;
+
+                    if (newFile.exists()) {
+                        log.debug("Existe el fichero");
+                        try {
+                            inputStream1 = new FileInputStream(newFile1);
+                            user.setFilephoto(IOUtils.readFully(inputStream1, 1000000, false));
+                            user.setFilephotoContentType("png");
+                        } catch (Exception e) {
+                            log.debug("Exception de lectura: " + e.toString());
+                        }
+                    }
+                }
                 log.debug("File photo : {}", user.getFilephoto());
+            }
+            else {
+                File newFile = new File(rootDirectory);
+                InputStream inputStream = null;
+
+                if (newFile.exists()) {
+                    log.debug("Existe el fichero");
+                    try {
+                        inputStream = new FileInputStream(newFile);
+                        user.setFilephoto(IOUtils.readFully(inputStream, 1000000, false));
+                        user.setFilephotoContentType("png");
+                    } catch (Exception e) {
+                        log.debug("Exception de lectura: " + e.toString());
+                    }
+                }
+            }
+        }
+        else{
+            File newFile = new File(rootDirectory);
+            InputStream inputStream = null;
+
+            if (newFile.exists()) {
+                log.debug("Existe el fichero");
+                try {
+                    inputStream = new FileInputStream(newFile);
+                    user.setFilephoto(IOUtils.readFully(inputStream, 1000000, false));
+                    user.setFilephotoContentType("png");
+                } catch (Exception e) {
+                    log.debug("Exception de lectura: " + e.toString());
+                }
             }
         }
 

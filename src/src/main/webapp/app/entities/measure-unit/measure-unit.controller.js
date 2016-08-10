@@ -23,6 +23,7 @@
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,
                 sort: sort(),
+                pg: 0,
                 filtername:" "
             }, onSuccess, onError);
             function sort() {
