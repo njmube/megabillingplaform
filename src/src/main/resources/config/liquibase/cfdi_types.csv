@@ -1,4 +1,4 @@
 id;name;description
-1;Ingreso  ;CFDI de tipo Ingreso
-2;Egreso  ;CFDI de tipo Egreso
-3;Traslado ;CFDI de tipo Traslado
+1;ingreso;CFDI de tipo Ingreso
+2;egreso;CFDI de tipo Egreso
+3;traslado;CFDI de tipo Traslado

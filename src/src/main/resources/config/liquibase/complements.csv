@@ -1,24 +1,24 @@
 id;name;description
-1;ECCME  ;Estado de cuenta de combustibles de monederos electrónicos.
-2;Donatarias  ;Donatarias.
-3;Compra venta de divisas ;Compra venta de divisas.
-4;Otros derechos e impuestos ;Otros derechos e impuestos.
-5;Leyendas fiscales ;Leyendas fiscales.
-6;Persona física integrante de coordinado ;Persona física integrante de coordinado.
-7;Turista pasajero extranjero ;Turista pasajero extranjero.
-8;Spei de tercero a tercero ;Spei de tercero a tercero.
-9;Detallista ;Sector de ventas al detalle (Detallista).
-10;CFDI Registro fiscal ;CFDI Registro fiscal.
-11;Recibo de pago de nómina ;Recibo de pago de nómina.
-12;Pago en especie ;Pago en especie.
-13;Vales de despensa ;Vales de despensa.
-14;Consumo de combustibles ;Consumo de combustibles.
-15;Aerolíneas ;Aerolíneas.
-16;Notarios Públicos ;Notarios Públicos.
-17;Vehículo usado ;Vehículo usado.
-18;Servicios parciales de construcción ;Servicios parciales de construcción.
-19;Renovación y sustitución de vehículos ;Renovación y sustitución de vehículos
-20;Certificado de destrucción ;Certificado de destrucción
-21;Obras de arte plásticas y antigüedades ;Obras de arte plásticas y antigüedades
-22;INE ;INE
-23;Comercio Exterior ;Comercio Exterior
+1;ECCME ;Estado de cuenta de combustibles de monederos electrónicos.
+2;Donatarias;Donatarias.
+3;Compra venta de divisas;Compra venta de divisas.
+4;Otros derechos e impuestos;Otros derechos e impuestos.
+5;Leyendas fiscales;Leyendas fiscales.
+6;Persona física integrante de coordinado;Persona física integrante de coordinado.
+7;Turista pasajero extranjero;Turista pasajero extranjero.
+8;SPEI de tercero a tercero;SPEI de tercero a tercero.
+9;Detallista;Sector de ventas al detalle (Detallista).
+10;CFDI Registro fiscal;CFDI Registro fiscal.
+11;Recibo de pago de nómina;Recibo de pago de nómina.
+12;Pago en especie;Pago en especie.
+13;Vales de despensa;Vales de despensa.
+14;Consumo de combustibles;Consumo de combustibles.
+15;Aerolíneas;Aerolíneas.
+16;Notarios Públicos;Notarios Públicos.
+17;Vehículo usado;Vehículo usado.
+18;Servicios parciales de construcción;Servicios parciales de construcción.
+19;Renovación y sustitución de vehículos;Renovación y sustitución de vehículos
+20;Certificado de destrucción;Certificado de destrucción
+21;Obras de arte plásticas y antigüedades;Obras de arte plásticas y antigüedades
+22;INE;INE
+23;Comercio Exterior;Comercio Exterior

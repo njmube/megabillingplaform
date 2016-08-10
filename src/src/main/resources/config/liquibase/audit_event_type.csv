@@ -1,7 +1,7 @@
 id;name;description
 1;CREATED-FREE-EMITTER;Se crea una entidad free_emitter
 2;SAVE-FREE-EMITTER;Se actualiza entidad free_emitter
-3;AUTHENTICATION;Se intenta la autenticaci髇
+3;AUTHENTICATION;Se intenta la autenticaci贸n
 4;CREATED-FREE-CFDI;Se crea una entidad free_cfdi
 5;CREATED-FREE-RECEIVER;Se crea una entidad free_receiver
 6;SAVE-BILLING-ACCOUNT-STATE;Se salva la entidad billing_account_state
@@ -21,18 +21,18 @@ id;name;description
 20;REGISTER;Se registra un nuevo usuario
 21;USER-REPORT;Consulta de usuarios registrados
 22;TRACE-REPORT;Consulta a las trazas
-23;USER-CREATED-NOTIFICATION;Env韔 de notificaci髇 creacci髇 de usuario
-24;PASSWORD-RESET-MAIL-NOTIFICATION;Env韔 de notificaci髇 restablecer contrase馻
-25;ACTIVATION-NOTIFICATION;Env韔 de notificacion de activaci髇
+23;USER-CREATED-NOTIFICATION;Env铆o de notificaci贸n creacci贸n de usuario
+24;PASSWORD-RESET-MAIL-NOTIFICATION;Env铆o de notificaci贸n restablecer contrase帽a
+25;ACTIVATION-NOTIFICATION;Env铆o de notificacion de activaci贸n
 26;USER-CREATED;Se crea un nuevo usuario
 27;USER-UPDATE;Se actualiza usuario
 28;USER-DELETE;Se elimina un usuario
-29;CHANGE-PASSWORD;Cambio de contrase馻
-30;SESSIONS-REPORT;Visualizaci髇 de sesiones activas
+29;CHANGE-PASSWORD;Cambio de contrase帽a
+30;SESSIONS-REPORT;Visualizaci贸n de sesiones activas
 31;INVALIDATE-SESSION;Invalidar sessiones
-32;PASSWORD-RESET;Se solicita restablecer contrase馻
-33;PASSWORD-RESET-FINISH;Se finaliza restablecer contrase馻
+32;PASSWORD-RESET;Se solicita restablecer contrase帽a
+33;PASSWORD-RESET-FINISH;Se finaliza restablecer contrase帽a
 34;ACTIVATION-ACCOUNT;Se activa la cuenta de usuario
 35;ACCOUNT-REPORT;Se consulta la cuenta del usuario actual
 36;FREE-CFDI-REPORT;Se consulta free_cfdi
-37;LOGOUT;Se realiza logout de la sessi髇
+37;LOGOUT;Se realiza logout de la sessi贸n
