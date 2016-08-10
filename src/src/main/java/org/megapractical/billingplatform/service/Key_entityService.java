@@ -13,7 +13,7 @@ public interface Key_entityService {
 
     /**
      * Save a key_entity.
-     * 
+     *
      * @param key_entity the entity to save
      * @return the persisted entity
      */
@@ -21,7 +21,7 @@ public interface Key_entityService {
 
     /**
      *  Get all the key_entities.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
@@ -29,7 +29,7 @@ public interface Key_entityService {
 
     /**
      *  Get the "id" key_entity.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,8 +37,11 @@ public interface Key_entityService {
 
     /**
      *  Delete the "id" key_entity.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);
+
+    List<Key_entity> findAll();
+
 }

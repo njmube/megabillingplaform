@@ -21,13 +21,13 @@ import java.util.List;
 public class Key_entityServiceImpl implements Key_entityService{
 
     private final Logger log = LoggerFactory.getLogger(Key_entityServiceImpl.class);
-    
+
     @Inject
     private Key_entityRepository key_entityRepository;
-    
+
     /**
      * Save a key_entity.
-     * 
+     *
      * @param key_entity the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,14 @@ public class Key_entityServiceImpl implements Key_entityService{
 
     /**
      *  Get all the key_entities.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Key_entity> findAll(Pageable pageable) {
         log.debug("Request to get all Key_entities");
-        Page<Key_entity> result = key_entityRepository.findAll(pageable); 
+        Page<Key_entity> result = key_entityRepository.findAll(pageable);
         return result;
     }
 
@@ -56,7 +56,7 @@ public class Key_entityServiceImpl implements Key_entityService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Key_entity findOne(Long id) {
         log.debug("Request to get Key_entity : {}", id);
         Key_entity key_entity = key_entityRepository.findOne(id);
@@ -65,11 +65,18 @@ public class Key_entityServiceImpl implements Key_entityService{
 
     /**
      *  Delete the  key_entity by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {
         log.debug("Request to delete Key_entity : {}", id);
         key_entityRepository.delete(id);
+    }
+
+    @Override
+    public List<Key_entity> findAll() {
+        log.debug("Request to get all Key_entities");
+        List<Key_entity> result = key_entityRepository.findAll();
+        return result;
     }
 }

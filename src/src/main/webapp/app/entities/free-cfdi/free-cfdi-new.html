@@ -1083,19 +1083,17 @@
                     <div class="row" ng-show="vm.show_ine">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.c_committee_type" for="field_freecom_ine_c_committee_type">c_committee_type</label>
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.c_process_type" for="field_freecom_ine_c_process_type">c_process_type</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="field_freecom_ine_c_committee_type" name="c_committee_type" ng-model="vm.freecom_ine.c_committee_type" ng-options="committee as committee.name for committee in vm.c_committee_types track by committee.id">
+                                    <select class="form-control" id="field_freecom_ine_c_process_type" name="c_process_type" ng-model="vm.freecom_ine.c_process_type" ng-options="process_type as process_type.name for process_type in vm.c_process_types track by process_type.id" ng-required="vm.show_ine">
                                         <option value=""></option>
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.c_process_type" for="field_freecom_ine_c_process_type">c_process_type</label>
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.c_committee_type" for="field_freecom_ine_c_committee_type">c_committee_type</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="field_freecom_ine_c_process_type" name="c_process_type" ng-model="vm.freecom_ine.c_process_type" ng-options="process_type as process_type.name for process_type in vm.c_process_types track by process_type.id" ng-required="vm.show_ine">
+                                    <select class="form-control" id="field_freecom_ine_c_committee_type" name="c_committee_type" ng-model="vm.freecom_ine.c_committee_type" ng-options="c_committee_type as c_committee_type.name for c_committee_type in vm.c_committee_types track by c_committee_type.id">
                                         <option value=""></option>
                                     </select>
                                 </div>
@@ -1108,6 +1106,35 @@
                                     />
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="header smaller lighter blue" style="margin-top:0">
+                                Datos Entidades
+                            </h3>
+                            <table id="ine-entities-table" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th class="text-left">Clave Entidad</th>
+                                    <th class="text-left">Ámbito</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="freecom_ine_entity in vm.freecom_ine_entities">
+                                    <td class="text-left">{{freecom_ine_entity.freecom_ine_entity.key_entity.key}}</td>
+                                    <td class="text-left">{{freecom_ine_entity.freecom_ine_entity.c_scope_type.name}}</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeIneEntity($index)">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addIneEntity()">
+                                Adicionar Entidad
+                            </button>
                         </div>
                     </div>
 

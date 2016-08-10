@@ -1,6 +1,7 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import org.megapractical.billingplatform.domain.C_money;
 import org.megapractical.billingplatform.domain.Key_entity;
 import org.megapractical.billingplatform.service.Key_entityService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
@@ -30,10 +31,10 @@ import java.util.Optional;
 public class Key_entityResource {
 
     private final Logger log = LoggerFactory.getLogger(Key_entityResource.class);
-        
+
     @Inject
     private Key_entityService key_entityService;
-    
+
     /**
      * POST  /key-entities : Create a new key_entity.
      *
@@ -89,14 +90,22 @@ public class Key_entityResource {
      */
     @RequestMapping(value = "/key-entities",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"pg"})
     @Timed
-    public ResponseEntity<List<Key_entity>> getAllKey_entities(Pageable pageable)
+    public ResponseEntity<List<Key_entity>> getAllKey_entities(Pageable pageable, @RequestParam(value = "pg") Integer pg)
         throws URISyntaxException {
         log.debug("REST request to get a page of Key_entities");
-        Page<Key_entity> page = key_entityService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/key-entities");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+
+        if (pg == 0) {
+            Page<Key_entity> page = key_entityService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/key-entities");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        } else {
+            List<Key_entity> page = key_entityService.findAll();
+            return new ResponseEntity<>(page, HttpStatus.OK);
+        }
+
     }
 
     /**

@@ -246,7 +246,7 @@
                         id: null
                     };
                 }],
-                freecom_ine_entity: [function () {
+                freecom_ine_entity_entity: [function () {
                     return {
                         version: null,
                         ident: null,
@@ -323,6 +323,8 @@
                     $translatePartialLoader.addPart('freecom_donees');
                     $translatePartialLoader.addPart('freecom_educational_institutions');
                     $translatePartialLoader.addPart('freecom_ine');
+                    $translatePartialLoader.addPart('freecom_ine_entity');
+                    $translatePartialLoader.addPart('accounting');
                     $translatePartialLoader.addPart('freecom_kind_payment');
                     $translatePartialLoader.addPart('freecom_foreign_tourist_passenger');
                     $translatePartialLoader.addPart('freecom_partial_construction_services');
