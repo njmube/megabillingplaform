@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Freecom_spei_third.
+    -->
+    <changeSet id="20160810161306-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="freecom_spei_id"
+                                 baseTableName="freecom_spei_third"
+                                 constraintName="fk_freecom_spei_third_freecom_spei_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_spei"/>
+
+        <addForeignKeyConstraint baseColumnNames="freecom_payer_id"
+                                 baseTableName="freecom_spei_third"
+                                 constraintName="fk_freecom_spei_third_freecom_payer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_payer"/>
+
+        <addForeignKeyConstraint baseColumnNames="freecom_beneficiary_id"
+                                 baseTableName="freecom_spei_third"
+                                 constraintName="fk_freecom_spei_third_freecom_beneficiary_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_beneficiary"/>
+
+    </changeSet>
+</databaseChangeLog>

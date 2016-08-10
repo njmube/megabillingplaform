@@ -92,5 +92,13 @@
     <include file="classpath:config/liquibase/changelog/20160805131543_added_entity_Freecom_concept_fuel.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160805131933_added_entity_Freecom_determined.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160809153830_added_entity_Freecom_ine_entity.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810153920_added_entity_Freecom_ecc11.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810154022_added_entity_Freecom_product_key.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810154846_added_entity_Freecom_ecc11_concept.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810155120_added_entity_Freecom_ecc11_transfer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810160015_added_entity_Freecom_spei.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810160314_added_entity_Freecom_payer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810160701_added_entity_Freecom_beneficiary.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810161306_added_entity_Freecom_spei_third.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

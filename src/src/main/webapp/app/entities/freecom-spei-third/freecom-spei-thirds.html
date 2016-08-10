@@ -1,0 +1,82 @@
+<div>
+    <h2 translate="megabillingplatformApp.freecom_spei_third.home.title">Freecom Spei Thirds</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="freecom-spei-third.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.freecom_spei_third.home.createLabel">
+                        Create new Freecom Spei Third
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_operation"><span translate="megabillingplatformApp.freecom_spei_third.date_operation">Date Operation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="hour"><span translate="megabillingplatformApp.freecom_spei_third.hour">Hour</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="key_spei"><span translate="megabillingplatformApp.freecom_spei_third.key_spei">Key Spei</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="stamp"><span translate="megabillingplatformApp.freecom_spei_third.stamp">Stamp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_certificate"><span translate="megabillingplatformApp.freecom_spei_third.number_certificate">Number Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cda"><span translate="megabillingplatformApp.freecom_spei_third.cda">Cda</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_spei.id"><span translate="megabillingplatformApp.freecom_spei_third.freecom_spei">Freecom Spei</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_payer.id"><span translate="megabillingplatformApp.freecom_spei_third.freecom_payer">Freecom Payer</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_beneficiary.id"><span translate="megabillingplatformApp.freecom_spei_third.freecom_beneficiary">Freecom Beneficiary</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="freecom_spei_third in vm.freecom_spei_thirds track by freecom_spei_third.id">
+                    <td><a ui-sref="freecom-spei-third-detail({id:freecom_spei_third.id})">{{freecom_spei_third.id}}</a></td>
+                        <td>{{freecom_spei_third.date_operation | date:'mediumDate'}}</td>
+                    <td>{{freecom_spei_third.hour | date:'medium'}}</td>
+                    <td>{{freecom_spei_third.key_spei}}</td>
+                    <td>{{freecom_spei_third.stamp}}</td>
+                    <td>{{freecom_spei_third.number_certificate}}</td>
+                    <td>{{freecom_spei_third.cda}}</td>
+                    <td>
+                        <a ui-sref="freecom-spei-detail({id:freecom_spei_third.freecom_spei.id})">{{freecom_spei_third.freecom_spei.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="freecom-payer-detail({id:freecom_spei_third.freecom_payer.id})">{{freecom_spei_third.freecom_payer.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="freecom-beneficiary-detail({id:freecom_spei_third.freecom_beneficiary.id})">{{freecom_spei_third.freecom_beneficiary.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="freecom-spei-third-detail({id:freecom_spei_third.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-spei-third.edit({id:freecom_spei_third.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-spei-third.delete({id:freecom_spei_third.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "freecom_ecc11_concept",
+            "otherEntityName": "freecom_ecc11_concept",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "type_tax",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "4"
+        },
+        {
+            "fieldName": "rate",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160810155120",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_ecc_11_transfer",
+    "pagination": "pagination"
+}

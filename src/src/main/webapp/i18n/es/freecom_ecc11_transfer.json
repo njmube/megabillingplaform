@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "freecom_ecc11_transfer" : {
+            "home": {
+                "title": "Freecom Ecc 11 Transfers",
+                "createLabel": "Crear nuevo Freecom Ecc 11 Transfer",
+                "createOrEditLabel": "Crear o editar Freecom Ecc 11 Transfer",
+                "search": "Search for Freecom Ecc 11 Transfer"
+            },
+            "created": "Un nuevo Freecom Ecc 11 Transfer ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Ecc 11 Transfer ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Ecc 11 Transfer ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Ecc 11 Transfer {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Ecc 11 Transfer"
+            },
+            "type_tax": "Type Tax",
+            "rate": "Rate",
+            "amount": "Amount",
+            "freecom_ecc11_concept": "Freecom Ecc 11 Concept"
+        }
+    }
+}

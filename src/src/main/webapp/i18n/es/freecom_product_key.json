@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "freecom_product_key" : {
+            "home": {
+                "title": "Freecom Product Keys",
+                "createLabel": "Crear nuevo Freecom Product Key",
+                "createOrEditLabel": "Crear o editar Freecom Product Key",
+                "search": "Search for Freecom Product Key"
+            },
+            "created": "Un nuevo Freecom Product Key ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Product Key ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Product Key ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Product Key {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Product Key"
+            },
+            "code": "Code"
+        }
+    }
+}

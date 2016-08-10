@@ -1,38 +1,38 @@
 id;name;description
-1;CREATED-FREE-EMITTER;Se crea una entidad free_emitter
-2;SAVE-FREE-EMITTER;Se actualiza entidad free_emitter
-3;AUTHENTICATION;Se intenta la autenticación
-4;CREATED-FREE-CFDI;Se crea una entidad free_cfdi
-5;CREATED-FREE-RECEIVER;Se crea una entidad free_receiver
-6;SAVE-BILLING-ACCOUNT-STATE;Se salva la entidad billing_account_state
-7;DELETE-BILLING-ACCOUNT-STATE;Se elimina la entidad billing_account_state
-8;SAVE-C-ADQUIRED-TITLE;Se salva la entidad c_acquired_title
-9;DELETE-C-ADQUIRED-TITLE;Se elimina la entidad c_acquired_title
-10;SAVE-C-COLONY;Se salva la entidad c_colony
-11;DELETE-C-COLONY;Se elimina la entidad c_colony
-12;SAVE-C-COMMITTEE-TYPE;Se salva la entidad c_committee_type
-13;DELETE-C-COMMITTEE-TYPE;Se elimina la entidad c_committee_type
-14;SAVE-C-COUNTRY;Se salva la entidad c_country
-15;DELETE-C-COUNTRY;Se elimina la entidad c_country
-16;SAVE-C-FEATURES-WORK-PIECE;Se salva la entidad c_features_work_piece
-17;DELETE-C-FEATURES-WORK-PIECE;Se elimina la entidad c_features_work_piece
-18;SAVE-ACCOUNTING;Se salva la entidad accounting
-19;DELETE-ACCOUNTING;Se elimina la entidad accounting
-20;REGISTER;Se registra un nuevo usuario
-21;USER-REPORT;Consulta de usuarios registrados
-22;TRACE-REPORT;Consulta a las trazas
-23;USER-CREATED-NOTIFICATION;Envío de notificación creacción de usuario
-24;PASSWORD-RESET-MAIL-NOTIFICATION;Envío de notificación restablecer contraseña
-25;ACTIVATION-NOTIFICATION;Envío de notificacion de activación
-26;USER-CREATED;Se crea un nuevo usuario
-27;USER-UPDATE;Se actualiza usuario
-28;USER-DELETE;Se elimina un usuario
-29;CHANGE-PASSWORD;Cambio de contraseña
-30;SESSIONS-REPORT;Visualización de sesiones activas
-31;INVALIDATE-SESSION;Invalidar sessiones
-32;PASSWORD-RESET;Se solicita restablecer contraseña
-33;PASSWORD-RESET-FINISH;Se finaliza restablecer contraseña
-34;ACTIVATION-ACCOUNT;Se activa la cuenta de usuario
-35;ACCOUNT-REPORT;Se consulta la cuenta del usuario actual
-36;FREE-CFDI-REPORT;Se consulta free_cfdi
+1;CREADO-EMISOR-GRATUITO;Se crea una entidad emisor gratuito
+2;SALVADO-EMISOR-GRATUITO;Se actualiza entidad emisor gratuito
+3;AUTENTICACION;Se intenta la autenticación
+4;CREADO-CFDI-GRATUITO;Se crea una entidad cfdi gratuito
+5;CREADO-RECEPTOR-GRATUITO;Se crea una entidad receptor gratuito
+6;SALVADO-ESTADO-CUENTA-CONTRIBUYENTE;Se salva la entidad estado de la cuenta de contribuyente
+7;ELIMINADO-ESTADO-CUENTA-CONTRIBUYENTE;Se elimina la entidad estado de la cuenta de contribuyente
+8;SALVADO-C-TITULO-ADQUIRIDO;Se salva la entidad titulo aquirido
+9;ELIMINADO-C-TITULO-ADQUIRIDO;Se elimina la entidad titulo adquirido
+10;SALVADA-COLONIA;Se salva la entidad colonia
+11;ELIMINADA-COLONIA;Se elimina la entidad colonia
+12;SALVADO-TIPO-COMITEE;Se salva la entidad tipo de comit�
+13;ELIMINADA-TIPO-COMITEE;Se elimina la entidad tipo de comit�
+14;SALVADO-PAIS;Se salva la entidad pais
+15;ELIMINADO-PAIS;Se elimina la entidad pais
+16;SALVADO-CARACTERISTICA-OBRA-ARTE;Se salva la entidad caracteristica de obra de arte
+17;ELIMINADO-CARACTERISTICA-OBRA-ARTE;Se elimina la entidad caracteristica de obra de arte
+18;SALVADA-CUENTA;Se salva la entidad cuenta
+19;ELIMINADA-CUENTA;Se elimina la entidad cuenta
+20;REGISTRO;Se registra un nuevo usuario
+21;REPORTE-USUARIO;Consulta de usuarios registrados
+22;REPORTE-TRAZA;Consulta a las trazas
+23;NOTIFICACION-USUARIO-CREADO;Envío de notificación creacción de usuario
+24;NOTIFICACION-CONTRASENA-REINICIO;Envío de notificación restablecer contraseña
+25;NOTIFICACION-ACTIVACION;Envío de notificacion de activación
+26;CREADO-USUARIO;Se crea un nuevo usuario
+27;ACTUALIZADO-USUARIO;Se actualiza usuario
+28;ELIMINADO-USUARIO;Se elimina un usuario
+29;CONTRASENA-ACTUALIZADA;Cambio de contraseña
+30;REPORTE-SESION;Visualización de sesiones activas
+31;INVALIDADA-SESION;Invalidar sessiones
+32;RESTABLECER-CONTRASENA;Se solicita restablecer contraseña
+33;RESTABLECER-CONTRASENA-FIN;Se finaliza restablecer contraseña
+34;ACTIVACION-CUENTA;Se activa la cuenta de usuario
+35;REPORTE-CUENTA;Se consulta la cuenta del usuario actual
+36;REPORTE-CFDI-GRATUITO;Se consulta cfdi gratuito
 37;LOGOUT;Se realiza logout de la sessión

@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "freecom_ecc11" : {
+            "home": {
+                "title": "Freecom Ecc 11 S",
+                "createLabel": "Create a new Freecom Ecc 11",
+                "createOrEditLabel": "Create or edit a Freecom Ecc 11",
+                "search": "Search for Freecom Ecc 11"
+            },
+            "created": "A new Freecom Ecc 11 is created with identifier {{ param }}",
+            "updated": "A Freecom Ecc 11 is updated with identifier {{ param }}",
+            "deleted": "A Freecom Ecc 11 is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom Ecc 11 {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Ecc 11"
+            },
+            "version": "Version",
+            "type_operation": "Type Operation",
+            "number_account": "Number Account",
+            "subtotal": "Subtotal",
+            "total": "Total",
+            "free_cfdi": "Free Cfdi"
+        }
+    }
+}

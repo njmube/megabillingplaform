@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_payer.detail.title">Freecom Payer</span> {{vm.freecom_payer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.freecom_payer.emitter_bank">Emitter Bank</span></dt>
+        <dd>
+            <span>{{vm.freecom_payer.emitter_bank}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_payer.name">Name</span></dt>
+        <dd>
+            <span>{{vm.freecom_payer.name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_payer.type_account">Type Account</span></dt>
+        <dd>
+            <span>{{vm.freecom_payer.type_account}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_payer.account">Account</span></dt>
+        <dd>
+            <span>{{vm.freecom_payer.account}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_payer.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.freecom_payer.rfc}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

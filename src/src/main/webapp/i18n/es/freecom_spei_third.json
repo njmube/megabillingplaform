@@ -1,0 +1,30 @@
+{
+    "megabillingplatformApp": {
+        "freecom_spei_third" : {
+            "home": {
+                "title": "Freecom Spei Thirds",
+                "createLabel": "Crear nuevo Freecom Spei Third",
+                "createOrEditLabel": "Crear o editar Freecom Spei Third",
+                "search": "Search for Freecom Spei Third"
+            },
+            "created": "Un nuevo Freecom Spei Third ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Spei Third ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Spei Third ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Spei Third {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Spei Third"
+            },
+            "date_operation": "Date Operation",
+            "hour": "Hour",
+            "key_spei": "Key Spei",
+            "stamp": "Stamp",
+            "number_certificate": "Number Certificate",
+            "cda": "Cda",
+            "freecom_spei": "Freecom Spei",
+            "freecom_payer": "Freecom Payer",
+            "freecom_beneficiary": "Freecom Beneficiary"
+        }
+    }
+}

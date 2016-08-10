@@ -1,0 +1,66 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_ecc11_concept.detail.title">Freecom Ecc 11 Concept</span> {{vm.freecom_ecc11_concept.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.identifier">Identifier</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_concept.identifier}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.date">Date</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_concept.date | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_concept.rfc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.key_station">Key Station</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_concept.key_station}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.quantity">Quantity</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_concept.quantity}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.unit">Unit</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_concept.unit}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.fuel_name">Fuel Name</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_concept.fuel_name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.folio_operation">Folio Operation</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_concept.folio_operation}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.unit_value">Unit Value</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_concept.unit_value}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.amount">Amount</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_concept.amount}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.freecom_ecc11">Freecom Ecc 11</span></dt>
+        <dd>
+            <a ui-sref="freecom-ecc-11-detail({id:vm.freecom_ecc11_concept.freecom_ecc11.id})">{{vm.freecom_ecc11_concept.freecom_ecc11.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.freecom_product_key">Freecom Product Key</span></dt>
+        <dd>
+            <a ui-sref="freecom-product-key-detail({id:vm.freecom_ecc11_concept.freecom_product_key.id})">{{vm.freecom_ecc11_concept.freecom_product_key.code}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_concept.c_tar">C Tar</span></dt>
+        <dd>
+            <a ui-sref="c-tar-detail({id:vm.freecom_ecc11_concept.c_tar.id})">{{vm.freecom_ecc11_concept.c_tar.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

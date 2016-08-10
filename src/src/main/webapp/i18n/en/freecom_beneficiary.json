@@ -1,0 +1,29 @@
+{
+    "megabillingplatformApp": {
+        "freecom_beneficiary" : {
+            "home": {
+                "title": "Freecom Beneficiaries",
+                "createLabel": "Create a new Freecom Beneficiary",
+                "createOrEditLabel": "Create or edit a Freecom Beneficiary",
+                "search": "Search for Freecom Beneficiary"
+            },
+            "created": "A new Freecom Beneficiary is created with identifier {{ param }}",
+            "updated": "A Freecom Beneficiary is updated with identifier {{ param }}",
+            "deleted": "A Freecom Beneficiary is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom Beneficiary {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Beneficiary"
+            },
+            "receiver_bank": "Receiver Bank",
+            "name": "Name",
+            "type_account": "Type Account",
+            "account": "Account",
+            "rfc": "Rfc",
+            "concept": "Concept",
+            "iva": "Iva",
+            "payment_amount": "Payment Amount"
+        }
+    }
+}

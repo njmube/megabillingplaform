@@ -1,0 +1,21 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "free_cfdi",
+            "otherEntityName": "free_cfdi",
+            "relationshipType": "one-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "freecom_spei"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20160810160015",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_spei",
+    "pagination": "pagination"
+}

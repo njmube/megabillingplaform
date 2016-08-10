@@ -1,0 +1,80 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFreecom_ecc11_transferLabel" translate="megabillingplatformApp.freecom_ecc11_transfer.home.createOrEditLabel">Create or edit a Freecom Ecc 11 Transfer</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.freecom_ecc11_transfer.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.freecom_ecc11_transfer.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_ecc11_transfer.type_tax" for="field_type_tax">Type Tax</label>
+            <input type="text" class="form-control" name="type_tax" id="field_type_tax"
+                    ng-model="vm.freecom_ecc11_transfer.type_tax"
+                    required ng-maxlength="4" />
+            <div ng-show="editForm.type_tax.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.type_tax.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.type_tax.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="4">
+                    This field cannot be longer than 4 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_ecc11_transfer.rate" for="field_rate">Rate</label>
+            <input type="number" class="form-control" name="rate" id="field_rate"
+                    ng-model="vm.freecom_ecc11_transfer.rate"
+                    required />
+            <div ng-show="editForm.rate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.rate.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.rate.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_ecc11_transfer.amount" for="field_amount">Amount</label>
+            <input type="number" class="form-control" name="amount" id="field_amount"
+                    ng-model="vm.freecom_ecc11_transfer.amount"
+                    required />
+            <div ng-show="editForm.amount.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.amount.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.amount.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_ecc11_transfer.freecom_ecc11_concept" for="field_freecom_ecc11_concept">Freecom Ecc 11 Concept</label>
+            <select class="form-control" id="field_freecom_ecc11_concept" name="freecom_ecc11_concept" ng-model="vm.freecom_ecc11_transfer.freecom_ecc11_concept" ng-options="freecom_ecc11_concept as freecom_ecc11_concept.id for freecom_ecc11_concept in vm.freecom_ecc11_concepts track by freecom_ecc11_concept.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

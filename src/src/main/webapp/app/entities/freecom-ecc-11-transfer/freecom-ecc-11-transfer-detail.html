@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_ecc11_transfer.detail.title">Freecom Ecc 11 Transfer</span> {{vm.freecom_ecc11_transfer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_transfer.type_tax">Type Tax</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_transfer.type_tax}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_transfer.rate">Rate</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_transfer.rate}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_transfer.amount">Amount</span></dt>
+        <dd>
+            <span>{{vm.freecom_ecc11_transfer.amount}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_ecc11_transfer.freecom_ecc11_concept">Freecom Ecc 11 Concept</span></dt>
+        <dd>
+            <a ui-sref="freecom-ecc-11-concept-detail({id:vm.freecom_ecc11_transfer.freecom_ecc11_concept.id})">{{vm.freecom_ecc11_transfer.freecom_ecc11_concept.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_beneficiary.detail.title">Freecom Beneficiary</span> {{vm.freecom_beneficiary.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.freecom_beneficiary.receiver_bank">Receiver Bank</span></dt>
+        <dd>
+            <span>{{vm.freecom_beneficiary.receiver_bank}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_beneficiary.name">Name</span></dt>
+        <dd>
+            <span>{{vm.freecom_beneficiary.name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_beneficiary.type_account">Type Account</span></dt>
+        <dd>
+            <span>{{vm.freecom_beneficiary.type_account}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_beneficiary.account">Account</span></dt>
+        <dd>
+            <span>{{vm.freecom_beneficiary.account}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_beneficiary.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.freecom_beneficiary.rfc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_beneficiary.concept">Concept</span></dt>
+        <dd>
+            <span>{{vm.freecom_beneficiary.concept}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_beneficiary.iva">Iva</span></dt>
+        <dd>
+            <span>{{vm.freecom_beneficiary.iva}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_beneficiary.payment_amount">Payment Amount</span></dt>
+        <dd>
+            <span>{{vm.freecom_beneficiary.payment_amount}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

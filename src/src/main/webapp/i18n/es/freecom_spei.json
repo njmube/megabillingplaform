@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "freecom_spei" : {
+            "home": {
+                "title": "Freecom Speis",
+                "createLabel": "Crear nuevo Freecom Spei",
+                "createOrEditLabel": "Crear o editar Freecom Spei",
+                "search": "Search for Freecom Spei"
+            },
+            "created": "Un nuevo Freecom Spei ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Spei ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Spei ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Spei {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Spei"
+            },
+            "free_cfdi": "Free Cfdi"
+        }
+    }
+}

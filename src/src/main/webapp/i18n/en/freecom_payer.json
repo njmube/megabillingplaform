@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "freecom_payer" : {
+            "home": {
+                "title": "Freecom Payers",
+                "createLabel": "Create a new Freecom Payer",
+                "createOrEditLabel": "Create or edit a Freecom Payer",
+                "search": "Search for Freecom Payer"
+            },
+            "created": "A new Freecom Payer is created with identifier {{ param }}",
+            "updated": "A Freecom Payer is updated with identifier {{ param }}",
+            "deleted": "A Freecom Payer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom Payer {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Payer"
+            },
+            "emitter_bank": "Emitter Bank",
+            "name": "Name",
+            "type_account": "Type Account",
+            "account": "Account",
+            "rfc": "Rfc"
+        }
+    }
+}

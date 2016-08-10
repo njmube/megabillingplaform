@@ -1,0 +1,90 @@
+<div>
+    <h2 translate="megabillingplatformApp.freecom_ecc11_concept.home.title">Freecom Ecc 11 Concepts</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="freecom-ecc-11-concept.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.freecom_ecc11_concept.home.createLabel">
+                        Create new Freecom Ecc 11 Concept
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="identifier"><span translate="megabillingplatformApp.freecom_ecc11_concept.identifier">Identifier</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date"><span translate="megabillingplatformApp.freecom_ecc11_concept.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.freecom_ecc11_concept.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="key_station"><span translate="megabillingplatformApp.freecom_ecc11_concept.key_station">Key Station</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quantity"><span translate="megabillingplatformApp.freecom_ecc11_concept.quantity">Quantity</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="unit"><span translate="megabillingplatformApp.freecom_ecc11_concept.unit">Unit</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fuel_name"><span translate="megabillingplatformApp.freecom_ecc11_concept.fuel_name">Fuel Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="folio_operation"><span translate="megabillingplatformApp.freecom_ecc11_concept.folio_operation">Folio Operation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="unit_value"><span translate="megabillingplatformApp.freecom_ecc11_concept.unit_value">Unit Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amount"><span translate="megabillingplatformApp.freecom_ecc11_concept.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_ecc11.id"><span translate="megabillingplatformApp.freecom_ecc11_concept.freecom_ecc11">Freecom Ecc 11</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_product_key.code"><span translate="megabillingplatformApp.freecom_ecc11_concept.freecom_product_key">Freecom Product Key</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_tar.name"><span translate="megabillingplatformApp.freecom_ecc11_concept.c_tar">C Tar</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="freecom_ecc11_concept in vm.freecom_ecc11_concepts track by freecom_ecc11_concept.id">
+                    <td><a ui-sref="freecom-ecc-11-concept-detail({id:freecom_ecc11_concept.id})">{{freecom_ecc11_concept.id}}</a></td>
+                    <td>{{freecom_ecc11_concept.identifier}}</td>
+                    <td>{{freecom_ecc11_concept.date | date:'medium'}}</td>
+                    <td>{{freecom_ecc11_concept.rfc}}</td>
+                    <td>{{freecom_ecc11_concept.key_station}}</td>
+                    <td>{{freecom_ecc11_concept.quantity}}</td>
+                    <td>{{freecom_ecc11_concept.unit}}</td>
+                    <td>{{freecom_ecc11_concept.fuel_name}}</td>
+                    <td>{{freecom_ecc11_concept.folio_operation}}</td>
+                    <td>{{freecom_ecc11_concept.unit_value}}</td>
+                    <td>{{freecom_ecc11_concept.amount}}</td>
+                    <td>
+                        <a ui-sref="freecom-ecc-11-detail({id:freecom_ecc11_concept.freecom_ecc11.id})">{{freecom_ecc11_concept.freecom_ecc11.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="freecom-product-key-detail({id:freecom_ecc11_concept.freecom_product_key.id})">{{freecom_ecc11_concept.freecom_product_key.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-tar-detail({id:freecom_ecc11_concept.c_tar.id})">{{freecom_ecc11_concept.c_tar.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="freecom-ecc-11-concept-detail({id:freecom_ecc11_concept.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-ecc-11-concept.edit({id:freecom_ecc11_concept.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-ecc-11-concept.delete({id:freecom_ecc11_concept.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

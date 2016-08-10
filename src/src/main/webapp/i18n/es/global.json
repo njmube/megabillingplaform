@@ -84,6 +84,14 @@
                 "freecomFuelConsumption": "Freecom_fuel_consumption",
                 "freecomConceptFuel": "Freecom_concept_fuel",
                 "freecomDetermined": "Freecom_determined",
+                "freecomEcc11": "Freecom Ecc 11",
+                "freecomProductKey": "Freecom Product Key",
+                "freecomEcc11Concept": "Freecom Ecc 11 Concept",
+                "freecomEcc11Transfer": "Freecom Ecc 11 Transfer",
+                "freecomSpei": "Freecom Spei",
+                "freecomPayer": "Freecom Payer",
+                "freecomBeneficiary": "Freecom Beneficiary",
+                "freecomSpeiThird": "Freecom Spei Third",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

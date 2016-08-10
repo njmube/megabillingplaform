@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "freecom_ecc11" : {
+            "home": {
+                "title": "Freecom Ecc 11 S",
+                "createLabel": "Crear nuevo Freecom Ecc 11",
+                "createOrEditLabel": "Crear o editar Freecom Ecc 11",
+                "search": "Search for Freecom Ecc 11"
+            },
+            "created": "Un nuevo Freecom Ecc 11 ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Ecc 11 ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Ecc 11 ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Ecc 11 {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Ecc 11"
+            },
+            "version": "Version",
+            "type_operation": "Type Operation",
+            "number_account": "Number Account",
+            "subtotal": "Subtotal",
+            "total": "Total",
+            "free_cfdi": "Free Cfdi"
+        }
+    }
+}
