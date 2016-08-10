@@ -1117,8 +1117,8 @@
         //Ine
         vm.show_ine = false;
         vm.freecom_ine = freecom_ine_entity_entity;
-        vm.c_committee_types = C_committee_type.query();
         vm.c_process_types = C_process_type.query();
+        vm.c_committee_types = C_committee_type.query();
 
         vm.freecom_ine_entities = [];
 
