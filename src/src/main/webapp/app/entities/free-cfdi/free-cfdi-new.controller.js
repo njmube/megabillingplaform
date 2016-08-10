@@ -670,6 +670,51 @@
                 freeTaxRetentions: free_tax_retentions
             };
 
+            switch(vm.current_complement.id){
+                case "taxregistration":
+                    free_cfdi_dto.freecom_taxregistration= vm.freecom_taxregistration;
+                    break;
+                case "pfic":
+                    free_cfdi_dto.freecom_pfic= vm.freecom_pfic;
+                    break;
+                case "accreditation_ieps":
+                    free_cfdi_dto.freecom_accreditation_ieps= vm.freecom_accreditation_ieps;
+                    break;
+                case "taxlegends":
+                    free_cfdi_dto.freecom_taxlegends= vm.freecom_taxlegends;
+                    break;
+                case "airline":
+                    free_cfdi_dto.freecom_airline= vm.freecom_airlin;
+                    break;
+                case "apaw":
+                    free_cfdi_dto.freecom_apaw= vm.freecom_apaw;
+                    break;
+                case "donees":
+                    free_cfdi_dto.freecom_donees= vm.freecom_donees;
+                    break;
+                case "educational_institutions":
+                    free_cfdi_dto.freecom_educational_institutions= vm.freecom_educational_institution;
+                    break;
+                case "ine":
+                    free_cfdi_dto.freecom_ine= vm.freecom_ine;
+                    break;
+                case "kind_payment":
+                    free_cfdi_dto.freecom_kind= vm.freecom_kind;
+                    break;
+                case "foreign_tourist_passenger":
+                    free_cfdi_dto.freecom_foreign_tourist_passenger= vm.freecom_foreign_tourist_passenger;
+                    break;
+                case "partial_construction_services":
+                    free_cfdi_dto.freecom_partial_construction_services= vm.freecom_partial_construction_services;
+                    break;
+                case "foreign_exchange":
+                    free_cfdi_dto.freecom_foreign_exchange= vm.freecom_foreign_exchange;
+                    break;
+                case "local_taxes":
+                    free_cfdi_dto.freecom_local_taxes= vm.freecom_local_taxes;
+                    break;
+            }
+
 			if (vm.free_cfdi.id !== null) {
                 Free_cfdi.update(free_cfdi_dto, onSaveSuccess, onSaveError);
             } else {
