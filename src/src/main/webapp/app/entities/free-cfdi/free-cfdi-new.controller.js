@@ -1075,8 +1075,6 @@
         vm.c_committee_types = C_committee_type.query();
         vm.c_process_types = C_process_type.query();
 
-        console.log(vm.c_process_types);
-
         vm.freecom_ine_entities = [];
 
         vm.addIneEntity = function(){

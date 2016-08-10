@@ -581,7 +581,7 @@
 								<div class="col-md-8">
 									<input type="text" class="form-control" name="free_cfdi_folio" id="field_free_cfdi_folio"
 											ng-model="vm.free_cfdi.folio"
-											ng-minlength="1" ng-maxlength="16" ng-pattern="/[0-9]{16}/" />
+											ng-minlength="1" ng-maxlength="20" />
                                     <div ng-show="editForm.free_cfdi_folio.$invalid">
 										<p class="help-block"
 											ng-show="editForm.free_cfdi_folio.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
@@ -591,10 +591,6 @@
 											ng-show="editForm.free_cfdi_folio.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
 											This field cannot be longer than 20 characters.
 										</p>
-                                        <p class="help-block"
-                                           ng-show="editForm.free_cfdi_folio.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="[0-9]{16}">
-                                            This field should follow pattern "[0-9]{16}".
-                                        </p>
 									</div>
 								</div>
 							</div>
@@ -736,9 +732,15 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_taxregistration.folio" for="field_freecom_taxregistration_folio">Folio</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="folio" id="field_freecom_taxregistration_folio"
-                                           ng-model="vm.freecom_taxregistration.folio"
+                                    <input type="text" class="form-control" name="freecom_taxregistration_folio" id="field_freecom_taxregistration_folio"
+                                           ng-model="vm.freecom_taxregistration.folio" ng-pattern="/[0-9]{16}/"
                                            ng-required="vm.show_taxregistration" />
+                                    <div ng-show="editForm.freecom_taxregistration_folio.$dirty && editForm.freecom_taxregistration_folio.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_taxregistration_folio.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="[0-9]{16}">
+                                            This field should follow pattern "[0-9]{1,20}".
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1085,7 +1087,7 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.c_process_type" for="field_freecom_ine_c_process_type">c_process_type</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="field_freecom_ine_c_process_type" name="c_process_type" ng-model="vm.freecom_ine.c_process_type" ng-options="process_type as process_type.name for process_type in vm.c_process_types track by process_type.id" ng-required="vm.show_ine">
+                                    <select class="form-control" id="field_freecom_ine_c_process_type" name="c_process_type" ng-model="vm.freecom_ine.c_process_type" ng-options="c_process_type as c_process_type.name for c_process_type in vm.c_process_types track by c_process_type.id" ng-required="vm.show_ine">
                                         <option value=""></option>
                                     </select>
                                 </div>
