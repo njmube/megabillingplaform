@@ -246,7 +246,7 @@
                         id: null
                     };
                 }],
-                freecom_ine_entity_entity: [function () {
+                freecom_ine_real_entity: [function () {
                     return {
                         version: null,
                         ident: null,
