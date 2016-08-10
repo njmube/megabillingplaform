@@ -684,7 +684,7 @@
                     free_cfdi_dto.freecom_taxlegends= vm.freecom_taxlegends;
                     break;
                 case "airline":
-                    free_cfdi_dto.freecom_airline= vm.freecom_airlin;
+                    free_cfdi_dto.freecom_airline= vm.freecom_airline;
                     break;
                 case "apaw":
                     free_cfdi_dto.freecom_apaw= vm.freecom_apaw;
