@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', 'Rate_type','$timeout', '$state', '$q', 'freecom_taxregistration_entity','Freecom_taxregistration', 'freecom_pfic_entity', 'Freecom_pfic', 'freecom_accreditation_ieps_entity', 'C_tar', 'Freecom_accreditation_ieps', 'freecom_taxlegends_entity', 'Freecom_taxlegends', 'Legend', 'freecom_airline_entity', 'Freecom_airline', 'Freecom_charge', 'freecom_apaw_entity', 'C_well_type', 'C_acquired_title', 'C_features_work_piece','Freecom_apaw','freecom_donees_entity', 'Freecom_donees', 'freecom_educational_institutions_entity', 'C_school_level', 'Freecom_educational_institutions', 'freecom_ine_real_entity', 'Accounting', 'C_committee_type', 'C_process_type', 'Freecom_ine', 'Freecom_ine_entity','freecom_kind_payment_entity', 'Freecom_kind_payment','freecom_foreign_tourist_passenger_entity','C_transit_type','C_type_road','Freecom_foreign_tourist_passenger','freecom_partial_construction_services_entity','C_federal_entity','Freecom_partial_construction_services', 'freecom_foreign_exchange_entity','C_type_operation','Freecom_foreign_exchange','freecom_local_taxes_entity','Freecom_local_taxes','Freecom_retentions_transfered'];
+    Free_cfdiNewController.$inject = ['entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', 'Rate_type','$timeout', '$state', '$q','Freecom_taxregistration', 'Freecom_pfic', 'C_tar', 'Freecom_accreditation_ieps', 'Freecom_taxlegends', 'Legend', 'Freecom_airline', 'Freecom_charge', 'C_well_type', 'C_acquired_title', 'C_features_work_piece','Freecom_apaw', 'Freecom_donees', 'C_school_level', 'Freecom_educational_institutions', 'C_committee_type', 'C_process_type', 'Freecom_ine', 'Freecom_ine_entity', 'Accounting', 'Freecom_kind_payment','C_transit_type','C_type_road','Freecom_foreign_tourist_passenger','C_federal_entity','Freecom_partial_construction_services','C_type_operation','Freecom_foreign_exchange','Freecom_local_taxes','Freecom_retentions_transfered'];
 
-    function Free_cfdiNewController (entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, Rate_type, $timeout, $state, $q, freecom_taxregistration_entity, Freecom_taxregistration, freecom_pfic_entity, Freecom_pfic, freecom_accreditation_ieps_entity, C_tar, Freecom_accreditation_ieps, freecom_taxlegends_entity, Freecom_taxlegends, Legend, freecom_airline_entity, Freecom_airline, Freecom_charge, freecom_apaw_entity, C_well_type, C_acquired_title, C_features_work_piece, Freecom_apaw, freecom_donees_entity, Freecom_donees, freecom_educational_institutions_entity, C_school_level, Freecom_educational_institutions, freecom_ine_real_entity, C_committee_type, C_process_type, Freecom_ine, Freecom_ine_entity, Accounting, freecom_kind_payment_entity, Freecom_kind_payment, freecom_foreign_tourist_passenger_entity, C_transit_type, C_type_road, Freecom_foreign_tourist_passenger, freecom_partial_construction_services_entity, C_federal_entity, Freecom_partial_construction_services, freecom_foreign_exchange_entity, C_type_operation, Freecom_foreign_exchange, freecom_local_taxes_entity, Freecom_local_taxes, Freecom_retentions_transfered) {
+    function Free_cfdiNewController (entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, Rate_type, $timeout, $state, $q, Freecom_taxregistration, Freecom_pfic, C_tar, Freecom_accreditation_ieps, Freecom_taxlegends, Legend, Freecom_airline, Freecom_charge, C_well_type, C_acquired_title, C_features_work_piece, Freecom_apaw, Freecom_donees, C_school_level, Freecom_educational_institutions, C_committee_type, C_process_type, Freecom_ine, Freecom_ine_entity, Accounting, Freecom_kind_payment, C_transit_type, C_type_road, Freecom_foreign_tourist_passenger, C_federal_entity, Freecom_partial_construction_services, C_type_operation, Freecom_foreign_exchange, Freecom_local_taxes, Freecom_retentions_transfered) {
 
 		var vm = this;
 
@@ -810,24 +810,6 @@
             //Reset complements
             vm.current_complement = null;
             resetComplementView();
-            vm.freecom_taxregistration = { version: null, folio: null, id: null };
-            vm.freecom_pfic = { version: null, key_vehicle: null, license_plate: null, rfcpf: null, id: null };
-            vm.freecom_accreditation_ieps = { version: null, id: null };
-            vm.freecom_taxlegends = { version: null, id: null };
-            vm.legends = [];
-            vm.freecom_airline = {version: null, tua: null, total_charge: null, id: null};
-            vm.charges = [];
-            vm.freecom_apaw = { version: null, others_well_type: null, others_acquired_title: null, subtotal: null, iva: null, date_acquisition: null, c_well_type: null, c_acquired_title: null, c_features_work_piece: null, id: null };
-            vm.freecom_donees = { version: null, no_authorization: null, date_authorization: null, legend: null,  id: null };
-            vm.freecom_educational_institutions = { version: null, name_student: null,  curp: null, autrvoe: null, rfcpayment: null, c_school_level: null, id: null };
-            vm.freecom_ine = { version: null, ident: null, c_committee_type: null, c_process_type: null, id: null };
-            vm.freecom_ine_entities = [];
-            vm.freecom_kind = { version: null, cvepic: null, foliosoldon: null, art_piece_name: null, technical_art_piece: null, year_art_piece: null, dimensional_art_piece: null, id: null };
-            vm.freecom_foreign_tourist_passenger = { version: null, date_traffic: null, typeid: null, numerid: null, nationality: null, transportcompany: null, idtransport: null, c_transit_type: null, c_type_road: null, id: null };
-            vm.freecom_partial_construction_services = { version: null, street: null, noext: null, noint: null, colony: null, location: null, reference: null, municipality: null, zipcode: null, numperlicoaut: null, c_federal_entity: null, id: null};
-            vm.freecom_foreign_exchange = { c_type_operation: null, id: null};
-            vm.freecom_local_taxes = { version: null, total_retentions: null, total_transfered: null, id: null};
-            vm.freecom_ret_transfs = [];
         }
 
         vm.datePickerOpenStatus = {};
@@ -939,45 +921,63 @@
             switch(vm.current_complement.id){
                 case "taxregistration":
                     vm.show_taxregistration = true;
+                    vm.freecom_taxregistration = { version: null, folio: null, id: null };
                     break;
                 case "pfic":
                     vm.show_pfic = true;
+                    vm.freecom_pfic = { version: null, key_vehicle: null, license_plate: null, rfcpf: null, id: null };
                     break;
                 case "accreditation_ieps":
                     vm.show_accreditation_ieps = true;
+                    vm.freecom_accreditation_ieps = { version: null, id: null };
                     break;
                 case "taxlegends":
                     vm.show_taxlegends = true;
+                    vm.freecom_taxlegends = { version: null, id: null };
+                    vm.legends = [];
                     break;
                 case "airline":
                     vm.show_airline = true;
+                    vm.freecom_airline = {version: null, tua: null, total_charge: null, id: null};
+                    vm.charges = [];
                     break;
                 case "apaw":
                     vm.show_apaw = true;
+                    vm.freecom_apaw = { version: null, others_well_type: null, others_acquired_title: null, subtotal: null, iva: null, date_acquisition: null, c_well_type: null, c_acquired_title: null, c_features_work_piece: null, id: null };
                     break;
                 case "donees":
                     vm.show_donees = true;
+                    vm.freecom_donees = { version: null, no_authorization: null, date_authorization: null, legend: null,  id: null };
                     break;
                 case "educational_institutions":
                     vm.show_educational_institutions = true;
+                    vm.freecom_educational_institutions = { version: null, name_student: null,  curp: null, autrvoe: null, rfcpayment: null, c_school_level: null, id: null };
                     break;
                 case "ine":
                     vm.show_ine = true;
+                    vm.freecom_ine = { version: null, ident: null, c_committee_type: null, c_process_type: null, id: null };
+                    vm.freecom_ine_entities = [];
                     break;
                 case "kind_payment":
                     vm.show_kind_payment = true;
+                    vm.freecom_kind = { version: null, cvepic: null, foliosoldon: null, art_piece_name: null, technical_art_piece: null, year_art_piece: null, dimensional_art_piece: null, id: null };
                     break;
                 case "foreign_tourist_passenger":
                     vm.show_foreign_tourist_passenger = true;
+                    vm.freecom_foreign_tourist_passenger = { version: null, date_traffic: null, typeid: null, numerid: null, nationality: null, transportcompany: null, idtransport: null, c_transit_type: null, c_type_road: null, id: null };
                     break;
                 case "partial_construction_services":
                     vm.show_partial_construction_services = true;
+                    vm.freecom_partial_construction_services = { version: null, street: null, noext: null, noint: null, colony: null, location: null, reference: null, municipality: null, zipcode: null, numperlicoaut: null, c_federal_entity: null, id: null};
                     break;
                 case "foreign_exchange":
                     vm.show_foreign_exchange = true;
+                    vm.freecom_foreign_exchange = { c_type_operation: null, id: null};
                     break;
                 case "local_taxes":
                     vm.show_local_taxes = true;
+                    vm.freecom_local_taxes = { version: null, total_retentions: null, total_transfered: null, id: null};
+                    vm.freecom_ret_transfs = [];
                     break;
             }
         }
@@ -1001,22 +1001,22 @@
 
         //Tax Registration
         vm.show_taxregistration = false;
-        vm.freecom_taxregistration = freecom_taxregistration_entity;
+        vm.freecom_taxregistration = null;
 
 
         //PIFC
         vm.show_pfic = false;
-        vm.freecom_pfic = freecom_pfic_entity;
+        vm.freecom_pfic = null;
 
         //Accreditation IEPS
         vm.show_accreditation_ieps = false;
-        vm.freecom_accreditation_ieps = freecom_accreditation_ieps_entity;
+        vm.freecom_accreditation_ieps = null;
         vm.c_tars = C_tar.query();
 
         //Tax Legends
         vm.show_taxlegends = false;
-        vm.freecom_taxlegends = freecom_taxlegends_entity;
-        vm.legends = [];
+        vm.freecom_taxlegends = null;
+        vm.legends = null;
 
         vm.addLegend = function(){
             $uibModal.open({
@@ -1048,8 +1048,8 @@
 
         //Airline
         vm.show_airline = false;
-        vm.freecom_airline = freecom_airline_entity;
-        vm.charges = [];
+        vm.freecom_airline = null;
+        vm.charges = null;
 
         vm.addCharge = function(){
             $uibModal.open({
@@ -1089,7 +1089,7 @@
 
         //Apaw
         vm.show_apaw = false;
-        vm.freecom_apaw = freecom_apaw_entity;
+        vm.freecom_apaw = null;
         vm.c_well_types = C_well_type.query();
         vm.c_acquired_titles = C_acquired_title.query();
         vm.c_features_work_pieces = C_features_work_piece.query();
@@ -1103,7 +1103,7 @@
 
         //Donees
         vm.show_donees = false;
-        vm.freecom_donees = freecom_donees_entity;
+        vm.freecom_donees = null;
 
         vm.dateDoneesPickerOpenStatus = {};
         vm.dateDoneesPickerOpenStatus.date_authorization = false;
@@ -1114,16 +1114,16 @@
 
         //Educational Institutions
         vm.show_educational_institutions = false;
-        vm.freecom_educational_institutions = freecom_educational_institutions_entity;
+        vm.freecom_educational_institutions = null;
         vm.c_school_levels = C_school_level.query();
 
         //Ine
         vm.show_ine = false;
-        vm.freecom_ine = freecom_ine_real_entity;
+        vm.freecom_ine = null;
         vm.c_process_types = C_process_type.query();
         vm.c_committee_types = C_committee_type.query();
 
-        vm.freecom_ine_entities = [];
+        vm.freecom_ine_entities = null;
 
         vm.addIneEntity = function(){
             $uibModal.open({
@@ -1152,10 +1152,10 @@
 
         //Kind Payment
         vm.show_kind_payment = false;
-        vm.freecom_kind_payment = freecom_kind_payment_entity;
+        vm.freecom_kind_payment = null;
 
         //Foreign Tourist Passenger
-        vm.freecom_foreign_tourist_passenger = freecom_foreign_tourist_passenger_entity;
+        vm.freecom_foreign_tourist_passenger = null;
         vm.show_foreign_tourist_passenger = false;
 
         vm.dateForeignTouristPassengerPickerOpenStatus = {};
@@ -1169,22 +1169,22 @@
         vm.c_type_roads = C_type_road.query();
 
         //Partial Construction Services
-        vm.freecom_partial_construction_services = freecom_partial_construction_services_entity;
+        vm.freecom_partial_construction_services = null;
         vm.show_partial_construction_services = false;
 
         vm.c_federal_entitys = C_federal_entity.query();
 
         //Foreign Exchange
-        vm.freecom_foreign_exchange = freecom_foreign_exchange_entity;
+        vm.freecom_foreign_exchange = null;
         vm.show_foreign_exchange = false;
 
         vm.c_type_operations = C_type_operation.query();
 
         //Local Taxes
-        vm.freecom_local_taxes = freecom_local_taxes_entity;
+        vm.freecom_local_taxes = null;
         vm.show_local_taxes = false;
 
-        vm.freecom_ret_transfs = [];
+        vm.freecom_ret_transfs = null;
 
         vm.addFreecomRetTransf = function(){
             $uibModal.open({
