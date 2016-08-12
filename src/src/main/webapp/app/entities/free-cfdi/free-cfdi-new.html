@@ -1087,7 +1087,8 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.c_process_type" for="field_freecom_ine_c_process_type">c_process_type</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="field_freecom_ine_c_process_type" name="freecom_ine_c_process_type" ng-model="vm.freecom_ine.c_process_type" ng-options="c_process_type as c_process_type.name for c_process_type in vm.c_process_types track by c_process_type.id" ng-required="vm.show_ine">
+                                    <select class="form-control" id="field_freecom_ine_c_process_type" name="freecom_ine_c_process_type" ng-model="vm.freecom_ine.c_process_type" ng-options="c_process_type as c_process_type.name for c_process_type in vm.c_process_types track by c_process_type.id" ng-required="vm.show_ine"
+                                    data-ng-change="vm.onChangeCprocessType()" >
                                         <option value=""></option>
                                     </select>
                                 </div>
@@ -1095,7 +1096,8 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.c_committee_type" for="field_freecom_ine_c_committee_type">c_committee_type</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="field_freecom_ine_c_committee_type" name="freecom_ine_c_committee_type" ng-model="vm.freecom_ine.c_committee_type" ng-options="c_committee_type as c_committee_type.name for c_committee_type in vm.c_committee_types track by c_committee_type.id" >
+                                    <select class="form-control" id="field_freecom_ine_c_committee_type" name="freecom_ine_c_committee_type" ng-model="vm.freecom_ine.c_committee_type" ng-options="c_committee_type as c_committee_type.name for c_committee_type in vm.c_committee_types track by c_committee_type.id"
+                                    ng-required="vm.c_committee_type_required" ng-disabled="vm.c_committee_type_disabled" data-ng-change="vm.onChangeCcommitteeType()">
                                         <option value=""></option>
                                     </select>
                                 </div>
@@ -1104,7 +1106,7 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.ident" for="field_freecom_ine_ident">Ident</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="ident" id="field_freecom_ine_ident"
-                                           ng-model="vm.freecom_ine.ident"
+                                           ng-model="vm.freecom_ine.ident" ng-disabled="vm.ident_disabled"
                                     />
                                 </div>
                             </div>
@@ -1134,7 +1136,7 @@
                                 </tbody>
                             </table>
 
-                            <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addIneEntity()">
+                            <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addIneEntity()" ng-disabled="vm.add_button_ine_entity_disabled">
                                 Adicionar Entidad
                             </button>
                         </div>
@@ -1523,7 +1525,7 @@
 
 					<div class="form-group">
 						<button type="submit"
-						ng-disabled="editForm.$invalid || vm.free_concepts.length == 0 || vm.failWayPaymentXYValidation()"
+						ng-disabled="editForm.$invalid || vm.free_concepts.length == 0 || vm.failWayPaymentXYValidation() || (!vm.add_button_ine_entity_disabled && vm.freecom_ine_entities.length == 0)"
 						class="btn btn-primary pull-right" style="margin: 0 15px">
 							<span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
 						</button>
