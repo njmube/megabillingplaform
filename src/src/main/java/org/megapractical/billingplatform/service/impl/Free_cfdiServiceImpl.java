@@ -85,11 +85,27 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
             root += "/";
         }
         String base = root + free_cfdi.getFree_emitter().getRfc()+"_"+free_cfdi.getFree_receiver().getRfc()+
-            "_" + free_cfdi.getDate_expedition().toLocalDate().toString();
+            "_" + free_cfdi.getDate_expedition().toLocalDate().getYear()+"_" +
+            free_cfdi.getDate_expedition().toLocalDate().getMonthValue()+"_" +
+            free_cfdi.getDate_expedition().toLocalDate().getDayOfMonth()+"T" +
+            free_cfdi.getDate_expedition().getHour()+"_" +
+            free_cfdi.getDate_expedition().getMinute()+"_" +
+            free_cfdi.getDate_expedition().getSecond();
         String filepdf = root + free_cfdi.getFree_emitter().getRfc()+"_"+free_cfdi.getFree_receiver().getRfc()+
-            "_" + free_cfdi.getDate_expedition().toLocalDate().toString()+".pdf";
+            "_" + free_cfdi.getDate_expedition().toLocalDate().getYear()+"_" +
+            free_cfdi.getDate_expedition().toLocalDate().getMonthValue()+"_" +
+            free_cfdi.getDate_expedition().toLocalDate().getDayOfMonth()+"T" +
+            free_cfdi.getDate_expedition().getHour()+"_" +
+            free_cfdi.getDate_expedition().getMinute()+"_" +
+            free_cfdi.getDate_expedition().getSecond()+".pdf";
         String filexml = root + free_cfdi.getFree_emitter().getRfc()+"_"+free_cfdi.getFree_receiver().getRfc()+
-            "_" + free_cfdi.getDate_expedition().toLocalDate().toString()+".xml";
+            "_" + free_cfdi.getDate_expedition().toLocalDate().getYear()+"_" +
+            free_cfdi.getDate_expedition().toLocalDate().getMonthValue()+"_" +
+            free_cfdi.getDate_expedition().toLocalDate().getDayOfMonth()+"T" +
+            free_cfdi.getDate_expedition().getHour()+"_" +
+            free_cfdi.getDate_expedition().getMinute()+"_" +
+            free_cfdi.getDate_expedition().getSecond()+".xml";
+ 
         log.debug("Fichero PDF: {}", filepdf);
         log.debug("Fichero XML: {}", filexml);
 
