@@ -1630,6 +1630,206 @@
                         </div>
                     </div>
 
+                    <!--//Destruction Certificate-->
+                    <div class="row" ng-show="vm.show_destruction_certificate">
+                         <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.numfoldesveh" for="field_freecom_destruction_certificate_numfoldesveh">Numfoldesveh</label>
+                                <div class="col-sm-7">
+                                    <input type="text" class="form-control" name="freecom_destruction_certificate_numfoldesveh" id="field_freecom_destruction_certificate_numfoldesveh"
+                                           ng-model="vm.freecom_destruction_certificate.numfoldesveh"
+                                           ng-required="vm.show_destruction_certificate" ng-maxlength="20" />
+                                    <div ng-show="editForm.freecom_destruction_certificate_numfoldesveh.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_destruction_certificate_numfoldesveh.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                                            This field cannot be longer than 20 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="header smaller lighter blue" ng-show="vm.show_destruction_certificate">
+                        Datos del Vehículo
+                    </h3>
+                    <div class="row" ng-show="vm.show_destruction_certificate">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.brand" for="field_freecom_destruction_certificate_brand">Brand</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_destruction_certificate_brand" id="field_freecom_destruction_certificate_brand"
+                                           ng-model="vm.freecom_destruction_certificate.brand"
+                                           ng-required="vm.show_destruction_certificate" ng-maxlength="50" />
+                                    <div ng-show="editForm.freecom_destruction_certificate_brand.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_destruction_certificate_brand.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                            This field cannot be longer than 50 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.class_dc" for="field_freecom_destruction_certificate_class_dc">Class_dc</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_destruction_certificate_class_dc" id="field_freecom_destruction_certificate_class_dc"
+                                           ng-model="vm.freecom_destruction_certificate.class_dc"
+                                           ng-required="vm.show_destruction_certificate" ng-maxlength="50" />
+                                    <div ng-show="editForm.freecom_destruction_certificate_class_dc.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_destruction_certificate_class_dc.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                            This field cannot be longer than 50 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.year" for="field_freecom_destruction_certificate_year">Year</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_destruction_certificate_year" id="field_freecom_destruction_certificate_year"
+                                           ng-model="vm.freecom_destruction_certificate.year"
+                                           ng-required="vm.show_destruction_certificate" ng-pattern="/^(0|[1-9][0-9]*)$/"/>
+                                    <div ng-show="editForm.freecom_destruction_certificate_year.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_destruction_certificate_year.$error.number" translate="entity.validation.number">
+                                            This field should be a number.
+                                        </p>
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_destruction_certificate_year.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                            This field should follow pattern "^(0|[1-9][0-9]*)$".
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right"  translate="megabillingplatformApp.freecom_destruction_certificate.model" for="field_freecom_destruction_certificate_model">Model</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_destruction_certificate_model" id="field_freecom_destruction_certificate_model"
+                                           ng-model="vm.freecom_destruction_certificate.model"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.niv" for="field_freecom_destruction_certificate_niv">Niv</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_destruction_certificate_niv" id="field_freecom_destruction_certificate_niv"
+                                           ng-model="vm.freecom_destruction_certificate.niv"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.no_serie" for="field_freecom_destruction_certificate_no_serie">No_serie</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_destruction_certificate_no_serie" id="field_freecom_destruction_certificate_no_serie"
+                                           ng-model="vm.freecom_destruction_certificate.no_serie"
+                                           ng-maxlength="17" />
+                                    <div ng-show="editForm.freecom_destruction_certificate_no_serie.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_destruction_certificate_no_serie.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                                            This field cannot be longer than 17 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.number_plates" for="field_freecom_destruction_certificate_number_plates">Number_plates</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_destruction_certificate_number_plates" id="field_freecom_destruction_certificate_number_plates"
+                                           ng-model="vm.freecom_destruction_certificate.number_plates"
+                                           ng-required="vm.show_destruction_certificate" ng-maxlength="10" />
+                                    <div ng-show="editForm.freecom_destruction_certificate_number_plates.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_destruction_certificate_number_plates.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="10">
+                                            This field cannot be longer than 10 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.number_engine" for="field_freecom_destruction_certificate_number_engine">Number_engine</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_destruction_certificate_number_engine" id="field_freecom_destruction_certificate_number_engine"
+                                           ng-model="vm.freecom_destruction_certificate.number_engine"
+                                           ng-maxlength="17" />
+                                    <div ng-show="editForm.freecom_destruction_certificate_number_engine.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_destruction_certificate_number_engine.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                                            This field cannot be longer than 17 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.numfoltarjcir" for="field_freecom_destruction_certificate_numfoltarjcir">Numfoltarjcir</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_destruction_certificate_numfoltarjcir" id="field_freecom_destruction_certificate_numfoltarjcir"
+                                           ng-model="vm.freecom_destruction_certificate.numfoltarjcir"
+                                           ng-required="vm.show_destruction_certificate" ng-maxlength="40" />
+                                    <div ng-show="editForm.freecom_destruction_certificate_numfoltarjcir.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_destruction_certificate_numfoltarjcir.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                            This field cannot be longer than 40 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.c_class" for="field_freecom_destruction_certificate_c_class">c_class</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_freecom_destruction_certificate_c_class" name="freecom_destruction_certificate_c_class" ng-model="vm.freecom_destruction_certificate.c_class" ng-options="c_class as c_class.name for c_class in vm.c_classes track by c_class.id">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="header smaller lighter blue" ng-show="vm.show_destruction_certificate">
+                        Información Aduanera
+                    </h3>
+                    <div class="row" ng-show="vm.show_destruction_certificate">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_info_customs_destruction.numpedimp" for="field_freecom_info_customs_destruction_numpedimp">Numpedimp</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_info_customs_destruction_numpedimp" id="field_freecom_info_customs_destruction_numpedimp"
+                                           ng-model="vm.freecom_info_customs_destruction.numpedimp"
+                                           ng-required="vm.show_destruction_certificate" ng-maxlength="40" />
+                                    <div ng-show="editForm.freecom_info_customs_destruction_numpedimp.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_info_customs_destruction_numpedimp.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                            This field cannot be longer than 40 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_info_customs_destruction.customs" for="field_freecom_info_customs_destruction_customs">Customs</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_info_customs_destruction_customs" id="field_freecom_info_customs_destruction_customs"
+                                           ng-model="vm.freecom_info_customs_destruction.customs"
+                                           ng-required="vm.show_destruction_certificate" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_info_customs_destruction.date_expedition" for="field_freecom_info_customs_destruction_date_expedition">Date_expedition</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <input id="field_freecom_info_customs_destruction_date_expedition" type="text" class="form-control" name="freecom_info_customs_destruction_date_expedition" uib-datepicker-popup="{{dateformat}}" ng-model="vm.freecom_info_customs_destruction.date_expedition" is-open="vm.dateInfoCustomsDestructionPickerOpenStatus.date_expedition"
+                                               ng-required="vm.show_destruction_certificate" />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="vm.openInfoCustomsDestructionCalendar('date_expedition')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </uib-tab>
 			</uib-tabset>
 

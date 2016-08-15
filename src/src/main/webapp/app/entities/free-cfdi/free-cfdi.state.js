@@ -208,6 +208,8 @@
                     $translatePartialLoader.addPart('freecom_retentions_transfered');
                     $translatePartialLoader.addPart('freecom_used_vehicle');
                     $translatePartialLoader.addPart('freecom_vehicle_customs_information');
+                    $translatePartialLoader.addPart('freecom_destruction_certificate');
+                    $translatePartialLoader.addPart('freecom_info_customs_destruction');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

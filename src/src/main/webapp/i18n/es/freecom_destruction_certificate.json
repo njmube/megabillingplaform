@@ -17,16 +17,16 @@
                 "title": "Freecom_destruction_certificate"
             },
             "version": "Version",
-            "numfoldesveh": "Numfoldesveh",
-            "brand": "Brand",
-            "class_dc": "Class_dc",
-            "year": "Year",
+            "numfoldesveh": "Numfoldesveh (*)",
+            "brand": "Brand (*)",
+            "class_dc": "Class_dc (*)",
+            "year": "Year (*)",
             "model": "Model",
             "niv": "Niv",
             "no_serie": "No_serie",
-            "number_plates": "Number_plates",
+            "number_plates": "Number_plates (*)",
             "number_engine": "Number_engine",
-            "numfoltarjcir": "Numfoltarjcir",
+            "numfoltarjcir": "Numfoltarjcir (*)",
             "c_class": "C_class"
         }
     }
