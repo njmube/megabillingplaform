@@ -206,6 +206,8 @@
                     $translatePartialLoader.addPart('freecom_foreign_exchange');
                     $translatePartialLoader.addPart('freecom_local_taxes');
                     $translatePartialLoader.addPart('freecom_retentions_transfered');
+                    $translatePartialLoader.addPart('freecom_used_vehicle');
+                    $translatePartialLoader.addPart('freecom_vehicle_customs_information');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

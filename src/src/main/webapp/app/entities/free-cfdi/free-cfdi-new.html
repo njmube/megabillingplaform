@@ -46,8 +46,6 @@
 <div class="row">
 	<div class="col-sm-12">
 
-		<jhi-alert-error></jhi-alert-error>
-
 		<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
 			<uib-tabset active="active">
 				<uib-tab heading="Emisor">
@@ -1450,6 +1448,188 @@
                         </div>
                     </div>
 
+                    <!--//Used Vehicle-->
+                    <div class="row" ng-show="vm.show_used_vehicle">
+                        <div class="col-md-6">
+                            <h3 class="header smaller lighter blue">
+                                Datos Vehículos
+                            </h3>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_used_vehicle.acquisition_amount" for="field_freecom_used_vehicle_acquisition_amount">Acquisition_amount</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_used_vehicle_acquisition_amount" id="field_freecom_used_vehicle_acquisition_amount"
+                                           ng-model="vm.freecom_used_vehicle.acquisition_amount"
+                                           ng-required="vm.show_used_vehicle" ng-pattern="/^(0|[1-9][0-9]*)$/"/>
+                                    <div ng-show="editForm.freecom_used_vehicle_acquisition_amount.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_used_vehicle_acquisition_amount.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                            This field should follow pattern "^(0|[1-9][0-9]*)$".
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_used_vehicle.monto_enajenacion" for="field_freecom_used_vehicle_monto_enajenacion">Monto_enajenacion</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_used_vehicle_monto_enajenacion" id="field_freecom_used_vehicle_monto_enajenacion"
+                                           ng-model="vm.freecom_used_vehicle.monto_enajenacion"
+                                           ng-required="vm.show_used_vehicle" ng-patter="/^(0|[1-9][0-9]*)$/"/>
+                                    <div ng-show="editForm.freecom_used_vehicle_monto_enajenacion.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_used_vehicle_monto_enajenacion.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                            This field should follow pattern "^(0|[1-9][0-9]*)$".
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_used_vehicle.key_vehicle" for="field_freecom_used_vehicle_key_vehicle">Key_vehicle</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_used_vehicle_key_vehicle" id="field_freecom_used_vehicle_key_vehicle"
+                                           ng-model="vm.freecom_used_vehicle.key_vehicle"
+                                           ng-required="vm.show_used_vehicle" ng-maxlength="50" />
+                                    <div ng-show="editForm.freecom_used_vehicle_key_vehicle.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_used_vehicle_key_vehicle.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                            This field cannot be longer than 50 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_used_vehicle.brand" for="field_freecom_used_vehicle_brand">Brand</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_used_vehicle_brand" id="field_freecom_used_vehicle_brand"
+                                           ng-model="vm.freecom_used_vehicle.brand"
+                                           ng-required="vm.show_used_vehicle" ng-maxlength="50" />
+                                    <div ng-show="editForm.freecom_used_vehicle_brand.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_used_vehicle_brand.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                            This field cannot be longer than 50 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_used_vehicle.type" for="field_freecom_used_vehicle_type">Type</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_used_vehicle_type" id="field_freecom_used_vehicle_type"
+                                           ng-model="vm.freecom_used_vehicle.type"
+                                           ng-required="vm.show_used_vehicle" ng-maxlength="50" />
+                                    <div ng-show="editForm.freecom_used_vehicle_type.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_used_vehicle_type.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                            This field cannot be longer than 50 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_used_vehicle.model" for="field_freecom_used_vehicle_model">Model</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_used_vehicle_model" id="field_freecom_used_vehicle_model"
+                                           ng-model="vm.freecom_used_vehicle.model"
+                                           ng-required="vm.show_used_vehicle" ng-maxlength="50" />
+                                    <div ng-show="editForm.freecom_used_vehicle_model.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_used_vehicle_model.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                            This field cannot be longer than 50 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_used_vehicle.number_engine" for="field_freecom_used_vehicle_number_engine">Number_engine</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_used_vehicle_number_engine" id="field_freecom_used_vehicle_number_engine"
+                                           ng-model="vm.freecom_used_vehicle.number_engine"
+                                           ng-maxlength="17" />
+                                    <div ng-show="editForm.freecom_used_vehicle_number_engine.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_used_vehicle_number_engine.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                                            This field cannot be longer than 17 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_used_vehicle.no_serie" for="field_freecom_used_vehicle_no_serie">No_serie</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_used_vehicle_no_serie" id="field_freecom_used_vehicle_no_serie"
+                                           ng-model="vm.freecom_used_vehicle.no_serie"
+                                           ng-required="vm.show_used_vehicle" ng-maxlength="17" />
+                                    <div ng-show="editForm.freecom_used_vehicle_no_serie.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_used_vehicle_no_serie.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                                            This field cannot be longer than 17 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_used_vehicle.niv" for="field_freecom_used_vehicle_niv">Niv</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_used_vehicle_niv" id="field_freecom_used_vehicle_niv"
+                                           ng-model="vm.freecom_used_vehicle.niv"
+                                           ng-required="vm.show_used_vehicle" ng-maxlength="17" />
+                                    <div ng-show="editForm.freecom_used_vehicle_niv.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_used_vehicle_niv.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                                            This field cannot be longer than 17 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_used_vehicle.value" for="field_freecom_used_vehicle_value">Value</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_used_vehicle_value" id="field_freecom_used_vehicle_value"
+                                           ng-model="vm.freecom_used_vehicle.value" ng-pattern="/^(0|[1-9][0-9]*)$/"
+                                    />
+                                    <div ng-show="editForm.freecom_used_vehicle_value.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_used_vehicle_value.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                            This field should follow pattern "^(0|[1-9][0-9]*)$".
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 class="header smaller lighter blue">
+                                Informacion Aduanera
+                            </h3>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_vehicle_customs_information.number" for="field_freecom_vehicle_customs_information_number">Number</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_vehicle_customs_information_number" id="field_freecom_vehicle_customs_information_number"
+                                           ng-model="vm.freecom_vehicle_customs_information.number"
+                                           ng-required="vm.show_used_vehicle" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_vehicle_customs_information.date_expedition" for="field_date_expedition">Date_expedition</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <input id="field_date_expedition" type="text" class="form-control" name="date_expedition" uib-datepicker-popup="{{dateformat}}" ng-model="vm.freecom_vehicle_customs_information.date_expedition" is-open="vm.dateVehicleCustomsInfoPickerOpenStatus.date_expedition"
+                                               ng-required="vm.show_used_vehicle" />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="vm.openVehicleCustomsInfoCalendar('date_expedition')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_vehicle_customs_information.customs" for="field_freecom_vehicle_customs_information_customs">Customs</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_vehicle_customs_information_customs" id="field_freecom_vehicle_customs_information_customs"
+                                           ng-model="vm.freecom_vehicle_customs_information.customs"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </uib-tab>
 			</uib-tabset>
 
@@ -1538,6 +1718,8 @@
 					<div class="alert alert-success" ng-show="vm.free_saved_success">
 						Factura guardada satisfactoriamente.
 					</div>
+
+                    <jhi-alert-error></jhi-alert-error>
 
 				</div>
 
