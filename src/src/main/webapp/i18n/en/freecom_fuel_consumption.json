@@ -17,10 +17,10 @@
                 "title": "Freecom_fuel_consumption"
             },
             "version": "Version",
-            "type_operation": "Type_operation",
-            "account_number": "Account_number",
+            "type_operation": "Type_operation (*)",
+            "account_number": "Account_number (*)",
             "subtotal": "Subtotal",
-            "total": "Total",
+            "total": "Total (*)",
             "free_cfdi": "Free_cfdi"
         }
     }

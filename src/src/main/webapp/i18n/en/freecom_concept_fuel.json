@@ -16,14 +16,14 @@
             "detail": {
                 "title": "Freecom_concept_fuel"
             },
-            "identifier": "Identifier",
-            "date_expedition": "Date_expedition",
-            "rfc": "Rfc",
-            "key_station": "Key_station",
-            "quantity": "Quantity",
-            "fuel_name": "Fuel_name",
-            "folio_operation": "Folio_operation",
-            "unit_value": "Unit_value",
+            "identifier": "Identifier (*)",
+            "date_expedition": "Date_expedition (*)",
+            "rfc": "Rfc (*)",
+            "key_station": "Key_station (*)",
+            "quantity": "Quantity (*)",
+            "fuel_name": "Fuel_name (*)",
+            "folio_operation": "Folio_operation (*)",
+            "unit_value": "Unit_value (*)",
             "amount": "Amount",
             "freecom_fuel_consumption": "Freecom_fuel_consumption"
         }

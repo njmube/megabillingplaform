@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -8,55 +8,30 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group">
-            <label for="id" translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.freecom_determined.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_determined.rate" for="field_rate">Rate</label>
-            <input type="number" class="form-control" name="rate" id="field_rate"
-                    ng-model="vm.freecom_determined.rate"
-                    required />
-            <div ng-show="editForm.rate.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.rate.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.rate.$error.number" translate="entity.validation.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_determined.amount" for="field_amount">Amount</label>
-            <input type="number" class="form-control" name="amount" id="field_amount"
-                    ng-model="vm.freecom_determined.amount"
-                    required />
-            <div ng-show="editForm.amount.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.amount.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.amount.$error.number" translate="entity.validation.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
 
         <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_determined.freecom_concept_fuel" for="field_freecom_concept_fuel">freecom_concept_fuel</label>
-            <select class="form-control" id="field_freecom_concept_fuel" name="freecom_concept_fuel" ng-model="vm.freecom_determined.freecom_concept_fuel" ng-options="freecom_concept_fuel as freecom_concept_fuel.identifier for freecom_concept_fuel in vm.freecom_concept_fuels track by freecom_concept_fuel.id">
-                <option value=""></option>
-            </select>
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_determined.rate" for="field_rate">Rate</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="rate" id="field_rate"
+                        ng-model="vm.freecom_determined.rate"
+                        required />
+            </div>
         </div>
         <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_determined.freecom_tax_type" for="field_freecom_tax_type">freecom_tax_type</label>
-            <select class="form-control" id="field_freecom_tax_type" name="freecom_tax_type" ng-model="vm.freecom_determined.freecom_tax_type" ng-options="freecom_tax_type as freecom_tax_type.name for freecom_tax_type in vm.freecom_tax_types track by freecom_tax_type.id">
-                <option value=""></option>
-            </select>
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_determined.amount" for="field_amount">Amount</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="amount" id="field_amount"
+                        ng-model="vm.freecom_determined.amount"
+                        required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_determined.freecom_tax_type" for="field_freecom_tax_type">freecom_tax_type</label>
+            <div class="col-sm-8">
+                <select class="form-control" id="field_freecom_tax_type" name="freecom_tax_type" ng-model="vm.freecom_determined.freecom_tax_type" ng-options="freecom_tax_type as freecom_tax_type.name for freecom_tax_type in vm.freecom_tax_types track by freecom_tax_type.id">
+                    <option value=""></option>
+                </select>
+            </div>
         </div>
     </div>
     <div class="modal-footer">

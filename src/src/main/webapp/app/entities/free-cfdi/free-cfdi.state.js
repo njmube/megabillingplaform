@@ -210,6 +210,9 @@
                     $translatePartialLoader.addPart('freecom_vehicle_customs_information');
                     $translatePartialLoader.addPart('freecom_destruction_certificate');
                     $translatePartialLoader.addPart('freecom_info_customs_destruction');
+                    $translatePartialLoader.addPart('freecom_fuel_consumption');
+                    $translatePartialLoader.addPart('freecom_concept_fuel');
+                    $translatePartialLoader.addPart('freecom_determined');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

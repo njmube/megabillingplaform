@@ -1830,6 +1830,90 @@
                         </div>
                     </div>
 
+                    <!--//Fuel Consumption-->
+                    <h3 class="header smaller lighter blue" ng-show="vm.show_fuel_consumption">
+                        Consumo de Combustibles
+                    </h3>
+                    <div class="row" ng-show="vm.show_fuel_consumption">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_fuel_consumption.type_operation" for="field_freecom_fuel_consumption_type_operation">Type_operation</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_fuel_consumption_type_operation" id="field_freecom_fuel_consumption_type_operation"
+                                           ng-model="vm.freecom_fuel_consumption.type_operation"
+                                           ng-required="vm.show_fuel_consumption" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_fuel_consumption.account_number" for="field_freecom_fuel_consumption_account_number">Account_number</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_fuel_consumption_account_number" id="field_freecom_fuel_consumption_account_number"
+                                           ng-model="vm.freecom_fuel_consumption.account_number"
+                                           ng-required="vm.show_fuel_consumption" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_fuel_consumption.subtotal" for="field_freecom_fuel_consumption_subtotal">Subtotal</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_fuel_consumption_subtotal" id="field_freecom_fuel_consumption_subtotal"
+                                           ng-model="vm.freecom_fuel_consumption.subtotal"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_fuel_consumption.total" for="field_freecom_fuel_consumption_total">Total</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_fuel_consumption_total" id="field_freecom_fuel_consumption_total"
+                                           ng-model="vm.freecom_fuel_consumption.total"
+                                           ng-required="vm.show_fuel_consumption" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-6" ng-show="vm.show_fuel_consumption"></div>
+
+                    <table id="fuel-concept-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_fuel_consumption">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>RFC</th>
+                            <th>Clave Estación</th>
+                            <th>Cantidad</th>
+                            <th>Nombre de Combustible</th>
+                            <th>Folio</th>
+                            <th>Precio</th>
+                            <th>Importe</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="freecom_concept_fuel in vm.freecom_concept_fuels">
+                            <td class="text-left">{{freecom_concept_fuel.concept_fuel.identifier}}</td>
+                            <td class="text-left">{{freecom_concept_fuel.concept_fuel.date_expedition}}</td>
+                            <td class="text-left">{{freecom_concept_fuel.concept_fuel.rfc}}</td>
+                            <td class="text-left">{{freecom_concept_fuel.concept_fuel.key_station}}</td>
+                            <td class="text-left">{{freecom_concept_fuel.concept_fuel.quantity}}</td>
+                            <td class="text-left">{{freecom_concept_fuel.concept_fuel.fuel_name}}</td>
+                            <td class="text-left">{{freecom_concept_fuel.concept_fuel.folio_operation}}</td>
+                            <td class="text-left">{{freecom_concept_fuel.concept_fuel.unit_value}}</td>
+                            <td class="text-left">{{freecom_concept_fuel.concept_fuel.amount}}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeFuelConcept($index)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <button type="button" class="btn btn-sm btn-primary"  ng-show="vm.show_fuel_consumption" ng-click="vm.addFuelConcept()">
+                        Adicionar Concepto
+                    </button>
+
                 </uib-tab>
 			</uib-tabset>
 
