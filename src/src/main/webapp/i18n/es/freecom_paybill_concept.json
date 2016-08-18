@@ -16,13 +16,13 @@
             "detail": {
                 "title": "Freecom_paybill_concept"
             },
-            "identification_number": "Identification_number",
-            "date_expedition": "Date_expedition",
-            "rfc": "Rfc",
-            "curp": "Curp",
-            "name": "Name",
+            "identification_number": "Identification_number (*)",
+            "date_expedition": "Date_expedition (*)",
+            "rfc": "Rfc (*)",
+            "curp": "Curp (*)",
+            "name": "Name (*)",
             "social_security_number": "Social_security_number",
-            "amount": "Amount",
+            "amount": "Amount (*)",
             "freecom_storeroom_paybill": "Freecom_storeroom_paybill"
         }
     }

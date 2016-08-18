@@ -17,10 +17,10 @@
                 "title": "Freecom_storeroom_paybill"
             },
             "version": "Version",
-            "type_operation": "Type_operation",
+            "type_operation": "Type_operation (*)",
             "employer_registration": "Employer_registration",
-            "account_number": "Account_number",
-            "total": "Total",
+            "account_number": "Account_number (*)",
+            "total": "Total (*)",
             "free_cfdi": "Free_cfdi"
         }
     }

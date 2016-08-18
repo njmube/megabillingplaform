@@ -5,35 +5,25 @@
         .module('megabillingplatformApp')
         .controller('Freecom_paybill_conceptDialogController', Freecom_paybill_conceptDialogController);
 
-    Freecom_paybill_conceptDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Freecom_paybill_concept', 'Freecom_storeroom_paybill'];
+    Freecom_paybill_conceptDialogController.$inject = ['$uibModalInstance', 'entity'];
 
-    function Freecom_paybill_conceptDialogController ($scope, $stateParams, $uibModalInstance, entity, Freecom_paybill_concept, Freecom_storeroom_paybill) {
+    function Freecom_paybill_conceptDialogController ($uibModalInstance, entity) {
         var vm = this;
         vm.freecom_paybill_concept = entity;
-        vm.freecom_storeroom_paybills = Freecom_storeroom_paybill.query();
-        vm.load = function(id) {
-            Freecom_paybill_concept.get({id : id}, function(result) {
-                vm.freecom_paybill_concept = result;
-            });
-        };
-
-        var onSaveSuccess = function (result) {
-            $scope.$emit('megabillingplatformApp:freecom_paybill_conceptUpdate', result);
-            $uibModalInstance.close(result);
-            vm.isSaving = false;
-        };
-
-        var onSaveError = function () {
-            vm.isSaving = false;
-        };
 
         vm.save = function () {
             vm.isSaving = true;
-            if (vm.freecom_paybill_concept.id !== null) {
-                Freecom_paybill_concept.update(vm.freecom_paybill_concept, onSaveSuccess, onSaveError);
-            } else {
-                Freecom_paybill_concept.save(vm.freecom_paybill_concept, onSaveSuccess, onSaveError);
-            }
+            $uibModalInstance.close({
+                identification_number: vm.freecom_paybill_concept.identification_number,
+                date_expedition: vm.freecom_paybill_concept.date_expedition,
+                rfc: vm.freecom_paybill_concept.rfc,
+                curp: vm.freecom_paybill_concept.curp,
+                name: vm.freecom_paybill_concept.name,
+                social_security_number: vm.freecom_paybill_concept.social_security_number,
+                amount: vm.freecom_paybill_concept.amount,
+                id: null
+            });
+            vm.isSaving = true;
         };
 
         vm.clear = function() {

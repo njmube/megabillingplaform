@@ -213,6 +213,8 @@
                     $translatePartialLoader.addPart('freecom_fuel_consumption');
                     $translatePartialLoader.addPart('freecom_concept_fuel');
                     $translatePartialLoader.addPart('freecom_determined');
+                    $translatePartialLoader.addPart('freecom_storeroom_paybill');
+                    $translatePartialLoader.addPart('freecom_paybill_concept');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

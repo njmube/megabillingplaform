@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -8,29 +8,24 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
+
         <div class="form-group">
-            <label for="id" translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.freecom_paybill_concept.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_paybill_concept.identification_number" for="field_identification_number">Identification_number</label>
-            <input type="text" class="form-control" name="identification_number" id="field_identification_number"
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_paybill_concept.identification_number" for="field_identification_number">Identification_number</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="identification_number" id="field_identification_number"
                     ng-model="vm.freecom_paybill_concept.identification_number"
                     required ng-maxlength="20" />
-            <div ng-show="editForm.identification_number.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.identification_number.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.identification_number.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
-                    This field cannot be longer than 20 characters.
-                </p>
+                <div ng-show="editForm.identification_number.$invalid">
+                   <p class="help-block"
+                        ng-show="editForm.identification_number.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                        This field cannot be longer than 20 characters.
+                    </p>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_paybill_concept.date_expedition" for="field_date_expedition">Date_expedition</label>
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_paybill_concept.date_expedition" for="field_date_expedition">Date_expedition</label>
+            <div class="col-sm-8">
                 <div class="input-group">
                     <input id="field_date_expedition" type="text" class="form-control" name="date_expedition" datetime-picker="{{dateformat}}" ng-model="vm.freecom_paybill_concept.date_expedition" is-open="vm.datePickerOpenStatus.date_expedition"
                     required  />
@@ -38,91 +33,90 @@
                         <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_expedition')"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
                 </div>
-            <div ng-show="editForm.date_expedition.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.date_expedition.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.date_expedition.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
-                    This field should be a date and time.
-                </p>
+                <div ng-show="editForm.date_expedition.$invalid">
+                    <p class="help-block"
+                        ng-show="editForm.date_expedition.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                        This field should be a date and time.
+                    </p>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_paybill_concept.rfc" for="field_rfc">Rfc</label>
-            <input type="text" class="form-control" name="rfc" id="field_rfc"
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_paybill_concept.rfc" for="field_rfc">Rfc</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="rfc" id="field_rfc"
                     ng-model="vm.freecom_paybill_concept.rfc"
-                    required />
-            <div ng-show="editForm.rfc.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.rfc.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
+                    required ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/" />
+                <div ng-show="editForm.rfc.$invalid">
+                    <p class="help-block has-error"
+                       ng-show="editForm.rfc.$error.minlength" translate="entity.validation.minlength" translate-value-min="12">
+                        This field is required to be at least 12 characters.
+                    </p>
+                    <p class="help-block"
+                       ng-show="editForm.rfc.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="13">
+                        This field cannot be longer than 13 characters.
+                    </p>
+                    <p class="help-block"
+                       ng-show="editForm.rfc.$error.pattern" translate="entity.validation.pattern">
+                        RFC format is incorrect.
+                    </p>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_paybill_concept.curp" for="field_curp">Curp</label>
-            <input type="text" class="form-control" name="curp" id="field_curp"
-                    ng-model="vm.freecom_paybill_concept.curp"
-                    required />
-            <div ng-show="editForm.curp.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.curp.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_paybill_concept.curp" for="field_curp">Curp</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="curp" id="field_curp"
+                        ng-model="vm.freecom_paybill_concept.curp"
+                        required ng-minlength="18" ng-maxlength="18" ng-pattern="/^[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]$/" />
+                <div ng-show="editForm.curp.$invalid">
+                    <p class="help-block" ng-show="editForm.curp.$error.minlength || editForm.freecom_educational_institutions_curp.$error.maxlength" translate="global.messages.validate.curp.length">
+                        Your CURP is required to be 18 characters.
+                    </p>
+                    <p class="help-block" ng-show="editForm.curp.$error.length" translate="global.messages.validate.curp.length">
+                        Your CURP is required to be 18 characters.
+                    </p>
+                    <p class="help-block" ng-show="editForm.curp.$error.pattern" translate="global.messages.validate.curp.pattern">
+                        CURP format is incorrect.
+                    </p>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_paybill_concept.name" for="field_name">Name</label>
-            <input type="text" class="form-control" name="name" id="field_name"
-                    ng-model="vm.freecom_paybill_concept.name"
-                    required ng-maxlength="100" />
-            <div ng-show="editForm.name.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.name.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="100">
-                    This field cannot be longer than 100 characters.
-                </p>
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_paybill_concept.name" for="field_name">Name</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="name" id="field_name"
+                        ng-model="vm.freecom_paybill_concept.name"
+                        required ng-maxlength="100" />
+                <div ng-show="editForm.name.$invalid">
+                    <p class="help-block"
+                        ng-show="editForm.name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="100">
+                        This field cannot be longer than 100 characters.
+                    </p>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_paybill_concept.social_security_number" for="field_social_security_number">Social_security_number</label>
-            <input type="text" class="form-control" name="social_security_number" id="field_social_security_number"
-                    ng-model="vm.freecom_paybill_concept.social_security_number"
-                    ng-maxlength="15" />
-            <div ng-show="editForm.social_security_number.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.social_security_number.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="15">
-                    This field cannot be longer than 15 characters.
-                </p>
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_paybill_concept.social_security_number" for="field_social_security_number">Social_security_number</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="social_security_number" id="field_social_security_number"
+                        ng-model="vm.freecom_paybill_concept.social_security_number"
+                        ng-maxlength="15" />
+                <div ng-show="editForm.social_security_number.$invalid">
+                    <p class="help-block"
+                        ng-show="editForm.social_security_number.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="15">
+                        This field cannot be longer than 15 characters.
+                    </p>
+                </div>
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_paybill_concept.amount" for="field_amount">Amount</label>
-            <input type="number" class="form-control" name="amount" id="field_amount"
-                    ng-model="vm.freecom_paybill_concept.amount"
-                    required />
-            <div ng-show="editForm.amount.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.amount.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.amount.$error.number" translate="entity.validation.number">
-                    This field should be a number.
-                </p>
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_paybill_concept.amount" for="field_amount">Amount</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="amount" id="field_amount"
+                        ng-model="vm.freecom_paybill_concept.amount"
+                        required />
             </div>
-        </div>
-
-        <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_paybill_concept.freecom_storeroom_paybill" for="field_freecom_storeroom_paybill">freecom_storeroom_paybill</label>
-            <select class="form-control" id="field_freecom_storeroom_paybill" name="freecom_storeroom_paybill" ng-model="vm.freecom_paybill_concept.freecom_storeroom_paybill" ng-options="freecom_storeroom_paybill as freecom_storeroom_paybill.id for freecom_storeroom_paybill in vm.freecom_storeroom_paybills track by freecom_storeroom_paybill.id">
-                <option value=""></option>
-            </select>
         </div>
     </div>
     <div class="modal-footer">
