@@ -11,9 +11,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
-import sun.misc.IOUtils;
-import sun.nio.ch.IOUtil;
-
+import org.apache.commons.io.IOUtils;
 import javax.inject.Inject;
 import java.io.*;
 import java.io.File;
@@ -105,7 +103,7 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
             free_cfdi.getDate_expedition().getHour()+"_" +
             free_cfdi.getDate_expedition().getMinute()+"_" +
             free_cfdi.getDate_expedition().getSecond()+".xml";
- 
+
         log.debug("Fichero PDF: {}", filepdf);
         log.debug("Fichero XML: {}", filexml);
 
@@ -187,7 +185,7 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
                     log.debug("Fichero pdf existe");
                     try {
                         inputStream = new FileInputStream(newFile);
-                        byte[] arre = IOUtils.readFully(inputStream, 1000000, true);
+                        byte[] arre = IOUtils.toByteArray(inputStream);
                         free_cfdi.setFilepdf(arre);
                         log.debug("Leyendo PDF");
                     } catch (Exception e) {
@@ -201,7 +199,7 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
                 if (newFile1.exists()) {
                     try {
                         inputStream1 = new FileInputStream(newFile1);
-                        free_cfdi.setFilexml(IOUtils.readFully(inputStream1, 1000000, true));
+                        free_cfdi.setFilexml(IOUtils.toByteArray(inputStream1));
                         log.debug("Leyendo XML");
                     } catch (Exception e) {
 
