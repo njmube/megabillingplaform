@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('SettingsController', SettingsController);
 
-    SettingsController.$inject = ['$scope', 'Principal', 'Auth','DataUtils', 'JhiLanguageService', '$translate'];
+    SettingsController.$inject = ['$rootScope','$scope', 'Principal', 'Auth','DataUtils', 'JhiLanguageService', '$translate'];
 
-    function SettingsController ($scope, Principal, Auth, DataUtils, JhiLanguageService, $translate) {
+    function SettingsController ($rootScope, $scope, Principal, Auth, DataUtils, JhiLanguageService, $translate) {
         var vm = this;
 
         vm.error = null;
@@ -93,6 +93,8 @@
                         $translate.use(vm.settingsAccount.langKey);
                     }
                 });
+                $rootScope.$broadcast('updateSuccess');
+                $rootScope.$emit('updateSuccess');
 
             }).catch(function() {
                 vm.success = null;

@@ -13,9 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-import sun.misc.IOUtils;
-import sun.nio.ch.IOUtil;
+import org.apache.commons.io.IOUtils;
 
 import javax.inject.Inject;
 import java.io.*;
@@ -370,7 +368,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                 if (newFile.exists()) {
                     try {
                         inputStream = new FileInputStream(newFile);
-                        free_emitter.setFilecertificate(IOUtils.readFully(inputStream, 1000000, true));
+                        free_emitter.setFilecertificate(IOUtils.toByteArray(inputStream));
 
                     } catch (Exception e) {
 
@@ -389,7 +387,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                 if (newFilekey.exists()) {
                     try {
                         inputStreamkey = new FileInputStream(newFilekey);
-                        free_emitter.setFilekey(IOUtils.readFully(inputStreamkey, 1000000, true));
+                        free_emitter.setFilekey(IOUtils.toByteArray(inputStreamkey));
 
                     } catch (Exception e) {
 
@@ -408,7 +406,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
                 if (newFilelogo.exists()) {
                     try {
                         inputStreamlogo = new FileInputStream(newFilelogo);
-                        free_emitter.setFilelogo(IOUtils.readFully(inputStreamlogo, 1000000, true));
+                        free_emitter.setFilelogo(IOUtils.toByteArray(inputStreamlogo));
 
                     } catch (Exception e) {
 

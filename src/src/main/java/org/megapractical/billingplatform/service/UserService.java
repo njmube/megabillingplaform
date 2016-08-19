@@ -22,7 +22,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sun.misc.IOUtils;
+import org.apache.commons.io.IOUtils;
 
 import java.time.ZonedDateTime;
 import javax.inject.Inject;
@@ -288,7 +288,7 @@ public class UserService {
                     log.debug("Existe el fichero");
                     try {
                         inputStream = new FileInputStream(newFile);
-                        user.setFilephoto(IOUtils.readFully(inputStream, 1000000, false));
+                        user.setFilephoto(IOUtils.toByteArray(inputStream));
                     } catch (Exception e) {
                         log.debug("Exception de lectura: " + e.toString());
                     }
@@ -301,7 +301,7 @@ public class UserService {
                         log.debug("Existe el fichero");
                         try {
                             inputStream1 = new FileInputStream(newFile1);
-                            user.setFilephoto(IOUtils.readFully(inputStream1, 1000000, false));
+                            user.setFilephoto(IOUtils.toByteArray(inputStream1));
                             user.setFilephotoContentType("png");
                         } catch (Exception e) {
                             log.debug("Exception de lectura: " + e.toString());
@@ -318,7 +318,7 @@ public class UserService {
                     log.debug("Existe el fichero");
                     try {
                         inputStream = new FileInputStream(newFile);
-                        user.setFilephoto(IOUtils.readFully(inputStream, 1000000, false));
+                        user.setFilephoto(IOUtils.toByteArray(inputStream));
                         user.setFilephotoContentType("png");
                     } catch (Exception e) {
                         log.debug("Exception de lectura: " + e.toString());
@@ -334,7 +334,7 @@ public class UserService {
                 log.debug("Existe el fichero");
                 try {
                     inputStream = new FileInputStream(newFile);
-                    user.setFilephoto(IOUtils.readFully(inputStream, 1000000, false));
+                    user.setFilephoto(IOUtils.toByteArray(inputStream));
                     user.setFilephotoContentType("png");
                 } catch (Exception e) {
                     log.debug("Exception de lectura: " + e.toString());

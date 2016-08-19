@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('NavbarController', NavbarController);
 
-    NavbarController.$inject = ['$scope', '$location', '$state', 'Auth', 'Principal', 'ENV', 'LoginService'];
+    NavbarController.$inject = ['$rootScope','$scope', '$location', '$state', 'Auth', 'Principal', 'ENV', 'LoginService'];
 
-    function NavbarController ($scope, $location, $state, Auth, Principal, ENV, LoginService) {
+    function NavbarController ($rootScope, $scope, $location, $state, Auth, Principal, ENV, LoginService) {
         var vm = this;
 
         vm.navCollapsed = true;
@@ -28,6 +28,11 @@
 		$scope.$on('authenticationSuccess', function() {
             getAccount();
         });
+
+        $rootScope.$on('updateSuccess', function() {
+            getAccount();
+        });
+
 
 		function getAccount() {
 
