@@ -37,7 +37,7 @@ public class Freecom_ecc11_transfer implements Serializable {
     private BigDecimal amount;
 
     @ManyToOne
-    private Freecom_ecc11_concept freecom_ecc11_concept;
+    private Freecom_ecc11_concept freecom_ecc_11_concept;
 
     public Long getId() {
         return id;
@@ -71,12 +71,12 @@ public class Freecom_ecc11_transfer implements Serializable {
         this.amount = amount;
     }
 
-    public Freecom_ecc11_concept getFreecom_ecc11_concept() {
-        return freecom_ecc11_concept;
+    public Freecom_ecc11_concept getFreecom_ecc_11_concept() {
+        return freecom_ecc_11_concept;
     }
 
-    public void setFreecom_ecc11_concept(Freecom_ecc11_concept freecom_ecc11_concept) {
-        this.freecom_ecc11_concept = freecom_ecc11_concept;
+    public void setFreecom_ecc_11_concept(Freecom_ecc11_concept freecom_ecc_11_concept) {
+        this.freecom_ecc_11_concept = freecom_ecc_11_concept;
     }
 
     @Override

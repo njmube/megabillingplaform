@@ -1,7 +1,7 @@
 {
     "relationships": [
         {
-            "relationshipName": "freecom_ecc11_concept",
+            "relationshipName": "freecom_ecc_11_concept",
             "otherEntityName": "freecom_ecc11_concept",
             "relationshipType": "many-to-one",
             "otherEntityField": "id"

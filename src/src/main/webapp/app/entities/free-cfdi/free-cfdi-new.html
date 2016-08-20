@@ -536,7 +536,7 @@
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.date_folio_fiscal_orig" for="field_date_folio_fiscal_orig">Date_folio_fiscal_orig</label>
 								<div class="col-sm-8">
 									<div class="input-group">
-										<input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" datetime-picker="{{dateformat}}" ng-model="vm.free_cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()"
+										<input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" datetime-picker="{{dateformat}}" ng-model="vm.free_cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()" readonly
 										  />
 										<span class="input-group-btn">
 											<button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_folio_fiscal_orig')" ng-disabled="vm.enableWithByPartiality()"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -945,7 +945,7 @@
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                         <input id="field_date_acquisition" type="text" class="form-control" name="date_acquisition" datetime-picker="{{dateformat}}" ng-model="vm.freecom_apaw.date_acquisition" is-open="vm.dateApawPickerOpenStatus.date_acquisition"
-                                               ng-required="vm.show_apaw"  />
+                                               ng-required="vm.show_apaw"  readonly />
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default" ng-click="vm.openApawCalendar('date_acquisition')"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
@@ -986,7 +986,7 @@
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                         <input id="field_freecom_date_authorization" type="text" class="form-control" name="freecom_date_authorization" datetime-picker="{{dateformat}}" ng-model="vm.freecom_donees.date_authorization" is-open="vm.dateDoneesPickerOpenStatus.date_authorization"
-                                               ng-required="vm.show_donees"  />
+                                               ng-required="vm.show_donees"  readonly />
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default" ng-click="vm.openDoneesCalendar('date_authorization')"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
@@ -1062,7 +1062,7 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_educational_institutions.rfcpayment" for="field_freecom_educational_institutions_rfcpayment">Rfcpayment</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_educational_institutions_rfcpayment" id="field_freecom_educational_institutions_rfcpayment"
-                                           ng-model="vm.freecom_educational_institutions.rfcpayment "ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/" />
+                                           ng-model="vm.freecom_educational_institutions.rfcpayment" ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/" />
                                     <div ng-show="editForm.freecom_educational_institutions_rfcpayment.$dirty && editForm.freecom_educational_institutions_rfcpayment.$invalid">
                                         <p class="help-block" ng-show="editForm.freecom_educational_institutions_rfcpayment.$error.minlength" translate="global.messages.validate.rfc.minlength">
                                             Your RFC is required to be at least 12 character.
@@ -1202,7 +1202,7 @@
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                         <input id="field_freecom_foreign_tourist_passenger_date_traffic" type="text" class="form-control" name="foreign_tourist_passenger_date_traffic" datetime-picker="{{dateformat}}" ng-model="vm.freecom_foreign_tourist_passenger.date_traffic" is-open="vm.dateForeignTouristPassengerPickerOpenStatus.date_traffic"
-                                               ng-required="vm.show_foreign_tourist_passenger"  />
+                                               ng-required="vm.show_foreign_tourist_passenger"  readonly />
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default" ng-click="vm.openForeignTouristPassengerCalendar('date_traffic')"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
@@ -1612,7 +1612,7 @@
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                         <input id="field_date_expedition" type="text" class="form-control" name="date_expedition" uib-datepicker-popup="{{dateformat}}" ng-model="vm.freecom_vehicle_customs_information.date_expedition" is-open="vm.dateVehicleCustomsInfoPickerOpenStatus.date_expedition"
-                                               ng-required="vm.show_used_vehicle" />
+                                               ng-required="vm.show_used_vehicle" readonly />
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default" ng-click="vm.openVehicleCustomsInfoCalendar('date_expedition')"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
@@ -1690,10 +1690,6 @@
                                            ng-model="vm.freecom_destruction_certificate.year"
                                            ng-required="vm.show_destruction_certificate" ng-pattern="/^(0|[1-9][0-9]*)$/"/>
                                     <div ng-show="editForm.freecom_destruction_certificate_year.$invalid">
-                                        <p class="help-block"
-                                           ng-show="editForm.freecom_destruction_certificate_year.$error.number" translate="entity.validation.number">
-                                            This field should be a number.
-                                        </p>
                                         <p class="help-block"
                                            ng-show="editForm.freecom_destruction_certificate_year.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
                                             This field should follow pattern "^(0|[1-9][0-9]*)$".
@@ -1820,7 +1816,7 @@
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                         <input id="field_freecom_info_customs_destruction_date_expedition" type="text" class="form-control" name="freecom_info_customs_destruction_date_expedition" uib-datepicker-popup="{{dateformat}}" ng-model="vm.freecom_info_customs_destruction.date_expedition" is-open="vm.dateInfoCustomsDestructionPickerOpenStatus.date_expedition"
-                                               ng-required="vm.show_destruction_certificate" />
+                                               ng-required="vm.show_destruction_certificate" readonly />
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default" ng-click="vm.openInfoCustomsDestructionCalendar('date_expedition')"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
@@ -1962,8 +1958,14 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_storeroom_paybill.total" for="field_freecom_storeroom_paybill_total">Total</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_storeroom_paybill_total" id="field_freecom_storeroom_paybill_total"
-                                           ng-model="vm.freecom_storeroom_paybill.total"
+                                           ng-model="vm.freecom_storeroom_paybill.total" ng-pattern="/^\d+\.?\d*$/"
                                            ng-required="vm.show_storeroom_paybill" />
+                                    <div ng-show="editForm.freecom_storeroom_paybill_total.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_storeroom_paybill_total.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                            This field should follow pattern "/^\d+\.?\d*$/".
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -2007,6 +2009,107 @@
                     <button type="button" class="btn btn-sm btn-primary"  ng-show="vm.show_storeroom_paybill" ng-click="vm.addPaybillConcept()">
                         Adicionar Concepto
                     </button>
+
+                    <!--//Ecc11-->
+                    <h3 class="header smaller lighter blue" ng-show="vm.show_ecc11">
+                        Conceptos
+                    </h3>
+
+                    <table id="ecc11-concept-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_ecc11">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha | Hora</th>
+                            <th>RFC</th>
+                            <th>Clave Estación</th>
+                            <th>Cantidad</th>
+                            <th>Folio Operación</th>
+                            <th>Valor Unitario</th>
+                            <th>Importe</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="freecom_ecc11_concept in vm.freecom_ecc11_concepts">
+                            <td class="text-left">{{freecom_ecc11_concept.concept.identifier}}</td>
+                            <td class="text-left">{{freecom_ecc11_concept.concept.date}}</td>
+                            <td class="text-left">{{freecom_ecc11_concept.concept.rfc}}</td>
+                            <td class="text-left">{{freecom_ecc11_concept.concept.key_station}}</td>
+                            <td class="text-left">{{freecom_ecc11_concept.concept.quantity}}</td>
+                            <td class="text-left">{{freecom_ecc11_concept.concept.folio_operation}}</td>
+                            <td class="text-left">{{freecom_ecc11_concept.concept.unit_value}}</td>
+                            <td class="text-left">{{freecom_ecc11_concept.concept.amount}}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeEcc11Concept($index)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <button type="button" class="btn btn-sm btn-primary"  ng-show="vm.show_ecc11" ng-click="vm.addEcc11Concept()">
+                        Adicionar Concepto
+                    </button>
+
+                    <div class="hr hr-16 hr-dotted" ng-show="vm.show_ecc11"></div>
+
+                    <div class="space-6" ng-show="vm.show_ecc11"></div>
+
+                    <div class="row" ng-show="vm.show_ecc11">
+                        <div class="col-md-5 col-md-offset-7">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ecc11.type_operation" for="field_freecom_ecc11_type_operation">Type Operation</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_ecc11_type_operation" id="field_freecom_ecc11_type_operation"
+                                           ng-model="vm.freecom_ecc11.type_operation"
+                                           ng-required="vm.show_ecc11" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ecc11.number_account" for="field_freecom_ecc11_number_account">Number Account</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_ecc11_number_account" id="field_freecom_ecc11_number_account"
+                                           ng-model="vm.freecom_ecc11.number_account"
+                                           ng-required="vm.show_ecc11" ng-maxlength="50" />
+                                    <div ng-show="editForm.freecom_ecc11_number_account.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_ecc11_number_account.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                            This field cannot be longer than 50 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ecc11.subtotal" for="field_freecom_ecc11_subtotal">Subtotal</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_ecc11_subtotal" id="field_freecom_ecc11_subtotal"
+                                           ng-model="vm.freecom_ecc11.subtotal" ng-pattern="/^\d+\.?\d*$/"
+                                           ng-required="vm.show_ecc11" />
+                                    <div ng-show="editForm.freecom_ecc11_subtotal.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_ecc11_subtotal.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                            This field should follow pattern "/^\d+\.?\d*$/".
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ecc11.total" for="field_freecom_ecc11_total">Total</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_ecc11_total" id="field_freecom_ecc11_total"
+                                           ng-model="vm.freecom_ecc11.total" ng-pattern="/^\d+\.?\d*$/"
+                                           ng-required="vm.show_ecc11" />
+                                    <div ng-show="editForm.freecom_ecc11_total.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_ecc11_total.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                            This field should follow pattern "/^\d+\.?\d*$/".
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </uib-tab>
 			</uib-tabset>

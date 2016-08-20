@@ -67,7 +67,7 @@ public class Freecom_ecc11_concept implements Serializable {
     private BigDecimal amount;
 
     @ManyToOne
-    private Freecom_ecc11 freecom_ecc11;
+    private Freecom_ecc11 freecom_ecc_11;
 
     @ManyToOne
     private Freecom_product_key freecom_product_key;
@@ -163,12 +163,12 @@ public class Freecom_ecc11_concept implements Serializable {
         this.amount = amount;
     }
 
-    public Freecom_ecc11 getFreecom_ecc11() {
-        return freecom_ecc11;
+    public Freecom_ecc11 getFreecom_ecc_11() {
+        return freecom_ecc_11;
     }
 
-    public void setFreecom_ecc11(Freecom_ecc11 freecom_ecc11) {
-        this.freecom_ecc11 = freecom_ecc11;
+    public void setFreecom_ecc_11(Freecom_ecc11 freecom_ecc_11) {
+        this.freecom_ecc_11 = freecom_ecc_11;
     }
 
     public Freecom_product_key getFreecom_product_key() {
@@ -221,6 +221,7 @@ public class Freecom_ecc11_concept implements Serializable {
             ", folio_operation='" + folio_operation + "'" +
             ", unit_value='" + unit_value + "'" +
             ", amount='" + amount + "'" +
+            ", freecom_ecc11.id='" + freecom_ecc_11.getId() + "'" +
             '}';
     }
 }

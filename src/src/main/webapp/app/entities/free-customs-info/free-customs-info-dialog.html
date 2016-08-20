@@ -8,7 +8,7 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        
+
 		<div class="form-group">
 			<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_customs_info.number_doc" for="field_number_doc">Number_doc</label>
 			<div class="col-sm-9">
@@ -22,7 +22,7 @@
 			<div class="col-sm-9">
 				<div class="input-group">
 					<input id="field_date" type="text" class="form-control" name="date" uib-datepicker-popup="{{dateformat}}" ng-model="vm.free_customs_info.date" is-open="vm.datePickerOpenStatus.date"
-					required/>
+					required readonly />
 					<span class="input-group-btn">
 						<button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
 					</span>
@@ -34,7 +34,7 @@
 			<div class="col-sm-9">
 				<textarea class="form-control" name="customs" id="field_customs"
 						ng-model="vm.free_customs_info.customs" rows="5"></textarea>
-			</div>				
+			</div>
 		</div>
     </div>
     <div class="modal-footer">

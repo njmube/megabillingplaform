@@ -215,6 +215,9 @@
                     $translatePartialLoader.addPart('freecom_determined');
                     $translatePartialLoader.addPart('freecom_storeroom_paybill');
                     $translatePartialLoader.addPart('freecom_paybill_concept');
+                    $translatePartialLoader.addPart('freecom_ecc11');
+                    $translatePartialLoader.addPart('freecom_ecc11_concept');
+                    $translatePartialLoader.addPart('freecom_ecc11_transfer');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
