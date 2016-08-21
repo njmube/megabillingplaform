@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -8,125 +8,295 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.freecom_spei_third.id">
-            <label for="id" translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.freecom_spei_third.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_spei_third.date_operation" for="field_date_operation">Date Operation</label>
-                <div class="input-group">
-                    <input id="field_date_operation" type="text" class="form-control" name="date_operation" uib-datepicker-popup="{{dateformat}}" ng-model="vm.freecom_spei_third.date_operation" is-open="vm.datePickerOpenStatus.date_operation"
-                    required/>
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_operation')"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </div>
-            <div ng-show="editForm.date_operation.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.date_operation.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_spei_third.hour" for="field_hour">Hour</label>
-                <div class="input-group">
-                    <input id="field_hour" type="text" class="form-control" name="hour" datetime-picker="{{dateformat}}" ng-model="vm.freecom_spei_third.hour" is-open="vm.datePickerOpenStatus.hour"
-                    required  />
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('hour')"><i class="glyphicon glyphicon-calendar"></i></button>
-                    </span>
-                </div>
-            <div ng-show="editForm.hour.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.hour.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.hour.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
-                    This field should be a date and time.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_spei_third.key_spei" for="field_key_spei">Key Spei</label>
-            <input type="number" class="form-control" name="key_spei" id="field_key_spei"
-                    ng-model="vm.freecom_spei_third.key_spei"
-                    required />
-            <div ng-show="editForm.key_spei.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.key_spei.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.key_spei.$error.number" translate="entity.validation.number">
-                    This field should be a number.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_spei_third.stamp" for="field_stamp">Stamp</label>
-            <input type="text" class="form-control" name="stamp" id="field_stamp"
-                    ng-model="vm.freecom_spei_third.stamp"
-                    required />
-            <div ng-show="editForm.stamp.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.stamp.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_spei_third.number_certificate" for="field_number_certificate">Number Certificate</label>
-            <input type="text" class="form-control" name="number_certificate" id="field_number_certificate"
-                    ng-model="vm.freecom_spei_third.number_certificate"
-                    required ng-maxlength="20" />
-            <div ng-show="editForm.number_certificate.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.number_certificate.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.number_certificate.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
-                    This field cannot be longer than 20 characters.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_spei_third.cda" for="field_cda">Cda</label>
-            <input type="text" class="form-control" name="cda" id="field_cda"
-                    ng-model="vm.freecom_spei_third.cda"
-                    required ng-maxlength="841" />
-            <div ng-show="editForm.cda.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.cda.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.cda.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="841">
-                    This field cannot be longer than 841 characters.
-                </p>
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_spei_third.freecom_spei" for="field_freecom_spei">Freecom Spei</label>
-            <select class="form-control" id="field_freecom_spei" name="freecom_spei" ng-model="vm.freecom_spei_third.freecom_spei" ng-options="freecom_spei as freecom_spei.id for freecom_spei in vm.freecom_speis track by freecom_spei.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_spei_third.freecom_payer" for="field_freecom_payer">Freecom Payer</label>
-            <select class="form-control" id="field_freecom_payer" name="freecom_payer" ng-model="vm.freecom_spei_third.freecom_payer" ng-options="freecom_payer as freecom_payer.id for freecom_payer in vm.freecom_payers | orderBy:'id' track by freecom_payer.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_spei_third.freecom_beneficiary" for="field_freecom_beneficiary">Freecom Beneficiary</label>
-            <select class="form-control" id="field_freecom_beneficiary" name="freecom_beneficiary" ng-model="vm.freecom_spei_third.freecom_beneficiary" ng-options="freecom_beneficiary as freecom_beneficiary.id for freecom_beneficiary in vm.freecom_beneficiaries | orderBy:'id' track by freecom_beneficiary.id">
-                <option value=""></option>
-            </select>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="header smaller lighter blue">
+                    Ordenante
+                </h3>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_payer.emitter_bank" for="field_freecom_payer_emitter_bank">Emitter Bank</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_payer_emitter_bank" id="field_freecom_payer_emitter_bank"
+                               ng-model="vm.freecom_payer.emitter_bank"
+                               required ng-maxlength="40" />
+                        <div ng-show="editForm.freecom_payer_emitter_bank.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.freecom_payer_emitter_bank.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                This field cannot be longer than 40 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_payer.name" for="field_freecom_payer_name">Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_payer_name" id="field_freecom_payer_name"
+                               ng-model="vm.freecom_payer.name"
+                               required ng-maxlength="10" />
+                        <div ng-show="editForm.freecom_payer_name.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.freecom_payer_name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="10">
+                                This field cannot be longer than 10 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_payer.type_account" for="field_freecom_payer_type_account">Type Account</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_payer_type_account" id="field_freecom_payer_type_account"
+                               ng-model="vm.freecom_payer.type_account" ng-pattern="/^\d+\.?\d*$/"
+                               required />
+                        <div ng-show="editForm.freecom_payer_type_account.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.freecom_payer_type_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                This field should follow pattern "/^\d+\.?\d*$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_payer.account" for="field_freecom_payer_account">Account</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_payer_account" id="field_freecom_payer_account"
+                               ng-model="vm.freecom_payer.account" ng-pattern="/^\d+\.?\d*$/"
+                               required />
+                        <div ng-show="editForm.freecom_payer_account.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.freecom_payer_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                This field should follow pattern "/^\d+\.?\d*$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_payer.rfc" for="field_freecom_payer_rfc">Rfc</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_payer_rfc" id="field_freecom_payer_rfc"
+                               ng-model="vm.freecom_payer.rfc" ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/"
+                               required />
+                        <div ng-show="editForm.freecom_payer_rfc.$invalid">
+                            <p class="help-block" ng-show="editForm.freecom_payer_rfc.$error.minlength" translate="global.messages.validate.rfc.minlength">
+                                Your RFC is required to be at least 12 character.
+                            </p>
+                            <p class="help-block" ng-show="editForm.freecom_payer_rfc.$error.maxlength" translate="global.messages.validate.rfc.maxlength">
+                                Your RFC cannot be longer than 13 characters.
+                            </p>
+                            <p class="help-block" ng-show="editForm.freecom_payer_rfc.$error.pattern" translate="global.messages.validate.rfc.pattern">
+                                RFC format is incorrect.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="header smaller lighter blue">
+                    Datos Adicionales
+                </h3>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_spei_third.date_operation" for="field_date_operation">Date Operation</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input id="field_date_operation" type="text" class="form-control" name="date_operation" uib-datepicker-popup="{{dateformat}}" ng-model="vm.freecom_spei_third.date_operation" is-open="vm.datePickerOpenStatus.date_operation"
+                            required  readonly />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_operation')"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_spei_third.hour" for="field_hour">Hour</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input id="field_hour" type="text" class="form-control" name="hour" datetime-picker="{{dateformat}}" ng-model="vm.freecom_spei_third.hour" is-open="vm.datePickerOpenStatus.hour"
+                            required  readonly />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="vm.openCalendar('hour')"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </div>
+                        <div ng-show="editForm.hour.$invalid">
+                            <p class="help-block"
+                                ng-show="editForm.hour.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                                This field should be a date and time.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_spei_third.key_spei" for="field_key_spei">Key Spei</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="key_spei" id="field_key_spei"
+                                ng-model="vm.freecom_spei_third.key_spei" ng-pattern="/^(0|[1-9][0-9]*)$/"
+                                required />
+                        <div ng-show="editForm.key_spei.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.key_spei.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                This field should follow pattern "/^(0|[1-9][0-9]*)$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_spei_third.stamp" for="field_stamp">Stamp</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="stamp" id="field_stamp"
+                                ng-model="vm.freecom_spei_third.stamp"
+                                required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_spei_third.number_certificate" for="field_number_certificate">Number Certificate</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="number_certificate" id="field_number_certificate"
+                                ng-model="vm.freecom_spei_third.number_certificate"
+                                required ng-maxlength="20" />
+                        <div ng-show="editForm.number_certificate.$invalid">
+                            <p class="help-block"
+                                ng-show="editForm.number_certificate.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                                This field cannot be longer than 20 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_spei_third.cda" for="field_cda">Cda</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="cda" id="field_cda"
+                                ng-model="vm.freecom_spei_third.cda"
+                                required ng-maxlength="841" />
+                        <div ng-show="editForm.cda.$invalid">
+                            <p class="help-block"
+                                ng-show="editForm.cda.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="841">
+                                This field cannot be longer than 841 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 class="header smaller lighter blue">
+                    Beneficiario
+                </h3>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.receiver_bank" for="field_freecom_beneficiary_receiver_bank">Receiver Bank</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_beneficiary_receiver_bank" id="field_freecom_beneficiary_receiver_bank"
+                               ng-model="vm.freecom_beneficiary.receiver_bank"
+                               required ng-maxlength="40" />
+                        <div ng-show="editForm.freecom_beneficiary_receiver_bank.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.freecom_beneficiary_receiver_bank.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                This field cannot be longer than 40 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.name" for="field_freecom_beneficiary_name">Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_beneficiary_name" id="field_freecom_beneficiary_name"
+                               ng-model="vm.freecom_beneficiary.name"
+                               required ng-maxlength="40" />
+                        <div ng-show="editForm.freecom_beneficiary_name.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.freecom_beneficiary_name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                This field cannot be longer than 40 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.type_account" for="field_freecom_beneficiary_type_account">Type Account</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_beneficiary_type_account" id="field_freecom_beneficiary_type_account"
+                               ng-model="vm.freecom_beneficiary.type_account" ng-pattern="/^\d+\.?\d*$/"
+                               required />
+                        <div ng-show="editForm.freecom_beneficiary_type_account.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.freecom_beneficiary_type_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                This field should follow pattern "/^\d+\.?\d*$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.account" for="field_freecom_beneficiary_account">Account</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_beneficiary_account" id="field_freecom_beneficiary_account"
+                               ng-model="vm.freecom_beneficiary.account" ng-pattern="/^\d+\.?\d*$/"
+                               required />
+                        <div ng-show="editForm.freecom_beneficiary_account.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.freecom_beneficiary_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                This field should follow pattern "/^\d+\.?\d*$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.rfc" for="field_freecom_beneficiary_rfc">Rfc</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_beneficiary_rfc" id="field_freecom_beneficiary_rfc"
+                               ng-model="vm.freecom_beneficiary.rfc" ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/"
+                               required />
+                        <div ng-show="editForm.freecom_beneficiary_rfc.$invalid">
+                            <p class="help-block" ng-show="editForm.freecom_beneficiary_rfc.$error.minlength" translate="global.messages.validate.rfc.minlength">
+                                Your RFC is required to be at least 12 character.
+                            </p>
+                            <p class="help-block" ng-show="editForm.freecom_beneficiary_rfc.$error.maxlength" translate="global.messages.validate.rfc.maxlength">
+                                Your RFC cannot be longer than 13 characters.
+                            </p>
+                            <p class="help-block" ng-show="editForm.freecom_beneficiary_rfc.$error.pattern" translate="global.messages.validate.rfc.pattern">
+                                RFC format is incorrect.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.concept" for="field_freecom_beneficiary_concept">Concept</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_beneficiary_concept" id="field_freecom_beneficiary_concept"
+                               ng-model="vm.freecom_beneficiary.concept"
+                               required ng-maxlength="40" />
+                        <div ng-show="editForm.freecom_beneficiary_concept.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.freecom_beneficiary_concept.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                This field cannot be longer than 40 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.iva" for="field_freecom_beneficiary_iva">Iva</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_beneficiary_iva" id="field_freecom_beneficiary_iva"
+                               ng-model="vm.freecom_beneficiary.iva" ng-pattern="/^\d+\.?\d*$/"
+                               required />
+                        <div ng-show="editForm.freecom_beneficiary_iva.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.freecom_beneficiary_iva.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                This field should follow pattern "/^\d+\.?\d*$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.payment_amount" for="field_freecom_beneficiary_payment_amount">Payment Amount</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="freecom_beneficiary_payment_amount" id="field_freecom_beneficiary_payment_amount"
+                               ng-model="vm.freecom_beneficiary.payment_amount" ng-pattern="/^\d+\.?\d*$/"
+                               required />
+                        <div ng-show="editForm.freecom_beneficiary_payment_amount.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.freecom_beneficiary_payment_amount.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                This field should follow pattern "/^\d+\.?\d*$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
     <div class="modal-footer">

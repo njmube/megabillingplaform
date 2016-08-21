@@ -16,12 +16,12 @@
             "detail": {
                 "title": "Freecom Spei Third"
             },
-            "date_operation": "Date Operation",
-            "hour": "Hour",
-            "key_spei": "Key Spei",
-            "stamp": "Stamp",
-            "number_certificate": "Number Certificate",
-            "cda": "Cda",
+            "date_operation": "Date Operation (*)",
+            "hour": "Hour (*)",
+            "key_spei": "Key Spei (*)",
+            "stamp": "Stamp (*)",
+            "number_certificate": "Number Certificate (*)",
+            "cda": "Cda (*)",
             "freecom_spei": "Freecom Spei",
             "freecom_payer": "Freecom Payer",
             "freecom_beneficiary": "Freecom Beneficiary"

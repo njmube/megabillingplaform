@@ -218,6 +218,10 @@
                     $translatePartialLoader.addPart('freecom_ecc11');
                     $translatePartialLoader.addPart('freecom_ecc11_concept');
                     $translatePartialLoader.addPart('freecom_ecc11_transfer');
+                    $translatePartialLoader.addPart('freecom_spei');
+                    $translatePartialLoader.addPart('freecom_spei_third');
+                    $translatePartialLoader.addPart('freecom_payer');
+                    $translatePartialLoader.addPart('freecom_beneficiary');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

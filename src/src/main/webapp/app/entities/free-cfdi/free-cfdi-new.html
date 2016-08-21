@@ -2111,6 +2111,49 @@
                         </div>
                     </div>
 
+                    <!--//Spei Third-->
+                    <h3 class="header smaller lighter blue" ng-show="vm.show_spei">
+                        SPEI Terceros
+                    </h3>
+
+                    <table id="spei-thirds-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_spei">
+                        <thead>
+                        <tr>
+                            <th>Ordenante</th>
+                            <th>Beneficiario</th>
+                            <th>Fecha Operación</th>
+                            <th>Hora</th>
+                            <th>Clave SPEI</th>
+                            <th>Sello</th>
+                            <th>No. Certificado</th>
+                            <th>Cadena CDA</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="freecom_spei_third in vm.freecom_spei_thirds">
+                            <td class="text-left">{{freecom_spei_third.payer.name}}</td>
+                            <td class="text-left">{{freecom_spei_third.beneficiary.name}}</td>
+                            <td class="text-left">{{freecom_spei_third.spei_third.date_operation}}</td>
+                            <td class="text-left">{{freecom_spei_third.spei_third.hour}}</td>
+                            <td class="text-left">{{freecom_spei_third.spei_third.key_spei}}</td>
+                            <td class="text-left">{{freecom_spei_third.spei_third.stamp}}</td>
+                            <td class="text-left">{{freecom_spei_third.spei_third.number_certificate}}</td>
+                            <td class="text-left">{{freecom_spei_third.spei_third.cda}}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeSpeiThird($index)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <button type="button" class="btn btn-sm btn-primary"  ng-show="vm.show_spei" ng-click="vm.addSpeiThird()">
+                        Adicionar
+                    </button>
+
+
                 </uib-tab>
 			</uib-tabset>
 
@@ -2186,7 +2229,7 @@
 
 					<div class="form-group">
 						<button type="submit"
-						ng-disabled="editForm.$invalid || vm.free_concepts.length == 0 || vm.failWayPaymentXYValidation() || (!vm.add_button_ine_entity_disabled && vm.freecom_ine_entities.length == 0)"
+						ng-disabled="editForm.$invalid || vm.free_concepts.length == 0 || vm.failWayPaymentXYValidation() || (!vm.add_button_ine_entity_disabled && vm.freecom_ine_entities.length == 0) || (vm.show_spei == true && vm.freecom_spei_thirds.length == 0)"
 						class="btn btn-primary pull-right" style="margin: 0 15px">
 							<span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
 						</button>
