@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "c_key_pediment" : {
+            "home": {
+                "title": "C Key Pediments",
+                "createLabel": "Create a new C Key Pediment",
+                "createOrEditLabel": "Create or edit a C Key Pediment",
+                "search": "Search for C Key Pediment"
+            },
+            "created": "A new C Key Pediment is created with identifier {{ param }}",
+            "updated": "A C Key Pediment is updated with identifier {{ param }}",
+            "deleted": "A C Key Pediment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete C Key Pediment {{ id }}?"
+            },
+            "detail": {
+                "title": "C Key Pediment"
+            },
+            "value": "Value"
+        }
+    }
+}

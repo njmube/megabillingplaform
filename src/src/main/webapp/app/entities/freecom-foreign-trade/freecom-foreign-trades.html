@@ -1,0 +1,98 @@
+<div>
+    <h2 translate="megabillingplatformApp.freecom_foreign_trade.home.title">Freecom Foreign Trades</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="freecom-foreign-trade.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.freecom_foreign_trade.home.createLabel">
+                        Create new Freecom Foreign Trade
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version"><span translate="megabillingplatformApp.freecom_foreign_trade.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="emitter_curp"><span translate="megabillingplatformApp.freecom_foreign_trade.emitter_curp">Emitter Curp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="receiver_curp"><span translate="megabillingplatformApp.freecom_foreign_trade.receiver_curp">Receiver Curp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="receiver_numregidtrib"><span translate="megabillingplatformApp.freecom_foreign_trade.receiver_numregidtrib">Receiver Numregidtrib</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="origin_certificate"><span translate="megabillingplatformApp.freecom_foreign_trade.origin_certificate">Origin Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_origin_certificate"><span translate="megabillingplatformApp.freecom_foreign_trade.number_origin_certificate">Number Origin Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_reliable_exporter"><span translate="megabillingplatformApp.freecom_foreign_trade.number_reliable_exporter">Number Reliable Exporter</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="subdivision"><span translate="megabillingplatformApp.freecom_foreign_trade.subdivision">Subdivision</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="observations"><span translate="megabillingplatformApp.freecom_foreign_trade.observations">Observations</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="typechangeusd"><span translate="megabillingplatformApp.freecom_foreign_trade.typechangeusd">Typechangeusd</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.freecom_foreign_trade.free_cfdi">Free Cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_incoterm.value"><span translate="megabillingplatformApp.freecom_foreign_trade.freecom_incoterm">Freecom Incoterm</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_type_operation_ce.value"><span translate="megabillingplatformApp.freecom_foreign_trade.c_type_operation_ce">C Type Operation Ce</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_key_pediment.value"><span translate="megabillingplatformApp.freecom_foreign_trade.c_key_pediment">C Key Pediment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_addressee.id"><span translate="megabillingplatformApp.freecom_foreign_trade.freecom_addressee">Freecom Addressee</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="freecom_foreign_trade in vm.freecom_foreign_trades track by freecom_foreign_trade.id">
+                    <td><a ui-sref="freecom-foreign-trade-detail({id:freecom_foreign_trade.id})">{{freecom_foreign_trade.id}}</a></td>
+                    <td>{{freecom_foreign_trade.version}}</td>
+                    <td>{{freecom_foreign_trade.emitter_curp}}</td>
+                    <td>{{freecom_foreign_trade.receiver_curp}}</td>
+                    <td>{{freecom_foreign_trade.receiver_numregidtrib}}</td>
+                    <td>{{freecom_foreign_trade.origin_certificate}}</td>
+                    <td>{{freecom_foreign_trade.number_origin_certificate}}</td>
+                    <td>{{freecom_foreign_trade.number_reliable_exporter}}</td>
+                    <td>{{freecom_foreign_trade.subdivision}}</td>
+                    <td>{{freecom_foreign_trade.observations}}</td>
+                    <td>{{freecom_foreign_trade.typechangeusd}}</td>
+                    <td>
+                        <a ui-sref="free-cfdi-detail({id:freecom_foreign_trade.free_cfdi.id})">{{freecom_foreign_trade.free_cfdi.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="freecom-incoterm-detail({id:freecom_foreign_trade.freecom_incoterm.id})">{{freecom_foreign_trade.freecom_incoterm.value}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-type-operation-ce-detail({id:freecom_foreign_trade.c_type_operation_ce.id})">{{freecom_foreign_trade.c_type_operation_ce.value}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-key-pediment-detail({id:freecom_foreign_trade.c_key_pediment.id})">{{freecom_foreign_trade.c_key_pediment.value}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="freecom-addressee-detail({id:freecom_foreign_trade.freecom_addressee.id})">{{freecom_foreign_trade.freecom_addressee.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="freecom-foreign-trade-detail({id:freecom_foreign_trade.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-foreign-trade.edit({id:freecom_foreign_trade.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-foreign-trade.delete({id:freecom_foreign_trade.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

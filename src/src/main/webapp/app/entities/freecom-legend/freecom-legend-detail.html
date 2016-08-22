@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_legend.detail.title">Freecom Legend</span> {{vm.freecom_legend.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.freecom_legend.tax_provision">Tax Provision</span></dt>
+        <dd>
+            <span>{{vm.freecom_legend.tax_provision}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_legend.norm">Norm</span></dt>
+        <dd>
+            <span>{{vm.freecom_legend.norm}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_legend.text_legend">Text Legend</span></dt>
+        <dd>
+            <span>{{vm.freecom_legend.text_legend}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_legend.freecom_taxlegends">Freecom Taxlegends</span></dt>
+        <dd>
+            <a ui-sref="freecom-taxlegends-detail({id:vm.freecom_legend.freecom_taxlegends.id})">{{vm.freecom_legend.freecom_taxlegends.version}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

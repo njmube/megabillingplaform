@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "c_type_operation_ce" : {
+            "home": {
+                "title": "C Type Operation Ces",
+                "createLabel": "Create a new C Type Operation Ce",
+                "createOrEditLabel": "Create or edit a C Type Operation Ce",
+                "search": "Search for C Type Operation Ce"
+            },
+            "created": "A new C Type Operation Ce is created with identifier {{ param }}",
+            "updated": "A C Type Operation Ce is updated with identifier {{ param }}",
+            "deleted": "A C Type Operation Ce is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete C Type Operation Ce {{ id }}?"
+            },
+            "detail": {
+                "title": "C Type Operation Ce"
+            },
+            "value": "Value",
+            "description": "Description"
+        }
+    }
+}

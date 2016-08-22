@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "freecom_tariff_fraction" : {
+            "home": {
+                "title": "Freecom Tariff Fractions",
+                "createLabel": "Crear nuevo Freecom Tariff Fraction",
+                "createOrEditLabel": "Crear o editar Freecom Tariff Fraction",
+                "search": "Search for Freecom Tariff Fraction"
+            },
+            "created": "Un nuevo Freecom Tariff Fraction ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Tariff Fraction ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Tariff Fraction ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Tariff Fraction {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Tariff Fraction"
+            },
+            "value": "Value"
+        }
+    }
+}

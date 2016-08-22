@@ -1,0 +1,17 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "value",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160822123126",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_custom_unit",
+    "pagination": "pagination"
+}

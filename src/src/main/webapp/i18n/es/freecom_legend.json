@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "freecom_legend" : {
+            "home": {
+                "title": "Freecom Legends",
+                "createLabel": "Crear nuevo Freecom Legend",
+                "createOrEditLabel": "Crear o editar Freecom Legend",
+                "search": "Search for Freecom Legend"
+            },
+            "created": "Un nuevo Freecom Legend ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Legend ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Legend ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Legend {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Legend"
+            },
+            "tax_provision": "Tax Provision",
+            "norm": "Norm",
+            "text_legend": "Text Legend",
+            "freecom_taxlegends": "Freecom Taxlegends"
+        }
+    }
+}

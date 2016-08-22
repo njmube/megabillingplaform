@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Freecom_commodity.
+    -->
+    <changeSet id="20160822131651-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="freecom_foreign_trade_id"
+                                 baseTableName="freecom_commodity"
+                                 constraintName="fk_freecom_commodity_freecom_foreign_trade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_foreign_trade"/>
+
+        <addForeignKeyConstraint baseColumnNames="freecom_tariff_fraction_id"
+                                 baseTableName="freecom_commodity"
+                                 constraintName="fk_freecom_commodity_freecom_tariff_fraction_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_tariff_fraction"/>
+
+        <addForeignKeyConstraint baseColumnNames="freecom_custom_unit_id"
+                                 baseTableName="freecom_commodity"
+                                 constraintName="fk_freecom_commodity_freecom_custom_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_custom_unit"/>
+
+        <addForeignKeyConstraint baseColumnNames="freecom_specific_descriptions_id"
+                                 baseTableName="freecom_commodity"
+                                 constraintName="fk_freecom_commodity_freecom_specific_descriptions_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_specific_descriptions"/>
+
+    </changeSet>
+</databaseChangeLog>

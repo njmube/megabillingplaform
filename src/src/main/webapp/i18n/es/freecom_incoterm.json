@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "freecom_incoterm" : {
+            "home": {
+                "title": "Freecom Incoterms",
+                "createLabel": "Crear nuevo Freecom Incoterm",
+                "createOrEditLabel": "Crear o editar Freecom Incoterm",
+                "search": "Search for Freecom Incoterm"
+            },
+            "created": "Un nuevo Freecom Incoterm ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Incoterm ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Incoterm ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Incoterm {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Incoterm"
+            },
+            "value": "Value"
+        }
+    }
+}

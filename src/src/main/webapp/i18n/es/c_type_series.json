@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "c_type_series" : {
+            "home": {
+                "title": "C Type Series",
+                "createLabel": "Crear nuevo C Type Series",
+                "createOrEditLabel": "Crear o editar C Type Series",
+                "search": "Search for C Type Series"
+            },
+            "created": "Un nuevo C Type Series ha sido creado con el identificador {{ param }}",
+            "updated": "Un C Type Series ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C Type Series ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar C Type Series {{ id }}?"
+            },
+            "detail": {
+                "title": "C Type Series"
+            },
+            "value": "Value"
+        }
+    }
+}

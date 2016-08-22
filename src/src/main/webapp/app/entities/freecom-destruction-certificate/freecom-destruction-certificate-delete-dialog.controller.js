@@ -9,15 +9,20 @@
 
     function Freecom_destruction_certificateDeleteController($uibModalInstance, entity, Freecom_destruction_certificate) {
         var vm = this;
+
         vm.freecom_destruction_certificate = entity;
-        vm.clear = function() {
+        vm.clear = clear;
+        vm.confirmDelete = confirmDelete;
+        
+        function clear () {
             $uibModalInstance.dismiss('cancel');
-        };
-        vm.confirmDelete = function (id) {
+        }
+
+        function confirmDelete (id) {
             Freecom_destruction_certificate.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });
-        };
+        }
     }
 })();

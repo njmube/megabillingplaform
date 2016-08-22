@@ -9,12 +9,13 @@
 
     function Freecom_destruction_certificateController ($scope, $state, Freecom_destruction_certificate, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
-        vm.loadAll = loadAll;
+        
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
-        vm.loadAll();
+
+        loadAll();
 
         function loadAll () {
             Freecom_destruction_certificate.query({
@@ -53,6 +54,5 @@
                 search: vm.currentSearch
             });
         }
-
     }
 })();

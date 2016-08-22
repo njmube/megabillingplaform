@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "freecom_custom_unit" : {
+            "home": {
+                "title": "Freecom Custom Units",
+                "createLabel": "Crear nuevo Freecom Custom Unit",
+                "createOrEditLabel": "Crear o editar Freecom Custom Unit",
+                "search": "Search for Freecom Custom Unit"
+            },
+            "created": "Un nuevo Freecom Custom Unit ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Custom Unit ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Custom Unit ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Custom Unit {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Custom Unit"
+            },
+            "value": "Value"
+        }
+    }
+}

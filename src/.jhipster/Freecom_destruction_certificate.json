@@ -1,10 +1,16 @@
 {
     "relationships": [
         {
-            "relationshipName": "c_class",
-            "otherEntityName": "c_class",
+            "relationshipName": "free_cfdi",
+            "otherEntityName": "free_cfdi",
             "relationshipType": "many-to-one",
-            "otherEntityField": "name"
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "c_type_series",
+            "otherEntityName": "c_type_series",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "value"
         }
     ],
     "fields": [

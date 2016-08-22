@@ -71,7 +71,7 @@
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Freecom_destruction_certificate', function($stateParams, Freecom_destruction_certificate) {
-                    return Freecom_destruction_certificate.get({id : $stateParams.id});
+                    return Freecom_destruction_certificate.get({id : $stateParams.id}).$promise;
                 }]
             }
         })
@@ -128,7 +128,7 @@
                     size: 'lg',
                     resolve: {
                         entity: ['Freecom_destruction_certificate', function(Freecom_destruction_certificate) {
-                            return Freecom_destruction_certificate.get({id : $stateParams.id});
+                            return Freecom_destruction_certificate.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
@@ -152,7 +152,7 @@
                     size: 'md',
                     resolve: {
                         entity: ['Freecom_destruction_certificate', function(Freecom_destruction_certificate) {
-                            return Freecom_destruction_certificate.get({id : $stateParams.id});
+                            return Freecom_destruction_certificate.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {

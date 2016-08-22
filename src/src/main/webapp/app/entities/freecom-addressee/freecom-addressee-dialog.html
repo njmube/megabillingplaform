@@ -1,0 +1,156 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFreecom_addresseeLabel" translate="megabillingplatformApp.freecom_addressee.home.createOrEditLabel">Create or edit a Freecom Addressee</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.freecom_addressee.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.freecom_addressee.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_addressee.street" for="field_street">Street</label>
+            <input type="text" class="form-control" name="street" id="field_street"
+                    ng-model="vm.freecom_addressee.street"
+                    required ng-maxlength="100" />
+            <div ng-show="editForm.street.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.street.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.street.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="100">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_addressee.no_ext" for="field_no_ext">No Ext</label>
+            <input type="text" class="form-control" name="no_ext" id="field_no_ext"
+                    ng-model="vm.freecom_addressee.no_ext"
+                    ng-maxlength="55" />
+            <div ng-show="editForm.no_ext.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.no_ext.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="55">
+                    This field cannot be longer than 55 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_addressee.no_int" for="field_no_int">No Int</label>
+            <input type="text" class="form-control" name="no_int" id="field_no_int"
+                    ng-model="vm.freecom_addressee.no_int"
+                    ng-maxlength="55" />
+            <div ng-show="editForm.no_int.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.no_int.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="55">
+                    This field cannot be longer than 55 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_addressee.locate" for="field_locate">Locate</label>
+            <input type="text" class="form-control" name="locate" id="field_locate"
+                    ng-model="vm.freecom_addressee.locate"
+                    ng-maxlength="120" />
+            <div ng-show="editForm.locate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.locate.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="120">
+                    This field cannot be longer than 120 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_addressee.reference" for="field_reference">Reference</label>
+            <input type="text" class="form-control" name="reference" id="field_reference"
+                    ng-model="vm.freecom_addressee.reference"
+                    ng-maxlength="250" />
+            <div ng-show="editForm.reference.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.reference.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="250">
+                    This field cannot be longer than 250 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_addressee.numregidtrib" for="field_numregidtrib">Numregidtrib</label>
+            <input type="text" class="form-control" name="numregidtrib" id="field_numregidtrib"
+                    ng-model="vm.freecom_addressee.numregidtrib"
+                    ng-maxlength="40" />
+            <div ng-show="editForm.numregidtrib.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.numregidtrib.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                    This field cannot be longer than 40 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_addressee.rfc" for="field_rfc">Rfc</label>
+            <input type="text" class="form-control" name="rfc" id="field_rfc"
+                    ng-model="vm.freecom_addressee.rfc"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_addressee.curp" for="field_curp">Curp</label>
+            <input type="text" class="form-control" name="curp" id="field_curp"
+                    ng-model="vm.freecom_addressee.curp"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_addressee.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                    ng-model="vm.freecom_addressee.name"
+                    ng-maxlength="300" />
+            <div ng-show="editForm.name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="300">
+                    This field cannot be longer than 300 characters.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_addressee.c_country" for="field_c_country">C Country</label>
+            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.freecom_addressee.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countries track by c_country.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_addressee.c_state" for="field_c_state">C State</label>
+            <select class="form-control" id="field_c_state" name="c_state" ng-model="vm.freecom_addressee.c_state" ng-options="c_state as c_state.name for c_state in vm.c_states track by c_state.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_addressee.c_municipality" for="field_c_municipality">C Municipality</label>
+            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.freecom_addressee.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalities track by c_municipality.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_addressee.c_colony" for="field_c_colony">C Colony</label>
+            <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.freecom_addressee.c_colony" ng-options="c_colony as c_colony.code for c_colony in vm.c_colonies track by c_colony.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_addressee.c_zip_code" for="field_c_zip_code">C Zip Code</label>
+            <select class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.freecom_addressee.c_zip_code" ng-options="c_zip_code as c_zip_code.code for c_zip_code in vm.c_zip_codes track by c_zip_code.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

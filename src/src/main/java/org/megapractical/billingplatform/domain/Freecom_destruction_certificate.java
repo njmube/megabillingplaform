@@ -70,7 +70,10 @@ public class Freecom_destruction_certificate implements Serializable {
     private String numfoltarjcir;
 
     @ManyToOne
-    private C_class c_class;
+    private Free_cfdi free_cfdi;
+
+    @ManyToOne
+    private C_type_series c_type_series;
 
     public Long getId() {
         return id;
@@ -168,12 +171,20 @@ public class Freecom_destruction_certificate implements Serializable {
         this.numfoltarjcir = numfoltarjcir;
     }
 
-    public C_class getC_class() {
-        return c_class;
+    public Free_cfdi getFree_cfdi() {
+        return free_cfdi;
     }
 
-    public void setC_class(C_class c_class) {
-        this.c_class = c_class;
+    public void setFree_cfdi(Free_cfdi free_cfdi) {
+        this.free_cfdi = free_cfdi;
+    }
+
+    public C_type_series getC_type_series() {
+        return c_type_series;
+    }
+
+    public void setC_type_series(C_type_series c_type_series) {
+        this.c_type_series = c_type_series;
     }
 
     @Override

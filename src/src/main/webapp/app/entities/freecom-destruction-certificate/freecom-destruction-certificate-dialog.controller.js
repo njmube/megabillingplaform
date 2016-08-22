@@ -5,39 +5,44 @@
         .module('megabillingplatformApp')
         .controller('Freecom_destruction_certificateDialogController', Freecom_destruction_certificateDialogController);
 
-    Freecom_destruction_certificateDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Freecom_destruction_certificate', 'C_class'];
+    Freecom_destruction_certificateDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Freecom_destruction_certificate', 'Free_cfdi', 'C_type_series'];
 
-    function Freecom_destruction_certificateDialogController ($scope, $stateParams, $uibModalInstance, entity, Freecom_destruction_certificate, C_class) {
+    function Freecom_destruction_certificateDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Freecom_destruction_certificate, Free_cfdi, C_type_series) {
         var vm = this;
+
         vm.freecom_destruction_certificate = entity;
-        vm.c_classs = C_class.query();
-        vm.load = function(id) {
-            Freecom_destruction_certificate.get({id : id}, function(result) {
-                vm.freecom_destruction_certificate = result;
-            });
-        };
+        vm.clear = clear;
+        vm.save = save;
+        vm.free_cfdis = Free_cfdi.query();
+        vm.c_type_series = C_type_series.query();
 
-        var onSaveSuccess = function (result) {
-            $scope.$emit('megabillingplatformApp:freecom_destruction_certificateUpdate', result);
-            $uibModalInstance.close(result);
-            vm.isSaving = false;
-        };
+        $timeout(function (){
+            angular.element('.form-group:eq(1)>input').focus();
+        });
 
-        var onSaveError = function () {
-            vm.isSaving = false;
-        };
+        function clear () {
+            $uibModalInstance.dismiss('cancel');
+        }
 
-        vm.save = function () {
+        function save () {
             vm.isSaving = true;
             if (vm.freecom_destruction_certificate.id !== null) {
                 Freecom_destruction_certificate.update(vm.freecom_destruction_certificate, onSaveSuccess, onSaveError);
             } else {
                 Freecom_destruction_certificate.save(vm.freecom_destruction_certificate, onSaveSuccess, onSaveError);
             }
-        };
+        }
 
-        vm.clear = function() {
-            $uibModalInstance.dismiss('cancel');
-        };
+        function onSaveSuccess (result) {
+            $scope.$emit('megabillingplatformApp:freecom_destruction_certificateUpdate', result);
+            $uibModalInstance.close(result);
+            vm.isSaving = false;
+        }
+
+        function onSaveError () {
+            vm.isSaving = false;
+        }
+
+
     }
 })();

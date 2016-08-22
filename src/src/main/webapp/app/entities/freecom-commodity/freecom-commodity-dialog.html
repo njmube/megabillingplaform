@@ -1,0 +1,94 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFreecom_commodityLabel" translate="megabillingplatformApp.freecom_commodity.home.createOrEditLabel">Create or edit a Freecom Commodity</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.freecom_commodity.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.freecom_commodity.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_commodity.noidentification" for="field_noidentification">Noidentification</label>
+            <input type="text" class="form-control" name="noidentification" id="field_noidentification"
+                    ng-model="vm.freecom_commodity.noidentification"
+                    required ng-maxlength="100" />
+            <div ng-show="editForm.noidentification.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.noidentification.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.noidentification.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="100">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_commodity.customs_quantity" for="field_customs_quantity">Customs Quantity</label>
+            <input type="number" class="form-control" name="customs_quantity" id="field_customs_quantity"
+                    ng-model="vm.freecom_commodity.customs_quantity"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_commodity.customs_unit_value" for="field_customs_unit_value">Customs Unit Value</label>
+            <input type="number" class="form-control" name="customs_unit_value" id="field_customs_unit_value"
+                    ng-model="vm.freecom_commodity.customs_unit_value"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_commodity.dollar_value" for="field_dollar_value">Dollar Value</label>
+            <input type="number" class="form-control" name="dollar_value" id="field_dollar_value"
+                    ng-model="vm.freecom_commodity.dollar_value"
+                    required />
+            <div ng-show="editForm.dollar_value.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.dollar_value.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.dollar_value.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_commodity.freecom_foreign_trade" for="field_freecom_foreign_trade">Freecom Foreign Trade</label>
+            <select class="form-control" id="field_freecom_foreign_trade" name="freecom_foreign_trade" ng-model="vm.freecom_commodity.freecom_foreign_trade" ng-options="freecom_foreign_trade as freecom_foreign_trade.id for freecom_foreign_trade in vm.freecom_foreign_trades track by freecom_foreign_trade.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_commodity.freecom_tariff_fraction" for="field_freecom_tariff_fraction">Freecom Tariff Fraction</label>
+            <select class="form-control" id="field_freecom_tariff_fraction" name="freecom_tariff_fraction" ng-model="vm.freecom_commodity.freecom_tariff_fraction" ng-options="freecom_tariff_fraction as freecom_tariff_fraction.value for freecom_tariff_fraction in vm.freecom_tariff_fractions track by freecom_tariff_fraction.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_commodity.freecom_custom_unit" for="field_freecom_custom_unit">Freecom Custom Unit</label>
+            <select class="form-control" id="field_freecom_custom_unit" name="freecom_custom_unit" ng-model="vm.freecom_commodity.freecom_custom_unit" ng-options="freecom_custom_unit as freecom_custom_unit.value for freecom_custom_unit in vm.freecom_custom_units track by freecom_custom_unit.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_commodity.freecom_specific_descriptions" for="field_freecom_specific_descriptions">Freecom Specific Descriptions</label>
+            <select class="form-control" id="field_freecom_specific_descriptions" name="freecom_specific_descriptions" ng-model="vm.freecom_commodity.freecom_specific_descriptions" ng-options="freecom_specific_descriptions as freecom_specific_descriptions.id for freecom_specific_descriptions in vm.freecom_specific_descriptions track by freecom_specific_descriptions.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

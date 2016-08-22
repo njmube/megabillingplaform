@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "freecom_specific_descriptions" : {
+            "home": {
+                "title": "Freecom Specific Descriptions",
+                "createLabel": "Create a new Freecom Specific Descriptions",
+                "createOrEditLabel": "Create or edit a Freecom Specific Descriptions",
+                "search": "Search for Freecom Specific Descriptions"
+            },
+            "created": "A new Freecom Specific Descriptions is created with identifier {{ param }}",
+            "updated": "A Freecom Specific Descriptions is updated with identifier {{ param }}",
+            "deleted": "A Freecom Specific Descriptions is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom Specific Descriptions {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Specific Descriptions"
+            },
+            "brand": "Brand",
+            "model": "Model",
+            "submodel": "Submodel",
+            "serial_number": "Serial Number"
+        }
+    }
+}

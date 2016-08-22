@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Spring Data JPA repository for the Freecom_destruction_certificate entity.
  */
+@SuppressWarnings("unused")
 public interface Freecom_destruction_certificateRepository extends JpaRepository<Freecom_destruction_certificate,Long> {
 
 }

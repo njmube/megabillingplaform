@@ -1,0 +1,68 @@
+<div>
+    <h2 translate="megabillingplatformApp.freecom_legend.home.title">Freecom Legends</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="freecom-legend.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.freecom_legend.home.createLabel">
+                        Create new Freecom Legend
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax_provision"><span translate="megabillingplatformApp.freecom_legend.tax_provision">Tax Provision</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="norm"><span translate="megabillingplatformApp.freecom_legend.norm">Norm</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="text_legend"><span translate="megabillingplatformApp.freecom_legend.text_legend">Text Legend</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_taxlegends.version"><span translate="megabillingplatformApp.freecom_legend.freecom_taxlegends">Freecom Taxlegends</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="freecom_legend in vm.freecom_legends track by freecom_legend.id">
+                    <td><a ui-sref="freecom-legend-detail({id:freecom_legend.id})">{{freecom_legend.id}}</a></td>
+                    <td>{{freecom_legend.tax_provision}}</td>
+                    <td>{{freecom_legend.norm}}</td>
+                    <td>{{freecom_legend.text_legend}}</td>
+                    <td>
+                        <a ui-sref="freecom-taxlegends-detail({id:freecom_legend.freecom_taxlegends.id})">{{freecom_legend.freecom_taxlegends.version}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="freecom-legend-detail({id:freecom_legend.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-legend.edit({id:freecom_legend.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-legend.delete({id:freecom_legend.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

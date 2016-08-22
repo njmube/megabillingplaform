@@ -1,0 +1,59 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "freecom_foreign_trade",
+            "otherEntityName": "freecom_foreign_trade",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "freecom_tariff_fraction",
+            "otherEntityName": "freecom_tariff_fraction",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "value"
+        },
+        {
+            "relationshipName": "freecom_custom_unit",
+            "otherEntityName": "freecom_custom_unit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "value"
+        },
+        {
+            "relationshipName": "freecom_specific_descriptions",
+            "otherEntityName": "freecom_specific_descriptions",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "noidentification",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "customs_quantity",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "customs_unit_value",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "dollar_value",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160822131651",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_commodity",
+    "pagination": "pagination"
+}

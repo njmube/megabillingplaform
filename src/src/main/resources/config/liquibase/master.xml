@@ -54,7 +54,6 @@
     <include file="classpath:config/liquibase/changelog/20160721180801_added_entity_C_features_work_piece.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160712201235_added_entity_Freecom_apaw.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160712202048_added_entity_Freecom_taxlegends.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160712201728_added_entity_Legend.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160712204117_added_entity_Freecom_ine.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160712204913_added_entity_Key_entity.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160712210337_added_entity_Freecom_donees.xml" relativeToChangelogFile="false"/>
@@ -84,7 +83,7 @@
     <include file="classpath:config/liquibase/changelog/20160804144924_added_entity_Freecom_paybill_concept.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160804145717_added_entity_Freecom_used_vehicle.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160804150011_added_entity_Freecom_vehicle_customs_information.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160804150149_added_entity_C_class.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822122005_added_entity_C_type_series.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160804150941_added_entity_Freecom_destruction_certificate.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160804151653_added_entity_Freecom_info_customs_destruction.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160805130726_added_entity_Freecom_tax_type.xml" relativeToChangelogFile="false"/>
@@ -100,5 +99,15 @@
     <include file="classpath:config/liquibase/changelog/20160810160314_added_entity_Freecom_payer.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160810160701_added_entity_Freecom_beneficiary.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160810161306_added_entity_Freecom_spei_third.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822122750_added_entity_Freecom_incoterm.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822122938_added_entity_Freecom_tariff_fraction.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822123126_added_entity_Freecom_custom_unit.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822123342_added_entity_C_key_pediment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822123515_added_entity_C_type_operation_ce.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822124633_added_entity_Freecom_addressee.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822130836_added_entity_Freecom_foreign_trade.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822131147_added_entity_Freecom_specific_descriptions.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822131651_added_entity_Freecom_commodity.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712201728_added_entity_Freecom_legend.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

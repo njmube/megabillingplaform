@@ -1,0 +1,35 @@
+{
+    "megabillingplatformApp": {
+        "freecom_addressee" : {
+            "home": {
+                "title": "Freecom Addressees",
+                "createLabel": "Create a new Freecom Addressee",
+                "createOrEditLabel": "Create or edit a Freecom Addressee",
+                "search": "Search for Freecom Addressee"
+            },
+            "created": "A new Freecom Addressee is created with identifier {{ param }}",
+            "updated": "A Freecom Addressee is updated with identifier {{ param }}",
+            "deleted": "A Freecom Addressee is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom Addressee {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Addressee"
+            },
+            "street": "Street",
+            "no_ext": "No Ext",
+            "no_int": "No Int",
+            "locate": "Locate",
+            "reference": "Reference",
+            "numregidtrib": "Numregidtrib",
+            "rfc": "Rfc",
+            "curp": "Curp",
+            "name": "Name",
+            "c_country": "C Country",
+            "c_state": "C State",
+            "c_municipality": "C Municipality",
+            "c_colony": "C Colony",
+            "c_zip_code": "C Zip Code"
+        }
+    }
+}

@@ -1,0 +1,107 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "free_cfdi",
+            "otherEntityName": "free_cfdi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "freecom_incoterm",
+            "otherEntityName": "freecom_incoterm",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "value"
+        },
+        {
+            "relationshipName": "c_type_operation_ce",
+            "otherEntityName": "c_type_operation_ce",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "value"
+        },
+        {
+            "relationshipName": "c_key_pediment",
+            "otherEntityName": "c_key_pediment",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "value"
+        },
+        {
+            "relationshipName": "freecom_addressee",
+            "otherEntityName": "freecom_addressee",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "freecom_foreign_trade"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "emitter_curp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "receiver_curp",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "receiver_numregidtrib",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "40"
+        },
+        {
+            "fieldName": "origin_certificate",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "number_origin_certificate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "40"
+        },
+        {
+            "fieldName": "number_reliable_exporter",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "subdivision",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "observations",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "300"
+        },
+        {
+            "fieldName": "typechangeusd",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "changelogDate": "20160822130836",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_foreign_trade",
+    "pagination": "pagination"
+}

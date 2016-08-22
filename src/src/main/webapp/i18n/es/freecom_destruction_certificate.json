@@ -2,32 +2,33 @@
     "megabillingplatformApp": {
         "freecom_destruction_certificate" : {
             "home": {
-                "title": "Freecom_destruction_certificates",
-                "createLabel": "Crear nuevo Freecom_destruction_certificate",
-                "createOrEditLabel": "Crear o editar Freecom_destruction_certificate",
-                "search": "Search for Freecom_destruction_certificate"
+                "title": "Freecom Destruction Certificates",
+                "createLabel": "Crear nuevo Freecom Destruction Certificate",
+                "createOrEditLabel": "Crear o editar Freecom Destruction Certificate",
+                "search": "Search for Freecom Destruction Certificate"
             },
-            "created": "Un nuevo Freecom_destruction_certificate ha sido creado con el identificador {{ param }}",
-            "updated": "Un Freecom_destruction_certificate ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Freecom_destruction_certificate ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Freecom Destruction Certificate ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Destruction Certificate ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Destruction Certificate ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Freecom_destruction_certificate {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Freecom Destruction Certificate {{ id }}?"
             },
             "detail": {
-                "title": "Freecom_destruction_certificate"
+                "title": "Freecom Destruction Certificate"
             },
             "version": "Version",
-            "numfoldesveh": "Numfoldesveh (*)",
-            "brand": "Brand (*)",
-            "class_dc": "Class_dc (*)",
-            "year": "Year (*)",
+            "numfoldesveh": "Numfoldesveh",
+            "brand": "Brand",
+            "class_dc": "Class Dc",
+            "year": "Year",
             "model": "Model",
             "niv": "Niv",
-            "no_serie": "No_serie",
-            "number_plates": "Number_plates (*)",
-            "number_engine": "Number_engine",
-            "numfoltarjcir": "Numfoltarjcir (*)",
-            "c_class": "C_class"
+            "no_serie": "No Serie",
+            "number_plates": "Number Plates",
+            "number_engine": "Number Engine",
+            "numfoltarjcir": "Numfoltarjcir",
+            "free_cfdi": "Free Cfdi",
+            "c_type_series": "C Type Series"
         }
     }
 }

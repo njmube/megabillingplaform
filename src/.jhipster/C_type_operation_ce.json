@@ -1,0 +1,21 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "value",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160822123515",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "c_type_operation_ce",
+    "pagination": "pagination"
+}

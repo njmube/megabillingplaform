@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "c_type_series" : {
+            "home": {
+                "title": "C Type Series",
+                "createLabel": "Create a new C Type Series",
+                "createOrEditLabel": "Create or edit a C Type Series",
+                "search": "Search for C Type Series"
+            },
+            "created": "A new C Type Series is created with identifier {{ param }}",
+            "updated": "A C Type Series is updated with identifier {{ param }}",
+            "deleted": "A C Type Series is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete C Type Series {{ id }}?"
+            },
+            "detail": {
+                "title": "C Type Series"
+            },
+            "value": "Value"
+        }
+    }
+}

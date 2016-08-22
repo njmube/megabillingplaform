@@ -1,0 +1,29 @@
+{
+    "megabillingplatformApp": {
+        "freecom_commodity" : {
+            "home": {
+                "title": "Freecom Commodities",
+                "createLabel": "Create a new Freecom Commodity",
+                "createOrEditLabel": "Create or edit a Freecom Commodity",
+                "search": "Search for Freecom Commodity"
+            },
+            "created": "A new Freecom Commodity is created with identifier {{ param }}",
+            "updated": "A Freecom Commodity is updated with identifier {{ param }}",
+            "deleted": "A Freecom Commodity is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom Commodity {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Commodity"
+            },
+            "noidentification": "Noidentification",
+            "customs_quantity": "Customs Quantity",
+            "customs_unit_value": "Customs Unit Value",
+            "dollar_value": "Dollar Value",
+            "freecom_foreign_trade": "Freecom Foreign Trade",
+            "freecom_tariff_fraction": "Freecom Tariff Fraction",
+            "freecom_custom_unit": "Freecom Custom Unit",
+            "freecom_specific_descriptions": "Freecom Specific Descriptions"
+        }
+    }
+}

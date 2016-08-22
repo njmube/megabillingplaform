@@ -4,11 +4,11 @@
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
                 ng-click="vm.clear()">&times;</button>
-        <h4 class="modal-title" id="myFreecom_destruction_certificateLabel" translate="megabillingplatformApp.freecom_destruction_certificate.home.createOrEditLabel">Create or edit a Freecom_destruction_certificate</h4>
+        <h4 class="modal-title" id="myFreecom_destruction_certificateLabel" translate="megabillingplatformApp.freecom_destruction_certificate.home.createOrEditLabel">Create or edit a Freecom Destruction Certificate</h4>
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group">
+        <div class="form-group" ng-show="vm.freecom_destruction_certificate.id">
             <label for="id" translate="global.field.id">ID</label>
             <input type="text" class="form-control" id="id" name="id"
                     ng-model="vm.freecom_destruction_certificate.id" readonly />
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_destruction_certificate.class_dc" for="field_class_dc">Class_dc</label>
+            <label class="control-label" translate="megabillingplatformApp.freecom_destruction_certificate.class_dc" for="field_class_dc">Class Dc</label>
             <input type="text" class="form-control" name="class_dc" id="field_class_dc"
                     ng-model="vm.freecom_destruction_certificate.class_dc"
                     required ng-maxlength="50" />
@@ -102,7 +102,7 @@
                      />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_destruction_certificate.no_serie" for="field_no_serie">No_serie</label>
+            <label class="control-label" translate="megabillingplatformApp.freecom_destruction_certificate.no_serie" for="field_no_serie">No Serie</label>
             <input type="text" class="form-control" name="no_serie" id="field_no_serie"
                     ng-model="vm.freecom_destruction_certificate.no_serie"
                     ng-maxlength="17" />
@@ -114,7 +114,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_destruction_certificate.number_plates" for="field_number_plates">Number_plates</label>
+            <label class="control-label" translate="megabillingplatformApp.freecom_destruction_certificate.number_plates" for="field_number_plates">Number Plates</label>
             <input type="text" class="form-control" name="number_plates" id="field_number_plates"
                     ng-model="vm.freecom_destruction_certificate.number_plates"
                     required ng-maxlength="10" />
@@ -130,7 +130,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_destruction_certificate.number_engine" for="field_number_engine">Number_engine</label>
+            <label class="control-label" translate="megabillingplatformApp.freecom_destruction_certificate.number_engine" for="field_number_engine">Number Engine</label>
             <input type="text" class="form-control" name="number_engine" id="field_number_engine"
                     ng-model="vm.freecom_destruction_certificate.number_engine"
                     ng-maxlength="17" />
@@ -159,8 +159,14 @@
         </div>
 
         <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_destruction_certificate.c_class" for="field_c_class">c_class</label>
-            <select class="form-control" id="field_c_class" name="c_class" ng-model="vm.freecom_destruction_certificate.c_class" ng-options="c_class as c_class.name for c_class in vm.c_classs track by c_class.id">
+            <label translate="megabillingplatformApp.freecom_destruction_certificate.free_cfdi" for="field_free_cfdi">Free Cfdi</label>
+            <select class="form-control" id="field_free_cfdi" name="free_cfdi" ng-model="vm.freecom_destruction_certificate.free_cfdi" ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.free_cfdis track by free_cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.freecom_destruction_certificate.c_type_series" for="field_c_type_series">C Type Series</label>
+            <select class="form-control" id="field_c_type_series" name="c_type_series" ng-model="vm.freecom_destruction_certificate.c_type_series" ng-options="c_type_series as c_type_series.value for c_type_series in vm.c_type_series track by c_type_series.id">
                 <option value=""></option>
             </select>
         </div>
@@ -169,7 +175,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
         </button>
     </div>

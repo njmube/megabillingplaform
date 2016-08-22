@@ -1,0 +1,36 @@
+{
+    "megabillingplatformApp": {
+        "freecom_foreign_trade" : {
+            "home": {
+                "title": "Freecom Foreign Trades",
+                "createLabel": "Crear nuevo Freecom Foreign Trade",
+                "createOrEditLabel": "Crear o editar Freecom Foreign Trade",
+                "search": "Search for Freecom Foreign Trade"
+            },
+            "created": "Un nuevo Freecom Foreign Trade ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Foreign Trade ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Foreign Trade ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Foreign Trade {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Foreign Trade"
+            },
+            "version": "Version",
+            "emitter_curp": "Emitter Curp",
+            "receiver_curp": "Receiver Curp",
+            "receiver_numregidtrib": "Receiver Numregidtrib",
+            "origin_certificate": "Origin Certificate",
+            "number_origin_certificate": "Number Origin Certificate",
+            "number_reliable_exporter": "Number Reliable Exporter",
+            "subdivision": "Subdivision",
+            "observations": "Observations",
+            "typechangeusd": "Typechangeusd",
+            "free_cfdi": "Free Cfdi",
+            "freecom_incoterm": "Freecom Incoterm",
+            "c_type_operation_ce": "C Type Operation Ce",
+            "c_key_pediment": "C Key Pediment",
+            "freecom_addressee": "Freecom Addressee"
+        }
+    }
+}

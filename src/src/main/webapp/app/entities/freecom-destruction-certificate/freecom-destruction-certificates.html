@@ -1,5 +1,5 @@
 <div>
-    <h2 translate="megabillingplatformApp.freecom_destruction_certificate.home.title">Freecom_destruction_certificates</h2>
+    <h2 translate="megabillingplatformApp.freecom_destruction_certificate.home.title">Freecom Destruction Certificates</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="freecom-destruction-certificate.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span  translate="megabillingplatformApp.freecom_destruction_certificate.home.createLabel">
-                        Create new Freecom_destruction_certificate
+                        Create new Freecom Destruction Certificate
                     </span>
                 </button>
             </div>
@@ -22,15 +22,16 @@
                     <th jh-sort-by="version"><span translate="megabillingplatformApp.freecom_destruction_certificate.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="numfoldesveh"><span translate="megabillingplatformApp.freecom_destruction_certificate.numfoldesveh">Numfoldesveh</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="brand"><span translate="megabillingplatformApp.freecom_destruction_certificate.brand">Brand</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="class_dc"><span translate="megabillingplatformApp.freecom_destruction_certificate.class_dc">Class_dc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="class_dc"><span translate="megabillingplatformApp.freecom_destruction_certificate.class_dc">Class Dc</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="year"><span translate="megabillingplatformApp.freecom_destruction_certificate.year">Year</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="model"><span translate="megabillingplatformApp.freecom_destruction_certificate.model">Model</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="niv"><span translate="megabillingplatformApp.freecom_destruction_certificate.niv">Niv</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="no_serie"><span translate="megabillingplatformApp.freecom_destruction_certificate.no_serie">No_serie</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="number_plates"><span translate="megabillingplatformApp.freecom_destruction_certificate.number_plates">Number_plates</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="number_engine"><span translate="megabillingplatformApp.freecom_destruction_certificate.number_engine">Number_engine</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_serie"><span translate="megabillingplatformApp.freecom_destruction_certificate.no_serie">No Serie</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_plates"><span translate="megabillingplatformApp.freecom_destruction_certificate.number_plates">Number Plates</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_engine"><span translate="megabillingplatformApp.freecom_destruction_certificate.number_engine">Number Engine</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="numfoltarjcir"><span translate="megabillingplatformApp.freecom_destruction_certificate.numfoltarjcir">Numfoltarjcir</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="c_class.name"><span translate="megabillingplatformApp.freecom_destruction_certificate.c_class">c_class</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.freecom_destruction_certificate.free_cfdi">Free Cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_type_series.value"><span translate="megabillingplatformApp.freecom_destruction_certificate.c_type_series">C Type Series</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -49,7 +50,10 @@
                     <td>{{freecom_destruction_certificate.number_engine}}</td>
                     <td>{{freecom_destruction_certificate.numfoltarjcir}}</td>
                     <td>
-                        <a ui-sref="c-class-detail({id:freecom_destruction_certificate.c_class.id})">{{freecom_destruction_certificate.c_class.name}}</a>
+                        <a ui-sref="free-cfdi-detail({id:freecom_destruction_certificate.free_cfdi.id})">{{freecom_destruction_certificate.free_cfdi.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-type-series-detail({id:freecom_destruction_certificate.c_type_series.id})">{{freecom_destruction_certificate.c_type_series.value}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
