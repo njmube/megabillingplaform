@@ -56,5 +56,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="free_receiver"/>
 
+        <addForeignKeyConstraint baseColumnNames="freecom_tfd_id"
+                                 baseTableName="free_cfdi"
+                                 constraintName="fk_free_cfdi_freecom_tfd_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_tfd"/>
+
     </changeSet>
 </databaseChangeLog>

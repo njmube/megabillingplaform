@@ -18,7 +18,7 @@
             },
             "tax_provision": "Tax Provision",
             "norm": "Norm",
-            "text_legend": "Text Legend",
+            "text_legend": "Text Legend (*)",
             "freecom_taxlegends": "Freecom Taxlegends"
         }
     }

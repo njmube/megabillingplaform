@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -8,41 +8,30 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.freecom_legend.id">
-            <label for="id" translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.freecom_legend.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_legend.tax_provision" for="field_tax_provision">Tax Provision</label>
-            <input type="text" class="form-control" name="tax_provision" id="field_tax_provision"
-                    ng-model="vm.freecom_legend.tax_provision"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_legend.norm" for="field_norm">Norm</label>
-            <input type="text" class="form-control" name="norm" id="field_norm"
-                    ng-model="vm.freecom_legend.norm"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_legend.text_legend" for="field_text_legend">Text Legend</label>
-            <input type="text" class="form-control" name="text_legend" id="field_text_legend"
-                    ng-model="vm.freecom_legend.text_legend"
-                    required />
-            <div ng-show="editForm.text_legend.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.text_legend.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
-        </div>
 
         <div class="form-group">
-            <label translate="megabillingplatformApp.freecom_legend.freecom_taxlegends" for="field_freecom_taxlegends">Freecom Taxlegends</label>
-            <select class="form-control" id="field_freecom_taxlegends" name="freecom_taxlegends" ng-model="vm.freecom_legend.freecom_taxlegends" ng-options="freecom_taxlegends as freecom_taxlegends.version for freecom_taxlegends in vm.freecom_taxlegends track by freecom_taxlegends.id">
-                <option value=""></option>
-            </select>
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_legend.tax_provision" for="field_tax_provision">Tax Provision</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="tax_provision" id="field_tax_provision"
+                        ng-model="vm.freecom_legend.tax_provision"
+                         />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_legend.norm" for="field_norm">Norm</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="norm" id="field_norm"
+                        ng-model="vm.freecom_legend.norm"
+                         />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_legend.text_legend" for="field_text_legend">Text Legend</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="text_legend" id="field_text_legend"
+                        ng-model="vm.freecom_legend.text_legend"
+                        required />
+            </div>
         </div>
     </div>
     <div class="modal-footer">

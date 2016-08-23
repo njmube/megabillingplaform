@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "freecom_tfd" : {
+            "home": {
+                "title": "Freecom Tfds",
+                "createLabel": "Crear nuevo Freecom Tfd",
+                "createOrEditLabel": "Crear o editar Freecom Tfd",
+                "search": "Search for Freecom Tfd"
+            },
+            "created": "Un nuevo Freecom Tfd ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Tfd ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Tfd ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Tfd {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Tfd"
+            },
+            "version": "Version",
+            "uuid": "Uuid",
+            "stamp_date": "Stamp Date",
+            "stamp_cfd": "Stamp Cfd",
+            "sat_number_certificate": "Sat Number Certificate",
+            "stamp_sat": "Stamp Sat"
+        }
+    }
+}

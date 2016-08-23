@@ -191,7 +191,7 @@
                     $translatePartialLoader.addPart('freecom_pfic');
                     $translatePartialLoader.addPart('freecom_accreditation_ieps');
                     $translatePartialLoader.addPart('freecom_taxlegends');
-                    $translatePartialLoader.addPart('legend');
+                    $translatePartialLoader.addPart('freecom_legend');
                     $translatePartialLoader.addPart('freecom_airline');
                     $translatePartialLoader.addPart('freecom_charge');
                     $translatePartialLoader.addPart('freecom_apaw');

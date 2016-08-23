@@ -24,6 +24,7 @@ public class Free_cfdi implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     @Size(min = 3, max = 3)
     @Column(name = "version", length = 3, nullable = false)
     private String version;
@@ -36,6 +37,7 @@ public class Free_cfdi implements Serializable {
     @Column(name = "folio", length = 20)
     private String folio;
 
+    @NotNull
     @Column(name = "date_expedition", nullable = false)
     private ZonedDateTime date_expedition;
 
@@ -46,6 +48,7 @@ public class Free_cfdi implements Serializable {
     @Column(name = "change_type")
     private String change_type;
 
+    @NotNull
     @Column(name = "place_expedition", nullable = false)
     private String place_expedition;
 
@@ -62,39 +65,42 @@ public class Free_cfdi implements Serializable {
     @Column(name = "date_folio_fiscal_orig")
     private ZonedDateTime date_folio_fiscal_orig;
 
-    @Column(name = "mont_folio_fiscal_orig", precision=24, scale=6)
+    @Column(name = "mont_folio_fiscal_orig", precision=10, scale=2)
     private BigDecimal mont_folio_fiscal_orig;
 
-    @Column(name = "total_tax_retention", precision=24, scale=6)
+    @Column(name = "total_tax_retention", precision=10, scale=2)
     private BigDecimal total_tax_retention;
 
-    @Column(name = "total_tax_transfered", precision=24, scale=6)
+    @Column(name = "total_tax_transfered", precision=10, scale=2)
     private BigDecimal total_tax_transfered;
 
-    @Column(name = "discount", precision=24, scale=6)
+    @Column(name = "discount", precision=10, scale=2)
     private BigDecimal discount;
 
     @Column(name = "discount_reason")
     private String discount_reason;
 
     @NotNull
-    @Column(name = "subtotal", precision=24, scale=6, nullable = false)
+    @Column(name = "subtotal", precision=10, scale=2, nullable = false)
     private BigDecimal subtotal;
 
     @NotNull
-    @Column(name = "total", precision=24, scale=6, nullable = false)
+    @Column(name = "total", precision=10, scale=2, nullable = false)
     private BigDecimal total;
 
     @Column(name = "addenda")
     private String addenda;
 
+    @NotNull
     @Column(name = "stamp", nullable = false)
     private String stamp;
 
+    @NotNull
     @Size(max = 20)
     @Column(name = "no_certificate", length = 20, nullable = false)
     private String no_certificate;
 
+    @NotNull
     @Column(name = "certificate", nullable = false)
     private String certificate;
 
@@ -142,6 +148,9 @@ public class Free_cfdi implements Serializable {
 
     @ManyToOne
     private Free_receiver free_receiver;
+
+    @ManyToOne
+    private Freecom_tfd freecom_tfd;
 
     public Long getId() {
         return id;
@@ -437,6 +446,14 @@ public class Free_cfdi implements Serializable {
 
     public void setFree_receiver(Free_receiver free_receiver) {
         this.free_receiver = free_receiver;
+    }
+
+    public Freecom_tfd getFreecom_tfd() {
+        return freecom_tfd;
+    }
+
+    public void setFreecom_tfd(Freecom_tfd freecom_tfd) {
+        this.freecom_tfd = freecom_tfd;
     }
 
     @Override

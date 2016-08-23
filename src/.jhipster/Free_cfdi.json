@@ -47,6 +47,12 @@
             "otherEntityName": "free_receiver",
             "relationshipType": "many-to-one",
             "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "freecom_tfd",
+            "otherEntityName": "freecom_tfd",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

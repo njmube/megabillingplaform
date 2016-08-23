@@ -109,5 +109,6 @@
     <include file="classpath:config/liquibase/changelog/20160822131147_added_entity_Freecom_specific_descriptions.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160822131651_added_entity_Freecom_commodity.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160712201728_added_entity_Freecom_legend.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160823214934_added_entity_Freecom_tfd.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
