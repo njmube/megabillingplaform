@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "c_complement" : {
+            "home": {
+                "title": "Complementos",
+                "createLabel": "Crear nuevo Complemento",
+                "createOrEditLabel": "Crear o editar Complemento",
+                "search": "Búsqueda para Complemento"
+            },
+            "created": "Un nuevo Complemento ha sido creado con el identificador {{ param }}",
+            "updated": "Un Complemento ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Complemento ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Complemento {{ id }}?"
+            },
+            "detail": {
+                "title": "Complemento"
+            },
+            "name": "Nombre",
+            "description": "Descripción",
+            "filtername":"Filtrar por nombre"
+        }
+    }
+}

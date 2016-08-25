@@ -105,6 +105,7 @@
                 "freecomSpecificDescriptions": "Freecom Specific Descriptions",
                 "freecomCommodity": "Freecom Commodity",
                 "freecomLegend": "Freecom Legend",
+                "cComplement": "C Complement",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
