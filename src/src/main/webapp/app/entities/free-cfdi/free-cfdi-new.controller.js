@@ -1072,7 +1072,7 @@
             if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id >= 1 && vm.free_cfdi.cfdi_type_doc.id <= 7){
                 vm.free_cfdi.cfdi_types = vm.cfdi_typess[0];
 
-                if(vm.current_complement.id == "ecc11"){
+                if(vm.current_complement != null && vm.current_complement.id == "ecc11"){
                     vm.show_ecc11 = true;
                     vm.show_ecc11_invalid = false;
                 }
@@ -1080,7 +1080,7 @@
             else if(vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 8 || vm.free_cfdi.cfdi_type_doc.id == 9)){
                 vm.free_cfdi.cfdi_types = vm.cfdi_typess[1];
 
-                if(vm.current_complement.id == "ecc11"){
+                if(vm.current_complement != null && vm.current_complement.id == "ecc11"){
                     vm.show_ecc11 = false;
                     vm.show_ecc11_invalid = true;
                 }
@@ -1088,7 +1088,7 @@
             else if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 10 ){
                 vm.free_cfdi.cfdi_types = vm.cfdi_typess[2];
 
-                if(vm.current_complement.id == "ecc11"){
+                if(vm.current_complement != null && vm.current_complement.id == "ecc11"){
                     vm.show_ecc11 = false;
                     vm.show_ecc11_invalid = true;
                 }
