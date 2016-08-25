@@ -1071,12 +1071,27 @@
         vm.onChangeCFDITypeDoc = function(){
             if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id >= 1 && vm.free_cfdi.cfdi_type_doc.id <= 7){
                 vm.free_cfdi.cfdi_types = vm.cfdi_typess[0];
+
+                if(vm.current_complement.id == "ecc11"){
+                    vm.show_ecc11 = true;
+                    vm.show_ecc11_invalid = false;
+                }
             }
             else if(vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 8 || vm.free_cfdi.cfdi_type_doc.id == 9)){
                 vm.free_cfdi.cfdi_types = vm.cfdi_typess[1];
+
+                if(vm.current_complement.id == "ecc11"){
+                    vm.show_ecc11 = false;
+                    vm.show_ecc11_invalid = true;
+                }
             }
             else if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 10 ){
                 vm.free_cfdi.cfdi_types = vm.cfdi_typess[2];
+
+                if(vm.current_complement.id == "ecc11"){
+                    vm.show_ecc11 = false;
+                    vm.show_ecc11_invalid = true;
+                }
             }
 
             if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 6 ){
@@ -1181,7 +1196,14 @@
                     vm.show_storeroom_paybill = true;
                     break;
                 case "ecc11":
-                    vm.show_ecc11 = true;
+                    if(vm.free_cfdi.cfdi_types != null && vm.free_cfdi.cfdi_types.id == 1) {
+                        vm.show_ecc11 = true;
+                        vm.show_ecc11_invalid = false;
+                    }
+                    else{
+                        vm.show_ecc11 = false;
+                        vm.show_ecc11_invalid = true;
+                    }
                     break;
                 case "spei":
                     vm.show_spei = true;
@@ -1260,6 +1282,7 @@
             vm.freecom_paybill_concepts = [];
 
             vm.show_ecc11 = false;
+            vm.show_ecc11_invalid = false;
             vm.freecom_ecc11 = {version: null, type_operation: null, number_account: null, subtotal: null, total: null, id: null };
             vm.freecom_ecc11_concepts = [];
 
@@ -1664,6 +1687,7 @@
 
         //Ecc11
         vm.show_ecc11 = false;
+        vm.show_ecc11_invalid = false;
         vm.freecom_ecc11 = null;
         vm.freecom_ecc11_concepts = [];
 
@@ -1718,7 +1742,7 @@
                     entity: function () {
                         return {
                             date_operation: null,
-                            hour: null,
+                            hour: "00:00:00",
                             key_spei: null,
                             stamp: null,
                             number_certificate: null,
@@ -1744,8 +1768,8 @@
                             account: null,
                             rfc: null,
                             concept: null,
-                            iva: null,
-                            payment_amount: null,
+                            iva: (1).toFixed(2),
+                            payment_amount: (1).toFixed(2),
                             id: null
                         };
                     }

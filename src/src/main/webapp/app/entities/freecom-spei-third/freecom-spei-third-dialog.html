@@ -46,12 +46,12 @@
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_payer.type_account" for="field_freecom_payer_type_account">Type Account</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="freecom_payer_type_account" id="field_freecom_payer_type_account"
-                               ng-model="vm.freecom_payer.type_account" ng-pattern="/^\d+\.?\d*$/"
+                               ng-model="vm.freecom_payer.type_account" ng-pattern="/^[0-9]{1,2}$/"
                                required />
                         <div ng-show="editForm.freecom_payer_type_account.$invalid">
                             <p class="help-block"
-                               ng-show="editForm.freecom_payer_type_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
-                                This field should follow pattern "/^\d+\.?\d*$/".
+                               ng-show="editForm.freecom_payer_type_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{1,20}$">
+                                This field should follow pattern "/^[0-9]{1,20}$/".
                             </p>
                         </div>
                     </div>
@@ -60,12 +60,12 @@
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_payer.account" for="field_freecom_payer_account">Account</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="freecom_payer_account" id="field_freecom_payer_account"
-                               ng-model="vm.freecom_payer.account" ng-pattern="/^\d+\.?\d*$/"
+                               ng-model="vm.freecom_payer.account" ng-pattern="/^[0-9]{1,20}$/"
                                required />
                         <div ng-show="editForm.freecom_payer_account.$invalid">
                             <p class="help-block"
-                               ng-show="editForm.freecom_payer_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
-                                This field should follow pattern "/^\d+\.?\d*$/".
+                               ng-show="editForm.freecom_payer_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{1,20}$">
+                                This field should follow pattern "/^[0-9]{1,20}$/".
                             </p>
                         </div>
                     </div>
@@ -74,15 +74,9 @@
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_payer.rfc" for="field_freecom_payer_rfc">Rfc</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="freecom_payer_rfc" id="field_freecom_payer_rfc"
-                               ng-model="vm.freecom_payer.rfc" ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/"
+                               ng-model="vm.freecom_payer.rfc" ng-pattern="/^ND$|^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[A-Z,0-9]{3}$/"
                                required />
                         <div ng-show="editForm.freecom_payer_rfc.$invalid">
-                            <p class="help-block" ng-show="editForm.freecom_payer_rfc.$error.minlength" translate="global.messages.validate.rfc.minlength">
-                                Your RFC is required to be at least 12 character.
-                            </p>
-                            <p class="help-block" ng-show="editForm.freecom_payer_rfc.$error.maxlength" translate="global.messages.validate.rfc.maxlength">
-                                Your RFC cannot be longer than 13 characters.
-                            </p>
                             <p class="help-block" ng-show="editForm.freecom_payer_rfc.$error.pattern" translate="global.messages.validate.rfc.pattern">
                                 RFC format is incorrect.
                             </p>
@@ -108,17 +102,12 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_spei_third.hour" for="field_hour">Hour</label>
                     <div class="col-sm-8">
-                        <div class="input-group">
-                            <input id="field_hour" type="text" class="form-control" name="hour" datetime-picker="{{dateformat}}" ng-model="vm.freecom_spei_third.hour" is-open="vm.datePickerOpenStatus.hour"
-                            required  readonly />
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default" ng-click="vm.openCalendar('hour')"><i class="glyphicon glyphicon-calendar"></i></button>
-                            </span>
-                        </div>
+                        <input id="field_hour" type="text" class="form-control" name="hour" ng-model="vm.freecom_spei_third.hour"
+                               required ng-pattern="/(([01][0-9])|(2[0-3]))(:[0-5][0-9]){2}(\.[0-9]+)?/" />
                         <div ng-show="editForm.hour.$invalid">
                             <p class="help-block"
-                                ng-show="editForm.hour.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
-                                This field should be a date and time.
+                               ng-show="editForm.hour.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="(([01][0-9])|(2[0-3]))(:[0-5][0-9]){2}(\.[0-9]+)?">
+                                This field should follow pattern "/(([01][0-9])|(2[0-3]))(:[0-5][0-9]){2}(\.[0-9]+)?/".
                             </p>
                         </div>
                     </div>
@@ -127,12 +116,12 @@
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_spei_third.key_spei" for="field_key_spei">Key Spei</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="key_spei" id="field_key_spei"
-                                ng-model="vm.freecom_spei_third.key_spei" ng-pattern="/^(0|[1-9][0-9]*)$/"
+                                ng-model="vm.freecom_spei_third.key_spei" ng-pattern="/^[0-9]{5}$/"
                                 required />
                         <div ng-show="editForm.key_spei.$invalid">
                             <p class="help-block"
-                               ng-show="editForm.key_spei.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
-                                This field should follow pattern "/^(0|[1-9][0-9]*)$/".
+                               ng-show="editForm.key_spei.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{5}$">
+                                This field should follow pattern "/^[0-9]{5}$/".
                             </p>
                         </div>
                     </div>
@@ -210,12 +199,12 @@
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.type_account" for="field_freecom_beneficiary_type_account">Type Account</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="freecom_beneficiary_type_account" id="field_freecom_beneficiary_type_account"
-                               ng-model="vm.freecom_beneficiary.type_account" ng-pattern="/^\d+\.?\d*$/"
+                               ng-model="vm.freecom_beneficiary.type_account" ng-pattern="/^[0-9]{1,2}$/"
                                required />
                         <div ng-show="editForm.freecom_beneficiary_type_account.$invalid">
                             <p class="help-block"
                                ng-show="editForm.freecom_beneficiary_type_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
-                                This field should follow pattern "/^\d+\.?\d*$/".
+                                This field should follow pattern "/^[0-9]{1,2}$/".
                             </p>
                         </div>
                     </div>
@@ -224,12 +213,12 @@
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.account" for="field_freecom_beneficiary_account">Account</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="freecom_beneficiary_account" id="field_freecom_beneficiary_account"
-                               ng-model="vm.freecom_beneficiary.account" ng-pattern="/^\d+\.?\d*$/"
+                               ng-model="vm.freecom_beneficiary.account" ng-pattern="/^[0-9]{1,20}$/"
                                required />
                         <div ng-show="editForm.freecom_beneficiary_account.$invalid">
                             <p class="help-block"
                                ng-show="editForm.freecom_beneficiary_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
-                                This field should follow pattern "/^\d+\.?\d*$/".
+                                This field should follow pattern "/^[0-9]{1,20}$/".
                             </p>
                         </div>
                     </div>
@@ -238,15 +227,9 @@
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.rfc" for="field_freecom_beneficiary_rfc">Rfc</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="freecom_beneficiary_rfc" id="field_freecom_beneficiary_rfc"
-                               ng-model="vm.freecom_beneficiary.rfc" ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/"
-                               required />
+                               ng-model="vm.freecom_beneficiary.rfc" ng-pattern="/^ND$|^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[A-Z,0-9]{3}$/"
+                               required data-ng-change="vm.onBeneficiaryRrcChange()"/>
                         <div ng-show="editForm.freecom_beneficiary_rfc.$invalid">
-                            <p class="help-block" ng-show="editForm.freecom_beneficiary_rfc.$error.minlength" translate="global.messages.validate.rfc.minlength">
-                                Your RFC is required to be at least 12 character.
-                            </p>
-                            <p class="help-block" ng-show="editForm.freecom_beneficiary_rfc.$error.maxlength" translate="global.messages.validate.rfc.maxlength">
-                                Your RFC cannot be longer than 13 characters.
-                            </p>
                             <p class="help-block" ng-show="editForm.freecom_beneficiary_rfc.$error.pattern" translate="global.messages.validate.rfc.pattern">
                                 RFC format is incorrect.
                             </p>
@@ -271,12 +254,12 @@
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.iva" for="field_freecom_beneficiary_iva">Iva</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="freecom_beneficiary_iva" id="field_freecom_beneficiary_iva"
-                               ng-model="vm.freecom_beneficiary.iva" ng-pattern="/^\d+\.?\d*$/"
+                               ng-model="vm.freecom_beneficiary.iva" ng-pattern="/^[1-9]{1,19}\.?\d{2}$/"
                                required />
                         <div ng-show="editForm.freecom_beneficiary_iva.$invalid">
                             <p class="help-block"
                                ng-show="editForm.freecom_beneficiary_iva.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
-                                This field should follow pattern "/^\d+\.?\d*$/".
+                                This field should follow pattern "/^[1-9]{1,19}\.?\d{2}$/".
                             </p>
                         </div>
                     </div>
@@ -285,7 +268,7 @@
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.payment_amount" for="field_freecom_beneficiary_payment_amount">Payment Amount</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="freecom_beneficiary_payment_amount" id="field_freecom_beneficiary_payment_amount"
-                               ng-model="vm.freecom_beneficiary.payment_amount" ng-pattern="/^\d+\.?\d*$/"
+                               ng-model="vm.freecom_beneficiary.payment_amount" ng-pattern="/^[1-9]{1,19}\.?\d{2}$/"
                                required />
                         <div ng-show="editForm.freecom_beneficiary_payment_amount.$invalid">
                             <p class="help-block"
