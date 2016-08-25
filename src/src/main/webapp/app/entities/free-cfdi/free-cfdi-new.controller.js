@@ -1283,7 +1283,7 @@
 
             vm.show_ecc11 = false;
             vm.show_ecc11_invalid = false;
-            vm.freecom_ecc11 = {version: null, type_operation: null, number_account: null, subtotal: null, total: null, id: null };
+            vm.freecom_ecc11 = {version: null, type_operation: "Tarjeta", number_account: null, subtotal: null, total: null, id: null };
             vm.freecom_ecc11_concepts = [];
 
             vm.show_spei = false;
@@ -1702,7 +1702,7 @@
                     entity: function () {
                         return {
                             identifier: null,
-                            date: null,
+                            date: new Date(),
                             rfc: null,
                             key_station: null,
                             quantity: null,
@@ -1717,6 +1717,7 @@
                 }
             }).result.then(function(result) {
                 vm.freecom_ecc11_concepts.push(result);
+                calcEcc11Totals();
             }, function() {
                 //do not nothing
             });
@@ -1724,7 +1725,30 @@
 
         vm.removeEcc11Concept = function(index){
             vm.freecom_ecc11_concepts.splice(index,1);
+            calcEcc11Totals();
         };
+
+        function calcEcc11Totals(){
+            var subtotal = 0;
+            var total = 0;
+
+            var i;
+            for(i=0; i < vm.freecom_ecc11_concepts.length; i++){
+                var freecom_ecc11_concept = vm.freecom_ecc11_concepts[i].concept;
+
+                subtotal = parseFloat(subtotal) + parseFloat(freecom_ecc11_concept.amount);
+                total =  parseFloat(total) + parseFloat(freecom_ecc11_concept.amount);
+
+                var freecom_ecc11_tranfers = vm.freecom_ecc11_concepts[i].transfers;
+                var j;
+                for(j=0; j < freecom_ecc11_tranfers.length; j++){
+                    total =  parseFloat(total) + parseFloat(freecom_ecc11_tranfers[j].amount);
+                }
+            }
+
+            vm.freecom_ecc11.total =  floorFigure(total, 2);
+            vm.freecom_ecc11.subtotal = floorFigure(subtotal, 2);
+        }
 
         //Spei Third
         vm.show_spei = false;

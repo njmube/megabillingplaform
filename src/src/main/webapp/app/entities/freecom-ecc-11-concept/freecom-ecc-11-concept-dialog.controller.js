@@ -16,6 +16,7 @@
         vm.freecom_product_keys = Freecom_product_key.query();
         vm.c_tars = C_tar.query();
 
+        vm.minDate = new Date('2015-01-01T00:00:00Z');
         vm.datePickerOpenStatus = {};
         vm.datePickerOpenStatus.date = false;
 
@@ -62,8 +63,8 @@
                     entity: function () {
                         return {
                             type_tax: null,
-                            rate: null,
-                            amount: null,
+                            rate: "0.00",
+                            amount: "0.01",
                             id: null
                         };
                     }

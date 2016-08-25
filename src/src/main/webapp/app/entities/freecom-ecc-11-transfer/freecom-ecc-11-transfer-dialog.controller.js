@@ -11,6 +11,7 @@
         var vm = this;
 
         vm.freecom_ecc11_transfer = entity;
+        vm.type_taxes = ["IVA","IEPS"];
         vm.clear = clear;
         vm.save = save;
 

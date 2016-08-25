@@ -23,8 +23,8 @@
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ecc11_concept.date" for="field_date">Date</label>
                     <div class="col-sm-8">
                         <div class="input-group">
-                            <input id="field_date" type="text" class="form-control" name="date" datetime-picker="{{dateformat}}" ng-model="vm.freecom_ecc11_concept.date" is-open="vm.datePickerOpenStatus.date"
-                            required  readonly />
+                            <input id="field_date" type="text" class="form-control" name="date" datetime-picker="{{dateformat}}" min-date="vm.minDate" ng-model="vm.freecom_ecc11_concept.date" is-open="vm.datePickerOpenStatus.date"
+                                   required  readonly />
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
                             </span>
@@ -75,11 +75,11 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="quantity" id="field_quantity"
                                 ng-model="vm.freecom_ecc11_concept.quantity" data-ng-change="vm.onUnitValueQuantityChange()"
-                                required ng-pattern="/^(0|[1-9][0-9]*)$/" />
+                                required ng-pattern="/^\d+\.?\d{1,2}$/" />
                         <div ng-show="editForm.quantity.$invalid">
                             <p class="help-block"
-                               ng-show="editForm.quantity.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
-                                This field should follow pattern "/^(0|[1-9][0-9]*)$/".
+                               ng-show="editForm.quantity.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
+                                This field should follow pattern "/^\d+\.?\d{1,2}$/".
                             </p>
                         </div>
                     </div>
@@ -200,7 +200,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving || vm.freecom_ecc11_transfers.length == 0" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
         </button>
     </div>
