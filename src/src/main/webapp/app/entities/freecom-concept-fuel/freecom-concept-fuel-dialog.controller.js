@@ -57,18 +57,7 @@
             vm.isSaving = true;
 
             $uibModalInstance.close({
-                concept_fuel: {
-                    identifier: vm.freecom_concept_fuel.identifier,
-                    date_expedition: vm.freecom_concept_fuel.date_expedition,
-                    rfc: vm.freecom_concept_fuel.rfc,
-                    key_station: vm.freecom_concept_fuel.key_station,
-                    quantity: vm.freecom_concept_fuel.quantity,
-                    fuel_name: vm.freecom_concept_fuel.fuel_name,
-                    folio_operation: vm.freecom_concept_fuel.folio_operation,
-                    unit_value: vm.freecom_concept_fuel.unit_value,
-                    amount: vm.freecom_concept_fuel.amount,
-                    id: null
-                },
+                concept_fuel: vm.freecom_concept_fuel,
                 determinates: vm.determinates
             });
 

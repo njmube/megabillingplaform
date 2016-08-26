@@ -872,9 +872,11 @@
                         break;
                     case "taxlegends":
                         free_cfdi_dto.freecom_taxlegends = vm.freecom_taxlegends;
+                        free_cfdi_dto.freecom_legends = vm.legends;
                         break;
                     case "airline":
                         free_cfdi_dto.freecom_airline = vm.freecom_airline;
+                        free_cfdi_dto.freecom_charges = vm.charges;
                         break;
                     case "apaw":
                         free_cfdi_dto.freecom_apaw = vm.freecom_apaw;
@@ -883,10 +885,11 @@
                         free_cfdi_dto.freecom_donees = vm.freecom_donees;
                         break;
                     case "educational_institutions":
-                        free_cfdi_dto.freecom_educational_institutions = vm.freecom_educational_institution;
+                        free_cfdi_dto.freecom_educational_institutions = vm.freecom_educational_institutions;
                         break;
                     case "ine":
                         free_cfdi_dto.freecom_ine = vm.freecom_ine;
+                        free_cfdi_dto.freecom_ine_entities = vm.freecom_ine_entities;
                         break;
                     case "kind_payment":
                         free_cfdi_dto.freecom_kind = vm.freecom_kind;
@@ -902,23 +905,31 @@
                         break;
                     case "local_taxes":
                         free_cfdi_dto.freecom_local_taxes = vm.freecom_local_taxes;
+                        free_cfdi_dto.freecom_retentions_transfers = vm.freecom_ret_transfs;
                         break;
                     case "used_vehicle":
                         free_cfdi_dto.freecom_used_vehicle = vm.freecom_used_vehicle;
+                        free_cfdi_dto.freecom_vehicle_customs_information = vm.freecom_vehicle_customs_information;
                         break;
                     case "destruction_certificate":
                         free_cfdi_dto.freecom_destruction_certificate = vm.freecom_destruction_certificate;
+                        free_cfdi_dto.freecom_info_customs_destruction = vm.freecom_info_customs_destruction;
                         break;
                     case "fuel_consumption":
                         free_cfdi_dto.freecom_fuel_consumption = vm.freecom_fuel_consumption;
+                        free_cfdi_dto.freecom_concept_fuels = vm.freecom_concept_fuels;
                         break;
                     case "storeroom_paybill":
                         free_cfdi_dto.freecom_storeroom_paybill = vm.freecom_storeroom_paybill;
+                        free_cfdi_dto.freecom_paybill_concepts = vm.freecom_paybill_concepts;
                         break;
                     case "ecc11":
                         free_cfdi_dto.freecom_ecc11 = vm.freecom_ecc11;
+                        free_cfdi_dto.freecom_ecc11_concepts = vm.freecom_ecc11_concepts;
                         break;
-
+                    case "spei":
+                        free_cfdi_dto.freecom_spei_thirds = vm.freecom_spei_thirds;
+                        break;
                 }
             }
 
@@ -1532,10 +1543,10 @@
         vm.c_type_operations = C_type_operation.query();
 
         //Local Taxes
-        vm.freecom_local_taxes = null;
         vm.show_local_taxes = false;
+        vm.freecom_local_taxes = null;
 
-        vm.freecom_ret_transfs = null;
+        vm.freecom_ret_transfs = [];
 
         vm.addFreecomRetTransf = function(){
             $uibModal.open({

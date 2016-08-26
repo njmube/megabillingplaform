@@ -14,15 +14,24 @@ public class Free_cfdiDTO {
 
     private List<Free_tax_retentions> freeTaxRetentions;
 
+    //Complements...
+
     private Freecom_taxregistration freecom_taxregistration;
 
     private Freecom_pfic freecom_pfic;
 
     private Freecom_accreditation_ieps freecom_accreditation_ieps;
 
+
     private Freecom_taxlegends freecom_taxlegends;
 
+    private  List<Freecom_legend> freecom_legends;
+
+
     private Freecom_airline freecom_airline;
+
+    private List<Freecom_charge> freecom_charges;
+
 
     private Freecom_apaw freecom_apaw;
 
@@ -30,15 +39,53 @@ public class Free_cfdiDTO {
 
     private Freecom_educational_institutions freecom_educational_institutions;
 
+
     private Freecom_ine freecom_ine;
 
+    private List<Freecom_ine_entity> freecom_ine_entities;
+
+
     private Freecom_kind_payment freecom_kind;
+
+    private Freecom_foreign_tourist_passenger freecom_foreign_tourist_passenger;
 
     private Freecom_partial_construction_services freecom_partial_construction_services;
 
     private Freecom_foreign_exchange freecom_foreign_exchange;
 
+
     private Freecom_local_taxes freecom_local_taxes;
+
+    private List<Freecom_retentions_transfered> freecom_retentions_transfers;
+
+
+    private Freecom_used_vehicle freecom_used_vehicle;
+
+    private Freecom_vehicle_customs_information freecom_vehicle_customs_information;
+
+
+    private Freecom_destruction_certificate freecom_destruction_certificate;
+
+    private Freecom_info_customs_destruction freecom_info_customs_destruction;
+
+
+    private Freecom_fuel_consumption freecom_fuel_consumption;
+
+    private List<Freecom_concept_fuelDTO> freecom_concept_fuels;
+
+
+    private Freecom_storeroom_paybill freecom_storeroom_paybill;
+
+    private List<Freecom_paybill_concept> freecom_paybill_concepts;
+
+
+    private Freecom_ecc11 freecom_ecc11;
+
+    private List<Freecom_ecc11_conceptDTO> freecom_ecc11_concepts;
+
+
+    private List<Freecom_spei_thirdDTO> freecom_spei_thirds;
+
 
     public Free_cfdiDTO(){
     }
@@ -107,12 +154,28 @@ public class Free_cfdiDTO {
         this.freecom_taxlegends = freecom_taxlegends;
     }
 
+    public List<Freecom_legend> getFreecom_legends() {
+        return freecom_legends;
+    }
+
+    public void setFreecom_legends(List<Freecom_legend> freecom_legends) {
+        this.freecom_legends = freecom_legends;
+    }
+
     public Freecom_airline getFreecom_airline() {
         return freecom_airline;
     }
 
     public void setFreecom_airline(Freecom_airline freecom_airline) {
         this.freecom_airline = freecom_airline;
+    }
+
+    public List<Freecom_charge> getFreecom_charges() {
+        return freecom_charges;
+    }
+
+    public void setFreecom_charges(List<Freecom_charge> freecom_charges) {
+        this.freecom_charges = freecom_charges;
     }
 
     public Freecom_apaw getFreecom_apaw() {
@@ -147,12 +210,28 @@ public class Free_cfdiDTO {
         this.freecom_ine = freecom_ine;
     }
 
+    public List<Freecom_ine_entity> getFreecom_ine_entities() {
+        return freecom_ine_entities;
+    }
+
+    public void setFreecom_ine_entities(List<Freecom_ine_entity> freecom_ine_entities) {
+        this.freecom_ine_entities = freecom_ine_entities;
+    }
+
     public Freecom_kind_payment getFreecom_kind() {
         return freecom_kind;
     }
 
     public void setFreecom_kind(Freecom_kind_payment freecom_kind) {
         this.freecom_kind = freecom_kind;
+    }
+
+    public Freecom_foreign_tourist_passenger getFreecom_foreign_tourist_passenger() {
+        return freecom_foreign_tourist_passenger;
+    }
+
+    public void setFreecom_foreign_tourist_passenger(Freecom_foreign_tourist_passenger freecom_foreign_tourist_passenger) {
+        this.freecom_foreign_tourist_passenger = freecom_foreign_tourist_passenger;
     }
 
     public Freecom_partial_construction_services getFreecom_partial_construction_services() {
@@ -171,11 +250,108 @@ public class Free_cfdiDTO {
         this.freecom_foreign_exchange = freecom_foreign_exchange;
     }
 
+
     public Freecom_local_taxes getFreecom_local_taxes() {
         return freecom_local_taxes;
     }
 
     public void setFreecom_local_taxes(Freecom_local_taxes freecom_local_taxes) {
         this.freecom_local_taxes = freecom_local_taxes;
+    }
+
+    public List<Freecom_retentions_transfered> getFreecom_retentions_transfers() {
+        return freecom_retentions_transfers;
+    }
+
+    public void setFreecom_retentions_transfers(List<Freecom_retentions_transfered> freecom_retentions_transfers) {
+        this.freecom_retentions_transfers = freecom_retentions_transfers;
+    }
+
+    public Freecom_used_vehicle getFreecom_used_vehicle() {
+        return freecom_used_vehicle;
+    }
+
+    public void setFreecom_used_vehicle(Freecom_used_vehicle freecom_used_vehicle) {
+        this.freecom_used_vehicle = freecom_used_vehicle;
+    }
+
+    public Freecom_vehicle_customs_information getFreecom_vehicle_customs_information() {
+        return freecom_vehicle_customs_information;
+    }
+
+    public void setFreecom_vehicle_customs_information(Freecom_vehicle_customs_information freecom_vehicle_customs_information) {
+        this.freecom_vehicle_customs_information = freecom_vehicle_customs_information;
+    }
+
+    public Freecom_destruction_certificate getFreecom_destruction_certificate() {
+        return freecom_destruction_certificate;
+    }
+
+    public void setFreecom_destruction_certificate(Freecom_destruction_certificate freecom_destruction_certificate) {
+        this.freecom_destruction_certificate = freecom_destruction_certificate;
+    }
+
+    public Freecom_info_customs_destruction getFreecom_info_customs_destruction() {
+        return freecom_info_customs_destruction;
+    }
+
+    public void setFreecom_info_customs_destruction(Freecom_info_customs_destruction freecom_info_customs_destruction) {
+        this.freecom_info_customs_destruction = freecom_info_customs_destruction;
+    }
+
+    public Freecom_fuel_consumption getFreecom_fuel_consumption() {
+        return freecom_fuel_consumption;
+    }
+
+    public void setFreecom_fuel_consumption(Freecom_fuel_consumption freecom_fuel_consumption) {
+        this.freecom_fuel_consumption = freecom_fuel_consumption;
+    }
+
+    public List<Freecom_concept_fuelDTO> getFreecom_concept_fuels() {
+        return freecom_concept_fuels;
+    }
+
+    public void setFreecom_concept_fuels(List<Freecom_concept_fuelDTO> freecom_concept_fuels) {
+        this.freecom_concept_fuels = freecom_concept_fuels;
+    }
+
+    public Freecom_storeroom_paybill getFreecom_storeroom_paybill() {
+        return freecom_storeroom_paybill;
+    }
+
+    public void setFreecom_storeroom_paybill(Freecom_storeroom_paybill freecom_storeroom_paybill) {
+        this.freecom_storeroom_paybill = freecom_storeroom_paybill;
+    }
+
+    public List<Freecom_paybill_concept> getFreecom_paybill_concepts() {
+        return freecom_paybill_concepts;
+    }
+
+    public void setFreecom_paybill_concepts(List<Freecom_paybill_concept> freecom_paybill_concepts) {
+        this.freecom_paybill_concepts = freecom_paybill_concepts;
+    }
+
+    public Freecom_ecc11 getFreecom_ecc11() {
+        return freecom_ecc11;
+    }
+
+    public void setFreecom_ecc11(Freecom_ecc11 freecom_ecc11) {
+        this.freecom_ecc11 = freecom_ecc11;
+    }
+
+    public List<Freecom_ecc11_conceptDTO> getFreecom_ecc11_concepts() {
+        return freecom_ecc11_concepts;
+    }
+
+    public void setFreecom_ecc11_concepts(List<Freecom_ecc11_conceptDTO> freecom_ecc11_concepts) {
+        this.freecom_ecc11_concepts = freecom_ecc11_concepts;
+    }
+
+    public List<Freecom_spei_thirdDTO> getFreecom_spei_thirds() {
+        return freecom_spei_thirds;
+    }
+
+    public void setFreecom_spei_thirds(List<Freecom_spei_thirdDTO> freecom_spei_thirds) {
+        this.freecom_spei_thirds = freecom_spei_thirds;
     }
 }
