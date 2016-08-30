@@ -24,7 +24,7 @@
                     <div class="col-sm-8">
                         <div class="input-group">
                             <input id="field_date_expedition" type="text" class="form-control" name="date_expedition" datetime-picker="{{dateformat}}" ng-model="vm.freecom_concept_fuel.date_expedition" is-open="vm.datePickerOpenStatus.date_expedition"
-                            required  />
+                            required  readonly />
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_expedition')"><i class="glyphicon glyphicon-calendar"></i></button>
                             </span>
@@ -131,7 +131,7 @@
                     <thead>
                     <tr>
                         <th class="text-left">Tipo Impuesto</th>
-                        <th class="text-right">Tasa</th>
+                        <th class="text-left">Tasa</th>
                         <th class="text-right">Importe</th>
                         <th class="text-center">Acciones</th>
                     </tr>
@@ -140,7 +140,7 @@
                     <tr ng-repeat="determinate in vm.determinates">
                         <td class="text-left">{{determinate.freecom_tax_type.name}}</td>
                         <td class="text-left">{{determinate.rate}}</td>
-                        <td class="text-left">{{determinate.amount}}</td>
+                        <td class="text-right">{{determinate.amount}}</td>
                         <td class="text-center">
                             <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeDeterminate($index)">
                                 <span class="glyphicon glyphicon-trash"></span>
@@ -160,7 +160,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving || vm.determinates.length == 0" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
         </button>
     </div>

@@ -11,6 +11,7 @@
         var vm = this;
         vm.freecom_determined = entity;
         vm.freecom_tax_types = Freecom_tax_type.query();
+        vm.type_taxes = ["IVA","IEPS"];
 
         vm.save = function () {
             vm.isSaving = true;

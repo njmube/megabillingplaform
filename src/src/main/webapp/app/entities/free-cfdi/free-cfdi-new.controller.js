@@ -1285,11 +1285,11 @@
             vm.freecom_info_customs_destruction = { numpedimp: null, date_expedition: null, customs: null, freecom_destruction_certificate: null, id: null};
 
             vm.show_fuel_consumption = false;
-            vm.freecom_fuel_consumption = { version: null, type_operation: null, account_number: null, subtotal: null, total: null, id: null };
+            vm.freecom_fuel_consumption = { version: null, type_operation: "Monedero Electrónico", account_number: null, subtotal: null, total: null, id: null };
             vm.freecom_concept_fuels = [];
 
             vm.show_storeroom_paybill = false;
-            vm.freecom_storeroom_paybill = { version: null, type_operation: null, employer_registration: null, account_number: null, total: null, id: null};
+            vm.freecom_storeroom_paybill = { version: null, type_operation: "Monedero Electrónico", employer_registration: null, account_number: null, total: null, id: null};
             vm.freecom_paybill_concepts = [];
 
             vm.show_ecc11 = false;
