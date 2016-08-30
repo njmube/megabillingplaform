@@ -1,0 +1,54 @@
+{
+    "megabillingplatformApp": {
+        "request_taxpayer_account" : {
+            "home": {
+                "title": "Request Taxpayer Accounts",
+                "createLabel": "Create a new Request Taxpayer Account",
+                "createOrEditLabel": "Create or edit a Request Taxpayer Account",
+                "search": "Search for Request Taxpayer Account"
+            },
+            "created": "A new Request Taxpayer Account is created with identifier {{ param }}",
+            "updated": "A Request Taxpayer Account is updated with identifier {{ param }}",
+            "deleted": "A Request Taxpayer Account is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Request Taxpayer Account {{ id }}?"
+            },
+            "detail": {
+                "title": "Request Taxpayer Account"
+            },
+            "name": "Name(*)",
+            "date_request": "Date Request",
+            "firtsurname": "Firtsurname(*)",
+            "secondsurname": "Secondsurname(*)",
+            "phone": "Phone(*)",
+            "email": "Email(*)",
+            "date_born": "Date Born(*)",
+            "gender": "Gender",
+            "rfc": "RFC(*)",
+            "bussines_name": "Bussines Name(*)",
+            "account_email": "Account Email(*)",
+            "request_state": "Request State",
+            "tax_address_request": {
+                "title":"Tax address",
+                "street": "Street(*)",
+                "no_int": "No Int",
+                "no_ext": "No Ext",
+                "location": "Location",
+                "intersection": "Intersection",
+                "reference": "Reference",
+                "c_country": "Country(*)",
+                "c_state": "State(*)",
+                "c_municipality": "Municipality(*)",
+                "c_colony": "Colony",
+                "c_zip_code": "Zip Code"
+            },
+            "user": "User",
+            "labelDS":"Taxpayer data",
+            "labelDC":"Account data",
+            "propio":"Your data",
+            "messege":"Your request was send correctly...",
+            "messege1":"Atentamente",
+            "signal":"Megapractical, S.A. de C.V."
+        }
+    }
+}

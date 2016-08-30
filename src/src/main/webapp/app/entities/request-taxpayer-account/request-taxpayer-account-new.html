@@ -1,0 +1,379 @@
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>
+                {{'global.user.title' | translate}}
+                <small>
+                    <i class="ace-icon fa fa-angle-double-right"></i>
+                    {{'megabillingplatformApp.request_taxpayer_account.home.createLabel' | translate}}
+                </small>
+            </h1>
+        </div>
+        <div class="col-md-4">
+            <a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info pull-right" href="">
+                <i class="fa fa-lightbulb-o"></i>
+            </a>
+        </div>
+    </div>
+</div><!-- /.page-header -->
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="nav nav-pills">
+            <li>
+                <a href="#/">
+                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                </a>
+            </li>
+            <li>
+                <a ui-sref="free-emitter.new">{{'global.user.emitter.data' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="free-cfdi.new">{{'global.user.generate.cfdi' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="free-cfdi">{{'global.user.search.cfdi' | translate}}</a>
+            </li>
+            <li class="active">
+                <a ui-sref="request-taxpayer-account.new">{{'global.user.join.mega' | translate}}</a>
+            </li>
+        </ul>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="hr hr-16 hr-dotted"></div>
+
+<div class="row">
+    <div class="col-sm-12">
+
+        <form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+            <div class="row">
+                <div class="col-md-6" ng-show = "vm.isSaving == null">
+
+                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.request_taxpayer_account.labelDS">
+                        Datos del Solicitante
+                    </h3>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" for="activated">
+                            <input type="checkbox" id="activated" ng-model = "vm.propio" data-ng-change="vm.clicPropio()">
+                            <span translate="megabillingplatformApp.request_taxpayer_account.propio">Propio</span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.name" for="name">Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="name" id="name"
+                                   ng-model="vm.request_taxpayer_account.name" required >
+                            <div ng-show="editForm.name.$dirty && editForm.name.$invalid">
+                                <p class="help-block" ng-show="editForm.name.$error.required" translate="entity.validation.required">
+                                    Your name is required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.firtsurname" for="field_firtsurname">Firtsurname</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="firtsurname" id="field_firtsurname"
+                                   ng-model="vm.request_taxpayer_account.firtsurname" required />
+                            <div ng-show="editForm.firtsurname.$dirty && editForm.firtsurname.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.firtsurname.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.secondsurname" for="field_secondsurname">Secondsurname</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="secondsurname" id="field_secondsurname"
+                                   ng-model="vm.request_taxpayer_account.secondsurname"
+                                   required />
+                            <div ng-show="editForm.secondsurname.$dirty && editForm.secondsurname.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.secondsurname.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.phone" for="field_phone">Phone</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="phone" id="field_phone"
+                                   ng-model="vm.request_taxpayer_account.phone"
+                                   required ng-pattern="/^[0-9]{1,15}$/" />
+                            <div ng-show="editForm.phone.$dirty && editForm.phone.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.phone.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.phone.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{1,15}$">
+                                    This field should follow pattern "^[0-9]{1,15}$".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.email" for="field_email">Email</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="email" id="field_email"
+                                   ng-model="vm.request_taxpayer_account.email"
+                                   required ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" />
+                            <div ng-show="editForm.email.$dirty && editForm.email.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.email.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.email.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$">
+                                    This field should follow pattern "^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.date_born" for="field_date_born">Date Born</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <input id="field_date_born" type="text" class="form-control" name="date_born" uib-datepicker-popup="{{dateformat}}"
+                                       ng-model="vm.request_taxpayer_account.date_born" is-open="vm.datePickerOpenStatus.date_born"
+                                       required/>
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_born')"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                            </div>
+                            <div ng-show="editForm.email.$dirty && editForm.date_born.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.date_born.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.gender" for="gender">Gender</label>
+                        <div class="col-sm-8">
+                            <select name=gender id="gender" class="form-control"
+                                    ng-model="vm.current_gender" style="width:200px"
+                                    ng-options="gender.name | translate for gender in vm.genders track by gender.code"
+                                    data-ng-change="vm.onGenderChange()">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6" ng-show = "vm.isSaving == null">
+                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.request_taxpayer_account.labelDC">
+                        Datos de la cuenta de facturación
+                    </h3>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.rfc" for="field_rfc">Rfc</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="rfc" id="field_rfc"
+                                   ng-model="vm.request_taxpayer_account.rfc"
+                                   required ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/" />
+                            <div ng-show="editForm.rfc.$dirty && editForm.rfc.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.rfc.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.rfc.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$">
+                                    This field should follow pattern "^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.bussines_name" for="field_bussines_name">Bussines Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="bussines_name" id="field_bussines_name"
+                                   ng-model="vm.request_taxpayer_account.bussines_name"
+                                   required />
+                            <div ng-show="editForm.bussines_name.$dirty && editForm.bussines_name.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.bussines_name.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.account_email" for="field_account_email">Account Email</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="account_email" id="field_account_email"
+                                   ng-model="vm.request_taxpayer_account.account_email"
+                                   required ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" />
+                            <div ng-show="editForm.account_email.$dirty && editForm.account_email.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.account_email.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.account_email.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$">
+                                    This field should follow pattern "^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.tax_address_request.c_country" for="field_c_country">Country</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_c_country" name="c_country"
+                                    ng-model="vm.tax_address_request.c_country"
+                                    ng-options="c_country as c_country.name for c_country in vm.c_countrys track by c_country.id"
+                                    data-ng-change="vm.onChangeC_country()"
+                                    ng-selected = "vm.tax_address_request.c_country = vm.tax_address_request.c_country || vm.c_countrys[150]" required>
+                                <option value=""></option>
+                            </select>
+                            <div ng-show="editForm.c_country.$dirty && editForm.c_country.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.c_country.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.tax_address_request.c_state" for="field_c_state">State</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_c_state" name="c_state"
+                                    ng-model="vm.tax_address_request.c_state"
+                                    ng-options="c_state as c_state.name for c_state in vm.c_states track by c_state.id"
+                                    data-ng-change="vm.onChangeC_state()">
+                                <option value=""></option>
+                            </select>
+                            <div ng-show="editForm.c_state.$dirty && editForm.c_state.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.c_state.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.tax_address_request.c_municipality" for="field_c_municipality">c_municipality</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_c_municipality" name="c_municipality"
+                                    ng-model="vm.tax_address_request.c_municipality"
+                                    ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalitys track by c_municipality.id"
+                                    data-ng-change="vm.onChangeC_municipality()">
+                                <option value=""></option>
+                            </select>
+                            <div ng-show="editForm.c_municipality.$dirty && editForm.c_municipality.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.c_municipality.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.tax_address_request.c_colony" for="field_c_colony">c_colony</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_c_colony" name="c_colony"
+                                    ng-model="vm.tax_address_request.c_colony"
+                                    ng-options="c_colony as c_colony.code for c_colony in vm.c_colonys track by c_colony.id"
+                                    data-ng-change="vm.onChangeC_colony()">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.request_taxpayer_account.tax_address_request.location" for="field_location">Location</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="location" id="field_location"
+                                   ng-model="vm.tax_address_request.location"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.request_taxpayer_account.tax_address_request.intersection" for="intersection">Intersection</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="intersection" id="intersection"
+                                   ng-model="vm.tax_address_request.intersection"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.tax_address_request.no_ext" for="field_num_ext">Num ext</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" name="num_ext" id="field_num_ext"
+                                   ng-model="vm.tax_address_request.num_ext"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="col-md-5 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.tax_address_request.no_int" for="field_num_int">Num int</label>
+                            <div class="col-md-7">
+                                <input type="text" class="form-control" name="num_int" id="field_num_int"
+                                       ng-model="vm.request_taxpayer_account.tax_address_request.num_int"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.tax_address_request.reference" for="field_reference">
+                            Reference
+                        </label>
+                        <div class="col-sm-8">
+                            <textarea type="text" id="field_reference" class="form-control" rows="5"
+                                      ng-model="vm.tax_address_request.reference"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.request_taxpayer_account.tax_address_request.street" for="field_street">Street</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="street" id="field_street"
+                                   ng-model="vm.tax_address_request.street"
+                                   required>
+                            <div ng-show="editForm.street.$dirty && editForm.street.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.street.$error.required" translate="entity.validation.required">
+                                    This field is required.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.tax_address_request.c_zip_code" for="field_c_zip_code">c_zip_code</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="c_zip_dode" id="field_c_zip_code"
+                                   ng-model="vm.tax_address_request.c_zip_code.code" readonly/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-primary pull-right" style="margin: 0 15px">
+                            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save </span>
+                        </button>
+
+                        <button type="button" class="btn btn-default pull-right" onclick="window.history.back()">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                        </button>
+
+                    </div>
+
+                    <jhi-alert-error></jhi-alert-error>
+                    <jhi-alert></jhi-alert>
+                </div>
+
+                <div class="form-group" ng-show = "vm.isSaving != null">
+                    <div class="col-md-8">
+                        <p translate="megabillingplatformApp.request_taxpayer_account.messege">Su solicitud ha sido registrada satisfactoriamente. Se le envió una notificación al correo electrónico suministrado por usted en los datos de la solicitud. Cuando su cuenta se apruebe se le enviará un correo informándole que ya su cuenta de contribuyente esta activa y puede operar con la misma.</p>
+
+                        <p translate="megabillingplatformApp.request_taxpayer_account.messege1">Atentamente</p>
+
+                        <p translate="megabillingplatformApp.request_taxpayer_account.signal">Megapractical, S.A. de C.V.</p>
+
+                        <button type="button" class="btn btn-default" onclick="window.history.back()">
+                            <span translate="entity.action.back">Regresar</span>
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

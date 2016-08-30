@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Request_taxpayer_account.
+    -->
+    <changeSet id="20160828145740-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="request_state_id"
+                                 baseTableName="request_taxpayer_account"
+                                 constraintName="fk_request_taxpayer_account_request_state_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="request_state"/>
+
+        <addForeignKeyConstraint baseColumnNames="tax_address_request_id"
+                                 baseTableName="request_taxpayer_account"
+                                 constraintName="fk_request_taxpayer_account_tax_address_request_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tax_address_request"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="request_taxpayer_account"
+                                 constraintName="fk_request_taxpayer_account_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+    </changeSet>
+</databaseChangeLog>

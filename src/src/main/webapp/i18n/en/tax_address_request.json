@@ -1,0 +1,32 @@
+{
+    "megabillingplatformApp": {
+        "tax_address_request" : {
+            "home": {
+                "title": "Tax Address Requests",
+                "createLabel": "Create a new Tax Address Request",
+                "createOrEditLabel": "Create or edit a Tax Address Request",
+                "search": "Search for Tax Address Request"
+            },
+            "created": "A new Tax Address Request is created with identifier {{ param }}",
+            "updated": "A Tax Address Request is updated with identifier {{ param }}",
+            "deleted": "A Tax Address Request is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tax Address Request {{ id }}?"
+            },
+            "detail": {
+                "title": "Tax Address Request"
+            },
+            "street": "Street",
+            "no_int": "No Int",
+            "no_ext": "No Ext",
+            "location": "Location",
+            "intersection": "Intersection",
+            "reference": "Reference",
+            "c_country": "C Country",
+            "c_state": "C State",
+            "c_municipality": "C Municipality",
+            "c_colony": "C Colony",
+            "c_zip_code": "C Zip Code"
+        }
+    }
+}

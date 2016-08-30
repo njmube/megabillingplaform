@@ -106,6 +106,8 @@
                 "freecomCommodity": "Freecom Commodity",
                 "freecomLegend": "Freecom Legend",
                 "cComplement": "C Complement",
+                "taxAddressRequest": "Tax Address Request",
+                "requestTaxpayerAccount": "Request Taxpayer Account",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

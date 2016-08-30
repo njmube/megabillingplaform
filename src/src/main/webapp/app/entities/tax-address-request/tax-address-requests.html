@@ -1,0 +1,90 @@
+<div>
+    <h2 translate="megabillingplatformApp.tax_address_request.home.title">Tax Address Requests</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="tax-address-request.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.tax_address_request.home.createLabel">
+                        Create new Tax Address Request
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="street"><span translate="megabillingplatformApp.tax_address_request.street">Street</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_int"><span translate="megabillingplatformApp.tax_address_request.no_int">No Int</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_ext"><span translate="megabillingplatformApp.tax_address_request.no_ext">No Ext</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="location"><span translate="megabillingplatformApp.tax_address_request.location">Location</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="intersection"><span translate="megabillingplatformApp.tax_address_request.intersection">Intersection</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reference"><span translate="megabillingplatformApp.tax_address_request.reference">Reference</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_country.name"><span translate="megabillingplatformApp.tax_address_request.c_country">C Country</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_state.name"><span translate="megabillingplatformApp.tax_address_request.c_state">C State</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_municipality.name"><span translate="megabillingplatformApp.tax_address_request.c_municipality">C Municipality</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_colony.code"><span translate="megabillingplatformApp.tax_address_request.c_colony">C Colony</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_zip_code.code"><span translate="megabillingplatformApp.tax_address_request.c_zip_code">C Zip Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="tax_address_request in vm.tax_address_requests track by tax_address_request.id">
+                    <td><a ui-sref="tax-address-request-detail({id:tax_address_request.id})">{{tax_address_request.id}}</a></td>
+                    <td>{{tax_address_request.street}}</td>
+                    <td>{{tax_address_request.no_int}}</td>
+                    <td>{{tax_address_request.no_ext}}</td>
+                    <td>{{tax_address_request.location}}</td>
+                    <td>{{tax_address_request.intersection}}</td>
+                    <td>{{tax_address_request.reference}}</td>
+                    <td>
+                        <a ui-sref="c-country-detail({id:tax_address_request.c_country.id})">{{tax_address_request.c_country.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-state-detail({id:tax_address_request.c_state.id})">{{tax_address_request.c_state.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-municipality-detail({id:tax_address_request.c_municipality.id})">{{tax_address_request.c_municipality.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-colony-detail({id:tax_address_request.c_colony.id})">{{tax_address_request.c_colony.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-zip-code-detail({id:tax_address_request.c_zip_code.id})">{{tax_address_request.c_zip_code.code}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="tax-address-request-detail({id:tax_address_request.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tax-address-request.edit({id:tax_address_request.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="tax-address-request.delete({id:tax_address_request.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

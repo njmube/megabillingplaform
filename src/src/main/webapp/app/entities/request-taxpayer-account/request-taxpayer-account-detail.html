@@ -1,0 +1,70 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.request_taxpayer_account.detail.title">Request Taxpayer Account</span> {{vm.request_taxpayer_account.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.name">Name</span></dt>
+        <dd>
+            <span>{{vm.request_taxpayer_account.name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.date_request">Date Request</span></dt>
+        <dd>
+            <span>{{vm.request_taxpayer_account.date_request | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.firtsurname">Firtsurname</span></dt>
+        <dd>
+            <span>{{vm.request_taxpayer_account.firtsurname}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.secondsurname">Secondsurname</span></dt>
+        <dd>
+            <span>{{vm.request_taxpayer_account.secondsurname}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.phone">Phone</span></dt>
+        <dd>
+            <span>{{vm.request_taxpayer_account.phone}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.email">Email</span></dt>
+        <dd>
+            <span>{{vm.request_taxpayer_account.email}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.date_born">Date Born</span></dt>
+        <dd>
+            <span>{{vm.request_taxpayer_account.date_born | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.gender">Gender</span></dt>
+        <dd>
+            <span>{{vm.request_taxpayer_account.gender}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.request_taxpayer_account.rfc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.bussines_name">Bussines Name</span></dt>
+        <dd>
+            <span>{{vm.request_taxpayer_account.bussines_name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.account_email">Account Email</span></dt>
+        <dd>
+            <span>{{vm.request_taxpayer_account.account_email}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.request_state">Request State</span></dt>
+        <dd>
+            <span>{{vm.request_taxpayer_account.request_state.name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.tax_address_request.title">Tax Address Request</span></dt>
+        <dd>
+            <a ui-sref="tax-address-request-detail({id:vm.request_taxpayer_account.tax_address_request.id})">{{vm.request_taxpayer_account.tax_address_request.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.request_taxpayer_account.user">User</span></dt>
+        <dd>
+            {{vm.request_taxpayer_account.user.login}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

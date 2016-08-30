@@ -1,0 +1,54 @@
+{
+    "megabillingplatformApp": {
+        "request_taxpayer_account" : {
+            "home": {
+                "title": "Solicitud de cuentas de facuración",
+                "createLabel": "Crear nueva Solicitud de cuenta de facuración",
+                "createOrEditLabel": "Crear o editar Solicitud de cuenta de facuración",
+                "search": "Búsqueda para Solicitud de cuenta de facuración"
+            },
+            "created": "Un nueva Solicitud de cuenta de facuración ha sido creado con el identificador {{ param }}",
+            "updated": "Una Solicitud de cuenta de facuración ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Solicitud de cuenta de facuración ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Solicitud de cuenta de facuración {{ id }}?"
+            },
+            "detail": {
+                "title": "Solicitud de cuenta de facuración"
+            },
+            "name": "Nombre(*)",
+            "date_request": "Fecha de solicitud",
+            "firtsurname": "Apellido paterno(*)",
+            "secondsurname": "Apellido materno(*)",
+            "phone": "Teléfono(*)",
+            "email": "Correo Electrónico(*)",
+            "date_born": "Fecha de nacimiento(*)",
+            "gender": "Género",
+            "rfc": "RFC(*)",
+            "bussines_name": "Nombre o Razon Social(*)",
+            "account_email": "Correo Electrónico(*)",
+            "request_state": "Estado de la solicitud",
+            "tax_address_request": {
+                "title":"Dirección",
+                "street": "Calle(*)",
+                "no_int": "No Int",
+                "no_ext": "No Ext",
+                "location": "Localidad",
+                "intersection": "Intersección",
+                "reference": "Referencia",
+                "c_country": "País(*)",
+                "c_state": "Estado(*)",
+                "c_municipality": "Municipio(*)",
+                "c_colony": "Colonia",
+                "c_zip_code": "Código postal"
+            },
+            "user": "Usuario",
+            "labelDS":"Datos del solicitante",
+            "labelDC":"Datos de la cuenta de facturación",
+            "propio":"Propio",
+            "messege":"Su solicitud ha sido registrada satisfactoriamente. Se le envió una notificación al correo electrónico suministrado por usted en los datos de la solicitud. Cuando su cuenta se apruebe se le enviará un correo informándole que ya su cuenta de contribuyente esta activa y puede operar con la misma.",
+            "messege1":"Atentamente",
+            "signal":"Megapractical, S.A. de C.V."
+        }
+    }
+}
