@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{email.request.title}">JHipster activation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="#{email.activation.greeting(${user.getName()} + ' ' + ${user.getFirtsurname()} + ' ' + ${user.getSecondsurname()})}">
+    Dear
+</p>
+<p th:text="#{email.request.text1}">
+    Your taxpayer account request has been saved wiht follow data:
+</p>
+<p th:text="#{email.request.name(${request.getName()})}">
+    Name
+</p>
+<p th:text="#{email.request.firtsurname(${request.getFirtsurname()})}">
+    Firtsurname
+</p>
+<p th:text="#{email.request.secondsurname(${request.getSecondsurname()})}">
+    Secondsurname
+</p>
+<p th:text="#{email.request.phone(${request.getPhone()})}">
+    Phone
+</p>
+<p th:text="#{email.request.email(${request.getEmail()})}">
+    Email
+</p>
+<p th:text="#{email.request.date_born(${request.getDate_born().toString()})}">
+    Date born
+</p>
+<p th:text="#{email.request.gender(${request.getGender()})}">
+    Gender
+</p>
+<p th:text="#{email.request.rfc(${request.getRfc()})}">
+    RFC
+</p>
+<p th:text="#{email.request.bussines_name(${request.getBussines_name()})}">
+    Bussines name
+</p>
+<p th:text="#{email.request.account_email(${request.getAccount_email()})}">
+    Account email
+</p>
+<p th:text="#{email.request.text2}">
+    Your taxpayer account request will be evaluated, the result will send to you.
+</p>
+<p>
+    <span th:text="#{email.activation.text2}">Regards, </span>
+    <br/>
+    <em th:text="#{email.signature}">JHipster.</em>
+</p>
+</body>
+</html>

@@ -46,9 +46,49 @@
             "labelDS":"Datos del solicitante",
             "labelDC":"Datos de la cuenta de facturación",
             "propio":"Propio",
-            "messege":"Su solicitud ha sido registrada satisfactoriamente. Se le envió una notificación al correo electrónico suministrado por usted en los datos de la solicitud. Cuando su cuenta se apruebe se le enviará un correo informándole que ya su cuenta de contribuyente esta activa y puede operar con la misma.",
+            "messege":"Su solicitud ha sido registrada satisfactoriamente. Se le envió una notificación al correo electrónico suministrado por usted con los datos de la solicitud. Cuando su cuenta se apruebe se le enviará un correo informándole que ya su cuenta de contribuyente esta activa y puede operar con la misma.",
             "messege1":"Atentamente",
-            "signal":"Megapractical, S.A. de C.V."
+            "signal":"Megapractical, S.A. de C.V.",
+            "messages": {
+                "validate": {
+                    "rfc": {
+                        "required": "El RFC es obligatorio.",
+                        "minlength": "El RFC debe tener al menos 12 caracteres.",
+                        "maxlength": "El RFC no puede tener más de 13 caracteres.",
+                        "pattern": "Patrón de RFC incorrecto."
+                    },
+                    "name": {
+                        "required": "Su nombre es obligatorio.",
+                        "minlength": "Su nombre debe tener al menos 3 caracteres.",
+                        "maxlength": "Su nombre no puede tener más de 50 caracteres.",
+                        "pattern": "Patrón del nombre incorrecto."
+                    },
+                    "firtsurname": {
+                        "required": "Su apellido paterno es obligatorio.",
+                        "minlength": "Su apellido paterno debe tener al menos 3 caracteres.",
+                        "maxlength": "Su apellido paterno no puede tener más de 50 caracteres.",
+                        "pattern": "Patrón del apellido paterno incorrecto."
+                    },
+                    "secondsurname": {
+                        "required": "Su apellido materno es obligatorio.",
+                        "minlength": "Su apellido materno debe tener al menos 3 caracteres.",
+                        "maxlength": "Su apellido paterno no puede tener más de 50 caracteres.",
+                        "pattern": "Patrón del apellido materno incorrecto."
+                    },
+                    "phone": {
+                        "required": "Su teléfono es obligatorio.",
+                        "minlength": "Su teléfono debe tener al menos 1 caracter.",
+                        "maxlength": "Su teléfono no puede tener más de 15 caracteres.",
+                        "pattern": "Patrón de teléfono incorrecto."
+                    },
+                    "bussines_name":{
+                        "required": "El Nombre o Razón Social es obligatorio.",
+                        "minlength": "El Nombre o Razón Social debe tener al menos 3 caracteres.",
+                        "maxlength": "El Nombre o Razón Social no puede tener más de 50 caracteres.",
+                        "pattern": "Patrón del El Nombre o Razón Social incorrecto."
+                    }
+                }
+            }
         }
     }
 }

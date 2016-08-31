@@ -46,9 +46,49 @@
             "labelDS":"Taxpayer data",
             "labelDC":"Account data",
             "propio":"Your data",
-            "messege":"Your request was send correctly...",
+            "messege":"Your request has been successfully registered. It was sent a notification to the email provided by you with data from the application. When your account is approved you will be sent an email informing you that your account and taxpayer is active and can operate with the same.",
             "messege1":"Atentamente",
-            "signal":"Megapractical, S.A. de C.V."
+            "signal":"Megapractical, S.A. de C.V.",
+            "messages": {
+                "validate": {
+                    "rfc": {
+                        "required": "RFC is required.",
+                        "minlength": "RFC is required to be at least 12 characters.",
+                        "maxlength": "RFC cannot be longer than 13 characters.",
+                        "pattern": "RFC format is incorrect"
+                    },
+                    "name": {
+                        "required": "Your name is required.",
+                        "minlength": "Your name is required to be at least 3 characters.",
+                        "maxlength": "Your name cannot be longer than 50 characters.",
+                        "pattern": "Name format is incorrect"
+                    },
+                    "firtsurname": {
+                        "required": "Your firt surname is required.",
+                        "minlength": "Your firt surname is required to be at least 3 characters.",
+                        "maxlength": "Your firt surname cannot be longer than 50 characters.",
+                        "pattern": "Firt surname format is incorrect"
+                    },
+                    "secondsurname": {
+                        "required": "Your second surname is required.",
+                        "minlength": "Your second surname is required to be at least 3 characters.",
+                        "maxlength": "Your second surname cannot be longer than 50 characters.",
+                        "pattern": "Second surname format is incorrect"
+                    },
+                    "phone": {
+                        "required": "Your phone is required.",
+                        "minlength": "Your phone is required to be at least 1 character.",
+                        "maxlength": "Your phone cannot be longer than 15 characters.",
+                        "pattern": "Phone format is incorrect"
+                    },
+                    "bussines_name":{
+                        "required": "Bussines name is required.",
+                        "minlength": "Bussines name is required to be at least 3 characters.",
+                        "maxlength": "Bussines name cannot be longer than 50 characters.",
+                        "pattern": "Bussines name format is incorrect"
+                    }
+                }
+            }
         }
     }
 }

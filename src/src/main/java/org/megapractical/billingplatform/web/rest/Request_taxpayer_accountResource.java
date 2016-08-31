@@ -5,10 +5,7 @@ import org.megapractical.billingplatform.domain.Request_taxpayer_account;
 import org.megapractical.billingplatform.domain.Tax_address_request;
 import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.security.SecurityUtils;
-import org.megapractical.billingplatform.service.Request_stateService;
-import org.megapractical.billingplatform.service.Request_taxpayer_accountService;
-import org.megapractical.billingplatform.service.Tax_address_requestService;
-import org.megapractical.billingplatform.service.UserService;
+import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -50,6 +47,18 @@ public class Request_taxpayer_accountResource {
     @Inject
     Tax_address_requestService tax_address_requestService;
 
+    @Inject
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
+
+    @Inject
+    Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    MailService mailService;
+
     /**
      * POST  /request-taxpayer-accounts : Create a new request_taxpayer_account.
      *
@@ -76,15 +85,19 @@ public class Request_taxpayer_accountResource {
         request_taxpayer_account.setTax_address_request(tax_address_request);
 
         Request_taxpayer_account result = request_taxpayer_accountService.save(request_taxpayer_account);
-        SendEmailRequest(result);
+        SendEmailRequest(user, result);
+
+        Long id = new Long("38");
+        Long idtypeevent = new Long("1");
+        tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
 
         return ResponseEntity.created(new URI("/api/request-taxpayer-accounts/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("request_taxpayer_account", result.getId().toString()))
             .body(result);
     }
 
-    private void SendEmailRequest(Request_taxpayer_account request_taxpayer_account){
-
+    private void SendEmailRequest(User user, Request_taxpayer_account request_taxpayer_account){
+        mailService.sendRequestMail(user,request_taxpayer_account);
     }
 
     /**

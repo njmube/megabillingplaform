@@ -3,6 +3,7 @@ package org.megapractical.billingplatform.service;
 import org.megapractical.billingplatform.config.JHipsterProperties;
 import org.megapractical.billingplatform.domain.Audit_event_type;
 import org.megapractical.billingplatform.domain.C_state_event;
+import org.megapractical.billingplatform.domain.Request_taxpayer_account;
 import org.megapractical.billingplatform.domain.User;
 
 import org.apache.commons.lang.CharEncoding;
@@ -154,6 +155,24 @@ public class MailService {
         String subject = messageSource.getMessage("email.reset.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
         Long idauditevent = new Long("24");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTraceUser(user.getLogin(), audit_event_type, c_state_event);
+    }
+
+    @Async
+    public void sendRequestMail(User user, Request_taxpayer_account request_taxpayer_account) {
+        log.debug("Sending request e-mail to '{}'", user.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", user);
+        context.setVariable("request", request_taxpayer_account);
+        String content = templateEngine.process("creationRequestEmail", context);
+        String subject = messageSource.getMessage("email.request.title", null, locale);
+        sendEmail(user.getEmail(), subject, content, false, true);
+        Long idauditevent = new Long("39");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;
         Long idstate = new Long("1");

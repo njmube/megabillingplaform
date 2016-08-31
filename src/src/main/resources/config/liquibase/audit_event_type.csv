@@ -36,3 +36,8 @@ id;name;description
 35;REPORTE-CUENTA;Se consulta la cuenta del usuario actual
 36;REPORTE-CFDI-GRATUITO;Se consulta cfdi gratuito
 37;LOGOUT;Se realiza logout de la sessión
+38;REGISTRANDO-SOLICITUD-CUENTA;Se realiza el registro de la solicitud de cuenta de facturación
+39;NOTIFICACION-REGISTRO-SOLICITUD-CUENTA;Envío de notificación creacción de solicitud de cuenta de facturación
+40;NOTIFICACION-EVALUACION-SOLICITUD-CUENTA;Envío de notificación creacción de la evaluación de la solicitud de cuenta de facturación
+41;SOLICITUD-CUENTA-RECHAZADA;Se rechaza la solicitud de cuenta de facturación
+42;SOLICITUD-CUENTA-APROBADA;Se aprueba la solicitud de cuenta de facturación
