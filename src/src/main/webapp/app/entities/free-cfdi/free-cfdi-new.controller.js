@@ -1483,9 +1483,19 @@
                 vm.ine_entity_scope_required = false;
                 vm.ine_entity_scope_disabled = true;
             }
+            else if(vm.freecom_ine.c_committee_type != null && vm.freecom_ine.c_committee_type.id == 3){
+                vm.ident_disabled = false;
+
+                vm.freecom_ine_entities = [];
+                vm.add_button_ine_entity_disabled = false;
+
+                vm.ine_entity_scope_required = false;
+                vm.ine_entity_scope_disabled = true;
+            }
         };
 
         vm.freecom_ine_entities = [];
+        vm.key_scope_combinations = [];
 
         vm.addIneEntity = function(){
             $uibModal.open({
@@ -1505,10 +1515,14 @@
                             ine_entity_scope_required: vm.ine_entity_scope_required,
                             ine_entity_scope_disabled: vm.ine_entity_scope_disabled
                         };
+                    },
+                    key_scope_combinations: function(){
+                        return vm.key_scope_combinations;
                     }
                 }
             }).result.then(function(result) {
                 vm.freecom_ine_entities.push(result);
+                updateKeyScopeCombinations();
             }, function() {
                 //do not nothing
             });
@@ -1516,7 +1530,19 @@
 
         vm.removeIneEntity = function(index){
             vm.freecom_ine_entities.splice(index,1);
+            updateKeyScopeCombinations();
         };
+
+        function updateKeyScopeCombinations(){
+            vm.key_scope_combinations = [];
+            var i;
+            for(i = 0; i < vm.freecom_ine_entities.length; i++){
+                vm.key_scope_combinations.push({
+                    key: vm.freecom_ine_entities[i].freecom_ine_entity.key_entity,
+                    scope: vm.freecom_ine_entities[i].freecom_ine_entity.c_scope_type
+                });
+            }
+        }
 
         //Kind Payment
         vm.show_kind_payment = false;

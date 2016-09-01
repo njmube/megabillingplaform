@@ -23,9 +23,17 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine_entity.c_scope_type" for="field_c_scope_type">C Scope Type</label>
                     <div class="col-sm-8">
-                        <select class="form-control" id="field_c_scope_type" name="c_scope_type" ng-model="vm.freecom_ine_entity.c_scope_type" ng-options="c_scope_type as c_scope_type.name for c_scope_type in vm.c_scope_types track by c_scope_type.id" ng-required="vm.freecom_ine_entity_req.ine_entity_scope_required" ng-disabled="vm.freecom_ine_entity_req.ine_entity_scope_disabled">
+                        <select class="form-control" id="field_c_scope_type" name="c_scope_type" ng-model="vm.freecom_ine_entity.c_scope_type"
+                                ng-options="c_scope_type as c_scope_type.name for c_scope_type in vm.c_scope_types track by c_scope_type.id"  data-ng-change="vm.onScopeChange()"
+                                ng-required="vm.freecom_ine_entity_req.ine_entity_scope_required" ng-disabled="vm.freecom_ine_entity_req.ine_entity_scope_disabled">
                             <option value=""></option>
                         </select>
+                        <div ng-show="vm.key_scope_combination_repeated">
+                            <p class="help-block"
+                               ng-show="vm.key_scope_combination_repeated">
+                                La combinación Clave Entidad y Ambito no se debe repetir.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </uib-tab>
@@ -59,7 +67,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || isSaving || vm.accountings.length == 0" class="btn btn-primary">
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving || vm.key_scope_combination_repeated || vm.accountings.length == 0" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
         </button>
     </div>
