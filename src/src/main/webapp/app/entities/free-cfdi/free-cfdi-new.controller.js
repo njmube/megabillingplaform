@@ -528,9 +528,11 @@
         };
 
         var onDestructionCertificateSaveSucccess = function(result){
-            var freecom_destruction_certificate_saved = result;
-            vm.freecom_info_customs_destruction.freecom_destruction_certificate = freecom_destruction_certificate_saved;
-            Freecom_info_customs_destruction.save(vm.freecom_info_customs_destruction);
+            if(vm.use_info_customs_destruction) {
+                var freecom_destruction_certificate_saved = result;
+                vm.freecom_info_customs_destruction.freecom_destruction_certificate = freecom_destruction_certificate_saved;
+                Freecom_info_customs_destruction.save(vm.freecom_info_customs_destruction);
+            }
 
             saveConcept();
         };
@@ -1283,6 +1285,7 @@
             vm.show_destruction_certificate = false;
             vm.freecom_destruction_certificate = { version: null, numfoldesveh: null, brand: null, class_dc: null, year: null, model: null, niv: null, no_serie: null, number_plates: null, number_engine: null, numfoltarjcir: null, id: null };
             vm.freecom_info_customs_destruction = { numpedimp: null, date_expedition: null, customs: null, freecom_destruction_certificate: null, id: null};
+            vm.use_info_customs_destruction = false;
 
             vm.show_fuel_consumption = false;
             vm.freecom_fuel_consumption = { version: null, type_operation: "Monedero Electrónico", account_number: null, subtotal: null, total: null, id: null };
@@ -1610,7 +1613,9 @@
         vm.show_destruction_certificate = false;
         vm.freecom_destruction_certificate = null;
         vm.freecom_info_customs_destruction = null;
+        vm.use_info_customs_destruction = false;
 
+        vm.no_series = ["SERIE A", "SERIE B", "SERIE C", "SERIE D", "SERIE E"];
         vm.c_type_series = C_type_series.query();
 
         vm.dateInfoCustomsDestructionPickerOpenStatus = {};

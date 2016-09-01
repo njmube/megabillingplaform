@@ -138,8 +138,8 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="determinate in vm.determinates">
-                        <td class="text-left">{{determinate.freecom_tax_type.name}}</td>
                         <td class="text-left">{{determinate.rate}}</td>
+                        <td class="text-left">{{determinate.freecom_tax_type.name}}</td>
                         <td class="text-right">{{determinate.amount}}</td>
                         <td class="text-center">
                             <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeDeterminate($index)">
