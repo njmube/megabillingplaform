@@ -1473,11 +1473,11 @@
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_used_vehicle_monto_enajenacion" id="field_freecom_used_vehicle_monto_enajenacion"
                                            ng-model="vm.freecom_used_vehicle.monto_enajenacion"
-                                           ng-required="vm.show_used_vehicle" ng-patter="/^(0|[1-9][0-9]*)$/"/>
+                                           ng-required="vm.show_used_vehicle" ng-pattern="/^\d+\.?\d{1,2}$/"/>
                                     <div ng-show="editForm.freecom_used_vehicle_monto_enajenacion.$invalid">
                                         <p class="help-block"
-                                           ng-show="editForm.freecom_used_vehicle_monto_enajenacion.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
-                                            This field should follow pattern "^(0|[1-9][0-9]*)$".
+                                           ng-show="editForm.freecom_used_vehicle_monto_enajenacion.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
+                                            This field should follow pattern "^\d+\.?\d{1,2}$".
                                         </p>
                                     </div>
                                 </div>
@@ -1487,11 +1487,11 @@
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_used_vehicle_key_vehicle" id="field_freecom_used_vehicle_key_vehicle"
                                            ng-model="vm.freecom_used_vehicle.key_vehicle"
-                                           ng-required="vm.show_used_vehicle" ng-maxlength="50" />
+                                           ng-required="vm.show_used_vehicle" ng-maxlength="7" />
                                     <div ng-show="editForm.freecom_used_vehicle_key_vehicle.$invalid">
                                         <p class="help-block"
-                                           ng-show="editForm.freecom_used_vehicle_key_vehicle.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
-                                            This field cannot be longer than 50 characters.
+                                           ng-show="editForm.freecom_used_vehicle_key_vehicle.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="7">
+                                            This field cannot be longer than 7 characters.
                                         </p>
                                     </div>
                                 </div>
@@ -1529,11 +1529,15 @@
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_used_vehicle_model" id="field_freecom_used_vehicle_model"
                                            ng-model="vm.freecom_used_vehicle.model"
-                                           ng-required="vm.show_used_vehicle" ng-maxlength="50" />
+                                           ng-required="vm.show_used_vehicle" ng-maxlength="50" ng-pattern="/^[0-9]{4}$/"/>
                                     <div ng-show="editForm.freecom_used_vehicle_model.$invalid">
                                         <p class="help-block"
                                            ng-show="editForm.freecom_used_vehicle_model.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
                                             This field cannot be longer than 50 characters.
+                                        </p>
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_used_vehicle_model.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{4}$">
+                                            This field should follow pattern "/^[0-9]{4}$/".
                                         </p>
                                     </div>
                                 </div>
@@ -1596,15 +1600,23 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <h3 class="header smaller lighter blue">
-                                Informacion Aduanera
-                            </h3>
+                            <div class="checkbox" ng-show="vm.show_used_vehicle">
+                                <label class="block">
+                                    <input name="freecom_vehicle_customs_information_use_vehicle_customs_information" type="checkbox" class="ace input-lg"
+                                           ng-model="vm.use_vehicle_customs_information"
+                                    />
+                                    <span class="lbl bigger-140 header smaller lighter blue" style="width:100%"> Información Aduanera</span>
+                                </label>
+                            </div>
+
+                            <div class="space-6" ng-show="vm.show_used_vehicle"></div>
+
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_vehicle_customs_information.number" for="field_freecom_vehicle_customs_information_number">Number</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_vehicle_customs_information_number" id="field_freecom_vehicle_customs_information_number"
                                            ng-model="vm.freecom_vehicle_customs_information.number"
-                                           ng-required="vm.show_used_vehicle" />
+                                           ng-required="vm.use_vehicle_customs_information" ng-disabled="!vm.use_vehicle_customs_information" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -1612,9 +1624,9 @@
                                 <div class="col-sm-8">
                                     <div class="input-group">
                                         <input id="field_date_expedition" type="text" class="form-control" name="date_expedition" uib-datepicker-popup="{{dateformat}}" ng-model="vm.freecom_vehicle_customs_information.date_expedition" is-open="vm.dateVehicleCustomsInfoPickerOpenStatus.date_expedition"
-                                               ng-required="vm.show_used_vehicle" readonly />
+                                               ng-required="vm.use_vehicle_customs_information" ng-disabled="!vm.use_vehicle_customs_information" readonly />
                                         <span class="input-group-btn">
-                                            <button type="button" class="btn btn-default" ng-click="vm.openVehicleCustomsInfoCalendar('date_expedition')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                            <button type="button" class="btn btn-default" ng-click="vm.openVehicleCustomsInfoCalendar('date_expedition')" ng-disabled="!vm.use_vehicle_customs_information"><i class="glyphicon glyphicon-calendar"></i></button>
                                         </span>
                                     </div>
                                 </div>
@@ -1623,7 +1635,7 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_vehicle_customs_information.customs" for="field_freecom_vehicle_customs_information_customs">Customs</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_vehicle_customs_information_customs" id="field_freecom_vehicle_customs_information_customs"
-                                           ng-model="vm.freecom_vehicle_customs_information.customs"
+                                           ng-model="vm.freecom_vehicle_customs_information.customs" ng-disabled="!vm.use_vehicle_customs_information"
                                     />
                                 </div>
                             </div>

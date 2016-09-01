@@ -520,9 +520,11 @@
         };
 
         var onUsedVehicleSaveSucccess = function(result){
-            var freecom_used_vehicle_saved = result;
-            vm.freecom_vehicle_customs_information.freecom_used_vehicle = freecom_used_vehicle_saved;
-            Freecom_vehicle_customs_information.save(vm.freecom_vehicle_customs_information);
+            if(vm.use_vehicle_customs_information) {
+                var freecom_used_vehicle_saved = result;
+                vm.freecom_vehicle_customs_information.freecom_used_vehicle = freecom_used_vehicle_saved;
+                Freecom_vehicle_customs_information.save(vm.freecom_vehicle_customs_information);
+            }
 
             saveConcept();
         };
@@ -1281,6 +1283,7 @@
             vm.show_used_vehicle = false;
             vm.freecom_used_vehicle = { version: null, acquisition_amount: null, monto_enajenacion: null, key_vehicle: null, brand: null, type: null, model: null, number_engine: null, no_serie: null, niv: null, value: null, id: null };
             vm.freecom_vehicle_customs_information = { number: null, date_expedition: null, customs: null, freecom_used_vehicle: null, id: null };
+            vm.use_vehicle_customs_information = false;
 
             vm.show_destruction_certificate = false;
             vm.freecom_destruction_certificate = { version: null, numfoldesveh: null, brand: null, class_dc: null, year: null, model: null, niv: null, no_serie: null, number_plates: null, number_engine: null, numfoltarjcir: null, id: null };
@@ -1601,6 +1604,7 @@
         vm.show_used_vehicle = false;
         vm.freecom_used_vehicle = null;
         vm.freecom_vehicle_customs_information = null;
+        vm.use_vehicle_customs_information = false;
 
         vm.dateVehicleCustomsInfoPickerOpenStatus = {};
         vm.dateVehicleCustomsInfoPickerOpenStatus.date_expedition = false;
