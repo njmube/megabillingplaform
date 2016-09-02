@@ -1,0 +1,204 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTaxpayer_certificateLabel" translate="megabillingplatformApp.taxpayer_certificate.home.createOrEditLabel">Create or edit a Taxpayer Certificate</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.taxpayer_certificate.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.taxpayer_certificate.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.path_certificate" for="field_path_certificate">Path Certificate</label>
+            <input type="text" class="form-control" name="path_certificate" id="field_path_certificate"
+                    ng-model="vm.taxpayer_certificate.path_certificate"
+                    required />
+            <div ng-show="editForm.path_certificate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.path_certificate.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setFilecertificate($file, vm.taxpayer_certificate)">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.filecertificate" for="field_filecertificate">Filecertificate</label>
+            <div>
+                <div ng-if="vm.taxpayer_certificate.filecertificate" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.taxpayer_certificate.filecertificateContentType, vm.taxpayer_certificate.filecertificate)" translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.taxpayer_certificate.filecertificateContentType}}, {{vm.byteSize(vm.taxpayer_certificate.filecertificate)}}</span>
+                    <button ng-click="vm.taxpayer_certificate.filecertificate=null;vm.taxpayer_certificate.filecertificateContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setFilecertificate($file, vm.taxpayer_certificate)" translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="filecertificate" id="field_filecertificate"
+                    ng-model="vm.taxpayer_certificate.filecertificate"
+                    required />
+            <input type="hidden" class="form-control" name="filecertificateContentType" id="field_filecertificateContentType"
+                    ng-model="vm.taxpayer_certificate.filecertificateContentType" />
+            <div ng-show="editForm.filecertificate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.filecertificate.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.path_key" for="field_path_key">Path Key</label>
+            <input type="text" class="form-control" name="path_key" id="field_path_key"
+                    ng-model="vm.taxpayer_certificate.path_key"
+                    required />
+            <div ng-show="editForm.path_key.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.path_key.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setFilekey($file, vm.taxpayer_certificate)">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.filekey" for="field_filekey">Filekey</label>
+            <div>
+                <div ng-if="vm.taxpayer_certificate.filekey" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.taxpayer_certificate.filekeyContentType, vm.taxpayer_certificate.filekey)" translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.taxpayer_certificate.filekeyContentType}}, {{vm.byteSize(vm.taxpayer_certificate.filekey)}}</span>
+                    <button ng-click="vm.taxpayer_certificate.filekey=null;vm.taxpayer_certificate.filekeyContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="file" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setFilekey($file, vm.taxpayer_certificate)" translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="filekey" id="field_filekey"
+                    ng-model="vm.taxpayer_certificate.filekey"
+                    required />
+            <input type="hidden" class="form-control" name="filekeyContentType" id="field_filekeyContentType"
+                    ng-model="vm.taxpayer_certificate.filekeyContentType" />
+            <div ng-show="editForm.filekey.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.filekey.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.number_certificate" for="field_number_certificate">Number Certificate</label>
+            <input type="text" class="form-control" name="number_certificate" id="field_number_certificate"
+                    ng-model="vm.taxpayer_certificate.number_certificate"
+                    required ng-maxlength="20" />
+            <div ng-show="editForm.number_certificate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number_certificate.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_certificate.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                    This field cannot be longer than 20 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.date_certificate" for="field_date_certificate">Date Certificate</label>
+                <div class="input-group">
+                    <input id="field_date_certificate" type="text" class="form-control" name="date_certificate" uib-datepicker-popup="{{dateformat}}" ng-model="vm.taxpayer_certificate.date_certificate" is-open="vm.datePickerOpenStatus.date_certificate"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_certificate')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_certificate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_certificate.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.rfc_certificate" for="field_rfc_certificate">Rfc Certificate</label>
+            <input type="text" class="form-control" name="rfc_certificate" id="field_rfc_certificate"
+                    ng-model="vm.taxpayer_certificate.rfc_certificate"
+                    required ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/" />
+            <div ng-show="editForm.rfc_certificate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.rfc_certificate.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.rfc_certificate.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$">
+                    This field should follow pattern "^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$".
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.bussines_name_cert" for="field_bussines_name_cert">Bussines Name Cert</label>
+            <input type="text" class="form-control" name="bussines_name_cert" id="field_bussines_name_cert"
+                    ng-model="vm.taxpayer_certificate.bussines_name_cert"
+                    required />
+            <div ng-show="editForm.bussines_name_cert.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.bussines_name_cert.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.date_created_cert" for="field_date_created_cert">Date Created Cert</label>
+                <div class="input-group">
+                    <input id="field_date_created_cert" type="text" class="form-control" name="date_created_cert" uib-datepicker-popup="{{dateformat}}" ng-model="vm.taxpayer_certificate.date_created_cert" is-open="vm.datePickerOpenStatus.date_created_cert"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_created_cert')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_created_cert.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_created_cert.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.date_expiration_cert" for="field_date_expiration_cert">Date Expiration Cert</label>
+                <div class="input-group">
+                    <input id="field_date_expiration_cert" type="text" class="form-control" name="date_expiration_cert" uib-datepicker-popup="{{dateformat}}" ng-model="vm.taxpayer_certificate.date_expiration_cert" is-open="vm.datePickerOpenStatus.date_expiration_cert"
+                    />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_expiration_cert')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.info_certificate" for="field_info_certificate">Info Certificate</label>
+            <input type="text" class="form-control" name="info_certificate" id="field_info_certificate"
+                    ng-model="vm.taxpayer_certificate.info_certificate"
+                    required />
+            <div ng-show="editForm.info_certificate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.info_certificate.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

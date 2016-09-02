@@ -1,0 +1,33 @@
+{
+    "megabillingplatformApp": {
+        "taxpayer_account" : {
+            "home": {
+                "title": "Taxpayer Accounts",
+                "createLabel": "Create a new Taxpayer Account",
+                "createOrEditLabel": "Create or edit a Taxpayer Account",
+                "search": "Search for Taxpayer Account"
+            },
+            "created": "A new Taxpayer Account is created with identifier {{ param }}",
+            "updated": "A Taxpayer Account is updated with identifier {{ param }}",
+            "deleted": "A Taxpayer Account is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Taxpayer Account {{ id }}?"
+            },
+            "detail": {
+                "title": "Taxpayer Account"
+            },
+            "rfc": "Rfc",
+            "bussines_name": "Bussines Name",
+            "email": "Email",
+            "fax": "Fax",
+            "phone1": "Phone 1",
+            "phone2": "Phone 2",
+            "accuracy": "Accuracy",
+            "tax_address": "Tax Address",
+            "taxpayer_certificate": "Taxpayer Certificate",
+            "type_taxpayer": "Type Taxpayer",
+            "tax_regime": "Tax Regime",
+            "user": "User"
+        }
+    }
+}

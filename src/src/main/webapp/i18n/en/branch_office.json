@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "branch_office" : {
+            "home": {
+                "title": "Branch Offices",
+                "createLabel": "Create a new Branch Office",
+                "createOrEditLabel": "Create or edit a Branch Office",
+                "search": "Search for Branch Office"
+            },
+            "created": "A new Branch Office is created with identifier {{ param }}",
+            "updated": "A Branch Office is updated with identifier {{ param }}",
+            "deleted": "A Branch Office is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Branch Office {{ id }}?"
+            },
+            "detail": {
+                "title": "Branch Office"
+            },
+            "bussines_name": "Bussines Name",
+            "tax_address": "Tax Address",
+            "taxpayer_account": "Taxpayer Account"
+        }
+    }
+}

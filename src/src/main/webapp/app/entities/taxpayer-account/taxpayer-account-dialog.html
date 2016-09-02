@@ -1,0 +1,134 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTaxpayer_accountLabel" translate="megabillingplatformApp.taxpayer_account.home.createOrEditLabel">Create or edit a Taxpayer Account</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.taxpayer_account.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.taxpayer_account.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_account.rfc" for="field_rfc">Rfc</label>
+            <input type="text" class="form-control" name="rfc" id="field_rfc"
+                    ng-model="vm.taxpayer_account.rfc"
+                    required ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/" />
+            <div ng-show="editForm.rfc.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.rfc.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.rfc.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$">
+                    This field should follow pattern "^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$".
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_account.bussines_name" for="field_bussines_name">Bussines Name</label>
+            <input type="text" class="form-control" name="bussines_name" id="field_bussines_name"
+                    ng-model="vm.taxpayer_account.bussines_name"
+                    required ng-maxlength="100" />
+            <div ng-show="editForm.bussines_name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.bussines_name.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.bussines_name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="100">
+                    This field cannot be longer than 100 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_account.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.taxpayer_account.email"
+                    required ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" />
+            <div ng-show="editForm.email.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.email.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.email.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$">
+                    This field should follow pattern "^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$".
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_account.fax" for="field_fax">Fax</label>
+            <input type="text" class="form-control" name="fax" id="field_fax"
+                    ng-model="vm.taxpayer_account.fax"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_account.phone1" for="field_phone1">Phone 1</label>
+            <input type="text" class="form-control" name="phone1" id="field_phone1"
+                    ng-model="vm.taxpayer_account.phone1"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_account.phone2" for="field_phone2">Phone 2</label>
+            <input type="text" class="form-control" name="phone2" id="field_phone2"
+                    ng-model="vm.taxpayer_account.phone2"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_account.accuracy" for="field_accuracy">Accuracy</label>
+            <input type="number" class="form-control" name="accuracy" id="field_accuracy"
+                    ng-model="vm.taxpayer_account.accuracy"
+                    required />
+            <div ng-show="editForm.accuracy.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.accuracy.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.accuracy.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.taxpayer_account.tax_address" for="field_tax_address">Tax Address</label>
+            <select class="form-control" id="field_tax_address" name="tax_address" ng-model="vm.taxpayer_account.tax_address" ng-options="tax_address as tax_address.id for tax_address in vm.tax_addresses | orderBy:'id' track by tax_address.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.taxpayer_account.taxpayer_certificate" for="field_taxpayer_certificate">Taxpayer Certificate</label>
+            <select class="form-control" id="field_taxpayer_certificate" name="taxpayer_certificate" ng-model="vm.taxpayer_account.taxpayer_certificate" ng-options="taxpayer_certificate as taxpayer_certificate.id for taxpayer_certificate in vm.taxpayer_certificates | orderBy:'id' track by taxpayer_certificate.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.taxpayer_account.type_taxpayer" for="field_type_taxpayer">Type Taxpayer</label>
+            <select class="form-control" id="field_type_taxpayer" name="type_taxpayer" ng-model="vm.taxpayer_account.type_taxpayer" ng-options="type_taxpayer as type_taxpayer.name for type_taxpayer in vm.type_taxpayers track by type_taxpayer.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.taxpayer_account.tax_regime" for="field_tax_regime">Tax Regime</label>
+            <select class="form-control" id="field_tax_regime" multiple name="tax_regime" ng-model="vm.taxpayer_account.tax_regimes" ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimes track by tax_regime.id"></select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.taxpayer_account.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" multiple name="user" ng-model="vm.taxpayer_account.users" ng-options="user as user.login for user in vm.users track by user.id"></select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

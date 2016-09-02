@@ -1,0 +1,122 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTax_addressLabel" translate="megabillingplatformApp.tax_address.home.createOrEditLabel">Create or edit a Tax Address</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.tax_address.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.tax_address.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.tax_address.street" for="field_street">Street</label>
+            <input type="text" class="form-control" name="street" id="field_street"
+                    ng-model="vm.tax_address.street"
+                    required />
+            <div ng-show="editForm.street.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.street.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.tax_address.no_int" for="field_no_int">No Int</label>
+            <input type="text" class="form-control" name="no_int" id="field_no_int"
+                    ng-model="vm.tax_address.no_int"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.tax_address.no_ext" for="field_no_ext">No Ext</label>
+            <input type="text" class="form-control" name="no_ext" id="field_no_ext"
+                    ng-model="vm.tax_address.no_ext"
+                    ng-maxlength="10" />
+            <div ng-show="editForm.no_ext.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.no_ext.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="10">
+                    This field cannot be longer than 10 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.tax_address.location" for="field_location">Location</label>
+            <input type="text" class="form-control" name="location" id="field_location"
+                    ng-model="vm.tax_address.location"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.tax_address.intersection" for="field_intersection">Intersection</label>
+            <input type="text" class="form-control" name="intersection" id="field_intersection"
+                    ng-model="vm.tax_address.intersection"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.tax_address.reference" for="field_reference">Reference</label>
+            <input type="text" class="form-control" name="reference" id="field_reference"
+                    ng-model="vm.tax_address.reference"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.tax_address.c_country" for="field_c_country">C Country</label>
+            <select class="form-control" id="field_c_country" name="c_country" ng-model="vm.tax_address.c_country" ng-options="c_country as c_country.name for c_country in vm.c_countries track by c_country.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.c_country.$invalid">
+            <p class="help-block"
+                ng-show="editForm.c_country.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.tax_address.c_state" for="field_c_state">C State</label>
+            <select class="form-control" id="field_c_state" name="c_state" ng-model="vm.tax_address.c_state" ng-options="c_state as c_state.name for c_state in vm.c_states track by c_state.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.c_state.$invalid">
+            <p class="help-block"
+                ng-show="editForm.c_state.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.tax_address.c_municipality" for="field_c_municipality">C Municipality</label>
+            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.tax_address.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalities track by c_municipality.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.c_municipality.$invalid">
+            <p class="help-block"
+                ng-show="editForm.c_municipality.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.tax_address.c_colony" for="field_c_colony">C Colony</label>
+            <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.tax_address.c_colony" ng-options="c_colony as c_colony.code for c_colony in vm.c_colonies track by c_colony.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.tax_address.c_zip_code" for="field_c_zip_code">C Zip Code</label>
+            <select class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.tax_address.c_zip_code" ng-options="c_zip_code as c_zip_code.code for c_zip_code in vm.c_zip_codes track by c_zip_code.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

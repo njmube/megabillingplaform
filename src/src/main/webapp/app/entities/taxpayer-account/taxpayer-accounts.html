@@ -1,0 +1,84 @@
+<div>
+    <h2 translate="megabillingplatformApp.taxpayer_account.home.title">Taxpayer Accounts</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="taxpayer-account.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.taxpayer_account.home.createLabel">
+                        Create new Taxpayer Account
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.taxpayer_account.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bussines_name"><span translate="megabillingplatformApp.taxpayer_account.bussines_name">Bussines Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email"><span translate="megabillingplatformApp.taxpayer_account.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fax"><span translate="megabillingplatformApp.taxpayer_account.fax">Fax</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="phone1"><span translate="megabillingplatformApp.taxpayer_account.phone1">Phone 1</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="phone2"><span translate="megabillingplatformApp.taxpayer_account.phone2">Phone 2</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="accuracy"><span translate="megabillingplatformApp.taxpayer_account.accuracy">Accuracy</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax_address.id"><span translate="megabillingplatformApp.taxpayer_account.tax_address">Tax Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="taxpayer_certificate.id"><span translate="megabillingplatformApp.taxpayer_account.taxpayer_certificate">Taxpayer Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="type_taxpayer.name"><span translate="megabillingplatformApp.taxpayer_account.type_taxpayer">Type Taxpayer</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
+                    <td><a ui-sref="taxpayer-account-detail({id:taxpayer_account.id})">{{taxpayer_account.id}}</a></td>
+                    <td>{{taxpayer_account.rfc}}</td>
+                    <td>{{taxpayer_account.bussines_name}}</td>
+                    <td>{{taxpayer_account.email}}</td>
+                    <td>{{taxpayer_account.fax}}</td>
+                    <td>{{taxpayer_account.phone1}}</td>
+                    <td>{{taxpayer_account.phone2}}</td>
+                    <td>{{taxpayer_account.accuracy}}</td>
+                    <td>
+                        <a ui-sref="tax-address-detail({id:taxpayer_account.tax_address.id})">{{taxpayer_account.tax_address.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="taxpayer-certificate-detail({id:taxpayer_account.taxpayer_certificate.id})">{{taxpayer_account.taxpayer_certificate.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="type-taxpayer-detail({id:taxpayer_account.type_taxpayer.id})">{{taxpayer_account.type_taxpayer.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="taxpayer-account-detail({id:taxpayer_account.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="taxpayer-account.edit({id:taxpayer_account.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="taxpayer-account.delete({id:taxpayer_account.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

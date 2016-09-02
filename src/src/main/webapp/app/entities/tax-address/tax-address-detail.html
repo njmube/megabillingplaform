@@ -1,0 +1,58 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.tax_address.detail.title">Tax Address</span> {{vm.tax_address.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.tax_address.street">Street</span></dt>
+        <dd>
+            <span>{{vm.tax_address.street}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.tax_address.no_int">No Int</span></dt>
+        <dd>
+            <span>{{vm.tax_address.no_int}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.tax_address.no_ext">No Ext</span></dt>
+        <dd>
+            <span>{{vm.tax_address.no_ext}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.tax_address.location">Location</span></dt>
+        <dd>
+            <span>{{vm.tax_address.location}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.tax_address.intersection">Intersection</span></dt>
+        <dd>
+            <span>{{vm.tax_address.intersection}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.tax_address.reference">Reference</span></dt>
+        <dd>
+            <span>{{vm.tax_address.reference}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.tax_address.c_country">C Country</span></dt>
+        <dd>
+            <a ui-sref="c-country-detail({id:vm.tax_address.c_country.id})">{{vm.tax_address.c_country.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.tax_address.c_state">C State</span></dt>
+        <dd>
+            <a ui-sref="c-state-detail({id:vm.tax_address.c_state.id})">{{vm.tax_address.c_state.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.tax_address.c_municipality">C Municipality</span></dt>
+        <dd>
+            <a ui-sref="c-municipality-detail({id:vm.tax_address.c_municipality.id})">{{vm.tax_address.c_municipality.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.tax_address.c_colony">C Colony</span></dt>
+        <dd>
+            <a ui-sref="c-colony-detail({id:vm.tax_address.c_colony.id})">{{vm.tax_address.c_colony.code}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.tax_address.c_zip_code">C Zip Code</span></dt>
+        <dd>
+            <a ui-sref="c-zip-code-detail({id:vm.tax_address.c_zip_code.id})">{{vm.tax_address.c_zip_code.code}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

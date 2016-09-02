@@ -21,13 +21,13 @@ import java.util.List;
 public class Request_taxpayer_accountServiceImpl implements Request_taxpayer_accountService{
 
     private final Logger log = LoggerFactory.getLogger(Request_taxpayer_accountServiceImpl.class);
-    
+
     @Inject
     private Request_taxpayer_accountRepository request_taxpayer_accountRepository;
-    
+
     /**
      * Save a request_taxpayer_account.
-     * 
+     *
      * @param request_taxpayer_account the entity to save
      * @return the persisted entity
      */
@@ -37,16 +37,21 @@ public class Request_taxpayer_accountServiceImpl implements Request_taxpayer_acc
         return result;
     }
 
+    /*public Page<Request_taxpayer_account> findAllOrderByIdDesc(Pageable pageable){
+        log.debug("Request to get all Request_taxpayer_accounts");
+        return request_taxpayer_accountRepository.findAllOrderByIdDesc(pageable);
+    }*/
+
     /**
      *  Get all the request_taxpayer_accounts.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Request_taxpayer_account> findAll(Pageable pageable) {
         log.debug("Request to get all Request_taxpayer_accounts");
-        Page<Request_taxpayer_account> result = request_taxpayer_accountRepository.findAll(pageable); 
+        Page<Request_taxpayer_account> result = request_taxpayer_accountRepository.findAll(pageable);
         return result;
     }
 
@@ -56,7 +61,7 @@ public class Request_taxpayer_accountServiceImpl implements Request_taxpayer_acc
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Request_taxpayer_account findOne(Long id) {
         log.debug("Request to get Request_taxpayer_account : {}", id);
         Request_taxpayer_account request_taxpayer_account = request_taxpayer_accountRepository.findOne(id);
@@ -65,7 +70,7 @@ public class Request_taxpayer_accountServiceImpl implements Request_taxpayer_acc
 
     /**
      *  Delete the  request_taxpayer_account by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

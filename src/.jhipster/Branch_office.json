@@ -1,0 +1,30 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "tax_address",
+            "otherEntityName": "tax_address",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "taxpayer_account",
+            "otherEntityName": "taxpayer_account",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "bussines_name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160902131842",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "branch_office",
+    "pagination": "pagination"
+}

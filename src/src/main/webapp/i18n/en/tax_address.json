@@ -1,0 +1,32 @@
+{
+    "megabillingplatformApp": {
+        "tax_address" : {
+            "home": {
+                "title": "Tax Addresses",
+                "createLabel": "Create a new Tax Address",
+                "createOrEditLabel": "Create or edit a Tax Address",
+                "search": "Search for Tax Address"
+            },
+            "created": "A new Tax Address is created with identifier {{ param }}",
+            "updated": "A Tax Address is updated with identifier {{ param }}",
+            "deleted": "A Tax Address is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tax Address {{ id }}?"
+            },
+            "detail": {
+                "title": "Tax Address"
+            },
+            "street": "Street",
+            "no_int": "No Int",
+            "no_ext": "No Ext",
+            "location": "Location",
+            "intersection": "Intersection",
+            "reference": "Reference",
+            "c_country": "C Country",
+            "c_state": "C State",
+            "c_municipality": "C Municipality",
+            "c_colony": "C Colony",
+            "c_zip_code": "C Zip Code"
+        }
+    }
+}

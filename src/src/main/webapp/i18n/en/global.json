@@ -108,6 +108,10 @@
                 "cComplement": "C Complement",
                 "taxAddressRequest": "Tax Address Request",
                 "requestTaxpayerAccount": "Request Taxpayer Account",
+                "taxpayerCertificate": "Taxpayer Certificate",
+                "taxAddress": "Tax Address",
+                "taxpayerAccount": "Taxpayer Account",
+                "branchOffice": "Branch Office",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

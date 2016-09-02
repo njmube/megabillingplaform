@@ -1,0 +1,86 @@
+<div>
+    <h2 translate="megabillingplatformApp.taxpayer_certificate.home.title">Taxpayer Certificates</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="taxpayer-certificate.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.taxpayer_certificate.home.createLabel">
+                        Create new Taxpayer Certificate
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="path_certificate"><span translate="megabillingplatformApp.taxpayer_certificate.path_certificate">Path Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="filecertificate"><span translate="megabillingplatformApp.taxpayer_certificate.filecertificate">Filecertificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="path_key"><span translate="megabillingplatformApp.taxpayer_certificate.path_key">Path Key</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="filekey"><span translate="megabillingplatformApp.taxpayer_certificate.filekey">Filekey</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_certificate"><span translate="megabillingplatformApp.taxpayer_certificate.number_certificate">Number Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_certificate"><span translate="megabillingplatformApp.taxpayer_certificate.date_certificate">Date Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfc_certificate"><span translate="megabillingplatformApp.taxpayer_certificate.rfc_certificate">Rfc Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bussines_name_cert"><span translate="megabillingplatformApp.taxpayer_certificate.bussines_name_cert">Bussines Name Cert</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_created_cert"><span translate="megabillingplatformApp.taxpayer_certificate.date_created_cert">Date Created Cert</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_expiration_cert"><span translate="megabillingplatformApp.taxpayer_certificate.date_expiration_cert">Date Expiration Cert</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="info_certificate"><span translate="megabillingplatformApp.taxpayer_certificate.info_certificate">Info Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="taxpayer_certificate in vm.taxpayer_certificates track by taxpayer_certificate.id">
+                    <td><a ui-sref="taxpayer-certificate-detail({id:taxpayer_certificate.id})">{{taxpayer_certificate.id}}</a></td>
+                    <td>{{taxpayer_certificate.path_certificate}}</td>
+                    <td>
+                        <a ng-if="taxpayer_certificate.filecertificate" ng-click="vm.openFile(taxpayer_certificate.filecertificateContentType, taxpayer_certificate.filecertificate)" translate="entity.action.open">open</a>
+                        <span ng-if="taxpayer_certificate.filecertificate">{{taxpayer_certificate.filecertificateContentType}}, {{vm.byteSize(taxpayer_certificate.filecertificate)}}</span>
+                    </td>
+                    <td>{{taxpayer_certificate.path_key}}</td>
+                    <td>
+                        <a ng-if="taxpayer_certificate.filekey" ng-click="vm.openFile(taxpayer_certificate.filekeyContentType, taxpayer_certificate.filekey)" translate="entity.action.open">open</a>
+                        <span ng-if="taxpayer_certificate.filekey">{{taxpayer_certificate.filekeyContentType}}, {{vm.byteSize(taxpayer_certificate.filekey)}}</span>
+                    </td>
+                    <td>{{taxpayer_certificate.number_certificate}}</td>
+                        <td>{{taxpayer_certificate.date_certificate | date:'mediumDate'}}</td>
+                    <td>{{taxpayer_certificate.rfc_certificate}}</td>
+                    <td>{{taxpayer_certificate.bussines_name_cert}}</td>
+                        <td>{{taxpayer_certificate.date_created_cert | date:'mediumDate'}}</td>
+                        <td>{{taxpayer_certificate.date_expiration_cert | date:'mediumDate'}}</td>
+                    <td>{{taxpayer_certificate.info_certificate}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="taxpayer-certificate-detail({id:taxpayer_certificate.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="taxpayer-certificate.edit({id:taxpayer_certificate.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="taxpayer-certificate.delete({id:taxpayer_certificate.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

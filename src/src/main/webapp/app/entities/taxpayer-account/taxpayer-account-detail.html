@@ -1,0 +1,66 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.taxpayer_account.detail.title">Taxpayer Account</span> {{vm.taxpayer_account.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.taxpayer_account.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.taxpayer_account.rfc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_account.bussines_name">Bussines Name</span></dt>
+        <dd>
+            <span>{{vm.taxpayer_account.bussines_name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_account.email">Email</span></dt>
+        <dd>
+            <span>{{vm.taxpayer_account.email}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_account.fax">Fax</span></dt>
+        <dd>
+            <span>{{vm.taxpayer_account.fax}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_account.phone1">Phone 1</span></dt>
+        <dd>
+            <span>{{vm.taxpayer_account.phone1}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_account.phone2">Phone 2</span></dt>
+        <dd>
+            <span>{{vm.taxpayer_account.phone2}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_account.accuracy">Accuracy</span></dt>
+        <dd>
+            <span>{{vm.taxpayer_account.accuracy}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_account.tax_address">Tax Address</span></dt>
+        <dd>
+            <a ui-sref="tax-address-detail({id:vm.taxpayer_account.tax_address.id})">{{vm.taxpayer_account.tax_address.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_account.taxpayer_certificate">Taxpayer Certificate</span></dt>
+        <dd>
+            <a ui-sref="taxpayer-certificate-detail({id:vm.taxpayer_account.taxpayer_certificate.id})">{{vm.taxpayer_account.taxpayer_certificate.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_account.type_taxpayer">Type Taxpayer</span></dt>
+        <dd>
+            <a ui-sref="type-taxpayer-detail({id:vm.taxpayer_account.type_taxpayer.id})">{{vm.taxpayer_account.type_taxpayer.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_account.tax_regime">Tax Regime</span></dt>
+        <dd>
+            <span ng-repeat="tax_regime in vm.taxpayer_account.tax_regimes">
+                <a ui-sref="tax-regime-detail({id: {{tax_regime.id}}})">{{tax_regime.name}}</a>{{$last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_account.user">User</span></dt>
+        <dd>
+            <span ng-repeat="user in vm.taxpayer_account.users">
+                {{user.login}}{{$last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

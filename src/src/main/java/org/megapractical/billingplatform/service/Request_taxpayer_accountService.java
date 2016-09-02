@@ -13,7 +13,7 @@ public interface Request_taxpayer_accountService {
 
     /**
      * Save a request_taxpayer_account.
-     * 
+     *
      * @param request_taxpayer_account the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Request_taxpayer_accountService {
 
     /**
      *  Get all the request_taxpayer_accounts.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Request_taxpayer_account> findAll(Pageable pageable);
 
+    //Page<Request_taxpayer_account> findAllOrderByIdDesc(Pageable pageable);
+
     /**
      *  Get the "id" request_taxpayer_account.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Request_taxpayer_accountService {
 
     /**
      *  Delete the "id" request_taxpayer_account.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

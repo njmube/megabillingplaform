@@ -1,0 +1,32 @@
+{
+    "megabillingplatformApp": {
+        "taxpayer_certificate" : {
+            "home": {
+                "title": "Taxpayer Certificates",
+                "createLabel": "Create a new Taxpayer Certificate",
+                "createOrEditLabel": "Create or edit a Taxpayer Certificate",
+                "search": "Search for Taxpayer Certificate"
+            },
+            "created": "A new Taxpayer Certificate is created with identifier {{ param }}",
+            "updated": "A Taxpayer Certificate is updated with identifier {{ param }}",
+            "deleted": "A Taxpayer Certificate is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Taxpayer Certificate {{ id }}?"
+            },
+            "detail": {
+                "title": "Taxpayer Certificate"
+            },
+            "path_certificate": "Path Certificate",
+            "filecertificate": "Filecertificate",
+            "path_key": "Path Key",
+            "filekey": "Filekey",
+            "number_certificate": "Number Certificate",
+            "date_certificate": "Date Certificate",
+            "rfc_certificate": "Rfc Certificate",
+            "bussines_name_cert": "Bussines Name Cert",
+            "date_created_cert": "Date Created Cert",
+            "date_expiration_cert": "Date Expiration Cert",
+            "info_certificate": "Info Certificate"
+        }
+    }
+}
