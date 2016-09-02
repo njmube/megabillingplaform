@@ -18,7 +18,14 @@
 
         vm.save = function () {
             vm.isSaving = true;
+            if(vm.freecom_retentions_transfered.implocretentions == null){
+                vm.freecom_retentions_transfered.implocretentions = "-";
+            }
+            else if(vm.freecom_retentions_transfered.imploctransfered == null){
+                vm.freecom_retentions_transfered.imploctransfered = "-";
+            }
             $uibModalInstance.close(vm.freecom_retentions_transfered);
+            vm.isSaving = false;
         };
 
         vm.clear = function() {

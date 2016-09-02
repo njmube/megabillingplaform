@@ -1591,11 +1591,11 @@
                     entity: function () {
                         return {
                             implocretentions: null,
-                            retentionrate: null,
-                            amountretentions: null,
+                            retentionrate: (0).toFixed(2),
+                            amountretentions: (0).toFixed(2),
                             imploctransfered: null,
-                            transferedrate: null,
-                            amounttransfered: null,
+                            transferedrate: (0).toFixed(2),
+                            amounttransfered: (0).toFixed(2),
                             id: null
                         };
                     }

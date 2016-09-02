@@ -13,7 +13,7 @@
             <div class="col-sm-8">
                 <input type="text" class="form-control" name="implocretentions" id="field_implocretentions"
                        ng-model="vm.freecom_retentions_transfered.implocretentions"
-                       required />
+                       />
             </div>
         </div>
 
@@ -40,7 +40,7 @@
             <div class="col-sm-8">
                 <input type="text" class="form-control" name="imploctransfered" id="field_imploctransfered"
                        ng-model="vm.freecom_retentions_transfered.imploctransfered"
-                       required />
+                       />
             </div>
         </div>
 
@@ -66,7 +66,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving || (vm.freecom_retentions_transfered.implocretentions == null && vm.freecom_retentions_transfered.imploctransfered == null)" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
         </button>
     </div>

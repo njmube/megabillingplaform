@@ -30,8 +30,8 @@
             "no_int": "No. Interior",
             "reference": "Referencia",
             "c_country": "País (*)",
-            "c_state": "Estado",
-            "c_municipality": "Municipio",
+            "c_state": "Estado / Provincia",
+            "c_municipality": "Municipio / Delegación",
             "c_colony": "Colonia",
             "c_zip_code": "Código Postal"
         }

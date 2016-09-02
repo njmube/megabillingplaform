@@ -30,8 +30,8 @@
             "no_int": "No Inside",
             "reference": "Reference",
             "c_country": "Country",
-            "c_state": "State",
-            "c_municipality": "Municipality",
+            "c_state": "State / Province",
+            "c_municipality": "Municipality / Delegation",
             "c_colony": "Colony",
             "c_zip_code": "Zip Code"
         }

@@ -4,7 +4,7 @@
             "home": {
                 "title": "Freecom_retentions_transfereds",
                 "createLabel": "Crear nuevo Freecom_retentions_transfered",
-                "createOrEditLabel": "Crear o editar Freecom_retentions_transfered",
+                "createOrEditLabel": "Adicionar o Editar Impuestos Locales",
                 "search": "Search for Freecom_retentions_transfered"
             },
             "created": "Un nuevo Freecom_retentions_transfered ha sido creado con el identificador {{ param }}",
