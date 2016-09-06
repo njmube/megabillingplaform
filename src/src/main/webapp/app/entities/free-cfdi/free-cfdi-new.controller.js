@@ -1246,7 +1246,9 @@
             vm.charges = [];
 
             vm.show_apaw = false;
-            vm.freecom_apaw = { version: null, others_well_type: null, others_acquired_title: null, subtotal: null, iva: null, date_acquisition: null, c_well_type: null, c_acquired_title: null, c_features_work_piece: null, id: null };
+            vm.freecom_apaw = { version: null, others_well_type: null, others_acquired_title: null, subtotal: (0).toFixed(2), iva: (0).toFixed(2), date_acquisition: new Date(), c_well_type: null, c_acquired_title: null, c_features_work_piece: null, id: null };
+            vm.disable_others_well_type = true;
+            vm.disable_others_acquired_title = true;
 
             vm.show_donees = false;
             vm.freecom_donees = { version: null, no_authorization: null, date_authorization: null, legend: null,  id: null };
@@ -1291,7 +1293,7 @@
             vm.use_info_customs_destruction = false;
 
             vm.show_fuel_consumption = false;
-            vm.freecom_fuel_consumption = { version: null, type_operation: "Monedero Electrónico", account_number: null, subtotal: null, total: null, id: null };
+            vm.freecom_fuel_consumption = { version: null, type_operation: "Monedero Electrónico", account_number: null, subtotal: (0).toFixed(2), total: (0).toFixed(2), id: null };
             vm.freecom_concept_fuels = [];
 
             vm.show_storeroom_paybill = false;
@@ -1399,10 +1401,33 @@
         //Apaw
         vm.show_apaw = false;
         vm.freecom_apaw = null;
+        vm.disable_others_well_type = true;
+        vm.disable_others_acquired_title = true;
         vm.c_well_types = C_well_type.query();
         vm.c_acquired_titles = C_acquired_title.query();
         vm.c_features_work_pieces = C_features_work_piece.query();
 
+        vm.onApawWellTypeChange = function(){
+            if(vm.freecom_apaw.c_well_type != null && vm.freecom_apaw.c_well_type.id == 4){
+                vm.disable_others_well_type = false;
+            }
+            else{
+                vm.disable_others_well_type = true;
+            }
+        };
+
+        vm.onApawAcquiredTitleChange = function(){
+            if(vm.freecom_apaw.c_acquired_title != null && vm.freecom_apaw.c_acquired_title.id == 5){
+                vm.disable_others_acquired_title = false;
+            }
+            else{
+                vm.disable_others_acquired_title = true;
+            }
+        };
+
+
+
+        vm.maxApawDate = new Date();
         vm.dateApawPickerOpenStatus = {};
         vm.dateApawPickerOpenStatus.date_acquisition = false;
 

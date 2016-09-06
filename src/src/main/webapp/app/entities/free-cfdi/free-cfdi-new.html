@@ -891,9 +891,10 @@
                     <div class="row" ng-show="vm.show_apaw">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.c_well_type" for="field_well_type">well_type</label>
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.c_well_type" for="field_freecom_apaw_well_type">well_type</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="field_well_type" name="well_type" ng-model="vm.freecom_apaw.c_well_type" ng-options="well_type as well_type.name for well_type in vm.c_well_types track by well_type.id" ng-required="vm.show_apaw">
+                                    <select class="form-control" id="field_freecom_apaw_well_type" name="freecom_apaw_well_type" ng-model="vm.freecom_apaw.c_well_type"
+                                            ng-options="well_type as well_type.name for well_type in vm.c_well_types track by well_type.id" ng-required="vm.show_apaw" data-ng-change="vm.onApawWellTypeChange()">
                                         <option value=""></option>
                                     </select>
                                 </div>
@@ -902,14 +903,15 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.others_well_type" for="field_others_well_type">Others_well_type</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="others_well_type" id="field_others_well_type"
-                                           ng-model="vm.freecom_apaw.others_well_type"
+                                           ng-model="vm.freecom_apaw.others_well_type" ng-disabled="vm.disable_others_well_type"
                                     />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.c_acquired_title" for="field_freecom_apaw_acquired_title">acquired_title</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="field_freecom_apaw_acquired_title" name="acquired_title" ng-model="vm.freecom_apaw.c_acquired_title" ng-options="acquired_title as acquired_title.name for acquired_title in vm.c_acquired_titles track by acquired_title.id">
+                                    <select class="form-control" id="field_freecom_apaw_acquired_title" name="acquired_title" ng-model="vm.freecom_apaw.c_acquired_title"
+                                            ng-options="acquired_title as acquired_title.name for acquired_title in vm.c_acquired_titles track by acquired_title.id" data-ng-change="vm.onApawAcquiredTitleChange()">
                                         <option value=""></option>
                                     </select>
                                 </div>
@@ -918,7 +920,7 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.others_acquired_title" for="field_freecom_apaw_others_acquired_title">Others_acquired_title</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="others_acquired_title" id="field_freecom_apaw_others_acquired_title"
-                                           ng-model="vm.freecom_apaw.others_acquired_title"
+                                           ng-model="vm.freecom_apaw.others_acquired_title" ng-disabled="vm.disable_others_acquired_title"
                                     />
                                 </div>
                             </div>
@@ -926,16 +928,28 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.subtotal" for="field_freecom_apaw_subtotal">Subtotal</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_apaw_subtotal" id="field_freecom_apaw_subtotal"
-                                           ng-model="vm.freecom_apaw.subtotal"
+                                           ng-model="vm.freecom_apaw.subtotal" ng-pattern="/^\d+\.?\d{2}$/"
                                     />
+                                    <div ng-show="editForm.freecom_apaw_subtotal.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_apaw_subtotal.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                            This field should follow pattern "/^\d+\.?\d{2}$/".
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.iva" for="field_freecom_apaw_iva">Iva</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="iva" id="field_freecom_apaw_iva"
-                                           ng-model="vm.freecom_apaw.iva"
+                                    <input type="text" class="form-control" name="freecom_apaw_iva" id="field_freecom_apaw_iva"
+                                           ng-model="vm.freecom_apaw.iva" ng-pattern="/^\d+\.?\d{2}$/"
                                     />
+                                    <div ng-show="editForm.freecom_apaw_iva.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_apaw_iva.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{2}">
+                                            This field should follow pattern "/^\d+\.?\d{2}$/".
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -944,7 +958,7 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_apaw.date_acquisition" for="field_date_acquisition">Date_acquisition</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
-                                        <input id="field_date_acquisition" type="text" class="form-control" name="date_acquisition" datetime-picker="{{dateformat}}" ng-model="vm.freecom_apaw.date_acquisition" is-open="vm.dateApawPickerOpenStatus.date_acquisition"
+                                        <input id="field_date_acquisition" type="text" class="form-control" name="date_acquisition" max-date="vm.maxApawDate" datetime-picker="{{dateformat}}" ng-model="vm.freecom_apaw.date_acquisition" is-open="vm.dateApawPickerOpenStatus.date_acquisition"
                                                ng-required="vm.show_apaw"  readonly />
                                         <span class="input-group-btn">
                                             <button type="button" class="btn btn-default" ng-click="vm.openApawCalendar('date_acquisition')"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -1721,8 +1735,8 @@
                                            ng-required="vm.show_destruction_certificate" ng-pattern="/^(19|20)[0-9]{2}$/"/>
                                     <div ng-show="editForm.freecom_destruction_certificate_year.$invalid">
                                         <p class="help-block"
-                                           ng-show="editForm.freecom_destruction_certificate_year.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="/^(19|20)[0-9]{2}$/">
-                                            This field should follow pattern "^(19|20)[0-9]{2}$".
+                                           ng-show="editForm.freecom_destruction_certificate_year.$error.pattern" translate="megabillingplatformApp.freecom_destruction_certificate.validation.year" translate-value-pattern="/^(19|20)[0-9]{2}$/">
+                                            The year must be bigger than 1900.
                                         </p>
                                     </div>
                                 </div>

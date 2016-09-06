@@ -60,12 +60,12 @@
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_payer.account" for="field_freecom_payer_account">Account</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="freecom_payer_account" id="field_freecom_payer_account"
-                               ng-model="vm.freecom_payer.account" ng-pattern="/^[0-9]{1,20}$/"
+                               ng-model="vm.freecom_payer.account" ng-pattern="/^[0-9]{20}$/"
                                required />
                         <div ng-show="editForm.freecom_payer_account.$invalid">
                             <p class="help-block"
-                               ng-show="editForm.freecom_payer_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{1,20}$">
-                                This field should follow pattern "/^[0-9]{1,20}$/".
+                               ng-show="editForm.freecom_payer_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{20}$">
+                                This field should follow pattern "^[0-9]{20}$/".
                             </p>
                         </div>
                     </div>
@@ -213,12 +213,12 @@
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_beneficiary.account" for="field_freecom_beneficiary_account">Account</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="freecom_beneficiary_account" id="field_freecom_beneficiary_account"
-                               ng-model="vm.freecom_beneficiary.account" ng-pattern="/^[0-9]{1,20}$/"
+                               ng-model="vm.freecom_beneficiary.account" ng-pattern="/^[0-9]{20}$/"
                                required />
                         <div ng-show="editForm.freecom_beneficiary_account.$invalid">
                             <p class="help-block"
-                               ng-show="editForm.freecom_beneficiary_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
-                                This field should follow pattern "/^[0-9]{1,20}$/".
+                               ng-show="editForm.freecom_beneficiary_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{20}$">
+                                This field should follow pattern "/^[0-9]{20}$/".
                             </p>
                         </div>
                     </div>

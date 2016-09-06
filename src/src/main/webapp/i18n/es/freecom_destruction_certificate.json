@@ -28,7 +28,10 @@
             "number_engine": "Number Engine",
             "numfoltarjcir": "Numfoltarjcir (*)",
             "free_cfdi": "Free Cfdi",
-            "c_type_series": "C Type Series"
+            "c_type_series": "C Type Series",
+			"validation": {
+				"year": "El año debe ser superior a 1900."
+			}
         }
     }
 }
