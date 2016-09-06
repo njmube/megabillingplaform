@@ -9,15 +9,20 @@
 
     function Freecom_local_taxesDeleteController($uibModalInstance, entity, Freecom_local_taxes) {
         var vm = this;
+
         vm.freecom_local_taxes = entity;
-        vm.clear = function() {
+        vm.clear = clear;
+        vm.confirmDelete = confirmDelete;
+        
+        function clear () {
             $uibModalInstance.dismiss('cancel');
-        };
-        vm.confirmDelete = function (id) {
+        }
+
+        function confirmDelete (id) {
             Freecom_local_taxes.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });
-        };
+        }
     }
 })();

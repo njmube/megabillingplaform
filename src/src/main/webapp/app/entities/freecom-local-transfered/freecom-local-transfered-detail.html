@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_local_transfered.detail.title">Freecom Local Transfered</span> {{vm.freecom_local_transfered.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.freecom_local_transfered.imploctransfered">Imploctransfered</span></dt>
+        <dd>
+            <span>{{vm.freecom_local_transfered.imploctransfered}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_local_transfered.transferedrate">Transferedrate</span></dt>
+        <dd>
+            <span>{{vm.freecom_local_transfered.transferedrate}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_local_transfered.amounttransfered">Amounttransfered</span></dt>
+        <dd>
+            <span>{{vm.freecom_local_transfered.amounttransfered}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.freecom_local_transfered.freecom_local_taxes">Freecom Local Taxes</span></dt>
+        <dd>
+            <a ui-sref="freecom-local-taxes-detail({id:vm.freecom_local_transfered.freecom_local_taxes.id})">{{vm.freecom_local_transfered.freecom_local_taxes.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

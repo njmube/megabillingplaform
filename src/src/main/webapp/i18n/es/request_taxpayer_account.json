@@ -17,6 +17,15 @@
                 "title": "Solicitud de cuenta de facuración"
             },
             "name": "Nombre(*)",
+            "filtername": "Solicitante",
+            "date_from":"Desde",
+            "date_to":"Hasta",
+            "filterfirtsurname": "Apellido paterno",
+            "filtersecondsurname": "Apellido materno",
+            "filterrfc": "RFC",
+            "filterbussines_name": "Nombre o Razon Social",
+            "filteraccount_email": "Correo Electrónico",
+            "filterphone": "Teléfono",
             "date_request": "Fecha de solicitud",
             "firtsurname": "Apellido paterno(*)",
             "secondsurname": "Apellido materno(*)",
@@ -88,7 +97,8 @@
                         "pattern": "Patrón del El Nombre o Razón Social incorrecto."
                     }
                 }
-            }
+            },
+            "search_result":"Resultado de la búsqueda"
         }
     }
 }

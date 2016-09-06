@@ -28,12 +28,12 @@ public class Freecom_local_taxes implements Serializable {
     private String version;
 
     @NotNull
-    @Column(name = "total_retentions", precision=10, scale=2, nullable = false)
-    private BigDecimal total_retentions;
+    @Column(name = "total_local_retentions", precision=10, scale=2, nullable = false)
+    private BigDecimal total_local_retentions;
 
     @NotNull
-    @Column(name = "total_transfered", precision=10, scale=2, nullable = false)
-    private BigDecimal total_transfered;
+    @Column(name = "total_local_transfered", precision=10, scale=2, nullable = false)
+    private BigDecimal total_local_transfered;
 
     @ManyToOne
     private Free_cfdi free_cfdi;
@@ -54,20 +54,20 @@ public class Freecom_local_taxes implements Serializable {
         this.version = version;
     }
 
-    public BigDecimal getTotal_retentions() {
-        return total_retentions;
+    public BigDecimal getTotal_local_retentions() {
+        return total_local_retentions;
     }
 
-    public void setTotal_retentions(BigDecimal total_retentions) {
-        this.total_retentions = total_retentions;
+    public void setTotal_local_retentions(BigDecimal total_local_retentions) {
+        this.total_local_retentions = total_local_retentions;
     }
 
-    public BigDecimal getTotal_transfered() {
-        return total_transfered;
+    public BigDecimal getTotal_local_transfered() {
+        return total_local_transfered;
     }
 
-    public void setTotal_transfered(BigDecimal total_transfered) {
-        this.total_transfered = total_transfered;
+    public void setTotal_local_transfered(BigDecimal total_local_transfered) {
+        this.total_local_transfered = total_local_transfered;
     }
 
     public Free_cfdi getFree_cfdi() {
@@ -103,8 +103,8 @@ public class Freecom_local_taxes implements Serializable {
         return "Freecom_local_taxes{" +
             "id=" + id +
             ", version='" + version + "'" +
-            ", total_retentions='" + total_retentions + "'" +
-            ", total_transfered='" + total_transfered + "'" +
+            ", total_local_retentions='" + total_local_retentions + "'" +
+            ", total_local_transfered='" + total_local_transfered + "'" +
             '}';
     }
 }

@@ -16,7 +16,7 @@
     <!--
         Added the entity Freecom_local_taxes.
     -->
-    <changeSet id="20160729115442" author="jhipster">
+    <changeSet id="20160729115442-1" author="jhipster">
         <createTable tableName="freecom_local_taxes">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
@@ -25,23 +25,20 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="total_retentions" type="decimal(10,2)">
+            <column name="total_local_retentions" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
             
-            <column name="total_transfered" type="decimal(10,2)">
+            <column name="total_local_transfered" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
             
-            <column name="free_cfdi_id" type="bigint"/>
+            <column name="free_cfdi_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
-        <addForeignKeyConstraint baseColumnNames="free_cfdi_id"
-                                 baseTableName="freecom_local_taxes"
-                                 constraintName="fk_freecom_local_taxes_free_cfdi_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="free_cfdi"/>
-
     </changeSet>
 </databaseChangeLog>

@@ -9,12 +9,13 @@
 
     function Freecom_partial_construction_servicesController ($scope, $state, Freecom_partial_construction_services, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
-        vm.loadAll = loadAll;
+        
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
-        vm.loadAll();
+
+        loadAll();
 
         function loadAll () {
             Freecom_partial_construction_services.query({
@@ -53,6 +54,5 @@
                 search: vm.currentSearch
             });
         }
-
     }
 })();

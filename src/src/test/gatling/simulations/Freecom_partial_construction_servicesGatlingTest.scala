@@ -67,7 +67,7 @@ class Freecom_partial_construction_servicesGatlingTest extends Simulation {
             .exec(http("Create new freecom_partial_construction_services")
             .post("/api/freecom-partial-construction-services")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "version":"SAMPLE_TEXT", "street":"SAMPLE_TEXT", "noext":"SAMPLE_TEXT", "noint":"SAMPLE_TEXT", "colony":"SAMPLE_TEXT", "location":"SAMPLE_TEXT", "reference":"SAMPLE_TEXT", "municipality":"SAMPLE_TEXT", "zipcode":"SAMPLE_TEXT", "numperlicoaut":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "version":"SAMPLE_TEXT", "street":"SAMPLE_TEXT", "noext":"SAMPLE_TEXT", "noint":"SAMPLE_TEXT", "location":"SAMPLE_TEXT", "reference":"SAMPLE_TEXT", "numperlicoaut":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_freecom_partial_construction_services_url"))).exitHereIfFailed
             .pause(10)

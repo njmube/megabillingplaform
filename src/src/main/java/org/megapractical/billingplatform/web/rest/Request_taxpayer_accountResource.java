@@ -77,7 +77,7 @@ public class Request_taxpayer_accountResource {
         }
         User user = userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin()).get();
         request_taxpayer_account.setUser(user);
-        request_taxpayer_account.setDate_request(ZonedDateTime.now());
+        request_taxpayer_account.setDaterequest(ZonedDateTime.now());
         request_taxpayer_account.setRequest_state(request_stateService.findOne(new Long("1")));
 
         log.debug("Salvando direccion : {}", request_taxpayer_account.getTax_address_request());

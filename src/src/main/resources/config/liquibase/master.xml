@@ -117,5 +117,7 @@
     <include file="classpath:config/liquibase/changelog/20160902130009_added_entity_Tax_address.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160902131523_added_entity_Taxpayer_account.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160902131842_added_entity_Branch_office.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160906175601_added_entity_Freecom_local_retentions.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160906175805_added_entity_Freecom_local_transfered.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

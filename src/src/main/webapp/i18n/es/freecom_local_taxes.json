@@ -2,24 +2,24 @@
     "megabillingplatformApp": {
         "freecom_local_taxes" : {
             "home": {
-                "title": "Freecom_local_taxes",
-                "createLabel": "Crear nuevo Freecom_local_taxes",
-                "createOrEditLabel": "Crear o editar Freecom_local_taxes",
-                "search": "Search for Freecom_local_taxes"
+                "title": "Freecom Local Taxes",
+                "createLabel": "Crear nuevo Freecom Local Taxes",
+                "createOrEditLabel": "Crear o editar Freecom Local Taxes",
+                "search": "Search for Freecom Local Taxes"
             },
-            "created": "Un nuevo Freecom_local_taxes ha sido creado con el identificador {{ param }}",
-            "updated": "Un Freecom_local_taxes ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Freecom_local_taxes ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Freecom Local Taxes ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Local Taxes ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Local Taxes ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Freecom_local_taxes {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Freecom Local Taxes {{ id }}?"
             },
             "detail": {
-                "title": "Freecom_local_taxes"
+                "title": "Freecom Local Taxes"
             },
             "version": "Version",
-            "total_retentions": "Total Renciones",
-            "total_transfered": "Total Traslados",
-            "free_cfdi": "Free_cfdi"
+            "total_local_retentions": "Total Local Retentions",
+            "total_local_transfered": "Total Local Transfered",
+            "free_cfdi": "Free Cfdi"
         }
     }
 }

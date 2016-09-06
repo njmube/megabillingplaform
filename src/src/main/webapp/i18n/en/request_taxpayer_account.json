@@ -17,9 +17,18 @@
                 "title": "Request Taxpayer Account"
             },
             "name": "Name(*)",
+            "filtername": "Name",
+            "date_from":"From",
+            "date_to":"To",
+            "filterfirtsurname": "Firt surname",
+            "filtersecondsurname": "Second surname",
+            "filterrfc": "RFC",
+            "filterbussines_name": "Bussines Name",
+            "filteraccount_email": "Account Email",
+            "filterphone": "Phone",
             "date_request": "Date Request",
-            "firtsurname": "Firtsurname(*)",
-            "secondsurname": "Secondsurname(*)",
+            "firtsurname": "Firt surname(*)",
+            "secondsurname": "Second surname(*)",
             "phone": "Phone(*)",
             "email": "Email(*)",
             "date_born": "Date Born(*)",
@@ -88,7 +97,8 @@
                         "pattern": "Bussines name format is incorrect"
                     }
                 }
-            }
+            },
+            "search_result":"Search Result"
         }
     }
 }

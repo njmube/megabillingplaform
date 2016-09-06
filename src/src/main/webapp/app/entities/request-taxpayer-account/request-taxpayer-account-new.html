@@ -191,7 +191,7 @@
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <input id="field_date_born" type="text" class="form-control" name="date_born" uib-datepicker-popup="{{dateformat}}"
-                                       ng-model="vm.request_taxpayer_account.date_born" is-open="vm.datePickerOpenStatus.date_born"
+                                       ng-model="vm.request_taxpayer_account.dateborn" is-open="vm.datePickerOpenStatus.date_born"
                                        required/>
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_born')"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -251,7 +251,7 @@
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.bussines_name" for="field_bussines_name">Bussines Name</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="bussines_name" id="field_bussines_name"
-                                   ng-model="vm.request_taxpayer_account.bussines_name" ng-minlength=3 ng-maxlength=50
+                                   ng-model="vm.request_taxpayer_account.bussinesname" ng-minlength=3 ng-maxlength=50
                                    required />
                             <div ng-show="editForm.bussines_name.$dirty && editForm.bussines_name.$invalid">
                                 <p class="help-block"
@@ -273,7 +273,7 @@
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.account_email" for="field_account_email">Account Email</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="account_email" id="field_account_email"
-                                   ng-model="vm.request_taxpayer_account.account_email" ng-minlength=6 ng-maxlength=254
+                                   ng-model="vm.request_taxpayer_account.accountemail" ng-minlength=6 ng-maxlength=254
                                    required ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" />
                             <div ng-show="editForm.account_email.$dirty && editForm.account_email.$invalid">
                                 <p class="help-block"

@@ -112,6 +112,10 @@
                 "taxAddress": "Tax Address",
                 "taxpayerAccount": "Taxpayer Account",
                 "branchOffice": "Branch Office",
+                "freecomLocalTaxes": "Freecom Local Taxes",
+                "freecomLocalRetentions": "Freecom Local Retentions",
+                "freecomLocalTransfered": "Freecom Local Transfered",
+                "freecomPartialConstructionServices": "Freecom Partial Construction Services",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

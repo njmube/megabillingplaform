@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import java.math.BigDecimal;
+import java.math.BigDecimal;;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,11 +46,11 @@ public class Freecom_local_taxesResourceIntTest {
     private static final String DEFAULT_VERSION = "AAAAA";
     private static final String UPDATED_VERSION = "BBBBB";
 
-    private static final BigDecimal DEFAULT_TOTAL_RETENTIONS = new BigDecimal(1);
-    private static final BigDecimal UPDATED_TOTAL_RETENTIONS = new BigDecimal(2);
+    private static final BigDecimal DEFAULT_TOTAL_LOCAL_RETENTIONS = new BigDecimal(1);
+    private static final BigDecimal UPDATED_TOTAL_LOCAL_RETENTIONS = new BigDecimal(2);
 
-    private static final BigDecimal DEFAULT_TOTAL_TRANSFERED = new BigDecimal(1);
-    private static final BigDecimal UPDATED_TOTAL_TRANSFERED = new BigDecimal(2);
+    private static final BigDecimal DEFAULT_TOTAL_LOCAL_TRANSFERED = new BigDecimal(1);
+    private static final BigDecimal UPDATED_TOTAL_LOCAL_TRANSFERED = new BigDecimal(2);
 
     @Inject
     private Freecom_local_taxesRepository freecom_local_taxesRepository;
@@ -82,8 +82,8 @@ public class Freecom_local_taxesResourceIntTest {
     public void initTest() {
         freecom_local_taxes = new Freecom_local_taxes();
         freecom_local_taxes.setVersion(DEFAULT_VERSION);
-        freecom_local_taxes.setTotal_retentions(DEFAULT_TOTAL_RETENTIONS);
-        freecom_local_taxes.setTotal_transfered(DEFAULT_TOTAL_TRANSFERED);
+        freecom_local_taxes.setTotal_local_retentions(DEFAULT_TOTAL_LOCAL_RETENTIONS);
+        freecom_local_taxes.setTotal_local_transfered(DEFAULT_TOTAL_LOCAL_TRANSFERED);
     }
 
     @Test
@@ -103,8 +103,8 @@ public class Freecom_local_taxesResourceIntTest {
         assertThat(freecom_local_taxes).hasSize(databaseSizeBeforeCreate + 1);
         Freecom_local_taxes testFreecom_local_taxes = freecom_local_taxes.get(freecom_local_taxes.size() - 1);
         assertThat(testFreecom_local_taxes.getVersion()).isEqualTo(DEFAULT_VERSION);
-        assertThat(testFreecom_local_taxes.getTotal_retentions()).isEqualTo(DEFAULT_TOTAL_RETENTIONS);
-        assertThat(testFreecom_local_taxes.getTotal_transfered()).isEqualTo(DEFAULT_TOTAL_TRANSFERED);
+        assertThat(testFreecom_local_taxes.getTotal_local_retentions()).isEqualTo(DEFAULT_TOTAL_LOCAL_RETENTIONS);
+        assertThat(testFreecom_local_taxes.getTotal_local_transfered()).isEqualTo(DEFAULT_TOTAL_LOCAL_TRANSFERED);
     }
 
     @Test
@@ -127,10 +127,10 @@ public class Freecom_local_taxesResourceIntTest {
 
     @Test
     @Transactional
-    public void checkTotal_retentionsIsRequired() throws Exception {
+    public void checkTotal_local_retentionsIsRequired() throws Exception {
         int databaseSizeBeforeTest = freecom_local_taxesRepository.findAll().size();
         // set the field null
-        freecom_local_taxes.setTotal_retentions(null);
+        freecom_local_taxes.setTotal_local_retentions(null);
 
         // Create the Freecom_local_taxes, which fails.
 
@@ -145,10 +145,10 @@ public class Freecom_local_taxesResourceIntTest {
 
     @Test
     @Transactional
-    public void checkTotal_transferedIsRequired() throws Exception {
+    public void checkTotal_local_transferedIsRequired() throws Exception {
         int databaseSizeBeforeTest = freecom_local_taxesRepository.findAll().size();
         // set the field null
-        freecom_local_taxes.setTotal_transfered(null);
+        freecom_local_taxes.setTotal_local_transfered(null);
 
         // Create the Freecom_local_taxes, which fails.
 
@@ -173,8 +173,8 @@ public class Freecom_local_taxesResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(freecom_local_taxes.getId().intValue())))
                 .andExpect(jsonPath("$.[*].version").value(hasItem(DEFAULT_VERSION.toString())))
-                .andExpect(jsonPath("$.[*].total_retentions").value(hasItem(DEFAULT_TOTAL_RETENTIONS.intValue())))
-                .andExpect(jsonPath("$.[*].total_transfered").value(hasItem(DEFAULT_TOTAL_TRANSFERED.intValue())));
+                .andExpect(jsonPath("$.[*].total_local_retentions").value(hasItem(DEFAULT_TOTAL_LOCAL_RETENTIONS.intValue())))
+                .andExpect(jsonPath("$.[*].total_local_transfered").value(hasItem(DEFAULT_TOTAL_LOCAL_TRANSFERED.intValue())));
     }
 
     @Test
@@ -189,8 +189,8 @@ public class Freecom_local_taxesResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(freecom_local_taxes.getId().intValue()))
             .andExpect(jsonPath("$.version").value(DEFAULT_VERSION.toString()))
-            .andExpect(jsonPath("$.total_retentions").value(DEFAULT_TOTAL_RETENTIONS.intValue()))
-            .andExpect(jsonPath("$.total_transfered").value(DEFAULT_TOTAL_TRANSFERED.intValue()));
+            .andExpect(jsonPath("$.total_local_retentions").value(DEFAULT_TOTAL_LOCAL_RETENTIONS.intValue()))
+            .andExpect(jsonPath("$.total_local_transfered").value(DEFAULT_TOTAL_LOCAL_TRANSFERED.intValue()));
     }
 
     @Test
@@ -213,8 +213,8 @@ public class Freecom_local_taxesResourceIntTest {
         Freecom_local_taxes updatedFreecom_local_taxes = new Freecom_local_taxes();
         updatedFreecom_local_taxes.setId(freecom_local_taxes.getId());
         updatedFreecom_local_taxes.setVersion(UPDATED_VERSION);
-        updatedFreecom_local_taxes.setTotal_retentions(UPDATED_TOTAL_RETENTIONS);
-        updatedFreecom_local_taxes.setTotal_transfered(UPDATED_TOTAL_TRANSFERED);
+        updatedFreecom_local_taxes.setTotal_local_retentions(UPDATED_TOTAL_LOCAL_RETENTIONS);
+        updatedFreecom_local_taxes.setTotal_local_transfered(UPDATED_TOTAL_LOCAL_TRANSFERED);
 
         restFreecom_local_taxesMockMvc.perform(put("/api/freecom-local-taxes")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -226,8 +226,8 @@ public class Freecom_local_taxesResourceIntTest {
         assertThat(freecom_local_taxes).hasSize(databaseSizeBeforeUpdate);
         Freecom_local_taxes testFreecom_local_taxes = freecom_local_taxes.get(freecom_local_taxes.size() - 1);
         assertThat(testFreecom_local_taxes.getVersion()).isEqualTo(UPDATED_VERSION);
-        assertThat(testFreecom_local_taxes.getTotal_retentions()).isEqualTo(UPDATED_TOTAL_RETENTIONS);
-        assertThat(testFreecom_local_taxes.getTotal_transfered()).isEqualTo(UPDATED_TOTAL_TRANSFERED);
+        assertThat(testFreecom_local_taxes.getTotal_local_retentions()).isEqualTo(UPDATED_TOTAL_LOCAL_RETENTIONS);
+        assertThat(testFreecom_local_taxes.getTotal_local_transfered()).isEqualTo(UPDATED_TOTAL_LOCAL_TRANSFERED);
     }
 
     @Test

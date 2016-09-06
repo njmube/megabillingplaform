@@ -2,32 +2,32 @@
     "megabillingplatformApp": {
         "freecom_partial_construction_services" : {
             "home": {
-                "title": "Freecom_partial_construction_services",
-                "createLabel": "Crear nuevo Freecom_partial_construction_services",
-                "createOrEditLabel": "Crear o editar Freecom_partial_construction_services",
-                "search": "Search for Freecom_partial_construction_services"
+                "title": "Freecom Partial Construction Services",
+                "createLabel": "Crear nuevo Freecom Partial Construction Services",
+                "createOrEditLabel": "Crear o editar Freecom Partial Construction Services",
+                "search": "Search for Freecom Partial Construction Services"
             },
-            "created": "Un nuevo Freecom_partial_construction_services ha sido creado con el identificador {{ param }}",
-            "updated": "Un Freecom_partial_construction_services ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Freecom_partial_construction_services ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Freecom Partial Construction Services ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Partial Construction Services ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Partial Construction Services ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Freecom_partial_construction_services {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Freecom Partial Construction Services {{ id }}?"
             },
             "detail": {
-                "title": "Freecom_partial_construction_services"
+                "title": "Freecom Partial Construction Services"
             },
             "version": "Version",
-            "street": "Calle (*)",
-            "noext": "No. Exterior",
-            "noint": "No. Interior",
-            "colony": "Colonia",
-            "location": "Localidad",
-            "reference": "Referencia",
-            "municipality": "Municipio (*)",
-            "zipcode": "Código Postal (*)",
-            "numperlicoaut": "NumPerLicoAut (*)",
-            "free_cfdi": "Free_cfdi",
-            "c_federal_entity": "Entidad Federal (*)"
+            "street": "Street",
+            "noext": "Noext",
+            "noint": "Noint",
+            "location": "Location",
+            "reference": "Reference",
+            "numperlicoaut": "Numperlicoaut",
+            "free_cfdi": "Free Cfdi",
+            "c_federal_entity": "C Federal Entity",
+            "c_municipality": "C Municipality",
+            "c_colony": "C Colony",
+            "c_zip_code": "C Zip Code"
         }
     }
 }

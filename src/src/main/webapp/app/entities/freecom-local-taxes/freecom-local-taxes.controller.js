@@ -9,12 +9,13 @@
 
     function Freecom_local_taxesController ($scope, $state, Freecom_local_taxes, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
-        vm.loadAll = loadAll;
+        
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
-        vm.loadAll();
+
+        loadAll();
 
         function loadAll () {
             Freecom_local_taxes.query({
@@ -53,6 +54,5 @@
                 search: vm.currentSearch
             });
         }
-
     }
 })();

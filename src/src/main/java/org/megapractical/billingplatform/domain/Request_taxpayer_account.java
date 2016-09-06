@@ -28,8 +28,8 @@ public class Request_taxpayer_account implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "date_request")
-    private ZonedDateTime date_request;
+    @Column(name = "daterequest", nullable = false)
+    private ZonedDateTime daterequest;
 
     @NotNull
     @Column(name = "firtsurname", nullable = false)
@@ -50,8 +50,8 @@ public class Request_taxpayer_account implements Serializable {
     private String email;
 
     @NotNull
-    @Column(name = "date_born", nullable = false)
-    private LocalDate date_born;
+    @Column(name = "dateborn", nullable = false)
+    private LocalDate dateborn;
 
     @Size(max = 50)
     @Column(name = "gender", length = 50)
@@ -63,13 +63,13 @@ public class Request_taxpayer_account implements Serializable {
     private String rfc;
 
     @NotNull
-    @Column(name = "bussines_name", nullable = false)
-    private String bussines_name;
+    @Column(name = "bussinesname", nullable = false)
+    private String bussinesname;
 
     @NotNull
     @Pattern(regexp = "^([a-zA-Z0-9])+([_\\.\\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9])+$")
-    @Column(name = "account_email", nullable = false)
-    private String account_email;
+    @Column(name = "accountemail", nullable = false)
+    private String accountemail;
 
     @ManyToOne
     @NotNull
@@ -97,12 +97,12 @@ public class Request_taxpayer_account implements Serializable {
         this.name = name;
     }
 
-    public ZonedDateTime getDate_request() {
-        return date_request;
+    public ZonedDateTime getDaterequest() {
+        return daterequest;
     }
 
-    public void setDate_request(ZonedDateTime date_request) {
-        this.date_request = date_request;
+    public void setDaterequest(ZonedDateTime daterequest) {
+        this.daterequest = daterequest;
     }
 
     public String getFirtsurname() {
@@ -137,12 +137,12 @@ public class Request_taxpayer_account implements Serializable {
         this.email = email;
     }
 
-    public LocalDate getDate_born() {
-        return date_born;
+    public LocalDate getDateborn() {
+        return dateborn;
     }
 
-    public void setDate_born(LocalDate date_born) {
-        this.date_born = date_born;
+    public void setDateborn(LocalDate dateborn) {
+        this.dateborn = dateborn;
     }
 
     public String getGender() {
@@ -161,20 +161,20 @@ public class Request_taxpayer_account implements Serializable {
         this.rfc = rfc;
     }
 
-    public String getBussines_name() {
-        return bussines_name;
+    public String getBussinesname() {
+        return bussinesname;
     }
 
-    public void setBussines_name(String bussines_name) {
-        this.bussines_name = bussines_name;
+    public void setBussinesname(String bussinesname) {
+        this.bussinesname = bussinesname;
     }
 
-    public String getAccount_email() {
-        return account_email;
+    public String getAccountemail() {
+        return accountemail;
     }
 
-    public void setAccount_email(String account_email) {
-        this.account_email = account_email;
+    public void setAccountemail(String accountemail) {
+        this.accountemail = accountemail;
     }
 
     public Request_state getRequest_state() {
@@ -226,16 +226,16 @@ public class Request_taxpayer_account implements Serializable {
         return "Request_taxpayer_account{" +
             "id=" + id +
             ", name='" + name + "'" +
-            ", date_request='" + date_request + "'" +
+            ", daterequest='" + daterequest + "'" +
             ", firtsurname='" + firtsurname + "'" +
             ", secondsurname='" + secondsurname + "'" +
             ", phone='" + phone + "'" +
             ", email='" + email + "'" +
-            ", date_born='" + date_born + "'" +
+            ", dateborn='" + dateborn + "'" +
             ", gender='" + gender + "'" +
             ", rfc='" + rfc + "'" +
-            ", bussines_name='" + bussines_name + "'" +
-            ", account_email='" + account_email + "'" +
+            ", bussinesname='" + bussinesname + "'" +
+            ", accountemail='" + accountemail + "'" +
             '}';
     }
 }

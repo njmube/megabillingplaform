@@ -2,43 +2,80 @@
     <h2 translate="megabillingplatformApp.request_taxpayer_account.home.title">Request Taxpayer Accounts</h2>
     <jhi-alert></jhi-alert>
     <br/>
+    <div class="hr hr-16 hr-dotted"></div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="editForm" class="form-horizontal" role="form" ng-submit="vm.search()">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.date_from" for="field_date">Date from</label>
+                            <div class="col-sm-8">
+                                <div class="input-group">
+                                    <input id="field_date" type="text" class="form-control" name="date" uib-datepicker-popup="{{dateformat}}" ng-model="vm.datefrom" is-open="vm.datePickerOpenStatus.date"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.date_to" for="field_date1">Date to</label>
+                            <div class="col-sm-8">
+                                <div class="input-group">
+                                    <input id="field_date1" type="text" class="form-control" name="date1" uib-datepicker-popup="{{dateformat}}" ng-model="vm.dateto" is-open="vm.datePickerOpenStatus1.date"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar1('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.request_state" for="field_request_state">Request State</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="field_request_state" name="field_request_state" ng-model="vm.request_state"
+                                        ng-options="request_state as request_state.name for request_state in vm.request_stateS track by request_state.id">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary pull-right">
+                            <span translate="entity.action.search">Search</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.request_taxpayer_account.search_result">
+        Resultados de la búsqueda
+    </h3>
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="name"><span translate="megabillingplatformApp.request_taxpayer_account.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="date_request"><span translate="megabillingplatformApp.request_taxpayer_account.date_request">Date Request</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="firtsurname"><span translate="megabillingplatformApp.request_taxpayer_account.firtsurname">Firtsurname</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="secondsurname"><span translate="megabillingplatformApp.request_taxpayer_account.secondsurname">Secondsurname</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="phone"><span translate="megabillingplatformApp.request_taxpayer_account.phone">Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="email"><span translate="megabillingplatformApp.request_taxpayer_account.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="date_born"><span translate="megabillingplatformApp.request_taxpayer_account.date_born">Date Born</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="gender"><span translate="megabillingplatformApp.request_taxpayer_account.gender">Gender</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.request_taxpayer_account.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="bussines_name"><span translate="megabillingplatformApp.request_taxpayer_account.bussines_name">Bussines Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="account_email"><span translate="megabillingplatformApp.request_taxpayer_account.account_email">Account Email</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="request_state.name"><span translate="megabillingplatformApp.request_taxpayer_account.request_state">Request State</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="user.id"><span translate="megabillingplatformApp.request_taxpayer_account.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.request_taxpayer_account.filterrfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bussines_name"><span translate="megabillingplatformApp.request_taxpayer_account.filterbussines_name">Bussines Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="megabillingplatformApp.request_taxpayer_account.filtername">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="phone"><span translate="megabillingplatformApp.request_taxpayer_account.filterphone">Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="request_taxpayer_account in vm.request_taxpayer_accounts track by request_taxpayer_account.id">
                     <td><a ui-sref="request-taxpayer-account-detail({id:request_taxpayer_account.id})">{{request_taxpayer_account.id}}</a></td>
-                    <td>{{request_taxpayer_account.name}}</td>
-                    <td>{{request_taxpayer_account.date_request | date:'medium'}}</td>
-                    <td>{{request_taxpayer_account.firtsurname}}</td>
-                    <td>{{request_taxpayer_account.secondsurname}}</td>
-                    <td>{{request_taxpayer_account.phone}}</td>
-                    <td>{{request_taxpayer_account.email}}</td>
-                    <td>{{request_taxpayer_account.date_born | date:'mediumDate'}}</td>
-                    <td>{{request_taxpayer_account.gender}}</td>
-                    <td>{{request_taxpayer_account.rfc}}</td>
-                    <td>{{request_taxpayer_account.bussines_name}}</td>
-                    <td>{{request_taxpayer_account.account_email}}</td>
+                    <td>{{request_taxpayer_account.daterequest | date:'medium'}}</td>
                     <td>{{request_taxpayer_account.request_state.name}}</td>
-                    <td>{{request_taxpayer_account.user.login}}</td>
+                    <td>{{request_taxpayer_account.rfc}}</td>
+                    <td>{{request_taxpayer_account.bussinesname}}</td>
+                    <td>{{request_taxpayer_account.name}}</td>
+                    <td>{{request_taxpayer_account.phone}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

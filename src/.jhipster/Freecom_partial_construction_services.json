@@ -11,6 +11,27 @@
             "otherEntityName": "c_federal_entity",
             "relationshipType": "many-to-one",
             "otherEntityField": "code"
+        },
+        {
+            "relationshipName": "c_municipality",
+            "otherEntityName": "c_municipality",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "c_colony",
+            "otherEntityName": "c_colony",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipName": "c_zip_code",
+            "otherEntityName": "c_zip_code",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
         }
     ],
     "fields": [
@@ -37,30 +58,12 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "colony",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "location",
             "fieldType": "String"
         },
         {
             "fieldName": "reference",
             "fieldType": "String"
-        },
-        {
-            "fieldName": "municipality",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
-            "fieldName": "zipcode",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
         },
         {
             "fieldName": "numperlicoaut",

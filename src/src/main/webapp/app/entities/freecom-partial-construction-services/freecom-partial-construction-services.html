@@ -1,5 +1,5 @@
 <div>
-    <h2 translate="megabillingplatformApp.freecom_partial_construction_services.home.title">Freecom_partial_construction_services</h2>
+    <h2 translate="megabillingplatformApp.freecom_partial_construction_services.home.title">Freecom Partial Construction Services</h2>
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
@@ -7,7 +7,7 @@
                 <button class="btn btn-primary" ui-sref="freecom-partial-construction-services.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span  translate="megabillingplatformApp.freecom_partial_construction_services.home.createLabel">
-                        Create new Freecom_partial_construction_services
+                        Create new Freecom Partial Construction Services
                     </span>
                 </button>
             </div>
@@ -23,14 +23,14 @@
                     <th jh-sort-by="street"><span translate="megabillingplatformApp.freecom_partial_construction_services.street">Street</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="noext"><span translate="megabillingplatformApp.freecom_partial_construction_services.noext">Noext</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="noint"><span translate="megabillingplatformApp.freecom_partial_construction_services.noint">Noint</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="colony"><span translate="megabillingplatformApp.freecom_partial_construction_services.colony">Colony</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="location"><span translate="megabillingplatformApp.freecom_partial_construction_services.location">Location</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="reference"><span translate="megabillingplatformApp.freecom_partial_construction_services.reference">Reference</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="municipality"><span translate="megabillingplatformApp.freecom_partial_construction_services.municipality">Municipality</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="zipcode"><span translate="megabillingplatformApp.freecom_partial_construction_services.zipcode">Zipcode</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="numperlicoaut"><span translate="megabillingplatformApp.freecom_partial_construction_services.numperlicoaut">Numperlicoaut</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.freecom_partial_construction_services.free_cfdi">free_cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="c_federal_entity.code"><span translate="megabillingplatformApp.freecom_partial_construction_services.c_federal_entity">c_federal_entity</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="free_cfdi.id"><span translate="megabillingplatformApp.freecom_partial_construction_services.free_cfdi">Free Cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_federal_entity.code"><span translate="megabillingplatformApp.freecom_partial_construction_services.c_federal_entity">C Federal Entity</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_municipality.name"><span translate="megabillingplatformApp.freecom_partial_construction_services.c_municipality">C Municipality</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_colony.code"><span translate="megabillingplatformApp.freecom_partial_construction_services.c_colony">C Colony</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_zip_code.code"><span translate="megabillingplatformApp.freecom_partial_construction_services.c_zip_code">C Zip Code</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -41,17 +41,23 @@
                     <td>{{freecom_partial_construction_services.street}}</td>
                     <td>{{freecom_partial_construction_services.noext}}</td>
                     <td>{{freecom_partial_construction_services.noint}}</td>
-                    <td>{{freecom_partial_construction_services.colony}}</td>
                     <td>{{freecom_partial_construction_services.location}}</td>
                     <td>{{freecom_partial_construction_services.reference}}</td>
-                    <td>{{freecom_partial_construction_services.municipality}}</td>
-                    <td>{{freecom_partial_construction_services.zipcode}}</td>
                     <td>{{freecom_partial_construction_services.numperlicoaut}}</td>
                     <td>
                         <a ui-sref="free-cfdi-detail({id:freecom_partial_construction_services.free_cfdi.id})">{{freecom_partial_construction_services.free_cfdi.id}}</a>
                     </td>
                     <td>
                         <a ui-sref="c-federal-entity-detail({id:freecom_partial_construction_services.c_federal_entity.id})">{{freecom_partial_construction_services.c_federal_entity.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-municipality-detail({id:freecom_partial_construction_services.c_municipality.id})">{{freecom_partial_construction_services.c_municipality.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-colony-detail({id:freecom_partial_construction_services.c_colony.id})">{{freecom_partial_construction_services.c_colony.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-zip-code-detail({id:freecom_partial_construction_services.c_zip_code.id})">{{freecom_partial_construction_services.c_zip_code.code}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">

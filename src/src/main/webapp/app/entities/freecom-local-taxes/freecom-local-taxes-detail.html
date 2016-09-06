@@ -1,28 +1,25 @@
 
 <div>
-    <h2><span translate="megabillingplatformApp.freecom_local_taxes.detail.title">Freecom_local_taxes</span> {{vm.freecom_local_taxes.id}}</h2>
+    <h2><span translate="megabillingplatformApp.freecom_local_taxes.detail.title">Freecom Local Taxes</span> {{vm.freecom_local_taxes.id}}</h2>
     <hr>
-    <dl class="dl-horizontal">
-        <dt><span translate="megabillingplatformApp.freecom_local_taxes.version">Version</dt></dt>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.freecom_local_taxes.version">Version</span></dt>
         <dd>
-            <span>{{vm.freecom_local_taxes.version}}<span>
+            <span>{{vm.freecom_local_taxes.version}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.freecom_local_taxes.total_retentions">Total_retentions</dt></dt>
+        <dt><span translate="megabillingplatformApp.freecom_local_taxes.total_local_retentions">Total Local Retentions</span></dt>
         <dd>
-            <span>{{vm.freecom_local_taxes.total_retentions}}<span>
+            <span>{{vm.freecom_local_taxes.total_local_retentions}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.freecom_local_taxes.total_transfered">Total_transfered</dt></dt>
+        <dt><span translate="megabillingplatformApp.freecom_local_taxes.total_local_transfered">Total Local Transfered</span></dt>
         <dd>
-            <span>{{vm.freecom_local_taxes.total_transfered}}<span>
+            <span>{{vm.freecom_local_taxes.total_local_transfered}}</span>
         </dd>
-        <hr>
-        <dt><span translate="megabillingplatformApp.freecom_local_taxes.free_cfdi">free_cfdi</span></dt>
+        <dt><span translate="megabillingplatformApp.freecom_local_taxes.free_cfdi">Free Cfdi</span></dt>
         <dd>
             <a ui-sref="free-cfdi-detail({id:vm.freecom_local_taxes.free_cfdi.id})">{{vm.freecom_local_taxes.free_cfdi.id}}</a>
         </dd>
-        <hr>
     </dl>
 
     <button type="submit"

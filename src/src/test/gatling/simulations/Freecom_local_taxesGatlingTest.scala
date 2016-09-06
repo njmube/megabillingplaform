@@ -67,7 +67,7 @@ class Freecom_local_taxesGatlingTest extends Simulation {
             .exec(http("Create new freecom_local_taxes")
             .post("/api/freecom-local-taxes")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "version":"SAMPLE_TEXT", "total_retentions":null, "total_transfered":null}""")).asJSON
+            .body(StringBody("""{"id":null, "version":"SAMPLE_TEXT", "total_local_retentions":null, "total_local_transfered":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_freecom_local_taxes_url"))).exitHereIfFailed
             .pause(10)

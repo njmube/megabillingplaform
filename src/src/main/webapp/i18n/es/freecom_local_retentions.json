@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "freecom_local_retentions" : {
+            "home": {
+                "title": "Freecom Local Retentions",
+                "createLabel": "Crear nuevo Freecom Local Retentions",
+                "createOrEditLabel": "Crear o editar Freecom Local Retentions",
+                "search": "Search for Freecom Local Retentions"
+            },
+            "created": "Un nuevo Freecom Local Retentions ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Local Retentions ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Local Retentions ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Local Retentions {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Local Retentions"
+            },
+            "implocretentions": "Implocretentions",
+            "retentionrate": "Retentionrate",
+            "amountretentions": "Amountretentions",
+            "freecom_local_taxes": "Freecom Local Taxes"
+        }
+    }
+}

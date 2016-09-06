@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "freecom_local_transfered" : {
+            "home": {
+                "title": "Freecom Local Transfereds",
+                "createLabel": "Crear nuevo Freecom Local Transfered",
+                "createOrEditLabel": "Crear o editar Freecom Local Transfered",
+                "search": "Search for Freecom Local Transfered"
+            },
+            "created": "Un nuevo Freecom Local Transfered ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom Local Transfered ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom Local Transfered ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom Local Transfered {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Local Transfered"
+            },
+            "imploctransfered": "Imploctransfered",
+            "transferedrate": "Transferedrate",
+            "amounttransfered": "Amounttransfered",
+            "freecom_local_taxes": "Freecom Local Taxes"
+        }
+    }
+}

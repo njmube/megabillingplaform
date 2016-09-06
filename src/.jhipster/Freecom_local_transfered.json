@@ -1,0 +1,38 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "freecom_local_taxes",
+            "otherEntityName": "freecom_local_taxes",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "imploctransfered",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "transferedrate",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "amounttransfered",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160906175805",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_local_transfered",
+    "pagination": "pagination"
+}

@@ -50,16 +50,10 @@ public class Freecom_partial_construction_servicesResourceIntTest {
     private static final String UPDATED_NOEXT = "BBBBB";
     private static final String DEFAULT_NOINT = "AAAAA";
     private static final String UPDATED_NOINT = "BBBBB";
-    private static final String DEFAULT_COLONY = "AAAAA";
-    private static final String UPDATED_COLONY = "BBBBB";
     private static final String DEFAULT_LOCATION = "AAAAA";
     private static final String UPDATED_LOCATION = "BBBBB";
     private static final String DEFAULT_REFERENCE = "AAAAA";
     private static final String UPDATED_REFERENCE = "BBBBB";
-    private static final String DEFAULT_MUNICIPALITY = "AAAAA";
-    private static final String UPDATED_MUNICIPALITY = "BBBBB";
-    private static final String DEFAULT_ZIPCODE = "AAAAA";
-    private static final String UPDATED_ZIPCODE = "BBBBB";
     private static final String DEFAULT_NUMPERLICOAUT = "AAAAA";
     private static final String UPDATED_NUMPERLICOAUT = "BBBBB";
 
@@ -96,11 +90,8 @@ public class Freecom_partial_construction_servicesResourceIntTest {
         freecom_partial_construction_services.setStreet(DEFAULT_STREET);
         freecom_partial_construction_services.setNoext(DEFAULT_NOEXT);
         freecom_partial_construction_services.setNoint(DEFAULT_NOINT);
-        freecom_partial_construction_services.setColony(DEFAULT_COLONY);
         freecom_partial_construction_services.setLocation(DEFAULT_LOCATION);
         freecom_partial_construction_services.setReference(DEFAULT_REFERENCE);
-        freecom_partial_construction_services.setMunicipality(DEFAULT_MUNICIPALITY);
-        freecom_partial_construction_services.setZipcode(DEFAULT_ZIPCODE);
         freecom_partial_construction_services.setNumperlicoaut(DEFAULT_NUMPERLICOAUT);
     }
 
@@ -124,11 +115,8 @@ public class Freecom_partial_construction_servicesResourceIntTest {
         assertThat(testFreecom_partial_construction_services.getStreet()).isEqualTo(DEFAULT_STREET);
         assertThat(testFreecom_partial_construction_services.getNoext()).isEqualTo(DEFAULT_NOEXT);
         assertThat(testFreecom_partial_construction_services.getNoint()).isEqualTo(DEFAULT_NOINT);
-        assertThat(testFreecom_partial_construction_services.getColony()).isEqualTo(DEFAULT_COLONY);
         assertThat(testFreecom_partial_construction_services.getLocation()).isEqualTo(DEFAULT_LOCATION);
         assertThat(testFreecom_partial_construction_services.getReference()).isEqualTo(DEFAULT_REFERENCE);
-        assertThat(testFreecom_partial_construction_services.getMunicipality()).isEqualTo(DEFAULT_MUNICIPALITY);
-        assertThat(testFreecom_partial_construction_services.getZipcode()).isEqualTo(DEFAULT_ZIPCODE);
         assertThat(testFreecom_partial_construction_services.getNumperlicoaut()).isEqualTo(DEFAULT_NUMPERLICOAUT);
     }
 
@@ -156,42 +144,6 @@ public class Freecom_partial_construction_servicesResourceIntTest {
         int databaseSizeBeforeTest = freecom_partial_construction_servicesRepository.findAll().size();
         // set the field null
         freecom_partial_construction_services.setStreet(null);
-
-        // Create the Freecom_partial_construction_services, which fails.
-
-        restFreecom_partial_construction_servicesMockMvc.perform(post("/api/freecom-partial-construction-services")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(freecom_partial_construction_services)))
-                .andExpect(status().isBadRequest());
-
-        List<Freecom_partial_construction_services> freecom_partial_construction_services = freecom_partial_construction_servicesRepository.findAll();
-        assertThat(freecom_partial_construction_services).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkMunicipalityIsRequired() throws Exception {
-        int databaseSizeBeforeTest = freecom_partial_construction_servicesRepository.findAll().size();
-        // set the field null
-        freecom_partial_construction_services.setMunicipality(null);
-
-        // Create the Freecom_partial_construction_services, which fails.
-
-        restFreecom_partial_construction_servicesMockMvc.perform(post("/api/freecom-partial-construction-services")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(freecom_partial_construction_services)))
-                .andExpect(status().isBadRequest());
-
-        List<Freecom_partial_construction_services> freecom_partial_construction_services = freecom_partial_construction_servicesRepository.findAll();
-        assertThat(freecom_partial_construction_services).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkZipcodeIsRequired() throws Exception {
-        int databaseSizeBeforeTest = freecom_partial_construction_servicesRepository.findAll().size();
-        // set the field null
-        freecom_partial_construction_services.setZipcode(null);
 
         // Create the Freecom_partial_construction_services, which fails.
 
@@ -237,11 +189,8 @@ public class Freecom_partial_construction_servicesResourceIntTest {
                 .andExpect(jsonPath("$.[*].street").value(hasItem(DEFAULT_STREET.toString())))
                 .andExpect(jsonPath("$.[*].noext").value(hasItem(DEFAULT_NOEXT.toString())))
                 .andExpect(jsonPath("$.[*].noint").value(hasItem(DEFAULT_NOINT.toString())))
-                .andExpect(jsonPath("$.[*].colony").value(hasItem(DEFAULT_COLONY.toString())))
                 .andExpect(jsonPath("$.[*].location").value(hasItem(DEFAULT_LOCATION.toString())))
                 .andExpect(jsonPath("$.[*].reference").value(hasItem(DEFAULT_REFERENCE.toString())))
-                .andExpect(jsonPath("$.[*].municipality").value(hasItem(DEFAULT_MUNICIPALITY.toString())))
-                .andExpect(jsonPath("$.[*].zipcode").value(hasItem(DEFAULT_ZIPCODE.toString())))
                 .andExpect(jsonPath("$.[*].numperlicoaut").value(hasItem(DEFAULT_NUMPERLICOAUT.toString())));
     }
 
@@ -260,11 +209,8 @@ public class Freecom_partial_construction_servicesResourceIntTest {
             .andExpect(jsonPath("$.street").value(DEFAULT_STREET.toString()))
             .andExpect(jsonPath("$.noext").value(DEFAULT_NOEXT.toString()))
             .andExpect(jsonPath("$.noint").value(DEFAULT_NOINT.toString()))
-            .andExpect(jsonPath("$.colony").value(DEFAULT_COLONY.toString()))
             .andExpect(jsonPath("$.location").value(DEFAULT_LOCATION.toString()))
             .andExpect(jsonPath("$.reference").value(DEFAULT_REFERENCE.toString()))
-            .andExpect(jsonPath("$.municipality").value(DEFAULT_MUNICIPALITY.toString()))
-            .andExpect(jsonPath("$.zipcode").value(DEFAULT_ZIPCODE.toString()))
             .andExpect(jsonPath("$.numperlicoaut").value(DEFAULT_NUMPERLICOAUT.toString()));
     }
 
@@ -291,11 +237,8 @@ public class Freecom_partial_construction_servicesResourceIntTest {
         updatedFreecom_partial_construction_services.setStreet(UPDATED_STREET);
         updatedFreecom_partial_construction_services.setNoext(UPDATED_NOEXT);
         updatedFreecom_partial_construction_services.setNoint(UPDATED_NOINT);
-        updatedFreecom_partial_construction_services.setColony(UPDATED_COLONY);
         updatedFreecom_partial_construction_services.setLocation(UPDATED_LOCATION);
         updatedFreecom_partial_construction_services.setReference(UPDATED_REFERENCE);
-        updatedFreecom_partial_construction_services.setMunicipality(UPDATED_MUNICIPALITY);
-        updatedFreecom_partial_construction_services.setZipcode(UPDATED_ZIPCODE);
         updatedFreecom_partial_construction_services.setNumperlicoaut(UPDATED_NUMPERLICOAUT);
 
         restFreecom_partial_construction_servicesMockMvc.perform(put("/api/freecom-partial-construction-services")
@@ -311,11 +254,8 @@ public class Freecom_partial_construction_servicesResourceIntTest {
         assertThat(testFreecom_partial_construction_services.getStreet()).isEqualTo(UPDATED_STREET);
         assertThat(testFreecom_partial_construction_services.getNoext()).isEqualTo(UPDATED_NOEXT);
         assertThat(testFreecom_partial_construction_services.getNoint()).isEqualTo(UPDATED_NOINT);
-        assertThat(testFreecom_partial_construction_services.getColony()).isEqualTo(UPDATED_COLONY);
         assertThat(testFreecom_partial_construction_services.getLocation()).isEqualTo(UPDATED_LOCATION);
         assertThat(testFreecom_partial_construction_services.getReference()).isEqualTo(UPDATED_REFERENCE);
-        assertThat(testFreecom_partial_construction_services.getMunicipality()).isEqualTo(UPDATED_MUNICIPALITY);
-        assertThat(testFreecom_partial_construction_services.getZipcode()).isEqualTo(UPDATED_ZIPCODE);
         assertThat(testFreecom_partial_construction_services.getNumperlicoaut()).isEqualTo(UPDATED_NUMPERLICOAUT);
     }
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Freecom_local_transfered.
+    -->
+    <changeSet id="20160906175805-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="freecom_local_taxes_id"
+                                 baseTableName="freecom_local_transfered"
+                                 constraintName="fk_freecom_local_transfered_freecom_local_taxes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_local_taxes"/>
+
+    </changeSet>
+</databaseChangeLog>

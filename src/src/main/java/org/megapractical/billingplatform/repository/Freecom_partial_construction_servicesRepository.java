@@ -9,6 +9,7 @@ import java.util.List;
 /**
  * Spring Data JPA repository for the Freecom_partial_construction_services entity.
  */
+@SuppressWarnings("unused")
 public interface Freecom_partial_construction_servicesRepository extends JpaRepository<Freecom_partial_construction_services,Long> {
 
 }

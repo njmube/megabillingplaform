@@ -71,7 +71,7 @@
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Freecom_local_taxes', function($stateParams, Freecom_local_taxes) {
-                    return Freecom_local_taxes.get({id : $stateParams.id});
+                    return Freecom_local_taxes.get({id : $stateParams.id}).$promise;
                 }]
             }
         })
@@ -92,8 +92,8 @@
                         entity: function () {
                             return {
                                 version: null,
-                                total_retentions: null,
-                                total_transfered: null,
+                                total_local_retentions: null,
+                                total_local_transfered: null,
                                 id: null
                             };
                         }
@@ -120,7 +120,7 @@
                     size: 'lg',
                     resolve: {
                         entity: ['Freecom_local_taxes', function(Freecom_local_taxes) {
-                            return Freecom_local_taxes.get({id : $stateParams.id});
+                            return Freecom_local_taxes.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
@@ -144,7 +144,7 @@
                     size: 'md',
                     resolve: {
                         entity: ['Freecom_local_taxes', function(Freecom_local_taxes) {
-                            return Freecom_local_taxes.get({id : $stateParams.id});
+                            return Freecom_local_taxes.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {

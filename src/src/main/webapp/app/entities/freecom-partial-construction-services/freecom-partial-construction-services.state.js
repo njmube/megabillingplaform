@@ -71,7 +71,7 @@
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Freecom_partial_construction_services', function($stateParams, Freecom_partial_construction_services) {
-                    return Freecom_partial_construction_services.get({id : $stateParams.id});
+                    return Freecom_partial_construction_services.get({id : $stateParams.id}).$promise;
                 }]
             }
         })
@@ -95,11 +95,8 @@
                                 street: null,
                                 noext: null,
                                 noint: null,
-                                colony: null,
                                 location: null,
                                 reference: null,
-                                municipality: null,
-                                zipcode: null,
                                 numperlicoaut: null,
                                 id: null
                             };
@@ -127,7 +124,7 @@
                     size: 'lg',
                     resolve: {
                         entity: ['Freecom_partial_construction_services', function(Freecom_partial_construction_services) {
-                            return Freecom_partial_construction_services.get({id : $stateParams.id});
+                            return Freecom_partial_construction_services.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {
@@ -151,7 +148,7 @@
                     size: 'md',
                     resolve: {
                         entity: ['Freecom_partial_construction_services', function(Freecom_partial_construction_services) {
-                            return Freecom_partial_construction_services.get({id : $stateParams.id});
+                            return Freecom_partial_construction_services.get({id : $stateParams.id}).$promise;
                         }]
                     }
                 }).result.then(function() {

@@ -2,24 +2,24 @@
     "megabillingplatformApp": {
         "freecom_local_taxes" : {
             "home": {
-                "title": "Freecom_local_taxes",
-                "createLabel": "Create a new Freecom_local_taxes",
-                "createOrEditLabel": "Create or edit a Freecom_local_taxes",
-                "search": "Search for Freecom_local_taxes"
+                "title": "Freecom Local Taxes",
+                "createLabel": "Create a new Freecom Local Taxes",
+                "createOrEditLabel": "Create or edit a Freecom Local Taxes",
+                "search": "Search for Freecom Local Taxes"
             },
-            "created": "A new Freecom_local_taxes is created with identifier {{ param }}",
-            "updated": "A Freecom_local_taxes is updated with identifier {{ param }}",
-            "deleted": "A Freecom_local_taxes is deleted with identifier {{ param }}",
+            "created": "A new Freecom Local Taxes is created with identifier {{ param }}",
+            "updated": "A Freecom Local Taxes is updated with identifier {{ param }}",
+            "deleted": "A Freecom Local Taxes is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Freecom_local_taxes {{ id }}?"
+                "question": "Are you sure you want to delete Freecom Local Taxes {{ id }}?"
             },
             "detail": {
-                "title": "Freecom_local_taxes"
+                "title": "Freecom Local Taxes"
             },
             "version": "Version",
-            "total_retentions": "Total Retentions",
-            "total_transfered": "Total Transfered",
-            "free_cfdi": "Free_cfdi"
+            "total_local_retentions": "Total Local Retentions",
+            "total_local_transfered": "Total Local Transfered",
+            "free_cfdi": "Free Cfdi"
         }
     }
 }

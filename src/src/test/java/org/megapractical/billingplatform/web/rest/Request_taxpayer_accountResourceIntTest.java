@@ -52,9 +52,9 @@ public class Request_taxpayer_accountResourceIntTest {
     private static final String DEFAULT_NAME = "AAAAA";
     private static final String UPDATED_NAME = "BBBBB";
 
-    private static final ZonedDateTime DEFAULT_DATE_REQUEST = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
-    private static final ZonedDateTime UPDATED_DATE_REQUEST = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
-    private static final String DEFAULT_DATE_REQUEST_STR = dateTimeFormatter.format(DEFAULT_DATE_REQUEST);
+    private static final ZonedDateTime DEFAULT_DATEREQUEST = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneId.systemDefault());
+    private static final ZonedDateTime UPDATED_DATEREQUEST = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
+    private static final String DEFAULT_DATEREQUEST_STR = dateTimeFormatter.format(DEFAULT_DATEREQUEST);
     private static final String DEFAULT_FIRTSURNAME = "AAAAA";
     private static final String UPDATED_FIRTSURNAME = "BBBBB";
     private static final String DEFAULT_SECONDSURNAME = "AAAAA";
@@ -64,16 +64,16 @@ public class Request_taxpayer_accountResourceIntTest {
     private static final String DEFAULT_EMAIL = "AAAAA";
     private static final String UPDATED_EMAIL = "BBBBB";
 
-    private static final LocalDate DEFAULT_DATE_BORN = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_DATE_BORN = LocalDate.now(ZoneId.systemDefault());
+    private static final LocalDate DEFAULT_DATEBORN = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATEBORN = LocalDate.now(ZoneId.systemDefault());
     private static final String DEFAULT_GENDER = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
     private static final String UPDATED_GENDER = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB";
     private static final String DEFAULT_RFC = "AAAAA";
     private static final String UPDATED_RFC = "BBBBB";
-    private static final String DEFAULT_BUSSINES_NAME = "AAAAA";
-    private static final String UPDATED_BUSSINES_NAME = "BBBBB";
-    private static final String DEFAULT_ACCOUNT_EMAIL = "AAAAA";
-    private static final String UPDATED_ACCOUNT_EMAIL = "BBBBB";
+    private static final String DEFAULT_BUSSINESNAME = "AAAAA";
+    private static final String UPDATED_BUSSINESNAME = "BBBBB";
+    private static final String DEFAULT_ACCOUNTEMAIL = "AAAAA";
+    private static final String UPDATED_ACCOUNTEMAIL = "BBBBB";
 
     @Inject
     private Request_taxpayer_accountRepository request_taxpayer_accountRepository;
@@ -105,16 +105,16 @@ public class Request_taxpayer_accountResourceIntTest {
     public void initTest() {
         request_taxpayer_account = new Request_taxpayer_account();
         request_taxpayer_account.setName(DEFAULT_NAME);
-        request_taxpayer_account.setDate_request(DEFAULT_DATE_REQUEST);
+        request_taxpayer_account.setDaterequest(DEFAULT_DATEREQUEST);
         request_taxpayer_account.setFirtsurname(DEFAULT_FIRTSURNAME);
         request_taxpayer_account.setSecondsurname(DEFAULT_SECONDSURNAME);
         request_taxpayer_account.setPhone(DEFAULT_PHONE);
         request_taxpayer_account.setEmail(DEFAULT_EMAIL);
-        request_taxpayer_account.setDate_born(DEFAULT_DATE_BORN);
+        request_taxpayer_account.setDateborn(DEFAULT_DATEBORN);
         request_taxpayer_account.setGender(DEFAULT_GENDER);
         request_taxpayer_account.setRfc(DEFAULT_RFC);
-        request_taxpayer_account.setBussines_name(DEFAULT_BUSSINES_NAME);
-        request_taxpayer_account.setAccount_email(DEFAULT_ACCOUNT_EMAIL);
+        request_taxpayer_account.setBussinesname(DEFAULT_BUSSINESNAME);
+        request_taxpayer_account.setAccountemail(DEFAULT_ACCOUNTEMAIL);
     }
 
     @Test
@@ -134,16 +134,16 @@ public class Request_taxpayer_accountResourceIntTest {
         assertThat(request_taxpayer_accounts).hasSize(databaseSizeBeforeCreate + 1);
         Request_taxpayer_account testRequest_taxpayer_account = request_taxpayer_accounts.get(request_taxpayer_accounts.size() - 1);
         assertThat(testRequest_taxpayer_account.getName()).isEqualTo(DEFAULT_NAME);
-        assertThat(testRequest_taxpayer_account.getDate_request()).isEqualTo(DEFAULT_DATE_REQUEST);
+        assertThat(testRequest_taxpayer_account.getDaterequest()).isEqualTo(DEFAULT_DATEREQUEST);
         assertThat(testRequest_taxpayer_account.getFirtsurname()).isEqualTo(DEFAULT_FIRTSURNAME);
         assertThat(testRequest_taxpayer_account.getSecondsurname()).isEqualTo(DEFAULT_SECONDSURNAME);
         assertThat(testRequest_taxpayer_account.getPhone()).isEqualTo(DEFAULT_PHONE);
         assertThat(testRequest_taxpayer_account.getEmail()).isEqualTo(DEFAULT_EMAIL);
-        assertThat(testRequest_taxpayer_account.getDate_born()).isEqualTo(DEFAULT_DATE_BORN);
+        assertThat(testRequest_taxpayer_account.getDateborn()).isEqualTo(DEFAULT_DATEBORN);
         assertThat(testRequest_taxpayer_account.getGender()).isEqualTo(DEFAULT_GENDER);
         assertThat(testRequest_taxpayer_account.getRfc()).isEqualTo(DEFAULT_RFC);
-        assertThat(testRequest_taxpayer_account.getBussines_name()).isEqualTo(DEFAULT_BUSSINES_NAME);
-        assertThat(testRequest_taxpayer_account.getAccount_email()).isEqualTo(DEFAULT_ACCOUNT_EMAIL);
+        assertThat(testRequest_taxpayer_account.getBussinesname()).isEqualTo(DEFAULT_BUSSINESNAME);
+        assertThat(testRequest_taxpayer_account.getAccountemail()).isEqualTo(DEFAULT_ACCOUNTEMAIL);
     }
 
     @Test
@@ -166,10 +166,10 @@ public class Request_taxpayer_accountResourceIntTest {
 
     @Test
     @Transactional
-    public void checkDate_requestIsRequired() throws Exception {
+    public void checkDaterequestIsRequired() throws Exception {
         int databaseSizeBeforeTest = request_taxpayer_accountRepository.findAll().size();
         // set the field null
-        request_taxpayer_account.setDate_request(null);
+        request_taxpayer_account.setDaterequest(null);
 
         // Create the Request_taxpayer_account, which fails.
 
@@ -256,10 +256,10 @@ public class Request_taxpayer_accountResourceIntTest {
 
     @Test
     @Transactional
-    public void checkDate_bornIsRequired() throws Exception {
+    public void checkDatebornIsRequired() throws Exception {
         int databaseSizeBeforeTest = request_taxpayer_accountRepository.findAll().size();
         // set the field null
-        request_taxpayer_account.setDate_born(null);
+        request_taxpayer_account.setDateborn(null);
 
         // Create the Request_taxpayer_account, which fails.
 
@@ -292,10 +292,10 @@ public class Request_taxpayer_accountResourceIntTest {
 
     @Test
     @Transactional
-    public void checkBussines_nameIsRequired() throws Exception {
+    public void checkBussinesnameIsRequired() throws Exception {
         int databaseSizeBeforeTest = request_taxpayer_accountRepository.findAll().size();
         // set the field null
-        request_taxpayer_account.setBussines_name(null);
+        request_taxpayer_account.setBussinesname(null);
 
         // Create the Request_taxpayer_account, which fails.
 
@@ -310,10 +310,10 @@ public class Request_taxpayer_accountResourceIntTest {
 
     @Test
     @Transactional
-    public void checkAccount_emailIsRequired() throws Exception {
+    public void checkAccountemailIsRequired() throws Exception {
         int databaseSizeBeforeTest = request_taxpayer_accountRepository.findAll().size();
         // set the field null
-        request_taxpayer_account.setAccount_email(null);
+        request_taxpayer_account.setAccountemail(null);
 
         // Create the Request_taxpayer_account, which fails.
 
@@ -338,16 +338,16 @@ public class Request_taxpayer_accountResourceIntTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(request_taxpayer_account.getId().intValue())))
                 .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
-                .andExpect(jsonPath("$.[*].date_request").value(hasItem(DEFAULT_DATE_REQUEST_STR)))
+                .andExpect(jsonPath("$.[*].daterequest").value(hasItem(DEFAULT_DATEREQUEST_STR)))
                 .andExpect(jsonPath("$.[*].firtsurname").value(hasItem(DEFAULT_FIRTSURNAME.toString())))
                 .andExpect(jsonPath("$.[*].secondsurname").value(hasItem(DEFAULT_SECONDSURNAME.toString())))
                 .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE.toString())))
                 .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
-                .andExpect(jsonPath("$.[*].date_born").value(hasItem(DEFAULT_DATE_BORN.toString())))
+                .andExpect(jsonPath("$.[*].dateborn").value(hasItem(DEFAULT_DATEBORN.toString())))
                 .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER.toString())))
                 .andExpect(jsonPath("$.[*].rfc").value(hasItem(DEFAULT_RFC.toString())))
-                .andExpect(jsonPath("$.[*].bussines_name").value(hasItem(DEFAULT_BUSSINES_NAME.toString())))
-                .andExpect(jsonPath("$.[*].account_email").value(hasItem(DEFAULT_ACCOUNT_EMAIL.toString())));
+                .andExpect(jsonPath("$.[*].bussinesname").value(hasItem(DEFAULT_BUSSINESNAME.toString())))
+                .andExpect(jsonPath("$.[*].accountemail").value(hasItem(DEFAULT_ACCOUNTEMAIL.toString())));
     }
 
     @Test
@@ -362,16 +362,16 @@ public class Request_taxpayer_accountResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(request_taxpayer_account.getId().intValue()))
             .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
-            .andExpect(jsonPath("$.date_request").value(DEFAULT_DATE_REQUEST_STR))
+            .andExpect(jsonPath("$.daterequest").value(DEFAULT_DATEREQUEST_STR))
             .andExpect(jsonPath("$.firtsurname").value(DEFAULT_FIRTSURNAME.toString()))
             .andExpect(jsonPath("$.secondsurname").value(DEFAULT_SECONDSURNAME.toString()))
             .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE.toString()))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))
-            .andExpect(jsonPath("$.date_born").value(DEFAULT_DATE_BORN.toString()))
+            .andExpect(jsonPath("$.dateborn").value(DEFAULT_DATEBORN.toString()))
             .andExpect(jsonPath("$.gender").value(DEFAULT_GENDER.toString()))
             .andExpect(jsonPath("$.rfc").value(DEFAULT_RFC.toString()))
-            .andExpect(jsonPath("$.bussines_name").value(DEFAULT_BUSSINES_NAME.toString()))
-            .andExpect(jsonPath("$.account_email").value(DEFAULT_ACCOUNT_EMAIL.toString()));
+            .andExpect(jsonPath("$.bussinesname").value(DEFAULT_BUSSINESNAME.toString()))
+            .andExpect(jsonPath("$.accountemail").value(DEFAULT_ACCOUNTEMAIL.toString()));
     }
 
     @Test
@@ -394,16 +394,16 @@ public class Request_taxpayer_accountResourceIntTest {
         Request_taxpayer_account updatedRequest_taxpayer_account = new Request_taxpayer_account();
         updatedRequest_taxpayer_account.setId(request_taxpayer_account.getId());
         updatedRequest_taxpayer_account.setName(UPDATED_NAME);
-        updatedRequest_taxpayer_account.setDate_request(UPDATED_DATE_REQUEST);
+        updatedRequest_taxpayer_account.setDaterequest(UPDATED_DATEREQUEST);
         updatedRequest_taxpayer_account.setFirtsurname(UPDATED_FIRTSURNAME);
         updatedRequest_taxpayer_account.setSecondsurname(UPDATED_SECONDSURNAME);
         updatedRequest_taxpayer_account.setPhone(UPDATED_PHONE);
         updatedRequest_taxpayer_account.setEmail(UPDATED_EMAIL);
-        updatedRequest_taxpayer_account.setDate_born(UPDATED_DATE_BORN);
+        updatedRequest_taxpayer_account.setDateborn(UPDATED_DATEBORN);
         updatedRequest_taxpayer_account.setGender(UPDATED_GENDER);
         updatedRequest_taxpayer_account.setRfc(UPDATED_RFC);
-        updatedRequest_taxpayer_account.setBussines_name(UPDATED_BUSSINES_NAME);
-        updatedRequest_taxpayer_account.setAccount_email(UPDATED_ACCOUNT_EMAIL);
+        updatedRequest_taxpayer_account.setBussinesname(UPDATED_BUSSINESNAME);
+        updatedRequest_taxpayer_account.setAccountemail(UPDATED_ACCOUNTEMAIL);
 
         restRequest_taxpayer_accountMockMvc.perform(put("/api/request-taxpayer-accounts")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -415,16 +415,16 @@ public class Request_taxpayer_accountResourceIntTest {
         assertThat(request_taxpayer_accounts).hasSize(databaseSizeBeforeUpdate);
         Request_taxpayer_account testRequest_taxpayer_account = request_taxpayer_accounts.get(request_taxpayer_accounts.size() - 1);
         assertThat(testRequest_taxpayer_account.getName()).isEqualTo(UPDATED_NAME);
-        assertThat(testRequest_taxpayer_account.getDate_request()).isEqualTo(UPDATED_DATE_REQUEST);
+        assertThat(testRequest_taxpayer_account.getDaterequest()).isEqualTo(UPDATED_DATEREQUEST);
         assertThat(testRequest_taxpayer_account.getFirtsurname()).isEqualTo(UPDATED_FIRTSURNAME);
         assertThat(testRequest_taxpayer_account.getSecondsurname()).isEqualTo(UPDATED_SECONDSURNAME);
         assertThat(testRequest_taxpayer_account.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testRequest_taxpayer_account.getEmail()).isEqualTo(UPDATED_EMAIL);
-        assertThat(testRequest_taxpayer_account.getDate_born()).isEqualTo(UPDATED_DATE_BORN);
+        assertThat(testRequest_taxpayer_account.getDateborn()).isEqualTo(UPDATED_DATEBORN);
         assertThat(testRequest_taxpayer_account.getGender()).isEqualTo(UPDATED_GENDER);
         assertThat(testRequest_taxpayer_account.getRfc()).isEqualTo(UPDATED_RFC);
-        assertThat(testRequest_taxpayer_account.getBussines_name()).isEqualTo(UPDATED_BUSSINES_NAME);
-        assertThat(testRequest_taxpayer_account.getAccount_email()).isEqualTo(UPDATED_ACCOUNT_EMAIL);
+        assertThat(testRequest_taxpayer_account.getBussinesname()).isEqualTo(UPDATED_BUSSINESNAME);
+        assertThat(testRequest_taxpayer_account.getAccountemail()).isEqualTo(UPDATED_ACCOUNTEMAIL);
     }
 
     @Test

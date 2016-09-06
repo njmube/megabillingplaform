@@ -36,22 +36,11 @@ public class Freecom_partial_construction_services implements Serializable {
     @Column(name = "noint")
     private String noint;
 
-    @Column(name = "colony")
-    private String colony;
-
     @Column(name = "location")
     private String location;
 
     @Column(name = "reference")
     private String reference;
-
-    @NotNull
-    @Column(name = "municipality", nullable = false)
-    private String municipality;
-
-    @NotNull
-    @Column(name = "zipcode", nullable = false)
-    private String zipcode;
 
     @NotNull
     @Column(name = "numperlicoaut", nullable = false)
@@ -62,6 +51,16 @@ public class Freecom_partial_construction_services implements Serializable {
 
     @ManyToOne
     private C_federal_entity c_federal_entity;
+
+    @ManyToOne
+    @NotNull
+    private C_municipality c_municipality;
+
+    @ManyToOne
+    private C_colony c_colony;
+
+    @ManyToOne
+    private C_zip_code c_zip_code;
 
     public Long getId() {
         return id;
@@ -103,14 +102,6 @@ public class Freecom_partial_construction_services implements Serializable {
         this.noint = noint;
     }
 
-    public String getColony() {
-        return colony;
-    }
-
-    public void setColony(String colony) {
-        this.colony = colony;
-    }
-
     public String getLocation() {
         return location;
     }
@@ -125,22 +116,6 @@ public class Freecom_partial_construction_services implements Serializable {
 
     public void setReference(String reference) {
         this.reference = reference;
-    }
-
-    public String getMunicipality() {
-        return municipality;
-    }
-
-    public void setMunicipality(String municipality) {
-        this.municipality = municipality;
-    }
-
-    public String getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(String zipcode) {
-        this.zipcode = zipcode;
     }
 
     public String getNumperlicoaut() {
@@ -165,6 +140,30 @@ public class Freecom_partial_construction_services implements Serializable {
 
     public void setC_federal_entity(C_federal_entity c_federal_entity) {
         this.c_federal_entity = c_federal_entity;
+    }
+
+    public C_municipality getC_municipality() {
+        return c_municipality;
+    }
+
+    public void setC_municipality(C_municipality c_municipality) {
+        this.c_municipality = c_municipality;
+    }
+
+    public C_colony getC_colony() {
+        return c_colony;
+    }
+
+    public void setC_colony(C_colony c_colony) {
+        this.c_colony = c_colony;
+    }
+
+    public C_zip_code getC_zip_code() {
+        return c_zip_code;
+    }
+
+    public void setC_zip_code(C_zip_code c_zip_code) {
+        this.c_zip_code = c_zip_code;
     }
 
     @Override
@@ -195,11 +194,8 @@ public class Freecom_partial_construction_services implements Serializable {
             ", street='" + street + "'" +
             ", noext='" + noext + "'" +
             ", noint='" + noint + "'" +
-            ", colony='" + colony + "'" +
             ", location='" + location + "'" +
             ", reference='" + reference + "'" +
-            ", municipality='" + municipality + "'" +
-            ", zipcode='" + zipcode + "'" +
             ", numperlicoaut='" + numperlicoaut + "'" +
             '}';
     }

@@ -16,14 +16,14 @@
             ]
         },
         {
-            "fieldName": "total_retentions",
+            "fieldName": "total_local_retentions",
             "fieldType": "BigDecimal",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
-            "fieldName": "total_transfered",
+            "fieldName": "total_local_transfered",
             "fieldType": "BigDecimal",
             "fieldValidateRules": [
                 "required"
