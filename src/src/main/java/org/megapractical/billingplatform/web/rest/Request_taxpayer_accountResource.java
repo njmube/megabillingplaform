@@ -1,6 +1,7 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import org.megapractical.billingplatform.domain.Request_state;
 import org.megapractical.billingplatform.domain.Request_taxpayer_account;
 import org.megapractical.billingplatform.domain.Tax_address_request;
 import org.megapractical.billingplatform.domain.User;
@@ -12,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -22,6 +24,8 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -133,14 +137,43 @@ public class Request_taxpayer_accountResource {
      */
     @RequestMapping(value = "/request-taxpayer-accounts",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"datefrom", "dateto","request_state"})
     @Timed
-    public ResponseEntity<List<Request_taxpayer_account>> getAllRequest_taxpayer_accounts(Pageable pageable)
+    public ResponseEntity<List<Request_taxpayer_account>> getAllRequest_taxpayer_accounts(@RequestParam(value = "datefrom") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate datefrom,
+                                                                                          @RequestParam(value = "dateto") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateto,
+                                                                                          @RequestParam(value = "request_state") Integer request_state,
+                                                                                          Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Request_taxpayer_accounts");
-        Page<Request_taxpayer_account> page = request_taxpayer_accountService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/request-taxpayer-accounts");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(datefrom.toString().compareTo("0001-01-01") == 0 &&
+            dateto.toString().compareTo("0001-01-01") == 0 && request_state == -1) {
+            ZonedDateTime from = datefrom.atStartOfDay(ZoneId.systemDefault());
+            ZonedDateTime to = ZonedDateTime.now();
+
+            Page<Request_taxpayer_account> page = request_taxpayer_accountService.findByDaterequestBetweenOrderByIdDesc(from, to, pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/request-taxpayer-accounts");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+
+        }else
+        {
+            ZonedDateTime from = datefrom.atStartOfDay(ZoneId.systemDefault());
+            ZonedDateTime to = ZonedDateTime.now();
+            if(dateto.toString().compareTo("0001-01-01") != 0) {
+                dateto = dateto.plusDays(1);
+                to = dateto.atStartOfDay(ZoneId.systemDefault());
+            }
+            if(from.isAfter(to)){
+                to = from;
+            }
+            Request_state request_state1 = null;
+            if(request_state != -1) {
+                request_state1 = request_stateService.findOne(new Long(request_state.toString()));
+            }
+            Page<Request_taxpayer_account> page = request_taxpayer_accountService.findByDaterequestBetweenAndRequest_StateOrderByIdDesc(from, to, request_state1, pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/request-taxpayer-accounts");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

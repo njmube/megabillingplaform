@@ -1,9 +1,11 @@
 package org.megapractical.billingplatform.service;
 
+import org.megapractical.billingplatform.domain.Request_state;
 import org.megapractical.billingplatform.domain.Request_taxpayer_account;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.time.ZonedDateTime;
 import java.util.List;
 
 /**
@@ -27,7 +29,9 @@ public interface Request_taxpayer_accountService {
      */
     Page<Request_taxpayer_account> findAll(Pageable pageable);
 
-    //Page<Request_taxpayer_account> findAllOrderByIdDesc(Pageable pageable);
+    Page<Request_taxpayer_account> findByDaterequestBetweenOrderByIdDesc(ZonedDateTime from, ZonedDateTime to, Pageable pageable);
+
+    Page<Request_taxpayer_account> findByDaterequestBetweenAndRequest_StateOrderByIdDesc(ZonedDateTime from, ZonedDateTime to, Request_state request_state, Pageable pageable);
 
     /**
      *  Get the "id" request_taxpayer_account.

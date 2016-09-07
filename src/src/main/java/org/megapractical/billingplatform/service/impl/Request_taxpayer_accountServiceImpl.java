@@ -1,16 +1,20 @@
 package org.megapractical.billingplatform.service.impl;
 
+import org.megapractical.billingplatform.domain.Request_state;
 import org.megapractical.billingplatform.service.Request_taxpayer_accountService;
 import org.megapractical.billingplatform.domain.Request_taxpayer_account;
 import org.megapractical.billingplatform.repository.Request_taxpayer_accountRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -54,6 +58,30 @@ public class Request_taxpayer_accountServiceImpl implements Request_taxpayer_acc
         Page<Request_taxpayer_account> result = request_taxpayer_accountRepository.findAll(pageable);
         return result;
     }
+
+    public Page<Request_taxpayer_account> findByDaterequestBetweenOrderByIdDesc(ZonedDateTime from, ZonedDateTime to, Pageable pageable){
+        return request_taxpayer_accountRepository.findByDaterequestBetweenOrderByIdDesc(from,to, pageable);
+    }
+
+    public Page<Request_taxpayer_account> findByDaterequestBetweenAndRequest_StateOrderByIdDesc(ZonedDateTime from, ZonedDateTime to, Request_state request_state, Pageable pageable){
+        if(request_state == null) {
+            log.debug("Request to get all Request_taxpayer_accounts not request_state");
+            return request_taxpayer_accountRepository.findByDaterequestBetweenOrderByIdDesc(from, to, pageable);
+        }
+        else {
+            log.debug("Request to get all Request_taxpayer_accounts whit request_state: "+ request_state.getId().toString());
+            Page<Request_taxpayer_account> result = request_taxpayer_accountRepository.findByDaterequestBetweenOrderByIdDesc(from, to, pageable);
+            List<Request_taxpayer_account> list = new ArrayList<>();
+            for(Request_taxpayer_account request_taxpayer_account: result.getContent()){
+                if(request_taxpayer_account.getRequest_state().getId().compareTo(request_state.getId())==0){
+                    list.add(request_taxpayer_account);
+                }
+            }
+            Page<Request_taxpayer_account> page = new PageImpl<Request_taxpayer_account>(list,pageable,result.getTotalElements());
+            return page;
+        }
+    }
+
 
     /**
      *  Get one request_taxpayer_account by id.

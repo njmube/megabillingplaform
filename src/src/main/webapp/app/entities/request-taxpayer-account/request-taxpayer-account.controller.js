@@ -17,31 +17,32 @@
         vm.filterrfc = null;
         vm.datefrom = null;
         vm.dateto = null;
-        vm.filtername = null;
-        vm.filterfirtsurname = null;
-        vm.filtersecondsurname = null;
-        vm.filterbussines_name = null;
-        vm.filteraccount_email = null;
         vm.request_state = null;
-        vm.filteruser = null;
         vm.search = search;
         vm.request_stateS = Request_state.query({filtername: " "});
 
         loadAll();
 
         function loadAll () {
+            var dateFormat = 'yyyy-MM-dd';
+            var fromDate = $filter('date')("0000-01-01", dateFormat);
+            var toDate = $filter('date')("0000-01-01", dateFormat);
+
             Request_taxpayer_account.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,
-                sort: sort()
+                //sort: sort(),
+                datefrom: fromDate,
+                dateto: toDate,
+                request_state: -1
             }, onSuccess, onError);
-            function sort() {
+            /*function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
                 if (vm.predicate !== 'id') {
                     result.push('id');
                 }
                 return result;
-            }
+            }*/
             function onSuccess(data, headers) {
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
@@ -64,37 +65,35 @@
             if(vm.dateto != null){
                 toDate = $filter('date')(vm.dateto, dateFormat);
             }
-            var filterrfc = " ";
-            if(vm.filterrfc != null && vm.filterrfc != ""){
-                filterrfc = vm.filterrfc;
-            }
-            var filtername = " ";
-            if(vm.filtername != null && vm.filtername != ""){
-                filtername = vm.filtername;
-            }
-            var filterfirtsurname = " ";
-            if(vm.filterfirtsurname != null && vm.filterfirtsurname != ""){
-                filterfirtsurname = vm.filterfirtsurname;
-            }
-            var filtersecondsurname = " ";
-            if(vm.filtersecondsurname != null && vm.filtersecondsurname != ""){
-                filtersecondsurname = vm.filtersecondsurname;
-            }
-            var filterbussines_name = " ";
-            if(vm.filterbussines_name != null && vm.filterbussines_name != ""){
-                filterbussines_name = vm.filterbussines_name;
-            }
-            var filteraccount_email = " ";
-            if(vm.filteraccount_email != null && vm.filteraccount_email != ""){
-                filteraccount_email = vm.filteraccount_email;
-            }
-            var request_state = null;
+            var request_state = -1;
             if(vm.request_state != null){
-                request_state = vm.request_state;
+                request_state = vm.request_state.id;
             }
-            var filteruser = null;
-            if(vm.filteruser != null){
-                filteruser = vm.filteruser;
+
+            Request_taxpayer_account.query({
+                page: pagingParams.page - 1,
+                size: paginationConstants.itemsPerPage,
+                //sort: sort(),
+                datefrom: fromDate,
+                dateto: toDate,
+                request_state: request_state
+            }, onSuccess, onError);
+            /*function sort() {
+             var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+             if (vm.predicate !== 'id') {
+             result.push('id');
+             }
+             return result;
+             }*/
+            function onSuccess(data, headers) {
+                vm.links = ParseLinks.parse(headers('link'));
+                vm.totalItems = headers('X-Total-Count');
+                vm.queryCount = vm.totalItems;
+                vm.request_taxpayer_accounts = data;
+                vm.page = pagingParams.page;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
             }
         }
 

@@ -14,17 +14,17 @@
                     ng-model="vm.request_taxpayer_account.id" readonly />
         </div>
         <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.request_taxpayer_account.date_request" for="field_date_request">Date Request</label>
+            <div class="input-group">
+                <input id="field_date_request" type="text" class="form-control" name="date_request" datetime-picker="{{dateformat}}" ng-model="vm.request_taxpayer_account.daterequest" is-open="vm.datePickerOpenStatus.date_request"
+                       readonly/>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="control-label" translate="megabillingplatformApp.request_taxpayer_account.name" for="field_name">Name</label>
             <input type="text" class="form-control" name="name" id="field_name"
                     ng-model="vm.request_taxpayer_account.name"
                     readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.request_taxpayer_account.date_request" for="field_date_request">Date Request</label>
-                <div class="input-group">
-                    <input id="field_date_request" type="text" class="form-control" name="date_request" datetime-picker="{{dateformat}}" ng-model="vm.request_taxpayer_account.daterequest" is-open="vm.datePickerOpenStatus.date_request"
-                    readonly/>
-                </div>
         </div>
         <div class="form-group">
             <label class="control-label" translate="megabillingplatformApp.request_taxpayer_account.firtsurname" for="field_firtsurname">Firtsurname</label>
@@ -51,19 +51,6 @@
                     readonly/>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.request_taxpayer_account.date_born" for="field_date_born">Date Born</label>
-                <div class="input-group">
-                    <input id="field_date_born" type="text" class="form-control" name="date_born" uib-datepicker-popup="{{dateformat}}" ng-model="vm.request_taxpayer_account.dateborn" is-open="vm.datePickerOpenStatus.date_born"
-                    readonly/>
-                </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.request_taxpayer_account.gender" for="field_gender">Gender</label>
-            <input type="text" class="form-control" name="gender" id="field_gender"
-                    ng-model="vm.request_taxpayer_account.gender"
-                    readonly />
-        </div>
-        <div class="form-group">
             <label class="control-label" translate="megabillingplatformApp.request_taxpayer_account.rfc" for="field_rfc">Rfc</label>
             <input type="text" class="form-control" name="rfc" id="field_rfc"
                     ng-model="vm.request_taxpayer_account.rfc"
@@ -76,23 +63,16 @@
                     readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.request_taxpayer_account.account_email" for="field_account_email">Account Email</label>
-            <input type="text" class="form-control" name="account_email" id="field_account_email"
-                    ng-model="vm.request_taxpayer_account.accountemail"
-                    readonly/>
-        </div>
-
-        <div class="form-group">
             <label translate="megabillingplatformApp.request_taxpayer_account.request_state" for="field_request_state">Request State</label>
             <select class="form-control" id="field_request_state" name="request_state" ng-model="vm.request_taxpayer_account.request_state" ng-options="request_state as request_state.name for request_state in vm.request_states track by request_state.id" required>
                 <option value=""></option>
             </select>
-        </div>
-        <div ng-show="editForm.request_state.$invalid">
-            <p class="help-block"
-                ng-show="editForm.request_state.$error.required" translate="entity.validation.required">
-                This field is required.
-            </p>
+            <div ng-show="editForm.request_state.$invalid">
+                <p class="help-block"
+                   ng-show="editForm.request_state.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
         </div>
         <div class="form-group">
             <label translate="megabillingplatformApp.request_taxpayer_account.user" for="field_user">User</label>
