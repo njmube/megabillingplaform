@@ -99,4 +99,9 @@ public class C_municipalityServiceImpl implements C_municipalityService{
         log.debug("Request to delete C_municipality : {}", id);
         c_municipalityRepository.delete(id);
     }
+
+    @Override
+    public List<C_municipality> findAll() {
+        return c_municipalityRepository.findAll();
+    }
 }

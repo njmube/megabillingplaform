@@ -4,7 +4,7 @@
             "home": {
                 "title": "Freecom Local Retentions",
                 "createLabel": "Create a new Freecom Local Retentions",
-                "createOrEditLabel": "Create or edit a Freecom Local Retentions",
+                "createOrEditLabel": "Add or edit Local Taxes",
                 "search": "Search for Freecom Local Retentions"
             },
             "created": "A new Freecom Local Retentions is created with identifier {{ param }}",
@@ -16,9 +16,9 @@
             "detail": {
                 "title": "Freecom Local Retentions"
             },
-            "implocretentions": "Implocretentions",
-            "retentionrate": "Retentionrate",
-            "amountretentions": "Amountretentions",
+            "implocretentions": "Local Tax (*)",
+            "retentionrate": "Rate  (*)",
+            "amountretentions": "Amount  (*)",
             "freecom_local_taxes": "Freecom Local Taxes"
         }
     }

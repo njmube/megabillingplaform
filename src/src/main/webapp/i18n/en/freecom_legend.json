@@ -19,7 +19,10 @@
             "tax_provision": "Tax Provision",
             "norm": "Norm",
             "text_legend": "Text Legend (*)",
-            "freecom_taxlegends": "Freecom Taxlegends"
+            "freecom_taxlegends": "Freecom Taxlegends",
+			"validation": {
+                "patternuppercaseletters": "Wrong format, only uppercase letters are acepted."
+            }
         }
     }
 }

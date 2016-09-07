@@ -5,19 +5,19 @@
         .module('megabillingplatformApp')
         .controller('Freecom_local_retentionsDialogController', Freecom_local_retentionsDialogController);
 
-    Freecom_local_retentionsDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Freecom_local_retentions', 'Freecom_local_taxes'];
+    Freecom_local_retentionsDialogController.$inject = ['$uibModalInstance', 'entity', 'transfered_entity'];
 
-    function Freecom_local_retentionsDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Freecom_local_retentions, Freecom_local_taxes) {
+    function Freecom_local_retentionsDialogController ($uibModalInstance, entity, transfered_entity) {
         var vm = this;
 
         vm.freecom_local_retentions = entity;
+        vm.use_local_retentions = false;
+
+        vm.freecom_local_transfered = transfered_entity;
+        vm.use_local_transfered = false;
+
         vm.clear = clear;
         vm.save = save;
-        vm.freecom_local_taxes = Freecom_local_taxes.query();
-
-        $timeout(function (){
-            angular.element('.form-group:eq(1)>input').focus();
-        });
 
         function clear () {
             $uibModalInstance.dismiss('cancel');
@@ -25,23 +25,29 @@
 
         function save () {
             vm.isSaving = true;
-            if (vm.freecom_local_retentions.id !== null) {
-                Freecom_local_retentions.update(vm.freecom_local_retentions, onSaveSuccess, onSaveError);
-            } else {
-                Freecom_local_retentions.save(vm.freecom_local_retentions, onSaveSuccess, onSaveError);
-            }
-        }
 
-        function onSaveSuccess (result) {
-            $scope.$emit('megabillingplatformApp:freecom_local_retentionsUpdate', result);
+            var result;
+            if(vm.use_local_retentions && vm.use_local_transfered){
+                result = {
+                    retentions: vm.freecom_local_retentions,
+                    transfered: vm.freecom_local_transfered
+                };
+            }
+            else if(vm.use_local_retentions){
+                result = {
+                    retentions: vm.freecom_local_retentions,
+                    transfered: null
+                };
+            }
+            else if(vm.use_local_transfered){
+                result = {
+                    retentions: null,
+                    transfered: vm.freecom_local_transfered
+                };
+            }
+
             $uibModalInstance.close(result);
             vm.isSaving = false;
         }
-
-        function onSaveError () {
-            vm.isSaving = false;
-        }
-
-
     }
 })();

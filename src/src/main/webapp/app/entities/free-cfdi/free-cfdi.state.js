@@ -205,7 +205,8 @@
                     $translatePartialLoader.addPart('freecom_partial_construction_services');
                     $translatePartialLoader.addPart('freecom_foreign_exchange');
                     $translatePartialLoader.addPart('freecom_local_taxes');
-                    $translatePartialLoader.addPart('freecom_retentions_transfered');
+                    $translatePartialLoader.addPart('freecom_local_retentions');
+                    $translatePartialLoader.addPart('freecom_local_transfered');
                     $translatePartialLoader.addPart('freecom_used_vehicle');
                     $translatePartialLoader.addPart('freecom_vehicle_customs_information');
                     $translatePartialLoader.addPart('freecom_destruction_certificate');

@@ -806,7 +806,7 @@
                     <table id="taxlegends-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_taxlegends">
                         <thead>
                             <tr>
-                                <th class="text-center">Descripción Fiscal</th>
+                                <th class="text-center">Disposición Fiscal</th>
                                 <th class="text-center">Norma</th>
                                 <th class="text-center">Texto</th>
                                 <th class="text-center">Acciones</th>
@@ -837,9 +837,15 @@
                             <div class="form-group">
                                 <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.freecom_airline.tua" for="field_freecom_airline_tua">Tua</label>
                                 <div class="col-sm-7">
-                                    <input type="text" class="form-control" name="tua" id="field_freecom_airline_tua"
-                                           ng-model="vm.freecom_airline.tua"
+                                    <input type="text" class="form-control" name="freecom_airline_tua" id="field_freecom_airline_tua"
+                                           ng-model="vm.freecom_airline.tua" ng-pattern="/^\d+\.?\d{1,2}$/"
                                            ng-required="vm.show_airline" />
+                                    <div ng-show="editForm.freecom_airline_tua.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_airline_tua.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
+                                            This field should follow pattern "/^\d+\.?\d{1,2}$/".
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1330,6 +1336,44 @@
                     <div class="row" ng-show="vm.show_partial_construction_services">
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.c_municipality" for="field_freecom_partial_construction_services_c_municipality">C Municipality</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_freecom_partial_construction_services_c_municipality" name="freecom_partial_construction_services_c_municipality" ng-model="vm.freecom_partial_construction_services.c_municipality"
+                                            ng-options="c_municipality as c_municipality.name for c_municipality in vm.pcs_c_municipalities track by c_municipality.id"  ng-required="vm.show_partial_construction_services">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.c_colony" for="field_freecom_partial_construction_services_c_colony">C Colony</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_freecom_partial_construction_services_c_colony" name="freecom_partial_construction_services_c_colony" ng-model="vm.freecom_partial_construction_services.c_colony"
+                                            ng-options="c_colony as c_colony.code for c_colony in vm.pcs_c_colonies track by c_colony.id">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.c_zip_code" for="field_freecom_partial_construction_services_c_zip_code">C Zip Code</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="field_freecom_partial_construction_services_c_zip_code" name="freecom_partial_construction_services_c_zip_code"
+                                           ng-model="vm.freecom_partial_construction_services.c_zip_code" readonly
+                                        />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.location" for="field_freecom_partial_construction_services_location">Location</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="freecom_partial_construction_services_location" id="field_freecom_partial_construction_services_location"
+                                           ng-model="vm.freecom_partial_construction_services.location"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.street" for="field_freecom_partial_construction_services_street">Street</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_partial_construction_services_street" id="field_freecom_partial_construction_services_street"
@@ -1337,6 +1381,8 @@
                                            ng-required="vm.show_partial_construction_services" />
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.noext" for="field_freecom_partial_construction_services_noext">Noext</label>
                                 <div class="col-sm-8">
@@ -1354,24 +1400,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.colony" for="field_freecom_partial_construction_services_colony">Colony</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="freecom_partial_construction_services_colony" id="field_freecom_partial_construction_services_colony"
-                                           ng-model="vm.freecom_partial_construction_services.colony"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.location" for="field_freecom_partial_construction_services_location">Location</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="freecom_partial_construction_services_location" id="field_freecom_partial_construction_services_location"
-                                           ng-model="vm.freecom_partial_construction_services.location"
-                                    />
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.reference" for="field_freecom_partial_construction_services_reference">Reference</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_partial_construction_services_reference" id="field_freecom_partial_construction_services_reference"
@@ -1380,27 +1408,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.municipality" for="field_freecom_partial_construction_services_municipality">Municipality</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="freecom_partial_construction_services_municipality" id="field_freecom_partial_construction_services_municipality"
-                                           ng-model="vm.freecom_partial_construction_services.municipality"
-                                           ng-required="vm.show_partial_construction_services" />
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.c_federal_entity" for="field_freecom_partial_construction_services_c_federal_entity">c_federal_entity</label>
                                 <div class="col-sm-8">
                                     <select class="form-control" id="field_freecom_partial_construction_services_c_federal_entity" name="freecom_partial_construction_services_c_federal_entity" ng-model="vm.freecom_partial_construction_services.c_federal_entity" ng-options="c_federal_entity as c_federal_entity.name for c_federal_entity in vm.c_federal_entitys track by c_federal_entity.id" ng-required="vm.show_partial_construction_services">
                                         <option value=""></option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.zipcode" for="field_freecom_partial_construction_services_zipcode">Zipcode</label>
-                                <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="freecom_partial_construction_services_zipcode" id="field_freecom_partial_construction_services_zipcode"
-                                           ng-model="vm.freecom_partial_construction_services.zipcode"
-                                           ng-required="vm.show_partial_construction_services" />
                                 </div>
                             </div>
                         </div>
@@ -1436,9 +1448,9 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="freecom_ret_transf in vm.freecom_ret_transfs">
-                            <td class="text-left">{{freecom_ret_transf.implocretentions}} / {{freecom_ret_transf.imploctransfered}}</td>
-                            <td class="text-right">{{freecom_ret_transf.retentionrate}} / {{freecom_ret_transf.transferedrate}}</td>
-                            <td class="text-right">{{freecom_ret_transf.amountretentions}} / {{freecom_ret_transf.amounttransfered}}</td>
+                            <td class="text-left">{{freecom_ret_transf.retentions.implocretentions}} / {{freecom_ret_transf.transfered.imploctransfered}}</td>
+                            <td class="text-right">{{freecom_ret_transf.retentions.retentionrate}} / {{freecom_ret_transf.transfered.transferedrate}}</td>
+                            <td class="text-right">{{freecom_ret_transf.retentions.amountretentions}} / {{freecom_ret_transf.transfered.amounttransfered}}</td>
                             <td class="text-center">
                                 <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeFreecomRetTransf($index)">
                                     <span class="glyphicon glyphicon-trash"></span>
@@ -1462,18 +1474,18 @@
                     <div class="row" ng-show="vm.show_local_taxes">
                         <div class="col-md-4 col-md-offset-8">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_local_taxes.total_retentions" for="field_freecom_local_taxes_total_retentions">Total_retentions</label>
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_local_taxes.total_local_retentions" for="field_freecom_local_taxes_total_local_retentions">Total Local Retentions</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="freecom_local_taxes_total_retentions" id="field_freecom_local_taxes_total_retentions"
-                                           ng-model="vm.freecom_local_taxes.total_retentions"
+                                    <input type="text" class="form-control" name="freecom_local_taxes_total_local_retentions" id="field_freecom_local_taxes_total_local_retentions"
+                                           ng-model="vm.freecom_local_taxes.total_local_retentions"
                                            ng-required="vm.show_local_taxes" readonly/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_local_taxes.total_transfered" for="field_freecom_local_taxes_total_transfered">Total_transfered</label>
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_local_taxes.total_local_transfered" for="field_freecom_local_taxes_total_local_transfered">Total Local Transfered</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="freecom_local_taxes_total_transfered" id="field_freecom_local_taxes_total_transfered"
-                                           ng-model="vm.freecom_local_taxes.total_transfered"
+                                    <input type="text" class="form-control" name="freecom_local_taxes_total_local_transfered" id="field_freecom_local_taxes_total_local_transfered"
+                                           ng-model="vm.freecom_local_taxes.total_local_transfered"
                                            ng-required="vm.show_local_taxes" readonly />
                                 </div>
                             </div>
@@ -1676,10 +1688,10 @@
 
                     <!--//Destruction Certificate-->
                     <div class="row" ng-show="vm.show_destruction_certificate">
-                         <div class="col-md-4">
+                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.numfoldesveh" for="field_freecom_destruction_certificate_numfoldesveh">Numfoldesveh</label>
-                                <div class="col-sm-7">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.numfoldesveh" for="field_freecom_destruction_certificate_numfoldesveh">Numfoldesveh</label>
+                                <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_destruction_certificate_numfoldesveh" id="field_freecom_destruction_certificate_numfoldesveh"
                                            ng-model="vm.freecom_destruction_certificate.numfoldesveh"
                                            ng-required="vm.show_destruction_certificate" ng-maxlength="20" />
@@ -1692,6 +1704,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.c_type_series" for="field_freecom_destruction_certificate_c_type_series">C Type Series</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_freecom_destruction_certificate_c_type_series" name="freecom_destruction_certificate_c_type_series"
+                                            ng-model="vm.freecom_destruction_certificate.c_type_series" ng-options="c_type_series as c_type_series.value for c_type_series in vm.c_type_series track by c_type_series.id" ng-required="vm.show_destruction_certificate">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                     <h3 class="header smaller lighter blue" ng-show="vm.show_destruction_certificate">
@@ -1762,10 +1786,9 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.no_serie" for="field_freecom_destruction_certificate_no_serie">No_serie</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="field_freecom_destruction_certificate_no_serie" name="freecom_destruction_certificate_no_serie" ng-model="vm.freecom_destruction_certificate.no_serie"
-                                            ng-options="serie_val as serie_val for serie_val in vm.no_series track by serie_val">
-                                        <option value=""></option>
-                                    </select>
+                                    <input type="text" class="form-control" id="field_freecom_destruction_certificate_no_serie" name="freecom_destruction_certificate_no_serie"
+                                           ng-model="vm.freecom_destruction_certificate.no_serie"
+                                        />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -1808,14 +1831,6 @@
                                             This field cannot be longer than 40 characters.
                                         </p>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_destruction_certificate.c_type_series" for="field_freecom_destruction_certificate_c_type_series">C Type Series</label>
-                                <div class="col-sm-8">
-                                    <select class="form-control" id="field_freecom_destruction_certificate_c_type_series" name="freecom_destruction_certificate_c_type_series" ng-model="vm.freecom_destruction_certificate.c_type_series" ng-options="c_type_series as c_type_series.value for c_type_series in vm.c_type_series track by c_type_series.id">
-                                        <option value=""></option>
-                                    </select>
                                 </div>
                             </div>
                         </div>

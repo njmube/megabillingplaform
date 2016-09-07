@@ -16,9 +16,9 @@
             "detail": {
                 "title": "Freecom Local Transfered"
             },
-            "imploctransfered": "Imploctransfered",
-            "transferedrate": "Transferedrate",
-            "amounttransfered": "Amounttransfered",
+            "imploctransfered": "Local Tax (*)",
+            "transferedrate": "Rate  (*)",
+            "amounttransfered": "Amount  (*)",
             "freecom_local_taxes": "Freecom Local Taxes"
         }
     }

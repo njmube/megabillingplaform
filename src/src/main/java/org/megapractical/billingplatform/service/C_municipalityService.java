@@ -46,4 +46,7 @@ public interface C_municipalityService {
      *  @param id the id of the entity
      */
     void delete(Long id);
+
+    List<C_municipality> findAll();
+
 }
