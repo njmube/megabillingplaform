@@ -808,7 +808,7 @@
                             <tr>
                                 <th class="text-center">Disposición Fiscal</th>
                                 <th class="text-center">Norma</th>
-                                <th class="text-center">Texto</th>
+                                <th class="text-center">Texto Leyenda</th>
                                 <th class="text-center">Acciones</th>
                             </tr>
                         </thead>
@@ -1339,7 +1339,7 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.c_municipality" for="field_freecom_partial_construction_services_c_municipality">C Municipality</label>
                                 <div class="col-sm-8">
                                     <select class="form-control" id="field_freecom_partial_construction_services_c_municipality" name="freecom_partial_construction_services_c_municipality" ng-model="vm.freecom_partial_construction_services.c_municipality"
-                                            ng-options="c_municipality as c_municipality.name for c_municipality in vm.pcs_c_municipalities track by c_municipality.id"  ng-required="vm.show_partial_construction_services">
+                                            ng-options="c_municipality as c_municipality.name for c_municipality in vm.pcs_c_municipalities track by c_municipality.id"  ng-required="vm.show_partial_construction_services" data-ng-change="vm.onChangePCS_C_municipality()">
                                         <option value=""></option>
                                     </select>
                                 </div>
@@ -1349,7 +1349,7 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.c_colony" for="field_freecom_partial_construction_services_c_colony">C Colony</label>
                                 <div class="col-sm-8">
                                     <select class="form-control" id="field_freecom_partial_construction_services_c_colony" name="freecom_partial_construction_services_c_colony" ng-model="vm.freecom_partial_construction_services.c_colony"
-                                            ng-options="c_colony as c_colony.code for c_colony in vm.pcs_c_colonies track by c_colony.id">
+                                            ng-options="c_colony as c_colony.code for c_colony in vm.pcs_c_colonies track by c_colony.id" data-ng-change="vm.onChangePCS_C_colony()">
                                         <option value=""></option>
                                     </select>
                                 </div>
@@ -1359,7 +1359,7 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_partial_construction_services.c_zip_code" for="field_freecom_partial_construction_services_c_zip_code">C Zip Code</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" id="field_freecom_partial_construction_services_c_zip_code" name="freecom_partial_construction_services_c_zip_code"
-                                           ng-model="vm.freecom_partial_construction_services.c_zip_code" readonly
+                                           ng-model="vm.freecom_partial_construction_services.c_zip_code.code" readonly
                                         />
                                 </div>
                             </div>

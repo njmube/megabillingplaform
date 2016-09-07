@@ -1600,8 +1600,22 @@
         vm.show_partial_construction_services = false;
 
         vm.pcs_c_municipalities = C_municipality.query({stateId: 0, filtername:" "});
-        vm.pcs_c_colonies = C_colony.query();
-        vm.pcs_c_zip_codes = C_zip_code.query();
+        vm.pcs_c_colonies = null;
+
+         vm.onChangePCS_C_municipality = function() {
+            var municipalityId = vm.freecom_partial_construction_services.c_municipality.id;
+            C_colony.query({municipalityId: municipalityId, filtername:" "}, function(result){
+                vm.pcs_c_colonies = result;
+                vm.freecom_partial_construction_services.c_zip_code = null;
+            });
+        };
+
+         vm.onChangePCS_C_colony = function() {
+             var colonyId = vm.freecom_partial_construction_services.c_colony.id;
+             C_zip_code.get({id: colonyId, filtername: " "}, function (result) {
+                 vm.freecom_partial_construction_services.c_zip_code = result;
+             });
+         };
 
         vm.c_federal_entitys = C_federal_entity.query();
 
