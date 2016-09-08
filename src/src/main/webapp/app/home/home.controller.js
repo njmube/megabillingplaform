@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'Tracemg','LoginService','$filter'];
+    HomeController.$inject = ['$scope', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account'];
 
-    function HomeController ($scope, Principal, Tracemg,  LoginService, $filter) {
+    function HomeController ($scope, Principal, Tracemg,  LoginService, $filter, Taxpayer_account) {
         var vm = this;
 
         vm.account = null;
@@ -38,6 +38,11 @@
                 principal: principal,
                 auditEventType: auditEventType,
                 ip: ip
+            });
+
+            vm.taxpayer_accounts = Taxpayer_account.query({
+                page: 0,
+                size: 10
             });
 
             vm.login = LoginService.open;

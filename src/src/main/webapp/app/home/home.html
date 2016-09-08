@@ -178,6 +178,81 @@
 
 	</div>
 
+    <div ng-switch-when="true" has-authority="ROLE_AFILITATED" ng-if="vm.isNoAdmin" >
+        <div class="page-header">
+            <div class="row">
+                <div class="col-md-8">
+                    <h1>
+                        {{'home.afilitated' | translate}}
+                        <small>
+                            <i class="ace-icon fa fa-angle-double-right"></i>
+                            {{'home.home' | translate}}
+                        </small>
+                    </h1>
+                </div>
+                <div class="col-md-4">
+                    <a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info pull-right" href="">
+                        <i class="fa fa-lightbulb-o"></i>
+                    </a>
+                </div>
+            </div>
+        </div><!-- /.page-header -->
+
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="nav nav-pills">
+                    <li>
+                        <a href="#/">
+                            <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a ui-sref="request-taxpayer-account.new">{{'global.user.join.mega' | translate}}</a>
+                    </li>
+                    <li>
+                        <a href="#/">{{'global.afilitated.transactions' | translate}}</a>
+                    </li>
+                </ul>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+        <div class="hr hr-16 hr-dotted"></div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- PAGE CONTENT BEGINS -->
+                <div class="col-xs-6">
+                    <h2 translate="home.taxpayer_account_title">Taxpayer Accounts</h2>
+                    <div class="table-responsive">
+                        <table class="jh-table table table-striped">
+                            <thead>
+                            <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                                <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                                <th jh-sort-by="rfc"><span translate="home.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                                <th jh-sort-by="bussines_name"><span translate="home.bussines_name">Bussines Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                                <th><span translate="home.transactions">Transactions</span></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
+                                <td><a ui-sref="taxpayer-account-detail({id:taxpayer_account.id})">{{taxpayer_account.id}}</a></td>
+                                <td>{{taxpayer_account.rfc}}</td>
+                                <td>{{taxpayer_account.bussines_name}}</td>
+                                <td>0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!-- /.col -->
+                <div class="col-xs-4">
+
+                </div><!-- /.col -->
+                <!-- PAGE CONTENT ENDS -->
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+    </div>
+
 	<div ng-switch-when="true" has-authority="ROLE_ADMIN">
 		<div class="page-header">
 			<h1>Pizarra de Datos</h1>

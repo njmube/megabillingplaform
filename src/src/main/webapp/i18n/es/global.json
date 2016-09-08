@@ -172,6 +172,9 @@
 			"search.cfdi": "Consultar CFDI",
 			"join.mega": "Adquirir MegaCFDI"
 		},
+        "afilitated": {
+            "transactions":"Adquirir timbres"
+        },
         "form": {
             "username": "Nombre de Usuario (*)",
             "username.placeholder": "Introduzca su Nombre de Usuario Ej: yandry",

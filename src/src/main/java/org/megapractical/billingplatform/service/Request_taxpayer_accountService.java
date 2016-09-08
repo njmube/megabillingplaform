@@ -33,6 +33,9 @@ public interface Request_taxpayer_accountService {
 
     Page<Request_taxpayer_account> findByDaterequestBetweenAndRequest_StateOrderByIdDesc(ZonedDateTime from, ZonedDateTime to, Request_state request_state, Pageable pageable);
 
+    void acceptedRequest(Request_taxpayer_account request_taxpayer_account);
+
+    void rejectRequest(Request_taxpayer_account request_taxpayer_account);
     /**
      *  Get the "id" request_taxpayer_account.
      *

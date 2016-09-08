@@ -172,6 +172,9 @@
 				"search.cfdi": "Search CFDI",
 				"join.mega": "Join to Megapractical"
             },
+        "afilitated": {
+            "transactions":"Get transactions"
+        },
         "form": {
             "username": "Username (*)",
             "username.placeholder": "Your username",

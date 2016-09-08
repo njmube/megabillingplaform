@@ -123,6 +123,14 @@ public class Request_taxpayer_accountResource {
             return createRequest_taxpayer_account(request_taxpayer_account);
         }
         Request_taxpayer_account result = request_taxpayer_accountService.save(request_taxpayer_account);
+        if(result.getRequest_state().getId()==2){
+            //Aprobada la solicitud
+            request_taxpayer_accountService.acceptedRequest(result);
+        }
+        if(result.getRequest_state().getId()==3){
+            //Rechazada la solicitud
+            request_taxpayer_accountService.rejectRequest(result);
+        }
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("request_taxpayer_account", request_taxpayer_account.getId().toString()))
             .body(result);

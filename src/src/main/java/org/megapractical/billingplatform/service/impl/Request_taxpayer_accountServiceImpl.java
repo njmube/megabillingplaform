@@ -1,8 +1,9 @@
 package org.megapractical.billingplatform.service.impl;
 
-import org.megapractical.billingplatform.domain.Request_state;
-import org.megapractical.billingplatform.service.Request_taxpayer_accountService;
-import org.megapractical.billingplatform.domain.Request_taxpayer_account;
+import org.megapractical.billingplatform.domain.*;
+import org.megapractical.billingplatform.repository.AuthorityRepository;
+import org.megapractical.billingplatform.repository.UserRepository;
+import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.repository.Request_taxpayer_accountRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +16,9 @@ import org.springframework.stereotype.Service;
 import javax.inject.Inject;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Service Implementation for managing Request_taxpayer_account.
@@ -28,6 +31,25 @@ public class Request_taxpayer_accountServiceImpl implements Request_taxpayer_acc
 
     @Inject
     private Request_taxpayer_accountRepository request_taxpayer_accountRepository;
+
+    @Inject
+    private UserRepository userRepository;
+
+    @Inject
+    private UserService userService;
+
+    @Inject
+    private Taxpayer_accountService taxpayer_accountService;
+
+    @Inject
+    private Type_taxpayerService type_taxpayerService;
+
+    @Inject
+    private Tax_addressService tax_addressService;
+
+    @Inject
+    private AuthorityRepository authorityRepository;
+
 
     /**
      * Save a request_taxpayer_account.
@@ -80,6 +102,60 @@ public class Request_taxpayer_accountServiceImpl implements Request_taxpayer_acc
             Page<Request_taxpayer_account> page = new PageImpl<Request_taxpayer_account>(list,pageable,result.getTotalElements());
             return page;
         }
+    }
+
+    public void acceptedRequest(Request_taxpayer_account request_taxpayer_account){
+        Taxpayer_account taxpayer_account = new Taxpayer_account();
+        taxpayer_account.setRfc(request_taxpayer_account.getRfc());
+        taxpayer_account.setBussines_name(request_taxpayer_account.getBussinesname());
+        taxpayer_account.setEmail(request_taxpayer_account.getAccountemail());
+        taxpayer_account.setAccuracy(2);
+        if(taxpayer_account.getRfc().length() == 12){
+            taxpayer_account.setType_taxpayer(type_taxpayerService.findOne(new Long("1")));
+        }else {
+            taxpayer_account.setType_taxpayer(type_taxpayerService.findOne(new Long("2")));
+        }
+        Tax_address tax_address = new Tax_address();
+        tax_address.setC_country(request_taxpayer_account.getTax_address_request().getC_country());
+        tax_address.setC_state(request_taxpayer_account.getTax_address_request().getC_state());
+        tax_address.setC_municipality(request_taxpayer_account.getTax_address_request().getC_municipality());
+        tax_address.setC_colony(request_taxpayer_account.getTax_address_request().getC_colony());
+        tax_address.setC_zip_code(request_taxpayer_account.getTax_address_request().getC_zip_code());
+        tax_address.setStreet(request_taxpayer_account.getTax_address_request().getStreet());
+        tax_address.setNo_ext(request_taxpayer_account.getTax_address_request().getNo_ext());
+        tax_address.setNo_int(request_taxpayer_account.getTax_address_request().getNo_int());
+        tax_address.setReference(request_taxpayer_account.getTax_address_request().getReference());
+        tax_address.setIntersection(request_taxpayer_account.getTax_address_request().getIntersection());
+        tax_address.setLocation(request_taxpayer_account.getTax_address_request().getLocation());
+        Tax_address tax_addressResult = tax_addressService.save(tax_address);
+        if(tax_addressResult!=null){
+            taxpayer_account.setTax_address(tax_addressResult);
+        }
+        Taxpayer_account taxpayer_accountResult = taxpayer_accountService.save(taxpayer_account);
+        if(taxpayer_accountResult != null) {
+            boolean afilitated = false;
+            boolean user = false;
+            User usercomplete = userService.getUserWithAuthorities(request_taxpayer_account.getUser().getId());
+            for (Authority item : usercomplete.getAuthorities()) {
+                if (item.getName().compareTo("ROLE_AFILITATED") == 0) {
+                    afilitated = true;
+                }
+                if (item.getName().compareTo("ROLE_USER") == 0) {
+                    user = true;
+                }
+            }
+            if (!afilitated && user) {
+                Authority authority = authorityRepository.findOne("ROLE_AFILITATED");
+                Set<Authority> authorities = new HashSet<>();
+                authorities.add(authority);
+                usercomplete.setAuthorities(authorities);
+                userRepository.save(usercomplete);
+            }
+        }
+    }
+
+    public void rejectRequest(Request_taxpayer_account request_taxpayer_account){
+
     }
 
 
