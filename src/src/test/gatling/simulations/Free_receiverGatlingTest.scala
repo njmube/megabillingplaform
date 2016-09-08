@@ -67,7 +67,7 @@ class Free_receiverGatlingTest extends Simulation {
             .exec(http("Create new free_receiver")
             .post("/api/free-receivers")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "rfc":"SAMPLE_TEXT", "business_name":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "activated":null, "create_date":"2020-01-01T00:00:00.000Z", "street":"SAMPLE_TEXT", "no_ext":"SAMPLE_TEXT", "no_int":"SAMPLE_TEXT", "reference":"SAMPLE_TEXT", "phone":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "rfc":"SAMPLE_TEXT", "business_name":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "activated":null, "create_date":"2020-01-01T00:00:00.000Z", "street":"SAMPLE_TEXT", "no_ext":"SAMPLE_TEXT", "no_int":"SAMPLE_TEXT", "reference":"SAMPLE_TEXT", "phone":"SAMPLE_TEXT", "location":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_free_receiver_url"))).exitHereIfFailed
             .pause(10)

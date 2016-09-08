@@ -172,6 +172,7 @@
 						activated: false,
 						create_date: null,
 						c_country: {id: 151, name: "México", abrev: "MEX"},
+						location: null,
 						street: null,
 						no_ext: null,
 						no_int: null,

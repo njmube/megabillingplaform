@@ -25,6 +25,7 @@
             "phone": "Teléfono",
             "activated": "Activado",
             "create_date": "Fecha de Creación",
+            "location": "Localidad",
             "street": "Calle",
             "no_ext": "No. Exterior",
             "no_int": "No. Interior",

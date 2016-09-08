@@ -45,8 +45,8 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
         Free_cfdi free_cfdi = free_cfdi_dto.getFreeCFDI();
         log.debug("Request to save Free_cfdi : {}", free_cfdi);
         free_cfdi = saveXMLandPDF(free_cfdi);
-        Free_cfdi result = free_cfdiRepository.save(free_cfdi);
 
+        Free_cfdi result = free_cfdiRepository.save(free_cfdi);
         return result;
     }
 

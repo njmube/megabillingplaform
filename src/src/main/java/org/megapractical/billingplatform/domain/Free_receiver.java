@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * A Free_receiver.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "free_receiver")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Free_receiver implements Serializable {
@@ -61,6 +61,9 @@ public class Free_receiver implements Serializable {
     @Pattern(regexp = "^[0-9]{1,15}$")
     @Column(name = "phone", length = 15)
     private String phone;
+
+    @Column(name = "location")
+    private String location;
 
     @ManyToOne
     private C_country c_country;
@@ -168,6 +171,14 @@ public class Free_receiver implements Serializable {
         this.phone = phone;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     public C_country getC_country() {
         return c_country;
     }
@@ -250,6 +261,7 @@ public class Free_receiver implements Serializable {
             ", no_int='" + no_int + "'" +
             ", reference='" + reference + "'" +
             ", phone='" + phone + "'" +
+            ", location='" + location + "'" +
             '}';
     }
 }

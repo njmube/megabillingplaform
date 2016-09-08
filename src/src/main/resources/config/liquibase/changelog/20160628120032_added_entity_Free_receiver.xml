@@ -61,6 +61,10 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="location" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="c_country_id" type="bigint">
                 <constraints nullable="true" />
             </column>

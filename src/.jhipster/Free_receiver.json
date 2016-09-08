@@ -118,6 +118,10 @@
             "fieldValidateRulesMaxlength": "15",
             "fieldValidateRulesPattern": "^[0-9]{1,15}$",
             "fieldValidateRulesPatternJava": "^[0-9]{1,15}$"
+        },
+        {
+            "fieldName": "location",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20160628120032",

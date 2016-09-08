@@ -101,6 +101,7 @@
                                 no_int: null,
                                 reference: null,
                                 phone: null,
+                                location: null,
                                 id: null
                             };
                         }

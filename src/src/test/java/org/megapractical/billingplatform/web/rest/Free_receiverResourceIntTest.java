@@ -48,12 +48,12 @@ public class Free_receiverResourceIntTest {
 
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").withZone(ZoneId.of("Z"));
 
-    private static final String DEFAULT_RFC = "AAA121234ZZX";
-    private static final String UPDATED_RFC = "AAA121234ZZF";
+    private static final String DEFAULT_RFC = "AAAAAAAAAAAA";
+    private static final String UPDATED_RFC = "BBBBBBBBBBBB";
     private static final String DEFAULT_BUSINESS_NAME = "AAA";
     private static final String UPDATED_BUSINESS_NAME = "BBB";
-    private static final String DEFAULT_EMAIL = "algo@algo.com";
-    private static final String UPDATED_EMAIL = "algo1@algo.com";
+    private static final String DEFAULT_EMAIL = "AAAAAA";
+    private static final String UPDATED_EMAIL = "BBBBBB";
 
     private static final Boolean DEFAULT_ACTIVATED = false;
     private static final Boolean UPDATED_ACTIVATED = true;
@@ -69,8 +69,10 @@ public class Free_receiverResourceIntTest {
     private static final String UPDATED_NO_INT = "BBBBB";
     private static final String DEFAULT_REFERENCE = "AAAAA";
     private static final String UPDATED_REFERENCE = "BBBBB";
-    private static final String DEFAULT_PHONE = "1233";
-    private static final String UPDATED_PHONE = "12336";
+    private static final String DEFAULT_PHONE = "A";
+    private static final String UPDATED_PHONE = "B";
+    private static final String DEFAULT_LOCATION = "AAAAA";
+    private static final String UPDATED_LOCATION = "BBBBB";
 
     @Inject
     private Free_receiverRepository free_receiverRepository;
@@ -111,12 +113,12 @@ public class Free_receiverResourceIntTest {
         free_receiver.setNo_int(DEFAULT_NO_INT);
         free_receiver.setReference(DEFAULT_REFERENCE);
         free_receiver.setPhone(DEFAULT_PHONE);
+        free_receiver.setLocation(DEFAULT_LOCATION);
     }
 
     @Test
     @Transactional
     public void createFree_receiver() throws Exception {
-        /*
         int databaseSizeBeforeCreate = free_receiverRepository.findAll().size();
 
         // Create the Free_receiver
@@ -139,13 +141,13 @@ public class Free_receiverResourceIntTest {
         assertThat(testFree_receiver.getNo_ext()).isEqualTo(DEFAULT_NO_EXT);
         assertThat(testFree_receiver.getNo_int()).isEqualTo(DEFAULT_NO_INT);
         assertThat(testFree_receiver.getReference()).isEqualTo(DEFAULT_REFERENCE);
-        assertThat(testFree_receiver.getPhone()).isEqualTo(DEFAULT_PHONE);*/
+        assertThat(testFree_receiver.getPhone()).isEqualTo(DEFAULT_PHONE);
+        assertThat(testFree_receiver.getLocation()).isEqualTo(DEFAULT_LOCATION);
     }
 
     @Test
     @Transactional
     public void checkRfcIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_receiverRepository.findAll().size();
         // set the field null
         free_receiver.setRfc(null);
@@ -158,13 +160,12 @@ public class Free_receiverResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_receiver> free_receivers = free_receiverRepository.findAll();
-        assertThat(free_receivers).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_receivers).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkBusiness_nameIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_receiverRepository.findAll().size();
         // set the field null
         free_receiver.setBusiness_name(null);
@@ -177,13 +178,12 @@ public class Free_receiverResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_receiver> free_receivers = free_receiverRepository.findAll();
-        assertThat(free_receivers).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_receivers).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkActivatedIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_receiverRepository.findAll().size();
         // set the field null
         free_receiver.setActivated(null);
@@ -196,13 +196,12 @@ public class Free_receiverResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_receiver> free_receivers = free_receiverRepository.findAll();
-        assertThat(free_receivers).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_receivers).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void checkCreate_dateIsRequired() throws Exception {
-        /*
         int databaseSizeBeforeTest = free_receiverRepository.findAll().size();
         // set the field null
         free_receiver.setCreate_date(null);
@@ -215,13 +214,12 @@ public class Free_receiverResourceIntTest {
                 .andExpect(status().isBadRequest());
 
         List<Free_receiver> free_receivers = free_receiverRepository.findAll();
-        assertThat(free_receivers).hasSize(databaseSizeBeforeTest);*/
+        assertThat(free_receivers).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
     @Transactional
     public void getAllFree_receivers() throws Exception {
-        /*
         // Initialize the database
         free_receiverRepository.saveAndFlush(free_receiver);
 
@@ -239,13 +237,13 @@ public class Free_receiverResourceIntTest {
                 .andExpect(jsonPath("$.[*].no_ext").value(hasItem(DEFAULT_NO_EXT.toString())))
                 .andExpect(jsonPath("$.[*].no_int").value(hasItem(DEFAULT_NO_INT.toString())))
                 .andExpect(jsonPath("$.[*].reference").value(hasItem(DEFAULT_REFERENCE.toString())))
-                .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE.toString())));*/
+                .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE.toString())))
+                .andExpect(jsonPath("$.[*].location").value(hasItem(DEFAULT_LOCATION.toString())));
     }
 
     @Test
     @Transactional
     public void getFree_receiver() throws Exception {
-        /*
         // Initialize the database
         free_receiverRepository.saveAndFlush(free_receiver);
 
@@ -263,13 +261,13 @@ public class Free_receiverResourceIntTest {
             .andExpect(jsonPath("$.no_ext").value(DEFAULT_NO_EXT.toString()))
             .andExpect(jsonPath("$.no_int").value(DEFAULT_NO_INT.toString()))
             .andExpect(jsonPath("$.reference").value(DEFAULT_REFERENCE.toString()))
-            .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE.toString()));*/
+            .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE.toString()))
+            .andExpect(jsonPath("$.location").value(DEFAULT_LOCATION.toString()));
     }
 
     @Test
     @Transactional
     public void getNonExistingFree_receiver() throws Exception {
-        /*
         // Get the free_receiver
         restFree_receiverMockMvc.perform(get("/api/free-receivers/{id}", Long.MAX_VALUE))
                 .andExpect(status().isNotFound());
@@ -296,6 +294,7 @@ public class Free_receiverResourceIntTest {
         updatedFree_receiver.setNo_int(UPDATED_NO_INT);
         updatedFree_receiver.setReference(UPDATED_REFERENCE);
         updatedFree_receiver.setPhone(UPDATED_PHONE);
+        updatedFree_receiver.setLocation(UPDATED_LOCATION);
 
         restFree_receiverMockMvc.perform(put("/api/free-receivers")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -315,13 +314,13 @@ public class Free_receiverResourceIntTest {
         assertThat(testFree_receiver.getNo_ext()).isEqualTo(UPDATED_NO_EXT);
         assertThat(testFree_receiver.getNo_int()).isEqualTo(UPDATED_NO_INT);
         assertThat(testFree_receiver.getReference()).isEqualTo(UPDATED_REFERENCE);
-        assertThat(testFree_receiver.getPhone()).isEqualTo(UPDATED_PHONE);*/
+        assertThat(testFree_receiver.getPhone()).isEqualTo(UPDATED_PHONE);
+        assertThat(testFree_receiver.getLocation()).isEqualTo(UPDATED_LOCATION);
     }
 
     @Test
     @Transactional
     public void deleteFree_receiver() throws Exception {
-        /*
         // Initialize the database
         free_receiverService.save(free_receiver);
 
@@ -334,6 +333,6 @@ public class Free_receiverResourceIntTest {
 
         // Validate the database is empty
         List<Free_receiver> free_receivers = free_receiverRepository.findAll();
-        assertThat(free_receivers).hasSize(databaseSizeBeforeDelete - 1);*/
+        assertThat(free_receivers).hasSize(databaseSizeBeforeDelete - 1);
     }
 }

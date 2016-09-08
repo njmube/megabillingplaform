@@ -969,6 +969,7 @@
 			vm.free_receiver.email= null;
 			vm.free_receiver.activated= false;
 			vm.free_receiver.create_date= null;
+			vm.free_receiver.location= null;
 			vm.free_receiver.street= null;
 			vm.free_receiver.no_ext= null;
 			vm.free_receiver.no_int= null;
