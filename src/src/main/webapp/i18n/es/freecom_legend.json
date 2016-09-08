@@ -16,9 +16,9 @@
             "detail": {
                 "title": "Freecom Legend"
             },
-            "tax_provision": "Tax Provision",
-            "norm": "Norm",
-            "text_legend": "Text Legend (*)",
+            "tax_provision": "Disposición Fiscal:",
+            "norm": "Norma:",
+            "text_legend": "Texto Leyenda (*):",
             "freecom_taxlegends": "Freecom Taxlegends",
 			"validation": {
                 "patternuppercaseletters": "Formato incorrecto, solo se aceptan letras mayúsculas."

@@ -17,16 +17,16 @@
                 "title": "Freecom_used_vehicle"
             },
             "version": "Version",
-            "acquisition_amount": "Acquisition_amount (*)",
-            "monto_enajenacion": "Monto_enajenacion (*)",
-            "key_vehicle": "Key_vehicle (*)",
-            "brand": "Brand (*)",
-            "type": "Type (*)",
-            "model": "Model (*)",
-            "number_engine": "Number_engine",
-            "no_serie": "No_serie (*)",
-            "niv": "Niv (*)",
-            "value": "Value",
+            "acquisition_amount": "Monto Adquisicion (*):",
+            "monto_enajenacion": "Monto Enajenación (*):",
+            "key_vehicle": "Clave Vehicular (*):",
+            "brand": "Marca (*):",
+            "type": "Tipo (*):",
+            "model": "Modelo (*):",
+            "number_engine": "No. Motor:",
+            "no_serie": "No. Serie (*):",
+            "niv": "NIV (*):",
+            "value": "Valor:",
             "free_cfdi": "Free_cfdi"
         }
     }

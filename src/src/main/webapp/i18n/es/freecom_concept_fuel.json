@@ -16,15 +16,15 @@
             "detail": {
                 "title": "Freecom_concept_fuel"
             },
-            "identifier": "Identifier (*)",
-            "date_expedition": "Date_expedition (*)",
-            "rfc": "Rfc  (*)",
-            "key_station": "Key_station (*)",
-            "quantity": "Quantity (*)",
-            "fuel_name": "Fuel_name (*)",
-            "folio_operation": "Folio_operation (*)",
-            "unit_value": "Unit_value (*)",
-            "amount": "Amount",
+            "identifier": "Identificador (*):",
+            "date_expedition": "Fecha Expedición (*):",
+            "rfc": "RFC (*):",
+            "key_station": "Clave Estación (*):",
+            "quantity": "Cantidad (*):",
+            "fuel_name": "Nombre Combustible (*):",
+            "folio_operation": "Folio de Operación (*):",
+            "unit_value": "Valor Unitario (*):",
+            "amount": "Importe:",
             "freecom_fuel_consumption": "Freecom_fuel_consumption"
         }
     }

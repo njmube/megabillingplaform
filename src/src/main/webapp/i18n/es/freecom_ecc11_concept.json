@@ -16,19 +16,19 @@
             "detail": {
                 "title": "Freecom Ecc 11 Concept"
             },
-            "identifier": "Identifier (*)",
-            "date": "Date (*)",
-            "rfc": "Rfc (*)",
-            "key_station": "Key Station (*)",
-            "quantity": "Quantity (*)",
-            "unit": "Unit",
-            "fuel_name": "Fuel Name(*)",
-            "folio_operation": "Folio Operation (*)",
-            "unit_value": "Unit Value (*)",
-            "amount": "Amount",
+            "identifier": "No. Identificación (*):",
+            "date": "Fecha (*):",
+            "rfc": "RFC (*)",
+            "key_station": "Clave Estación (*):",
+            "quantity": "Cantidad (*):",
+            "unit": "Unidad de Medida:",
+            "fuel_name": "Nombre Combustible (*):",
+            "folio_operation": "Folio de Operación (*):",
+            "unit_value": "Valor Unitario (*):",
+            "amount": "Importe:",
             "freecom_ecc11": "Freecom Ecc 11",
-            "freecom_product_key": "Freecom Product Key",
-            "c_tar": "C Tar"
+            "freecom_product_key": "Clave del Producto:",
+            "c_tar": "TAR:"
         }
     }
 }

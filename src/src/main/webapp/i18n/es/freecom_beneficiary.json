@@ -16,14 +16,14 @@
             "detail": {
                 "title": "Freecom Beneficiary"
             },
-            "receiver_bank": "Receiver Bank (*)",
-            "name": "Name (*)",
-            "type_account": "Type Account (*)",
-            "account": "Account (*)",
-            "rfc": "Rfc (*)",
-            "concept": "Concept (*)",
-            "iva": "Iva (*)",
-            "payment_amount": "Payment Amount (*)"
+            "receiver_bank": "Banco Receptor (*):",
+            "name": "Nombre (*):",
+            "type_account": "Tipo Cuenta (*):",
+            "account": "Cuenta (*):",
+            "rfc": "RFC (*):",
+            "concept": "Concepto (*):",
+            "iva": "IVA (*)",
+            "payment_amount": "Monto de Pago (*):"
         }
     }
 }
