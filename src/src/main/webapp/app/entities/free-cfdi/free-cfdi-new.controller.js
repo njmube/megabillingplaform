@@ -793,7 +793,7 @@
 		var onSaveFreeReceiverSuccess = function (result) {
 			vm.free_receiver = result;
             vm.free_cfdi.free_receiver = vm.free_receiver;
-            vm.free_cfdi.freecom_tfd = { version: "1.0", uuid: null, stamp_date: null, stamp_cfd: null, sat_number_certificate: null, stamp_sat: null, id: null};
+            //vm.free_cfdi.freecom_tfd = { version: "1.0", uuid: null, stamp_date: null, stamp_cfd: null, sat_number_certificate: null, stamp_sat: null, id: null};
 
             if(vm.free_cfdi.mont_folio_fiscal_orig != null && vm.free_cfdi.mont_folio_fiscal_orig > 0){
                 vm.free_cfdi.mont_folio_fiscal_orig = floorFigure(vm.free_cfdi.mont_folio_fiscal_orig, vm.accuracy);
@@ -842,6 +842,7 @@
                 if(amount_iva_retentions > 0){
                     free_tax_retentions_iva = {
                         amount: floorFigure(amount_iva_retentions, vm.accuracy),
+                        tax_types: vm.tax_typess[0],
                         id: null
                     };
                     free_tax_retentions.push(free_tax_retentions_iva);
@@ -857,6 +858,7 @@
                 if(amount_isr_retentions > 0){
                     free_tax_retentions_isr = {
                         amount: floorFigure(amount_isr_retentions, vm.accuracy),
+                        tax_types: vm.tax_typess[1],
                         id: null
                     };
                     free_tax_retentions.push(free_tax_retentions_isr);
