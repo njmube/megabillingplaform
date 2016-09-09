@@ -159,6 +159,28 @@
 
                     vm.free_emitter.info_certificate = null;
                     vm.messvalidate = false;
+                    if(vm.free_emitter.fax == ''){
+                        vm.free_emitter.fax = null;
+                    }
+                    if(vm.free_emitter.phone2 == ''){
+                        vm.free_emitter.phone2 = null;
+                    }
+                    if(vm.free_emitter.location == ''){
+                        vm.free_emitter.location = null;
+                    }
+                    if(vm.free_emitter.intersection == ''){
+                        vm.free_emitter.intersection = null;
+                    }
+                    if(vm.free_emitter.num_ext == ''){
+                        vm.free_emitter.num_ext = null;
+                    }
+                    if(vm.free_emitter.num_int == ''){
+                        vm.free_emitter.num_int = null;
+                    }
+                    if(vm.free_emitter.reference == ''){
+                        vm.free_emitter.reference = null;
+                    }
+
                     if (vm.free_emitter.id !== null) {
                         Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
                     } else {
