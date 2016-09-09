@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-8">
             <h1>
-                {{'global.user.title' | translate}}
+                {{'global.afilitated' | translate}}
                 <small>
                     <i class="ace-icon fa fa-angle-double-right"></i>
                     {{'megabillingplatformApp.request_taxpayer_account.home.createLabel' | translate}}
@@ -16,7 +16,6 @@
         </div>
     </div>
 </div><!-- /.page-header -->
-
 <div class="row">
     <div class="col-xs-12">
         <ul class="nav nav-pills">
@@ -25,17 +24,11 @@
                     <i class="ace-icon fa fa-home light-blue bigger-150"></i>
                 </a>
             </li>
-            <li>
-                <a ui-sref="free-emitter.new">{{'global.user.emitter.data' | translate}}</a>
-            </li>
-            <li>
-                <a ui-sref="free-cfdi.new">{{'global.user.generate.cfdi' | translate}}</a>
-            </li>
-            <li>
-                <a ui-sref="free-cfdi">{{'global.user.search.cfdi' | translate}}</a>
-            </li>
             <li class="active">
                 <a ui-sref="request-taxpayer-account.new">{{'global.user.join.mega' | translate}}</a>
+            </li>
+            <li>
+                <a href="#/">{{'global.afilitated.transactions' | translate}}</a>
             </li>
         </ul>
     </div><!-- /.col -->
@@ -445,10 +438,11 @@
 
                         <button type="button" class="btn btn-default" onclick="window.history.back()">
                             <span translate="entity.action.back">Regresar</span>
-                    </button>
+                        </button>
                     </div>
                 </div>
             </div>
         </form>
     </div>
 </div>
+

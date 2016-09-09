@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{email.reject.title}">JHipster activation</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<p th:text="#{email.activation.greeting(${user.getName()} + ' ' + ${user.getFirtsurname()} + ' ' + ${user.getSecondsurname()})}">
+    Dear
+</p>
+<p th:text="#{email.reject.text1}">
+    Your taxpayer account request has been rejected wiht follow data:
+</p>
+<p th:text="#{email.reject.rfc(${reject.getRfc()})}">
+    RFC
+</p>
+<p th:text="#{email.reject.bussines_name(${reject.getBussinesname()})}">
+    Bussines name
+</p>
+<p th:text="#{email.reject.account_email(${reject.getAccountemail()})}">
+    Account email
+</p>
+<p th:text="#{email.reject.text2}">
+    Contacted to us for more information.
+</p>
+<p>
+    <span th:text="#{email.activation.text2}">Regards, </span>
+    <br/>
+    <em th:text="#{email.signature}">JHipster.</em>
+</p>
+</body>
+</html>

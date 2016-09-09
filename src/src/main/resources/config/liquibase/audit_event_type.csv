@@ -41,3 +41,5 @@ id;name;description
 40;NOTIFICACION-EVALUACION-SOLICITUD-CUENTA;Envío de notificación creacción de la evaluación de la solicitud de cuenta de facturación
 41;SOLICITUD-CUENTA-RECHAZADA;Se rechaza la solicitud de cuenta de facturación
 42;SOLICITUD-CUENTA-APROBADA;Se aprueba la solicitud de cuenta de facturación
+43;NOTIFICACION-SOLICITUD-CUENTA-RECHAZADA;Envío de notificación de rechazo de la solicitud de cuenta de facturación
+44;NOTIFICACION-SOLICITUD-CUENTA-APROBADA;Envío de notificación de apruebación de la solicitud de cuenta de facturación

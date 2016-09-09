@@ -303,7 +303,8 @@
         "idexists": "A new {{ entityName }} cannot already have an ID",
         "rfcexists": "RFC already in use!",
         "diferentRFC":"ERROR: Emitter RFC is diferent to Certificate RFC",
-        "notfound":"Free CFDI not found"
+        "notfound":"Free CFDI not found",
+        "operationerror":"This operation is not accepted"
     },
     "footer": "This is your footer"
 }

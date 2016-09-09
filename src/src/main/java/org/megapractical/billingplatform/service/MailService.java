@@ -1,10 +1,7 @@
 package org.megapractical.billingplatform.service;
 
 import org.megapractical.billingplatform.config.JHipsterProperties;
-import org.megapractical.billingplatform.domain.Audit_event_type;
-import org.megapractical.billingplatform.domain.C_state_event;
-import org.megapractical.billingplatform.domain.Request_taxpayer_account;
-import org.megapractical.billingplatform.domain.User;
+import org.megapractical.billingplatform.domain.*;
 
 import org.apache.commons.lang.CharEncoding;
 import org.slf4j.Logger;
@@ -173,6 +170,42 @@ public class MailService {
         String subject = messageSource.getMessage("email.request.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true);
         Long idauditevent = new Long("39");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTraceUser(user.getLogin(), audit_event_type, c_state_event);
+    }
+
+    @Async
+    public void sendCreatedAccountMail(User user, Taxpayer_account taxpayer_account) {
+        log.debug("Sending account creation e-mail to '{}'", user.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", user);
+        context.setVariable("account", taxpayer_account);
+        String content = templateEngine.process("creationAccountEmail", context);
+        String subject = messageSource.getMessage("email.account.title", null, locale);
+        sendEmail(user.getEmail(), subject, content, false, true);
+        Long idauditevent = new Long("44");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTraceUser(user.getLogin(), audit_event_type, c_state_event);
+    }
+
+    @Async
+    public void sendRejectAccountMail(User user, Request_taxpayer_account request_taxpayer_account) {
+        log.debug("Sending account reject e-mail to '{}'", user.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", user);
+        context.setVariable("reject", request_taxpayer_account);
+        String content = templateEngine.process("rejectAccountEmail", context);
+        String subject = messageSource.getMessage("email.reject.title", null, locale);
+        sendEmail(user.getEmail(), subject, content, false, true);
+        Long idauditevent = new Long("43");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;
         Long idstate = new Long("1");

@@ -55,7 +55,7 @@
             parent: 'entity',
             url: '/request-taxpayer-account/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'megabillingplatformApp.request_taxpayer_account.detail.title'
             },
             views: {
@@ -79,7 +79,7 @@
             parent: 'request-taxpayer-account',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'megabillingplatformApp.request_taxpayer_account.home.title'
             },
                 views: {
@@ -97,11 +97,33 @@
                     }]
                 }
         })
+        .state('request-taxpayer-account.afilitated', {
+                parent: 'request-taxpayer-account',
+                url: '/afilitated',
+                data: {
+                    authorities: [],
+                    pageTitle: 'megabillingplatformApp.request_taxpayer_account.home.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/request-taxpayer-account/request-taxpayer-account-afilitated.html',
+                        controller: 'Request_taxpayer_accountAfilitatedController',
+                        controllerAs: 'vm'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('request_taxpayer_account');
+                        $translatePartialLoader.addPart('global');
+                        return $translate.refresh();
+                    }]
+                }
+            })
         .state('request-taxpayer-account.edit', {
             parent: 'request-taxpayer-account',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: []
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -126,7 +148,7 @@
             parent: 'request-taxpayer-account',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: []
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

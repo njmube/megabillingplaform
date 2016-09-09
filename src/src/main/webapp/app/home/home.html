@@ -207,7 +207,7 @@
                         </a>
                     </li>
                     <li>
-                        <a ui-sref="request-taxpayer-account.new">{{'global.user.join.mega' | translate}}</a>
+                        <a ui-sref="request-taxpayer-account.afilitated">{{'global.user.join.mega' | translate}}</a>
                     </li>
                     <li>
                         <a href="#/">{{'global.afilitated.transactions' | translate}}</a>
@@ -402,9 +402,31 @@
 						<h3 class="header smaller lighter blue">
 							Solicitudes de Cuentas de Facturación Pendientes
 						</h3>
-
-						<table id="grid-table-pendientes"></table>
-						<div id="grid-pager-pendientes"></div>
+                        <a href="#/request-taxpayer-account">
+                            {{'entity.action.viewall' | translate}}
+                        </a>
+                        <div class="table-responsive">
+                            <table class="jh-table table table-striped">
+                                <thead>
+                                <tr>
+                                    <th><span translate="home.date_request">Date Request</span></th>
+                                    <th><span translate="home.filterrfc">Rfc</span></th>
+                                    <th><span translate="home.filterbussines_name">Bussines Name</span></th>
+                                    <th><span translate="home.filtername">Name</span></th>
+                                    <th><span translate="home.filterphone">Phone</span></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="request_taxpayer_account in vm.request_taxpayer_accounts track by request_taxpayer_account.id">
+                                    <td>{{request_taxpayer_account.daterequest | date:'medium'}}</td>
+                                    <td>{{request_taxpayer_account.rfc}}</td>
+                                    <td>{{request_taxpayer_account.bussinesname}}</td>
+                                    <td>{{request_taxpayer_account.name}}</td>
+                                    <td>{{request_taxpayer_account.phone}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
 					</div>
 
 					<div class="col-md-6">

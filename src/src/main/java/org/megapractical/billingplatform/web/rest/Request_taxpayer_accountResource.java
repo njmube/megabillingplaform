@@ -122,18 +122,33 @@ public class Request_taxpayer_accountResource {
         if (request_taxpayer_account.getId() == null) {
             return createRequest_taxpayer_account(request_taxpayer_account);
         }
-        Request_taxpayer_account result = request_taxpayer_accountService.save(request_taxpayer_account);
-        if(result.getRequest_state().getId()==2){
-            //Aprobada la solicitud
-            request_taxpayer_accountService.acceptedRequest(result);
+        Request_taxpayer_account pre = request_taxpayer_accountService.findOne(request_taxpayer_account.getId());
+        log.debug("REST PRE Request_taxpayer_account state: {}", pre.getRequest_state().getId());
+        log.debug("REST Request_taxpayer_account state: {}", request_taxpayer_account.getRequest_state().getId());
+        if(pre.getRequest_state().getId() == 1){
+            Request_taxpayer_account result = request_taxpayer_accountService.save(request_taxpayer_account);
+            if(result.getRequest_state().getId()==2){
+                //Aprobada la solicitud
+                request_taxpayer_accountService.acceptedRequest(result);
+            }
+            if(result.getRequest_state().getId()==3){
+                //Rechazada la solicitud
+                request_taxpayer_accountService.rejectRequest(result);
+            }
+            return ResponseEntity.ok()
+                .headers(HeaderUtil.createEntityUpdateAlert("request_taxpayer_account", request_taxpayer_account.getId().toString()))
+                .body(result);
         }
-        if(result.getRequest_state().getId()==3){
-            //Rechazada la solicitud
-            request_taxpayer_accountService.rejectRequest(result);
+        if(pre.getRequest_state().getId() == 3 && request_taxpayer_account.getRequest_state().getId()==2){
+            Request_taxpayer_account result = request_taxpayer_accountService.save(request_taxpayer_account);
+                //Aprobada la solicitud
+                request_taxpayer_accountService.acceptedRequest(result);
+                return ResponseEntity.ok()
+                    .headers(HeaderUtil.createEntityUpdateAlert("request_taxpayer_account", request_taxpayer_account.getId().toString()))
+                    .body(result);
         }
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert("request_taxpayer_account", request_taxpayer_account.getId().toString()))
-            .body(result);
+        return ResponseEntity.badRequest().
+            headers(HeaderUtil.createFailureAlert("request_taxpayer_account", "operationerror", "Esta operación no es aceptada")).body(pre);
     }
 
     /**

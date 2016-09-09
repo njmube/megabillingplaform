@@ -303,7 +303,8 @@
         "idexists": "A new {{entityName}} cannot already have an ID",
         "rfcexists": "RFC already in use!",
         "diferentRFC":"ERROR: El RFC del emisor es diferente al del certificado",
-        "notfound":"No se ha encontrado CFDI"
+        "notfound":"No se ha encontrado CFDI",
+        "operationerror":"Esta operación no es aceptada"
     },
     "footer": "pie de página"
 }

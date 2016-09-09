@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Taxpayer_accountDialogController', Taxpayer_accountDialogController);
 
-    Taxpayer_accountDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Taxpayer_account', 'Tax_address', 'Taxpayer_certificate', 'Type_taxpayer', 'Tax_regime', 'User'];
+    Taxpayer_accountDialogController.$inject = ['$timeout', '$filter', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Taxpayer_account', 'Tax_address', 'Taxpayer_certificate', 'Type_taxpayer', 'Tax_regime', 'User'];
 
-    function Taxpayer_accountDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Taxpayer_account, Tax_address, Taxpayer_certificate, Type_taxpayer, Tax_regime, User) {
+    function Taxpayer_accountDialogController ($timeout, $filter, $scope, $stateParams, $uibModalInstance, $q, entity, Taxpayer_account, Tax_address, Taxpayer_certificate, Type_taxpayer, Tax_regime, User) {
         var vm = this;
 
         vm.taxpayer_account = entity;
@@ -32,8 +32,16 @@
             vm.taxpayer_certificates.push(taxpayer_certificate);
         });
         vm.type_taxpayers = Type_taxpayer.query();
-        vm.tax_regimes = Tax_regime.query();
-        vm.users = User.query();
+        vm.tax_regimes = Tax_regime.query({filtername:" "});
+        var dateFormat = 'yyyy-MM-dd';
+        var fromDate = $filter('date')("0000-01-01", dateFormat);
+        var toDate = $filter('date')("0000-01-01", dateFormat);
+        vm.users = User.query({
+            filterrfc: " ",
+            datefrom: fromDate,
+            dateto: toDate,
+            stateuser: -1,
+            role: " "});
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

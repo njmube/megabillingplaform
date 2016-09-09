@@ -50,6 +50,18 @@ public class Request_taxpayer_accountServiceImpl implements Request_taxpayer_acc
     @Inject
     private AuthorityRepository authorityRepository;
 
+    @Inject
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
+
+    @Inject
+    Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    MailService mailService;
+
 
     /**
      * Save a request_taxpayer_account.
@@ -131,11 +143,16 @@ public class Request_taxpayer_accountServiceImpl implements Request_taxpayer_acc
         if(tax_addressResult!=null){
             taxpayer_account.setTax_address(tax_addressResult);
         }
+        User usercomplete = userService.getUserWithAuthorities(request_taxpayer_account.getUser().getId());
+        Set<User> users = new HashSet<>();
+        users.add(usercomplete);
+        taxpayer_account.setUsers(users);
+
         Taxpayer_account taxpayer_accountResult = taxpayer_accountService.save(taxpayer_account);
         if(taxpayer_accountResult != null) {
             boolean afilitated = false;
             boolean user = false;
-            User usercomplete = userService.getUserWithAuthorities(request_taxpayer_account.getUser().getId());
+
             for (Authority item : usercomplete.getAuthorities()) {
                 if (item.getName().compareTo("ROLE_AFILITATED") == 0) {
                     afilitated = true;
@@ -151,11 +168,19 @@ public class Request_taxpayer_accountServiceImpl implements Request_taxpayer_acc
                 usercomplete.setAuthorities(authorities);
                 userRepository.save(usercomplete);
             }
+
+            mailService.sendCreatedAccountMail(usercomplete,taxpayer_accountResult);
+            Long id = new Long("42");
+            Long idtypeevent = new Long("1");
+            tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
         }
     }
 
     public void rejectRequest(Request_taxpayer_account request_taxpayer_account){
-
+        mailService.sendRejectAccountMail(request_taxpayer_account.getUser(), request_taxpayer_account);
+        Long id = new Long("41");
+        Long idtypeevent = new Long("1");
+        tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
     }
 
 
