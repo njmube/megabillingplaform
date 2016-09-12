@@ -18,6 +18,8 @@ import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 /**
  * Service Implementation for managing Free_cfdi.
@@ -171,6 +173,87 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
         byte[] xml = new byte[1000000];
         xml[0] = 1;
         return xml;
+    }
+
+    public byte[] getZip(Integer id){
+        Free_cfdi free_cfdi = free_cfdiRepository.findOne(new Long(id.toString()));
+
+        ZipOutputStream zos = null;
+        ZipEntry ze = null;
+
+        if(free_cfdi.getPath_cfdi() != null){
+            if(!free_cfdi.getPath_cfdi().isEmpty()){
+                try {
+                    String filename = "";
+                    if(free_cfdi.getPath_cfdi().contains("\\")) {
+                        filename = free_cfdi.getPath_cfdi().substring(free_cfdi.getPath_cfdi().lastIndexOf("\\") + 1);
+                    }
+                    else {
+                        filename = free_cfdi.getPath_cfdi().substring(free_cfdi.getPath_cfdi().lastIndexOf("/") + 1);
+                    }
+                    zos = new ZipOutputStream(new FileOutputStream(new File(free_cfdi.getPath_cfdi() + ".zip")));
+
+                    File newFile;
+                    if(free_cfdi.getCfdi_states().getId() == 1)
+                        newFile = new File(free_cfdi.getPath_cfdi()+".pdf");
+                    else
+                        newFile = new File(free_cfdi.getPath_cfdi()+"_Cancelado.pdf");
+
+                    InputStream inputStream = null;
+                    log.debug("Direccion pdf: {}", free_cfdi.getPath_cfdi()+".pdf");
+                    if (newFile.exists()) {
+                        log.debug("Fichero pdf existe");
+                        try {
+                            inputStream = new FileInputStream(newFile);
+                            byte[] arre = IOUtils.toByteArray(inputStream);
+                            String pdfname = filename + ".pdf";
+                            ze = new ZipEntry(pdfname);
+                            zos.putNextEntry(ze);
+                            zos.write(arre, 0, arre.length);
+                        } catch (Exception e) {
+                            log.debug(e.getLocalizedMessage());
+                        }
+                    }
+
+                    File newFile1;
+                    if(free_cfdi.getCfdi_states().getId() == 1)
+                        newFile1 = new File(free_cfdi.getPath_cfdi()+".xml");
+                    else
+                        newFile1 = new File(free_cfdi.getPath_cfdi()+"_Cancelado.xml");
+
+                    InputStream inputStream1 = null;
+                    if (newFile1.exists()) {
+                        try {
+                            inputStream1 = new FileInputStream(newFile1);
+                            byte[] arre1 = IOUtils.toByteArray(inputStream1);
+                            String xmlname = filename + ".xml";
+                            ze = new ZipEntry(xmlname);
+                            zos.putNextEntry(ze);
+                            zos.write(arre1, 0, arre1.length);
+
+                        } catch (Exception e) {
+
+                        }
+                    }
+
+                    zos.closeEntry();
+                    zos.close();
+
+                    InputStream inputStreamzip = null;
+                    if(newFile.exists() && newFile1.exists()){
+                        inputStreamzip = new FileInputStream(new File(free_cfdi.getPath_cfdi()+".zip"));
+                        return IOUtils.toByteArray(inputStreamzip);
+                    }
+                }catch (Exception ex){
+
+                }
+            }
+        }
+        return null;
+    }
+
+    public void cancelarFree_cfdi(Free_cfdi free_cfdi){
+        //aqui se realiza la cancelacion del free_cfdi
     }
 
     private Free_cfdi getFile(Free_cfdi free_cfdi){

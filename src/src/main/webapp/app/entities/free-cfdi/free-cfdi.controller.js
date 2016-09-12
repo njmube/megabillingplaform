@@ -12,6 +12,8 @@
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
         vm.search = search;
+        vm.cancelar = cancelar;
+        vm.abrirZip = abrirZip;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
@@ -129,6 +131,24 @@
             function onError(error) {
                 AlertService.error(error.data.message);
             }
+        }
+
+        function cancelar(free_cfdi){
+            free_cfdi.cfdi_states = vm.states[1];
+            var free_cfdi_dto = {
+                freeCFDI: free_cfdi,
+                concepts: null,
+                freeTaxTransfereds: null,
+                freeTaxRetentions: null
+            };
+            Free_cfdi.update(free_cfdi_dto);
+            loadAll();
+        }
+
+        function abrirZip(free_cfdi){
+            var temp = Free_cfdi.getzip({idFree_cfdi:free_cfdi.id});
+            var zipfile = temp.filexml;
+            vm.openFile('',zipfile);
         }
 
         function loadPage (page) {

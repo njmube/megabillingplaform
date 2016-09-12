@@ -53,6 +53,10 @@ public interface Free_cfdiService {
                                String folio,
                                Pageable pageable);
 
+    void cancelarFree_cfdi(Free_cfdi free_cfdi);
+
+    byte[] getZip(Integer id);
+
     /**
      *  Get the "id" free_cfdi.
      *

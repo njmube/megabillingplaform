@@ -13,6 +13,8 @@
             'query': { method: 'GET', isArray: true,
                 params: {idFree_cfdi: null,folio_fiscal: null,rfc_receiver: null,
                     fromDate: null, toDate: null, idState: null, serie: null, folio: null}},
+            'getzip':{method: 'GET', isArray: false,
+                params: {idFree_cfdi: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

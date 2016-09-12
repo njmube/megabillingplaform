@@ -61,6 +61,10 @@ public class Free_cfdiResource {
     @Inject
     private TracemgService tracemgService;
 
+    //borrar
+    @Inject
+    private Freecom_tfdService freecom_tfdService;
+
     /**
      * POST  /free-cfdis : Create a new free_cfdi.
      *
@@ -142,8 +146,18 @@ public class Free_cfdiResource {
     public ResponseEntity<Free_cfdi> updateFree_cfdi(@Valid @RequestBody Free_cfdiDTO free_cfdi_dto) throws URISyntaxException {
         Free_cfdi free_cfdi = free_cfdi_dto.getFreeCFDI();
         log.debug("REST request to update Free_cfdi : {}", free_cfdi);
+        log.debug("Actualizando estado de free_cfdi: " + free_cfdi.getCfdi_states().getName());
+
         if (free_cfdi.getId() == null) {
             return createFree_cfdi(free_cfdi_dto);
+        }
+
+        if(free_cfdi.getCfdi_states().getId() == 2){
+            Free_cfdi pre = free_cfdiService.findOne(free_cfdi.getId());
+            if(pre.getCfdi_states().getId() == 1){
+                log.debug("Cancelando free_cfdi");
+                free_cfdiService.cancelarFree_cfdi(free_cfdi);
+            }
         }
         Free_cfdi result = free_cfdiService.save(free_cfdi_dto);
         return ResponseEntity.ok()
@@ -260,6 +274,26 @@ public class Free_cfdiResource {
         Long idstate = new Long("2");
         c_state_event = c_state_eventService.findOne(idstate);
         tracemgService.saveTrace(audit_event_type, c_state_event);
+        return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_cfdi", "notfound", "Free CFDI not found")).body(null);
+
+    }
+
+    @RequestMapping(value = "/free-cfdis",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"idFree_cfdi"})
+    @Timed
+    public ResponseEntity<Free_cfdi> getZip(@RequestParam(value = "idFree_cfdi") Integer idFree_cfdi)
+        throws URISyntaxException {
+        log.debug("REST request to get a zip of Free_cfdis");
+        if(idFree_cfdi != null)
+        {
+            Free_cfdi temp = new Free_cfdi();
+            byte [] zip = free_cfdiService.getZip(idFree_cfdi);
+            temp.setFilexml(zip);
+            return ResponseEntity.ok().body(temp);
+        }
+
         return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_cfdi", "notfound", "Free CFDI not found")).body(null);
 
     }
