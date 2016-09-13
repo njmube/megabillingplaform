@@ -1737,10 +1737,10 @@
                             date_expedition: null,
                             rfc: null,
                             key_station: null,
-                            quantity: null,
+                            quantity: (0).toFixed(2),
                             fuel_name: null,
                             folio_operation: null,
-                            unit_value: null,
+                            unit_value: (0).toFixed(2),
                             amount: null,
                             id: null
                         };
@@ -1748,6 +1748,7 @@
                 }
             }).result.then(function(result) {
                 vm.freecom_concept_fuels.push(result);
+                calcFuelTotals();
             }, function() {
                 //do not nothing
             });
@@ -1755,7 +1756,30 @@
 
         vm.removeFuelConcept = function(index){
             vm.freecom_concept_fuels.splice(index,1);
+            calcFuelTotals();
         };
+
+        function calcFuelTotals(){
+            var subtotal = 0;
+            var total = 0;
+
+            var i;
+            for(i=0; i < vm.freecom_concept_fuels.length; i++){
+                var concept_fuel = vm.freecom_concept_fuels[i].concept_fuel;
+
+                subtotal = parseFloat(subtotal) + parseFloat(concept_fuel.amount);
+                total =  parseFloat(total) + parseFloat(concept_fuel.amount);
+
+                var determinates = vm.freecom_concept_fuels[i].determinates;
+                var j;
+                for(j=0; j < determinates.length; j++){
+                    total =  parseFloat(total) + parseFloat(determinates[j].amount);
+                }
+            }
+
+            vm.freecom_fuel_consumption.subtotal = floorFigure(subtotal, 2);
+            vm.freecom_fuel_consumption.total =  floorFigure(total, 2);
+        }
 
         //Storeroom Paybill
         vm.show_storeroom_paybill = false;

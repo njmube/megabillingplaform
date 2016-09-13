@@ -29,7 +29,7 @@ public class Freecom_ecc11_transfer implements Serializable {
     private String type_tax;
 
     @NotNull
-    @Column(name = "rate", precision=10, scale=2, nullable = false)
+    @Column(name = "rate", precision=10, scale=6, nullable = false)
     private BigDecimal rate;
 
     @NotNull

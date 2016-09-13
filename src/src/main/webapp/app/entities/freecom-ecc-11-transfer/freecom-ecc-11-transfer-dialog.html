@@ -21,12 +21,12 @@
             <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ecc11_transfer.rate" for="field_rate">Rate</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" name="rate" id="field_rate"
-                        ng-model="vm.freecom_ecc11_transfer.rate" ng-pattern="/^\d+\.?\d*$/"
+                        ng-model="vm.freecom_ecc11_transfer.rate" ng-pattern="/^\d+\.?\d{1,6}$/"
                         required />
                 <div ng-show="editForm.rate.$invalid">
                     <p class="help-block"
-                       ng-show="editForm.rate.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
-                        This field should follow pattern "/^\d+\.?\d*$/".
+                       ng-show="editForm.rate.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,6}$">
+                        This field should follow pattern "/^\d+\.?\d{1,6}$/".
                     </p>
                 </div>
             </div>

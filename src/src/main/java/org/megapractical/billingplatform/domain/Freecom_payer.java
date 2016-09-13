@@ -29,8 +29,8 @@ public class Freecom_payer implements Serializable {
     private String emitter_bank;
 
     @NotNull
-    @Size(max = 10)
-    @Column(name = "name", length = 10, nullable = false)
+    @Size(max = 40)
+    @Column(name = "name", length = 40, nullable = false)
     private String name;
 
     @NotNull

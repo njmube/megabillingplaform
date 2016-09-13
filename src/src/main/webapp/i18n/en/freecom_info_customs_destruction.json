@@ -18,7 +18,7 @@
             },
             "numpedimp": "Numpedimp (*)",
             "date_expedition": "Date_expedition (*)",
-            "customs": "Customs",
+            "customs": "Customs (*)",
             "freecom_destruction_certificate": "Freecom_destruction_certificate"
         }
     }

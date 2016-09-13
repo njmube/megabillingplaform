@@ -17,7 +17,7 @@
                 "required",
                 "maxlength"
             ],
-            "fieldValidateRulesMaxlength": "10"
+            "fieldValidateRulesMaxlength": "40"
         },
         {
             "fieldName": "type_account",

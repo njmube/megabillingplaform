@@ -78,11 +78,11 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="quantity" id="field_quantity"
                                 ng-model="vm.freecom_concept_fuel.quantity" data-ng-change="vm.onNumericValChange()"
-                                required ng-pattern="/^(0|[1-9][0-9]*)$/"/>
+                                required ng-pattern="/^\d+\.?\d{1,2}$/"/>
                         <div ng-show="editForm.quantity.$invalid">
                             <p class="help-block"
-                               ng-show="editForm.quantity.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
-                                This field should follow pattern "^(0|[1-9][0-9]*)$".
+                               ng-show="editForm.quantity.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
+                                This field should follow pattern "/^\d+\.?\d{1,2}$/".
                             </p>
                         </div>
                     </div>

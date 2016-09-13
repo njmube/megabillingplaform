@@ -18,7 +18,7 @@
             },
             "numpedimp": "No. Doc. Aduanero (*):",
             "date_expedition": "Fecha Expedición (*):",
-            "customs": "Aduana:",
+            "customs": "Aduana (*):",
             "freecom_destruction_certificate": "Freecom_destruction_certificate"
         }
     }
