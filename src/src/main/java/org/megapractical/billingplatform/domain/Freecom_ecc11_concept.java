@@ -42,7 +42,7 @@ public class Freecom_ecc11_concept implements Serializable {
     private String key_station;
 
     @NotNull
-    @Column(name = "quantity", precision=10, scale=2, nullable = false)
+    @Column(name = "quantity", precision=10, scale=3, nullable = false)
     private BigDecimal quantity;
 
     @Size(max = 25)

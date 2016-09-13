@@ -1838,7 +1838,7 @@
                             date: new Date(),
                             rfc: null,
                             key_station: null,
-                            quantity: null,
+                            quantity: "0.001",
                             unit: null,
                             fuel_name: null,
                             folio_operation: null,

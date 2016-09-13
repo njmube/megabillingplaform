@@ -37,7 +37,7 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="quantity" type="decimal(10,2)">
+            <column name="quantity" type="decimal(10,3)">
                 <constraints nullable="false" />
             </column>
             
