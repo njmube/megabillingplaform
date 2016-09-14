@@ -3,26 +3,24 @@ package org.megapractical.billingplatform.service;
 import org.megapractical.billingplatform.config.JHipsterProperties;
 import org.megapractical.billingplatform.domain.*;
 
-import org.apache.commons.lang.CharEncoding;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 
 
-
 import javax.inject.Inject;
-import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
+import javax.mail.*;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
 
@@ -64,7 +62,7 @@ public class MailService {
     private String from;
 
     @Async
-    public void sendEmail(String to, String subject, String content, boolean isMultipart, boolean isHtml) {
+    public void sendEmail(String to, String subject, String content, boolean isMultipart, boolean isHtml, List<String> attachments) {
         log.debug("Send e-mail[multipart '{}' and html '{}'] to '{}' with subject '{}' and content={}",
             isMultipart, isHtml, to, subject, content);
 
@@ -94,14 +92,43 @@ public class MailService {
                 InternetAddress.parse(to));
             // Set Subject: header field
             message.setSubject(subject);
+
             // Send the actual HTML message, as big as you like
-            message.setContent(content,"text/html");
+            if(isMultipart && attachments != null) {
+                Multipart multipart = new MimeMultipart();
+                // creates body part for the message
+                MimeBodyPart messageBodyPart = new MimeBodyPart();
+                messageBodyPart.setContent(content, "text/html");
+                // adds parts to the multipart
+                multipart.addBodyPart(messageBodyPart);
+
+                for(int i=0;i < attachments.size(); i++){
+                    addAttachment(multipart, attachments.get(i));
+                }
+                // sets the multipart as message's content
+                message.setContent(multipart);
+            }
+            else {
+                message.setContent(content, "text/html");
+            }
             // Send message
             Transport.send(message);
 
             System.out.println("The message was successfully sent to the mail " + to);
         } catch (Exception e) {
             log.warn("E-mail could not be sent to user '{}', exception is: {}", to, e.getMessage());
+        }
+    }
+
+    private void addAttachment(Multipart multipart, String filename) {
+        try {
+            MimeBodyPart attachPart = new MimeBodyPart();
+            attachPart.attachFile(filename);
+            multipart.addBodyPart(attachPart);
+        } catch (IOException e) {
+            log.warn("E-mail could not be sent because attachaments, IOException: '{}'", e.getMessage());
+        } catch (MessagingException e) {
+            log.warn("E-mail could not be sent because attachaments, MessagingException: '{}'", e.getMessage());
         }
     }
 
@@ -114,7 +141,7 @@ public class MailService {
         context.setVariable("baseUrl", baseUrl);
         String content = templateEngine.process("activationEmail", context);
         String subject = messageSource.getMessage("email.activation.title", null, locale);
-        sendEmail(user.getEmail(), subject, content, false, true);
+        sendEmail(user.getEmail(), subject, content, false, true, null);
         Long idauditevent = new Long("25");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;
@@ -132,7 +159,7 @@ public class MailService {
         context.setVariable("baseUrl", baseUrl);
         String content = templateEngine.process("creationEmail", context);
         String subject = messageSource.getMessage("email.activation.title", null, locale);
-        sendEmail(user.getEmail(), subject, content, false, true);
+        sendEmail(user.getEmail(), subject, content, false, true, null);
         Long idauditevent = new Long("23");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;
@@ -150,7 +177,7 @@ public class MailService {
         context.setVariable("baseUrl", baseUrl);
         String content = templateEngine.process("passwordResetEmail", context);
         String subject = messageSource.getMessage("email.reset.title", null, locale);
-        sendEmail(user.getEmail(), subject, content, false, true);
+        sendEmail(user.getEmail(), subject, content, false, true, null);
         Long idauditevent = new Long("24");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;
@@ -168,7 +195,7 @@ public class MailService {
         context.setVariable("request", request_taxpayer_account);
         String content = templateEngine.process("creationRequestEmail", context);
         String subject = messageSource.getMessage("email.request.title", null, locale);
-        sendEmail(user.getEmail(), subject, content, false, true);
+        sendEmail(user.getEmail(), subject, content, false, true, null);
         Long idauditevent = new Long("39");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;
@@ -186,7 +213,7 @@ public class MailService {
         context.setVariable("account", taxpayer_account);
         String content = templateEngine.process("creationAccountEmail", context);
         String subject = messageSource.getMessage("email.account.title", null, locale);
-        sendEmail(user.getEmail(), subject, content, false, true);
+        sendEmail(user.getEmail(), subject, content, false, true, null);
         Long idauditevent = new Long("44");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;
@@ -204,7 +231,7 @@ public class MailService {
         context.setVariable("reject", request_taxpayer_account);
         String content = templateEngine.process("rejectAccountEmail", context);
         String subject = messageSource.getMessage("email.reject.title", null, locale);
-        sendEmail(user.getEmail(), subject, content, false, true);
+        sendEmail(user.getEmail(), subject, content, false, true, null);
         Long idauditevent = new Long("43");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;
@@ -214,25 +241,25 @@ public class MailService {
     }
 
     @Async
-    public void sendNewFreeCFDICreatedToEmitterEmail(User user) {
+    public void sendNewFreeCFDICreatedToEmitterEmail(User user, List<String> attachments) {
         log.debug("Sending new free cfdi created emitter e-mail to '{}'", user.getEmail());
         Locale locale = Locale.forLanguageTag(user.getLangKey());
         Context context = new Context(locale);
         context.setVariable("user", user);
         String content = templateEngine.process("newfreecfditoemitterEmail", context);
         String subject = messageSource.getMessage("email.newfreecfditoemitter.title", null, locale);
-        sendEmail(user.getEmail(), subject, content, false, true);
+        sendEmail(user.getEmail(), subject, content, true, true, attachments);
     }
 
     @Async
-    public void sendNewFreeCFDICreatedToReceiverEmail(User user, Free_receiver receiver) {
+    public void sendNewFreeCFDICreatedToReceiverEmail(User user, Free_receiver receiver, List<String> attachments) {
         log.debug("Sending new free cfdi created to receiver e-mail to '{}'", receiver.getEmail());
         Locale locale = Locale.forLanguageTag(user.getLangKey());
         Context context = new Context(locale);
         context.setVariable("receiver", receiver);
         String content = templateEngine.process("newfreecfditoreceiverEmail", context);
         String subject = messageSource.getMessage("email.newfreecfditoreceiver.title", null, locale);
-        sendEmail(receiver.getEmail(), subject, content, false, true);
+        sendEmail(receiver.getEmail(), subject, content, true, true, attachments);
     }
 
 }

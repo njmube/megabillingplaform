@@ -28,8 +28,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * REST controller for managing Free_cfdi.
@@ -124,8 +123,12 @@ public class Free_cfdiResource {
         tracemgService.saveTrace(audit_event_type, c_state_event);
 
         //Sending emails
-        mailService.sendNewFreeCFDICreatedToEmitterEmail(result.getFree_emitter().getUser());
-        mailService.sendNewFreeCFDICreatedToReceiverEmail(result.getFree_emitter().getUser(), result.getFree_receiver());
+        List<String> attachments = new ArrayList<>();
+        attachments.add(result.getPath_cfdi()+".xml");
+        attachments.add(result.getPath_cfdi()+".pdf");
+
+        mailService.sendNewFreeCFDICreatedToEmitterEmail(result.getFree_emitter().getUser(), attachments);
+        mailService.sendNewFreeCFDICreatedToReceiverEmail(result.getFree_emitter().getUser(), result.getFree_receiver(), attachments);
 
         return ResponseEntity.created(new URI("/api/free-cfdis/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_cfdi", result.getId().toString()))
