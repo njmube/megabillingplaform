@@ -110,6 +110,9 @@
                     <a ng-click="vm.openFile('application/pdf', free_cfdi.filepdf)" ng-if="free_cfdi.filepdf">
                         <i class="fa fa-file-pdf-o bigger-125">&nbsp;</i>
                     </a>
+                    <a ng-click="vm.cancelar(free_cfdi)">
+                        <i> X &nbsp;</i>
+                    </a>
                 </td>
                 <td>{{free_cfdi.date_expedition | date:'medium'}}</td>
                 <td>{{free_cfdi.serial}}</td>

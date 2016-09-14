@@ -148,7 +148,15 @@
         function abrirZip(free_cfdi){
             var temp = Free_cfdi.getzip({idFree_cfdi:free_cfdi.id});
             var zipfile = temp.filexml;
-            vm.openFile('',zipfile);
+
+            var json = JSON.stringify(zipfile),
+                blob = new Blob([json], {type: "octet/stream"}),
+                url = window.URL.createObjectURL(blob);
+            document.location = url;
+
+            /*var json = JSON.stringify(zipfile);
+            var file = new Blob([json], { type: 'application/pdf' });
+            document.location = window.URL.createObjectURL(file);*/
         }
 
         function loadPage (page) {

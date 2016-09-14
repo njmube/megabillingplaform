@@ -1,8 +1,12 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import org.megapractical.billingplatform.domain.Authority;
 import org.megapractical.billingplatform.domain.Taxpayer_account;
+import org.megapractical.billingplatform.domain.User;
+import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.Taxpayer_accountService;
+import org.megapractical.billingplatform.service.UserService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -30,10 +34,13 @@ import java.util.Optional;
 public class Taxpayer_accountResource {
 
     private final Logger log = LoggerFactory.getLogger(Taxpayer_accountResource.class);
-        
+
     @Inject
     private Taxpayer_accountService taxpayer_accountService;
-    
+
+    @Inject
+    private UserService userService;
+
     /**
      * POST  /taxpayer-accounts : Create a new taxpayer_account.
      *
@@ -94,9 +101,29 @@ public class Taxpayer_accountResource {
     public ResponseEntity<List<Taxpayer_account>> getAllTaxpayer_accounts(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Taxpayer_accounts");
-        Page<Taxpayer_account> page = taxpayer_accountService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-accounts");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+
+        String login = SecurityUtils.getCurrentUserLogin();
+        Optional<User> user = userService.getUserWithAuthoritiesByLogin(login);
+        if(user.isPresent()) {
+            boolean administrator = false;
+            for (Authority item : user.get().getAuthorities()) {
+                if (item.getName().compareTo("ROLE_ADMIN") == 0) {
+                    administrator = true;
+                }
+            }
+            if (administrator) {
+                Page<Taxpayer_account> page = taxpayer_accountService.findAll(pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-accounts");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            }
+            else {
+                Page<Taxpayer_account> page = taxpayer_accountService.findCustom(user.get(),pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-accounts");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            }
+        }
+        return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("taxpayer_account", "notfound", "Taxpayer acoount not found")).body(null);
+
     }
 
     /**

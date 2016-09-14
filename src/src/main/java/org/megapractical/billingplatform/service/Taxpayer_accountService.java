@@ -1,6 +1,7 @@
 package org.megapractical.billingplatform.service;
 
 import org.megapractical.billingplatform.domain.Taxpayer_account;
+import org.megapractical.billingplatform.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -13,7 +14,7 @@ public interface Taxpayer_accountService {
 
     /**
      * Save a taxpayer_account.
-     * 
+     *
      * @param taxpayer_account the entity to save
      * @return the persisted entity
      */
@@ -21,15 +22,18 @@ public interface Taxpayer_accountService {
 
     /**
      *  Get all the taxpayer_accounts.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Taxpayer_account> findAll(Pageable pageable);
 
+
+    Page<Taxpayer_account> findCustom(User user,Pageable pageable);
+
     /**
      *  Get the "id" taxpayer_account.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +41,7 @@ public interface Taxpayer_accountService {
 
     /**
      *  Delete the "id" taxpayer_account.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);
