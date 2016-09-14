@@ -738,12 +738,12 @@
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_taxregistration.folio" for="field_freecom_taxregistration_folio">Folio</label>
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_taxregistration_folio" id="field_freecom_taxregistration_folio"
-                                           ng-model="vm.freecom_taxregistration.folio" ng-pattern="/[0-9]{16}/"
+                                           ng-model="vm.freecom_taxregistration.folio" ng-pattern="/^[0-9]{16}$/"
                                            ng-required="vm.show_taxregistration" />
                                     <div ng-show="editForm.freecom_taxregistration_folio.$dirty && editForm.freecom_taxregistration_folio.$invalid">
                                         <p class="help-block"
-                                           ng-show="editForm.freecom_taxregistration_folio.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="[0-9]{16}">
-                                            This field should follow pattern "[0-9]{1,20}".
+                                           ng-show="editForm.freecom_taxregistration_folio.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{16}$">
+                                            This field should follow pattern "/^[0-9]{16}$/".
                                         </p>
                                     </div>
                                 </div>
