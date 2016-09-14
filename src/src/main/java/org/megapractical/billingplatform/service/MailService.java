@@ -213,4 +213,26 @@ public class MailService {
         tracemgService.saveTraceUser(user.getLogin(), audit_event_type, c_state_event);
     }
 
+    @Async
+    public void sendNewFreeCFDICreatedToEmitterEmail(User user) {
+        log.debug("Sending new free cfdi created emitter e-mail to '{}'", user.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", user);
+        String content = templateEngine.process("newfreecfditoemitterEmail", context);
+        String subject = messageSource.getMessage("email.newfreecfditoemitter.title", null, locale);
+        sendEmail(user.getEmail(), subject, content, false, true);
+    }
+
+    @Async
+    public void sendNewFreeCFDICreatedToReceiverEmail(User user, Free_receiver receiver) {
+        log.debug("Sending new free cfdi created to receiver e-mail to '{}'", receiver.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("receiver", receiver);
+        String content = templateEngine.process("newfreecfditoreceiverEmail", context);
+        String subject = messageSource.getMessage("email.newfreecfditoreceiver.title", null, locale);
+        sendEmail(receiver.getEmail(), subject, content, false, true);
+    }
+
 }

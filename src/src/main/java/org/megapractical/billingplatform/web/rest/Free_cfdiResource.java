@@ -61,9 +61,8 @@ public class Free_cfdiResource {
     @Inject
     private TracemgService tracemgService;
 
-    //borrar
     @Inject
-    private Freecom_tfdService freecom_tfdService;
+    private MailService mailService;
 
     /**
      * POST  /free-cfdis : Create a new free_cfdi.
@@ -124,7 +123,9 @@ public class Free_cfdiResource {
         c_state_event = c_state_eventService.findOne(idstate);
         tracemgService.saveTrace(audit_event_type, c_state_event);
 
-
+        //Sending email
+        mailService.sendNewFreeCFDICreatedToEmitterEmail(result.getFree_emitter().getUser());
+        mailService.sendNewFreeCFDICreatedToReceiverEmail(result.getFree_emitter().getUser(), result.getFree_receiver());
         return ResponseEntity.created(new URI("/api/free-cfdis/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_cfdi", result.getId().toString()))
             .body(result);
