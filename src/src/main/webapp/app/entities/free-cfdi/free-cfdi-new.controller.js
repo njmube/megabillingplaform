@@ -527,11 +527,14 @@
             saveConcept();
         };
 
-        var onUsedVehicleSaveSucccess = function(result){
-            if(vm.use_vehicle_customs_information) {
-                var freecom_used_vehicle_saved = result;
-                vm.freecom_vehicle_customs_information.freecom_used_vehicle = freecom_used_vehicle_saved;
-                Freecom_vehicle_customs_information.save(vm.freecom_vehicle_customs_information);
+        var onUsedVehicleSaveSucccess = function(result) {
+            var freecom_used_vehicle_saved = result;
+
+            var i;
+            for (i = 0; i < vm.vehicle_customs_informations.length; i++) {
+                var freecom_vehicle_customs_information = vm.vehicle_customs_informations[i];
+                freecom_vehicle_customs_information.freecom_used_vehicle = freecom_used_vehicle_saved;
+                Freecom_vehicle_customs_information.save(freecom_vehicle_customs_information);
             }
 
             saveConcept();
@@ -923,7 +926,7 @@
                         break;
                     case "used_vehicle":
                         free_cfdi_dto.freecom_used_vehicle = vm.freecom_used_vehicle;
-                        free_cfdi_dto.freecom_vehicle_customs_information = vm.freecom_vehicle_customs_information;
+                        free_cfdi_dto.vehicle_customs_informations = vm.vehicle_customs_informations;
                         break;
                     case "destruction_certificate":
                         free_cfdi_dto.freecom_destruction_certificate = vm.freecom_destruction_certificate;
@@ -1295,8 +1298,7 @@
 
             vm.show_used_vehicle = false;
             vm.freecom_used_vehicle = { version: null, acquisition_amount: null, monto_enajenacion: null, key_vehicle: null, brand: null, type: null, model: null, number_engine: null, no_serie: null, niv: null, value: null, id: null };
-            vm.freecom_vehicle_customs_information = { number: null, date_expedition: null, customs: null, freecom_used_vehicle: null, id: null };
-            vm.use_vehicle_customs_information = false;
+            vm.vehicle_customs_informations = [];
 
             vm.show_destruction_certificate = false;
             vm.freecom_destruction_certificate = { version: null, numfoldesveh: null, brand: null, class_dc: null, year: null, model: null, niv: null, no_serie: null, number_plates: null, number_engine: null, numfoltarjcir: null, id: null };
@@ -1693,14 +1695,34 @@
         //Used Vehicle
         vm.show_used_vehicle = false;
         vm.freecom_used_vehicle = null;
-        vm.freecom_vehicle_customs_information = null;
-        vm.use_vehicle_customs_information = false;
+        vm.vehicle_customs_informations = [];
 
-        vm.dateVehicleCustomsInfoPickerOpenStatus = {};
-        vm.dateVehicleCustomsInfoPickerOpenStatus.date_expedition = false;
+        vm.addVehicleCustomsInformation = function(){
+            $uibModal.open({
+                templateUrl: 'app/entities/freecom-vehicle-customs-information/freecom-vehicle-customs-information-dialog.html',
+                controller: 'Freecom_vehicle_customs_informationDialogController',
+                controllerAs: 'vm',
+                backdrop: 'static',
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return {
+                            number: null,
+                            date_expedition: null,
+                            customs: null,
+                            id: null
+                        };
+                    }
+                }
+            }).result.then(function(result) {
+                vm.vehicle_customs_informations.push(result);
+            }, function() {
+                //do not nothing
+            });
+        };
 
-        vm.openVehicleCustomsInfoCalendar = function(date) {
-            vm.dateVehicleCustomsInfoPickerOpenStatus[date] = true;
+        vm.removeVehicleCustomsInformation = function(index){
+            vm.vehicle_customs_informations.splice(index,1);
         };
 
         //Destruction Certificate

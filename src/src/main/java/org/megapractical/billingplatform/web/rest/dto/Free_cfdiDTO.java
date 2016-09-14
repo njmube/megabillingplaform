@@ -61,7 +61,7 @@ public class Free_cfdiDTO {
 
     private Freecom_used_vehicle freecom_used_vehicle;
 
-    private Freecom_vehicle_customs_information freecom_vehicle_customs_information;
+    private List<Freecom_vehicle_customs_information> vehicle_customs_informations;
 
 
     private Freecom_destruction_certificate freecom_destruction_certificate;
@@ -275,12 +275,12 @@ public class Free_cfdiDTO {
         this.freecom_used_vehicle = freecom_used_vehicle;
     }
 
-    public Freecom_vehicle_customs_information getFreecom_vehicle_customs_information() {
-        return freecom_vehicle_customs_information;
+    public List<Freecom_vehicle_customs_information> getVehicle_customs_informations() {
+        return vehicle_customs_informations;
     }
 
-    public void setFreecom_vehicle_customs_information(Freecom_vehicle_customs_information freecom_vehicle_customs_information) {
-        this.freecom_vehicle_customs_information = freecom_vehicle_customs_information;
+    public void setVehicle_customs_informations(List<Freecom_vehicle_customs_information> vehicle_customs_informations) {
+        this.vehicle_customs_informations = vehicle_customs_informations;
     }
 
     public Freecom_destruction_certificate getFreecom_destruction_certificate() {
