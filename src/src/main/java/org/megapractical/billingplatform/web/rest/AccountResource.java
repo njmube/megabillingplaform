@@ -368,7 +368,7 @@ public class AccountResource {
                     String mailtoadmin = "Reporte de sesión eliminada. Usuario: " + token.getUser().getLogin() +
                         ". Dirección IP: " + token.getIpAddress();
                     log.debug("Mensaje de reporte: " + mailtoadmin);
-                    mailService.sendEmail(admin.get().getEmail(),"Reporte de sesión",mailtoadmin,false,false);
+                    mailService.sendEmail(admin.get().getEmail(),"Reporte de sesión",mailtoadmin,false,false, null);
                 }
                 persistentTokenRepository.delete(decodedSeries);
             }
@@ -383,7 +383,7 @@ public class AccountResource {
                             String mailtoadmin = "Reporte de sesión eliminada. Usuario: " + u.getLogin() +
                                 ". Dirección IP: " + t.getIpAddress();
                             log.debug("Mensaje de reporte: " + mailtoadmin);
-                            mailService.sendEmail(admin.get().getEmail(),"Reporte de sesión",mailtoadmin,false,false);
+                            mailService.sendEmail(admin.get().getEmail(),"Reporte de sesión",mailtoadmin,false,false, null);
                         }
                         persistentTokenRepository.delete(decodedSeries);});
                 });

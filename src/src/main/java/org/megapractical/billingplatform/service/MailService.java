@@ -19,7 +19,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
-import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
@@ -125,10 +124,8 @@ public class MailService {
             MimeBodyPart attachPart = new MimeBodyPart();
             attachPart.attachFile(filename);
             multipart.addBodyPart(attachPart);
-        } catch (IOException e) {
-            log.warn("E-mail could not be sent because attachaments, IOException: '{}'", e.getMessage());
-        } catch (MessagingException e) {
-            log.warn("E-mail could not be sent because attachaments, MessagingException: '{}'", e.getMessage());
+        } catch (Exception e) {
+            log.warn("E-mail could not be sent because attachaments: '{}'", e.getMessage());
         }
     }
 

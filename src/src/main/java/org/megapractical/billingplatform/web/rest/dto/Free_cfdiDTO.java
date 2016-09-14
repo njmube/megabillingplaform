@@ -42,7 +42,7 @@ public class Free_cfdiDTO {
 
     private Freecom_ine freecom_ine;
 
-    private List<Freecom_ine_entity> freecom_ine_entities;
+    private List<Freecom_ine_entityDTO> freecom_ine_entities;
 
 
     private Freecom_kind_payment freecom_kind;
@@ -210,11 +210,11 @@ public class Free_cfdiDTO {
         this.freecom_ine = freecom_ine;
     }
 
-    public List<Freecom_ine_entity> getFreecom_ine_entities() {
+    public List<Freecom_ine_entityDTO> getFreecom_ine_entities() {
         return freecom_ine_entities;
     }
 
-    public void setFreecom_ine_entities(List<Freecom_ine_entity> freecom_ine_entities) {
+    public void setFreecom_ine_entities(List<Freecom_ine_entityDTO> freecom_ine_entities) {
         this.freecom_ine_entities = freecom_ine_entities;
     }
 
