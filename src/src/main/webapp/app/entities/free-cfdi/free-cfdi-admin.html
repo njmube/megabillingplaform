@@ -105,13 +105,13 @@
             <tr ng-repeat="free_cfdi in vm.free_cfdis track by free_cfdi.id">
                 <td>
                     <a ng-click="vm.openFile('text/xml', free_cfdi.filexml)" ng-if="free_cfdi.filexml">
-                        <i class="fa fa-cloud-download bigger-125">&nbsp;</i>
+                        <i class="fa-file-text">&nbsp;</i>
                     </a>
                     <a ng-click="vm.openFile('application/pdf', free_cfdi.filepdf)" ng-if="free_cfdi.filepdf">
                         <i class="fa fa-file-pdf-o bigger-125">&nbsp;</i>
                     </a>
                     <a ng-click="vm.cancelar(free_cfdi)">
-                        <i> X &nbsp;</i>
+                        <i class="glyphicon glyphicon-ban-circle">&nbsp;</i>
                     </a>
                 </td>
                 <td>{{free_cfdi.date_expedition | date:'medium'}}</td>
