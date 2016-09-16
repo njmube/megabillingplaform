@@ -56,7 +56,7 @@ public class Free_cfdiDTO {
 
     private Freecom_local_taxes freecom_local_taxes;
 
-    private List<Freecom_retentions_transfered> freecom_retentions_transfers;
+    private List<Freecom_ret_transfsDTO> freecom_ret_transfs;
 
 
     private Freecom_used_vehicle freecom_used_vehicle;
@@ -259,12 +259,12 @@ public class Free_cfdiDTO {
         this.freecom_local_taxes = freecom_local_taxes;
     }
 
-    public List<Freecom_retentions_transfered> getFreecom_retentions_transfers() {
-        return freecom_retentions_transfers;
+    public List<Freecom_ret_transfsDTO> getFreecom_ret_transfs() {
+        return  freecom_ret_transfs;
     }
 
-    public void setFreecom_retentions_transfers(List<Freecom_retentions_transfered> freecom_retentions_transfers) {
-        this.freecom_retentions_transfers = freecom_retentions_transfers;
+    public void setFreecom_ret_transfs(List<Freecom_ret_transfsDTO> freecom_ret_transfs) {
+        this.freecom_ret_transfs = freecom_ret_transfs;
     }
 
     public Freecom_used_vehicle getFreecom_used_vehicle() {

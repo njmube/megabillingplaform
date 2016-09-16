@@ -65,7 +65,6 @@
                 "cTypeOperation": "C_type_operation",
                 "freecomForeignExchange": "Freecom_foreign_exchange",
                 "freecomLocalTaxes": "Freecom_local_taxes",
-                "freecomRetentionsTransfered": "Freecom_retentions_transfered",
                 "cTransitType": "C_transit_type",
                 "cTypeRoad": "C_type_road",
                 "freecomForeignTouristPassenger": "Freecom_foreign_tourist_passenger",

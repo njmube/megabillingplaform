@@ -72,7 +72,6 @@
     <include file="classpath:config/liquibase/changelog/20160729114805_added_entity_C_type_operation.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160729115046_added_entity_Freecom_foreign_exchange.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160729115442_added_entity_Freecom_local_taxes.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160729115935_added_entity_Freecom_retentions_transfered.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160729120130_added_entity_C_transit_type.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160729120226_added_entity_C_type_road.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160729120824_added_entity_Freecom_foreign_tourist_passenger.xml" relativeToChangelogFile="false"/>
