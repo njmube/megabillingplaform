@@ -1,0 +1,72 @@
+<div>
+    <h2 translate="megabillingplatformApp.taxpayer_client.home.title">Taxpayer Clients</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="taxpayer-client.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.taxpayer_client.home.createLabel">
+                        Create new Taxpayer Client
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.taxpayer_client.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bussinesname"><span translate="megabillingplatformApp.taxpayer_client.bussinesname">Bussinesname</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email"><span translate="megabillingplatformApp.taxpayer_client.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="client_address.id"><span translate="megabillingplatformApp.taxpayer_client.client_address">Client Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="taxpayer_account.id"><span translate="megabillingplatformApp.taxpayer_client.taxpayer_account">Taxpayer Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="taxpayer_client in vm.taxpayer_clients track by taxpayer_client.id">
+                    <td><a ui-sref="taxpayer-client-detail({id:taxpayer_client.id})">{{taxpayer_client.id}}</a></td>
+                    <td>{{taxpayer_client.rfc}}</td>
+                    <td>{{taxpayer_client.bussinesname}}</td>
+                    <td>{{taxpayer_client.email}}</td>
+                    <td>
+                        <a ui-sref="client-address-detail({id:taxpayer_client.client_address.id})">{{taxpayer_client.client_address.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="taxpayer-account-detail({id:taxpayer_client.taxpayer_account.id})">{{taxpayer_client.taxpayer_account.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="taxpayer-client-detail({id:taxpayer_client.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="taxpayer-client.edit({id:taxpayer_client.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="taxpayer-client.delete({id:taxpayer_client.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

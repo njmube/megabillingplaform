@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "taxpayer_ftp_account" : {
+            "home": {
+                "title": "Taxpayer Ftp Accounts",
+                "createLabel": "Create a new Taxpayer Ftp Account",
+                "createOrEditLabel": "Create or edit a Taxpayer Ftp Account",
+                "search": "Search for Taxpayer Ftp Account"
+            },
+            "created": "A new Taxpayer Ftp Account is created with identifier {{ param }}",
+            "updated": "A Taxpayer Ftp Account is updated with identifier {{ param }}",
+            "deleted": "A Taxpayer Ftp Account is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Taxpayer Ftp Account {{ id }}?"
+            },
+            "detail": {
+                "title": "Taxpayer Ftp Account"
+            },
+            "server_type": "Server Type",
+            "server_name_ip": "Server Name Ip",
+            "port": "Port",
+            "username": "Username",
+            "password": "Password",
+            "taxpayer_account": "Taxpayer Account"
+        }
+    }
+}

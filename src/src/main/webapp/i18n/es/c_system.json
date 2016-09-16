@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "c_system" : {
+            "home": {
+                "title": "C Systems",
+                "createLabel": "Crear nuevo C System",
+                "createOrEditLabel": "Crear o editar C System",
+                "search": "Search for C System"
+            },
+            "created": "Un nuevo C System ha sido creado con el identificador {{ param }}",
+            "updated": "Un C System ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C System ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar C System {{ id }}?"
+            },
+            "detail": {
+                "title": "C System"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

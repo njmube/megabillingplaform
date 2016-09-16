@@ -1,0 +1,32 @@
+{
+    "megabillingplatformApp": {
+        "client_address" : {
+            "home": {
+                "title": "Client Addresses",
+                "createLabel": "Crear nuevo Client Address",
+                "createOrEditLabel": "Crear o editar Client Address",
+                "search": "Search for Client Address"
+            },
+            "created": "Un nuevo Client Address ha sido creado con el identificador {{ param }}",
+            "updated": "Un Client Address ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Client Address ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Client Address {{ id }}?"
+            },
+            "detail": {
+                "title": "Client Address"
+            },
+            "street": "Street",
+            "no_int": "No Int",
+            "no_ext": "No Ext",
+            "location": "Location",
+            "intersection": "Intersection",
+            "reference": "Reference",
+            "c_country": "C Country",
+            "c_state": "C State",
+            "c_municipality": "C Municipality",
+            "c_colony": "C Colony",
+            "c_zip_code": "C Zip Code"
+        }
+    }
+}

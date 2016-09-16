@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "type_transaction" : {
+            "home": {
+                "title": "Type Transactions",
+                "createLabel": "Create a new Type Transaction",
+                "createOrEditLabel": "Create or edit a Type Transaction",
+                "search": "Search for Type Transaction"
+            },
+            "created": "A new Type Transaction is created with identifier {{ param }}",
+            "updated": "A Type Transaction is updated with identifier {{ param }}",
+            "deleted": "A Type Transaction is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Type Transaction {{ id }}?"
+            },
+            "detail": {
+                "title": "Type Transaction"
+            },
+            "name": "Name",
+            "description": "Description"
+        }
+    }
+}

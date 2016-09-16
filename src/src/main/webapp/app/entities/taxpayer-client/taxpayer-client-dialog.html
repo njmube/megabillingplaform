@@ -1,0 +1,98 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTaxpayer_clientLabel" translate="megabillingplatformApp.taxpayer_client.home.createOrEditLabel">Create or edit a Taxpayer Client</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.taxpayer_client.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.taxpayer_client.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_client.rfc" for="field_rfc">Rfc</label>
+            <input type="text" class="form-control" name="rfc" id="field_rfc"
+                    ng-model="vm.taxpayer_client.rfc"
+                    required ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/" />
+            <div ng-show="editForm.rfc.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.rfc.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.rfc.$error.minlength" translate="entity.validation.minlength" translate-value-min="12">
+                    This field is required to be at least 12 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.rfc.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="13">
+                    This field cannot be longer than 13 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.rfc.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$">
+                    This field should follow pattern "^[A-Z,Ñ,&amp;]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$".
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_client.bussinesname" for="field_bussinesname">Bussinesname</label>
+            <input type="text" class="form-control" name="bussinesname" id="field_bussinesname"
+                    ng-model="vm.taxpayer_client.bussinesname"
+                    required />
+            <div ng-show="editForm.bussinesname.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.bussinesname.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_client.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                    ng-model="vm.taxpayer_client.email"
+                    required ng-minlength="6" ng-maxlength="254" ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" />
+            <div ng-show="editForm.email.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.email.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.email.$error.minlength" translate="entity.validation.minlength" translate-value-min="6">
+                    This field is required to be at least 6 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.email.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="254">
+                    This field cannot be longer than 254 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.email.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$">
+                    This field should follow pattern "^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$".
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.taxpayer_client.client_address" for="field_client_address">Client Address</label>
+            <select class="form-control" id="field_client_address" name="client_address" ng-model="vm.taxpayer_client.client_address" ng-options="client_address as client_address.id for client_address in vm.client_addresses | orderBy:'id' track by client_address.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.taxpayer_client.taxpayer_account" for="field_taxpayer_account">Taxpayer Account</label>
+            <select class="form-control" id="field_taxpayer_account" name="taxpayer_account" ng-model="vm.taxpayer_client.taxpayer_account" ng-options="taxpayer_account as taxpayer_account.id for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

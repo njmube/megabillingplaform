@@ -1,0 +1,42 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.transactions_history.detail.title">Transactions History</span> {{vm.transactions_history.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.transactions_history.date_transaction">Date Transaction</span></dt>
+        <dd>
+            <span>{{vm.transactions_history.date_transaction | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.transactions_history.quantity">Quantity</span></dt>
+        <dd>
+            <span>{{vm.transactions_history.quantity}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.transactions_history.description">Description</span></dt>
+        <dd>
+            <span>{{vm.transactions_history.description}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.transactions_history.c_system">C System</span></dt>
+        <dd>
+            <a ui-sref="c-system-detail({id:vm.transactions_history.c_system.id})">{{vm.transactions_history.c_system.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.transactions_history.user">User</span></dt>
+        <dd>
+            {{vm.transactions_history.user.login}}
+        </dd>
+        <dt><span translate="megabillingplatformApp.transactions_history.type_transaction">Type Transaction</span></dt>
+        <dd>
+            <a ui-sref="type-transaction-detail({id:vm.transactions_history.type_transaction.id})">{{vm.transactions_history.type_transaction.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.transactions_history.taxpayer_account">Taxpayer Account</span></dt>
+        <dd>
+            <a ui-sref="taxpayer-account-detail({id:vm.transactions_history.taxpayer_account.id})">{{vm.transactions_history.taxpayer_account.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

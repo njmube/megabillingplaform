@@ -1,0 +1,28 @@
+{
+    "megabillingplatformApp": {
+        "part_concept" : {
+            "home": {
+                "title": "Part Concepts",
+                "createLabel": "Create a new Part Concept",
+                "createOrEditLabel": "Create or edit a Part Concept",
+                "search": "Search for Part Concept"
+            },
+            "created": "A new Part Concept is created with identifier {{ param }}",
+            "updated": "A Part Concept is updated with identifier {{ param }}",
+            "deleted": "A Part Concept is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Part Concept {{ id }}?"
+            },
+            "detail": {
+                "title": "Part Concept"
+            },
+            "no_identification": "No Identification",
+            "quanitty": "Quanitty",
+            "description": "Description",
+            "unit_value": "Unit Value",
+            "amount": "Amount",
+            "concept": "Concept",
+            "measure_unit": "Measure Unit"
+        }
+    }
+}

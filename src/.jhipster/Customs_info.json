@@ -1,0 +1,41 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "concept",
+            "otherEntityName": "concept",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "part_concept",
+            "otherEntityName": "part_concept",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "number_doc",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "customs",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160915193619",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "customs_info",
+    "pagination": "pagination"
+}

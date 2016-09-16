@@ -1,0 +1,76 @@
+<div>
+    <h2 translate="megabillingplatformApp.part_concept.home.title">Part Concepts</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="part-concept.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.part_concept.home.createLabel">
+                        Create new Part Concept
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_identification"><span translate="megabillingplatformApp.part_concept.no_identification">No Identification</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quanitty"><span translate="megabillingplatformApp.part_concept.quanitty">Quanitty</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span translate="megabillingplatformApp.part_concept.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="unit_value"><span translate="megabillingplatformApp.part_concept.unit_value">Unit Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amount"><span translate="megabillingplatformApp.part_concept.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="concept.id"><span translate="megabillingplatformApp.part_concept.concept">Concept</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="measure_unit.name"><span translate="megabillingplatformApp.part_concept.measure_unit">Measure Unit</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="part_concept in vm.part_concepts track by part_concept.id">
+                    <td><a ui-sref="part-concept-detail({id:part_concept.id})">{{part_concept.id}}</a></td>
+                    <td>{{part_concept.no_identification}}</td>
+                    <td>{{part_concept.quanitty}}</td>
+                    <td>{{part_concept.description}}</td>
+                    <td>{{part_concept.unit_value}}</td>
+                    <td>{{part_concept.amount}}</td>
+                    <td>
+                        <a ui-sref="concept-detail({id:part_concept.concept.id})">{{part_concept.concept.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="measure-unit-detail({id:part_concept.measure_unit.id})">{{part_concept.measure_unit.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="part-concept-detail({id:part_concept.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="part-concept.edit({id:part_concept.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="part-concept.delete({id:part_concept.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "taxpayer_transactions" : {
+            "home": {
+                "title": "Taxpayer Transactions",
+                "createLabel": "Crear nuevo Taxpayer Transactions",
+                "createOrEditLabel": "Crear o editar Taxpayer Transactions",
+                "search": "Search for Taxpayer Transactions"
+            },
+            "created": "Un nuevo Taxpayer Transactions ha sido creado con el identificador {{ param }}",
+            "updated": "Un Taxpayer Transactions ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Taxpayer Transactions ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Taxpayer Transactions {{ id }}?"
+            },
+            "detail": {
+                "title": "Taxpayer Transactions"
+            },
+            "transactions_available": "Transactions Available",
+            "transactions_spent": "Transactions Spent",
+            "taxpayer_account": "Taxpayer Account"
+        }
+    }
+}

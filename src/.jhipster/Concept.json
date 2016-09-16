@@ -1,0 +1,60 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "taxpayer_account",
+            "otherEntityName": "taxpayer_account",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "measure_unit",
+            "otherEntityName": "measure_unit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "no_identification",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unit_value",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "predial_number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "discount",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "changelogDate": "20160915192406",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "concept",
+    "pagination": "pagination"
+}

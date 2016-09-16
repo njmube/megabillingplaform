@@ -1,0 +1,80 @@
+<div>
+    <h2 translate="megabillingplatformApp.transactions_history.home.title">Transactions Histories</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="transactions-history.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.transactions_history.home.createLabel">
+                        Create new Transactions History
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_transaction"><span translate="megabillingplatformApp.transactions_history.date_transaction">Date Transaction</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quantity"><span translate="megabillingplatformApp.transactions_history.quantity">Quantity</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span translate="megabillingplatformApp.transactions_history.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_system.name"><span translate="megabillingplatformApp.transactions_history.c_system">C System</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="user.login"><span translate="megabillingplatformApp.transactions_history.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="type_transaction.name"><span translate="megabillingplatformApp.transactions_history.type_transaction">Type Transaction</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="taxpayer_account.id"><span translate="megabillingplatformApp.transactions_history.taxpayer_account">Taxpayer Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="transactions_history in vm.transactions_histories track by transactions_history.id">
+                    <td><a ui-sref="transactions-history-detail({id:transactions_history.id})">{{transactions_history.id}}</a></td>
+                    <td>{{transactions_history.date_transaction | date:'medium'}}</td>
+                    <td>{{transactions_history.quantity}}</td>
+                    <td>{{transactions_history.description}}</td>
+                    <td>
+                        <a ui-sref="c-system-detail({id:transactions_history.c_system.id})">{{transactions_history.c_system.name}}</a>
+                    </td>
+                    <td>
+                        {{transactions_history.user.login}}
+                    </td>
+                    <td>
+                        <a ui-sref="type-transaction-detail({id:transactions_history.type_transaction.id})">{{transactions_history.type_transaction.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="taxpayer-account-detail({id:transactions_history.taxpayer_account.id})">{{transactions_history.taxpayer_account.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="transactions-history-detail({id:transactions_history.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="transactions-history.edit({id:transactions_history.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="transactions-history.delete({id:transactions_history.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

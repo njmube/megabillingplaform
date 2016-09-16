@@ -1,0 +1,72 @@
+<div>
+    <h2 translate="megabillingplatformApp.taxpayer_mail_accounts.home.title">Taxpayer Mail Accounts</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="taxpayer-mail-accounts.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.taxpayer_mail_accounts.home.createLabel">
+                        Create new Taxpayer Mail Accounts
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="incoming_mail_type"><span translate="megabillingplatformApp.taxpayer_mail_accounts.incoming_mail_type">Incoming Mail Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="incoming_server_name"><span translate="megabillingplatformApp.taxpayer_mail_accounts.incoming_server_name">Incoming Server Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="incoming_port"><span translate="megabillingplatformApp.taxpayer_mail_accounts.incoming_port">Incoming Port</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="username"><span translate="megabillingplatformApp.taxpayer_mail_accounts.username">Username</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="password"><span translate="megabillingplatformApp.taxpayer_mail_accounts.password">Password</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="taxpayer_account.id"><span translate="megabillingplatformApp.taxpayer_mail_accounts.taxpayer_account">Taxpayer Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="taxpayer_mail_accounts in vm.taxpayer_mail_accounts track by taxpayer_mail_accounts.id">
+                    <td><a ui-sref="taxpayer-mail-accounts-detail({id:taxpayer_mail_accounts.id})">{{taxpayer_mail_accounts.id}}</a></td>
+                    <td>{{taxpayer_mail_accounts.incoming_mail_type}}</td>
+                    <td>{{taxpayer_mail_accounts.incoming_server_name}}</td>
+                    <td>{{taxpayer_mail_accounts.incoming_port}}</td>
+                    <td>{{taxpayer_mail_accounts.username}}</td>
+                    <td>{{taxpayer_mail_accounts.password}}</td>
+                    <td>
+                        <a ui-sref="taxpayer-account-detail({id:taxpayer_mail_accounts.taxpayer_account.id})">{{taxpayer_mail_accounts.taxpayer_account.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="taxpayer-mail-accounts-detail({id:taxpayer_mail_accounts.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="taxpayer-mail-accounts.edit({id:taxpayer_mail_accounts.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="taxpayer-mail-accounts.delete({id:taxpayer_mail_accounts.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

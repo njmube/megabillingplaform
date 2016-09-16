@@ -1,0 +1,202 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "cfdi_states",
+            "otherEntityName": "cfdi_states",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "payment_method",
+            "otherEntityName": "payment_method",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "cfdi_types",
+            "otherEntityName": "cfdi_types",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "cfdi_type_doc",
+            "otherEntityName": "cfdi_type_doc",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "c_money",
+            "otherEntityName": "c_money",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "com_tfd",
+            "otherEntityName": "com_tfd",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "taxpayer_account",
+            "otherEntityName": "taxpayer_account",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "tax_regime",
+            "otherEntityName": "tax_regime",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "taxpayer_client",
+            "otherEntityName": "taxpayer_client",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "cfdi"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "3"
+        },
+        {
+            "fieldName": "serial",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "25"
+        },
+        {
+            "fieldName": "folio",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "date_expedition",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "payment_conditions",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "change_type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "place_expedition",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "account_number",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "folio_fiscal_orig",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "serial_folio_fiscal_orig",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "date_folio_fiscal_orig",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "mont_folio_fiscal_orig",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "total_tax_retention",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "total_tax_transfered",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "discount",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "discount_reason",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subtotal",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "addenda",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "number_certificate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "certificate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160916120951",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "cfdi",
+    "pagination": "pagination"
+}

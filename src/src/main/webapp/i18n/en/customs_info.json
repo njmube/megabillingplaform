@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "customs_info" : {
+            "home": {
+                "title": "Customs Infos",
+                "createLabel": "Create a new Customs Info",
+                "createOrEditLabel": "Create or edit a Customs Info",
+                "search": "Search for Customs Info"
+            },
+            "created": "A new Customs Info is created with identifier {{ param }}",
+            "updated": "A Customs Info is updated with identifier {{ param }}",
+            "deleted": "A Customs Info is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Customs Info {{ id }}?"
+            },
+            "detail": {
+                "title": "Customs Info"
+            },
+            "number_doc": "Number Doc",
+            "date": "Date",
+            "customs": "Customs",
+            "concept": "Concept",
+            "part_concept": "Part Concept"
+        }
+    }
+}

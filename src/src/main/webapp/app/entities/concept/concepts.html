@@ -1,0 +1,80 @@
+<div>
+    <h2 translate="megabillingplatformApp.concept.home.title">Concepts</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="concept.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.concept.home.createLabel">
+                        Create new Concept
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_identification"><span translate="megabillingplatformApp.concept.no_identification">No Identification</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quantity"><span translate="megabillingplatformApp.concept.quantity">Quantity</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span translate="megabillingplatformApp.concept.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="unit_value"><span translate="megabillingplatformApp.concept.unit_value">Unit Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="predial_number"><span translate="megabillingplatformApp.concept.predial_number">Predial Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="discount"><span translate="megabillingplatformApp.concept.discount">Discount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amount"><span translate="megabillingplatformApp.concept.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="taxpayer_account.id"><span translate="megabillingplatformApp.concept.taxpayer_account">Taxpayer Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="measure_unit.name"><span translate="megabillingplatformApp.concept.measure_unit">Measure Unit</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="concept in vm.concepts track by concept.id">
+                    <td><a ui-sref="concept-detail({id:concept.id})">{{concept.id}}</a></td>
+                    <td>{{concept.no_identification}}</td>
+                    <td>{{concept.quantity}}</td>
+                    <td>{{concept.description}}</td>
+                    <td>{{concept.unit_value}}</td>
+                    <td>{{concept.predial_number}}</td>
+                    <td>{{concept.discount}}</td>
+                    <td>{{concept.amount}}</td>
+                    <td>
+                        <a ui-sref="taxpayer-account-detail({id:concept.taxpayer_account.id})">{{concept.taxpayer_account.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="measure-unit-detail({id:concept.measure_unit.id})">{{concept.measure_unit.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="concept-detail({id:concept.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="concept.edit({id:concept.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="concept.delete({id:concept.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

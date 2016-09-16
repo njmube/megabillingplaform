@@ -1,0 +1,30 @@
+{
+    "megabillingplatformApp": {
+        "concept" : {
+            "home": {
+                "title": "Concepts",
+                "createLabel": "Crear nuevo Concept",
+                "createOrEditLabel": "Crear o editar Concept",
+                "search": "Search for Concept"
+            },
+            "created": "Un nuevo Concept ha sido creado con el identificador {{ param }}",
+            "updated": "Un Concept ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Concept ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Concept {{ id }}?"
+            },
+            "detail": {
+                "title": "Concept"
+            },
+            "no_identification": "No Identification",
+            "quantity": "Quantity",
+            "description": "Description",
+            "unit_value": "Unit Value",
+            "predial_number": "Predial Number",
+            "discount": "Discount",
+            "amount": "Amount",
+            "taxpayer_account": "Taxpayer Account",
+            "measure_unit": "Measure Unit"
+        }
+    }
+}

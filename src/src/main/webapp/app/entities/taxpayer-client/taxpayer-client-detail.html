@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.taxpayer_client.detail.title">Taxpayer Client</span> {{vm.taxpayer_client.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.taxpayer_client.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.taxpayer_client.rfc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_client.bussinesname">Bussinesname</span></dt>
+        <dd>
+            <span>{{vm.taxpayer_client.bussinesname}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_client.email">Email</span></dt>
+        <dd>
+            <span>{{vm.taxpayer_client.email}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_client.client_address">Client Address</span></dt>
+        <dd>
+            <a ui-sref="client-address-detail({id:vm.taxpayer_client.client_address.id})">{{vm.taxpayer_client.client_address.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.taxpayer_client.taxpayer_account">Taxpayer Account</span></dt>
+        <dd>
+            <a ui-sref="taxpayer-account-detail({id:vm.taxpayer_client.taxpayer_account.id})">{{vm.taxpayer_client.taxpayer_account.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -2,9 +2,7 @@ package org.megapractical.billingplatform.web.rest.dto;
 
 import org.megapractical.billingplatform.domain.Accounting;
 import org.megapractical.billingplatform.domain.Freecom_ine_entity;
-
 import java.util.List;
-
 
 public class Freecom_ine_entityDTO {
 

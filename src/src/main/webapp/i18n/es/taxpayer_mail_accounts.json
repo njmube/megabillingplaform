@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "taxpayer_mail_accounts" : {
+            "home": {
+                "title": "Taxpayer Mail Accounts",
+                "createLabel": "Crear nuevo Taxpayer Mail Accounts",
+                "createOrEditLabel": "Crear o editar Taxpayer Mail Accounts",
+                "search": "Search for Taxpayer Mail Accounts"
+            },
+            "created": "Un nuevo Taxpayer Mail Accounts ha sido creado con el identificador {{ param }}",
+            "updated": "Un Taxpayer Mail Accounts ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Taxpayer Mail Accounts ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Taxpayer Mail Accounts {{ id }}?"
+            },
+            "detail": {
+                "title": "Taxpayer Mail Accounts"
+            },
+            "incoming_mail_type": "Incoming Mail Type",
+            "incoming_server_name": "Incoming Server Name",
+            "incoming_port": "Incoming Port",
+            "username": "Username",
+            "password": "Password",
+            "taxpayer_account": "Taxpayer Account"
+        }
+    }
+}

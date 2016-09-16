@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Customs_info.
+    -->
+    <changeSet id="20160915193619-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="concept_id"
+                                 baseTableName="customs_info"
+                                 constraintName="fk_customs_info_concept_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="concept"/>
+
+        <addForeignKeyConstraint baseColumnNames="part_concept_id"
+                                 baseTableName="customs_info"
+                                 constraintName="fk_customs_info_part_concept_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="part_concept"/>
+
+    </changeSet>
+</databaseChangeLog>

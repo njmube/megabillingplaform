@@ -1,0 +1,90 @@
+<div>
+    <h2 translate="megabillingplatformApp.client_address.home.title">Client Addresses</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="client-address.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.client_address.home.createLabel">
+                        Create new Client Address
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="street"><span translate="megabillingplatformApp.client_address.street">Street</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_int"><span translate="megabillingplatformApp.client_address.no_int">No Int</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_ext"><span translate="megabillingplatformApp.client_address.no_ext">No Ext</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="location"><span translate="megabillingplatformApp.client_address.location">Location</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="intersection"><span translate="megabillingplatformApp.client_address.intersection">Intersection</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reference"><span translate="megabillingplatformApp.client_address.reference">Reference</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_country.name"><span translate="megabillingplatformApp.client_address.c_country">C Country</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_state.name"><span translate="megabillingplatformApp.client_address.c_state">C State</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_municipality.name"><span translate="megabillingplatformApp.client_address.c_municipality">C Municipality</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_colony.code"><span translate="megabillingplatformApp.client_address.c_colony">C Colony</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_zip_code.code"><span translate="megabillingplatformApp.client_address.c_zip_code">C Zip Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="client_address in vm.client_addresses track by client_address.id">
+                    <td><a ui-sref="client-address-detail({id:client_address.id})">{{client_address.id}}</a></td>
+                    <td>{{client_address.street}}</td>
+                    <td>{{client_address.no_int}}</td>
+                    <td>{{client_address.no_ext}}</td>
+                    <td>{{client_address.location}}</td>
+                    <td>{{client_address.intersection}}</td>
+                    <td>{{client_address.reference}}</td>
+                    <td>
+                        <a ui-sref="c-country-detail({id:client_address.c_country.id})">{{client_address.c_country.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-state-detail({id:client_address.c_state.id})">{{client_address.c_state.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-municipality-detail({id:client_address.c_municipality.id})">{{client_address.c_municipality.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-colony-detail({id:client_address.c_colony.id})">{{client_address.c_colony.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-zip-code-detail({id:client_address.c_zip_code.id})">{{client_address.c_zip_code.code}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="client-address-detail({id:client_address.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="client-address.edit({id:client_address.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="client-address.delete({id:client_address.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

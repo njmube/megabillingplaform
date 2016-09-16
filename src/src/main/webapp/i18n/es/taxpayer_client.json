@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "taxpayer_client" : {
+            "home": {
+                "title": "Taxpayer Clients",
+                "createLabel": "Crear nuevo Taxpayer Client",
+                "createOrEditLabel": "Crear o editar Taxpayer Client",
+                "search": "Search for Taxpayer Client"
+            },
+            "created": "Un nuevo Taxpayer Client ha sido creado con el identificador {{ param }}",
+            "updated": "Un Taxpayer Client ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Taxpayer Client ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Taxpayer Client {{ id }}?"
+            },
+            "detail": {
+                "title": "Taxpayer Client"
+            },
+            "rfc": "Rfc",
+            "bussinesname": "Bussinesname",
+            "email": "Email",
+            "client_address": "Client Address",
+            "taxpayer_account": "Taxpayer Account"
+        }
+    }
+}

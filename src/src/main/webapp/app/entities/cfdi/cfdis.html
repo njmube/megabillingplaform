@@ -1,0 +1,136 @@
+<div>
+    <h2 translate="megabillingplatformApp.cfdi.home.title">Cfdis</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="cfdi.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.cfdi.home.createLabel">
+                        Create new Cfdi
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version"><span translate="megabillingplatformApp.cfdi.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="serial"><span translate="megabillingplatformApp.cfdi.serial">Serial</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="folio"><span translate="megabillingplatformApp.cfdi.folio">Folio</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_expedition"><span translate="megabillingplatformApp.cfdi.date_expedition">Date Expedition</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payment_conditions"><span translate="megabillingplatformApp.cfdi.payment_conditions">Payment Conditions</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="change_type"><span translate="megabillingplatformApp.cfdi.change_type">Change Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="place_expedition"><span translate="megabillingplatformApp.cfdi.place_expedition">Place Expedition</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="account_number"><span translate="megabillingplatformApp.cfdi.account_number">Account Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="folio_fiscal_orig"><span translate="megabillingplatformApp.cfdi.folio_fiscal_orig">Folio Fiscal Orig</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="serial_folio_fiscal_orig"><span translate="megabillingplatformApp.cfdi.serial_folio_fiscal_orig">Serial Folio Fiscal Orig</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_folio_fiscal_orig"><span translate="megabillingplatformApp.cfdi.date_folio_fiscal_orig">Date Folio Fiscal Orig</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mont_folio_fiscal_orig"><span translate="megabillingplatformApp.cfdi.mont_folio_fiscal_orig">Mont Folio Fiscal Orig</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="total_tax_retention"><span translate="megabillingplatformApp.cfdi.total_tax_retention">Total Tax Retention</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="total_tax_transfered"><span translate="megabillingplatformApp.cfdi.total_tax_transfered">Total Tax Transfered</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="discount"><span translate="megabillingplatformApp.cfdi.discount">Discount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="discount_reason"><span translate="megabillingplatformApp.cfdi.discount_reason">Discount Reason</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="subtotal"><span translate="megabillingplatformApp.cfdi.subtotal">Subtotal</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="total"><span translate="megabillingplatformApp.cfdi.total">Total</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="addenda"><span translate="megabillingplatformApp.cfdi.addenda">Addenda</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_certificate"><span translate="megabillingplatformApp.cfdi.number_certificate">Number Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="certificate"><span translate="megabillingplatformApp.cfdi.certificate">Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfdi_states.name"><span translate="megabillingplatformApp.cfdi.cfdi_states">Cfdi States</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payment_method.name"><span translate="megabillingplatformApp.cfdi.payment_method">Payment Method</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfdi_types.name"><span translate="megabillingplatformApp.cfdi.cfdi_types">Cfdi Types</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfdi_type_doc.name"><span translate="megabillingplatformApp.cfdi.cfdi_type_doc">Cfdi Type Doc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_money.name"><span translate="megabillingplatformApp.cfdi.c_money">C Money</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="com_tfd.id"><span translate="megabillingplatformApp.cfdi.com_tfd">Com Tfd</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="taxpayer_account.id"><span translate="megabillingplatformApp.cfdi.taxpayer_account">Taxpayer Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax_regime.name"><span translate="megabillingplatformApp.cfdi.tax_regime">Tax Regime</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="taxpayer_client.id"><span translate="megabillingplatformApp.cfdi.taxpayer_client">Taxpayer Client</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cfdi in vm.cfdis track by cfdi.id">
+                    <td><a ui-sref="cfdi-detail({id:cfdi.id})">{{cfdi.id}}</a></td>
+                    <td>{{cfdi.version}}</td>
+                    <td>{{cfdi.serial}}</td>
+                    <td>{{cfdi.folio}}</td>
+                    <td>{{cfdi.date_expedition | date:'medium'}}</td>
+                    <td>{{cfdi.payment_conditions}}</td>
+                    <td>{{cfdi.change_type}}</td>
+                    <td>{{cfdi.place_expedition}}</td>
+                    <td>{{cfdi.account_number}}</td>
+                    <td>{{cfdi.folio_fiscal_orig}}</td>
+                    <td>{{cfdi.serial_folio_fiscal_orig}}</td>
+                    <td>{{cfdi.date_folio_fiscal_orig | date:'medium'}}</td>
+                    <td>{{cfdi.mont_folio_fiscal_orig}}</td>
+                    <td>{{cfdi.total_tax_retention}}</td>
+                    <td>{{cfdi.total_tax_transfered}}</td>
+                    <td>{{cfdi.discount}}</td>
+                    <td>{{cfdi.discount_reason}}</td>
+                    <td>{{cfdi.subtotal}}</td>
+                    <td>{{cfdi.total}}</td>
+                    <td>{{cfdi.addenda}}</td>
+                    <td>{{cfdi.number_certificate}}</td>
+                    <td>{{cfdi.certificate}}</td>
+                    <td>
+                        <a ui-sref="cfdi-states-detail({id:cfdi.cfdi_states.id})">{{cfdi.cfdi_states.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="payment-method-detail({id:cfdi.payment_method.id})">{{cfdi.payment_method.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="cfdi-types-detail({id:cfdi.cfdi_types.id})">{{cfdi.cfdi_types.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="cfdi-type-doc-detail({id:cfdi.cfdi_type_doc.id})">{{cfdi.cfdi_type_doc.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-money-detail({id:cfdi.c_money.id})">{{cfdi.c_money.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="com-tfd-detail({id:cfdi.com_tfd.id})">{{cfdi.com_tfd.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="taxpayer-account-detail({id:cfdi.taxpayer_account.id})">{{cfdi.taxpayer_account.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="tax-regime-detail({id:cfdi.tax_regime.id})">{{cfdi.tax_regime.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="taxpayer-client-detail({id:cfdi.taxpayer_client.id})">{{cfdi.taxpayer_client.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="cfdi-detail({id:cfdi.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="cfdi.edit({id:cfdi.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="cfdi.delete({id:cfdi.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

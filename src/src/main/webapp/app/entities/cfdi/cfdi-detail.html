@@ -1,0 +1,134 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.cfdi.detail.title">Cfdi</span> {{vm.cfdi.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.cfdi.version">Version</span></dt>
+        <dd>
+            <span>{{vm.cfdi.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.serial">Serial</span></dt>
+        <dd>
+            <span>{{vm.cfdi.serial}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.folio">Folio</span></dt>
+        <dd>
+            <span>{{vm.cfdi.folio}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.date_expedition">Date Expedition</span></dt>
+        <dd>
+            <span>{{vm.cfdi.date_expedition | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.payment_conditions">Payment Conditions</span></dt>
+        <dd>
+            <span>{{vm.cfdi.payment_conditions}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.change_type">Change Type</span></dt>
+        <dd>
+            <span>{{vm.cfdi.change_type}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.place_expedition">Place Expedition</span></dt>
+        <dd>
+            <span>{{vm.cfdi.place_expedition}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.account_number">Account Number</span></dt>
+        <dd>
+            <span>{{vm.cfdi.account_number}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.folio_fiscal_orig">Folio Fiscal Orig</span></dt>
+        <dd>
+            <span>{{vm.cfdi.folio_fiscal_orig}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.serial_folio_fiscal_orig">Serial Folio Fiscal Orig</span></dt>
+        <dd>
+            <span>{{vm.cfdi.serial_folio_fiscal_orig}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.date_folio_fiscal_orig">Date Folio Fiscal Orig</span></dt>
+        <dd>
+            <span>{{vm.cfdi.date_folio_fiscal_orig | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.mont_folio_fiscal_orig">Mont Folio Fiscal Orig</span></dt>
+        <dd>
+            <span>{{vm.cfdi.mont_folio_fiscal_orig}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.total_tax_retention">Total Tax Retention</span></dt>
+        <dd>
+            <span>{{vm.cfdi.total_tax_retention}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.total_tax_transfered">Total Tax Transfered</span></dt>
+        <dd>
+            <span>{{vm.cfdi.total_tax_transfered}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.discount">Discount</span></dt>
+        <dd>
+            <span>{{vm.cfdi.discount}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.discount_reason">Discount Reason</span></dt>
+        <dd>
+            <span>{{vm.cfdi.discount_reason}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.subtotal">Subtotal</span></dt>
+        <dd>
+            <span>{{vm.cfdi.subtotal}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.total">Total</span></dt>
+        <dd>
+            <span>{{vm.cfdi.total}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.addenda">Addenda</span></dt>
+        <dd>
+            <span>{{vm.cfdi.addenda}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.number_certificate">Number Certificate</span></dt>
+        <dd>
+            <span>{{vm.cfdi.number_certificate}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.certificate">Certificate</span></dt>
+        <dd>
+            <span>{{vm.cfdi.certificate}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.cfdi_states">Cfdi States</span></dt>
+        <dd>
+            <a ui-sref="cfdi-states-detail({id:vm.cfdi.cfdi_states.id})">{{vm.cfdi.cfdi_states.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.payment_method">Payment Method</span></dt>
+        <dd>
+            <a ui-sref="payment-method-detail({id:vm.cfdi.payment_method.id})">{{vm.cfdi.payment_method.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.cfdi_types">Cfdi Types</span></dt>
+        <dd>
+            <a ui-sref="cfdi-types-detail({id:vm.cfdi.cfdi_types.id})">{{vm.cfdi.cfdi_types.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.cfdi_type_doc">Cfdi Type Doc</span></dt>
+        <dd>
+            <a ui-sref="cfdi-type-doc-detail({id:vm.cfdi.cfdi_type_doc.id})">{{vm.cfdi.cfdi_type_doc.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.c_money">C Money</span></dt>
+        <dd>
+            <a ui-sref="c-money-detail({id:vm.cfdi.c_money.id})">{{vm.cfdi.c_money.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.com_tfd">Com Tfd</span></dt>
+        <dd>
+            <a ui-sref="com-tfd-detail({id:vm.cfdi.com_tfd.id})">{{vm.cfdi.com_tfd.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.taxpayer_account">Taxpayer Account</span></dt>
+        <dd>
+            <a ui-sref="taxpayer-account-detail({id:vm.cfdi.taxpayer_account.id})">{{vm.cfdi.taxpayer_account.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.tax_regime">Tax Regime</span></dt>
+        <dd>
+            <a ui-sref="tax-regime-detail({id:vm.cfdi.tax_regime.id})">{{vm.cfdi.tax_regime.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.cfdi.taxpayer_client">Taxpayer Client</span></dt>
+        <dd>
+            <a ui-sref="taxpayer-client-detail({id:vm.cfdi.taxpayer_client.id})">{{vm.cfdi.taxpayer_client.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,46 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "taxpayer_account",
+            "otherEntityName": "taxpayer_account",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "incoming_mail_type",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "incoming_server_name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "incoming_port",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "username",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "password",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160915122745",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "taxpayer_mail_accounts",
+    "pagination": "pagination"
+}

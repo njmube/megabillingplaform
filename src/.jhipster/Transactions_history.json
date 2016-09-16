@@ -1,0 +1,54 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "c_system",
+            "otherEntityName": "c_system",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipName": "type_transaction",
+            "otherEntityName": "type_transaction",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "taxpayer_account",
+            "otherEntityName": "taxpayer_account",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date_transaction",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160915191032",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "transactions_history",
+    "pagination": "pagination"
+}

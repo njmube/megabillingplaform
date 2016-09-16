@@ -1,0 +1,70 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_tfd.home.title">Com Tfds</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-tfd.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_tfd.home.createLabel">
+                        Create new Com Tfd
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version"><span translate="megabillingplatformApp.com_tfd.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="uuid"><span translate="megabillingplatformApp.com_tfd.uuid">Uuid</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="stamp_date"><span translate="megabillingplatformApp.com_tfd.stamp_date">Stamp Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="stamp_cfd"><span translate="megabillingplatformApp.com_tfd.stamp_cfd">Stamp Cfd</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sat_number_certificate"><span translate="megabillingplatformApp.com_tfd.sat_number_certificate">Sat Number Certificate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="stamp_sat"><span translate="megabillingplatformApp.com_tfd.stamp_sat">Stamp Sat</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_tfd in vm.com_tfds track by com_tfd.id">
+                    <td><a ui-sref="com-tfd-detail({id:com_tfd.id})">{{com_tfd.id}}</a></td>
+                    <td>{{com_tfd.version}}</td>
+                    <td>{{com_tfd.uuid}}</td>
+                    <td>{{com_tfd.stamp_date | date:'medium'}}</td>
+                    <td>{{com_tfd.stamp_cfd}}</td>
+                    <td>{{com_tfd.sat_number_certificate}}</td>
+                    <td>{{com_tfd.stamp_sat}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-tfd-detail({id:com_tfd.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-tfd.edit({id:com_tfd.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-tfd.delete({id:com_tfd.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

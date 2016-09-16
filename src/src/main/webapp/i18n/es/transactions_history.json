@@ -1,0 +1,28 @@
+{
+    "megabillingplatformApp": {
+        "transactions_history" : {
+            "home": {
+                "title": "Transactions Histories",
+                "createLabel": "Crear nuevo Transactions History",
+                "createOrEditLabel": "Crear o editar Transactions History",
+                "search": "Search for Transactions History"
+            },
+            "created": "Un nuevo Transactions History ha sido creado con el identificador {{ param }}",
+            "updated": "Un Transactions History ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Transactions History ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Transactions History {{ id }}?"
+            },
+            "detail": {
+                "title": "Transactions History"
+            },
+            "date_transaction": "Date Transaction",
+            "quantity": "Quantity",
+            "description": "Description",
+            "c_system": "C System",
+            "user": "User",
+            "type_transaction": "Type Transaction",
+            "taxpayer_account": "Taxpayer Account"
+        }
+    }
+}

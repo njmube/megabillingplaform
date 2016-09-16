@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "com_tfd" : {
+            "home": {
+                "title": "Com Tfds",
+                "createLabel": "Create a new Com Tfd",
+                "createOrEditLabel": "Create or edit a Com Tfd",
+                "search": "Search for Com Tfd"
+            },
+            "created": "A new Com Tfd is created with identifier {{ param }}",
+            "updated": "A Com Tfd is updated with identifier {{ param }}",
+            "deleted": "A Com Tfd is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Tfd {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Tfd"
+            },
+            "version": "Version",
+            "uuid": "Uuid",
+            "stamp_date": "Stamp Date",
+            "stamp_cfd": "Stamp Cfd",
+            "sat_number_certificate": "Sat Number Certificate",
+            "stamp_sat": "Stamp Sat"
+        }
+    }
+}

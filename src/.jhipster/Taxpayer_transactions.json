@@ -1,0 +1,31 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "taxpayer_account",
+            "otherEntityName": "taxpayer_account",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "transactions_available",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "transactions_spent",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160915190105",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "taxpayer_transactions",
+    "pagination": "pagination"
+}

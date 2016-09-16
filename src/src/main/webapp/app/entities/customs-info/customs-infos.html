@@ -1,0 +1,72 @@
+<div>
+    <h2 translate="megabillingplatformApp.customs_info.home.title">Customs Infos</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="customs-info.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.customs_info.home.createLabel">
+                        Create new Customs Info
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_doc"><span translate="megabillingplatformApp.customs_info.number_doc">Number Doc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date"><span translate="megabillingplatformApp.customs_info.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="customs"><span translate="megabillingplatformApp.customs_info.customs">Customs</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="concept.id"><span translate="megabillingplatformApp.customs_info.concept">Concept</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="part_concept.id"><span translate="megabillingplatformApp.customs_info.part_concept">Part Concept</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="customs_info in vm.customs_infos track by customs_info.id">
+                    <td><a ui-sref="customs-info-detail({id:customs_info.id})">{{customs_info.id}}</a></td>
+                    <td>{{customs_info.number_doc}}</td>
+                        <td>{{customs_info.date | date:'mediumDate'}}</td>
+                    <td>{{customs_info.customs}}</td>
+                    <td>
+                        <a ui-sref="concept-detail({id:customs_info.concept.id})">{{customs_info.concept.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="part-concept-detail({id:customs_info.part_concept.id})">{{customs_info.part_concept.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="customs-info-detail({id:customs_info.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="customs-info.edit({id:customs_info.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="customs-info.delete({id:customs_info.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

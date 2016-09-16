@@ -1,0 +1,324 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCfdiLabel" translate="megabillingplatformApp.cfdi.home.createOrEditLabel">Create or edit a Cfdi</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.cfdi.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.cfdi.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.cfdi.version"
+                    required ng-maxlength="3" />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.version.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.version.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="3">
+                    This field cannot be longer than 3 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.serial" for="field_serial">Serial</label>
+            <input type="text" class="form-control" name="serial" id="field_serial"
+                    ng-model="vm.cfdi.serial"
+                    ng-maxlength="25" />
+            <div ng-show="editForm.serial.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.serial.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="25">
+                    This field cannot be longer than 25 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.folio" for="field_folio">Folio</label>
+            <input type="text" class="form-control" name="folio" id="field_folio"
+                    ng-model="vm.cfdi.folio"
+                    ng-maxlength="20" />
+            <div ng-show="editForm.folio.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.folio.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                    This field cannot be longer than 20 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.date_expedition" for="field_date_expedition">Date Expedition</label>
+                <div class="input-group">
+                    <input id="field_date_expedition" type="text" class="form-control" name="date_expedition" datetime-picker="{{dateformat}}" ng-model="vm.cfdi.date_expedition" is-open="vm.datePickerOpenStatus.date_expedition"
+                    required  />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_expedition')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_expedition.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_expedition.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.date_expedition.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.payment_conditions" for="field_payment_conditions">Payment Conditions</label>
+            <input type="text" class="form-control" name="payment_conditions" id="field_payment_conditions"
+                    ng-model="vm.cfdi.payment_conditions"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.change_type" for="field_change_type">Change Type</label>
+            <input type="text" class="form-control" name="change_type" id="field_change_type"
+                    ng-model="vm.cfdi.change_type"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.place_expedition" for="field_place_expedition">Place Expedition</label>
+            <input type="text" class="form-control" name="place_expedition" id="field_place_expedition"
+                    ng-model="vm.cfdi.place_expedition"
+                    required />
+            <div ng-show="editForm.place_expedition.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.place_expedition.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.account_number" for="field_account_number">Account Number</label>
+            <input type="text" class="form-control" name="account_number" id="field_account_number"
+                    ng-model="vm.cfdi.account_number"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.folio_fiscal_orig" for="field_folio_fiscal_orig">Folio Fiscal Orig</label>
+            <input type="text" class="form-control" name="folio_fiscal_orig" id="field_folio_fiscal_orig"
+                    ng-model="vm.cfdi.folio_fiscal_orig"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.serial_folio_fiscal_orig" for="field_serial_folio_fiscal_orig">Serial Folio Fiscal Orig</label>
+            <input type="text" class="form-control" name="serial_folio_fiscal_orig" id="field_serial_folio_fiscal_orig"
+                    ng-model="vm.cfdi.serial_folio_fiscal_orig"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.date_folio_fiscal_orig" for="field_date_folio_fiscal_orig">Date Folio Fiscal Orig</label>
+                <div class="input-group">
+                    <input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" datetime-picker="{{dateformat}}" ng-model="vm.cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig"
+                      />
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_folio_fiscal_orig')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.mont_folio_fiscal_orig" for="field_mont_folio_fiscal_orig">Mont Folio Fiscal Orig</label>
+            <input type="number" class="form-control" name="mont_folio_fiscal_orig" id="field_mont_folio_fiscal_orig"
+                    ng-model="vm.cfdi.mont_folio_fiscal_orig"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.total_tax_retention" for="field_total_tax_retention">Total Tax Retention</label>
+            <input type="number" class="form-control" name="total_tax_retention" id="field_total_tax_retention"
+                    ng-model="vm.cfdi.total_tax_retention"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.total_tax_transfered" for="field_total_tax_transfered">Total Tax Transfered</label>
+            <input type="number" class="form-control" name="total_tax_transfered" id="field_total_tax_transfered"
+                    ng-model="vm.cfdi.total_tax_transfered"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.discount" for="field_discount">Discount</label>
+            <input type="number" class="form-control" name="discount" id="field_discount"
+                    ng-model="vm.cfdi.discount"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.discount_reason" for="field_discount_reason">Discount Reason</label>
+            <input type="text" class="form-control" name="discount_reason" id="field_discount_reason"
+                    ng-model="vm.cfdi.discount_reason"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.subtotal" for="field_subtotal">Subtotal</label>
+            <input type="number" class="form-control" name="subtotal" id="field_subtotal"
+                    ng-model="vm.cfdi.subtotal"
+                    required />
+            <div ng-show="editForm.subtotal.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.subtotal.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.subtotal.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.total" for="field_total">Total</label>
+            <input type="number" class="form-control" name="total" id="field_total"
+                    ng-model="vm.cfdi.total"
+                    required />
+            <div ng-show="editForm.total.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.total.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.total.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.addenda" for="field_addenda">Addenda</label>
+            <input type="text" class="form-control" name="addenda" id="field_addenda"
+                    ng-model="vm.cfdi.addenda"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.number_certificate" for="field_number_certificate">Number Certificate</label>
+            <input type="text" class="form-control" name="number_certificate" id="field_number_certificate"
+                    ng-model="vm.cfdi.number_certificate"
+                    required ng-maxlength="20" />
+            <div ng-show="editForm.number_certificate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number_certificate.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_certificate.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                    This field cannot be longer than 20 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.cfdi.certificate" for="field_certificate">Certificate</label>
+            <input type="text" class="form-control" name="certificate" id="field_certificate"
+                    ng-model="vm.cfdi.certificate"
+                    required />
+            <div ng-show="editForm.certificate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.certificate.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.cfdi.cfdi_states" for="field_cfdi_states">Cfdi States</label>
+            <select class="form-control" id="field_cfdi_states" name="cfdi_states" ng-model="vm.cfdi.cfdi_states" ng-options="cfdi_states as cfdi_states.name for cfdi_states in vm.cfdi_states track by cfdi_states.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.cfdi_states.$invalid">
+            <p class="help-block"
+                ng-show="editForm.cfdi_states.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.cfdi.payment_method" for="field_payment_method">Payment Method</label>
+            <select class="form-control" id="field_payment_method" name="payment_method" ng-model="vm.cfdi.payment_method" ng-options="payment_method as payment_method.name for payment_method in vm.payment_methods track by payment_method.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.payment_method.$invalid">
+            <p class="help-block"
+                ng-show="editForm.payment_method.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.cfdi.cfdi_types" for="field_cfdi_types">Cfdi Types</label>
+            <select class="form-control" id="field_cfdi_types" name="cfdi_types" ng-model="vm.cfdi.cfdi_types" ng-options="cfdi_types as cfdi_types.name for cfdi_types in vm.cfdi_types track by cfdi_types.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.cfdi_types.$invalid">
+            <p class="help-block"
+                ng-show="editForm.cfdi_types.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.cfdi.cfdi_type_doc" for="field_cfdi_type_doc">Cfdi Type Doc</label>
+            <select class="form-control" id="field_cfdi_type_doc" name="cfdi_type_doc" ng-model="vm.cfdi.cfdi_type_doc" ng-options="cfdi_type_doc as cfdi_type_doc.name for cfdi_type_doc in vm.cfdi_type_docs track by cfdi_type_doc.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.cfdi_type_doc.$invalid">
+            <p class="help-block"
+                ng-show="editForm.cfdi_type_doc.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.cfdi.c_money" for="field_c_money">C Money</label>
+            <select class="form-control" id="field_c_money" name="c_money" ng-model="vm.cfdi.c_money" ng-options="c_money as c_money.name for c_money in vm.c_monies track by c_money.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.cfdi.com_tfd" for="field_com_tfd">Com Tfd</label>
+            <select class="form-control" id="field_com_tfd" name="com_tfd" ng-model="vm.cfdi.com_tfd" ng-options="com_tfd as com_tfd.id for com_tfd in vm.com_tfds track by com_tfd.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.com_tfd.$invalid">
+            <p class="help-block"
+                ng-show="editForm.com_tfd.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.cfdi.taxpayer_account" for="field_taxpayer_account">Taxpayer Account</label>
+            <select class="form-control" id="field_taxpayer_account" name="taxpayer_account" ng-model="vm.cfdi.taxpayer_account" ng-options="taxpayer_account as taxpayer_account.id for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.cfdi.tax_regime" for="field_tax_regime">Tax Regime</label>
+            <select class="form-control" id="field_tax_regime" name="tax_regime" ng-model="vm.cfdi.tax_regime" ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimes track by tax_regime.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.tax_regime.$invalid">
+            <p class="help-block"
+                ng-show="editForm.tax_regime.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.cfdi.taxpayer_client" for="field_taxpayer_client">Taxpayer Client</label>
+            <select class="form-control" id="field_taxpayer_client" name="taxpayer_client" ng-model="vm.cfdi.taxpayer_client" ng-options="taxpayer_client as taxpayer_client.id for taxpayer_client in vm.taxpayer_clients | orderBy:'id' track by taxpayer_client.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

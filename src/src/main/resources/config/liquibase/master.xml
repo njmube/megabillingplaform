@@ -118,5 +118,18 @@
     <include file="classpath:config/liquibase/changelog/20160902131842_added_entity_Branch_office.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160906175601_added_entity_Freecom_local_retentions.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160906175805_added_entity_Freecom_local_transfered.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160915144022_added_entity_Client_address.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160915122043_added_entity_Taxpayer_client.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160915122745_added_entity_Taxpayer_mail_accounts.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160915123057_added_entity_Taxpayer_ftp_account.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160915190105_added_entity_Taxpayer_transactions.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160915190248_added_entity_Type_transaction.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160915190525_added_entity_C_system.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160915191032_added_entity_Transactions_history.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160915192406_added_entity_Concept.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160915193258_added_entity_Part_concept.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160915193619_added_entity_Customs_info.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160916123719_added_entity_Com_tfd.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160916120951_added_entity_Cfdi.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

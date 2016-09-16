@@ -1,0 +1,49 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "concept",
+            "otherEntityName": "concept",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "measure_unit",
+            "otherEntityName": "measure_unit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "no_identification",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quanitty",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "unit_value",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal"
+        }
+    ],
+    "changelogDate": "20160915193258",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "part_concept",
+    "pagination": "pagination"
+}
