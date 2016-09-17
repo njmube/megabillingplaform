@@ -909,7 +909,7 @@
                         free_cfdi_dto.freecom_ine_entities = vm.freecom_ine_entities;
                         break;
                     case "kind_payment":
-                        free_cfdi_dto.freecom_kind = vm.freecom_kind;
+                        free_cfdi_dto.freecom_kind_payment = vm.freecom_kind_payment;
                         break;
                     case "foreign_tourist_passenger":
                         free_cfdi_dto.freecom_foreign_tourist_passenger = vm.freecom_foreign_tourist_passenger;
@@ -1281,7 +1281,7 @@
             vm.ine_entity_scope_disabled = false;
 
             vm.show_kind_payment = false;
-            vm.freecom_kind = { version: null, cvepic: null, foliosoldon: null, art_piece_name: null, technical_art_piece: null, year_art_piece: null, dimensional_art_piece: null, id: null };
+            vm.freecom_kind_payment = { version: null, cvepic: null, foliosoldon: null, art_piece_name: null, technical_art_piece: null, year_art_piece: null, dimensional_art_piece: null, id: null };
 
             vm.show_foreign_tourist_passenger = false;
             vm.freecom_foreign_tourist_passenger = { version: null, date_traffic: null, typeid: null, numerid: null, nationality: null, transportcompany: null, idtransport: null, c_transit_type: null, c_type_road: null, id: null };

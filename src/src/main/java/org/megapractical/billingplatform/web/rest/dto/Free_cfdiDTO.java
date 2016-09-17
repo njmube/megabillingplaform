@@ -45,7 +45,7 @@ public class Free_cfdiDTO {
     private List<Freecom_ine_entityDTO> freecom_ine_entities;
 
 
-    private Freecom_kind_payment freecom_kind;
+    private Freecom_kind_payment freecom_kind_payment;
 
     private Freecom_foreign_tourist_passenger freecom_foreign_tourist_passenger;
 
@@ -218,12 +218,12 @@ public class Free_cfdiDTO {
         this.freecom_ine_entities = freecom_ine_entities;
     }
 
-    public Freecom_kind_payment getFreecom_kind() {
-        return freecom_kind;
+    public Freecom_kind_payment getFreecom_kind_payment() {
+        return freecom_kind_payment;
     }
 
-    public void setFreecom_kind(Freecom_kind_payment freecom_kind) {
-        this.freecom_kind = freecom_kind;
+    public void setFreecom_kind_payment(Freecom_kind_payment freecom_kind_payment) {
+        this.freecom_kind_payment = freecom_kind_payment;
     }
 
     public Freecom_foreign_tourist_passenger getFreecom_foreign_tourist_passenger() {
