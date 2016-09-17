@@ -141,8 +141,8 @@
                 freeTaxTransfereds: null,
                 freeTaxRetentions: null
             };
-            Free_cfdi.update(free_cfdi_dto);
-            loadAll();
+            free_cfdi = Free_cfdi.update(free_cfdi_dto);
+            //loadAll();
         }
 
         function abrirZip(free_cfdi){
