@@ -154,7 +154,7 @@
                         <a ng-click="vm.openFile('application/pdf', free_cfdi.filepdf)" ng-if="free_cfdi.filepdf">
                             <i class="fa fa-file-pdf-o bigger-125">&nbsp;</i>
                         </a>
-                        <a ng-click="vm.cancelar(free_cfdi)">
+                        <a ng-click="vm.cancelar(free_cfdi)" ng-show = "free_cfdi.cfdi_states.id == 1">
                             <i class="glyphicon glyphicon-ban-circle bigger-125">&nbsp;</i>
                         </a>
                     </td>

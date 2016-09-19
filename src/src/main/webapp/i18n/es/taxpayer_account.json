@@ -2,32 +2,45 @@
     "megabillingplatformApp": {
         "taxpayer_account" : {
             "home": {
-                "title": "Taxpayer Accounts",
-                "createLabel": "Crear nuevo Taxpayer Account",
-                "createOrEditLabel": "Crear o editar Taxpayer Account",
-                "search": "Search for Taxpayer Account"
+                "title": "Cuentas de contribuyentes",
+                "createLabel": "Crear nueva Cuenta de contribuyente",
+                "createOrEditLabel": "Crear o editar Cuenta de contribuyente",
+                "search": "Búsqueda para Cuenta de contribuyente"
             },
-            "created": "Un nuevo Taxpayer Account ha sido creado con el identificador {{ param }}",
-            "updated": "Un Taxpayer Account ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Taxpayer Account ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Cuenta de contribuyente ha sido creado con el identificador {{ param }}",
+            "updated": "Una Cuenta de contribuyente ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Cuenta de contribuyente ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Taxpayer Account {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Cuenta de contribuyente {{ id }}?"
             },
             "detail": {
-                "title": "Taxpayer Account"
+                "title": "Cuenta de contribuyente",
+                "index":"inicio"
             },
-            "rfc": "Rfc",
-            "bussines_name": "Bussines Name",
-            "email": "Email",
+            "rfc": "RFC",
+            "bussines_name": "Nombre o Razón Social",
+            "email": "Correo Electrónico",
             "fax": "Fax",
-            "phone1": "Phone 1",
-            "phone2": "Phone 2",
+            "phone1": "Teléfono 1",
+            "phone2": "Teléfono 2",
             "accuracy": "Accuracy",
-            "tax_address": "Tax Address",
-            "taxpayer_certificate": "Taxpayer Certificate",
-            "type_taxpayer": "Type Taxpayer",
-            "tax_regime": "Tax Regime",
-            "user": "User"
+            "tax_address": "Dirección",
+            "taxpayer_certificate": "Certificado digital",
+            "type_taxpayer": "Tipo de cuenta",
+            "tax_regime": "Régimen",
+            "user": "Usuario",
+            "general":"General",
+            "users":"Usuarios",
+            "branch_office":"Sucursales",
+            "email_account":"Cuentas de correo",
+            "ftp_account":"Cuentas de FTP",
+            "adquired":"Adquirir timbres",
+            "inbox":"Bandeja de facturación",
+            "taxpayer_online":"Facturación en línea",
+            "retentions":"Retenciones & Pagos",
+            "massive":"Facturación masiva",
+            "configurations":"Configuración",
+            "app":"Aplicaciones"
         }
     }
 }

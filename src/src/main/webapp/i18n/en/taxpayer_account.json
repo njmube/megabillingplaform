@@ -14,7 +14,8 @@
                 "question": "Are you sure you want to delete Taxpayer Account {{ id }}?"
             },
             "detail": {
-                "title": "Taxpayer Account"
+                "title": "Taxpayer Account",
+                "index":"home"
             },
             "rfc": "Rfc",
             "bussines_name": "Bussines Name",
@@ -27,7 +28,19 @@
             "taxpayer_certificate": "Taxpayer Certificate",
             "type_taxpayer": "Type Taxpayer",
             "tax_regime": "Tax Regime",
-            "user": "User"
+            "user": "User",
+            "general":"General",
+            "users":"Users",
+            "branch_office":"Branch office",
+            "email_account":"Email accounts",
+            "ftp_account":"FTP account",
+            "adquired":"Adquired transactions",
+            "inbox":"Taxpayer inbox",
+            "taxpayer_online":"Taxpayer online",
+            "retentions":"Tax retentions & Pay",
+            "massive":"Massive taxpayer",
+            "configurations":"Configurations",
+            "app":"Aplications"
         }
     }
 }

@@ -1,0 +1,106 @@
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>
+                {{'megabillingplatformApp.taxpayer_account.detail.title' | translate}}
+                <small>
+                    <i class="ace-icon fa fa-angle-double-right"></i>
+                    {{'megabillingplatformApp.taxpayer_account.detail.index' | translate}}
+                </small>
+            </h1>
+        </div>
+        <div class="col-md-3">
+            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account"
+                    ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="col-md-1">
+            <a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info" href="#">
+                <i class="fa fa-lightbulb-o"></i>
+            </a>
+        </div>
+    </div>
+</div><!-- /.page-header -->
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="header smaller lighter blue">
+                    {{'megabillingplatformApp.taxpayer_account.configurations' | translate}}
+                </h3>
+                <div class="text-center">
+                    <a class="btn btn-link radius-4 front-link" href="general.html">
+                        <i class="ace-icon fa fa-cogs bigger-280"></i><br>
+                        {{'megabillingplatformApp.taxpayer_account.general' | translate}}
+                    </a>
+
+                    <a class="btn btn-link radius-4 front-link" href="usuarios.html">
+                        <i class="ace-icon fa fa-users bigger-280"></i><br>
+                        {{'megabillingplatformApp.taxpayer_account.users' | translate}}
+                    </a>
+
+                    <a class="btn btn-link radius-4 front-link" href="regimenes-fiscales.html">
+                        <i class="ace-icon fa fa-legal bigger-280"></i><br>
+                        {{'megabillingplatformApp.taxpayer_account.tax_regime' | translate}}
+                    </a>
+
+                    <div class="space-12"></div>
+
+                    <a class="btn btn-link radius-4 front-link" href="sucursales.html">
+                        <i class="ace-icon fa fa-institution bigger-280"></i><br>
+                        {{'megabillingplatformApp.taxpayer_account.branch_office' | translate}}
+                    </a>
+
+                    <a class="btn btn-link radius-4 front-link" href="correo-electronico.html">
+                        <i class="ace-icon fa fa-envelope bigger-280"></i><br>
+                        {{'megabillingplatformApp.taxpayer_account.email_account' | translate}}
+                    </a>
+
+                    <a class="btn btn-link radius-4 front-link" href="ftp.html">
+                        <i class="ace-icon fa fa-exchange bigger-280"></i><br>
+                        {{'megabillingplatformApp.taxpayer_account.ftp_account' | translate}}
+                    </a>
+
+                    <div class="space-12"></div>
+
+                    <a class="btn btn-link radius-4 front-link" href="adquirir-timbres.html">
+                        <i class="ace-icon fa fa-dropbox bigger-280"></i><br>
+                        {{'megabillingplatformApp.taxpayer_account.adquired' | translate}}
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h3 class="header smaller lighter blue" translate="megabillingplatformApp.taxpayer_account.app">
+                    Aplicaciones
+                </h3>
+                <div class="text-center">
+                    <a class="btn btn-link radius-4 front-link" href="bandeja-facturacion.html">
+                        <i class="ace-icon fa fa-inbox bigger-280"></i><br>
+                        {{'megabillingplatformApp.taxpayer_account.inbox' | translate}}
+                    </a>
+
+                    <a class="btn btn-link radius-4 front-link" href="../facturacion-enlinea/index.html">
+                        <i class="ace-icon fa fa-barcode bigger-280"></i><br>
+                        {{'megabillingplatformApp.taxpayer_account.taxpayer_online' | translate}}
+                    </a>
+
+                    <a class="btn btn-link radius-4 front-link" href="../retenciones-pagos/index.html">
+                        <i class="ace-icon fa fa-barcode bigger-280"></i><br>
+                        {{'megabillingplatformApp.taxpayer_account.retentions' | translate}}
+                    </a>
+
+                    <div class="space-12"></div>
+
+                    <a class="btn btn-link radius-4 front-link">
+                        <i class="ace-icon fa fa-file-archive-o bigger-280"></i><br>
+                        {{'megabillingplatformApp.taxpayer_account.massive' | translate}}
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- PAGE CONTENT ENDS -->
+    </div><!-- /.col -->
+</div><!-- /.row -->
