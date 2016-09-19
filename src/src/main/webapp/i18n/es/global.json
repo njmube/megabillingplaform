@@ -301,6 +301,7 @@
             "minbytes": "Este campo debe tener como mínimo {{min}} bytes.",
             "maxbytes": "Este campo no puede tener más de {{max}} bytes.",
             "pattern": "Formato incorrecto.",
+            "patternlargenumber": "Formato incorrecto: Este número es decimal, y puede tener hasta 24 cifras enteras y 6 decimales.",
             "email": "Dirección de correo incorrecta.",
             "phone": "Teléfono incorrecto.",
             "number": "Este campo debe ser un número.",

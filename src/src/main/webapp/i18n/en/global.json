@@ -301,6 +301,7 @@
             "minbytes": "This field should be more than {{ min }} bytes.",
             "maxbytes": "This field cannot be more than {{ max }} bytes.",
             "pattern": "Wrong Format.",
+            "patternlargenumber": "Wrong Format: This number must be decimal, up to 24 integer digits and 6 decimal digits.",
             "email": "Wrong email address.",
             "phone": "Wrong phone number.",
             "number": "This field should be a number.",

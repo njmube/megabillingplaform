@@ -2236,67 +2236,115 @@
 				<div class="col-md-5 col-md-offset-7">
 					<div class="hr hr-16 hr-dotted"></div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.subtotal" for="field_subtotal">Subtotal</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control text-right" name="subtotal" id="field_subtotal"
-                                   ui-mega-number-format ng-model="vm.free_cfdi.subtotal"
+						<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.subtotal" for="field_subtotal">Subtotal</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control text-right" name="free_cfdi_subtotal" id="field_subtotal"
+                                   ui-mega-number-format ng-model="vm.free_cfdi.subtotal" mg-pattern="/^\d{1,24}\.?\d{1,6}$/"
 									required readonly />
+                            <div ng-show="editForm.free_cfdi_iva.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.free_cfdi_iva.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                                    This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                                </p>
+                            </div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" for="form-field-15">IVA ({{vm.show_iva}} %): $</label>
-						<div class="col-sm-6">
-							<input type="text" id="form-field-15" class="form-control text-right"
-                                   ui-mega-number-format ng-model="vm.calc_iva" readonly
-                                    />
+						<label class="col-sm-4 control-label no-padding-right" for="form-field-15">IVA ({{vm.show_iva}} %): $</label>
+						<div class="col-sm-8">
+							<input type="text" id="form-field-15" class="form-control text-right" name="free_cfdi_iva"
+                                   ui-mega-number-format ng-model="vm.calc_iva" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                                   readonly />
+                            <div ng-show="editForm.free_cfdi_iva.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.free_cfdi_iva.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                                    This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                                </p>
+                            </div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" for="field_ieps">IEPS: $</label>
-						<div class="col-sm-6">
+						<label class="col-sm-4 control-label no-padding-right" for="field_ieps">IEPS: $</label>
+						<div class="col-sm-8">
 							<input type="text" class="form-control text-right" name="free_cfdi_ieps" id="field_ieps"
-                                   ui-mega-number-format ng-model="vm.ieps" readonly
-									 />
+                                   ui-mega-number-format ng-model="vm.ieps" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                                   readonly />
+                            <div ng-show="editForm.free_cfdi_ieps.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.free_cfdi_ieps.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                                    This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                                </p>
+                            </div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" for="field_ret_iva">RET IVA: $</label>
-						<div class="col-sm-6">
+						<label class="col-sm-4 control-label no-padding-right" for="field_ret_iva">RET IVA: $</label>
+						<div class="col-sm-8">
 							<input type="text" class="form-control text-right" name="free_cfdi_ret_iva" id="field_ret_iva"
-                                   ui-mega-number-format ng-model="vm.ret_iva" readonly
-									 />
+                                   ui-mega-number-format ng-model="vm.ret_iva" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                                   readonly/>
+                            <div ng-show="editForm.free_cfdi_ret_iva.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.free_cfdi_ret_iva.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                                    This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                                </p>
+                            </div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" for="field_ret_isr">RET ISR: $</label>
-						<div class="col-sm-6">
+						<label class="col-sm-4 control-label no-padding-right" for="field_ret_isr">RET ISR: $</label>
+						<div class="col-sm-8">
 							<input type="text" class="form-control text-right" name="free_cfdi_ret_isr" id="field_ret_isr"
-                                   ui-mega-number-format ng-model="vm.ret_isr" readonly
-									 />
+                                   ui-mega-number-format ng-model="vm.ret_isr" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                                   readonly/>
+                            <div ng-show="editForm.free_cfdi_ret_isr.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.free_cfdi_ret_isr.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                                    This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                                </p>
+                            </div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.discount" for="field_discount">Discount</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control text-right" name="discount" id="field_discount"
-                                   ui-mega-number-format ng-model="vm.free_cfdi.discount" readonly
-									 />
+						<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.discount" for="field_discount">Discount</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control text-right" name="free_cfdi_discount" id="field_discount"
+                                   ui-mega-number-format ng-model="vm.free_cfdi.discount" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                                   readonly />
+                            <div ng-show="editForm.free_cfdi_discount.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.free_cfdi_discount.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                                    This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                                </p>
+                            </div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" for="field_subtotal_discount">Subtotal-Descuentos: $</label>
-						<div class="col-sm-6">
+						<label class="col-sm-4 control-label no-padding-right" for="field_subtotal_discount">Subtotal-Descuentos: $</label>
+						<div class="col-sm-8">
 							<input type="text" class="form-control text-right" name="free_cfdi_subtotal_discount" id="field_subtotal_discount"
-                                   ui-mega-number-format ng-model="vm.subtotal_discount" readonly
-									 />
+                                   ui-mega-number-format ng-model="vm.subtotal_discount" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                                   readonly />
+                            <div ng-show="editForm.free_cfdi_subtotal_discount.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.free_cfdi_subtotal_discount.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                                    This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                                </p>
+                            </div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="col-sm-6 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total" for="field_total">Total</label>
-						<div class="col-sm-6">
-							<input type="text" class="form-control text-right" name="total" id="field_total"
-                                   ui-mega-number-format ng-model="vm.free_cfdi.total" required readonly
-									/>
+						<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.total" for="field_total">Total</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control text-right" name="free_cfdi_total" id="field_total"
+                                   ui-mega-number-format ng-model="vm.free_cfdi.total" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                                   required readonly />
+                            <div ng-show="editForm.free_cfdi_total.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.free_cfdi_total.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                                    This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                                </p>
+                            </div>
 						</div>
 					</div>
 

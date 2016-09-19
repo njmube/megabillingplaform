@@ -33,11 +33,11 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="unit_value" type="decimal(24,6)">
+            <column name="unit_value" type="decimal(32,6)">
                 <constraints nullable="true" />
             </column>
 
-            <column name="amount" type="decimal(24,6)">
+            <column name="amount" type="decimal(32,6)">
                 <constraints nullable="true" />
             </column>
 

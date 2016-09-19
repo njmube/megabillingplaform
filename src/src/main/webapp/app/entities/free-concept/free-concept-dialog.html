@@ -56,12 +56,12 @@
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.unit_value" for="field_unit_value">Unit_value</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control text-right" name="unit_value" id="field_unit_value"
-							ng-model="vm.free_concept.unit_value" ng-change="vm.calcAmount()" ng-pattern="/^\d+\.?\d*$/"
+							ng-model="vm.free_concept.unit_value" ng-change="vm.calcAmount()" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
 							required />
                         <div ng-show="editForm.unit_value.$invalid">
                             <p class="help-block"
-                               ng-show="editForm.unit_value.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
-                                This field should follow pattern "/^\d+\.?\d*$/".
+                               ng-show="editForm.unit_value.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                                This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
                             </p>
                         </div>
 					</div>
@@ -70,12 +70,12 @@
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.quantity" for="field_quantity">Quantity</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control text-right" name="quantity" id="field_quantity"
-								ng-model="vm.free_concept.quantity" ng-change="vm.calcAmount()" ng-pattern="/^\d+\.?\d*$/"
+								ng-model="vm.free_concept.quantity" ng-change="vm.calcAmount()" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
 								required />
                         <div ng-show="editForm.quantity.$invalid">
                             <p class="help-block"
-                               ng-show="editForm.quantity.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
-                                This field should follow pattern "/^\d+\.?\d*$/".
+                               ng-show="editForm.quantity.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                                This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
                             </p>
                         </div>
 					</div>
@@ -85,12 +85,12 @@
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.discount" for="field_discount">Discount</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control text-right" name="discount" id="field_discount"
-								ng-model="vm.free_concept.discount" ng-change="vm.calcAmount()" ng-pattern="/^\d+\.?\d*$/"
+								ng-model="vm.free_concept.discount" ng-change="vm.calcAmount()" ng-pattern="/^\d{1,2}\.?\d{1,2}$/"
 								/>
                         <div ng-show="editForm.discount.$invalid">
                             <p class="help-block"
-                               ng-show="editForm.discount.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
-                                This field should follow pattern "/^\d+\.?\d*$/".
+                               ng-show="editForm.discount.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d{1,2}\.?\d{1,2}$">
+                                This field should follow pattern "/^\d{1,2}\.?\d{1,2}$/".
                             </p>
                         </div>
 					</div>
@@ -108,11 +108,13 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.ieps" for="field_iva">IEPS</label>
 					<div class="col-sm-9">
-						<input type="text" class="form-control text-right" id="field_ieps" name="ieps" ng-model="vm.ieps" ng-disabled="vm.disable_ieps" ng-pattern="/^\d+\.?\d*$/" />
+						<input type="text" class="form-control text-right" id="field_ieps" name="ieps"
+                               ng-model="vm.ieps" ng-disabled="vm.disable_ieps" ng-pattern="/^\d{1,2}\.?\d{1,2}$/"
+                            />
                         <div ng-show="editForm.ieps.$invalid">
                             <p class="help-block"
-                               ng-show="editForm.ieps.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
-                                This field should follow pattern "/^\d+\.?\d*$/".
+                               ng-show="editForm.ieps.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d{1,2}\.?\d{1,2}$">
+                                This field should follow pattern "/^\d{1,2}\.?\d{1,2}$/".
                             </p>
                         </div>
 					</div>
@@ -122,8 +124,14 @@
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.amount" for="field_amount">Amount</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control text-right" name="amount" id="field_amount"
-                               ui-mega-number-format ng-model="vm.free_concept.amount"
+                               ui-mega-number-format ng-model="vm.free_concept.amount" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
 								required readonly />
+                        <div ng-show="editForm.amount.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.amount.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d+\.?\d*$">
+                                This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                            </p>
+                        </div>
 					</div>
 				</div>
 			</uib-tab>

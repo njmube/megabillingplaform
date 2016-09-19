@@ -24,7 +24,7 @@ public class Free_tax_retentions implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "amount", precision=24, scale=6, nullable = false)
+    @Column(name = "amount", precision=32, scale=6, nullable = false)
     private BigDecimal amount;
 
     @ManyToOne
