@@ -40,7 +40,67 @@
             "retentions":"Tax retentions & Pay",
             "massive":"Massive taxpayer",
             "configurations":"Configurations",
-            "app":"Aplications"
+            "app":"Aplications",
+            "fiscal_ubication":"Fiscal Ubication",
+            "street": "Street (*)",
+            "no_int": "No. Interior",
+            "no_ext": "No. Exterior",
+            "location": "Location",
+            "intersection": "Intersection",
+            "reference": "Reference",
+            "c_country": "Country (*)",
+            "c_state": "State (*)",
+            "c_municipality": "Municipality (*)",
+            "c_colony": "Colony",
+            "c_zip_code": "Zip Code",
+            "general_data":"General Data",
+            "messages": {
+                "validate": {
+                    "rfc": {
+                        "required": "Your RFC is required.",
+                        "minlength": "Your RFC is required to be at least 12 characters.",
+                        "maxlength": "Your RFC cannot be longer than 13 characters.",
+                        "pattern": "RFC format is incorrect"
+                    },
+                    "phone": {
+                        "required": "Your phone is required.",
+                        "minlength": "Your phone is required to be at least 1 character.",
+                        "maxlength": "Your phone cannot be longer than 15 characters.",
+                        "pattern": "Phone format is incorrect"
+                    },
+                    "fax": {
+                        "pattern": "Fax format is incorrect"
+                    }
+                },
+                "success": "<strong>Registration saved!</strong> Please check your email for confirmation.",
+                "error": {
+                    "fail": "<strong>Registration failed!</strong> Please try again later.",
+                    "userexists": "<strong>Login name already registered!</strong> Please choose another one.",
+                    "emailexists": "<strong>E-mail is already in use!</strong> Please choose another one.",
+                    "errorRfcExists": "<strong>RFC is already in use!</strong>"
+                }
+            },
+            "messcertificate":".cer file extention is required and file size <= 10 Mb",
+            "messkey":".key file extention is required and file size <= 10 Mb",
+            "path_certificate": "Certificate (.cert)",
+            "path_key": "Private key (.key)",
+            "addblobCertificate": "Seach",
+            "addblobKey": "Seach",
+            "addblobLogo": "Seach",
+            "validate":"Validate",
+            "certificateinfo":"Digital certificate information",
+            "rfc_certificate":"RFC: ",
+            "bussines_name_certificate":"Bussines name: ",
+            "date_created_cert":"Date created: ",
+            "date_expiration_cert":"Date expiration: ",
+            "valid_days":"Valid days: ",
+            "pass":"Password certificate: ",
+            "passtitle":"Enter the password",
+            "validate":"Validate",
+            "resultvalidation":"Result of validation",
+            "messvalidate":"Correct validation of digital certificate is required",
+            "number_certificate":"Number certificate: ",
+            "labelDC":"Digital Certificate"
         }
     }
 }

@@ -113,6 +113,9 @@
                     <a ng-click="vm.cancelar(free_cfdi)" ng-show = "free_cfdi.cfdi_states.id == 1">
                         <i class="glyphicon glyphicon-ban-circle">&nbsp;</i>
                     </a>
+                    <a ng-click="vm.abrirZip(free_cfdi)" ng-if="free_cfdi.filepdf">
+                        <i>Zip</i>
+                    </a>
                 </td>
                 <td>{{free_cfdi.date_expedition | date:'medium'}}</td>
                 <td>{{free_cfdi.serial}}</td>

@@ -146,13 +146,18 @@
         }
 
         function abrirZip(free_cfdi){
-            var temp = Free_cfdi.getzip({idFree_cfdi:free_cfdi.id});
+            var zip = new JSZip();
+            zip.add("Hello.txt", "Hello World\n");
+            content = zip.generate();
+            location.href="data:application/zip;base64,"+content;
+
+            /*var temp = Free_cfdi.getzip({idFree_cfdi:free_cfdi.id});
             var zipfile = temp.filexml;
 
             var json = JSON.stringify(zipfile),
                 blob = new Blob([json], {type: "octet/stream"}),
                 url = window.URL.createObjectURL(blob);
-            document.location = url;
+            document.location = url;*/
 
             /*var json = JSON.stringify(zipfile);
             var file = new Blob([json], { type: 'application/pdf' });

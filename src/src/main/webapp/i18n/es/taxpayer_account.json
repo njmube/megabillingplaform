@@ -17,13 +17,13 @@
                 "title": "Cuenta de contribuyente",
                 "index":"inicio"
             },
-            "rfc": "RFC",
-            "bussines_name": "Nombre o Razón Social",
-            "email": "Correo Electrónico",
+            "rfc": "RFC (*)",
+            "bussines_name": "Nombre o Razón Social (*)",
+            "email": "Correo Electrónico (*)",
             "fax": "Fax",
             "phone1": "Teléfono 1",
             "phone2": "Teléfono 2",
-            "accuracy": "Accuracy",
+            "accuracy": "Accuracy (*)",
             "tax_address": "Dirección",
             "taxpayer_certificate": "Certificado digital",
             "type_taxpayer": "Tipo de cuenta",
@@ -40,7 +40,67 @@
             "retentions":"Retenciones & Pagos",
             "massive":"Facturación masiva",
             "configurations":"Configuración",
-            "app":"Aplicaciones"
+            "app":"Aplicaciones",
+            "fiscal_ubication":"Ubicación Fiscal",
+            "street": "Calle (*)",
+            "no_int": "No. Interior",
+            "no_ext": "No. Exterior",
+            "location": "Localización",
+            "intersection": "Intersección",
+            "reference": "Referencia",
+            "c_country": "País (*)",
+            "c_state": "Estado (*)",
+            "c_municipality": "Municipio (*)",
+            "c_colony": "Colonia",
+            "c_zip_code": "Código postal",
+            "general_data":"Datos Generales",
+            "messages": {
+                "validate": {
+                    "rfc": {
+                        "required": "Su RFC es obligatorio.",
+                        "minlength": "Su RFC debe tener al menos 12 caracteres.",
+                        "maxlength": "Su RFC no puede tener más de 13 caracteres.",
+                        "pattern": "Patrón de RFC incorrecto."
+                    },
+                    "phone": {
+                        "required": "Su teléfono es obligatorio.",
+                        "minlength": "Su teléfono debe tener al menos 1 caracter.",
+                        "maxlength": "Su teléfono no puede tener más de 15 caracteres.",
+                        "pattern": "Número de teléfono incorrecto."
+                    },
+                    "fax": {
+                        "pattern": "Fax incorrecto."
+                    }
+                },
+                "success": "<strong>¡Registro guardado!</strong> Por favor, revise su correo electrónico para confirmar.",
+                "error": {
+                    "fail": "<strong>¡El registro ha fallado!</strong> Por favor, inténtelo de nuevo más tarde.",
+                    "userexists": "<strong>¡El nombre de usuario ya está registrado!</strong> Por favor, escoja otro usuario.",
+                    "emailexists": "<strong>¡El correo electrónico ya está en uso!</strong> Por favor, escoja otro email.",
+                    "errorRfcExists": "<strong>RFC está en uso!</strong>"
+                }
+            },
+            "messcertificate":"Es requerido la extensión .cer y el tamaño del fichero debe ser menor o igual a 10 Mb",
+            "messkey":"Es requerido la extensión .key  y el tamaño del fichero debe ser menor o igual a 10 Mb",
+            "path_certificate": "Certificado (.cert)",
+            "path_key": "Clave Privada (.key)",
+            "addblobCertificate": "Buscar",
+            "addblobKey": "Buscar",
+            "addblobLogo": "Buscar",
+            "validate":"Validate",
+            "certificateinfo":"Información del certificado digital",
+            "rfc_certificate":"RFC: ",
+            "bussines_name_certificate":"Razón social: ",
+            "date_created_cert":"fecha de inicio: ",
+            "date_expiration_cert":"Fecha de fin: ",
+            "valid_days":"Cantidad de días restantes: ",
+            "pass":"Contraseña del certificado: ",
+            "passtitle":"Enter the password",
+            "validate":"Validar",
+            "resultvalidation":"Resultado de la validación",
+            "messvalidate":"Es requerida la correcta validación del certificado digital",
+            "number_certificate":"Número de certificado: ",
+            "labelDC":"Certificado Digital"
         }
     }
 }
