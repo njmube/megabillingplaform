@@ -297,9 +297,9 @@
                                                                                 you to edit certain row. It makes it easy for you to quickly edit row sections.
                                                                                 http://kb.mailchimp.com/templates/code/create-editable-content-areas-with-mailchimps-template-language
                                                                             -->
-                                                                            <h3 mc:edit="header" style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:18px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">${receiver.getBusiness_name()}</h3><br>
-                                                                            <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;" th:text="#{email.newfreecfditoreceiver.text1}">
-                                                                                Se emitió a su nombre un Comprobante Fiscal Digital por Internet a través del sistema Plataforma de Facturación Electrónica.
+                                                                            <h3 mc:edit="header" style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:18px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;" th:text="#{email.newfreecfdi.greeting(${user.getName()} + ' ' + ${user.getFirtsurname()} + ' ' + ${user.getSecondsurname()})}"><b>Señor(a):</b> Lisandra Rado Naranjo </h3><br>
+                                                                            <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;" th:text="#{email.newfreecfdi.text1}">
+                                                                                Usted ha generado un Comprobante Fiscal Digital por Internet a través del sistema Plataforma de Facturación Electrónica.
                                                                             </div><br>
 																			
                                                                             <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;" th:text="#{email.newfreecfdi.text2}">
@@ -336,6 +336,10 @@
 																			
 																			<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%" th:text="#{email.newfreecfdi.text10(${free_cfdi.getTotal()})}">
                                                                                  Total: $2,320.00
+                                                                            </div><br>
+																			
+																			<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%" th:text="#{email.newfreecfdi.text11}">
+                                                                                 Gracias por utilizar nuestro servicio, estaremos gustosos de servirle.
                                                                             </div><br>
                                                                         </td>
                                                                     </tr>

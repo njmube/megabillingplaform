@@ -127,8 +127,8 @@ public class Free_cfdiResource {
         attachments.add(result.getPath_cfdi()+".xml");
         attachments.add(result.getPath_cfdi()+".pdf");
 
-        mailService.sendNewFreeCFDICreatedToEmitterEmail(result.getFree_emitter().getUser(), attachments);
-        mailService.sendNewFreeCFDICreatedToReceiverEmail(result.getFree_emitter().getUser(), result.getFree_receiver(), attachments);
+        mailService.sendNewFreeCFDICreatedToEmitterEmail(result, attachments);
+        mailService.sendNewFreeCFDICreatedToReceiverEmail(result, attachments);
 
         return ResponseEntity.created(new URI("/api/free-cfdis/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("free_cfdi", result.getId().toString()))

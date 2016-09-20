@@ -1128,6 +1128,8 @@
 			if(vm.free_cfdi.c_money != undefined && vm.free_cfdi.c_money.id == 100){
 				vm.free_cfdi.change_type = (1).toFixed(2);
 			}
+            else
+                vm.free_cfdi.change_type = null;
 		};
 
         vm.onChangeCFDITypeDoc = function(){
@@ -1298,7 +1300,7 @@
             vm.disable_others_acquired_title = true;
 
             vm.show_donees = false;
-            vm.freecom_donees = { version: null, no_authorization: null, date_authorization: null, legend: null,  id: null };
+            vm.freecom_donees = { version: null, no_authorization: null, date_authorization: new Date(), legend: null,  id: null };
 
             vm.show_educational_institutions = false;
             vm.freecom_educational_institutions = { version: null, name_student: null,  curp: null, autrvoe: null, rfcpayment: null, c_school_level: null, id: null };
@@ -1317,7 +1319,7 @@
             vm.freecom_kind_payment = { version: null, cvepic: null, foliosoldon: null, art_piece_name: null, technical_art_piece: null, year_art_piece: null, dimensional_art_piece: null, id: null };
 
             vm.show_foreign_tourist_passenger = false;
-            vm.freecom_foreign_tourist_passenger = { version: null, date_traffic: null, typeid: null, numerid: null, nationality: null, transportcompany: null, idtransport: null, c_transit_type: null, c_type_road: null, id: null };
+            vm.freecom_foreign_tourist_passenger = { version: null, date_traffic: new Date(), typeid: null, numerid: null, nationality: null, transportcompany: null, idtransport: null, c_transit_type: null, c_type_road: null, id: null };
 
             vm.show_partial_construction_services = false;
             vm.freecom_partial_construction_services = { version: null, street: null, noext: null, noint: null, colony: null, location: null, reference: null, municipality: null, zipcode: null, numperlicoaut: null, c_federal_entity: null, id: null};
@@ -1789,7 +1791,7 @@
                     entity: function () {
                         return {
                             identifier: null,
-                            date_expedition: null,
+                            date_expedition: new Date(),
                             rfc: null,
                             key_station: null,
                             quantity: (0).toFixed(2),
@@ -1852,7 +1854,7 @@
                     entity: function () {
                         return {
                             identification_number: null,
-                            date_expedition: null,
+                            date_expedition: new Date(),
                             rfc: null,
                             curp: null,
                             name: null,

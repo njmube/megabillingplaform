@@ -543,8 +543,9 @@
 								<label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.date_folio_fiscal_orig" for="field_date_folio_fiscal_orig">Date_folio_fiscal_orig</label>
 								<div class="col-sm-8">
 									<div class="input-group">
-										<input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" datetime-picker="{{dateformat}}" ng-model="vm.free_cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()" readonly
-										  />
+										<input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" uib-datepicker-popup="{{dateformat}}"
+                                               ng-model="vm.free_cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()"
+                                               readonly />
 										<span class="input-group-btn">
 											<button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_folio_fiscal_orig')" ng-disabled="vm.enableWithByPartiality()"><i class="glyphicon glyphicon-calendar"></i></button>
 										</span>
@@ -602,7 +603,8 @@
 							<div class="form-group">
 								<label  class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.c_money" for="field_c_money">c_money</label>
 								<div class="col-md-8">
-									<select class="form-control" id="field_c_money" name="c_money" ng-model="vm.free_cfdi.c_money" ng-options="c_money as c_money.name for c_money in vm.c_moneys track by c_money.id" data-ng-change="vm.checkMoneyType()">
+									<select class="form-control" id="field_c_money" name="c_money" ng-model="vm.free_cfdi.c_money"
+                                            ng-options="c_money as c_money.name for c_money in vm.c_moneys track by c_money.id" data-ng-change="vm.checkMoneyType()">
 										<option value=""></option>
 									</select>
 								</div>
