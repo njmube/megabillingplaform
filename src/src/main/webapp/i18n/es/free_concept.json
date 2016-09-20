@@ -25,7 +25,7 @@
             "amount": "Importe",
             "discount": "Descuento %",
             "free_cfdi": "free_cfdi",
-            "measure_unit": "Unidad de Medida  (*)",
+            "measure_unit": "Unidad Medida (*)",
             "iva": "IVA % (*)",
             "ieps": "IEPS %"
         }
