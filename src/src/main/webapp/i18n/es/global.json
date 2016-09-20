@@ -186,7 +186,8 @@
 			"join.mega": "Adquirir MegaCFDI"
 		},
         "afilitated": {
-            "transactions":"Adquirir timbres"
+            "transactions":"Adquirir timbres",
+            "title":"Afiliado"
         },
         "form": {
             "username": "Nombre de Usuario (*)",
@@ -282,7 +283,9 @@
             "ok": "OK",
             "accept":"Aceptar",
             "viewall":"Ver todas",
-            "add":"Adicionar"
+            "add":"Adicionar",
+            "apro":"Aprobar",
+            "reject":"Rechazar"
         },
         "detail": {
             "field": "Campo",

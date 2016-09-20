@@ -14,6 +14,8 @@
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
+        vm.accept = accept;
+        vm.reject = reject;
         vm.filterrfc = null;
         vm.datefrom = null;
         vm.dateto = null;
@@ -108,6 +110,16 @@
                 sort: vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc'),
                 search: vm.currentSearch
             });
+        }
+
+        function accept(request_taxpayer_account){
+            request_taxpayer_account.request_state = vm.request_stateS[1];
+            request_taxpayer_account = Request_taxpayer_account.update(request_taxpayer_account);
+        }
+
+        function reject(request_taxpayer_account){
+            request_taxpayer_account.request_state = vm.request_stateS[2];
+            request_taxpayer_account = Request_taxpayer_account.update(request_taxpayer_account);
         }
 
         vm.datePickerOpenStatus = {};

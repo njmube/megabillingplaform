@@ -186,7 +186,8 @@
 				"join.mega": "Join to Megapractical"
             },
         "afilitated": {
-            "transactions":"Get transactions"
+            "transactions":"Get transactions",
+            "title":"Afilitated"
         },
         "form": {
             "username": "Username (*)",
@@ -282,7 +283,9 @@
             "ok": "OK",
             "accept":"Accept",
             "viewall":"View all",
-            "add":"Add"
+            "add":"Add",
+            "apro":"Acccept",
+            "reject":"Reject"
         },
         "detail": {
             "field": "Field",

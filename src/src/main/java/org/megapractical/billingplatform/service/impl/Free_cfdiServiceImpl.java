@@ -294,15 +294,15 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
     }
 
     public Page<Free_cfdi> findByFree_emitter(Free_emitter free_emitter, Pageable pageable){
-        List<Free_cfdi> listaAll = free_cfdiRepository.findAll();
+        Page<Free_cfdi> listaAll = findAllDesc(pageable);
         List<Free_cfdi> result = new ArrayList<>();
-        for(int i=0;i<listaAll.size();i++){
-            if(listaAll.get(i).getFree_emitter().getRfc().compareTo(free_emitter.getRfc())==0){
-                Free_cfdi free = getFile(listaAll.get(i));
+        for(Free_cfdi free_cfdi: listaAll.getContent()){
+            if(free_cfdi.getFree_emitter().getRfc().compareTo(free_emitter.getRfc())==0){
+                Free_cfdi free = getFile(free_cfdi);
                 result.add(free);
             }
         }
-        return new PageImpl<Free_cfdi>(result, pageable, result.size());
+        return new PageImpl<Free_cfdi>(result, pageable, listaAll.getTotalElements());
     }
 
 
@@ -325,7 +325,7 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
             }
         }
         else {
-            List<Free_cfdi> listaAll = free_cfdiRepository.findAll();
+            List<Free_cfdi> listaAll = findAllDescList();
             List<Free_cfdi> result = new ArrayList<>();
             for(int i=0;i<listaAll.size();i++){
                 boolean a = true;
@@ -419,7 +419,7 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
             }
         }
         else {
-            List<Free_cfdi> listaAll = free_cfdiRepository.findAll();
+            List<Free_cfdi> listaAll = findAllDescList();
             List<Free_cfdi> result = new ArrayList<>();
             for(int i=0;i<listaAll.size();i++){
                 boolean a = true;
@@ -492,6 +492,24 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
         return page;
     }
 
+    private Page<Free_cfdi> findAllDesc(Pageable pageable){
+        Page<Free_cfdi> result = free_cfdiRepository.findAll(pageable);
+        List<Free_cfdi> list = new ArrayList<>();
+        for (int i = result.getContent().size() -1;i>=0;i--){
+            list.add(result.getContent().get(i));
+        }
+        Page<Free_cfdi> page = new PageImpl<Free_cfdi>(list,pageable,result.getTotalElements());
+        return page;
+    }
+
+    private List<Free_cfdi> findAllDescList(){
+        List<Free_cfdi> result = free_cfdiRepository.findAll();
+        List<Free_cfdi> list = new ArrayList<>();
+        for (int i = result.size() -1;i>=0;i--){
+            list.add(result.get(i));
+        }
+        return list;
+    }
     /**
      *  Get all the free_cfdis.
      *
@@ -501,7 +519,7 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
     @Transactional(readOnly = true)
     public Page<Free_cfdi> findAll(Pageable pageable) {
         log.debug("Request to get all Free_cfdis");
-        Page<Free_cfdi> result = free_cfdiRepository.findAll(pageable);
+        Page<Free_cfdi> result = findAllDesc(pageable);
         return result;
     }
 

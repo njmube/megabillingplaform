@@ -106,7 +106,7 @@
                 },
                 views: {
                     'content@': {
-                        templateUrl: 'app/entities/request-taxpayer-account/request-taxpayer-account-afilitated.html',
+                        templateUrl: 'app/entities/request-taxpayer-account/resquest-taxpayer-account-afilitated.html',
                         controller: 'Request_taxpayer_accountAfilitatedController',
                         controllerAs: 'vm'
                     }
