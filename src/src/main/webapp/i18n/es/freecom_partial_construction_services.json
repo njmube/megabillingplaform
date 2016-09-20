@@ -24,7 +24,7 @@
             "reference": "Referencia:",
             "numperlicoaut": "No. Permiso o Licencia:",
             "free_cfdi": "Free Cfdi",
-            "c_federal_entity": "Estado:",
+            "c_federal_entity": "Estado (*):",
             "c_municipality": "Municipio:",
             "c_colony": "Colonia:",
             "c_zip_code": "Código Postal:"
