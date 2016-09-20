@@ -254,17 +254,17 @@ public class MailService {
 
     @Async
     public void sendNewFreeCFDICreatedToReceiverEmail(Free_cfdi free_cfdi, List<String> attachments) {
-        Free_receiver receiver = free_cfdi.getFree_receiver();
-        log.debug("Sending new free cfdi created to receiver e-mail to '{}'", receiver.getEmail());
+        Free_receiver free_receiver = free_cfdi.getFree_receiver();
+        log.debug("Sending new free cfdi created to receiver e-mail to '{}'", free_receiver.getEmail());
         User user = free_cfdi.getFree_emitter().getUser();
         Locale locale = Locale.forLanguageTag(user.getLangKey());
         Context context = new Context(locale);
-        context.setVariable("receiver", receiver);
+        context.setVariable("free_receiver", free_receiver);
         context.setVariable("free_cfdi", free_cfdi);
         context.setVariable("free_emitter", free_cfdi.getFree_emitter());
         String content = templateEngine.process("newfreecfditoreceiverEmail", context);
         String subject = messageSource.getMessage("email.newfreecfdi.title", null, locale);
-        sendEmail(receiver.getEmail(), subject, content, true, true, attachments);
+        sendEmail(free_receiver.getEmail(), subject, content, true, true, attachments);
     }
 
 }
