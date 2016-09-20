@@ -14,20 +14,20 @@
                 "question": "¿Seguro que quiere eliminar Freecom Partial Construction Services {{ id }}?"
             },
             "detail": {
-                "title": "Freecom Partial Construction Services"
+                "title": "Servicios Parciales de Construcción"
             },
             "version": "Version",
-            "street": "Calle:",
-            "noext": "No. Exerior",
+            "street": "Calle (*):",
+            "noext": "No. Exterior",
             "noint": "No. Interior:",
             "location": "Localidad:",
             "reference": "Referencia:",
-            "numperlicoaut": "No. Permiso o Licencia:",
-            "free_cfdi": "Free Cfdi",
+            "numperlicoaut": "No. Permiso o Licencia (*):",
+            "free_cfdi": "Free CFDI",
             "c_federal_entity": "Estado (*):",
-            "c_municipality": "Municipio:",
+            "c_municipality": "Municipio (*):",
             "c_colony": "Colonia:",
-            "c_zip_code": "Código Postal:"
+            "c_zip_code": "Código Postal (*):"
         }
     }
 }
