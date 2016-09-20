@@ -314,15 +314,11 @@
                                                                                  Fecha: 2016-07-15T04:05:01
                                                                             </div><br/>
 
-																			<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%" th:text="#{email.newfreecfdi.text5(${free_cfdi.getFolio_fiscal_orig()})}">
-                                                                                 Folio Fiscal: ad662d33-6934-459c-a128-bdf0393e0f44
-                                                                            </div><br/>
-
 																			<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%" th:text="#{email.newfreecfdi.text6(${free_emitter.getRfc()})}">
                                                                                  RFC Emisor: LZRN870819LZR
                                                                             </div><br/>
 
-																			<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%" th:text="#{email.newfreecfdi.text7(${free_emitter.getTax_regime()})}">
+																			<div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%" th:text="#{email.newfreecfdi.text7(${free_emitter.getTax_regime().getName()})}">
                                                                                  Régimen Fiscal: Actividad Empresarial y Profesional
                                                                             </div><br/>
 
