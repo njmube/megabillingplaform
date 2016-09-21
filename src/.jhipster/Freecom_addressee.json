@@ -101,6 +101,6 @@
     "changelogDate": "20160822124633",
     "dto": "no",
     "service": "serviceImpl",
-    "entityTableName": "freecom",
+    "entityTableName": "freecom_addressee",
     "pagination": "pagination"
 }

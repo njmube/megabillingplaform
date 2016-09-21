@@ -16,7 +16,7 @@
             "detail": {
                 "title": "Freecom Specific Descriptions"
             },
-            "brand": "Brand",
+            "brand": "Brand (*)",
             "model": "Model",
             "submodel": "Submodel",
             "serial_number": "Serial Number"

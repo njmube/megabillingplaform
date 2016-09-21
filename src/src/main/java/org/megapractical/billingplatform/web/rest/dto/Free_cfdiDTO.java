@@ -87,6 +87,13 @@ public class Free_cfdiDTO {
     private List<Freecom_spei_thirdDTO> freecom_spei_thirds;
 
 
+    private Freecom_foreign_trade freecom_foreign_trade;
+
+    private Freecom_addressee freecom_addressee;
+
+    private List<Freecom_CommodityDTO> commodities;
+
+
     public Free_cfdiDTO(){
     }
 
@@ -353,5 +360,29 @@ public class Free_cfdiDTO {
 
     public void setFreecom_spei_thirds(List<Freecom_spei_thirdDTO> freecom_spei_thirds) {
         this.freecom_spei_thirds = freecom_spei_thirds;
+    }
+
+    public Freecom_foreign_trade getFreecom_foreign_trade() {
+        return freecom_foreign_trade;
+    }
+
+    public void setFreecom_foreign_trade(Freecom_foreign_trade freecom_foreign_trade) {
+        this.freecom_foreign_trade = freecom_foreign_trade;
+    }
+
+    public Freecom_addressee getFreecom_addressee() {
+        return freecom_addressee;
+    }
+
+    public void setFreecom_addressee(Freecom_addressee freecom_addressee) {
+        this.freecom_addressee = freecom_addressee;
+    }
+
+    public List<Freecom_CommodityDTO> getCommodities() {
+        return commodities;
+    }
+
+    public void setCommodities(List<Freecom_CommodityDTO> commodities) {
+        this.commodities = commodities;
     }
 }

@@ -224,6 +224,10 @@
                     $translatePartialLoader.addPart('freecom_spei_third');
                     $translatePartialLoader.addPart('freecom_payer');
                     $translatePartialLoader.addPart('freecom_beneficiary');
+                    $translatePartialLoader.addPart('freecom_foreign_trade');
+                    $translatePartialLoader.addPart('freecom_addressee');
+                    $translatePartialLoader.addPart('freecom_commodity');
+                    $translatePartialLoader.addPart('freecom_specific_descriptions');
 					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

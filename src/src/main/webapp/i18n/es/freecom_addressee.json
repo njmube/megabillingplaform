@@ -16,7 +16,7 @@
             "detail": {
                 "title": "Freecom Addressee"
             },
-            "street": "Street",
+            "street": "Street (*)",
             "no_ext": "No Ext",
             "no_int": "No Int",
             "locate": "Locate",

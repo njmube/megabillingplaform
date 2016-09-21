@@ -12,7 +12,7 @@ import java.util.Objects;
  * A Freecom_addressee.
  */
 @Entity
-@Table(name = "freecom")
+@Table(name = "freecom_addressee")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Freecom_addressee implements Serializable {
 

@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -8,64 +8,63 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-        <div class="form-group" ng-show="vm.freecom_specific_descriptions.id">
-            <label for="id" translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.freecom_specific_descriptions.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_specific_descriptions.brand" for="field_brand">Brand</label>
-            <input type="text" class="form-control" name="brand" id="field_brand"
-                    ng-model="vm.freecom_specific_descriptions.brand"
-                    required ng-maxlength="35" />
-            <div ng-show="editForm.brand.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.brand.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.brand.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="35">
-                    This field cannot be longer than 35 characters.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_specific_descriptions.model" for="field_model">Model</label>
-            <input type="text" class="form-control" name="model" id="field_model"
-                    ng-model="vm.freecom_specific_descriptions.model"
-                    ng-maxlength="80" />
-            <div ng-show="editForm.model.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.model.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="80">
-                    This field cannot be longer than 80 characters.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_specific_descriptions.submodel" for="field_submodel">Submodel</label>
-            <input type="text" class="form-control" name="submodel" id="field_submodel"
-                    ng-model="vm.freecom_specific_descriptions.submodel"
-                    ng-maxlength="50" />
-            <div ng-show="editForm.submodel.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.submodel.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
-                    This field cannot be longer than 50 characters.
-                </p>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.freecom_specific_descriptions.serial_number" for="field_serial_number">Serial Number</label>
-            <input type="text" class="form-control" name="serial_number" id="field_serial_number"
-                    ng-model="vm.freecom_specific_descriptions.serial_number"
-                    ng-maxlength="40" />
-            <div ng-show="editForm.serial_number.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.serial_number.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
-                    This field cannot be longer than 40 characters.
-                </p>
-            </div>
-        </div>
 
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_specific_descriptions.brand" for="field_brand">Brand</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="brand" id="field_brand"
+                        ng-model="vm.freecom_specific_descriptions.brand"
+                        required ng-maxlength="35" />
+                <div ng-show="editForm.brand.$invalid">
+                    <p class="help-block"
+                        ng-show="editForm.brand.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="35">
+                        This field cannot be longer than 35 characters.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_specific_descriptions.submodel" for="field_submodel">Submodel</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="submodel" id="field_submodel"
+                        ng-model="vm.freecom_specific_descriptions.submodel"
+                        ng-maxlength="50" />
+                <div ng-show="editForm.submodel.$invalid">
+                    <p class="help-block"
+                        ng-show="editForm.submodel.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                        This field cannot be longer than 50 characters.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_specific_descriptions.model" for="field_model">Model</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="model" id="field_model"
+                       ng-model="vm.freecom_specific_descriptions.model"
+                       ng-maxlength="80" />
+                <div ng-show="editForm.model.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.model.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="80">
+                        This field cannot be longer than 80 characters.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_specific_descriptions.serial_number" for="field_serial_number">Serial Number</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="serial_number" id="field_serial_number"
+                        ng-model="vm.freecom_specific_descriptions.serial_number"
+                        ng-maxlength="40" />
+                <div ng-show="editForm.serial_number.$invalid">
+                    <p class="help-block"
+                        ng-show="editForm.serial_number.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                        This field cannot be longer than 40 characters.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
