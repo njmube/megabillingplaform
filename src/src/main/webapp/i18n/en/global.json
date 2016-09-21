@@ -235,7 +235,7 @@
                     "minlength": "Your password is required to be at least 8 characters.",
                     "maxlength": "Your password cannot be longer than 50 characters.",
                     "strength": "Password strength:",
-                    "pattern": "Your password is required to be at least: a up-case letter, a lower-case letter, an special caracter or a digit."
+                    "pattern": "Your password is required to be at least: a up-case letter, a lower-case letter, an special caracter and a digit."
                 },
                 "confirmpassword": {
                     "required": "Your confirmation password is required.",

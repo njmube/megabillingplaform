@@ -235,7 +235,7 @@
                     "minlength": "Se requiere que su contraseña tenga por lo menos 8 caracteres",
                     "maxlength": "Su contraseña no puede tener más de 50 caracteres",
                     "strength": "Seguridad de la contraseña:",
-                    "pattern": "La contraseña debe contener al menos: una letra mayúscula, una letra  minúscula, y al menos un carácter especial o un número."
+                    "pattern": "La contraseña debe contener al menos: una letra mayúscula, una letra  minúscula, un carácter especial y un número."
                 },
                 "confirmpassword": {
                     "required": "Se requiere que confirme la contraseña.",
