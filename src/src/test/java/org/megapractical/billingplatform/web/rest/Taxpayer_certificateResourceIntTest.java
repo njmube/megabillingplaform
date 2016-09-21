@@ -76,6 +76,13 @@ public class Taxpayer_certificateResourceIntTest {
     private static final LocalDate UPDATED_DATE_EXPIRATION_CERT = LocalDate.now(ZoneId.systemDefault());
     private static final String DEFAULT_INFO_CERTIFICATE = "AAAAA";
     private static final String UPDATED_INFO_CERTIFICATE = "BBBBB";
+    private static final String DEFAULT_VALID_DAYS_CERT = "AAAAA";
+    private static final String UPDATED_VALID_DAYS_CERT = "BBBBB";
+    private static final String DEFAULT_PASS_CERTIFICATE = "AAAAA";
+    private static final String UPDATED_PASS_CERTIFICATE = "BBBBB";
+
+    private static final Boolean DEFAULT_VALID_CERTIFICATE = false;
+    private static final Boolean UPDATED_VALID_CERTIFICATE = true;
 
     @Inject
     private Taxpayer_certificateRepository taxpayer_certificateRepository;
@@ -119,6 +126,9 @@ public class Taxpayer_certificateResourceIntTest {
         taxpayer_certificate.setDate_created_cert(DEFAULT_DATE_CREATED_CERT);
         taxpayer_certificate.setDate_expiration_cert(DEFAULT_DATE_EXPIRATION_CERT);
         taxpayer_certificate.setInfo_certificate(DEFAULT_INFO_CERTIFICATE);
+        taxpayer_certificate.setValid_days_cert(DEFAULT_VALID_DAYS_CERT);
+        taxpayer_certificate.setPass_certificate(DEFAULT_PASS_CERTIFICATE);
+        taxpayer_certificate.setValid_certificate(DEFAULT_VALID_CERTIFICATE);
     }
 
     @Test
@@ -150,6 +160,9 @@ public class Taxpayer_certificateResourceIntTest {
         assertThat(testTaxpayer_certificate.getDate_created_cert()).isEqualTo(DEFAULT_DATE_CREATED_CERT);
         assertThat(testTaxpayer_certificate.getDate_expiration_cert()).isEqualTo(DEFAULT_DATE_EXPIRATION_CERT);
         assertThat(testTaxpayer_certificate.getInfo_certificate()).isEqualTo(DEFAULT_INFO_CERTIFICATE);
+        assertThat(testTaxpayer_certificate.getValid_days_cert()).isEqualTo(DEFAULT_VALID_DAYS_CERT);
+        assertThat(testTaxpayer_certificate.getPass_certificate()).isEqualTo(DEFAULT_PASS_CERTIFICATE);
+        assertThat(testTaxpayer_certificate.isValid_certificate()).isEqualTo(DEFAULT_VALID_CERTIFICATE);
     }
 
     @Test
@@ -172,46 +185,10 @@ public class Taxpayer_certificateResourceIntTest {
 
     @Test
     @Transactional
-    public void checkFilecertificateIsRequired() throws Exception {
-        int databaseSizeBeforeTest = taxpayer_certificateRepository.findAll().size();
-        // set the field null
-        taxpayer_certificate.setFilecertificate(null);
-
-        // Create the Taxpayer_certificate, which fails.
-
-        restTaxpayer_certificateMockMvc.perform(post("/api/taxpayer-certificates")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(taxpayer_certificate)))
-                .andExpect(status().isBadRequest());
-
-        List<Taxpayer_certificate> taxpayer_certificates = taxpayer_certificateRepository.findAll();
-        assertThat(taxpayer_certificates).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void checkPath_keyIsRequired() throws Exception {
         int databaseSizeBeforeTest = taxpayer_certificateRepository.findAll().size();
         // set the field null
         taxpayer_certificate.setPath_key(null);
-
-        // Create the Taxpayer_certificate, which fails.
-
-        restTaxpayer_certificateMockMvc.perform(post("/api/taxpayer-certificates")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(taxpayer_certificate)))
-                .andExpect(status().isBadRequest());
-
-        List<Taxpayer_certificate> taxpayer_certificates = taxpayer_certificateRepository.findAll();
-        assertThat(taxpayer_certificates).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
-    public void checkFilekeyIsRequired() throws Exception {
-        int databaseSizeBeforeTest = taxpayer_certificateRepository.findAll().size();
-        // set the field null
-        taxpayer_certificate.setFilekey(null);
 
         // Create the Taxpayer_certificate, which fails.
 
@@ -316,24 +293,6 @@ public class Taxpayer_certificateResourceIntTest {
 
     @Test
     @Transactional
-    public void checkInfo_certificateIsRequired() throws Exception {
-        int databaseSizeBeforeTest = taxpayer_certificateRepository.findAll().size();
-        // set the field null
-        taxpayer_certificate.setInfo_certificate(null);
-
-        // Create the Taxpayer_certificate, which fails.
-
-        restTaxpayer_certificateMockMvc.perform(post("/api/taxpayer-certificates")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(taxpayer_certificate)))
-                .andExpect(status().isBadRequest());
-
-        List<Taxpayer_certificate> taxpayer_certificates = taxpayer_certificateRepository.findAll();
-        assertThat(taxpayer_certificates).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllTaxpayer_certificates() throws Exception {
         // Initialize the database
         taxpayer_certificateRepository.saveAndFlush(taxpayer_certificate);
@@ -355,7 +314,10 @@ public class Taxpayer_certificateResourceIntTest {
                 .andExpect(jsonPath("$.[*].bussines_name_cert").value(hasItem(DEFAULT_BUSSINES_NAME_CERT.toString())))
                 .andExpect(jsonPath("$.[*].date_created_cert").value(hasItem(DEFAULT_DATE_CREATED_CERT.toString())))
                 .andExpect(jsonPath("$.[*].date_expiration_cert").value(hasItem(DEFAULT_DATE_EXPIRATION_CERT.toString())))
-                .andExpect(jsonPath("$.[*].info_certificate").value(hasItem(DEFAULT_INFO_CERTIFICATE.toString())));
+                .andExpect(jsonPath("$.[*].info_certificate").value(hasItem(DEFAULT_INFO_CERTIFICATE.toString())))
+                .andExpect(jsonPath("$.[*].valid_days_cert").value(hasItem(DEFAULT_VALID_DAYS_CERT.toString())))
+                .andExpect(jsonPath("$.[*].pass_certificate").value(hasItem(DEFAULT_PASS_CERTIFICATE.toString())))
+                .andExpect(jsonPath("$.[*].valid_certificate").value(hasItem(DEFAULT_VALID_CERTIFICATE.booleanValue())));
     }
 
     @Test
@@ -381,7 +343,10 @@ public class Taxpayer_certificateResourceIntTest {
             .andExpect(jsonPath("$.bussines_name_cert").value(DEFAULT_BUSSINES_NAME_CERT.toString()))
             .andExpect(jsonPath("$.date_created_cert").value(DEFAULT_DATE_CREATED_CERT.toString()))
             .andExpect(jsonPath("$.date_expiration_cert").value(DEFAULT_DATE_EXPIRATION_CERT.toString()))
-            .andExpect(jsonPath("$.info_certificate").value(DEFAULT_INFO_CERTIFICATE.toString()));
+            .andExpect(jsonPath("$.info_certificate").value(DEFAULT_INFO_CERTIFICATE.toString()))
+            .andExpect(jsonPath("$.valid_days_cert").value(DEFAULT_VALID_DAYS_CERT.toString()))
+            .andExpect(jsonPath("$.pass_certificate").value(DEFAULT_PASS_CERTIFICATE.toString()))
+            .andExpect(jsonPath("$.valid_certificate").value(DEFAULT_VALID_CERTIFICATE.booleanValue()));
     }
 
     @Test
@@ -396,7 +361,7 @@ public class Taxpayer_certificateResourceIntTest {
     @Transactional
     public void updateTaxpayer_certificate() throws Exception {
         // Initialize the database
-        taxpayer_certificateService.save(taxpayer_certificate);
+        taxpayer_certificateService.save(taxpayer_certificate, "rfc");
 
         int databaseSizeBeforeUpdate = taxpayer_certificateRepository.findAll().size();
 
@@ -416,6 +381,9 @@ public class Taxpayer_certificateResourceIntTest {
         updatedTaxpayer_certificate.setDate_created_cert(UPDATED_DATE_CREATED_CERT);
         updatedTaxpayer_certificate.setDate_expiration_cert(UPDATED_DATE_EXPIRATION_CERT);
         updatedTaxpayer_certificate.setInfo_certificate(UPDATED_INFO_CERTIFICATE);
+        updatedTaxpayer_certificate.setValid_days_cert(UPDATED_VALID_DAYS_CERT);
+        updatedTaxpayer_certificate.setPass_certificate(UPDATED_PASS_CERTIFICATE);
+        updatedTaxpayer_certificate.setValid_certificate(UPDATED_VALID_CERTIFICATE);
 
         restTaxpayer_certificateMockMvc.perform(put("/api/taxpayer-certificates")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -439,13 +407,16 @@ public class Taxpayer_certificateResourceIntTest {
         assertThat(testTaxpayer_certificate.getDate_created_cert()).isEqualTo(UPDATED_DATE_CREATED_CERT);
         assertThat(testTaxpayer_certificate.getDate_expiration_cert()).isEqualTo(UPDATED_DATE_EXPIRATION_CERT);
         assertThat(testTaxpayer_certificate.getInfo_certificate()).isEqualTo(UPDATED_INFO_CERTIFICATE);
+        assertThat(testTaxpayer_certificate.getValid_days_cert()).isEqualTo(UPDATED_VALID_DAYS_CERT);
+        assertThat(testTaxpayer_certificate.getPass_certificate()).isEqualTo(UPDATED_PASS_CERTIFICATE);
+        assertThat(testTaxpayer_certificate.isValid_certificate()).isEqualTo(UPDATED_VALID_CERTIFICATE);
     }
 
     @Test
     @Transactional
     public void deleteTaxpayer_certificate() throws Exception {
         // Initialize the database
-        taxpayer_certificateService.save(taxpayer_certificate);
+        taxpayer_certificateService.save(taxpayer_certificate, "rfc");
 
         int databaseSizeBeforeDelete = taxpayer_certificateRepository.findAll().size();
 

@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Taxpayer_certificateResource {
 
     private final Logger log = LoggerFactory.getLogger(Taxpayer_certificateResource.class);
-        
+
     @Inject
     private Taxpayer_certificateService taxpayer_certificateService;
-    
+
     /**
      * POST  /taxpayer-certificates : Create a new taxpayer_certificate.
      *
@@ -50,7 +50,7 @@ public class Taxpayer_certificateResource {
         if (taxpayer_certificate.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("taxpayer_certificate", "idexists", "A new taxpayer_certificate cannot already have an ID")).body(null);
         }
-        Taxpayer_certificate result = taxpayer_certificateService.save(taxpayer_certificate);
+        Taxpayer_certificate result = taxpayer_certificateService.save(taxpayer_certificate, "rfc");
         return ResponseEntity.created(new URI("/api/taxpayer-certificates/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("taxpayer_certificate", result.getId().toString()))
             .body(result);
@@ -74,7 +74,7 @@ public class Taxpayer_certificateResource {
         if (taxpayer_certificate.getId() == null) {
             return createTaxpayer_certificate(taxpayer_certificate);
         }
-        Taxpayer_certificate result = taxpayer_certificateService.save(taxpayer_certificate);
+        Taxpayer_certificate result = taxpayer_certificateService.save(taxpayer_certificate, "rfc");
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("taxpayer_certificate", taxpayer_certificate.getId().toString()))
             .body(result);
@@ -94,7 +94,7 @@ public class Taxpayer_certificateResource {
     public ResponseEntity<List<Taxpayer_certificate>> getAllTaxpayer_certificates(Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Taxpayer_certificates");
-        Page<Taxpayer_certificate> page = taxpayer_certificateService.findAll(pageable); 
+        Page<Taxpayer_certificate> page = taxpayer_certificateService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-certificates");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

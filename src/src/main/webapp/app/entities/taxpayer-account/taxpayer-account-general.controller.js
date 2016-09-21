@@ -85,6 +85,66 @@
         });
         $scope.$on('$destroy', unsubscribe);
 
+        var onSaveSuccess = function (result) {
+
+            vm.taxpayer_account =  result;
+            vm.isSaving = false;
+            if(vm.taxpayer_account.taxpayer_certificate.info_certificate != null){
+                vm.showInfo = true;
+            }else
+            {
+                vm.showInfo = false;
+            }
+        };
+
+        var onSaveError = function () {
+            vm.isSaving = false;
+        };
+
+        vm.save = function () {
+            if(vm.taxpayer_account.taxpayer_certificate.filecertificate != null){
+                if(vm.taxpayer_account.taxpayer_certificate.rfc_certificate != null){
+                    vm.isSaving = true;
+
+                    vm.taxpayer_account.taxpayer_certificate.info_certificate = null;
+                    vm.messvalidate = false;
+                    if(vm.taxpayer_account.fax == ''){
+                        vm.taxpayer_account.fax = null;
+                    }
+                    if(vm.taxpayer_account.phone2 == ''){
+                        vm.taxpayer_account.phone2 = null;
+                    }
+                    if(vm.taxpayer_account.phone1 == ''){
+                        vm.taxpayer_account.phone1 = null;
+                    }
+                    if(vm.taxpayer_account.tax_address.location == ''){
+                        vm.taxpayer_account.tax_address.location = null;
+                    }
+                    if(vm.taxpayer_account.tax_address.intersection == ''){
+                        vm.taxpayer_account.tax_address.intersection = null;
+                    }
+                    if(vm.taxpayer_account.tax_address.no_ext == ''){
+                        vm.taxpayer_account.tax_address.no_ext = null;
+                    }
+                    if(vm.taxpayer_account.tax_address.no_int == ''){
+                        vm.taxpayer_account.tax_address.no_int = null;
+                    }
+                    if(vm.taxpayer_account.tax_address.reference == ''){
+                        vm.taxpayer_account.tax_address.reference = null;
+                    }
+                    Taxpayer_account.update(vm.taxpayer_account, onSaveSuccess, onSaveError);
+                }else{
+                    vm.messvalidate = true;
+                }
+            }
+            else{
+                vm.isSaving = true;
+                vm.taxpayer_account.taxpayer_certificate.info_certificate = null;
+                vm.messvalidate = false;
+                Taxpayer_account.update(vm.taxpayer_account, onSaveSuccess, onSaveError);
+            }
+        };
+
         function onChangeC_country () {
             var countryId = vm.taxpayer_account.tax_address.c_country.id;
             C_state.query({countryId: countryId, filtername:" "}, function(result){

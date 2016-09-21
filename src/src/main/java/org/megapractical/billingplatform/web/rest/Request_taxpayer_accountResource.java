@@ -95,6 +95,8 @@ public class Request_taxpayer_accountResource {
         Long idtypeevent = new Long("1");
         tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
 
+        request_taxpayer_accountService.acceptedRequest(result);
+
         return ResponseEntity.created(new URI("/api/request-taxpayer-accounts/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("request_taxpayer_account", result.getId().toString()))
             .body(result);
@@ -123,7 +125,7 @@ public class Request_taxpayer_accountResource {
             return createRequest_taxpayer_account(request_taxpayer_account);
         }
         Request_taxpayer_account pre = request_taxpayer_accountService.findOne(request_taxpayer_account.getId());
-        log.debug("REST PRE Request_taxpayer_account state: {}", pre.getRequest_state().getId());
+        /*log.debug("REST PRE Request_taxpayer_account state: {}", pre.getRequest_state().getId());
         log.debug("REST Request_taxpayer_account state: {}", request_taxpayer_account.getRequest_state().getId());
         if(pre.getRequest_state().getId() == 1){
             Request_taxpayer_account result = request_taxpayer_accountService.save(request_taxpayer_account);
@@ -146,7 +148,7 @@ public class Request_taxpayer_accountResource {
                 return ResponseEntity.ok()
                     .headers(HeaderUtil.createEntityUpdateAlert("request_taxpayer_account", request_taxpayer_account.getId().toString()))
                     .body(result);
-        }
+        }*/
         return ResponseEntity.badRequest().
             headers(HeaderUtil.createFailureAlert("request_taxpayer_account", "operationerror", "Esta operación no es aceptada")).body(pre);
     }

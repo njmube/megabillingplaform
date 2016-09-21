@@ -13,15 +13,19 @@ public interface Taxpayer_certificateService {
 
     /**
      * Save a taxpayer_certificate.
-     * 
+     *
      * @param taxpayer_certificate the entity to save
      * @return the persisted entity
      */
-    Taxpayer_certificate save(Taxpayer_certificate taxpayer_certificate);
+    Taxpayer_certificate save(Taxpayer_certificate taxpayer_certificate, String rfc);
+
+    String[] validateCertificate(byte[] cert, byte[]key, String pass);
+
+    Taxpayer_certificate InfoCertificate(Taxpayer_certificate taxpayer_certificate);
 
     /**
      *  Get all the taxpayer_certificates.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
@@ -29,7 +33,7 @@ public interface Taxpayer_certificateService {
 
     /**
      *  Get the "id" taxpayer_certificate.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +41,7 @@ public interface Taxpayer_certificateService {
 
     /**
      *  Delete the "id" taxpayer_certificate.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

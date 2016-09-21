@@ -43,15 +43,9 @@
             </div>
             <input type="hidden" class="form-control" name="filecertificate" id="field_filecertificate"
                     ng-model="vm.taxpayer_certificate.filecertificate"
-                    required />
+                     />
             <input type="hidden" class="form-control" name="filecertificateContentType" id="field_filecertificateContentType"
                     ng-model="vm.taxpayer_certificate.filecertificateContentType" />
-            <div ng-show="editForm.filecertificate.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.filecertificate.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
         </div>
         <div class="form-group">
             <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.path_key" for="field_path_key">Path Key</label>
@@ -83,15 +77,9 @@
             </div>
             <input type="hidden" class="form-control" name="filekey" id="field_filekey"
                     ng-model="vm.taxpayer_certificate.filekey"
-                    required />
+                     />
             <input type="hidden" class="form-control" name="filekeyContentType" id="field_filekeyContentType"
                     ng-model="vm.taxpayer_certificate.filekeyContentType" />
-            <div ng-show="editForm.filekey.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.filekey.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
         </div>
         <div class="form-group">
             <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.number_certificate" for="field_number_certificate">Number Certificate</label>
@@ -183,13 +171,25 @@
             <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.info_certificate" for="field_info_certificate">Info Certificate</label>
             <input type="text" class="form-control" name="info_certificate" id="field_info_certificate"
                     ng-model="vm.taxpayer_certificate.info_certificate"
-                    required />
-            <div ng-show="editForm.info_certificate.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.info_certificate.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-            </div>
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.valid_days_cert" for="field_valid_days_cert">Valid Days Cert</label>
+            <input type="text" class="form-control" name="valid_days_cert" id="field_valid_days_cert"
+                    ng-model="vm.taxpayer_certificate.valid_days_cert"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.pass_certificate" for="field_pass_certificate">Pass Certificate</label>
+            <input type="text" class="form-control" name="pass_certificate" id="field_pass_certificate"
+                    ng-model="vm.taxpayer_certificate.pass_certificate"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_certificate.valid_certificate" for="field_valid_certificate">Valid Certificate</label>
+            <input type="checkbox" class="form-control" name="valid_certificate" id="field_valid_certificate"
+                    ng-model="vm.taxpayer_certificate.valid_certificate"
+                     />
         </div>
 
     </div>

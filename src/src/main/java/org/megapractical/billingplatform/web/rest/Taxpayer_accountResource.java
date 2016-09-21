@@ -1,11 +1,11 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import org.megapractical.billingplatform.domain.Authority;
-import org.megapractical.billingplatform.domain.Taxpayer_account;
-import org.megapractical.billingplatform.domain.User;
+import org.megapractical.billingplatform.domain.*;
 import org.megapractical.billingplatform.security.SecurityUtils;
+import org.megapractical.billingplatform.service.Tax_addressService;
 import org.megapractical.billingplatform.service.Taxpayer_accountService;
+import org.megapractical.billingplatform.service.Taxpayer_certificateService;
 import org.megapractical.billingplatform.service.UserService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
@@ -41,6 +41,12 @@ public class Taxpayer_accountResource {
     @Inject
     private UserService userService;
 
+    @Inject
+    private Taxpayer_certificateService taxpayer_certificateService;
+
+    @Inject
+    private Tax_addressService tax_addressService;
+
     /**
      * POST  /taxpayer-accounts : Create a new taxpayer_account.
      *
@@ -57,7 +63,11 @@ public class Taxpayer_accountResource {
         if (taxpayer_account.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("taxpayer_account", "idexists", "A new taxpayer_account cannot already have an ID")).body(null);
         }
+        Taxpayer_certificate taxpayer_certificate = taxpayer_certificateService.save(taxpayer_account.getTaxpayer_certificate(), taxpayer_account.getRfc());
+        taxpayer_account.setTaxpayer_certificate(taxpayer_certificate);
         Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
+        result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
+
         return ResponseEntity.created(new URI("/api/taxpayer-accounts/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("taxpayer_account", result.getId().toString()))
             .body(result);
@@ -78,10 +88,75 @@ public class Taxpayer_accountResource {
     @Timed
     public ResponseEntity<Taxpayer_account> updateTaxpayer_account(@Valid @RequestBody Taxpayer_account taxpayer_account) throws URISyntaxException {
         log.debug("REST request to update Taxpayer_account : {}", taxpayer_account);
+        if(taxpayer_account.getTaxpayer_certificate()!=null){
+            if(taxpayer_account.getTaxpayer_certificate().getPass_certificate()!=null && taxpayer_account.getTaxpayer_certificate().getInfo_certificate()!=null){
+                String [] response = taxpayer_certificateService.validateCertificate(taxpayer_account.getTaxpayer_certificate().getFilecertificate(),
+                taxpayer_account.getTaxpayer_certificate().getFilekey(), taxpayer_account.getTaxpayer_certificate().getPass_certificate());
+                taxpayer_account.getTaxpayer_certificate().setInfo_certificate(response[1]);
+
+                Taxpayer_certificate taxpayer_certificate = taxpayer_certificateService.InfoCertificate(taxpayer_account.getTaxpayer_certificate());
+                if(taxpayer_account.getRfc().compareTo(taxpayer_certificate.getRfc_certificate())!=0) {
+                    taxpayer_certificate.setInfo_certificate("ERROR: Emitter RFC is diferent to Certificate RFC");
+                    taxpayer_certificate.setNumber_certificate(null);
+                    taxpayer_certificate.setDate_certificate(null);
+                    taxpayer_certificate.setRfc_certificate(null);
+                    taxpayer_certificate.setBussines_name_cert(null);
+                    taxpayer_certificate.setDate_created_cert(null);
+                    taxpayer_certificate.setDate_expiration_cert(null);
+                    taxpayer_certificate.setValid_days_cert(null);
+                }else {
+                    if (response[0].compareTo("0") != 0) {
+                        taxpayer_certificate.setNumber_certificate(null);
+                        taxpayer_certificate.setDate_certificate(null);
+                        taxpayer_certificate.setRfc_certificate(null);
+                        taxpayer_certificate.setBussines_name_cert(null);
+                        taxpayer_certificate.setDate_created_cert(null);
+                        taxpayer_certificate.setDate_expiration_cert(null);
+                        taxpayer_certificate.setValid_days_cert(null);
+                    } else {
+                        taxpayer_certificate.setInfo_certificate(null);
+                    }
+                }
+                taxpayer_account.setTaxpayer_certificate(taxpayer_certificate);
+                return new ResponseEntity<Taxpayer_account>(taxpayer_account,HttpStatus.OK);
+            }else{
+                if(taxpayer_account.getTaxpayer_certificate().getFilecertificate() != null) {
+                    Taxpayer_certificate taxpayer_certificate = taxpayer_certificateService.InfoCertificate(taxpayer_account.getTaxpayer_certificate());
+                    if(taxpayer_account.getRfc().compareTo(taxpayer_certificate.getRfc_certificate())!=0) {
+                        taxpayer_certificate.setInfo_certificate("ERROR: Emitter RFC is diferent to Certificate RFC");
+                        taxpayer_certificate.setNumber_certificate(null);
+                        taxpayer_certificate.setDate_certificate(null);
+                        taxpayer_certificate.setRfc_certificate(null);
+                        taxpayer_certificate.setBussines_name_cert(null);
+                        taxpayer_certificate.setDate_created_cert(null);
+                        taxpayer_certificate.setDate_expiration_cert(null);
+                        taxpayer_certificate.setValid_days_cert(null);
+                        return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("taxpayer_account", "diferentRFC", "ERROR: Taxpayer Account RFC is diferent to Certificate RFC")).body(null);
+                    }
+                }
+                if (taxpayer_account.getId() == null) {
+                    return createTaxpayer_account(taxpayer_account);
+                }
+                Tax_address tax_address = tax_addressService.save(taxpayer_account.getTax_address());
+
+                Taxpayer_certificate tc = taxpayer_certificateService.save(taxpayer_account.getTaxpayer_certificate(), taxpayer_account.getRfc());
+                taxpayer_account.setTaxpayer_certificate(tc);
+                Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
+                result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
+                result.setTax_address(tax_addressService.findOne(result.getTax_address().getId()));
+                return ResponseEntity.ok()
+                    .headers(HeaderUtil.createEntityUpdateAlert("taxpayer_account", taxpayer_account.getId().toString()))
+                    .body(result);
+            }
+        }
         if (taxpayer_account.getId() == null) {
             return createTaxpayer_account(taxpayer_account);
         }
+        Taxpayer_certificate tc = taxpayer_certificateService.save(taxpayer_account.getTaxpayer_certificate(),taxpayer_account.getRfc());
+        taxpayer_account.setTaxpayer_certificate(tc);
         Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
+        result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
+
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("taxpayer_account", taxpayer_account.getId().toString()))
             .body(result);
@@ -139,6 +214,12 @@ public class Taxpayer_accountResource {
     public ResponseEntity<Taxpayer_account> getTaxpayer_account(@PathVariable Long id) {
         log.debug("REST request to get Taxpayer_account : {}", id);
         Taxpayer_account taxpayer_account = taxpayer_accountService.findOne(id);
+        if(taxpayer_account.getTaxpayer_certificate()==null){
+            taxpayer_account.setTaxpayer_certificate(new Taxpayer_certificate());
+        }
+        else{
+            taxpayer_account.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
+        }
         return Optional.ofNullable(taxpayer_account)
             .map(result -> new ResponseEntity<>(
                 result,

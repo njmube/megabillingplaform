@@ -11,10 +11,7 @@
         {
             "fieldName": "filecertificate",
             "fieldType": "byte[]",
-            "fieldTypeBlobContent": "any",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldTypeBlobContent": "any"
         },
         {
             "fieldName": "path_key",
@@ -26,10 +23,7 @@
         {
             "fieldName": "filekey",
             "fieldType": "byte[]",
-            "fieldTypeBlobContent": "any",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldTypeBlobContent": "any"
         },
         {
             "fieldName": "number_certificate",
@@ -77,10 +71,19 @@
         },
         {
             "fieldName": "info_certificate",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valid_days_cert",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pass_certificate",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "valid_certificate",
+            "fieldType": "Boolean"
         }
     ],
     "changelogDate": "20160902125242",

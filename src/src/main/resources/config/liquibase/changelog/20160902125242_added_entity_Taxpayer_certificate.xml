@@ -26,10 +26,10 @@
             </column>
             
             <column name="filecertificate" type="blob">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             <column name="filecertificate_content_type" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             
             <column name="path_key" type="varchar(255)">
@@ -37,10 +37,10 @@
             </column>
             
             <column name="filekey" type="blob">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             <column name="filekey_content_type" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
             
             <column name="number_certificate" type="varchar(20)">
@@ -68,7 +68,19 @@
             </column>
             
             <column name="info_certificate" type="varchar(255)">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="valid_days_cert" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="pass_certificate" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="valid_certificate" type="bit">
+                <constraints nullable="true" />
             </column>
             
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->

@@ -104,6 +104,9 @@
                                 date_created_cert: null,
                                 date_expiration_cert: null,
                                 info_certificate: null,
+                                valid_days_cert: null,
+                                pass_certificate: null,
+                                valid_certificate: null,
                                 id: null
                             };
                         }

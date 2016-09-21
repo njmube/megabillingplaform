@@ -67,7 +67,7 @@ class Taxpayer_certificateGatlingTest extends Simulation {
             .exec(http("Create new taxpayer_certificate")
             .post("/api/taxpayer-certificates")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "path_certificate":"SAMPLE_TEXT", "filecertificate":null, "path_key":"SAMPLE_TEXT", "filekey":null, "number_certificate":"SAMPLE_TEXT", "date_certificate":"2020-01-01T00:00:00.000Z", "rfc_certificate":"SAMPLE_TEXT", "bussines_name_cert":"SAMPLE_TEXT", "date_created_cert":"2020-01-01T00:00:00.000Z", "date_expiration_cert":"2020-01-01T00:00:00.000Z", "info_certificate":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "path_certificate":"SAMPLE_TEXT", "filecertificate":null, "path_key":"SAMPLE_TEXT", "filekey":null, "number_certificate":"SAMPLE_TEXT", "date_certificate":"2020-01-01T00:00:00.000Z", "rfc_certificate":"SAMPLE_TEXT", "bussines_name_cert":"SAMPLE_TEXT", "date_created_cert":"2020-01-01T00:00:00.000Z", "date_expiration_cert":"2020-01-01T00:00:00.000Z", "info_certificate":"SAMPLE_TEXT", "valid_days_cert":"SAMPLE_TEXT", "pass_certificate":"SAMPLE_TEXT", "valid_certificate":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_taxpayer_certificate_url"))).exitHereIfFailed
             .pause(10)

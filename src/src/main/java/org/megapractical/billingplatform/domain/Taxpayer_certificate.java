@@ -27,24 +27,22 @@ public class Taxpayer_certificate implements Serializable {
     @Column(name = "path_certificate", nullable = false)
     private String path_certificate;
 
-    @NotNull
     @Lob
-    @Column(name = "filecertificate", nullable = false)
+    @Column(name = "filecertificate")
     private byte[] filecertificate;
 
-    @Column(name = "filecertificate_content_type", nullable = false)
+    @Column(name = "filecertificate_content_type")
     private String filecertificateContentType;
 
     @NotNull
     @Column(name = "path_key", nullable = false)
     private String path_key;
 
-    @NotNull
     @Lob
-    @Column(name = "filekey", nullable = false)
+    @Column(name = "filekey")
     private byte[] filekey;
 
-    @Column(name = "filekey_content_type", nullable = false)
+    @Column(name = "filekey_content_type")
     private String filekeyContentType;
 
     @NotNull
@@ -72,9 +70,17 @@ public class Taxpayer_certificate implements Serializable {
     @Column(name = "date_expiration_cert")
     private LocalDate date_expiration_cert;
 
-    @NotNull
-    @Column(name = "info_certificate", nullable = false)
+    @Column(name = "info_certificate")
     private String info_certificate;
+
+    @Column(name = "valid_days_cert")
+    private String valid_days_cert;
+
+    @Column(name = "pass_certificate")
+    private String pass_certificate;
+
+    @Column(name = "valid_certificate")
+    private Boolean valid_certificate;
 
     public Long getId() {
         return id;
@@ -188,6 +194,30 @@ public class Taxpayer_certificate implements Serializable {
         this.info_certificate = info_certificate;
     }
 
+    public String getValid_days_cert() {
+        return valid_days_cert;
+    }
+
+    public void setValid_days_cert(String valid_days_cert) {
+        this.valid_days_cert = valid_days_cert;
+    }
+
+    public String getPass_certificate() {
+        return pass_certificate;
+    }
+
+    public void setPass_certificate(String pass_certificate) {
+        this.pass_certificate = pass_certificate;
+    }
+
+    public Boolean isValid_certificate() {
+        return valid_certificate;
+    }
+
+    public void setValid_certificate(Boolean valid_certificate) {
+        this.valid_certificate = valid_certificate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -225,6 +255,9 @@ public class Taxpayer_certificate implements Serializable {
             ", date_created_cert='" + date_created_cert + "'" +
             ", date_expiration_cert='" + date_expiration_cert + "'" +
             ", info_certificate='" + info_certificate + "'" +
+            ", valid_days_cert='" + valid_days_cert + "'" +
+            ", pass_certificate='" + pass_certificate + "'" +
+            ", valid_certificate='" + valid_certificate + "'" +
             '}';
     }
 }

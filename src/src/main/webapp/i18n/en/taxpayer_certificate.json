@@ -26,7 +26,10 @@
             "bussines_name_cert": "Bussines Name Cert",
             "date_created_cert": "Date Created Cert",
             "date_expiration_cert": "Date Expiration Cert",
-            "info_certificate": "Info Certificate"
+            "info_certificate": "Info Certificate",
+            "valid_days_cert": "Valid Days Cert",
+            "pass_certificate": "Pass Certificate",
+            "valid_certificate": "Valid Certificate"
         }
     }
 }

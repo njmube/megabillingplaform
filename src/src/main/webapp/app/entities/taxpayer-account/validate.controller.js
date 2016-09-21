@@ -25,7 +25,11 @@
         };
 
         function onValidate(){
-            if(vm.pass_certificate != null && vm.pass_certificate != "" && vm.taxpayer_account.taxpayer_certificate.filekey!=null && vm.taxpayer_account.taxpayer_certificate.filecertificate!=null){
+            if(vm.taxpayer_account.taxpayer_certificate.pass_certificate != null &&
+                vm.taxpayer_account.taxpayer_certificate.pass_certificate != "" &&
+                vm.taxpayer_account.taxpayer_certificate.filekey!=null &&
+                vm.taxpayer_account.taxpayer_certificate.filecertificate!=null){
+
                 vm.messvalidate = false;
                 vm.taxpayer_account.taxpayer_certificate.info_certificate = 'validating...';
                 Taxpayer_account.update(vm.taxpayer_account, onSaveSuccess, onSaveError);
