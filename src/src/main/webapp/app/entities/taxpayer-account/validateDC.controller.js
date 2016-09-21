@@ -3,11 +3,11 @@
 
     angular
         .module('megabillingplatformApp')
-        .controller('ValidateController', ValidateController);
+        .controller('ValidateDCController', ValidateDCController);
 
-    ValidateController.$inject = ['$scope', '$stateParams', '$uibModal', 'Taxpayer_account', '$uibModalInstance', '$q', 'entity', 'DataUtils', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code','Type_taxpayer'];
+    ValidateDCController.$inject = ['$scope', '$stateParams', '$uibModal', 'Taxpayer_account', '$uibModalInstance', '$q', 'entity', 'DataUtils', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code','Type_taxpayer'];
 
-    function ValidateController ($scope, $stateParams, $uibModal, Taxpayer_account, $uibModalInstance, $q, entity, DataUtils, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, Type_taxpayer) {
+    function ValidateDCController ($scope, $stateParams, $uibModal, Taxpayer_account, $uibModalInstance, $q, entity, DataUtils, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, Type_taxpayer) {
         var vm = this;
 
         vm.taxpayer_account = entity;

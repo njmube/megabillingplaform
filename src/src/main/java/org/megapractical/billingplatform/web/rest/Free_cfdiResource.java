@@ -165,6 +165,7 @@ public class Free_cfdiResource {
             }
         }
         Free_cfdi result = free_cfdiService.save(free_cfdi_dto);
+        log.debug("Estado del free_cfdi despeus de salvado: " + result.getCfdi_states().getName());
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("free_cfdi", free_cfdi.getId().toString()))
             .body(result);

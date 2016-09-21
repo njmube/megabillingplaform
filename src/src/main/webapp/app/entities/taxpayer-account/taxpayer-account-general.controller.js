@@ -64,8 +64,8 @@
 
         function add(){
             $uibModal.open({
-                templateUrl: 'app/entities/taxpayer-account/validate.html',
-                controller: 'ValidateController',
+                templateUrl: 'app/entities/taxpayer-account/validateDC.html',
+                controller: 'ValidateDCController',
                 controllerAs: 'vm',
                 backdrop: true,
                 size: '',
