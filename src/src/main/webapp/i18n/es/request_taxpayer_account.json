@@ -55,7 +55,7 @@
             "labelDS":"Datos del solicitante",
             "labelDC":"Datos de la cuenta de facturación",
             "propio":"Propio",
-            "messege":"Su solicitud ha sido registrada satisfactoriamente. Se le envió una notificación al correo electrónico suministrado por usted con los datos de la solicitud. Cuando su cuenta se apruebe se le enviará un correo informándole que ya su cuenta de contribuyente esta activa y puede operar con la misma.",
+            "messege":"Su solicitud ha sido registrada satisfactoriamente. Usted ya es un afiliado por lo cual puede salir de sessión y autenticarse nuevamente para acceder a las funcionalidades de afiliado.",
             "messege1":"Atentamente",
             "signal":"Megapractical, S.A. de C.V.",
             "messages": {

@@ -3,10 +3,7 @@ package org.megapractical.billingplatform.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import org.megapractical.billingplatform.domain.*;
 import org.megapractical.billingplatform.security.SecurityUtils;
-import org.megapractical.billingplatform.service.Tax_addressService;
-import org.megapractical.billingplatform.service.Taxpayer_accountService;
-import org.megapractical.billingplatform.service.Taxpayer_certificateService;
-import org.megapractical.billingplatform.service.UserService;
+import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -46,6 +43,15 @@ public class Taxpayer_accountResource {
 
     @Inject
     private Tax_addressService tax_addressService;
+
+    @Inject
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
+
+    @Inject
+    Audit_event_typeService audit_event_typeService;
 
     /**
      * POST  /taxpayer-accounts : Create a new taxpayer_account.
@@ -144,6 +150,11 @@ public class Taxpayer_accountResource {
                 Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
                 result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
                 result.setTax_address(tax_addressService.findOne(result.getTax_address().getId()));
+
+                Long id = new Long("45");
+                Long idtypeevent = new Long("1");
+                tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+
                 return ResponseEntity.ok()
                     .headers(HeaderUtil.createEntityUpdateAlert("taxpayer_account", taxpayer_account.getId().toString()))
                     .body(result);
@@ -156,6 +167,10 @@ public class Taxpayer_accountResource {
         taxpayer_account.setTaxpayer_certificate(tc);
         Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
         result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
+
+        Long id = new Long("45");
+        Long idtypeevent = new Long("1");
+        tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
 
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("taxpayer_account", taxpayer_account.getId().toString()))
