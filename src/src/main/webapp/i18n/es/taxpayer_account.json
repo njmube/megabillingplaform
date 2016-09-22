@@ -100,7 +100,18 @@
             "resultvalidation":"Resultado de la validación",
             "messvalidate":"Es requerida la correcta validación del certificado digital",
             "number_certificate":"Número de certificado: ",
-            "labelDC":"Certificado Digital"
+            "labelDC":"Certificado Digital",
+            "name_f_s":"Nombre y Apellidos",
+            "user":"Nombre Usuario",
+            "state":"Estado",
+            "roles":"Roles",
+            "deactivated":"Desactivado",
+            "activated":"Activado",
+            "adduser":"Asociar Usuario",
+            "emailuser":"Correo",
+            "search_result":"Resultado de la búsqueda",
+            "filterrfc":"RFC",
+            "messRFC":"Debe introducir el RFC del usuario"
         }
     }
 }

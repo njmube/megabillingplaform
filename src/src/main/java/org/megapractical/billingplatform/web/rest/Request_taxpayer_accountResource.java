@@ -87,6 +87,7 @@ public class Request_taxpayer_accountResource {
         log.debug("Salvando direccion : {}", request_taxpayer_account.getTax_address_request());
         Tax_address_request tax_address_request = tax_address_requestService.save(request_taxpayer_account.getTax_address_request());
         request_taxpayer_account.setTax_address_request(tax_address_request);
+        request_taxpayer_account.setRequest_state(request_stateService.findOne(new Long("2")));
 
         Request_taxpayer_account result = request_taxpayer_accountService.save(request_taxpayer_account);
         SendEmailRequest(user, result);

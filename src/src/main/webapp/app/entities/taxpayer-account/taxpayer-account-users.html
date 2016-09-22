@@ -1,0 +1,112 @@
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>
+                {{'megabillingplatformApp.taxpayer_account.detail.title' | translate}}
+                <small>
+                    <i class="ace-icon fa fa-angle-double-right"></i>
+                    {{'megabillingplatformApp.taxpayer_account.users' | translate}}
+                </small>
+            </h1>
+        </div>
+        <div class="col-md-3">
+            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account"
+                    ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="col-md-1">
+            <a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info" href="#">
+                <i class="fa fa-lightbulb-o"></i>
+            </a>
+        </div>
+    </div>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="nav nav-pills">
+            <li>
+                <a href="#/">
+                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                </a>
+            </li>
+            <li>
+                <a ui-sref="taxpayer-account-general({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.general' | translate}}</a>
+            </li>
+            <li  class="active">
+                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.users' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.tax_regime' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.branch_office' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.email_account' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.ftp_account' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.adquired' | translate}}</a>
+            </li>
+        </ul>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="hr hr-16 hr-dotted"></div>
+
+<div class="container">
+    <div class="row">
+            <button type="button" class="btn btn-primary" ng-click="vm.add()">
+                <span class="glyphicon glyphicon-flash"></span> <span translate="megabillingplatformApp.taxpayer_account.adduser">Asociar Usuario</span>
+            </button>
+    </div>
+</div>
+
+<div class="hr hr-16 hr-dotted"></div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th translate="global.field.id">ID</th>
+                    <th translate="megabillingplatformApp.taxpayer_account.name_f_s">Nombre y Apellidos</th>
+                    <th translate="megabillingplatformApp.taxpayer_account.user">Nombre Usuario</th>
+                    <th translate="megabillingplatformApp.taxpayer_account.emailuser">Correo</th>
+                    <th translate="megabillingplatformApp.taxpayer_account.state">Estado</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in vm.taxpayer_account.users track by user.id">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}} {{user.firtsurname}} {{user.secondsurname}}</td>
+                    <td>{{user.login}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <span class="label label-danger" ng-show="!user.activated"
+                              translate="megabillingplatformApp.taxpayer_account.deactivated" style="cursor: pointer;">Desactivated</span>
+                        <span class="label label-success" ng-show="user.activated"
+                          translate="megabillingplatformApp.taxpayer_account.activated" style="cursor: pointer;">Activated</span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="button" ng-click="vm.deleteUser(user)"
+                                    class="btn btn-danger btn-sm" ng-disabled="vm.currentAccount.login==user.login">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

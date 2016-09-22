@@ -21,4 +21,5 @@ public interface Request_taxpayer_accountRepository extends JpaRepository<Reques
 
     Page<Request_taxpayer_account> findByDaterequestBetweenOrderByIdDesc(ZonedDateTime from, ZonedDateTime to, Pageable pageable);
 
+    List<Request_taxpayer_account> findByRfc(String rfc);
 }

@@ -116,6 +116,10 @@ public class Request_taxpayer_accountServiceImpl implements Request_taxpayer_acc
         }
     }
 
+    public List<Request_taxpayer_account> findByRfc(String rfc){
+        return request_taxpayer_accountRepository.findByRfc(rfc);
+    }
+
     public void acceptedRequest(Request_taxpayer_account request_taxpayer_account){
         Taxpayer_account taxpayer_account = new Taxpayer_account();
         taxpayer_account.setRfc(request_taxpayer_account.getRfc());

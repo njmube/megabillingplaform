@@ -100,7 +100,18 @@
             "resultvalidation":"Result of validation",
             "messvalidate":"Correct validation of digital certificate is required",
             "number_certificate":"Number certificate: ",
-            "labelDC":"Digital Certificate"
+            "labelDC":"Digital Certificate",
+            "name_f_s":"Name",
+            "user":"User",
+            "state":"State",
+            "roles":"Rol",
+            "deactivated":"Deactivated",
+            "activated":"Activated",
+            "adduser":"Add User",
+            "emailuser":"Email",
+            "search_result":"Search Result",
+            "filterrfc":"RFC",
+            "messRFC":"Please, enter user RFC"
         }
     }
 }

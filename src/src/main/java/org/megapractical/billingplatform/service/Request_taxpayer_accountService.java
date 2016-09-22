@@ -21,6 +21,8 @@ public interface Request_taxpayer_accountService {
      */
     Request_taxpayer_account save(Request_taxpayer_account request_taxpayer_account);
 
+    List<Request_taxpayer_account> findByRfc(String rfc);
+
     /**
      *  Get all the request_taxpayer_accounts.
      *

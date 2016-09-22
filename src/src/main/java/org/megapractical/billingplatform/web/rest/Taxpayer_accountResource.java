@@ -2,6 +2,8 @@ package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import org.megapractical.billingplatform.domain.*;
+import org.megapractical.billingplatform.repository.AuthorityRepository;
+import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
@@ -20,8 +22,10 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 /**
  * REST controller for managing Taxpayer_account.
@@ -52,6 +56,15 @@ public class Taxpayer_accountResource {
 
     @Inject
     Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    private Request_taxpayer_accountService request_taxpayer_accountService;
+
+    @Inject
+    private AuthorityRepository authorityRepository;
+
+    @Inject
+    private UserRepository userRepository;
 
     /**
      * POST  /taxpayer-accounts : Create a new taxpayer_account.
@@ -94,6 +107,33 @@ public class Taxpayer_accountResource {
     @Timed
     public ResponseEntity<Taxpayer_account> updateTaxpayer_account(@Valid @RequestBody Taxpayer_account taxpayer_account) throws URISyntaxException {
         log.debug("REST request to update Taxpayer_account : {}", taxpayer_account);
+        Taxpayer_account pre = taxpayer_accountService.findOne(taxpayer_account.getId());
+        if(pre.getUsers().size()!=taxpayer_account.getUsers().size()){
+            log.debug("Actualizando usuarios : {}", taxpayer_account.getUsers().toString());
+            List<Request_taxpayer_account> listrequest_taxpayer_account = request_taxpayer_accountService.findByRfc(taxpayer_account.getRfc());
+            boolean isAdmin = false;
+            for(Request_taxpayer_account request:listrequest_taxpayer_account){
+                if(request.getUser().getLogin().compareTo(SecurityUtils.getCurrentUserLogin())==0){
+                    isAdmin = true;
+                }
+            }
+            if(!isAdmin){
+                log.debug("No es admin de la cuenta", SecurityUtils.getCurrentUserLogin());
+                taxpayer_account.setUsers(pre.getUsers());
+            }else {
+                if(pre.getUsers().size()< taxpayer_account.getUsers().size()){
+                    Set<User> listusers = taxpayer_account.getUsers();
+                    for (User user:listusers) {
+                        User usercomplete = userService.getUserWithAuthorities(user.getId());
+                        Authority authority = authorityRepository.findOne("ROLE_AFILITATED");
+                        Set<Authority> authorities = new HashSet<>();
+                        authorities.add(authority);
+                        usercomplete.setAuthorities(authorities);
+                        userRepository.save(usercomplete);
+                    }
+                }
+            }
+        }
         if(taxpayer_account.getTaxpayer_certificate()!=null){
             if(taxpayer_account.getTaxpayer_certificate().getPass_certificate()!=null && taxpayer_account.getTaxpayer_certificate().getInfo_certificate()!=null){
                 String [] response = taxpayer_certificateService.validateCertificate(taxpayer_account.getTaxpayer_certificate().getFilecertificate(),
