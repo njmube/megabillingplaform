@@ -1132,9 +1132,19 @@
                             <div class="form-group">
                                 <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_ine.ident" for="field_freecom_ine_ident">Ident</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control" name="ident" id="field_freecom_ine_ident"
-                                           ng-model="vm.freecom_ine.ident" ng-disabled="vm.ident_disabled"
+                                    <input type="text" class="form-control" name="freecom_ine_ident" id="field_freecom_ine_ident"
+                                           ng-model="vm.freecom_ine.ident" ng-disabled="vm.ident_disabled" ng-pattern="/^([1-9][0-9]*)$/" ng-maxlength="6"
                                     />
+                                    <div ng-show="editForm.freecom_ine_ident.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_ine_ident.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                            This field should follow pattern "/^(0|[1-9][0-9]*)$/".
+                                        </p>
+                                        <p class="help-block"
+                                           ng-show="editForm.freecom_ine_ident.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="6">
+                                            This field cannot be longer than 40 characters.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

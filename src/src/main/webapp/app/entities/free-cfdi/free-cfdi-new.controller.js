@@ -1610,6 +1610,7 @@
                 vm.add_button_ine_entity_disabled = true;
             }
             else if(vm.freecom_ine.c_committee_type != null && vm.freecom_ine.c_committee_type.id == 2){
+                vm.freecom_ine.ident = null;
                 vm.ident_disabled = true;
 
                 vm.freecom_ine_entities = [];
