@@ -26,6 +26,7 @@
             "subdivision": "Subdivision",
             "observations": "Observations",
             "typechangeusd": "Typechangeusd",
+            "totalusd": "Totalusd",
             "free_cfdi": "Free Cfdi",
             "freecom_incoterm": "Freecom Incoterm",
             "c_type_operation_ce": "C Type Operation Ce",

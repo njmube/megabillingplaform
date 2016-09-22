@@ -26,11 +26,5 @@
                                  referencedColumnNames="id"
                                  referencedTableName="freecom_custom_unit"/>
 
-        <addForeignKeyConstraint baseColumnNames="freecom_specific_descriptions_id"
-                                 baseTableName="freecom_commodity"
-                                 constraintName="fk_freecom_commodity_freecom_specific_descriptions_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="freecom_specific_descriptions"/>
-
     </changeSet>
 </databaseChangeLog>

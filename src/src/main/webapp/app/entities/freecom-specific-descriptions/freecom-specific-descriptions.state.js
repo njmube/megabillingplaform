@@ -71,7 +71,7 @@
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Freecom_specific_descriptions', function($stateParams, Freecom_specific_descriptions) {
-                    return Freecom_specific_descriptions.get({id : $stateParams.id}).$promise;
+                    return Freecom_specific_descriptions.get({id : $stateParams.id});
                 }]
             }
         })
@@ -121,7 +121,7 @@
                     size: 'lg',
                     resolve: {
                         entity: ['Freecom_specific_descriptions', function(Freecom_specific_descriptions) {
-                            return Freecom_specific_descriptions.get({id : $stateParams.id}).$promise;
+                            return Freecom_specific_descriptions.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {
@@ -145,7 +145,7 @@
                     size: 'md',
                     resolve: {
                         entity: ['Freecom_specific_descriptions', function(Freecom_specific_descriptions) {
-                            return Freecom_specific_descriptions.get({id : $stateParams.id}).$promise;
+                            return Freecom_specific_descriptions.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {

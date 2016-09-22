@@ -23,6 +23,7 @@
                     <th jh-sort-by="model"><span translate="megabillingplatformApp.freecom_specific_descriptions.model">Model</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="submodel"><span translate="megabillingplatformApp.freecom_specific_descriptions.submodel">Submodel</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="serial_number"><span translate="megabillingplatformApp.freecom_specific_descriptions.serial_number">Serial Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_commodity.id"><span translate="megabillingplatformApp.freecom_specific_descriptions.freecom_commodity">Freecom Commodity</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -33,6 +34,9 @@
                     <td>{{freecom_specific_descriptions.model}}</td>
                     <td>{{freecom_specific_descriptions.submodel}}</td>
                     <td>{{freecom_specific_descriptions.serial_number}}</td>
+                    <td>
+                        <a ui-sref="freecom-commodity-detail({id:freecom_specific_descriptions.freecom_commodity.id})">{{freecom_specific_descriptions.freecom_commodity.id}}</a>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

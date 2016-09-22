@@ -17,12 +17,6 @@
             "otherEntityName": "freecom_custom_unit",
             "relationshipType": "many-to-one",
             "otherEntityField": "value"
-        },
-        {
-            "relationshipName": "freecom_specific_descriptions",
-            "otherEntityName": "freecom_specific_descriptions",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
         }
     ],
     "fields": [

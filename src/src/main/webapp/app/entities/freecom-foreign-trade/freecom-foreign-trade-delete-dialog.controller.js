@@ -9,20 +9,15 @@
 
     function Freecom_foreign_tradeDeleteController($uibModalInstance, entity, Freecom_foreign_trade) {
         var vm = this;
-
         vm.freecom_foreign_trade = entity;
-        vm.clear = clear;
-        vm.confirmDelete = confirmDelete;
-        
-        function clear () {
+        vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
-        }
-
-        function confirmDelete (id) {
+        };
+        vm.confirmDelete = function (id) {
             Freecom_foreign_trade.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });
-        }
+        };
     }
 })();

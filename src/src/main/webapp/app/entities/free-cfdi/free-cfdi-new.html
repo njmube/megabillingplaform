@@ -2257,12 +2257,12 @@
                                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_foreign_trade.origin_certificate" for="field_freecom_foreign_trade_origin_certificate">Origin Certificate</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="freecom_foreign_trade_origin_certificate" id="field_freecom_foreign_trade_origin_certificate"
-                                                   ng-model="vm.freecom_foreign_trade.origin_certificate" ng-pattern="/^[0-9]$/"
+                                                   ng-model="vm.freecom_foreign_trade.origin_certificate" ng-pattern="/^(0|[1-9][0-9]*)$/"
                                             />
                                             <div ng-show="editForm.freecom_foreign_trade_origin_certificate.$invalid">
                                                 <p class="help-block"
-                                                   ng-show="editForm.freecom_foreign_trade_origin_certificate.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]$">
-                                                    This field should follow pattern "/^[0-9]$/".
+                                                   ng-show="editForm.freecom_foreign_trade_origin_certificate.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                                    This field should follow pattern "/^(0|[1-9][0-9]*)$/".
                                                 </p>
                                             </div>
                                         </div>
@@ -2312,12 +2312,12 @@
                                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_foreign_trade.subdivision" for="field_freecom_foreign_trade_subdivision">Subdivision</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" name="freecom_foreign_trade_subdivision" id="field_freecom_foreign_trade_subdivision"
-                                                   ng-model="vm.freecom_foreign_trade.subdivision" ng-pattern="/^[0-9]$/"
+                                                   ng-model="vm.freecom_foreign_trade.subdivision" ng-pattern="/^(0|[1-9][0-9]*)$/"
                                             />
                                             <div ng-show="editForm.freecom_foreign_trade_subdivision.$invalid">
                                                 <p class="help-block"
-                                                   ng-show="editForm.freecom_foreign_trade_subdivision.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]$">
-                                                    This field should follow pattern "/^[0-9]$/".
+                                                   ng-show="editForm.freecom_foreign_trade_subdivision.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                                    This field should follow pattern "/^(0|[1-9][0-9]*)$/".
                                                 </p>
                                             </div>
                                         </div>
@@ -2345,6 +2345,20 @@
                                             <div ng-show="editForm.freecom_foreign_trade_typechangeusd.$invalid">
                                                 <p class="help-block"
                                                    ng-show="editForm.freecom_foreign_trade_typechangeusd.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
+                                                    This field should follow pattern "/^\d+\.?\d{1,2}$/".
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.freecom_foreign_trade.totalusd" for="field_freecom_foreign_trade_totalusd">Totalusd</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="freecom_foreign_trade_totalusd" id="field_freecom_foreign_trade_totalusd"
+                                                   ng-model="vm.freecom_foreign_trade.totalusd" ng-pattern="/^\d+\.?\d{1,2}$/"
+                                            />
+                                            <div ng-show="editForm.freecom_foreign_trade_totalusd.$invalid">
+                                                <p class="help-block"
+                                                   ng-show="editForm.freecom_foreign_trade_totalusd.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
                                                     This field should follow pattern "/^\d+\.?\d{1,2}$/".
                                                 </p>
                                             </div>

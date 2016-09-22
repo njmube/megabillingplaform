@@ -9,20 +9,15 @@
 
     function Freecom_commodityDeleteController($uibModalInstance, entity, Freecom_commodity) {
         var vm = this;
-
         vm.freecom_commodity = entity;
-        vm.clear = clear;
-        vm.confirmDelete = confirmDelete;
-        
-        function clear () {
+        vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
-        }
-
-        function confirmDelete (id) {
+        };
+        vm.confirmDelete = function (id) {
             Freecom_commodity.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });
-        }
+        };
     }
 })();

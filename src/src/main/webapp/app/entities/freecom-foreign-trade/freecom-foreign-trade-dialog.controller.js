@@ -9,10 +9,7 @@
 
     function Freecom_foreign_tradeDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Freecom_foreign_trade, Free_cfdi, Freecom_incoterm, C_type_operation_ce, C_key_pediment, Freecom_addressee) {
         var vm = this;
-
         vm.freecom_foreign_trade = entity;
-        vm.clear = clear;
-        vm.save = save;
         vm.free_cfdis = Free_cfdi.query();
         vm.freecom_incoterms = Freecom_incoterm.query();
         vm.c_type_operation_ces = C_type_operation_ce.query();
@@ -31,29 +28,27 @@
             angular.element('.form-group:eq(1)>input').focus();
         });
 
-        function clear () {
-            $uibModalInstance.dismiss('cancel');
-        }
+        var onSaveSuccess = function (result) {
+            $scope.$emit('megabillingplatformApp:freecom_foreign_tradeUpdate', result);
+            $uibModalInstance.close(result);
+            vm.isSaving = false;
+        };
 
-        function save () {
+        var onSaveError = function () {
+            vm.isSaving = false;
+        };
+
+        vm.save = function () {
             vm.isSaving = true;
             if (vm.freecom_foreign_trade.id !== null) {
                 Freecom_foreign_trade.update(vm.freecom_foreign_trade, onSaveSuccess, onSaveError);
             } else {
                 Freecom_foreign_trade.save(vm.freecom_foreign_trade, onSaveSuccess, onSaveError);
             }
-        }
+        };
 
-        function onSaveSuccess (result) {
-            $scope.$emit('megabillingplatformApp:freecom_foreign_tradeUpdate', result);
-            $uibModalInstance.close(result);
-            vm.isSaving = false;
-        }
-
-        function onSaveError () {
-            vm.isSaving = false;
-        }
-
-
+        vm.clear = function() {
+            $uibModalInstance.dismiss('cancel');
+        };
     }
 })();

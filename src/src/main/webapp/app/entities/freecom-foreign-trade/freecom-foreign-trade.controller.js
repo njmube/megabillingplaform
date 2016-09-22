@@ -9,13 +9,12 @@
 
     function Freecom_foreign_tradeController ($scope, $state, Freecom_foreign_trade, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
-        
+        vm.loadAll = loadAll;
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
-
-        loadAll();
+        vm.loadAll();
 
         function loadAll () {
             Freecom_foreign_trade.query({
@@ -54,5 +53,6 @@
                 search: vm.currentSearch
             });
         }
+
     }
 })();

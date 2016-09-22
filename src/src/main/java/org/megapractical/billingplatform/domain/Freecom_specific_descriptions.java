@@ -39,6 +39,9 @@ public class Freecom_specific_descriptions implements Serializable {
     @Column(name = "serial_number", length = 40)
     private String serial_number;
 
+    @ManyToOne
+    private Freecom_commodity freecom_commodity;
+
     public Long getId() {
         return id;
     }
@@ -77,6 +80,14 @@ public class Freecom_specific_descriptions implements Serializable {
 
     public void setSerial_number(String serial_number) {
         this.serial_number = serial_number;
+    }
+
+    public Freecom_commodity getFreecom_commodity() {
+        return freecom_commodity;
+    }
+
+    public void setFreecom_commodity(Freecom_commodity freecom_commodity) {
+        this.freecom_commodity = freecom_commodity;
     }
 
     @Override

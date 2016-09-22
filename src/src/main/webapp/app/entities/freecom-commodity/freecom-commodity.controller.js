@@ -9,13 +9,12 @@
 
     function Freecom_commodityController ($scope, $state, Freecom_commodity, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
-        
+        vm.loadAll = loadAll;
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
-
-        loadAll();
+        vm.loadAll();
 
         function loadAll () {
             Freecom_commodity.query({
@@ -54,5 +53,6 @@
                 search: vm.currentSearch
             });
         }
+
     }
 })();

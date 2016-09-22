@@ -19,7 +19,8 @@
             "brand": "Brand (*)",
             "model": "Model",
             "submodel": "Submodel",
-            "serial_number": "Serial Number"
+            "serial_number": "Serial Number",
+            "freecom_commodity": "Freecom Commodity"
         }
     }
 }

@@ -71,7 +71,7 @@
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Freecom_foreign_trade', function($stateParams, Freecom_foreign_trade) {
-                    return Freecom_foreign_trade.get({id : $stateParams.id}).$promise;
+                    return Freecom_foreign_trade.get({id : $stateParams.id});
                 }]
             }
         })
@@ -101,6 +101,7 @@
                                 subdivision: null,
                                 observations: null,
                                 typechangeusd: null,
+                                totalusd: null,
                                 id: null
                             };
                         }
@@ -127,7 +128,7 @@
                     size: 'lg',
                     resolve: {
                         entity: ['Freecom_foreign_trade', function(Freecom_foreign_trade) {
-                            return Freecom_foreign_trade.get({id : $stateParams.id}).$promise;
+                            return Freecom_foreign_trade.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {
@@ -151,7 +152,7 @@
                     size: 'md',
                     resolve: {
                         entity: ['Freecom_foreign_trade', function(Freecom_foreign_trade) {
-                            return Freecom_foreign_trade.get({id : $stateParams.id}).$promise;
+                            return Freecom_foreign_trade.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {

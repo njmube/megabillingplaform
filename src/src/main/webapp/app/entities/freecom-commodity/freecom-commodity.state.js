@@ -71,7 +71,7 @@
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Freecom_commodity', function($stateParams, Freecom_commodity) {
-                    return Freecom_commodity.get({id : $stateParams.id}).$promise;
+                    return Freecom_commodity.get({id : $stateParams.id});
                 }]
             }
         })
@@ -121,7 +121,7 @@
                     size: 'lg',
                     resolve: {
                         entity: ['Freecom_commodity', function(Freecom_commodity) {
-                            return Freecom_commodity.get({id : $stateParams.id}).$promise;
+                            return Freecom_commodity.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {
@@ -145,7 +145,7 @@
                     size: 'md',
                     resolve: {
                         entity: ['Freecom_commodity', function(Freecom_commodity) {
-                            return Freecom_commodity.get({id : $stateParams.id}).$promise;
+                            return Freecom_commodity.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {

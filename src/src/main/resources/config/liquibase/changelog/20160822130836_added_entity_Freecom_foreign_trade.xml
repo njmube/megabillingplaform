@@ -61,6 +61,10 @@
                 <constraints nullable="true" />
             </column>
             
+            <column name="totalusd" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="free_cfdi_id" type="bigint">
                 <constraints nullable="true" />
             </column>

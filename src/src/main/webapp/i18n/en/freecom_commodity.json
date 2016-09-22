@@ -22,8 +22,7 @@
             "dollar_value": "Dollar Value (*)",
             "freecom_foreign_trade": "Freecom Foreign Trade",
             "freecom_tariff_fraction": "Freecom Tariff Fraction",
-            "freecom_custom_unit": "Freecom Custom Unit",
-            "freecom_specific_descriptions": "Freecom Specific Descriptions"
+            "freecom_custom_unit": "Freecom Custom Unit"
         }
     }
 }

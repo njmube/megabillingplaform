@@ -60,6 +60,9 @@ public class Freecom_foreign_trade implements Serializable {
     @Column(name = "typechangeusd", precision=10, scale=2)
     private BigDecimal typechangeusd;
 
+    @Column(name = "totalusd", precision=10, scale=2)
+    private BigDecimal totalusd;
+
     @ManyToOne
     private Free_cfdi free_cfdi;
 
@@ -164,6 +167,14 @@ public class Freecom_foreign_trade implements Serializable {
         this.typechangeusd = typechangeusd;
     }
 
+    public BigDecimal getTotalusd() {
+        return totalusd;
+    }
+
+    public void setTotalusd(BigDecimal totalusd) {
+        this.totalusd = totalusd;
+    }
+
     public Free_cfdi getFree_cfdi() {
         return free_cfdi;
     }
@@ -238,6 +249,7 @@ public class Freecom_foreign_trade implements Serializable {
             ", subdivision='" + subdivision + "'" +
             ", observations='" + observations + "'" +
             ", typechangeusd='" + typechangeusd + "'" +
+            ", totalusd='" + totalusd + "'" +
             '}';
     }
 }

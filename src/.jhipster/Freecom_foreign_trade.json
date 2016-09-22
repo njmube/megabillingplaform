@@ -97,6 +97,10 @@
         {
             "fieldName": "typechangeusd",
             "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "totalusd",
+            "fieldType": "BigDecimal"
         }
     ],
     "changelogDate": "20160822130836",

@@ -47,9 +47,6 @@ public class Freecom_commodity implements Serializable {
     @ManyToOne
     private Freecom_custom_unit freecom_custom_unit;
 
-    @ManyToOne
-    private Freecom_specific_descriptions freecom_specific_descriptions;
-
     public Long getId() {
         return id;
     }
@@ -112,14 +109,6 @@ public class Freecom_commodity implements Serializable {
 
     public void setFreecom_custom_unit(Freecom_custom_unit freecom_custom_unit) {
         this.freecom_custom_unit = freecom_custom_unit;
-    }
-
-    public Freecom_specific_descriptions getFreecom_specific_descriptions() {
-        return freecom_specific_descriptions;
-    }
-
-    public void setFreecom_specific_descriptions(Freecom_specific_descriptions freecom_specific_descriptions) {
-        this.freecom_specific_descriptions = freecom_specific_descriptions;
     }
 
     @Override

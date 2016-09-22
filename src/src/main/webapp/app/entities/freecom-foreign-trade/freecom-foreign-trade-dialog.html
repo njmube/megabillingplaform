@@ -113,6 +113,12 @@
                     ng-model="vm.freecom_foreign_trade.typechangeusd"
                      />
         </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.freecom_foreign_trade.totalusd" for="field_totalusd">Totalusd</label>
+            <input type="number" class="form-control" name="totalusd" id="field_totalusd"
+                    ng-model="vm.freecom_foreign_trade.totalusd"
+                     />
+        </div>
 
         <div class="form-group">
             <label translate="megabillingplatformApp.freecom_foreign_trade.free_cfdi" for="field_free_cfdi">Free Cfdi</label>
@@ -149,7 +155,7 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
         </button>
     </div>

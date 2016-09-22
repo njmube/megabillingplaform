@@ -9,20 +9,15 @@
 
     function Freecom_specific_descriptionsDeleteController($uibModalInstance, entity, Freecom_specific_descriptions) {
         var vm = this;
-
         vm.freecom_specific_descriptions = entity;
-        vm.clear = clear;
-        vm.confirmDelete = confirmDelete;
-        
-        function clear () {
+        vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
-        }
-
-        function confirmDelete (id) {
+        };
+        vm.confirmDelete = function (id) {
             Freecom_specific_descriptions.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });
-        }
+        };
     }
 })();

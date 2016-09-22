@@ -65,6 +65,7 @@
                 });
             }
         };
+
         vm.setPath_Key = function ($file, free_emitter) {
             if ($file) {
                 vm.path_key_file = $file;
@@ -83,6 +84,7 @@
                 });
             }
         };
+
         vm.setLogo = function ($file, free_emitter) {
             if ($file) {
                 vm.logo_file = $file;

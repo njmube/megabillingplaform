@@ -67,7 +67,7 @@ class Freecom_foreign_tradeGatlingTest extends Simulation {
             .exec(http("Create new freecom_foreign_trade")
             .post("/api/freecom-foreign-trades")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "version":"SAMPLE_TEXT", "emitter_curp":"SAMPLE_TEXT", "receiver_curp":"SAMPLE_TEXT", "receiver_numregidtrib":"SAMPLE_TEXT", "origin_certificate":"0", "number_origin_certificate":"SAMPLE_TEXT", "number_reliable_exporter":"SAMPLE_TEXT", "subdivision":"0", "observations":"SAMPLE_TEXT", "typechangeusd":null}""")).asJSON
+            .body(StringBody("""{"id":null, "version":"SAMPLE_TEXT", "emitter_curp":"SAMPLE_TEXT", "receiver_curp":"SAMPLE_TEXT", "receiver_numregidtrib":"SAMPLE_TEXT", "origin_certificate":"0", "number_origin_certificate":"SAMPLE_TEXT", "number_reliable_exporter":"SAMPLE_TEXT", "subdivision":"0", "observations":"SAMPLE_TEXT", "typechangeusd":null, "totalusd":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_freecom_foreign_trade_url"))).exitHereIfFailed
             .pause(10)

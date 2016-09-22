@@ -67,6 +67,9 @@ public class Freecom_foreign_tradeResourceIntTest {
     private static final BigDecimal DEFAULT_TYPECHANGEUSD = new BigDecimal(1);
     private static final BigDecimal UPDATED_TYPECHANGEUSD = new BigDecimal(2);
 
+    private static final BigDecimal DEFAULT_TOTALUSD = new BigDecimal(1);
+    private static final BigDecimal UPDATED_TOTALUSD = new BigDecimal(2);
+
     @Inject
     private Freecom_foreign_tradeRepository freecom_foreign_tradeRepository;
 
@@ -106,6 +109,7 @@ public class Freecom_foreign_tradeResourceIntTest {
         freecom_foreign_trade.setSubdivision(DEFAULT_SUBDIVISION);
         freecom_foreign_trade.setObservations(DEFAULT_OBSERVATIONS);
         freecom_foreign_trade.setTypechangeusd(DEFAULT_TYPECHANGEUSD);
+        freecom_foreign_trade.setTotalusd(DEFAULT_TOTALUSD);
     }
 
     @Test
@@ -134,6 +138,7 @@ public class Freecom_foreign_tradeResourceIntTest {
         assertThat(testFreecom_foreign_trade.getSubdivision()).isEqualTo(DEFAULT_SUBDIVISION);
         assertThat(testFreecom_foreign_trade.getObservations()).isEqualTo(DEFAULT_OBSERVATIONS);
         assertThat(testFreecom_foreign_trade.getTypechangeusd()).isEqualTo(DEFAULT_TYPECHANGEUSD);
+        assertThat(testFreecom_foreign_trade.getTotalusd()).isEqualTo(DEFAULT_TOTALUSD);
     }
 
     @Test
@@ -192,7 +197,8 @@ public class Freecom_foreign_tradeResourceIntTest {
                 .andExpect(jsonPath("$.[*].number_reliable_exporter").value(hasItem(DEFAULT_NUMBER_RELIABLE_EXPORTER.toString())))
                 .andExpect(jsonPath("$.[*].subdivision").value(hasItem(DEFAULT_SUBDIVISION)))
                 .andExpect(jsonPath("$.[*].observations").value(hasItem(DEFAULT_OBSERVATIONS.toString())))
-                .andExpect(jsonPath("$.[*].typechangeusd").value(hasItem(DEFAULT_TYPECHANGEUSD.intValue())));
+                .andExpect(jsonPath("$.[*].typechangeusd").value(hasItem(DEFAULT_TYPECHANGEUSD.intValue())))
+                .andExpect(jsonPath("$.[*].totalusd").value(hasItem(DEFAULT_TOTALUSD.intValue())));
     }
 
     @Test
@@ -215,7 +221,8 @@ public class Freecom_foreign_tradeResourceIntTest {
             .andExpect(jsonPath("$.number_reliable_exporter").value(DEFAULT_NUMBER_RELIABLE_EXPORTER.toString()))
             .andExpect(jsonPath("$.subdivision").value(DEFAULT_SUBDIVISION))
             .andExpect(jsonPath("$.observations").value(DEFAULT_OBSERVATIONS.toString()))
-            .andExpect(jsonPath("$.typechangeusd").value(DEFAULT_TYPECHANGEUSD.intValue()));
+            .andExpect(jsonPath("$.typechangeusd").value(DEFAULT_TYPECHANGEUSD.intValue()))
+            .andExpect(jsonPath("$.totalusd").value(DEFAULT_TOTALUSD.intValue()));
     }
 
     @Test
@@ -247,6 +254,7 @@ public class Freecom_foreign_tradeResourceIntTest {
         updatedFreecom_foreign_trade.setSubdivision(UPDATED_SUBDIVISION);
         updatedFreecom_foreign_trade.setObservations(UPDATED_OBSERVATIONS);
         updatedFreecom_foreign_trade.setTypechangeusd(UPDATED_TYPECHANGEUSD);
+        updatedFreecom_foreign_trade.setTotalusd(UPDATED_TOTALUSD);
 
         restFreecom_foreign_tradeMockMvc.perform(put("/api/freecom-foreign-trades")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -267,6 +275,7 @@ public class Freecom_foreign_tradeResourceIntTest {
         assertThat(testFreecom_foreign_trade.getSubdivision()).isEqualTo(UPDATED_SUBDIVISION);
         assertThat(testFreecom_foreign_trade.getObservations()).isEqualTo(UPDATED_OBSERVATIONS);
         assertThat(testFreecom_foreign_trade.getTypechangeusd()).isEqualTo(UPDATED_TYPECHANGEUSD);
+        assertThat(testFreecom_foreign_trade.getTotalusd()).isEqualTo(UPDATED_TOTALUSD);
     }
 
     @Test
