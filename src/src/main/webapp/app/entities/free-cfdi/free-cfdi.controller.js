@@ -148,7 +148,7 @@
         function abrirZip(free_cfdi){
             var zip = new JSZip();
             zip.add("Hello.txt", "Hello World\n");
-            content = zip.generate();
+            var content = zip.generate();
             location.href="data:application/zip;base64,"+content;
 
             /*var temp = Free_cfdi.getzip({idFree_cfdi:free_cfdi.id});
