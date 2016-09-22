@@ -240,7 +240,7 @@ public class MailService {
     @Async
     public void sendNewFreeCFDICreatedToEmitterEmail(Free_cfdi free_cfdi, List<String> attachments) {
         User user = free_cfdi.getFree_emitter().getUser();
-        log.debug("Sending new free cfdi created emitter e-mail to '{}'", user.getEmail());
+        log.debug("Sending new free cfdi created emitter e-mail to '{}'", free_cfdi.getFree_emitter().getEmail());
         Locale locale = Locale.forLanguageTag(user.getLangKey());
         Context context = new Context(locale);
         context.setVariable("user", user);
@@ -249,7 +249,7 @@ public class MailService {
         context.setVariable("free_receiver", free_cfdi.getFree_receiver());
         String content = templateEngine.process("newfreecfdiEmail", context);
         String subject = messageSource.getMessage("email.newfreecfdi.title", null, locale);
-        sendEmail(user.getEmail(), subject, content, true, true, attachments);
+        sendEmail(free_cfdi.getFree_emitter().getEmail(), subject, content, true, true, attachments);
     }
 
     @Async
