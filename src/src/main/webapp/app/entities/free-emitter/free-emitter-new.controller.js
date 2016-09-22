@@ -128,11 +128,12 @@
         }
 
         function onChangeRFC(){
-            if(vm.free_emitter.rfc.length == 12){
-                vm.free_emitter.type_taxpayer = vm.type_taxpayers[0];
-            }else
-            {
-                vm.free_emitter.type_taxpayer = vm.type_taxpayers[1];
+            if(vm.free_emitter.rfc != undefined) {
+                if (vm.free_emitter.rfc.length == 12) {
+                    vm.free_emitter.type_taxpayer = vm.type_taxpayers[0];
+                } else {
+                    vm.free_emitter.type_taxpayer = vm.type_taxpayers[1];
+                }
             }
         }
 
