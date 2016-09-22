@@ -62,14 +62,10 @@
 
         var onSaveSuccess = function (result) {
             vm.taxpayer_account =  result;
-            if(vm.taxpayer_account.taxpayer_certificate.info_certificate != null){
-            }else
-            {
-                vm.showInfo = false;
-                $uibModalInstance.close({
-                    taxpayer_account: vm.taxpayer_account
-                });
-            }
+            vm.showInfo = false;
+            $uibModalInstance.close({
+                taxpayer_account: vm.taxpayer_account
+            });
         };
 
         var onSaveError = function () {
