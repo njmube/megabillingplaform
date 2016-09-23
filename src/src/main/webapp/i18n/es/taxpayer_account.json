@@ -112,9 +112,9 @@
             "search_result":"Resultado de la búsqueda",
             "filterrfc":"RFC",
             "messRFC":"Debe introducir el RFC del usuario",
-            "addtaxregime":"Add Tax Regime",
-            "nameTaxregime":"Name",
-            "description":"Description"
+            "addtaxregime":"Asociar Régimen Fiscal",
+            "nameTaxregime":"Nombre",
+            "description":"Descripción"
         }
     }
 }

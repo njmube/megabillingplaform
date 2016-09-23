@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/tax-address?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'megabillingplatformApp.tax_address.home.title'
             },
             views: {
@@ -55,7 +55,7 @@
             parent: 'entity',
             url: '/tax-address/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'megabillingplatformApp.tax_address.detail.title'
             },
             views: {
@@ -79,7 +79,7 @@
             parent: 'tax-address',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: []
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -112,7 +112,7 @@
             parent: 'tax-address',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: []
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -137,7 +137,7 @@
             parent: 'tax-address',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: []
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

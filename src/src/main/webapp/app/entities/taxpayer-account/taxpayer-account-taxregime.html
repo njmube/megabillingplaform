@@ -41,7 +41,7 @@
                 <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.tax_regime' | translate}}</a>
             </li>
             <li>
-                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.branch_office' | translate}}</a>
+                <a ui-sref="taxpayer-account-branchoffice({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.branch_office' | translate}}</a>
             </li>
             <li>
                 <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.email_account' | translate}}</a>
@@ -58,13 +58,20 @@
 
 <div class="hr hr-16 hr-dotted"></div>
 
-<div class="container">
+<jhi-alert></jhi-alert>
+<div class="container-fluid">
     <div class="row">
-        <button type="button" class="btn btn-primary" ng-click="vm.add()">
-            <span class="glyphicon glyphicon-flash"></span> <span translate="megabillingplatformApp.taxpayer_account.addtaxregime">Asociar Régimen Fiscal</span>
-        </button>
+        <div class="col-xs-4 no-padding-left" ng-click="vm.add()">
+            <button class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.taxpayer_account.addtaxregime">
+                        Asociar Régimen Fiscal
+                    </span>
+            </button>
+        </div>
     </div>
 </div>
+<br/>
 
 <div class="hr hr-16 hr-dotted"></div>
 

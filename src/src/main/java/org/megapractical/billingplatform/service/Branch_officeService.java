@@ -13,7 +13,7 @@ public interface Branch_officeService {
 
     /**
      * Save a branch_office.
-     * 
+     *
      * @param branch_office the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,15 @@ public interface Branch_officeService {
 
     /**
      *  Get all the branch_offices.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    Page<Branch_office> findAll(Pageable pageable);
+    Page<Branch_office> findAll(Pageable pageable, Integer taxpayeraccount);
 
     /**
      *  Get the "id" branch_office.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +37,7 @@ public interface Branch_officeService {
 
     /**
      *  Delete the "id" branch_office.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);
