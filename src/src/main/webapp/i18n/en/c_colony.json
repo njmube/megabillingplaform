@@ -2,25 +2,25 @@
     "megabillingplatformApp": {
         "c_colony" : {
             "home": {
-                "title": "C_colonies",
-                "createLabel": "Create a new C_colony",
-                "createOrEditLabel": "Create or edit a C_colony",
-                "search": "Search for C_colony"
+                "title": "Colonies",
+                "createLabel": "New Colony",
+                "createOrEditLabel": "Create or edit a Colony",
+                "search": "Search for Colony"
             },
-            "created": "A new C_colony is created with identifier {{ param }}",
-            "updated": "A C_colony is updated with identifier {{ param }}",
-            "deleted": "A C_colony is deleted with identifier {{ param }}",
+            "created": "A new colony is created with identifier {{ param }}",
+            "updated": "A colony is updated with identifier {{ param }}",
+            "deleted": "A colony is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete C_colony {{ id }}?"
+                "question": "Are you sure you want to delete colony {{ id }}?"
             },
             "detail": {
-                "title": "C_colony"
+                "title": "Colony"
             },
             "code": "Code",
             "value": "Value",
-            "c_municipality": "C_municipality",
-            "c_zip_code": "C_zip_code",
-            "filtername":"Filter by code"
+            "c_municipality": "Municipality",
+            "c_zip_code": "Zip Code",
+            "filtername":"Filter by Code"
         }
     }
 }

@@ -2,27 +2,27 @@
     "megabillingplatformApp": {
         "archive_status" : {
             "home": {
-                "title": "Archive_statuses",
-                "createLabel": "Create a new Archive_status",
-                "createOrEditLabel": "Create or edit a Archive_status",
-                "search": "Search for Archive_status"
+                "title": "Archive Status",
+                "createLabel": "New Archive Status",
+                "createOrEditLabel": "Create or edit a Archive Status",
+                "search": "Search for Archive Status"
             },
-            "created": "A new Archive_status is created with identifier {{ param }}",
-            "updated": "A Archive_status is updated with identifier {{ param }}",
-            "deleted": "A Archive_status is deleted with identifier {{ param }}",
+            "created": "A new archive status is created with identifier {{ param }}",
+            "updated": "A archive status is updated with identifier {{ param }}",
+            "deleted": "A archive status is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Archive_status {{ id }}?"
+                "question": "Are you sure you want to delete archive status {{ id }}?"
             },
             "detail": {
-                "title": "Archive_status"
+                "title": "Archive Status"
             },
             "name": "Name",
             "description": "Description",
             "date": "Date",
             "date1": "Date1",
-            "first_surname": "First_surname",
-            "second_surname": "Second_surname",
-            "date_born": "Date_born"
+            "first_surname": "First Surname",
+            "second_surname": "Second Surname",
+            "date_born": "Date of Born"
         }
     }
 }

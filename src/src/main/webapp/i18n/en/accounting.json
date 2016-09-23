@@ -3,21 +3,21 @@
         "accounting" : {
             "home": {
                 "title": "Accountings",
-                "createLabel": "Create a new Accounting",
+                "createLabel": "New Accounting",
                 "createOrEditLabel": "Create or edit a Accounting",
                 "search": "Search for Accounting"
             },
-            "created": "A new Accounting is created with identifier {{ param }}",
-            "updated": "A Accounting is updated with identifier {{ param }}",
-            "deleted": "A Accounting is deleted with identifier {{ param }}",
+            "created": "A new accounting is created with identifier {{ param }}",
+            "updated": "A accounting is updated with identifier {{ param }}",
+            "deleted": "A accounting is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Accounting {{ id }}?"
+                "question": "Are you sure you want to delete accounting {{ id }}?"
             },
             "detail": {
                 "title": "Accounting"
             },
-            "keyaccounting": "Keyaccounting (*)",
-            "freecom_ine_entity": "Freecom Ine Entity"
+            "keyaccounting": "Key Accounting (*)",
+            "freecom_ine_entity": "INE Entity"
         }
     }
 }

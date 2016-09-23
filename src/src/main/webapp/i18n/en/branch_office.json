@@ -7,11 +7,11 @@
                 "createOrEditLabel": "Create or edit a Branch Office",
                 "search": "Search for Branch Office"
             },
-            "created": "A new Branch Office is created with identifier {{ param }}",
-            "updated": "A Branch Office is updated with identifier {{ param }}",
-            "deleted": "A Branch Office is deleted with identifier {{ param }}",
+            "created": "A new branch office is created with identifier {{ param }}",
+            "updated": "A branch office is updated with identifier {{ param }}",
+            "deleted": "A branch office is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Branch Office {{ id }}?"
+                "question": "Are you sure you want to delete branch office {{ id }}?"
             },
             "detail": {
                 "title": "Branch Office"

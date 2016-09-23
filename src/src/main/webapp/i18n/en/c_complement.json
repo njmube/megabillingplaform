@@ -7,18 +7,18 @@
                 "createOrEditLabel": "Create or edit a Complement",
                 "search": "Search for Complement"
             },
-            "created": "A new Complement is created with identifier {{ param }}",
-            "updated": "A Complement is updated with identifier {{ param }}",
-            "deleted": "A Complement is deleted with identifier {{ param }}",
+            "created": "A new complement is created with identifier {{ param }}",
+            "updated": "A complement is updated with identifier {{ param }}",
+            "deleted": "A complement is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete Complement {{ id }}?"
+                "question": "Are you sure you want to delete complement {{ id }}?"
             },
             "detail": {
                 "title": "Complement"
             },
             "name": "Name",
             "description": "Description",
-            "filtername":"Filter by name"
+            "filtername":"Filter by Name"
         }
     }
 }

@@ -111,10 +111,7 @@
             "emailuser":"Email",
             "search_result":"Search Result",
             "filterrfc":"RFC",
-            "messRFC":"Please, enter user RFC",
-            "addtaxregime":"Add Tax Regime",
-            "nameTaxregime":"Name",
-            "description":"Description"
+            "messRFC":"Please, enter user RFC"
         }
     }
 }
