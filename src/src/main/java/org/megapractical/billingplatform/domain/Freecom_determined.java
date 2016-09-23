@@ -24,8 +24,8 @@ public class Freecom_determined implements Serializable {
     private Long id;
 
     @NotNull
-    @Column(name = "rate", precision=10, scale=2, nullable = false)
-    private BigDecimal rate;
+    @Column(name = "rate", nullable = false)
+    private String rate;
 
     @NotNull
     @Column(name = "amount", precision=10, scale=2, nullable = false)
@@ -45,11 +45,11 @@ public class Freecom_determined implements Serializable {
         this.id = id;
     }
 
-    public BigDecimal getRate() {
+    public String getRate() {
         return rate;
     }
 
-    public void setRate(BigDecimal rate) {
+    public void setRate(String rate) {
         this.rate = rate;
     }
 

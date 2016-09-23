@@ -16,12 +16,7 @@
         vm.save = function () {
             vm.isSaving = true;
 
-            $uibModalInstance.close({
-                rate: vm.freecom_determined.rate,
-                amount: vm.freecom_determined.amount,
-                freecom_tax_type: vm.freecom_determined.freecom_tax_type,
-                id: null
-            });
+            $uibModalInstance.close(vm.freecom_determined);
 
             vm.isSaving = false;
         };

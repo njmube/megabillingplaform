@@ -1535,8 +1535,6 @@
             }
         };
 
-
-
         vm.maxApawDate = new Date();
         vm.dateApawPickerOpenStatus = {};
         vm.dateApawPickerOpenStatus.date_acquisition = false;
@@ -1880,25 +1878,25 @@
         };
 
         function calcFuelTotals(){
-            var subtotal = 0;
-            var total = 0;
+            var fuel_subtotal = 0;
+            var fuel_total = 0;
 
             var i;
             for(i=0; i < vm.freecom_concept_fuels.length; i++){
                 var concept_fuel = vm.freecom_concept_fuels[i].concept_fuel;
 
-                subtotal = parseFloat(subtotal) + parseFloat(concept_fuel.amount);
-                total =  parseFloat(total) + parseFloat(concept_fuel.amount);
+                fuel_subtotal = parseFloat(fuel_subtotal) + parseFloat(concept_fuel.amount);
+                fuel_total =  parseFloat(fuel_total) + parseFloat(concept_fuel.amount);
 
-                var determinates = vm.freecom_concept_fuels[i].determinates;
+                var fuel_determinates = vm.freecom_concept_fuels[i].determinates;
                 var j;
-                for(j=0; j < determinates.length; j++){
-                    total =  parseFloat(total) + parseFloat(determinates[j].amount);
+                for(j=0; j < fuel_determinates.length; j++){
+                    fuel_total =  parseFloat(fuel_total) + parseFloat(fuel_determinates[j].amount);
                 }
             }
 
-            vm.freecom_fuel_consumption.subtotal = floorFigure(subtotal, 2);
-            vm.freecom_fuel_consumption.total =  floorFigure(total, 2);
+            vm.freecom_fuel_consumption.subtotal = floorFigure(fuel_subtotal, 2);
+            vm.freecom_fuel_consumption.total =  floorFigure(fuel_total, 2);
         }
 
         //Storeroom Paybill
