@@ -30,7 +30,7 @@
         $scope.$on('authenticationSuccess', function() {
             getAccount();
 
-            vm.tracemgs = Tracemg.query({
+            /*vm.tracemgs = Tracemg.query({
                 page: 0,
                 size: 10,
                 fromDate: fromDate,
@@ -51,7 +51,7 @@
                 datefrom: fromDate,
                 dateto: toDate,
                 request_state: 1
-            });
+            });*/
 
             vm.login = LoginService.open;
         });
@@ -79,6 +79,29 @@
                         $('#sidebar-shortcuts').attr('style','');
                         $('#sidebar-options').attr('style','');
                     }
+
+                    vm.tracemgs = Tracemg.query({
+                        page: 0,
+                        size: 10,
+                        fromDate: fromDate,
+                        toDate: toDate,
+                        principal: principal,
+                        auditEventType: auditEventType,
+                        ip: ip
+                    });
+
+                    vm.taxpayer_accounts = Taxpayer_account.query({
+                        page: 0,
+                        size: 10
+                    });
+
+                    vm.request_taxpayer_accounts = Request_taxpayer_account.query({
+                        page: 0,
+                        size: 10,
+                        datefrom: fromDate,
+                        dateto: toDate,
+                        request_state: 1
+                    });
                 }
             });
         }

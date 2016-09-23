@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/branch-office?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'megabillingplatformApp.branch_office.home.title'
             },
             views: {
@@ -55,7 +55,7 @@
             parent: 'entity',
             url: '/branch-office/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: [],
                 pageTitle: 'megabillingplatformApp.branch_office.detail.title'
             },
             views: {
@@ -79,7 +79,7 @@
             parent: 'branch-office',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: []
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -107,7 +107,7 @@
             parent: 'branch-office',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: []
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -132,7 +132,7 @@
             parent: 'branch-office',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: []
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

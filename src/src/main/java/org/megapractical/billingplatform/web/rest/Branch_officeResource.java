@@ -2,7 +2,9 @@ package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import org.megapractical.billingplatform.domain.Branch_office;
+import org.megapractical.billingplatform.domain.Tax_address;
 import org.megapractical.billingplatform.service.Branch_officeService;
+import org.megapractical.billingplatform.service.Tax_addressService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -30,10 +32,13 @@ import java.util.Optional;
 public class Branch_officeResource {
 
     private final Logger log = LoggerFactory.getLogger(Branch_officeResource.class);
-        
+
     @Inject
     private Branch_officeService branch_officeService;
-    
+
+    @Inject
+    private Tax_addressService tax_addressService;
+
     /**
      * POST  /branch-offices : Create a new branch_office.
      *
@@ -50,6 +55,8 @@ public class Branch_officeResource {
         if (branch_office.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("branch_office", "idexists", "A new branch_office cannot already have an ID")).body(null);
         }
+        Tax_address tax_address = branch_office.getTax_address();
+        branch_office.setTax_address(tax_addressService.save(tax_address));
         Branch_office result = branch_officeService.save(branch_office);
         return ResponseEntity.created(new URI("/api/branch-offices/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("branch_office", result.getId().toString()))
@@ -89,14 +96,17 @@ public class Branch_officeResource {
      */
     @RequestMapping(value = "/branch-offices",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"taxpayeraccount"})
     @Timed
-    public ResponseEntity<List<Branch_office>> getAllBranch_offices(Pageable pageable)
+    public ResponseEntity<List<Branch_office>> getAllBranch_offices(Pageable pageable,
+                                                                    @RequestParam(value = "taxpayeraccount") Integer taxpayeraccount)
         throws URISyntaxException {
         log.debug("REST request to get a page of Branch_offices");
-        Page<Branch_office> page = branch_officeService.findAll(pageable); 
+        Page<Branch_office> page = branch_officeService.findAll(pageable, taxpayeraccount);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/branch-offices");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+
     }
 
     /**

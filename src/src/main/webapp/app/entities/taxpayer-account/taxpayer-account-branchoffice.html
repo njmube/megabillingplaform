@@ -5,12 +5,12 @@
                 {{'megabillingplatformApp.taxpayer_account.detail.title' | translate}}
                 <small>
                     <i class="ace-icon fa fa-angle-double-right"></i>
-                    {{'megabillingplatformApp.taxpayer_account.users' | translate}}
+                    {{'megabillingplatformApp.taxpayer_account.branch_office' | translate}}
                 </small>
             </h1>
         </div>
         <div class="col-md-3">
-            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account"
+            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account" data-ng-change="vm.changeAccount()"
                     ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
                 <option value=""></option>
             </select>
@@ -34,14 +34,14 @@
             <li>
                 <a ui-sref="taxpayer-account-general({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.general' | translate}}</a>
             </li>
-            <li  class="active">
+            <li>
                 <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.users' | translate}}</a>
             </li>
             <li>
                 <a ui-sref="taxpayer-account-taxregime({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.tax_regime' | translate}}</a>
             </li>
-            <li>
-                <a ui-sref="taxpayer-account-branchoffice({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.branch_office' | translate}}</a>
+            <li class="active">
+                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.branch_office' | translate}}</a>
             </li>
             <li>
                 <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.email_account' | translate}}</a>
@@ -64,8 +64,8 @@
         <div class="col-xs-4 no-padding-left" ng-click="vm.add()">
             <button class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span>
-                    <span  translate="megabillingplatformApp.taxpayer_account.adduser">
-                        Asociar Usuario
+                    <span  translate="megabillingplatformApp.branch_office.home.createLabel">
+                        Create new Branch Office
                     </span>
             </button>
         </div>
@@ -78,33 +78,32 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="jh-table table table-striped">
                 <thead>
-                <tr>
-                    <th translate="global.field.id">ID</th>
-                    <th translate="megabillingplatformApp.taxpayer_account.name_f_s">Nombre y Apellidos</th>
-                    <th translate="megabillingplatformApp.taxpayer_account.user">Nombre Usuario</th>
-                    <th translate="megabillingplatformApp.taxpayer_account.emailuser">Correo</th>
-                    <th translate="megabillingplatformApp.taxpayer_account.state">Estado</th>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bussines_name"><span translate="megabillingplatformApp.branch_office.bussines_name">Bussines Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax_address.id"><span translate="megabillingplatformApp.branch_office.tax_address">Tax Address</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="user in vm.taxpayer_account.users track by user.id">
-                    <td>{{user.id}}</td>
-                    <td>{{user.name}} {{user.firtsurname}} {{user.secondsurname}}</td>
-                    <td>{{user.login}}</td>
-                    <td>{{user.email}}</td>
+                <tr ng-repeat="branch_office in vm.branch_offices track by branch_office.id">
+                    <td><a ui-sref="branch-office-detail({id:branch_office.id})">{{branch_office.id}}</a></td>
+                    <td>{{branch_office.bussines_name}}</td>
                     <td>
-                        <span class="label label-danger" ng-show="!user.activated"
-                              translate="megabillingplatformApp.taxpayer_account.deactivated" style="cursor: pointer;">Desactivated</span>
-                        <span class="label label-success" ng-show="user.activated"
-                          translate="megabillingplatformApp.taxpayer_account.activated" style="cursor: pointer;">Activated</span>
+                        <a ui-sref="tax-address-detail({id:branch_office.tax_address.id})">{{'entity.action.view' | translate}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="button" ng-click="vm.deleteUser(user)"
-                                    class="btn btn-danger btn-sm" ng-disabled="vm.currentAccount.login==user.login">
+                            <button type="submit"
+                                    ui-sref="branch-office-detail({id:branch_office.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="button"
+                                    ng-click="vm.deleteOffice(branch_office)" class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>
@@ -113,6 +112,10 @@
                 </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="text-center">
+            <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+            <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
         </div>
     </div>
 </div>

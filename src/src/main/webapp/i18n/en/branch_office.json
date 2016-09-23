@@ -16,7 +16,7 @@
             "detail": {
                 "title": "Branch Office"
             },
-            "bussines_name": "Bussines Name",
+            "bussines_name": "Bussines Name (*)",
             "tax_address": "Tax Address",
             "taxpayer_account": "Taxpayer Account"
         }

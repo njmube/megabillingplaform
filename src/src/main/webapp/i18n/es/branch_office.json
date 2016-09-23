@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "branch_office" : {
             "home": {
-                "title": "Branch Offices",
-                "createLabel": "Crear nuevo Branch Office",
-                "createOrEditLabel": "Crear o editar Branch Office",
-                "search": "Search for Branch Office"
+                "title": "Oficinas",
+                "createLabel": "Crear nueva Oficina",
+                "createOrEditLabel": "Crear o editar Oficina",
+                "search": "Búsqueda para Oficina"
             },
-            "created": "Un nuevo Branch Office ha sido creado con el identificador {{ param }}",
-            "updated": "Un Branch Office ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Branch Office ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Oficina ha sido creado con el identificador {{ param }}",
+            "updated": "Una Oficina ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Oficina ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Branch Office {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Oficina {{ id }}?"
             },
             "detail": {
-                "title": "Branch Office"
+                "title": "Oficina"
             },
-            "bussines_name": "Bussines Name",
-            "tax_address": "Tax Address",
-            "taxpayer_account": "Taxpayer Account"
+            "bussines_name": "Nombre o Razón Social (*)",
+            "tax_address": "Dirección",
+            "taxpayer_account": "Cuenta de facturación"
         }
     }
 }
