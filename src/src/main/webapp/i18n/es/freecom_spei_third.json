@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "freecom_spei_third" : {
             "home": {
-                "title": "Freecom Spei Thirds",
-                "createLabel": "Crear nuevo Freecom Spei Third",
-                "createOrEditLabel": "Crear o editar Freecom Spei Third",
-                "search": "Search for Freecom Spei Third"
+                "title": "Listado de SPEI Tercero",
+                "createLabel": "Crear nuevo SPEI Tercero",
+                "createOrEditLabel": "Crear o editar SPEI Tercero",
+                "search": "Search for SPEI Tercero"
             },
-            "created": "Un nuevo Freecom Spei Third ha sido creado con el identificador {{ param }}",
-            "updated": "Un Freecom Spei Third ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Freecom Spei Third ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo SPEI Tercero ha sido creado con el identificador {{ param }}",
+            "updated": "Un SPEI Tercero ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un SPEI Tercero ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Freecom Spei Third {{ id }}?"
+                "question": "¿Seguro que quiere eliminar SPEI Tercero con ID: {{ id }}?"
             },
             "detail": {
-                "title": "Freecom Spei Third"
+                "title": "SPEI Tercero"
             },
             "date_operation": "Fecha Operación (*):",
             "hour": "Hora (*):",
@@ -22,7 +22,7 @@
             "stamp": "Sello (*):",
             "number_certificate": "No. Certificado (*):",
             "cda": "CDA (*):",
-            "freecom_spei": "Freecom Spei",
+            "freecom_spei": "SPEI Tercero",
             "freecom_payer": "Ordenante",
             "freecom_beneficiary": "Beneficiario"
         }

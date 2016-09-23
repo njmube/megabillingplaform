@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "freecom_concept_fuel" : {
             "home": {
-                "title": "Freecom_concept_fuels",
-                "createLabel": "Crear nuevo Freecom_concept_fuel",
-                "createOrEditLabel": "Crear o editar Freecom_concept_fuel",
-                "search": "Search for Freecom_concept_fuel"
+                "title": "Listado de Conceptos",
+                "createLabel": "Nuevo Concepto",
+                "createOrEditLabel": "Crear o editar Concepto",
+                "search": "Búsqueda por Concepto"
             },
-            "created": "Un nuevo Freecom_concept_fuel ha sido creado con el identificador {{ param }}",
-            "updated": "Un Freecom_concept_fuel ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Freecom_concept_fuel ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo concepto ha sido creado con el identificador {{ param }}",
+            "updated": "Un concepto ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un concepto ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Freecom_concept_fuel {{ id }}?"
+                "question": "¿Seguro que quiere eliminar concepto con ID: {{ id }}?"
             },
             "detail": {
-                "title": "Freecom_concept_fuel"
+                "title": "Concepto"
             },
             "identifier": "Identificador (*):",
             "date_expedition": "Fecha Expedición (*):",
@@ -25,7 +25,7 @@
             "folio_operation": "Folio de Operación (*):",
             "unit_value": "Valor Unitario (*):",
             "amount": "Importe:",
-            "freecom_fuel_consumption": "Freecom_fuel_consumption"
+            "freecom_fuel_consumption": "Complemento Consumo de Combustible"
         }
     }
 }

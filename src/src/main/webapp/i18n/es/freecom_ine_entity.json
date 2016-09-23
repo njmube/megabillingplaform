@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "freecom_ine_entity" : {
             "home": {
-                "title": "Freecom Ine Entities",
-                "createLabel": "Crear nuevo Freecom Ine Entity",
-                "createOrEditLabel": "Crear o editar Freecom Ine Entity",
-                "search": "Search for Freecom Ine Entity"
+                "title": "Listado de INE Entidades",
+                "createLabel": "Nueva INE Entidad",
+                "createOrEditLabel": "Crear o editar INE Entidad",
+                "search": "Búsqueda por INE Entidad"
             },
-            "created": "Un nuevo Freecom Ine Entity ha sido creado con el identificador {{ param }}",
-            "updated": "Un Freecom Ine Entity ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Freecom Ine Entity ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva INE Entidad ha sido creada con el identificador {{ param }}",
+            "updated": "Un INE Entidad ha sido actualizada con el identificador {{ param }}",
+            "deleted": "Un INE Entidad ha sido eliminada con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Freecom Ine Entity {{ id }}?"
+                "question": "¿Seguro que quiere eliminar una INE Entidad con el ID: {{ id }}?"
             },
             "detail": {
-                "title": "Freecom Ine Entity"
+                "title": "INE Entidad"
             },
             "key_entity": "Clave Entidad:",
-            "freecom_ine": "Freecom Ine",
+            "freecom_ine": "Complemento INE",
             "c_scope_type": "Tipo Ámbito:"
         }
     }

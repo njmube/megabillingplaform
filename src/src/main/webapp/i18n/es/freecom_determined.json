@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "freecom_determined" : {
             "home": {
-                "title": "Freecom_determineds",
-                "createLabel": "Crear nuevo Freecom_determined",
-                "createOrEditLabel": "Crear o editar Freecom_determined",
-                "search": "Search for Freecom_determined"
+                "title": "Listado de Determinados",
+                "createLabel": "Nuevo Determinado",
+                "createOrEditLabel": "Crear o editar Determinado",
+                "search": "Búsqueda por Determinado"
             },
-            "created": "Un nuevo Freecom_determined ha sido creado con el identificador {{ param }}",
-            "updated": "Un Freecom_determined ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Freecom_determined ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo determinado ha sido creado con el identificador {{ param }}",
+            "updated": "Un determinado ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un determinado ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Freecom_determined {{ id }}?"
+                "question": "¿Seguro que quiere eliminar un determinado con ID: {{ id }}?"
             },
             "detail": {
-                "title": "Freecom_determined"
+                "title": "Determinado"
             },
             "rate": "Tasa (*):",
             "amount": "Importe (*):",
-            "freecom_concept_fuel": "Freecom_concept_fuel",
+            "freecom_concept_fuel": "Complemento Consumo de Combustible:",
             "freecom_tax_type": "Tipo Impuesto:"
         }
     }

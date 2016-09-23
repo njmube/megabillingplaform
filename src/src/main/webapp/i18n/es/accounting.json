@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "accounting" : {
             "home": {
-                "title": "Accountings",
-                "createLabel": "Crear nuevo Accounting",
-                "createOrEditLabel": "Crear o editar Accounting",
-                "search": "Search for Accounting"
+                "title": "Listado de Contabilidades",
+                "createLabel": "Adicionar Nueva Contabilidad",
+                "createOrEditLabel": "Crear o editar Contabilidad",
+                "search": "Búsqueda por Contabilidad"
             },
-            "created": "Un nuevo Accounting ha sido creado con el identificador {{ param }}",
-            "updated": "Un Accounting ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Accounting ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva contabilidad ha sido creada con el identificador {{ param }}",
+            "updated": "Una contabilidad ha sido actualizada con el identificador {{ param }}",
+            "deleted": "Una contabilidad ha sido eliminada con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Accounting {{ id }}?"
+                "question": "¿Seguro que quiere eliminar contabilidad con ID: {{ id }}?"
             },
             "detail": {
-                "title": "Accounting"
+                "title": "Contabilidad"
             },
             "keyaccounting": "ID Contabilidad (*):",
-            "freecom_ine_entity": "Freecom Ine Entity"
+            "freecom_ine_entity": "INE Entidad"
         }
     }
 }
