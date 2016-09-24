@@ -16,7 +16,7 @@
                     <div class="col-sm-12">
                         <form name="editForm" class="form-horizontal" role="form">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-5">
                                     <div class="form-group">
                                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.filterrfc" for="filterrfc">RFC</label>
                                         <div class="col-sm-8">
@@ -25,7 +25,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.filterlogin" for="filterlogin">User</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="filterlogin" id="filterlogin"
+                                                   ng-model="vm.filterlogin" />
+                                        </div>
+                                    </div>
                                     <button type="button"  ng-click="vm.search()" class="btn btn-primary pull-right">
                                         <span translate="entity.action.search">Search</span>
                                     </button>

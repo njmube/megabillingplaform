@@ -255,7 +255,7 @@ public class UserResource {
     @RequestMapping(value = "/users",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE,
-        params = {"filterrfc", "datefrom","dateto","stateuser", "role"})
+        params = {"filterrfc", "datefrom","dateto","stateuser","role","filterlogin"})
     @Timed
     @Transactional(readOnly = false)
     public ResponseEntity<List<ManagedUserDTO>> getAllUsers(
@@ -264,6 +264,7 @@ public class UserResource {
         @RequestParam(value = "dateto") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate dateto,
         @RequestParam(value = "stateuser") Integer stateuser,
         @RequestParam(value = "role") String role,
+        @RequestParam(value = "filterlogin") String filterlogin,
         Pageable pageable)
         throws URISyntaxException {
         Long idauditevent = new Long("21");
@@ -277,6 +278,17 @@ public class UserResource {
         boolean activated = true;
         if(stateuser == 0)
             activated = false;
+        if(filterlogin.compareTo(" ")!=0){
+            User user = userRepository.findOneByLogin(filterlogin).get();
+            Page<User> page = userRepository.findByLoginNotLikeAndLoginNotLikeAndRfcStartingWithAndActivated("system","anonymousUser",user.getRFC(),user.getActivated(),pageable);
+
+            List<ManagedUserDTO> managedUserDTOs = page.getContent().stream()
+                .map(ManagedUserDTO::new)
+                .collect(Collectors.toList());
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/users");
+            log.debug("Objetos DTOs : {}", managedUserDTOs);
+            return new ResponseEntity<>(managedUserDTOs, headers, HttpStatus.OK);
+        }
 
         if(filterrfc.compareTo(" ")==0 && datefrom.toString().compareTo("0001-01-01") == 0 &&
             dateto.toString().compareTo("0001-01-01") == 0 && stateuser == -1 && role.compareTo(" ")==0){

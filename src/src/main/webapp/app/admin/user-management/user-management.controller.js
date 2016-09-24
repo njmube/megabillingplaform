@@ -50,7 +50,8 @@
                 datefrom: fromDate,
                 dateto: toDate,
                 stateuser: -1,
-                role: " "},
+                role: " ",
+                filterlogin: " "},
                 function (result, headers) {
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
@@ -112,7 +113,8 @@
                     datefrom: fromDate,
                     dateto: toDate,
                     stateuser: stateuser,
-                    role: role},
+                    role: role,
+                    filterlogin: " "},
                 function (result, headers) {
                     vm.links = ParseLinks.parse(headers('link'));
                     vm.totalItems = headers('X-Total-Count');

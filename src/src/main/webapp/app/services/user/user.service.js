@@ -11,7 +11,7 @@
         var service = $resource('api/users/:login', {}, {
             'query': {method: 'GET', isArray: true,
                 params: {filterrfc: null,datefrom: null,dateto: null,
-                    stateuser: null, role: null}},
+                    stateuser: null, role: null, filterlogin: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

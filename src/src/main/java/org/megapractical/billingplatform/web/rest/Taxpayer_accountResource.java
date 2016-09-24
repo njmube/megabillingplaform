@@ -22,6 +22,7 @@ import javax.inject.Inject;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -82,10 +83,10 @@ public class Taxpayer_accountResource {
         if (taxpayer_account.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("taxpayer_account", "idexists", "A new taxpayer_account cannot already have an ID")).body(null);
         }
-        Taxpayer_certificate taxpayer_certificate = taxpayer_certificateService.save(taxpayer_account.getTaxpayer_certificate(), taxpayer_account.getRfc());
-        taxpayer_account.setTaxpayer_certificate(taxpayer_certificate);
+        /*Taxpayer_certificate taxpayer_certificate = taxpayer_certificateService.save(taxpayer_account.getTaxpayer_certificate(), taxpayer_account.getRfc());
+        taxpayer_account.setTaxpayer_certificate(taxpayer_certificate);*/
         Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
-        result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
+        //result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
 
         return ResponseEntity.created(new URI("/api/taxpayer-accounts/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("taxpayer_account", result.getId().toString()))
@@ -183,12 +184,20 @@ public class Taxpayer_accountResource {
                 if (taxpayer_account.getId() == null) {
                     return createTaxpayer_account(taxpayer_account);
                 }
-                Tax_address tax_address = tax_addressService.save(taxpayer_account.getTax_address());
+                tax_addressService.save(taxpayer_account.getTax_address());
 
-                Taxpayer_certificate tc = taxpayer_certificateService.save(taxpayer_account.getTaxpayer_certificate(), taxpayer_account.getRfc());
-                taxpayer_account.setTaxpayer_certificate(tc);
+                if(taxpayer_account.getTaxpayer_certificate() != null){
+                    if(taxpayer_account.getTaxpayer_certificate().getPath_certificate()!=null) {
+                        Taxpayer_certificate tc = taxpayer_certificateService.save(taxpayer_account.getTaxpayer_certificate(), taxpayer_account.getRfc());
+                        taxpayer_account.setTaxpayer_certificate(tc);
+                    }
+                }
                 Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
-                result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
+                if(taxpayer_account.getTaxpayer_certificate() != null) {
+                    if (taxpayer_account.getTaxpayer_certificate().getPath_certificate() != null) {
+                        result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
+                    }
+                }
                 result.setTax_address(tax_addressService.findOne(result.getTax_address().getId()));
 
                 Long id = new Long("45");
@@ -203,8 +212,7 @@ public class Taxpayer_accountResource {
         if (taxpayer_account.getId() == null) {
             return createTaxpayer_account(taxpayer_account);
         }
-        Taxpayer_certificate tc = taxpayer_certificateService.save(taxpayer_account.getTaxpayer_certificate(),taxpayer_account.getRfc());
-        taxpayer_account.setTaxpayer_certificate(tc);
+
         Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
         result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
 

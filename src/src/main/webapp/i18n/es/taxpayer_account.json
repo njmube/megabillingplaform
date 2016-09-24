@@ -111,7 +111,8 @@
             "emailuser":"Correo",
             "search_result":"Resultado de la búsqueda",
             "filterrfc":"RFC",
-            "messRFC":"Debe introducir el RFC del usuario"
+            "messRFC":"Debe introducir el RFC o usuario",
+            "filterlogin":"Usuario"
         }
     }
 }

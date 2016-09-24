@@ -14,6 +14,7 @@
         vm.showInfo = false;
         vm.edit = null;
         vm.filterrfc = null;
+        vm.filterlogin = null;
         vm.search = search;
         vm.users = null;
 
@@ -41,8 +42,15 @@
             var stateuser = -1;
             var role = " ";
             var filterrfc = " ";
+            var filterlogin = " ";
             if(vm.filterrfc != null && vm.filterrfc != ""){
                 filterrfc = vm.filterrfc;
+            }
+            if(vm.filterlogin != null && vm.filterlogin != ""){
+                filterlogin = vm.filterlogin;
+            }
+            if((vm.filterrfc != null && vm.filterrfc != "") || (vm.filterlogin != null && vm.filterlogin != "")){
+
                 vm.showInfo = false;
                 User.query({
                         page: vm.page - 1,
@@ -51,7 +59,9 @@
                         datefrom: fromDate,
                         dateto: toDate,
                         stateuser: stateuser,
-                        role: role},
+                        role: role,
+                        filterlogin: filterlogin
+                    },
                     function (result, headers) {
                         vm.users = result;
                     });
