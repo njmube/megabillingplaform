@@ -192,6 +192,56 @@
                     }]
                 }
             })
+        .state('taxpayer-account-mail', {
+                parent: 'entity',
+                url: '/taxpayer-account-mail/{id}',
+                data: {
+                    authorities: [],
+                    pageTitle: 'megabillingplatformApp.taxpayer_account.detail.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/taxpayer-account/taxpayer-account-mail.html',
+                        controller: 'Taxpayer_accountMailController',
+                        controllerAs: 'vm'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('taxpayer_account');
+                        $translatePartialLoader.addPart('taxpayer_mail_accounts');
+                        return $translate.refresh();
+                    }],
+                    entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
+                        return Taxpayer_account.get({id : $stateParams.id}).$promise;
+                    }]
+                }
+            })
+        .state('taxpayer-account-ftp', {
+                parent: 'entity',
+                url: '/taxpayer-account-ftp/{id}',
+                data: {
+                    authorities: [],
+                    pageTitle: 'megabillingplatformApp.taxpayer_account.detail.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/taxpayer-account/taxpayer-account-ftp.html',
+                        controller: 'Taxpayer_accountFtpController',
+                        controllerAs: 'vm'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('taxpayer_account');
+                        $translatePartialLoader.addPart('taxpayer_ftp_account');
+                        return $translate.refresh();
+                    }],
+                    entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
+                        return Taxpayer_account.get({id : $stateParams.id}).$promise;
+                    }]
+                }
+            })
         .state('taxpayer-account-index', {
                 parent: 'entity',
                 url: '/taxpayer-account-index/{id}',

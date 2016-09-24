@@ -13,7 +13,7 @@ public interface Taxpayer_mail_accountsService {
 
     /**
      * Save a taxpayer_mail_accounts.
-     * 
+     *
      * @param taxpayer_mail_accounts the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,15 @@ public interface Taxpayer_mail_accountsService {
 
     /**
      *  Get all the taxpayer_mail_accounts.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    Page<Taxpayer_mail_accounts> findAll(Pageable pageable);
+    Page<Taxpayer_mail_accounts> findAll(Integer taxpayer_account, Pageable pageable);
 
     /**
      *  Get the "id" taxpayer_mail_accounts.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +37,7 @@ public interface Taxpayer_mail_accountsService {
 
     /**
      *  Delete the "id" taxpayer_mail_accounts.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

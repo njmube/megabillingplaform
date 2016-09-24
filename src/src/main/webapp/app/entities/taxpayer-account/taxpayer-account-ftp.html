@@ -1,0 +1,147 @@
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>
+                {{'megabillingplatformApp.taxpayer_account.detail.title' | translate}}
+                <small>
+                    <i class="ace-icon fa fa-angle-double-right"></i>
+                    {{'megabillingplatformApp.taxpayer_account.ftp_account' | translate}}
+                </small>
+            </h1>
+        </div>
+        <div class="col-md-3">
+            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account"
+                    ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="col-md-1">
+            <a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info" href="#">
+                <i class="fa fa-lightbulb-o"></i>
+            </a>
+        </div>
+    </div>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="nav nav-pills">
+            <li>
+                <a href="#/">
+                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                </a>
+            </li>
+            <li>
+                <a ui-sref="taxpayer-account-general({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.general' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.users' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="taxpayer-account-taxregime({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.tax_regime' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="taxpayer-account-branchoffice({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.branch_office' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.email_account' | translate}}</a>
+            </li>
+            <li   class="active">
+                <a ui-sref="taxpayer-account-ftp({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.ftp_account' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.adquired' | translate}}</a>
+            </li>
+        </ul>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="hr hr-16 hr-dotted"></div>
+
+<jhi-alert></jhi-alert>
+
+<form name="editForm" class="form-horizontal" role="form" novalidate show-validation>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_ftp_account.server_type">Server Type</label>
+                <div class="col-md-5">
+                    <select name=server_type id="server_type" class="form-control"
+                            ng-model="vm.taxpayer_ftp_account.server_type" style="width:200px">
+                        <option selected="selected" name=FTP value=FTP>FTP</option>
+                    </select>
+                    <div ng-show="editForm.server_type.$dirty && editForm.server_type.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.server_type.$error.required" translate="entity.validation.required">
+                            This field is required.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_ftp_account.server_name_ip" for="server_name_ip">Server name/IP</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="server_name_ip" id="server_name_ip"
+                           ng-model="vm.taxpayer_ftp_account.server_name_ip"
+                           required />
+                    <div ng-show="editForm.server_name_ip.$dirty && editForm.server_name_ip.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.server_name_ip.$error.required" translate="entity.validation.required">
+                            This field is required.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_ftp_account.port" for="port">Port</label>
+                <div class="col-md-5">
+                    <input type="number" class="form-control" name="port" id="port"
+                           ng-model="vm.taxpayer_ftp_account.port"
+                           required />
+                    <div ng-show="editForm.port.$dirty && editForm.port.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.port.$error.required" translate="entity.validation.required">
+                            This field is required.
+                        </p>
+                        <p class="help-block"
+                           ng-show="editForm.port.$error.number" translate="entity.validation.number">
+                            This field should be a number.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_ftp_account.username" for="field_username">Username</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="username" id="field_username"
+                           ng-model="vm.taxpayer_ftp_account.username"
+                        />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_ftp_account.password" for="field_password">Password</label>
+                <div class="col-md-5">
+                    <input type="password" class="form-control" name="password" id="field_password"
+                           ng-model="vm.taxpayer_ftp_account.password"
+                        />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+
+                <button type="button" class="btn btn-default pull-right" data-dismiss="modal" ng-click="vm.clear()">
+                    <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="button" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary pull-right" ng-click="vm.save()">
+                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+
+

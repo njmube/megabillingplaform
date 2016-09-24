@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Taxpayer_mail_accountsResource {
 
     private final Logger log = LoggerFactory.getLogger(Taxpayer_mail_accountsResource.class);
-        
+
     @Inject
     private Taxpayer_mail_accountsService taxpayer_mail_accountsService;
-    
+
     /**
      * POST  /taxpayer-mail-accounts : Create a new taxpayer_mail_accounts.
      *
@@ -89,12 +89,14 @@ public class Taxpayer_mail_accountsResource {
      */
     @RequestMapping(value = "/taxpayer-mail-accounts",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"taxpayer_account"})
     @Timed
-    public ResponseEntity<List<Taxpayer_mail_accounts>> getAllTaxpayer_mail_accounts(Pageable pageable)
+    public ResponseEntity<List<Taxpayer_mail_accounts>> getAllTaxpayer_mail_accounts(@RequestParam(value = "taxpayer_account") Integer taxpayer_account,
+                                                                                     Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Taxpayer_mail_accounts");
-        Page<Taxpayer_mail_accounts> page = taxpayer_mail_accountsService.findAll(pageable); 
+        Page<Taxpayer_mail_accounts> page = taxpayer_mail_accountsService.findAll(taxpayer_account, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-mail-accounts");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

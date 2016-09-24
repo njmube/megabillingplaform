@@ -13,7 +13,7 @@ public interface Taxpayer_ftp_accountService {
 
     /**
      * Save a taxpayer_ftp_account.
-     * 
+     *
      * @param taxpayer_ftp_account the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,15 @@ public interface Taxpayer_ftp_accountService {
 
     /**
      *  Get all the taxpayer_ftp_accounts.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    Page<Taxpayer_ftp_account> findAll(Pageable pageable);
+    Page<Taxpayer_ftp_account> findAll(Integer taxpayer_account, Pageable pageable);
 
     /**
      *  Get the "id" taxpayer_ftp_account.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +37,7 @@ public interface Taxpayer_ftp_accountService {
 
     /**
      *  Delete the "id" taxpayer_ftp_account.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

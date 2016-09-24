@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Taxpayer_ftp_accountResource {
 
     private final Logger log = LoggerFactory.getLogger(Taxpayer_ftp_accountResource.class);
-        
+
     @Inject
     private Taxpayer_ftp_accountService taxpayer_ftp_accountService;
-    
+
     /**
      * POST  /taxpayer-ftp-accounts : Create a new taxpayer_ftp_account.
      *
@@ -89,12 +89,14 @@ public class Taxpayer_ftp_accountResource {
      */
     @RequestMapping(value = "/taxpayer-ftp-accounts",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"taxpayer_account"})
     @Timed
-    public ResponseEntity<List<Taxpayer_ftp_account>> getAllTaxpayer_ftp_accounts(Pageable pageable)
+    public ResponseEntity<List<Taxpayer_ftp_account>> getAllTaxpayer_ftp_accounts(@RequestParam(value = "taxpayer_account") Integer taxpayer_account,
+                                                                                  Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Taxpayer_ftp_accounts");
-        Page<Taxpayer_ftp_account> page = taxpayer_ftp_accountService.findAll(pageable); 
+        Page<Taxpayer_ftp_account> page = taxpayer_ftp_accountService.findAll(taxpayer_account, pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-ftp-accounts");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

@@ -2,26 +2,26 @@
     "megabillingplatformApp": {
         "taxpayer_ftp_account" : {
             "home": {
-                "title": "Taxpayer Ftp Accounts",
-                "createLabel": "Crear nuevo Taxpayer Ftp Account",
-                "createOrEditLabel": "Crear o editar Taxpayer Ftp Account",
-                "search": "Search for Taxpayer Ftp Account"
+                "title": "FTP de la cuenta",
+                "createLabel": "Crear nuevo FTP de la cuenta",
+                "createOrEditLabel": "Crear o editar FTP de la cuenta",
+                "search": "Búsqueda para FTP de la cuenta"
             },
-            "created": "Un nuevo Taxpayer Ftp Account ha sido creado con el identificador {{ param }}",
-            "updated": "Un Taxpayer Ftp Account ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Taxpayer Ftp Account ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo FTP de la cuenta ha sido creado con el identificador {{ param }}",
+            "updated": "Un FTP de la cuenta ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un FTP de la cuenta ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Taxpayer Ftp Account {{ id }}?"
+                "question": "¿Seguro que quiere eliminar FTP de la cuenta {{ id }}?"
             },
             "detail": {
-                "title": "Taxpayer Ftp Account"
+                "title": "FTP de la cuenta"
             },
-            "server_type": "Server Type",
-            "server_name_ip": "Server Name Ip",
-            "port": "Port",
-            "username": "Username",
-            "password": "Password",
-            "taxpayer_account": "Taxpayer Account"
+            "server_type": "Tipo de servidor",
+            "server_name_ip": "Nombre/IP Servidor",
+            "port": "Puerto",
+            "username": "Usuario",
+            "password": "Contraseña",
+            "taxpayer_account": "Cuenta de facturación"
         }
     }
 }

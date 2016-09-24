@@ -2,26 +2,26 @@
     "megabillingplatformApp": {
         "taxpayer_mail_accounts" : {
             "home": {
-                "title": "Taxpayer Mail Accounts",
-                "createLabel": "Crear nuevo Taxpayer Mail Accounts",
-                "createOrEditLabel": "Crear o editar Taxpayer Mail Accounts",
-                "search": "Search for Taxpayer Mail Accounts"
+                "title": "Correo electrónico de la cuenta",
+                "createLabel": "Crear nuevo Correo electrónico de la cuenta",
+                "createOrEditLabel": "Crear o editar Correo electrónico de la cuenta",
+                "search": "Búsqueda para Correo electrónico de la cuenta"
             },
-            "created": "Un nuevo Taxpayer Mail Accounts ha sido creado con el identificador {{ param }}",
-            "updated": "Un Taxpayer Mail Accounts ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Taxpayer Mail Accounts ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Correo electrónico de la cuenta ha sido creado con el identificador {{ param }}",
+            "updated": "Un Correo electrónico de la cuenta ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Correo electrónico de la cuenta ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Taxpayer Mail Accounts {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Correo electrónico de la cuenta {{ id }}?"
             },
             "detail": {
-                "title": "Taxpayer Mail Accounts"
+                "title": "Correo electrónico de la cuenta"
             },
-            "incoming_mail_type": "Incoming Mail Type",
-            "incoming_server_name": "Incoming Server Name",
-            "incoming_port": "Incoming Port",
-            "username": "Username",
-            "password": "Password",
-            "taxpayer_account": "Taxpayer Account"
+            "incoming_mail_type": "Tipo de correo entrante",
+            "incoming_server_name": "Nombre del servidor entrante",
+            "incoming_port": "Puerto entrante",
+            "username": "Usuario",
+            "password": "Contraseña",
+            "taxpayer_account": "Cuenta de facturación"
         }
     }
 }
