@@ -16,7 +16,7 @@
     "fields": [
         {
             "fieldName": "rate",
-            "fieldType": "String",
+            "fieldType": "BigDecimal",
             "fieldValidateRules": [
                 "required"
             ]

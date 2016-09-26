@@ -37,7 +37,7 @@
                     entity: function () {
                         return {
                             rate: null,
-                            amount: null,
+                            amount: (0).toFixed(2),
                             id: null
                         };
                     }
