@@ -117,6 +117,7 @@
 
         function onSaveSuccess (result) {
             vm.isSaving = true;
+            window.location.assign("#/");
         }
 
         function onSaveError () {

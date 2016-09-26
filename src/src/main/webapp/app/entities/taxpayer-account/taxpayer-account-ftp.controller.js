@@ -14,6 +14,8 @@
         vm.taxpayer_accounts = Taxpayer_account.query();
         vm.save = save;
         vm.clear = clear;
+        vm.getAbsolutePath = getAbsolutePath;
+        vm.changeAccount = changeAccount;
         loadAll();
 
         function loadAll () {
@@ -30,6 +32,17 @@
                 AlertService.error(error.data.message);
             }
         }
+
+        function changeAccount(){
+            window.location.assign(getAbsolutePath()+vm.taxpayer_account.id);
+        }
+
+        function getAbsolutePath() {
+            var loc = window.location.href;
+            var pathName = loc.substring(0, loc.lastIndexOf('/') + 1);
+            return pathName;
+        }
+
 
         function clear () {
             $uibModalInstance.dismiss('cancel');

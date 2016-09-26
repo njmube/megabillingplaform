@@ -10,7 +10,7 @@
             </h1>
         </div>
         <div class="col-md-3">
-            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account" data-ng-change="vm.changeAccount()"
+            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account" ng-change="vm.changeAccount()"
                     ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
                 <option value=""></option>
             </select>

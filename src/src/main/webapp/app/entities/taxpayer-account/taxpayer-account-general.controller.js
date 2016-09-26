@@ -28,6 +28,8 @@
         vm.onChangeC_municipality = onChangeC_municipality;
         vm.onChangeC_colony = onChangeC_colony;
         vm.clicEdit = clicEdit;
+        vm.getAbsolutePath = getAbsolutePath;
+        vm.changeAccount = changeAccount;
 
         function clicEdit(){
             vm.edit = 'OK';
@@ -78,6 +80,16 @@
                     vm.taxpayer_account = result.taxpayer_account;
                 }, function() {
                 });
+        }
+
+        function changeAccount(){
+            window.location.assign(getAbsolutePath()+vm.taxpayer_account.id);
+        }
+
+        function getAbsolutePath() {
+            var loc = window.location.href;
+            var pathName = loc.substring(0, loc.lastIndexOf('/') + 1);
+            return pathName;
         }
 
         var unsubscribe = $rootScope.$on('megabillingplatformApp:taxpayer_accountUpdate', function(event, result) {

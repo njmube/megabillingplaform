@@ -187,7 +187,9 @@
 		},
         "afilitated": {
             "transactions":"Adquirir timbres",
-            "title":"Afiliado"
+            "title":"Afiliado",
+            "generateCFDI":"Generar CFDI",
+            "getCFDI":"Consultar CFDI"
         },
         "form": {
             "username": "Nombre de Usuario (*)",

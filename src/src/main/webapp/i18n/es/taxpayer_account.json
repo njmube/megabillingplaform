@@ -112,7 +112,10 @@
             "search_result":"Resultado de la búsqueda",
             "filterrfc":"RFC",
             "messRFC":"Debe introducir el RFC o usuario",
-            "filterlogin":"Usuario"
+            "filterlogin":"Usuario",
+            "addtaxregime":"Asociar Régimen Fiscal",
+            "nameTaxregime":"Nombre",
+            "description":"Descripción"
         }
     }
 }

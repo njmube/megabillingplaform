@@ -29,6 +29,11 @@
         "text6": "Join our company and have access to our applications",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
-        }
+        },
+        "lastoperation":"Last operations",
+        "datetime":"Date and time",
+        "modul":"Modul",
+        "operation":"Operation",
+        "result":"Result"
     }
 }

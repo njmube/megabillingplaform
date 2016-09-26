@@ -29,6 +29,11 @@
         "text6": "Adquirir MegaCFDI",
         "logged": {
             "message": "Está conectado como \"{{username}}\"."
-        }
+        },
+        "lastoperation":"Últimas operaciones",
+        "datetime":"Fecha y hora",
+        "modul":"Módulo",
+        "operation":"Operación",
+        "result":"Resultado"
     }
 }

@@ -10,7 +10,7 @@
             </h1>
         </div>
         <div class="col-md-3">
-            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account"
+            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account" ng-change="vm.changeAccount()"
                     ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
                 <option value=""></option>
             </select>
@@ -44,7 +44,7 @@
                 <a ui-sref="taxpayer-account-branchoffice({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.branch_office' | translate}}</a>
             </li>
             <li>
-                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.email_account' | translate}}</a>
+                <a ui-sref="taxpayer-account-mail({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.email_account' | translate}}</a>
             </li>
             <li   class="active">
                 <a ui-sref="taxpayer-account-ftp({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.ftp_account' | translate}}</a>
