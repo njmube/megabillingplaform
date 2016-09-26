@@ -142,7 +142,8 @@
                 "soporte.tecnico": "Soporte Técnico",
                 "condiciones.uso": "Condiciones de Uso",
                 "politica.privacidad": "Política de Privacidad",
-                "ayuda": "Ayuda"
+                "ayuda": "Ayuda",
+                "megacfdi": "Mega CFDI"
             },
             "admin": {
                 "main": "Administración",
@@ -187,9 +188,7 @@
 		},
         "afilitated": {
             "transactions":"Adquirir timbres",
-            "title":"Afiliado",
-            "generateCFDI":"Generar CFDI",
-            "getCFDI":"Consultar CFDI"
+            "title":"Afiliado"
         },
         "form": {
             "username": "Nombre de Usuario (*)",

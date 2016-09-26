@@ -142,7 +142,8 @@
                 "soporte.tecnico": "Technical Support",
                 "condiciones.uso": "Terms of Use",
                 "politica.privacidad": "Privacy Policy",
-                "ayuda": "Help"
+                "ayuda": "Help",
+                "megacfdi": "Mega CFDI"
             },
             "admin": {
                 "main": "Administration",
@@ -187,9 +188,7 @@
             },
         "afilitated": {
             "transactions":"Get transactions",
-            "title":"Afilitated",
-            "generateCFDI":"Generate CFDI",
-            "getCFDI":"Consult CFDI"
+            "title":"Afilitated"
         },
         "form": {
             "username": "Username (*)",
