@@ -188,7 +188,9 @@
             },
         "afilitated": {
             "transactions":"Get transactions",
-            "title":"Afilitated"
+            "title":"Afilitated",
+            "generateCFDI":"Generate CFDI",
+            "getCFDI":"Consult CFDI"
         },
         "form": {
             "username": "Username (*)",

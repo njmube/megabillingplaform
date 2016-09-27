@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "branch_office" : {
             "home": {
-                "title": "Oficinas",
-                "createLabel": "Crear nueva Oficina",
-                "createOrEditLabel": "Crear o editar Oficina",
-                "search": "Búsqueda para Oficina"
+                "title": "Sucursales",
+                "createLabel": "Adicionar nueva Sucursal",
+                "createOrEditLabel": "Crear o editar Sucursal",
+                "search": "Búsqueda para Sucursal"
             },
-            "created": "Una nueva Oficina ha sido creado con el identificador {{ param }}",
-            "updated": "Una Oficina ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Una Oficina ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Sucursal ha sido creado con el identificador {{ param }}",
+            "updated": "Una Sucursal ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Sucursal ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Oficina {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Sucursal {{ id }}?"
             },
             "detail": {
-                "title": "Oficina"
+                "title": "Sucursal"
             },
             "bussines_name": "Nombre o Razón Social (*)",
             "tax_address": "Dirección",
