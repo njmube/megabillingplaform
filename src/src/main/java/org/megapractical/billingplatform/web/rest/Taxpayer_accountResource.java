@@ -109,6 +109,7 @@ public class Taxpayer_accountResource {
     public ResponseEntity<Taxpayer_account> updateTaxpayer_account(@Valid @RequestBody Taxpayer_account taxpayer_account) throws URISyntaxException {
         log.debug("REST request to update Taxpayer_account : {}", taxpayer_account);
         Taxpayer_account pre = taxpayer_accountService.findOne(taxpayer_account.getId());
+        //Actualizando usuarios
         if(pre.getUsers().size()!=taxpayer_account.getUsers().size()){
             log.debug("Actualizando usuarios : {}", taxpayer_account.getUsers().toString());
             List<Request_taxpayer_account> listrequest_taxpayer_account = request_taxpayer_accountService.findByRfc(taxpayer_account.getRfc());
@@ -134,40 +135,24 @@ public class Taxpayer_accountResource {
                     }
                 }
             }
-        }
-        if(taxpayer_account.getTaxpayer_certificate()!=null){
-            if(taxpayer_account.getTaxpayer_certificate().getPass_certificate()!=null && taxpayer_account.getTaxpayer_certificate().getInfo_certificate()!=null){
-                String [] response = taxpayer_certificateService.validateCertificate(taxpayer_account.getTaxpayer_certificate().getFilecertificate(),
-                taxpayer_account.getTaxpayer_certificate().getFilekey(), taxpayer_account.getTaxpayer_certificate().getPass_certificate());
-                taxpayer_account.getTaxpayer_certificate().setInfo_certificate(response[1]);
+            //actualizo la cuenta con los usuarios
+            Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
 
-                Taxpayer_certificate taxpayer_certificate = taxpayer_certificateService.InfoCertificate(taxpayer_account.getTaxpayer_certificate());
-                if(taxpayer_account.getRfc().compareTo(taxpayer_certificate.getRfc_certificate())!=0) {
-                    taxpayer_certificate.setInfo_certificate("ERROR: Emitter RFC is diferent to Certificate RFC");
-                    taxpayer_certificate.setNumber_certificate(null);
-                    taxpayer_certificate.setDate_certificate(null);
-                    taxpayer_certificate.setRfc_certificate(null);
-                    taxpayer_certificate.setBussines_name_cert(null);
-                    taxpayer_certificate.setDate_created_cert(null);
-                    taxpayer_certificate.setDate_expiration_cert(null);
-                    taxpayer_certificate.setValid_days_cert(null);
-                }else {
-                    if (response[0].compareTo("0") != 0) {
-                        taxpayer_certificate.setNumber_certificate(null);
-                        taxpayer_certificate.setDate_certificate(null);
-                        taxpayer_certificate.setRfc_certificate(null);
-                        taxpayer_certificate.setBussines_name_cert(null);
-                        taxpayer_certificate.setDate_created_cert(null);
-                        taxpayer_certificate.setDate_expiration_cert(null);
-                        taxpayer_certificate.setValid_days_cert(null);
-                    } else {
-                        taxpayer_certificate.setInfo_certificate(null);
-                    }
-                }
-                taxpayer_account.setTaxpayer_certificate(taxpayer_certificate);
-                return new ResponseEntity<Taxpayer_account>(taxpayer_account,HttpStatus.OK);
-            }else{
-                if(taxpayer_account.getTaxpayer_certificate().getFilecertificate() != null) {
+            Long id = new Long("45");
+            Long idtypeevent = new Long("1");
+            tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+
+            return ResponseEntity.ok()
+                .headers(HeaderUtil.createEntityUpdateAlert("taxpayer_account", taxpayer_account.getId().toString()))
+                .body(result);
+        }else{
+            if(taxpayer_account.getTaxpayer_certificate()!=null){
+                //validacion del certificado
+                if(taxpayer_account.getTaxpayer_certificate().getPass_certificate()!=null && taxpayer_account.getTaxpayer_certificate().getInfo_certificate()!=null){
+                    String [] response = taxpayer_certificateService.validateCertificate(taxpayer_account.getTaxpayer_certificate().getFilecertificate(),
+                        taxpayer_account.getTaxpayer_certificate().getFilekey(), taxpayer_account.getTaxpayer_certificate().getPass_certificate());
+                    taxpayer_account.getTaxpayer_certificate().setInfo_certificate(response[1]);
+
                     Taxpayer_certificate taxpayer_certificate = taxpayer_certificateService.InfoCertificate(taxpayer_account.getTaxpayer_certificate());
                     if(taxpayer_account.getRfc().compareTo(taxpayer_certificate.getRfc_certificate())!=0) {
                         taxpayer_certificate.setInfo_certificate("ERROR: Emitter RFC is diferent to Certificate RFC");
@@ -178,51 +163,79 @@ public class Taxpayer_accountResource {
                         taxpayer_certificate.setDate_created_cert(null);
                         taxpayer_certificate.setDate_expiration_cert(null);
                         taxpayer_certificate.setValid_days_cert(null);
-                        return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("taxpayer_account", "diferentRFC", "ERROR: Taxpayer Account RFC is diferent to Certificate RFC")).body(null);
+                    }else {
+                        if (response[0].compareTo("0") != 0) {
+                            taxpayer_certificate.setNumber_certificate(null);
+                            taxpayer_certificate.setDate_certificate(null);
+                            taxpayer_certificate.setRfc_certificate(null);
+                            taxpayer_certificate.setBussines_name_cert(null);
+                            taxpayer_certificate.setDate_created_cert(null);
+                            taxpayer_certificate.setDate_expiration_cert(null);
+                            taxpayer_certificate.setValid_days_cert(null);
+                        } else {
+                            taxpayer_certificate.setInfo_certificate(null);
+                        }
                     }
-                }
-                if (taxpayer_account.getId() == null) {
-                    return createTaxpayer_account(taxpayer_account);
-                }
-                tax_addressService.save(taxpayer_account.getTax_address());
-
-                if(taxpayer_account.getTaxpayer_certificate() != null){
-                    if(taxpayer_account.getTaxpayer_certificate().getPath_certificate()!=null) {
-                        Taxpayer_certificate tc = taxpayer_certificateService.save(taxpayer_account.getTaxpayer_certificate(), taxpayer_account.getRfc());
-                        taxpayer_account.setTaxpayer_certificate(tc);
+                    taxpayer_account.setTaxpayer_certificate(taxpayer_certificate);
+                    return new ResponseEntity<Taxpayer_account>(taxpayer_account,HttpStatus.OK);
+                }else{
+                    //actualizacion del certificado
+                    if(taxpayer_account.getTaxpayer_certificate().getFilecertificate() != null) {
+                        Taxpayer_certificate taxpayer_certificate = taxpayer_certificateService.InfoCertificate(taxpayer_account.getTaxpayer_certificate());
+                        if(taxpayer_account.getRfc().compareTo(taxpayer_certificate.getRfc_certificate())!=0) {
+                            taxpayer_certificate.setInfo_certificate("ERROR: Emitter RFC is diferent to Certificate RFC");
+                            taxpayer_certificate.setNumber_certificate(null);
+                            taxpayer_certificate.setDate_certificate(null);
+                            taxpayer_certificate.setRfc_certificate(null);
+                            taxpayer_certificate.setBussines_name_cert(null);
+                            taxpayer_certificate.setDate_created_cert(null);
+                            taxpayer_certificate.setDate_expiration_cert(null);
+                            taxpayer_certificate.setValid_days_cert(null);
+                            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("taxpayer_account", "diferentRFC", "ERROR: Taxpayer Account RFC is diferent to Certificate RFC")).body(null);
+                        }
                     }
-                }
-                Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
-                if(taxpayer_account.getTaxpayer_certificate() != null) {
-                    if (taxpayer_account.getTaxpayer_certificate().getPath_certificate() != null) {
-                        result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
+                    if (taxpayer_account.getId() == null) {
+                        return createTaxpayer_account(taxpayer_account);
                     }
+                    tax_addressService.save(taxpayer_account.getTax_address());
+
+                    if(taxpayer_account.getTaxpayer_certificate() != null){
+                        if(taxpayer_account.getTaxpayer_certificate().getPath_certificate()!=null) {
+                            Taxpayer_certificate tc = taxpayer_certificateService.save(taxpayer_account.getTaxpayer_certificate(), taxpayer_account.getRfc());
+                            taxpayer_account.setTaxpayer_certificate(tc);
+                        }
+                    }
+                    Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
+                    if(taxpayer_account.getTaxpayer_certificate() != null) {
+                        if (taxpayer_account.getTaxpayer_certificate().getPath_certificate() != null) {
+                            result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
+                        }
+                    }
+                    result.setTax_address(tax_addressService.findOne(result.getTax_address().getId()));
+
+                    Long id = new Long("45");
+                    Long idtypeevent = new Long("1");
+                    tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+
+                    return ResponseEntity.ok()
+                        .headers(HeaderUtil.createEntityUpdateAlert("taxpayer_account", taxpayer_account.getId().toString()))
+                        .body(result);
                 }
-                result.setTax_address(tax_addressService.findOne(result.getTax_address().getId()));
-
-                Long id = new Long("45");
-                Long idtypeevent = new Long("1");
-                tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
-
-                return ResponseEntity.ok()
-                    .headers(HeaderUtil.createEntityUpdateAlert("taxpayer_account", taxpayer_account.getId().toString()))
-                    .body(result);
             }
+            if (taxpayer_account.getId() == null) {
+                return createTaxpayer_account(taxpayer_account);
+            }
+
+            Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
+
+            Long id = new Long("45");
+            Long idtypeevent = new Long("1");
+            tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+
+            return ResponseEntity.ok()
+                .headers(HeaderUtil.createEntityUpdateAlert("taxpayer_account", taxpayer_account.getId().toString()))
+                .body(result);
         }
-        if (taxpayer_account.getId() == null) {
-            return createTaxpayer_account(taxpayer_account);
-        }
-
-        Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
-        result.setTaxpayer_certificate(taxpayer_certificateService.findOne(taxpayer_account.getTaxpayer_certificate().getId()));
-
-        Long id = new Long("45");
-        Long idtypeevent = new Long("1");
-        tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
-
-        return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert("taxpayer_account", taxpayer_account.getId().toString()))
-            .body(result);
     }
 
     /**

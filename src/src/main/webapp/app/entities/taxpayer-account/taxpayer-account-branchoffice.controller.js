@@ -20,6 +20,7 @@
         vm.deleteOffice = deleteOffice;
         vm.getAbsolutePath = getAbsolutePath;
         vm.changeAccount = changeAccount;
+        vm.editBranchoffice = editBranchoffice;
 
         var unsubscribe = $rootScope.$on('megabillingplatformApp:taxpayer_accountUpdate', function(event, result) {
             vm.taxpayer_account = result;
@@ -100,6 +101,24 @@
             Branch_office.delete({id: brachoffice.id},
                 function () {
                     loadAll();
+                });
+        }
+
+        function editBranchoffice(brachoffice){
+            $uibModal.open({
+                templateUrl: 'app/entities/taxpayer-account/dialog-branchoffice.html',
+                controller: 'DialogBranchofficeController',
+                controllerAs: 'vm',
+                backdrop: true,
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return brachoffice;
+                    }
+                }
+            }).result.then(function() {
+                    loadAll();
+                }, function() {
                 });
         }
     }

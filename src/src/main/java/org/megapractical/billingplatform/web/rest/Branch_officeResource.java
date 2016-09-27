@@ -81,6 +81,7 @@ public class Branch_officeResource {
         if (branch_office.getId() == null) {
             return createBranch_office(branch_office);
         }
+        tax_addressService.save(branch_office.getTax_address());
         Branch_office result = branch_officeService.save(branch_office);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("branch_office", branch_office.getId().toString()))
