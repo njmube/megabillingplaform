@@ -56,8 +56,7 @@ public class Taxpayer_account implements Serializable {
     @JoinColumn(unique = true)
     private Tax_address tax_address;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Taxpayer_certificate taxpayer_certificate;
 
     @ManyToOne

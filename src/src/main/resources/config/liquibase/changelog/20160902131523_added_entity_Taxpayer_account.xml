@@ -24,42 +24,46 @@
             <column name="rfc" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="bussines_name" type="varchar(100)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="email" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="fax" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="phone_1" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="phone_2" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="accuracy" type="integer">
                 <constraints nullable="false" />
             </column>
-                        <column name="tax_address_id" type="bigint">
-                <constraints unique="true" nullable="true" />
-            </column>            <column name="taxpayer_certificate_id" type="bigint">
+
+            <column name="tax_address_id" type="bigint">
                 <constraints unique="true" nullable="true" />
             </column>
+
+            <column name="taxpayer_certificate_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <column name="type_taxpayer_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <createTable tableName="taxpayer_account_tax_regime">
             <column name="tax_regimes_id" type="bigint">
                 <constraints nullable="false"/>
@@ -70,7 +74,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="taxpayer_accounts_id, tax_regimes_id" tableName="taxpayer_account_tax_regime"/>
-        
+
         <createTable tableName="taxpayer_account_user">
             <column name="users_id" type="bigint">
                 <constraints nullable="false"/>
@@ -81,6 +85,6 @@
         </createTable>
 
         <addPrimaryKey columnNames="taxpayer_accounts_id, users_id" tableName="taxpayer_account_user"/>
-        
+
     </changeSet>
 </databaseChangeLog>

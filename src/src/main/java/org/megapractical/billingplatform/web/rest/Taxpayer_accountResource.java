@@ -108,6 +108,12 @@ public class Taxpayer_accountResource {
     @Timed
     public ResponseEntity<Taxpayer_account> updateTaxpayer_account(@Valid @RequestBody Taxpayer_account taxpayer_account) throws URISyntaxException {
         log.debug("REST request to update Taxpayer_account : {}", taxpayer_account);
+        if(taxpayer_account.getTaxpayer_certificate() != null){
+            if(taxpayer_account.getTaxpayer_certificate().getFilecertificate() == null){
+                taxpayer_account.setTaxpayer_certificate(null);
+                log.debug("Datos del certificado de la cuenta: {}", taxpayer_account.getTaxpayer_certificate());
+            }
+        }
         Taxpayer_account pre = taxpayer_accountService.findOne(taxpayer_account.getId());
         //Actualizando usuarios
         if(pre.getUsers().size()!=taxpayer_account.getUsers().size()){
@@ -136,6 +142,7 @@ public class Taxpayer_accountResource {
                 }
             }
             //actualizo la cuenta con los usuarios
+
             Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
 
             Long id = new Long("45");

@@ -11,10 +11,8 @@
         {
             "relationshipName": "taxpayer_certificate",
             "otherEntityName": "taxpayer_certificate",
-            "relationshipType": "one-to-one",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "taxpayer_account"
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         },
         {
             "relationshipName": "type_taxpayer",
