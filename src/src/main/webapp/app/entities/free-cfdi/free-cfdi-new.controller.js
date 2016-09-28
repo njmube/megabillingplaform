@@ -279,6 +279,7 @@
 
                     //calc_iva = calc_iva + iva_calc_val * vm.free_concepts[i].free_concept.amount * (1 + vm.free_concepts[i].free_concept_ieps.rate/100);
                     calc_iva = bln.add(calc_iva, bln.multiply(bln.multiply(iva_calc_val, vm.free_concepts[i].free_concept.amount, 6), (1 + vm.free_concepts[i].free_concept_ieps.rate/100), 6), 6);
+                    //calc_iva = bln.add(calc_iva, bln.multiply(bln.multiply(iva_calc_val, bln.multiply(vm.free_concepts[i].free_concept.quantity, vm.free_concepts[i].free_concept.unit_value, 6), 6), (1 + vm.free_concepts[i].free_concept_ieps.rate/100), 6), 6);
                 }
                 else {
                     var iva_calc_val = 0;

@@ -176,13 +176,13 @@ BigLargeNumberOperations = function (){
 			var valA = (parseInt(intA[i]) || 0);
 			var valB = (parseInt(intB[i]) || 0);					
 			
-			if(valA < valB){
-				valA = valA + 10;						
-			}
-			
 			if (!result[i]) {
 				result[i] = 0;
 			}
+			
+			if(valA < (valB + result[i])){
+				valA = valA + 10;						
+			}			
 
 			var next = (valA / 10) | 0;
 			result[i] = valA - valB - result[i];
