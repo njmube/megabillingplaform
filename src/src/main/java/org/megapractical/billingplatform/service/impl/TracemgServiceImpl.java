@@ -118,7 +118,7 @@ public class TracemgServiceImpl implements TracemgService{
             List<Tracemg> list = new ArrayList<>();
             if(au != null){
                 for(Tracemg trace: result.getContent()){
-                    if(trace.getAudit_event_type().getId().compareTo(au.getId())==0){
+                    if(trace.getAudit_event_type().getName().compareTo(au.getName())==0){
                         list.add(trace);
                     }
                 }
