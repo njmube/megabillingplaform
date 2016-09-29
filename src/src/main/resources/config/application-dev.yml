@@ -19,9 +19,11 @@ spring:
             enabled: false # we use gulp + BrowserSync for livereload
     datasource:
         url: jdbc:postgresql://localhost:5432/mega_billing_plaform_dev
+        #url: jdbc:postgresql://10.152.100.7:5432/mega_app_cfdi_prod
         name:
         username: postgres
         password: postgres
+        #password: M3g4AdM1n5Q1
     jpa:
         database-platform: org.megapractical.billingplatform.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL
