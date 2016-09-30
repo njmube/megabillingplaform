@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "request_taxpayer_account" : {
             "home": {
-                "title": "Solicitud de cuentas de facuración",
-                "createLabel": "Crear nueva Solicitud de cuenta de facuración",
-                "createOrEditLabel": "Crear o editar Solicitud de cuenta de facuración",
-                "search": "Búsqueda para Solicitud de cuenta de facuración"
+                "title": "Solicitud de cuentas de facturación",
+                "createLabel": "Crear nueva Solicitud de cuenta de facturación",
+                "createOrEditLabel": "Crear o editar Solicitud de cuenta de facturación",
+                "search": "Búsqueda para Solicitud de cuenta de facturación"
             },
-            "created": "Un nueva Solicitud de cuenta de facuración ha sido creado con el identificador {{ param }}",
-            "updated": "Una Solicitud de cuenta de facuración ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Una Solicitud de cuenta de facuración ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nueva Solicitud de cuenta de facturación ha sido creado con el identificador {{ param }}",
+            "updated": "Una Solicitud de cuenta de facturación ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Solicitud de cuenta de facturación ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Solicitud de cuenta de facuración {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Solicitud de cuenta de facturación {{ id }}?"
             },
             "detail": {
-                "title": "Solicitud de cuenta de facuración"
+                "title": "Solicitud de cuenta de facturación"
             },
             "name": "Nombre(*)",
             "filtername": "Solicitante",
@@ -34,7 +34,7 @@
             "date_born": "Fecha de nacimiento(*)",
             "gender": "Género",
             "rfc": "RFC(*)",
-            "bussines_name": "Nombre o Razon Social(*)",
+            "bussines_name": "Nombre o Razón Social(*)",
             "account_email": "Correo Electrónico(*)",
             "request_state": "Estado de la solicitud",
             "tax_address_request": {
