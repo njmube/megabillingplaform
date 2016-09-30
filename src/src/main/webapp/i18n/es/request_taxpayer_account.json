@@ -2,19 +2,19 @@
     "megabillingplatformApp": {
         "request_taxpayer_account" : {
             "home": {
-                "title": "Solicitud de cuentas de facturación",
-                "createLabel": "Crear nueva Solicitud de cuenta de facturación",
-                "createOrEditLabel": "Crear o editar Solicitud de cuenta de facturación",
-                "search": "Búsqueda para Solicitud de cuenta de facturación"
+                "title": "Solicitud de cuentas de contribuyente",
+                "createLabel": "Crear nueva Solicitud de cuenta de contribuyente",
+                "createOrEditLabel": "Crear o editar Solicitud de cuenta de contribuyente",
+                "search": "Búsqueda para Solicitud de cuenta de contribuyente"
             },
-            "created": "Un nueva Solicitud de cuenta de facturación ha sido creado con el identificador {{ param }}",
-            "updated": "Una Solicitud de cuenta de facturación ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Una Solicitud de cuenta de facturación ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nueva Solicitud de cuenta de contribuyente ha sido creado con el identificador {{ param }}",
+            "updated": "Una Solicitud de cuenta de contribuyente ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Solicitud de cuenta de contribuyente ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Solicitud de cuenta de facturación {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Solicitud de cuenta de contribuyente {{ id }}?"
             },
             "detail": {
-                "title": "Solicitud de cuenta de facturación"
+                "title": "Solicitud de cuenta de contribuyente"
             },
             "name": "Nombre(*)",
             "filtername": "Solicitante",

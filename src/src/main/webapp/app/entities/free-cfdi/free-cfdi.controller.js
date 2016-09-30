@@ -14,6 +14,8 @@
         vm.search = search;
         vm.cancelar = cancelar;
         vm.abrirZip = abrirZip;
+        //vm.campo = date_expedition;
+        vm.orden = true;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;

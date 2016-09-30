@@ -132,20 +132,20 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped">
             <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                <tr>
                     <th></th>
-                    <th jh-sort-by="serial"><span translate="megabillingplatformApp.free_cfdi.cfdi_states">State</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="date_expedition"><span translate="megabillingplatformApp.free_cfdi.date_expedition">Date_expedition</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="serial"><span translate="megabillingplatformApp.free_cfdi.serial">Serial</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="folio"><span translate="megabillingplatformApp.free_cfdi.folio">Folio</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="free_emitter.id"><span translate="megabillingplatformApp.free_cfdi.free_emitter">Free emitter</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="free_receiver.id"><span translate="megabillingplatformApp.free_cfdi.free_receiver">Free receiver</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="cfdi_types.name"><span translate="megabillingplatformApp.free_cfdi.cfdi_type_doc">CFDI type doc</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="total"><span translate="megabillingplatformApp.free_cfdi.total">Total</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th><span translate="megabillingplatformApp.free_cfdi.cfdi_states1">State</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th><span translate="megabillingplatformApp.free_cfdi.date_expedition1">Date_expedition</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th><span translate="megabillingplatformApp.free_cfdi.serial1">Serial</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th><span translate="megabillingplatformApp.free_cfdi.folio1">Folio</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th><span translate="megabillingplatformApp.free_cfdi.free_emitter">Free emitter</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th><span translate="megabillingplatformApp.free_cfdi.free_receiver">Free receiver</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th><span translate="megabillingplatformApp.free_cfdi.cfdi_type_doc1">CFDI type doc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th><span translate="megabillingplatformApp.free_cfdi.total1">Total</span> <span class="glyphicon glyphicon-sort"></span></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="free_cfdi in vm.free_cfdis track by free_cfdi.id">
+                <tr ng-repeat="free_cfdi in vm.free_cfdis track by free_cfdi.id | orderBy:vm.campo:vm.orden">
                     <td>
                         <a ng-click="vm.openFile('text/xml', free_cfdi.filexml)" ng-if="free_cfdi.filexml">
                             <i class="fa fa-file-text-o bigger-125">&nbsp;</i>
@@ -155,9 +155,6 @@
                         </a>
                         <a ng-click="vm.cancelar(free_cfdi)" ng-show = "free_cfdi.cfdi_states.id == 1">
                             <i class="glyphicon glyphicon-ban-circle bigger-125">&nbsp;</i>
-                        </a>
-                        <a ng-click="vm.abrirZip(free_cfdi)">
-                            Zip
                         </a>
                     </td>
                     <td>{{free_cfdi.cfdi_states.name}}</td>
