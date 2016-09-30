@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Taxpayer_clientResource {
 
     private final Logger log = LoggerFactory.getLogger(Taxpayer_clientResource.class);
-        
+
     @Inject
     private Taxpayer_clientService taxpayer_clientService;
-    
+
     /**
      * POST  /taxpayer-clients : Create a new taxpayer_client.
      *
@@ -50,6 +50,7 @@ public class Taxpayer_clientResource {
         if (taxpayer_client.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("taxpayer_client", "idexists", "A new taxpayer_client cannot already have an ID")).body(null);
         }
+
         Taxpayer_client result = taxpayer_clientService.save(taxpayer_client);
         return ResponseEntity.created(new URI("/api/taxpayer-clients/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("taxpayer_client", result.getId().toString()))
@@ -89,12 +90,13 @@ public class Taxpayer_clientResource {
      */
     @RequestMapping(value = "/taxpayer-clients",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"taxpayeraccount"})
     @Timed
-    public ResponseEntity<List<Taxpayer_client>> getAllTaxpayer_clients(Pageable pageable)
+    public ResponseEntity<List<Taxpayer_client>> getAllTaxpayer_clients(Pageable pageable, @RequestParam(value = "taxpayeraccount") Integer taxpayeraccount)
         throws URISyntaxException {
         log.debug("REST request to get a page of Taxpayer_clients");
-        Page<Taxpayer_client> page = taxpayer_clientService.findAll(pageable); 
+        Page<Taxpayer_client> page = taxpayer_clientService.findAll(pageable, taxpayeraccount);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-clients");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Taxpayer_clientDialogController', Taxpayer_clientDialogController);
 
-    Taxpayer_clientDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Taxpayer_client', 'Client_address', 'Taxpayer_account'];
+    Taxpayer_clientDialogController.$inject = ['$timeout', '$scope', '$uibModalInstance', '$q', 'entity', 'Taxpayer_client', 'Client_address', 'Taxpayer_account'];
 
-    function Taxpayer_clientDialogController ($timeout, $scope, $stateParams, $uibModalInstance, $q, entity, Taxpayer_client, Client_address, Taxpayer_account) {
+    function Taxpayer_clientDialogController ($timeout, $scope, $uibModalInstance, $q, entity, Taxpayer_client, Client_address, Taxpayer_account) {
         var vm = this;
 
         vm.taxpayer_client = entity;
@@ -22,6 +22,7 @@
         }).then(function(client_address) {
             vm.client_addresses.push(client_address);
         });
+
         vm.taxpayer_accounts = Taxpayer_account.query();
 
         $timeout(function (){

@@ -187,9 +187,12 @@
 			"join.mega": "Adquirir MegaCFDI"
 		},
         "afilitated": {
-            "transactions":"Adquirir timbres",
             "title":"Afiliado",
-            "generateCFDI":"Generar CFDI",
+            "generateCFDI":"Nuevo CFDI",
+            "costumers":"Clientes",
+            "products":"Productos",
+            "tax_products":"Impuestos x Productos",
+            "transactions":"Adquirir timbres",
             "getCFDI":"Consultar CFDI"
         },
         "form": {

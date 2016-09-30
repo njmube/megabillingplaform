@@ -190,7 +190,13 @@
                         </small>
                     </h1>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account"
+                            ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
+                        <option value="">Seleccione Cuenta Contribuyente</option>
+                    </select>
+                </div>
+                <div class="col-md-1">
                     <a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info pull-right" href="">
                         <i class="fa fa-lightbulb-o"></i>
                     </a>
@@ -206,17 +212,17 @@
                             <i class="ace-icon fa fa-home light-blue bigger-150"></i>
                         </a>
                     </li>
-                    <li>
+                    <li ng-show="vm.taxpayer_account != null">
                         <a href="#/">{{'global.afilitated.generateCFDI' | translate}}</a>
                     </li>
-                    <li>
-                        <a href="#/">{{'global.afilitated.getCFDI' | translate}}</a>
+                    <li ng-show="vm.taxpayer_account != null">
+                        <a ui-sref="taxpayer-client({id:vm.taxpayer_account.id})">{{'global.afilitated.costumers' | translate}}</a>
                     </li>
-                    <li>
-                        <a ui-sref="request-taxpayer-account.afilitated">{{'global.user.join.mega' | translate}}</a>
+                    <li ng-show="vm.taxpayer_account != null">
+                        <a href="#/">{{'global.afilitated.products' | translate}}</a>
                     </li>
-                    <li>
-                        <a href="#/">{{'global.afilitated.transactions' | translate}}</a>
+                    <li ng-show="vm.taxpayer_account != null">
+                        <a href="#/">{{'global.afilitated.tax_products' | translate}}</a>
                     </li>
                 </ul>
             </div><!-- /.col -->

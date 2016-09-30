@@ -5,15 +5,22 @@
         .module('megabillingplatformApp')
         .controller('Taxpayer_clientController', Taxpayer_clientController);
 
-    Taxpayer_clientController.$inject = ['$scope', '$state', 'Taxpayer_client', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    Taxpayer_clientController.$inject = ['$scope', '$state', 'Taxpayer_client', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'taxpayer_account_entity', 'Taxpayer_account'];
 
-    function Taxpayer_clientController ($scope, $state, Taxpayer_client, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function Taxpayer_clientController ($scope, $state, Taxpayer_client, ParseLinks, AlertService, pagingParams, paginationConstants, taxpayer_account_entity, Taxpayer_account) {
         var vm = this;
-        
+
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
+
+        vm.taxpayer_account = taxpayer_account_entity;
+
+        vm.taxpayer_accounts = Taxpayer_account.query({
+            page: 0,
+            size: 10
+        });
 
         loadAll();
 
@@ -21,7 +28,8 @@
             Taxpayer_client.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,
-                sort: sort()
+                sort: sort(),
+                taxpayeraccount: vm.taxpayer_account.id
             }, onSuccess, onError);
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];

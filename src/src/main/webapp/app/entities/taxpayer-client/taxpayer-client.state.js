@@ -11,9 +11,9 @@
         $stateProvider
         .state('taxpayer-client', {
             parent: 'entity',
-            url: '/taxpayer-client?page&sort&search',
+            url: '/taxpayer-client/{id}?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_AFILITATED'],
                 pageTitle: 'megabillingplatformApp.taxpayer_client.home.title'
             },
             views: {
@@ -44,6 +44,9 @@
                         search: $stateParams.search
                     };
                 }],
+                taxpayer_account_entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
+                    return Taxpayer_account.get({id : $stateParams.id}).$promise;
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('taxpayer_client');
                     $translatePartialLoader.addPart('global');
@@ -55,7 +58,7 @@
             parent: 'entity',
             url: '/taxpayer-client/{id}',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_AFILITATED'],
                 pageTitle: 'megabillingplatformApp.taxpayer_client.detail.title'
             },
             views: {
@@ -79,7 +82,7 @@
             parent: 'taxpayer-client',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_AFILITATED']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -87,7 +90,7 @@
                     controller: 'Taxpayer_clientDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
-                    size: 'lg',
+                    size: '',
                     resolve: {
                         entity: function () {
                             return {
@@ -109,7 +112,7 @@
             parent: 'taxpayer-client',
             url: '/{id}/edit',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_AFILITATED']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({
@@ -134,7 +137,7 @@
             parent: 'taxpayer-client',
             url: '/{id}/delete',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_AFILITATED']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

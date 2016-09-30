@@ -187,9 +187,12 @@
 				"join.mega": "Join to Megapractical"
             },
         "afilitated": {
-            "transactions":"Get transactions",
             "title":"Afilitated",
             "generateCFDI":"Generate CFDI",
+            "costumers":"Costumners",
+            "products":"Products",
+            "tax_products":"Taxes x Products",
+            "transactions":"Get transactions",
             "getCFDI":"Consult CFDI"
         },
         "form": {

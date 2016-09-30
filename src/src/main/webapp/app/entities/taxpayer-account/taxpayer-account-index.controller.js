@@ -18,6 +18,7 @@
         var unsubscribe = $rootScope.$on('megabillingplatformApp:taxpayer_accountUpdate', function(event, result) {
             vm.taxpayer_account = result;
         });
+
         $scope.$on('$destroy', unsubscribe);
 
         function changeAccount(){

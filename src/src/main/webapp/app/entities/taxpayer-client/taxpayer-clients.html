@@ -1,10 +1,59 @@
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>
+                {{'global.afilitated.title' | translate}}
+                <small>
+                    <i class="ace-icon fa fa-angle-double-right"></i>
+                    {{'global.afilitated.costumers' | translate}}
+                </small>
+            </h1>
+        </div>
+        <div class="col-md-3">
+            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account"
+                    ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
+                <option value="">Seleccione Cuenta Contribuyente</option>
+            </select>
+        </div>
+        <div class="col-md-1">
+            <a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info pull-right" href="">
+                <i class="fa fa-lightbulb-o"></i>
+            </a>
+        </div>
+    </div>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="nav nav-pills">
+            <li>
+                <a href="#/">
+                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                </a>
+            </li>
+            <li ng-show="vm.taxpayer_account != null">
+                <a href="#/">{{'global.afilitated.generateCFDI' | translate}}</a>
+            </li>
+            <li ng-show="vm.taxpayer_account != null">
+                <a ui-sref="taxpayer-client({id:vm.taxpayer_account.id})">{{'global.afilitated.costumers' | translate}}</a>
+            </li>
+            <li ng-show="vm.taxpayer_account != null">
+                <a href="#/">{{'global.afilitated.products' | translate}}</a>
+            </li>
+            <li ng-show="vm.taxpayer_account != null">
+                <a href="#/">{{'global.afilitated.tax_products' | translate}}</a>
+            </li>
+        </ul>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
 <div>
-    <h2 translate="megabillingplatformApp.taxpayer_client.home.title">Taxpayer Clients</h2>
+    <!--<h2 translate="megabillingplatformApp.taxpayer_client.home.title">Taxpayer Clients</h2>-->
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="taxpayer-client.new" >
+            <div class="col-xs-12 no-padding-left">
+                <button class="btn btn-primary pull-right" ui-sref="taxpayer-client.new" >
                     <span class="glyphicon glyphicon-plus"></span>
                     <span  translate="megabillingplatformApp.taxpayer_client.home.createLabel">
                         Create new Taxpayer Client

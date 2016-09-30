@@ -13,7 +13,7 @@ public interface Taxpayer_clientService {
 
     /**
      * Save a taxpayer_client.
-     * 
+     *
      * @param taxpayer_client the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,15 @@ public interface Taxpayer_clientService {
 
     /**
      *  Get all the taxpayer_clients.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    Page<Taxpayer_client> findAll(Pageable pageable);
+    Page<Taxpayer_client> findAll(Pageable pageable, Integer taxpayeraccount);
 
     /**
      *  Get the "id" taxpayer_client.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +37,7 @@ public interface Taxpayer_clientService {
 
     /**
      *  Delete the "id" taxpayer_client.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

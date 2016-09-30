@@ -16,9 +16,9 @@
             "detail": {
                 "title": "Taxpayer Client"
             },
-            "rfc": "Rfc",
-            "bussinesname": "Bussinesname",
-            "email": "Email",
+            "rfc": "Rfc (*)",
+            "bussinesname": "Bussinesname (*)",
+            "email": "Email (*)",
             "client_address": "Client Address",
             "taxpayer_account": "Taxpayer Account"
         }

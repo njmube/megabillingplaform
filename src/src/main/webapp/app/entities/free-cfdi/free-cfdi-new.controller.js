@@ -378,14 +378,18 @@
 				Free_tax_transfered.save(free_tax_transfered_ieps);
 			}
 
-			//saving IVA in free_tax_retentions
+            //saving IVA in free_tax_retentions
 			var amount_iva_retentions = 0;
 			//calculating free cfdi ret iva...
-			if((vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) && (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 3 || vm.free_cfdi.cfdi_type_doc.id == 5))){
+            if(vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12 && vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5)){
 				//amount_iva_retentions = 2/3 * free_concept.quantity * free_concept.unit_value;
                 amount_iva_retentions = bln.multiply(bln.multiply(2/3, free_concept.quantity, 6), free_concept.unit_value, vm.accuracy);
 			}
-			if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 4){
+            else if(vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12 && vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 3) {
+                //amount_iva_retentions = 2/3 * free_concept.quantity * free_concept.unit_value;
+                amount_iva_retentions = bln.multiply(bln.multiply(2/3, free_concept.quantity, 6), free_concept.unit_value, vm.accuracy);
+            }
+            else if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 4){
 				//amount_iva_retentions = 0.04 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
 				amount_iva_retentions = bln.multiply(bln.multiply(bln.multiply(0.04, free_concept.quantity, 6), free_concept.unit_value, 6), (1 - free_concept.discount/100), vm.accuracy);
 			}
@@ -403,7 +407,7 @@
 			//saving ISR in free_tax_retentions
 			var amount_isr_retentions = 0;
 			//calculating free cfdi ret isr...
-			if((vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12) || (vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5))){
+            if(vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12 && vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5)){
 				//amount_isr_retentions = 1/10 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
 				amount_isr_retentions = bln.multiply(bln.multiply(bln.multiply(1/10, free_concept.quantity, 6), free_concept.unit_value, 6), (1 - free_concept.discount/100), vm.accuracy);
 			}
@@ -415,6 +419,7 @@
 					tax_types: vm.tax_typess[1],
 					id: null
 				};
+
                 Free_tax_retentions.save(free_tax_retentions_isr);
 			}
 

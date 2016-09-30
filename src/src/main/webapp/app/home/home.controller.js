@@ -27,6 +27,8 @@
         vm.audits = null;
         vm.login = null;
 
+        vm.taxpayer_account = null;
+
         $scope.$on('authenticationSuccess', function() {
             getAccount();
 
