@@ -91,18 +91,50 @@
             <thead>
             <tr>
                 <th></th>
-                <th><span translate="megabillingplatformApp.free_cfdi.cfdi_states1">State</span> <span class="glyphicon glyphicon-sort"></span></th>
-                <th><span translate="megabillingplatformApp.free_cfdi.date_expedition1">Date_expedition</span> <span class="glyphicon glyphicon-sort"></span></th>
-                <th><span translate="megabillingplatformApp.free_cfdi.serial1">Serial</span> <span class="glyphicon glyphicon-sort"></span></th>
-                <th><span translate="megabillingplatformApp.free_cfdi.folio1">Folio</span> <span class="glyphicon glyphicon-sort"></span></th>
-                <th><span translate="megabillingplatformApp.free_cfdi.free_emitter">Free emitter</span> <span class="glyphicon glyphicon-sort"></span></th>
-                <th><span translate="megabillingplatformApp.free_cfdi.free_receiver">Free receiver</span> <span class="glyphicon glyphicon-sort"></span></th>
-                <th><span translate="megabillingplatformApp.free_cfdi.cfdi_type_doc1">CFDI type doc</span> <span class="glyphicon glyphicon-sort"></span></th>
-                <th><span translate="megabillingplatformApp.free_cfdi.total1">Total</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th><span translate="megabillingplatformApp.free_cfdi.cfdi_states1">State</span>
+                    <a href="" ng-click="vm.campo = 'cfdi_states.name'; vm.orden=!vm.orden">
+                        <span class="glyphicon glyphicon-sort"></span>
+                    </a>
+                </th>
+                <th><span translate="megabillingplatformApp.free_cfdi.date_expedition1">Date_expedition</span>
+                    <a href="" ng-click="vm.campo = 'date_expedition'; vm.orden=!vm.orden">
+                        <span class="glyphicon glyphicon-sort"></span>
+                    </a>
+                </th>
+                <th><span translate="megabillingplatformApp.free_cfdi.serial1">Serial</span>
+                    <a href="" ng-click="vm.campo = 'serial'; vm.orden=!vm.orden">
+                        <span class="glyphicon glyphicon-sort"></span>
+                    </a>
+                </th>
+                <th><span translate="megabillingplatformApp.free_cfdi.folio1">Folio</span>
+                    <a href="" ng-click="vm.campo = 'folio'; vm.orden=!vm.orden">
+                        <span class="glyphicon glyphicon-sort"></span>
+                    </a>
+                </th>
+                <th><span translate="megabillingplatformApp.free_cfdi.free_emitter">Free emitter</span>
+                    <a href="" ng-click="vm.campo = 'free_emitter.rfc'; vm.orden=!vm.orden">
+                        <span class="glyphicon glyphicon-sort"></span>
+                    </a>
+                </th>
+                <th><span translate="megabillingplatformApp.free_cfdi.free_receiver">Free receiver</span>
+                    <a href="" ng-click="vm.campo = 'free_receiver.business_name'; vm.orden=!vm.orden">
+                        <span class="glyphicon glyphicon-sort"></span>
+                    </a>
+                </th>
+                <th><span translate="megabillingplatformApp.free_cfdi.cfdi_type_doc1">CFDI type doc</span>
+                    <a href="" ng-click="vm.campo = 'cfdi_type_doc.name'; vm.orden=!vm.orden">
+                        <span class="glyphicon glyphicon-sort"></span>
+                    </a>
+                </th>
+                <th><span translate="megabillingplatformApp.free_cfdi.total1">Total</span>
+                    <a href="" ng-click="vm.campo = 'total'; vm.orden=!vm.orden">
+                        <span class="glyphicon glyphicon-sort"></span>
+                    </a>
+                </th>
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="free_cfdi in vm.free_cfdis track by free_cfdi.id">
+            <tr ng-repeat="free_cfdi in vm.free_cfdis | orderBy:vm.campo:vm.orden track by free_cfdi.id">
                 <td>
                     <a ng-click="vm.openFile('text/xml', free_cfdi.filexml)" ng-if="free_cfdi.filexml">
                         <i class="fa fa-file-text-o bigger-125">&nbsp;</i>
