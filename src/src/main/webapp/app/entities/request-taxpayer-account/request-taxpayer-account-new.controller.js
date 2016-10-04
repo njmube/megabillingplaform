@@ -5,20 +5,26 @@
         .module('megabillingplatformApp')
         .controller('Request_taxpayer_accountNewController', Request_taxpayer_accountNewController);
 
-    Request_taxpayer_accountNewController.$inject = ['$timeout', '$filter','Principal', '$scope', '$stateParams', 'C_country','C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'Request_taxpayer_account', 'Request_state', 'Tax_address_request'];
+    Request_taxpayer_accountNewController.$inject = ['$timeout','User', '$filter','Principal', '$scope', '$stateParams', 'C_country','C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'Request_taxpayer_account', 'Request_state', 'Tax_address_request'];
 
-    function Request_taxpayer_accountNewController ($timeout, $filter, Principal, $scope, $stateParams, C_country, C_state, C_municipality, C_colony, C_zip_code, Request_taxpayer_account, Request_state, Tax_address_request) {
+    function Request_taxpayer_accountNewController ($timeout, User, $filter, Principal, $scope, $stateParams, C_country, C_state, C_municipality, C_colony, C_zip_code, Request_taxpayer_account, Request_state, Tax_address_request) {
         var vm = this;
 
         vm.datePickerOpenStatus = {};
         vm.request_taxpayer_account = {};
+
+        vm.hidemenu = hidemenu;
+        var today = new Date();
+        vm.user = {};
+        vm.account = null;
+        vm.restDate = restDate;
+        vm.toDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
         vm.openCalendar = openCalendar;
         vm.c_countrys = C_country.query({pg:1, filtername:" "});
         vm.c_states = C_state.query({countryId:151, filtername:" "});
         vm.c_municipalitys = null;
         vm.c_colonys = null;
         vm.save = save;
-        vm.account = null;
         vm.propio = null;
         vm.isSaving = null;
         vm.loadRequest = function () {
@@ -28,6 +34,7 @@
         };
 
         vm.loadRequest();
+        vm.restDate();
         //vm.tax_address_request = Tax_address_request.get({id : 0});
 
         vm.onChangeC_country = onChangeC_country;
@@ -64,6 +71,30 @@
                 vm.request_taxpayer_account.email = null;
                 vm.current_gender = null;
                 vm.request_taxpayer_account.gender = null;
+            }
+        }
+
+        function restDate(){
+            Principal.identity().then(function(account) {
+                vm.account = account;
+                if(vm.account != null){
+                    User.get({login: vm.account.login}, function(result) {
+                        vm.user = result;
+                    });
+                }
+            });
+        }
+
+        function hidemenu(datecreated){
+            var fechacreado = new Date(datecreated);
+            var dias = (vm.toDate.getTime() - fechacreado.getTime())/86400000;
+            var resto = 0;
+
+            if(dias >= 15){
+                return null;
+            }
+            if(dias < 15){
+                return 'OK';
             }
         }
 

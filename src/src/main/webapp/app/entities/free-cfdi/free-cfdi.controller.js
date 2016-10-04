@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiController', Free_cfdiController);
 
-    Free_cfdiController.$inject = ['$scope', 'DataUtils','$filter','$state', 'Free_cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'Cfdi_states'];
+    Free_cfdiController.$inject = ['$scope', 'Principal', 'User', 'DataUtils','$filter','$state', 'Free_cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'Cfdi_states'];
 
-    function Free_cfdiController ($scope, DataUtils, $filter, $state, Free_cfdi, ParseLinks, AlertService, pagingParams, paginationConstants, Cfdi_states) {
+    function Free_cfdiController ($scope, Principal, User, DataUtils, $filter, $state, Free_cfdi, ParseLinks, AlertService, pagingParams, paginationConstants, Cfdi_states) {
         var vm = this;
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
@@ -16,6 +16,13 @@
         vm.abrirZip = abrirZip;
         vm.campo = 'date_expedition';
         vm.orden = true;
+        vm.hidemenu = hidemenu;
+        var today = new Date();
+        vm.showmenu = 'OK';
+        vm.user = {};
+        vm.account = null;
+        vm.restDate = restDate;
+        vm.toDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
@@ -31,7 +38,9 @@
         vm.states = Cfdi_states.query({filtername:" "});
         vm.cfdi_all = null;
 
+
         function loadAll () {
+            vm.restDate();
             var dateFormat = 'yyyy-MM-dd';
             var fromDate = $filter('date')("0000-01-01", dateFormat);
             var toDate = $filter('date')("0000-01-01", dateFormat);
@@ -69,6 +78,7 @@
         }
 
         function search() {
+            vm.restDate();
             var dateFormat = 'yyyy-MM-dd';
 
             var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -132,6 +142,30 @@
             }
             function onError(error) {
                 AlertService.error(error.data.message);
+            }
+        }
+
+        function restDate(){
+            Principal.identity().then(function(account) {
+                vm.account = account;
+                if(vm.account != null){
+                    User.get({login: vm.account.login}, function(result) {
+                        vm.user = result;
+                    });
+                }
+            });
+        }
+
+        function hidemenu(datecreated){
+            var fechacreado = new Date(datecreated);
+            var dias = (vm.toDate.getTime() - fechacreado.getTime())/86400000;
+            var resto = 0;
+
+            if(dias >= 15){
+                return null;
+            }
+            if(dias < 15){
+                return 'OK';
             }
         }
 

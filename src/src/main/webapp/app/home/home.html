@@ -144,10 +144,10 @@
 						</a>
 					</li>
                     <li>
-                        <a ui-sref="free-emitter.new">{{'global.user.emitter.data' | translate}}</a>
+                        <a ng-show = "vm.showmenu != null" ui-sref="free-emitter.new">{{'global.user.emitter.data' | translate}}</a>
                     </li>
 					<li>
-						<a ui-sref="free-cfdi.new">{{'global.user.generate.cfdi' | translate}}</a>
+						<a ng-show = "vm.showmenu != null" ui-sref="free-cfdi.new">{{'global.user.generate.cfdi' | translate}}</a>
 					</li>
 					<li>
 						<a ui-sref="free-cfdi">{{'global.user.search.cfdi' | translate}}</a>
@@ -173,6 +173,10 @@
 					<li>{{'home.text6' | translate}}</li>
 				</ol>
 				<!-- PAGE CONTENT ENDS -->
+                <div class="form-group">
+                    <span translate="home.text7">Días restantes: </span>
+                    <span>{{vm.restDate(vm.user.createdDate)}}</span>
+                </div>
 			</div><!-- /.col -->
 		</div><!-- /.row -->
 

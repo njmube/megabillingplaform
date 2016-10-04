@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account', 'Request_taxpayer_account'];
+    HomeController.$inject = ['$scope', 'User', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account', 'Request_taxpayer_account'];
 
-    function HomeController ($scope, Principal, Tracemg,  LoginService, $filter, Taxpayer_account, Request_taxpayer_account) {
+    function HomeController ($scope, User, Principal, Tracemg,  LoginService, $filter, Taxpayer_account, Request_taxpayer_account) {
         var vm = this;
 
         vm.account = null;
@@ -16,6 +16,9 @@
         var today = new Date();
         vm.page = 1;
         vm.toDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+        vm.user = {};
+        vm.restDate = restDate;
+        vm.showmenu = 'OK';
 
         var dateFormat = 'yyyy-MM-dd';
         var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -24,6 +27,7 @@
         var auditEventType = " ";
         var ip = " ";
 
+
         vm.audits = null;
         vm.login = null;
 
@@ -31,30 +35,6 @@
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();
-
-            /*vm.tracemgs = Tracemg.query({
-                page: 0,
-                size: 10,
-                fromDate: fromDate,
-                toDate: toDate,
-                principal: principal,
-                auditEventType: auditEventType,
-                ip: ip
-            });
-
-            vm.taxpayer_accounts = Taxpayer_account.query({
-                page: 0,
-                size: 10
-            });
-
-            vm.request_taxpayer_accounts = Request_taxpayer_account.query({
-                page: 0,
-                size: 10,
-                datefrom: fromDate,
-                dateto: toDate,
-                request_state: 1
-            });*/
-
             vm.login = LoginService.open;
         });
 
@@ -82,6 +62,13 @@
                         $('#sidebar-options').attr('style','');
                     }
 
+                    User.get({login: vm.account.login}, function(result) {
+                        vm.user = result;
+                    });
+                    //vm.resto = vm.toDate.getTime();
+                    //var creado = new Date(vm.user.createdDate.getFullYear(), vm.user.createdDate.getMonth(), vm.user.createdDate.getDate() + 1);
+
+
                     vm.tracemgs = Tracemg.query({
                         page: 0,
                         size: 10,
@@ -106,6 +93,19 @@
                     });
                 }
             });
+        }
+
+        function restDate(datecreated){
+            var fechacreado = new Date(datecreated);
+            var dias = (vm.toDate.getTime() - fechacreado.getTime())/86400000;
+            var resto = 0;
+            if(dias < 15){
+                resto = 15 - dias;
+            }
+            if(dias >= 15){
+                vm.showmenu = null;
+            }
+            return Math.round(resto);
         }
     }
 })();

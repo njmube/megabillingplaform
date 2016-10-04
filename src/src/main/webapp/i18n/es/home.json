@@ -27,6 +27,7 @@
         "text4": "Descargar CFDI enviados al SAT",
         "text5": "Generar y enviar CFDI al SAT",
         "text6": "Adquirir MegaCFDI",
+        "text7": "Días restantes: ",
         "logged": {
             "message": "Está conectado como \"{{username}}\"."
         },

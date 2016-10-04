@@ -27,6 +27,7 @@
         "text4": "Download CFDI submitted to SAT",
         "text5": "Generate and send CFDI to SAT",
         "text6": "Join our company and have access to our applications",
+        "text7": "Enables days: ",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },
