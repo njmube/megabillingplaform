@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Taxpayer_transactionsResource {
 
     private final Logger log = LoggerFactory.getLogger(Taxpayer_transactionsResource.class);
-        
+
     @Inject
     private Taxpayer_transactionsService taxpayer_transactionsService;
-    
+
     /**
      * POST  /taxpayer-transactions : Create a new taxpayer_transactions.
      *
@@ -89,14 +89,22 @@ public class Taxpayer_transactionsResource {
      */
     @RequestMapping(value = "/taxpayer-transactions",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"idaccount"})
     @Timed
-    public ResponseEntity<List<Taxpayer_transactions>> getAllTaxpayer_transactions(Pageable pageable)
+    public ResponseEntity<List<Taxpayer_transactions>> getAllTaxpayer_transactions(@RequestParam(value = "idaccount") Integer idaccount,
+                                                                                   Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Taxpayer_transactions");
-        Page<Taxpayer_transactions> page = taxpayer_transactionsService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-transactions");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(idaccount == 0) {
+            Page<Taxpayer_transactions> page = taxpayer_transactionsService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-transactions");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }else{
+            Page<Taxpayer_transactions> page = taxpayer_transactionsService.findByAccount(idaccount,pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-transactions");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
     }
 
     /**

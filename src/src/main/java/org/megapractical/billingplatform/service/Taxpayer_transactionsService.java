@@ -13,7 +13,7 @@ public interface Taxpayer_transactionsService {
 
     /**
      * Save a taxpayer_transactions.
-     * 
+     *
      * @param taxpayer_transactions the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,17 @@ public interface Taxpayer_transactionsService {
 
     /**
      *  Get all the taxpayer_transactions.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
     Page<Taxpayer_transactions> findAll(Pageable pageable);
 
+    Page<Taxpayer_transactions> findByAccount(Integer idaccount, Pageable pageable);
+
     /**
      *  Get the "id" taxpayer_transactions.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +39,7 @@ public interface Taxpayer_transactionsService {
 
     /**
      *  Delete the "id" taxpayer_transactions.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

@@ -70,6 +70,10 @@
                     },
                     "fax": {
                         "pattern": "Fax incorrecto."
+                    },
+                    "count": {
+                        "minlength": "El campo debe tener al menos 1 caracter.",
+                        "pattern": "Patrón del campo incorrecto."
                     }
                 },
                 "success": "<strong>¡Registro guardado!</strong> Por favor, revise su correo electrónico para confirmar.",
@@ -115,7 +119,18 @@
             "filterlogin":"Usuario",
             "addtaxregime":"Asociar Régimen Fiscal",
             "nameTaxregime":"Nombre",
-            "description":"Descripción"
+            "description":"Descripción",
+            "buytransactions":"Comprar Timbres",
+            "transactiontype":"Paquete de Timbres",
+            "countbuy":"Cantidad",
+            "buyAction":"Comprar",
+            "transfer":"Transferir Timbres",
+            "accountdestine":"Cuenta de Contribuyente de destino",
+            "transferAction":"Transferir",
+            "counttransmess":"Cantidad no disponible",
+            "accountmess":"Por favor, seleccione otra cuenta de contribuyente",
+            "confirmationtrans":"¿Desea confirmar la transferencia?",
+            "transactions_available":"Timbres disponibles: "
         }
     }
 }

@@ -70,6 +70,10 @@
                     },
                     "fax": {
                         "pattern": "Fax format is incorrect"
+                    },
+                    "count": {
+                        "minlength": "This field is required to be at least 1 character.",
+                        "pattern": "Field format is incorrect"
                     }
                 },
                 "success": "<strong>Registration saved!</strong> Please check your email for confirmation.",
@@ -115,7 +119,18 @@
             "filterlogin":"User",
             "addtaxregime":"Add Tax Regime",
             "nameTaxregime":"Name",
-            "description":"Description"
+            "description":"Description",
+            "buytransactions":"Buy Transactions",
+            "transactiontype":"Transaction type",
+            "countbuy":"Count",
+            "buyAction":"Buy",
+            "transfer":"Transfer Transactions",
+            "accountdestine":"Taxpayer Account destiny",
+            "transferAction":"transfer",
+            "counttransmess":"Count is not available",
+            "accountmess":"Please, select other account",
+            "confirmationtrans":"Do you want continue whit transfer?",
+            "transactions_available":"Transactions availables: "
         }
     }
 }

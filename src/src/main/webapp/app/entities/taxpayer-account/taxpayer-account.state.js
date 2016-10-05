@@ -217,6 +217,30 @@
                     }]
                 }
             })
+        .state('taxpayer-account-transaction', {
+                parent: 'entity',
+                url: '/taxpayer-account-transaction/{id}',
+                data: {
+                    authorities: [],
+                    pageTitle: 'megabillingplatformApp.taxpayer_account.detail.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/taxpayer-account/taxpayer-account-transation.html',
+                        controller: 'Taxpayer_accountTransactionController',
+                        controllerAs: 'vm'
+                    }
+                },
+                resolve: {
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('taxpayer_account');
+                        return $translate.refresh();
+                    }],
+                    entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
+                        return Taxpayer_account.get({id : $stateParams.id}).$promise;
+                    }]
+                }
+            })
         .state('taxpayer-account-ftp', {
                 parent: 'entity',
                 url: '/taxpayer-account-ftp/{id}',
