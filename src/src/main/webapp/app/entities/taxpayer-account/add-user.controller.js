@@ -17,6 +17,7 @@
         vm.filterlogin = null;
         vm.search = search;
         vm.users = null;
+        vm.shownotuser = null;
 
         vm.add = add;
 
@@ -36,6 +37,7 @@
         }
 
         function search() {
+            vm.shownotuser = null;
             var dateFormat = 'yyyy-MM-dd';
             var fromDate = $filter('date')("0000-01-01", dateFormat);
             var toDate = $filter('date')("0000-01-01", dateFormat);
@@ -64,6 +66,9 @@
                     },
                     function (result, headers) {
                         vm.users = result;
+                        if(vm.users.length == 0){
+                            vm.shownotuser = 'OK';
+                        }
                     });
             }else{
                 vm.showInfo = true;

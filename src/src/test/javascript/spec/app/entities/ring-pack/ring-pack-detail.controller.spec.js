@@ -2,20 +2,15 @@
 
 describe('Controller Tests', function() {
 
-    describe('Transactions_history Management Detail Controller', function() {
+    describe('Ring_pack Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockTransactions_history, MockC_system, MockUser, MockType_transaction, MockTaxpayer_account, MockRing_pack;
+        var MockEntity, MockRing_pack;
         var createController;
 
         beforeEach(inject(function($injector) {
             $rootScope = $injector.get('$rootScope');
             $scope = $rootScope.$new();
             MockEntity = jasmine.createSpy('MockEntity');
-            MockTransactions_history = jasmine.createSpy('MockTransactions_history');
-            MockC_system = jasmine.createSpy('MockC_system');
-            MockUser = jasmine.createSpy('MockUser');
-            MockType_transaction = jasmine.createSpy('MockType_transaction');
-            MockTaxpayer_account = jasmine.createSpy('MockTaxpayer_account');
             MockRing_pack = jasmine.createSpy('MockRing_pack');
             
 
@@ -23,22 +18,17 @@ describe('Controller Tests', function() {
                 '$scope': $scope,
                 '$rootScope': $rootScope,
                 'entity': MockEntity ,
-                'Transactions_history': MockTransactions_history,
-                'C_system': MockC_system,
-                'User': MockUser,
-                'Type_transaction': MockType_transaction,
-                'Taxpayer_account': MockTaxpayer_account,
                 'Ring_pack': MockRing_pack
             };
             createController = function() {
-                $injector.get('$controller')("Transactions_historyDetailController", locals);
+                $injector.get('$controller')("Ring_packDetailController", locals);
             };
         }));
 
 
         describe('Root Scope Listening', function() {
             it('Unregisters root scope listener upon scope destruction', function() {
-                var eventType = 'megabillingplatformApp:transactions_historyUpdate';
+                var eventType = 'megabillingplatformApp:ring_packUpdate';
 
                 createController();
                 expect($rootScope.$$listenerCount[eventType]).toEqual(1);

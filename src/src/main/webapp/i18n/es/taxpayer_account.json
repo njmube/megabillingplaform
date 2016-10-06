@@ -130,7 +130,8 @@
             "counttransmess":"Cantidad no disponible",
             "accountmess":"Por favor, seleccione otra cuenta de contribuyente",
             "confirmationtrans":"¿Desea confirmar la transferencia?",
-            "transactions_available":"Timbres disponibles: "
+            "transactions_available":"Timbres disponibles: ",
+            "search_resultnull":"No existe información a mostrar"
         }
     }
 }

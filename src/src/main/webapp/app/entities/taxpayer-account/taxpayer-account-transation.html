@@ -89,8 +89,8 @@
                     <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.transactiontype" for="transactiontype">Paquete de Timbre</label>
                         <div class="col-sm-8">
-                            <select name="transactiontype" id="transactiontype" ng-model="vm.transactiontype"
-                                    ng-options="type_transaction for type_transaction in vm.type_transactions track by type_transaction.id">
+                            <select name="transactiontype" id="transactiontype" ng-model="vm.ring_pack"
+                                    ng-options="ring_pack as ring_pack.currency for ring_pack in vm.ring_packs track by ring_pack.id">
                                 <option value=""></option>
                             </select>
                         </div>

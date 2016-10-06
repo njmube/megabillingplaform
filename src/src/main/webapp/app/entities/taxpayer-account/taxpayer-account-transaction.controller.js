@@ -5,15 +5,17 @@
         .module('megabillingplatformApp')
         .controller('Taxpayer_accountTransactionController', Taxpayer_accountTransactionController);
 
-    Taxpayer_accountTransactionController.$inject = ['$scope', 'Type_transaction', 'AlertService', 'Taxpayer_transactions', '$uibModal','Principal', '$rootScope', '$stateParams', 'entity', 'Taxpayer_account', 'Tax_address', 'Taxpayer_certificate', 'Type_taxpayer', 'Tax_regime', 'User'];
+    Taxpayer_accountTransactionController.$inject = ['$scope', 'Ring_pack', 'Type_transaction', 'AlertService', 'Taxpayer_transactions', '$uibModal','Principal', '$rootScope', '$stateParams', 'entity', 'Taxpayer_account', 'Tax_address', 'Taxpayer_certificate', 'Type_taxpayer', 'Tax_regime', 'User'];
 
-    function Taxpayer_accountTransactionController($scope, Type_transaction, AlertService, Taxpayer_transactions, $uibModal, Principal, $rootScope, $stateParams, entity, Taxpayer_account, Tax_address, Taxpayer_certificate, Type_taxpayer, Tax_regime, User) {
+    function Taxpayer_accountTransactionController($scope, Ring_pack, Type_transaction, AlertService, Taxpayer_transactions, $uibModal, Principal, $rootScope, $stateParams, entity, Taxpayer_account, Tax_address, Taxpayer_certificate, Type_taxpayer, Tax_regime, User) {
         var vm = this;
 
         vm.taxpayer_account = entity;
         vm.taxpayer_accounts = Taxpayer_account.query();
         vm.type_transactions = Type_transaction.query();
+        vm.ring_packs = Ring_pack.query();
         vm.accountdestiny = {};
+        vm.ring_pack = {};
         vm.counttransfer = 0;
         vm.countbuy = 0;
         vm.showaccountmess = null;
@@ -61,9 +63,21 @@
         $scope.$on('$destroy', unsubscribe);
 
         function buy(){
-
+            if(vm.ring_pack != null && vm.countbuy > 0){
+                Ring_pack.buytransactions({
+                    idaccount: vm.taxpayer_account.id,
+                    idring_pack: vm.ring_pack.id,
+                    count: vm.countbuy
+                }, onSuccessbuy, onErrorbuy);
+            }
         }
 
+        function onSuccessbuy() {
+            window.location.assign("http://payu-prod.megacfdi.com/content/common/payu/transaction.jsf");
+        }
+        function onErrorbuy(error) {
+            AlertService.error(error.data.message);
+        }
         function transfer(){
             vm.showcounttransfmess = null;
             vm.showaccountmess = null;

@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "ring_pack" : {
+            "home": {
+                "title": "Ring Packs",
+                "createLabel": "Create a new Ring Pack",
+                "createOrEditLabel": "Create or edit a Ring Pack",
+                "search": "Search for Ring Pack"
+            },
+            "created": "A new Ring Pack is created with identifier {{ param }}",
+            "updated": "A Ring Pack is updated with identifier {{ param }}",
+            "deleted": "A Ring Pack is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Ring Pack {{ id }}?"
+            },
+            "detail": {
+                "title": "Ring Pack"
+            },
+            "currency": "Currency",
+            "description": "Description",
+            "price": "Price",
+            "reference_code": "Reference Code",
+            "rings": "Rings"
+        }
+    }
+}

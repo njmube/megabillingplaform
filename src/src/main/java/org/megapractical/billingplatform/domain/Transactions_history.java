@@ -46,6 +46,9 @@ public class Transactions_history implements Serializable {
     @ManyToOne
     private Taxpayer_account taxpayer_account;
 
+    @ManyToOne
+    private Ring_pack ring_pack;
+
     public Long getId() {
         return id;
     }
@@ -108,6 +111,14 @@ public class Transactions_history implements Serializable {
 
     public void setTaxpayer_account(Taxpayer_account taxpayer_account) {
         this.taxpayer_account = taxpayer_account;
+    }
+
+    public Ring_pack getRing_pack() {
+        return ring_pack;
+    }
+
+    public void setRing_pack(Ring_pack ring_pack) {
+        this.ring_pack = ring_pack;
     }
 
     @Override

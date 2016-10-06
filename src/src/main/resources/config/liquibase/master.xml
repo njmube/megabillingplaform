@@ -125,6 +125,7 @@
     <include file="classpath:config/liquibase/changelog/20160915190105_added_entity_Taxpayer_transactions.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160915190248_added_entity_Type_transaction.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160915190525_added_entity_C_system.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161006022030_added_entity_Ring_pack.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160915191032_added_entity_Transactions_history.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160915192406_added_entity_Concept.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160915193258_added_entity_Part_concept.xml" relativeToChangelogFile="false"/>

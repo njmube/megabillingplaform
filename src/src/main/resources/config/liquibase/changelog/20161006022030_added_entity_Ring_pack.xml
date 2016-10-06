@@ -14,48 +14,35 @@
     <property name="floatType" value="float" dbms="mysql, oracle"/>
 
     <!--
-        Added the entity Transactions_history.
+        Added the entity Ring_pack.
     -->
-    <changeSet id="20160915191032-1" author="jhipster">
-        <createTable tableName="transactions_history">
+    <changeSet id="20161006022030-1" author="jhipster">
+        <createTable tableName="ring_pack">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="date_transaction" type="timestamp">
+            <column name="currency" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
             
-            <column name="quantity" type="varchar(10)">
-                <constraints nullable="true" />
-            </column>
-            
             <column name="description" type="varchar(255)">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
             
-            <column name="c_system_id" type="bigint">
-                <constraints nullable="true" />
+            <column name="price" type="decimal(10,2)">
+                <constraints nullable="false" />
             </column>
-
-            <column name="user_id" type="bigint">
-                <constraints nullable="true" />
+            
+            <column name="reference_code" type="varchar(255)">
+                <constraints nullable="false" />
             </column>
-
-            <column name="type_transaction_id" type="bigint">
-                <constraints nullable="true" />
+            
+            <column name="rings" type="integer">
+                <constraints nullable="false" />
             </column>
-
-            <column name="taxpayer_account_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
-            <column name="ring_pack_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-
+            
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        <dropDefaultValue tableName="transactions_history" columnName="date_transaction" columnDataType="datetime"/>
         
     </changeSet>
 </databaseChangeLog>

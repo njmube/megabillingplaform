@@ -23,6 +23,12 @@
             "otherEntityName": "taxpayer_account",
             "relationshipType": "many-to-one",
             "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "ring_pack",
+            "otherEntityName": "ring_pack",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

@@ -22,7 +22,8 @@
             "c_system": "C System",
             "user": "User",
             "type_transaction": "Type Transaction",
-            "taxpayer_account": "Taxpayer Account"
+            "taxpayer_account": "Taxpayer Account",
+            "ring_pack": "Ring Pack"
         }
     }
 }

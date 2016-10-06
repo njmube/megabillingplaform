@@ -279,15 +279,24 @@ public class UserResource {
         if(stateuser == 0)
             activated = false;
         if(filterlogin.compareTo(" ")!=0){
-            User user = userRepository.findOneByLogin(filterlogin).get();
-            Page<User> page = userRepository.findByLoginNotLikeAndLoginNotLikeAndRfcStartingWithAndActivated("system","anonymousUser",user.getRFC(),user.getActivated(),pageable);
+            Optional<User> opc = userRepository.findOneByLogin(filterlogin);
+            if(opc.isPresent()) {
+                User user = opc.get();
+                Page<User> page = userRepository.findByLoginNotLikeAndLoginNotLikeAndRfcStartingWithAndActivated("system", "anonymousUser", user.getRFC(), user.getActivated(), pageable);
 
-            List<ManagedUserDTO> managedUserDTOs = page.getContent().stream()
-                .map(ManagedUserDTO::new)
-                .collect(Collectors.toList());
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/users");
-            log.debug("Objetos DTOs : {}", managedUserDTOs);
-            return new ResponseEntity<>(managedUserDTOs, headers, HttpStatus.OK);
+                List<ManagedUserDTO> managedUserDTOs = page.getContent().stream()
+                    .map(ManagedUserDTO::new)
+                    .collect(Collectors.toList());
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/users");
+                log.debug("Objetos DTOs : {}", managedUserDTOs);
+                return new ResponseEntity<>(managedUserDTOs, headers, HttpStatus.OK);
+            }else {
+                List<ManagedUserDTO> managedUserDTOs = new ArrayList<>();
+                Page<ManagedUserDTO> page = new PageImpl<ManagedUserDTO>(managedUserDTOs,pageable,managedUserDTOs.size());
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/users");
+                log.debug("Objetos DTOs : {}", managedUserDTOs);
+                return new ResponseEntity<>(managedUserDTOs, headers, HttpStatus.OK);
+            }
         }
 
         if(filterrfc.compareTo(" ")==0 && datefrom.toString().compareTo("0001-01-01") == 0 &&

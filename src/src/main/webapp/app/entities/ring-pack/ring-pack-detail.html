@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.ring_pack.detail.title">Ring Pack</span> {{vm.ring_pack.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.ring_pack.currency">Currency</span></dt>
+        <dd>
+            <span>{{vm.ring_pack.currency}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.ring_pack.description">Description</span></dt>
+        <dd>
+            <span>{{vm.ring_pack.description}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.ring_pack.price">Price</span></dt>
+        <dd>
+            <span>{{vm.ring_pack.price}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.ring_pack.reference_code">Reference Code</span></dt>
+        <dd>
+            <span>{{vm.ring_pack.reference_code}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.ring_pack.rings">Rings</span></dt>
+        <dd>
+            <span>{{vm.ring_pack.rings}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -2,31 +2,31 @@
     "megabillingplatformApp": {
         "tax_address" : {
             "home": {
-                "title": "Tax Addresses",
-                "createLabel": "Crear nuevo Tax Address",
-                "createOrEditLabel": "Crear o editar Tax Address",
-                "search": "Search for Tax Address"
+                "title": "Dirección",
+                "createLabel": "Crear nueva Dirección",
+                "createOrEditLabel": "Crear o editar Dirección",
+                "search": "Búsqueda para Dirección"
             },
-            "created": "Un nuevo Tax Address ha sido creado con el identificador {{ param }}",
-            "updated": "Un Tax Address ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Tax Address ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Dirección ha sido creado con el identificador {{ param }}",
+            "updated": "Una Dirección ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Dirección ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Tax Address {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Dirección {{ id }}?"
             },
             "detail": {
-                "title": "Tax Address"
+                "title": "Dirección"
             },
-            "street": "Street",
-            "no_int": "No Int",
-            "no_ext": "No Ext",
-            "location": "Location",
-            "intersection": "Intersection",
-            "reference": "Reference",
-            "c_country": "C Country",
-            "c_state": "C State",
-            "c_municipality": "C Municipality",
-            "c_colony": "C Colony",
-            "c_zip_code": "C Zip Code"
+            "street": "Calle",
+            "no_int": "No. Interior",
+            "no_ext": "No. Exterior",
+            "location": "Localización",
+            "intersection": "Intersección",
+            "reference": "Referencia",
+            "c_country": "País",
+            "c_state": "Estado",
+            "c_municipality": "Municipio",
+            "c_colony": "Colonia",
+            "c_zip_code": "Código postal"
         }
     }
 }

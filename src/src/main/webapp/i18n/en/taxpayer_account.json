@@ -130,7 +130,8 @@
             "counttransmess":"Count is not available",
             "accountmess":"Please, select other account",
             "confirmationtrans":"Do you want continue whit transfer?",
-            "transactions_available":"Transactions availables: "
+            "transactions_available":"Transactions availables: ",
+            "search_resultnull":"No Result"
         }
     }
 }

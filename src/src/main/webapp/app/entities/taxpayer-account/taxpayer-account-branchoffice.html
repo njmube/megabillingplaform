@@ -35,7 +35,7 @@
                 <a ui-sref="taxpayer-account-general({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.general' | translate}}</a>
             </li>
             <li>
-                <a ui-sref="#">{{'megabillingplatformApp.taxpayer_account.users' | translate}}</a>
+                <a ui-sref="taxpayer-account-users({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.users' | translate}}</a>
             </li>
             <li>
                 <a ui-sref="taxpayer-account-taxregime({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.tax_regime' | translate}}</a>
@@ -81,7 +81,6 @@
             <table class="jh-table table table-striped">
                 <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="bussines_name"><span translate="megabillingplatformApp.branch_office.bussines_name">Bussines Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="tax_address.id"><span translate="megabillingplatformApp.branch_office.tax_address">Tax Address</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
@@ -89,7 +88,6 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="branch_office in vm.branch_offices track by branch_office.id">
-                    <td><a ui-sref="branch-office-detail({id:branch_office.id})">{{branch_office.id}}</a></td>
                     <td>{{branch_office.bussines_name}}</td>
                     <td>
                         <a ui-sref="tax-address-detail({id:branch_office.tax_address.id})">{{'entity.action.view' | translate}}</a>

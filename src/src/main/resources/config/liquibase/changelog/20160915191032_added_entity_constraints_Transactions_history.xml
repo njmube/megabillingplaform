@@ -32,5 +32,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="taxpayer_account"/>
 
+        <addForeignKeyConstraint baseColumnNames="ring_pack_id"
+                                 baseTableName="transactions_history"
+                                 constraintName="fk_transactions_history_ring_pack_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ring_pack"/>
+
     </changeSet>
 </databaseChangeLog>

@@ -26,6 +26,7 @@
                     <th jh-sort-by="user.login"><span translate="megabillingplatformApp.transactions_history.user">User</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="type_transaction.name"><span translate="megabillingplatformApp.transactions_history.type_transaction">Type Transaction</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="taxpayer_account.id"><span translate="megabillingplatformApp.transactions_history.taxpayer_account">Taxpayer Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ring_pack.id"><span translate="megabillingplatformApp.transactions_history.ring_pack">Ring Pack</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -46,6 +47,9 @@
                     </td>
                     <td>
                         <a ui-sref="taxpayer-account-detail({id:transactions_history.taxpayer_account.id})">{{transactions_history.taxpayer_account.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="ring-pack-detail({id:transactions_history.ring_pack.id})">{{transactions_history.ring_pack.id}}</a>
                     </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
