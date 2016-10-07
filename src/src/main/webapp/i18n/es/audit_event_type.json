@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "audit_event_type" : {
             "home": {
-                "title": "Audit_event_types",
-                "createLabel": "Crear nuevo Audit_event_type",
-                "createOrEditLabel": "Crear o editar Audit_event_type",
-                "search": "Search for Audit_event_type"
-            },
-            "created": "Un nuevo Audit_event_type ha sido creado con el identificador {{ param }}",
-            "updated": "Un Audit_event_type ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Audit_event_type ha sido eliminado con el identificador {{ param }}",
+                "title": "Tipo de evento de auditoría",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar un Tipo de evento de auditoría",
+                "search": "Búsqueda por Tipo de evento de auditoría"
+        },
+            "created": "El Tipo de evento de auditoría ha sido adicionado satisfactoriamente.",
+            "updated": "El Tipo de evento de auditoría ha sido modificado satisfactoriamente.",
+            "deleted": "El Tipo de evento de auditoría ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Audit_event_type {{ id }}?"
+                "question": "Se eliminará el Tipo de evento de auditoría seleccionado. ¿Desea continuar?"
             },
             "detail": {
-                "title": "Audit_event_type"
+                "title": "Tipo de evento de auditoría"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Nombre:",
+            "description": "Descripción:"
         }
     }
 }

@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_transit_type" : {
             "home": {
-                "title": "C_transit_types",
-                "createLabel": "Crear nuevo C_transit_type",
-                "createOrEditLabel": "Crear o editar C_transit_type",
-                "search": "Search for C_transit_type"
+                "title": "Tipos de tránsito",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar Tipo de tránsito",
+                "search": "Búsqueda por Tipo de tránsito"
             },
-            "created": "Un nuevo C_transit_type ha sido creado con el identificador {{ param }}",
-            "updated": "Un C_transit_type ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C_transit_type ha sido eliminado con el identificador {{ param }}",
+            "created": "El Tipo de tránsito ha sido adicionado satisfactoriamente.",
+            "updated": "El Tipo de tránsito ha sido modificado satisfactoriamente.",
+            "deleted": "El Tipo de tránsito ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C_transit_type {{ id }}?"
+                "question": "Se eliminará el Tipo de tránsito seleccionado. ¿Desea continuar?"
             },
             "detail": {
-                "title": "C_transit_type"
+                "title": "Tipo de tránsito"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Nombre:",
+            "description": "Descripción:"
         }
     }
 }

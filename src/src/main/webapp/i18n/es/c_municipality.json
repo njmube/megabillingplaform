@@ -3,23 +3,23 @@
         "c_municipality" : {
             "home": {
                 "title": "Municipios",
-                "createLabel": "Crear nuevo Municipio",
-                "createOrEditLabel": "Crear o editar Municipio",
-                "search": "búsqueda para Municipio"
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar un Municipio",
+                "search": "Búsqueda por Municipio"
             },
-            "created": "Un nuevo municipio ha sido creado con el identificador {{ param }}",
-            "updated": "Un municipio ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un municipio ha sido eliminado con el identificador {{ param }}",
+            "created": "El Municipio ha sido adicionado satisfactoriamente.",
+            "updated": "El Municipio ha sido modificado satisfactoriamente.",
+            "deleted": "El Municipio ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar municipio {{ id }}?"
+                "question": "Se eliminará el Municipio seleccionado. ¿Desea continuar?"
             },
             "detail": {
                 "title": "Municipio"
             },
-            "name": "Nombre",
-            "code": "Código",
-            "c_state": "Estado",
-            "filtername":"Filtro por nombre"
+            "name": "Nombre:",
+            "code": "Código:",
+            "c_state": "Estado:",
+            "filtername":"Filtro por nombre:"
         }
     }
 }

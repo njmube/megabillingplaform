@@ -2,10 +2,10 @@
     "megabillingplatformApp": {
         "cfdi_types" : {
             "home": {
-                "title": "Tipos CFDI",
-                "createLabel": "Nuevo Tipo",
-                "createOrEditLabel": "Crear o editar Tipo CFDI",
-                "search": "Búsqueda para Tipo CFDI"
+                "title": "Tipos DE CFDI",
+                "createLabel": "Adicionar nuevo Tipo de CFDI",
+                "createOrEditLabel": "Adicionar o editar Tipo de CFDI",
+                "search": "Búsqueda por Tipo de CFDI"
             },
             "created": "Un nuevo tipo ha sido creado con el identificador {{ param }}",
             "updated": "Un tipo ha sido actualizado con el identificador {{ param }}",

@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_federal_entity" : {
             "home": {
-                "title": "C_federal_entities",
-                "createLabel": "Crear nuevo C_federal_entity",
-                "createOrEditLabel": "Crear o editar C_federal_entity",
-                "search": "Search for C_federal_entity"
+                "title": "Entidades federales",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicioanr o editar una Entidad federal",
+                "search": "Búsqueda por Entidad federal"
             },
-            "created": "Un nuevo C_federal_entity ha sido creado con el identificador {{ param }}",
-            "updated": "Un C_federal_entity ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C_federal_entity ha sido eliminado con el identificador {{ param }}",
+            "created": "La Entidad federal ha sido adicionada satisfactoriamente.",
+            "updated": "La Entidad federal ha sido modificada satisfactoriamente.",
+            "deleted": "La Entidad federal ha sido eliminada satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C_federal_entity {{ id }}?"
+                "question": "Se eliminará la Entidad federal seleccionada. ¿Desea continuar?"
             },
             "detail": {
-                "title": "C_federal_entity"
+                "title": "Entidad federal"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Nombre:",
+            "description": "Descripción:"
         }
     }
 }

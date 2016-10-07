@@ -3,30 +3,30 @@
         "tracemg" : {
             "home": {
                 "title": "Trazas",
-                "createLabel": "Crear nuevo Traza",
-                "createOrEditLabel": "Crear o editar Traza",
-                "search": "Búsqueda para Traza"
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar Traza",
+                "search": "Búsqueda por Traza"
             },
-            "created": "Una nueva Traza ha sido creado con el identificador {{ param }}",
-            "updated": "Una Traza ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Una Traza ha sido eliminado con el identificador {{ param }}",
+            "created": "La Traza ha sido adicionada satisfactoriamente.",
+            "updated": "La Traza ha sido modificada satisfactoriamente.",
+            "deleted": "La Traza ha sido eliminada satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Traza {{ id }}?"
+                "question": "Se eliminará la Traza seleccionada. ¿Desea continuar?"
             },
             "detail": {
                 "title": "Traza"
             },
-            "principal": "Usuario",
-            "timestamp": "Fecha",
-            "ip": "Ip",
-            "audit_event_type": "Nombre",
-            "c_state_event": "Estado",
+            "principal": "Usuario:",
+            "timestamp": "Fecha:",
+            "ip": "IP:",
+            "audit_event_type": "Nombre:",
+            "c_state_event": "Estado:",
             "audit_event_type_description":"Descripción",
-            "from":"Desde",
-            "to":"Hasta",
-            "auditEventType":"Tipo de evento",
-            "search":"Buscar",
-            "search_result":"Resultado de la búsqueda"
+            "from":"Desde:",
+            "to":"Hasta:",
+            "auditEventType":"Tipo de evento:",
+            "search":"Buscar:",
+            "search_result":"Resultado de la búsqueda:"
         }
     }
 }

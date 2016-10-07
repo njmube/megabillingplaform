@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "way_payment" : {
             "home": {
-                "title": "Formas de Pago",
-                "createLabel": "Nueva Forma",
-                "createOrEditLabel": "Crear o editar Forma de Pago",
-                "search": "Búsqueda para Forma de Pago"
+                "title": "Forma de pago",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar una Forma de pago",
+                "search": "Búsqueda por Forma de pago"
             },
-            "created": "Un nuevo forma de pago ha sido creado con el identificador {{ param }}",
-            "updated": "Un forma de pago ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un forma de pago ha sido eliminado con el identificador {{ param }}",
+            "created": "La Forma de pago ha sido adicionada satisfactoriamente.",
+            "updated": "La Forma de pago ha sido modificada satisfactoriamente.",
+            "deleted": "La Forma de pago ha sido eliminada satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar forma de pago con el ID: {{ id }}?"
+                "question": "Se eliminará la Forma de pago seleccionada. ¿Desea continuar?"
             },
             "detail": {
                 "title": "Forma de Pago"
             },
-            "name": "Nombre",
-            "description": "Descripción",
-            "filtername":"Filtro por nombre"
+            "name": "Nombre:",
+            "description": "Descripción:",
+            "filtername":"Filtro por nombre:"
         }
     }
 }

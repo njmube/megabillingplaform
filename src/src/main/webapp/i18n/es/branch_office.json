@@ -3,22 +3,22 @@
         "branch_office" : {
             "home": {
                 "title": "Sucursales",
-                "createLabel": "Adicionar nueva Sucursal",
-                "createOrEditLabel": "Crear o editar Sucursal",
-                "search": "Búsqueda para Sucursal"
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar una Sucursal",
+                "search": "Búsqueda por Sucursal"
             },
-            "created": "Una nueva Sucursal ha sido creado con el identificador {{ param }}",
-            "updated": "Una Sucursal ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Una Sucursal ha sido eliminado con el identificador {{ param }}",
+            "created": "La Sucursal ha sido adicionada satisfactoriamente.",
+            "updated": "La Sucursal ha sido modificada satisfactoriamente.",
+            "deleted": "La Sucursal ha sido eliminada satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Sucursal {{ id }}?"
+                "question": "Se eliminará la Sucursal seleccionada. ¿Desea continuar?"
             },
             "detail": {
                 "title": "Sucursal"
             },
-            "bussines_name": "Nombre o Razón Social (*)",
-            "tax_address": "Dirección",
-            "taxpayer_account": "Cuenta de facturación"
+            "bussines_name": "Nombre o Razón Social(*):",
+            "tax_address": "Dirección:",
+            "taxpayer_account": "Cuenta de facturación:"
         }
     }
 }

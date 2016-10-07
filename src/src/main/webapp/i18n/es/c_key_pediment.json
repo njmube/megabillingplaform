@@ -2,21 +2,21 @@
     "megabillingplatformApp": {
         "c_key_pediment" : {
             "home": {
-                "title": "C Key Pediments",
-                "createLabel": "Crear nuevo C Key Pediment",
-                "createOrEditLabel": "Crear o editar C Key Pediment",
-                "search": "Search for C Key Pediment"
+                "title": "Claves de pedimento",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar Clave de pedimento",
+                "search": "Búsqueda por Clave de pedimento"
             },
-            "created": "Un nuevo C Key Pediment ha sido creado con el identificador {{ param }}",
-            "updated": "Un C Key Pediment ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C Key Pediment ha sido eliminado con el identificador {{ param }}",
+            "created": "La Clave de pedimento ha sido adicionada satisfactoriamente.",
+            "updated": "La Clave de pedimento ha sido modificada satisfactoriamente.",
+            "deleted": "La Clave de pedimento ha sido eliminada satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C Key Pediment {{ id }}?"
+                "question": "Se eliminará la Clave de pedimento seleccionada. ¿Desea continuar?"
             },
             "detail": {
-                "title": "C Key Pediment"
+                "title": "Clave de pedimento"
             },
-            "value": "Value"
+            "value": "Valor:"
         }
     }
 }

@@ -2,25 +2,25 @@
     "megabillingplatformApp": {
         "c_colony" : {
             "home": {
-                "title": "C_colonies",
-                "createLabel": "Crear nuevo C_colony",
-                "createOrEditLabel": "Crear o editar C_colony",
-                "search": "Search for C_colony"
+                "title": "Colonia",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar una Colonia",
+                "search": "Búsqueda por Colonia"
             },
-            "created": "Un nuevo C_colony ha sido creado con el identificador {{ param }}",
-            "updated": "Un C_colony ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C_colony ha sido eliminado con el identificador {{ param }}",
+            "created": "La Colonia ha sido adicionada satisfactoriamente.",
+            "updated": "La Colonia ha sido modificada satisfactoriamente.",
+            "deleted": "La Colonia ha sido eliminada satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C_colony {{ id }}?"
+                "question": "Se eliminará la Colonia seleccionada. ¿Desea continuar?"
             },
             "detail": {
-                "title": "C_colony"
+                "title": "Colonia"
             },
-            "code": "Code",
-            "value": "Value",
-            "c_municipality": "C_municipality",
-            "c_zip_code": "C_zip_code",
-            "filtername":"Filtro por código"
+            "code": "Código:",
+            "value": "Valor:",
+            "c_municipality": "Municipio:",
+            "c_zip_code": "Código Postal:",
+            "filtername":"Filtro por Código:"
         }
     }
 }

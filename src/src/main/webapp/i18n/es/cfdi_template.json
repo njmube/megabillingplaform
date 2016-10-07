@@ -2,25 +2,25 @@
     "megabillingplatformApp": {
         "cfdi_template" : {
             "home": {
-                "title": "Plantilla CFDI",
-                "createLabel": "Nueva Plantilla CFDI",
-                "createOrEditLabel": "Crear o editar Plantilla CFDI",
-                "search": "Búsqueda para Plantilla CFDI"
+                "title": "Plantilla de CFDI",
+                "createLabel": "Adicionar nueva Plantilla de CFDI",
+                "createOrEditLabel": "Crear o editar Plantilla de CFDI",
+                "search": "Búsqueda por Plantilla de CFDI"
             },
-            "created": "Un nuevo plantilla CFDI ha sido creado con el identificador {{ param }}",
-            "updated": "Un plantilla CFDI ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un plantilla CFDI ha sido eliminado con el identificador {{ param }}",
+            "created": "El Plantilla de CFDI ha sido creado satisfactoriamente.",
+            "updated": "El Plantilla de CFDI ha sido modificado satisfactoriamente.",
+            "deleted": "El Plantilla de CFDI ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar plantilla CFDI con ID:{{ id }}?"
+                "question": "Se eliminará la Plantilla de CFDI seleccionada. ¿Desea continuar?"
             },
             "detail": {
-                "title": "Plantilla CFDI"
+                "title": "Plantilla de CFDI"
             },
-            "name": "Nombre",
-            "description": "Descripción",
-            "template": "Plantilla",
-            "file": "Fichero",
-            "filtername":"Filtro por nombre"
+            "name": "Nombre:",
+            "description": "Descripción:",
+            "template": "Plantilla:",
+            "file": "Fichero:",
+            "filtername":"Filtro por nombre:"
         }
     }
 }

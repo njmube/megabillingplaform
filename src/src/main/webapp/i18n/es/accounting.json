@@ -3,21 +3,21 @@
         "accounting" : {
             "home": {
                 "title": "Listado de Contabilidades",
-                "createLabel": "Adicionar Nueva Contabilidad",
-                "createOrEditLabel": "Crear o editar Contabilidad",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar un Contabilidad",
                 "search": "Búsqueda por Contabilidad"
             },
-            "created": "Una nueva contabilidad ha sido creada con el identificador {{ param }}",
-            "updated": "Una contabilidad ha sido actualizada con el identificador {{ param }}",
-            "deleted": "Una contabilidad ha sido eliminada con el identificador {{ param }}",
+            "created": "La Contabilidad ha sido adicionada satisfactoriamente.",
+            "updated": "La Contabilidad ha sido modificada satisfactoriamente.",
+            "deleted": "La Contabilidad ha sido eliminada satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar contabilidad con ID: {{ id }}?"
+                "question": "Se eliminará la Contabilidad seleccionada. ¿Desea continuar?"
             },
             "detail": {
                 "title": "Contabilidad"
             },
-            "keyaccounting": "ID Contabilidad (*):",
-            "freecom_ine_entity": "INE Entidad"
+            "keyaccounting": "ID Contabilidad(*):",
+            "freecom_ine_entity": "INE Entidad:"
         }
     }
 }

@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_well_type" : {
             "home": {
-                "title": "Tipos Bien",
-                "createLabel": "Nuevo Tipo Bien",
-                "createOrEditLabel": "Crear o editar Tipo Bien",
-                "search": "Búsqueda Tipo Bien"
+                "title": "Tipos de bien",
+                "createLabel": "Adicionar nuevo Tipo de bien",
+                "createOrEditLabel": "Adicionar o editar un Tipo de bien",
+                "search": "Búsqueda por Tipo de bien"
             },
-            "created": "Un nuevo tipo bien ha sido creado con el identificador {{ param }}",
-            "updated": "Un tipo bien ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un tipo bien ha sido eliminado con el identificador {{ param }}",
+            "created": "El Tipo de bien ha sido adicionado satisfactoriamente.",
+            "updated": "El Tipo de bien ha sido modificado satisfactoriamente.",
+            "deleted": "El Tipo de bien ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar el tipo bien con el ID: {{ id }}?"
+                "question": "Se eliminará el Tipo de bien seleccionado. ¿Desea continuar?"
             },
             "detail": {
-                "title": "Tipos Bien"
+                "title": "Tipo de bien"
             },
-            "code": "Código",
-            "name": "Nombre"
+            "code": "Código:",
+            "name": "Nombre:"
         }
     }
 }

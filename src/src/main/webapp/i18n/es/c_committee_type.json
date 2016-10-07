@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_committee_type" : {
             "home": {
-                "title": "Tipos Comite",
-                "createLabel": "Nuevo Tipo Comite",
-                "createOrEditLabel": "Crear o editar Tipo Comite",
-                "search": "Search for Tipo Comite"
+                "title": "Tipo de comité",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar un Tipo de comité",
+                "search": "Búsqueda por Tipo de comité"
             },
-            "created": "Un nuevo tipo comite ha sido creado con el identificador {{ param }}",
-            "updated": "Un tipo comite ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un tipo comite ha sido eliminado con el identificador {{ param }}",
+            "created": "El Tipo de comité ha sido adicionado satisfactoriamente.",
+            "updated": "El Tipo de comité ha sido modificado satisfactoriamente.",
+            "deleted": "El Tipo de comité ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar tipo comite {{ id }}?"
+                "question": "Se eliminará el Tipo de comité seleccionado. ¿Desea continuar??"
             },
             "detail": {
-                "title": "Tipo Comite"
+                "title": "Tipo de comité"
             },
-            "name": "Nombre",
-            "description": "Descripción"
+            "name": "Nombre:",
+            "description": "Descripción:"
         }
     }
 }

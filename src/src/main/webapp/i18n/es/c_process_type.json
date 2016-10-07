@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_process_type" : {
             "home": {
-                "title": "Tipos Procesos",
-                "createLabel": "Nuevo Tipo Proceso",
-                "createOrEditLabel": "Crear o editar Tipo Proceso",
-                "search": "Búsqueda por Tipo Proceso"
+                "title": "Tipos de proceso",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar un Tipo de proceso",
+                "search": "Búsqueda por Tipo de proceso"
             },
-            "created": "Un nuevo tipo proceso ha sido creado con el identificador {{ param }}",
-            "updated": "Un tipo proceso ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un tipo proceso ha sido eliminado con el identificador {{ param }}",
+            "created": "El Tipo de proceso ha sido adicionado satisfactoriamente.",
+            "updated": "El Tipo de proceso ha sido modificado satisfactoriamente.",
+            "deleted": "El Tipo de proceso ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar tipo proceso {{ id }}?"
+                "question": "Se eliminará el Tipo de proceso seleccionado. ¿Desea continuar?"
             },
             "detail": {
-                "title": "Tipos Procesos"
+                "title": "Tipos de proceso"
             },
-            "name": "Nombre",
-            "description": "Descripción"
+            "name": "Nombre:",
+            "description": "Descripción:"
         }
     }
 }

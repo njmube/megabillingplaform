@@ -3,21 +3,21 @@
         "c_money" : {
             "home": {
                 "title": "Monedas",
-                "createLabel": "Nuevo Moneda",
-                "createOrEditLabel": "Crear o editar Moneda",
-                "search": "Buscar una Moneda"
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar una Moneda",
+                "search": "Buscar por Moneda"
             },
-            "created": "Un nueva moneda ha sido creada con el identificador {{ param }}",
-            "updated": "Una moneda ha sido actualizada con el identificador {{ param }}",
-            "deleted": "Una moneda ha sido eliminado con el identificador {{ param }}",
+            "created": "La Moneda ha sido adicionada satisfactoriamente.",
+            "updated": "La Moneda ha sido modificada satisfactoriamente.",
+            "deleted": "La Moneda ha sido eliminada satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar la moneda con ID: {{ id }}?"
+                "question": "Se eliminará la Moneda seleccionada. ¿Desea continuar?"
             },
             "detail": {
                 "title": "Moneda"
             },
-            "name": "Nombre",
-            "description": "Descripción"
+            "name": "Nombre:",
+            "description": "Descripción:"
         }
     }
 }

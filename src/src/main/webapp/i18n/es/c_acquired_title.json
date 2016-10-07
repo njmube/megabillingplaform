@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_acquired_title" : {
             "home": {
-                "title": "Títulos Adquiridos",
-                "createLabel": "Nuevo Título",
-                "createOrEditLabel": "Crear o editar Título Adquirido",
-                "search": "Búsqueda por Título Adquirido"
+                "title": "Títulos adquiridos",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar un Título adquirido",
+                "search": "Búsqueda por Título adquirido"
             },
-            "created": "Un nuevo título adquirido ha sido creado con el identificador {{ param }}",
-            "updated": "Un título adquirido ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un título adquirido ha sido eliminado con el identificador {{ param }}",
+            "created": "El Título adquirido ha sido adicionado satisfactoriamente.",
+            "updated": "El Título adquirido ha sido modificado satisfactoriamente.",
+            "deleted": "El Título adquirido ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar título adquirido {{ id }}?"
+                "question": "Se eliminará el Título adquirido seleccionado. ¿Desea continuar?"
             },
             "detail": {
-                "title": "Título Adquirido"
+                "title": "Título adquirido"
             },
-            "code": "Código",
-            "name": "Nombre"
+            "code": "Código:",
+            "name": "Nombre:"
         }
     }
 }

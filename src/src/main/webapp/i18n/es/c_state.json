@@ -2,25 +2,25 @@
     "megabillingplatformApp": {
         "c_state" : {
             "home": {
-                "title": "Estado",
-                "createLabel": "Nuevo Estado",
-                "createOrEditLabel": "Crear o editar Estado",
-                "search": "Búsqueda para Estado"
+                "title": "Estados",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar un Estado",
+                "search": "Búsqueda por Estado"
             },
-            "created": "Un nuevo estado ha sido creado con el identificador {{ param }}",
-            "updated": "Un estado ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un estado ha sido eliminado con el identificador {{ param }}",
+            "created": "El Estado ha sido adicionado satisfactoriamente.",
+            "updated": "El Estado ha sido modificado satisfactoriamente.",
+            "deleted": "El Estado ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar estado con ID: {{ id }}?"
+                "question": "Se eliminará el Estado seleccionado. ¿Desea continuar?"
             },
             "detail": {
                 "title": "Estado"
             },
-            "name": "Nombre",
-            "abrev": "Abreviatura",
-            "c_country": "País",
-            "c_municipality": "Municipio",
-            "filtername":"Filtro por nombre"
+            "name": "Nombre:",
+            "abrev": "Abreviatura:",
+            "c_country": "País:",
+            "c_municipality": "Municipio:",
+            "filtername":"Filtro por nombre:"
         }
     }
 }

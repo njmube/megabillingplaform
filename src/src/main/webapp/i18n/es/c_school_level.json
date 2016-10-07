@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_school_level" : {
             "home": {
-                "title": "Niveles Escolares",
-                "createLabel": "Nuevo Nivel Escolar",
-                "createOrEditLabel": "Crear o editar Nivel Escolar",
-                "search": "Búsqueda por Nivel Escolar"
+                "title": "Niveles escolares",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar un Nivel escolar",
+                "search": "Búsqueda por Nivel escolar"
             },
-            "created": "Un nuevo nivel escolar ha sido creado con el identificador {{ param }}",
-            "updated": "Un nivel escolar ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un nivel escolar ha sido eliminado con el identificador {{ param }}",
+            "created": "El Nivel escolar ha sido adicionado satisfactoriamente.",
+            "updated": "El Nivel escolar ha sido modificado satisfactoriamente.",
+            "deleted": "El Nivel escolar ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar el nivel escolar con ID: {{ id }}?"
+                "question": "Se eliminará el Nivel escolar seleccionado. ¿Desea continuar?"
             },
             "detail": {
-                "title": "Niveles Escolares"
+                "title": "Nivel escolar"
             },
-            "name": "Nombre",
-            "description": "Descripción"
+            "name": "Nombre:",
+            "description": "Descripción:"
         }
     }
 }

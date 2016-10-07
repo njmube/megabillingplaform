@@ -2,21 +2,21 @@
     "megabillingplatformApp": {
         "c_state_event" : {
             "home": {
-                "title": "Estado de evento",
-                "createLabel": "Crear nuevo Estado de evento",
-                "createOrEditLabel": "Crear o editar Estado de evento",
-                "search": "búsqueda para Estado de evento"
+                "title": "Estados de evento",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar un Estado de evento",
+                "search": "Búsqueda por Estado de evento"
             },
-            "created": "Un nuevo Estado de evento ha sido creado con el identificador {{ param }}",
+            "created": "El Estado de evento ha sido adicionado satisfactoriamente.",
             "updated": "Un Estado de evento ha sido actualizado con el identificador {{ param }}",
             "deleted": "Un Estado de evento ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Estado de evento {{ id }}?"
+                "question": "Se eliminará el Estado de evento seleccionado. ¿Desea continuar?"
             },
             "detail": {
                 "title": "Estado de evento"
             },
-            "name": "Nombre"
+            "name": "Nombre:"
         }
     }
 }

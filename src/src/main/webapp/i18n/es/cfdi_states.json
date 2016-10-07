@@ -3,22 +3,22 @@
         "cfdi_states" : {
             "home": {
                 "title": "Estados CFDI",
-                "createLabel": "Nuevo Estado CFDI",
-                "createOrEditLabel": "Crear o editar Estado CFDI",
-                "search": "Búsqueda para Estado CFDI"
+                "createLabel": "Nuevo Estado de CFDI",
+                "createOrEditLabel": "Crear o editar Estado de CFDI",
+                "search": "Búsqueda para Estado de CFDI"
             },
-            "created": "Un nuevo estado CFDI ha sido creado con el identificador {{ param }}",
-            "updated": "Un estado CFDI ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un estado CFDI ha sido eliminado con el identificador {{ param }}",
+            "created": "El Estado de CFDI ha sido creado satisfactoriamente.",
+            "updated": "El Estado de CFDI ha sido modificado satisfactoriamente.",
+            "deleted": "El Estado de CFDI ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar estado CFDI con ID:{{ id }}?"
+                "question": "Se eliminará el Estado de CFDI seleccionado. ¿Desea continuar?"
             },
             "detail": {
-                "title": "Estado CFDI"
+                "title": "Estado de CFDI"
             },
-            "name": "Nombre",
-            "description": "Descripción",
-            "filtername": "Filtro por nombre"
+            "name": "Nombre:",
+            "description": "Descripción:",
+            "filtername": "Filtro por nombre:"
         }
     }
 }

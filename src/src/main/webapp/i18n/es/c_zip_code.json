@@ -3,22 +3,22 @@
         "c_zip_code" : {
             "home": {
                 "title": "Códigos Postales",
-                "createLabel": "Nuevo Código Postal",
-                "createOrEditLabel": "Crear o editar Código Postal",
-                "search": "Búsqueda para Código postal"
+                "createLabel": "Adicionar nuevo Código Postal",
+                "createOrEditLabel": "Adicionar o editar un Código Postal",
+                "search": "Búsqueda por Código Postal"
             },
-            "created": "Un nuevo código postal ha sido creado con el identificador {{ param }}",
-            "updated": "Un código postal ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un código postal ha sido eliminado con el identificador {{ param }}",
+            "created": "El Código Postal ha sido adicionado satisfactoriamente.",
+            "updated": "El Código Postal ha sido modificado satisfactoriamente.",
+            "deleted": "El Código Postal ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar código postal {{ id }}?"
+                "question": "Se eliminará el Código Postal seleccionado. ¿Desea continuar?"
             },
             "detail": {
                 "title": "Código Postal"
             },
-            "code": "Código",
-            "value": "Valor",
-            "filtername":"Filtro por código"
+            "code": "Código:",
+            "value": "Valor:",
+            "filtername":"Filtro por código:"
         }
     }
 }

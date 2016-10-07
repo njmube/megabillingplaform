@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_scope_type" : {
             "home": {
-                "title": "Tipos Ámbitos",
-                "createLabel": "Nuevo Tipo Ámbito",
-                "createOrEditLabel": "Crear o editar Tipo Ámbito",
-                "search": "Búsqueda por Tipo Ámbito"
+                "title": "Tipos de ámbito",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar un Tipo de ámbito",
+                "search": "Búsqueda por Tipo de ámbito"
             },
-            "created": "Un nuevo tipo ámbito ha sido creado con el identificador {{ param }}",
-            "updated": "Un tipo ámbito ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un tipo ámbito ha sido eliminado con el identificador {{ param }}",
+            "created": "El Tipo de ámbito ha sido adicionado satisfactoriamente.",
+            "updated": "El Tipo de ámbito ha sido modificado satisfactoriamente.",
+            "deleted": "El Tipo de ámbito ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar el tipo ámbito con ID: {{ id }}?"
+                "question": "Se eliminará el Tipo de ámbito seleccionado. ¿Desea continuar?"
             },
             "detail": {
-                "title": "Tipos Ámbitos"
+                "title": "Tipo de ámbito"
             },
-            "name": "Nombre",
-            "description": "Descripción"
+            "name": "Nombre:",
+            "description": "Descripción:"
         }
     }
 }

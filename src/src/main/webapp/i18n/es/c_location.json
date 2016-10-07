@@ -3,25 +3,25 @@
         "c_location" : {
             "home": {
                 "title": "Localidades",
-                "createLabel": "Nueva Localidad",
-                "createOrEditLabel": "Crear o editar Localidad",
-                "search": "Buscar una Localidad"
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar una Localidad",
+                "search": "Buscar por Localidad"
             },
-            "created": "Una nueva localidad ha sido creada con el identificador {{ param }}",
-            "updated": "Una localidad ha sido actualizada con el identificador {{ param }}",
-            "deleted": "Una localidad ha sido eliminada con el identificador {{ param }}",
+            "created": "La Localidad ha sido adicionada satisfactoriamente.",
+            "updated": "La Localidad ha sido modificada satisfactoriamente.",
+            "deleted": "La Localidad ha sido eliminada satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar localidad {{ id }}?"
+                "question": "Se eliminará la Localidad seleccionada. ¿Desea continuar?"
             },
             "detail": {
                 "title": "Localidad"
             },
-            "name": "Nombre",
-            "description": "Descripción",
-            "c_municipality": "Municipio",
-            "c_zip_code": "Código Postal",
-            "c_colony": "Colonia",
-            "filtername":"Filtro por nombre"
+            "name": "Nombre:",
+            "description": "Descripción:",
+            "c_municipality": "Municipio:",
+            "c_zip_code": "Código Postal:",
+            "c_colony": "Colonia:",
+            "filtername":"Filtro por nombre:"
         }
     }
 }

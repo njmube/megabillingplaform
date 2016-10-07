@@ -2,21 +2,21 @@
     "megabillingplatformApp": {
         "c_type_series" : {
             "home": {
-                "title": "C Type Series",
-                "createLabel": "Crear nuevo C Type Series",
-                "createOrEditLabel": "Crear o editar C Type Series",
-                "search": "Search for C Type Series"
+                "title": "Tipos de serie",
+                "createLabel": "Adicionar nuevo Tipo de serie",
+                "createOrEditLabel": "Adicionar o editar un Tipo de serie",
+                "search": "Búsqueda por Tipo de serie"
             },
-            "created": "Un nuevo C Type Series ha sido creado con el identificador {{ param }}",
-            "updated": "Un C Type Series ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C Type Series ha sido eliminado con el identificador {{ param }}",
+            "created": "El Tipo de serie ha sido adicionado satisfactoriamente.",
+            "updated": "El Tipo de serie ha sido modificado satisfactoriamente.",
+            "deleted": "El Tipo de serie ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C Type Series {{ id }}?"
+                "question": "Se eliminará el Tipo de serie seleccionado. ¿Desea continuar??"
             },
             "detail": {
-                "title": "C Type Series"
+                "title": "Tipo de serie"
             },
-            "value": "Value"
+            "value": "Valor:"
         }
     }
 }

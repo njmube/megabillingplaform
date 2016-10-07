@@ -2,22 +2,22 @@
     "megabillingplatformApp": {
         "c_system" : {
             "home": {
-                "title": "C Systems",
-                "createLabel": "Crear nuevo C System",
-                "createOrEditLabel": "Crear o editar C System",
-                "search": "Search for C System"
+                "title": "Sistemas",
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar un Sistema",
+                "search": "Búsqueda por Sistema"
             },
-            "created": "Un nuevo C System ha sido creado con el identificador {{ param }}",
-            "updated": "Un C System ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un C System ha sido eliminado con el identificador {{ param }}",
+            "created": "El Sistema ha sido adicionado satisfactoriamente.",
+            "updated": "El Sistema ha sido modificado satisfactoriamente.",
+            "deleted": "El Sistema ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar C System {{ id }}?"
+                "question": "Se eliminará el Sistema seleccionado. ¿Desea continuar?"
             },
             "detail": {
-                "title": "C System"
+                "title": "Sistema"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Nombre:",
+            "description": "Descripción:"
         }
     }
 }

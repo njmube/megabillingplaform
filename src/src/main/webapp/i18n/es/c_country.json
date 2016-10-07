@@ -3,23 +3,23 @@
         "c_country" : {
             "home": {
                 "title": "Países",
-                "createLabel": "Adicionar País",
-                "createOrEditLabel": "Crear o Editar un País",
-                "search": "Búsqueda para País"
+                "createLabel": "Adicionar",
+                "createOrEditLabel": "Adicionar o editar un País",
+                "search": "Búsqueda por País"
             },
-            "created": "Un nuevo país ha sido creado con el identificador {{ param }}",
-            "updated": "Un país ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un país ha sido eliminado con el identificador {{ param }}",
+            "created": "El País ha sido adicionado satisfactoriamente.",
+            "updated": "El País ha sido modificado satisfactoriamente.",
+            "deleted": "El País ha sido eliminado satisfactoriamente.",
             "delete": {
-                "question": "¿Seguro que quiere eliminar país con el identificador {{ id }}?"
+                "question": "Se eliminará el País seleccionado. ¿Desea continuar?"
             },
             "detail": {
                 "title": "País"
             },
-            "name": "Nombre",
-            "abrev": "Abreviatura",
-            "c_state": "Estado",
-            "filtername":"Filtro por nombre"
+            "name": "Nombre:",
+            "abrev": "Abreviatura:",
+            "c_state": "Estado:",
+            "filtername":"Filtro por nombre:"
         }
     }
 }

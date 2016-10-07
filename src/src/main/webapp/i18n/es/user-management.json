@@ -2,88 +2,88 @@
     "userManagement": {
         "home": {
             "title": "Usuarios",
-            "createLabel": "Nuevo Usuario",
-            "createOrEditLabel": "Crear o editar un Usuario"
+            "createLabel": "Adicionar",
+            "createOrEditLabel": "Adicionar o editar Usuario"
         },
-        "created": "El usuario con el identificador {{ param }} ha sido creado",
-        "updated": "El usuario con el identificador {{ param }} ha sido actualizado",
-        "deleted": "El usuario con el identificador {{ param }} ha sido eliminado.",
+        "created": "El Usuario ha sido creado satisfactoriamente.",
+        "updated": "El Usuario ha sido modificado satisfactoriamente.",
+        "deleted": "El Usuario ha sido eliminado satisfactoriamente.",
         "delete": {
-            "question": "¿Seguro que quieres eliminar el usuario {{ login }}?"
+            "question": "Se eliminará el Usuario seleccionado. ¿Desea continuar?"
         },
         "detail": {
             "title": "Usuario"
         },
-        "login": "Nombre Usuario (*)",
-        "login.list": "Nomnbre Usuario",
-        "rfc": "RFC (*)",
-        "name": "Nombre (*)",
-        "firtsurname": "Apellido paterno (*)",
-        "secondsurname": "Apellido materno (*)",
-        "email": "Correo Electrónico (*)",
-        "email.list": "Correo Electrónico",
-        "phone": "Teléfono (*)",
-        "gender": "Género (*)",
-        "activated": "Activado",
-        "deactivated": "Desactivado",
-        "profiles": "Perfiles",
-        "createdby": "Creado por",
-        "langKey": "Idioma",
-        "createdBy": "Creado por",
-        "createdDate": "Fecha de creación",
-        "lastModifiedBy": "Modificado por",
-        "lastModifiedDate": "Fecha de modificación",
-        "authority":"Rol",
-        "state":"Estado del usuario",
-        "date_to":"Hasta",
-        "date_from":"Desde",
-        "search_result":"Resultado de la búsqueda",
-        "filterrfc": "RFC",
-        "photo":"Foto",
+        "login": "Nombre Usuario (*):",
+        "login.list": "Nombre Usuario:",
+        "rfc": "RFC (*):",
+        "name": "Nombre (*):",
+        "firtsurname": "Apellido paterno (*):",
+        "secondsurname": "Apellido materno (*):",
+        "email": "Correo Electrónico (*):",
+        "email.list": "Correo Electrónico:",
+        "phone": "Teléfono (*):",
+        "gender": "Género (*):",
+        "activated": "Activado:",
+        "deactivated": "Desactivado:",
+        "profiles": "Perfiles:",
+        "createdby": "Creado por:",
+        "langKey": "Idioma:",
+        "createdBy": "Creado por:",
+        "createdDate": "Fecha de creación:",
+        "lastModifiedBy": "Modificado por:",
+        "lastModifiedDate": "Fecha de modificación:",
+        "authority":"Rol:",
+        "state":"Estado del usuario:",
+        "date_to":"Hasta:",
+        "date_from":"Desde:",
+        "search_result":"Resultado de la búsqueda:",
+        "filterrfc": "RFC:",
+        "photo":"Foto:",
         "messages": {
             "validate": {
                 "login": {
-                    "required": "Su nombre de usuario es obligatorio.",
-                    "minlength": "Su nombre de usuario debe tener al menos 3 caracteres.",
-                    "maxlength": "Su nombre de usuario no puede tener más de 50 caracteres.",
-                    "pattern": "Su nombre de usuario sólo puede contener letras minúsculas y dígitos."
+                    "required": "El nombre de usuario es obligatorio.",
+                    "minlength": "El nombre de usuario debe tener al menos 3 caracteres.",
+                    "maxlength": "El nombre de usuario no puede tener más de 50 caracteres.",
+                    "pattern": "El nombre de usuario sólo puede contener letras minúsculas y dígitos."
                 },
                 "rfc": {
-                    "required": "Su RFC es obligatorio.",
-                    "minlength": "Su RFC debe tener al menos 12 caracteres.",
-                    "maxlength": "Su RFC no puede tener más de 13 caracteres.",
+                    "required": "El RFC es obligatorio.",
+                    "minlength": "El RFC debe tener al menos 12 caracteres.",
+                    "maxlength": "El RFC no puede tener más de 13 caracteres.",
                     "pattern": "Patrón de RFC incorrecto."
                 },
                 "name": {
-                    "required": "Su nombre es obligatorio.",
-                    "minlength": "Su nombre debe tener al menos 3 caracteres.",
-                    "maxlength": "Su nombre no puede tener más de 50 caracteres.",
+                    "required": "El nombre es obligatorio.",
+                    "minlength": "El nombre debe tener al menos 3 caracteres.",
+                    "maxlength": "El nombre no puede tener más de 50 caracteres.",
                     "pattern": "Patrón del nombre incorrecto."
                 },
                 "firtsurname": {
-                    "required": "Su apellido paterno es obligatorio.",
-                    "minlength": "Su apellido paterno debe tener al menos 3 caracteres.",
-                    "maxlength": "Su apellido paterno no puede tener más de 50 caracteres.",
+                    "required": "El apellido paterno es obligatorio.",
+                    "minlength": "El apellido paterno debe tener al menos 3 caracteres.",
+                    "maxlength": "El apellido paterno no puede tener más de 50 caracteres.",
                     "pattern": "Patrón del apellido paterno incorrecto."
                 },
                 "secondsurname": {
-                    "required": "Su apellido materno es obligatorio.",
-                    "minlength": "Su apellido materno debe tener al menos 3 caracteres.",
-                    "maxlength": "Su apellido paterno no puede tener más de 50 caracteres."
+                    "required": "El apellido materno es obligatorio.",
+                    "minlength": "El apellido materno debe tener al menos 3 caracteres.",
+                    "maxlength": "El apellido paterno no puede tener más de 50 caracteres."
                 },
                 "phone": {
-                    "required": "Su teléfono es obligatorio.",
-                    "minlength": "Su teléfono debe tener al menos 1 caracter.",
-                    "maxlength": "Su teléfono no puede tener más de 15 caracteres.",
+                    "required": "El teléfono es obligatorio.",
+                    "minlength": "El teléfono debe tener al menos 1 caracter.",
+                    "maxlength": "El teléfono no puede tener más de 15 caracteres.",
                     "pattern": "Patrón de teléfono incorrecto."
                 }
             },
             "success": "<strong>¡Registro guardado!</strong> Por favor, revise su correo electrónico para confirmar.",
             "error": {
                 "fail": "<strong>¡El registro ha fallado!</strong> Por favor, inténtelo de nuevo más tarde.",
-                "userexists": "<strong>¡El nombre de usuario ya está registrado!</strong> Por favor, escoja otro usuario.",
-                "emailexists": "<strong>¡El correo electrónico ya está en uso!</strong> Por favor, escoja otro email.",
-                "errorRfcExists": "<strong>RFC está en uso!</strong>"
+                "userexists": "<strong>¡El nombre de usuario ya está registrado!</strong> Por favor, escoja otro nombre de usuario.",
+                "emailexists": "<strong>¡El correo electrónico ya está en uso!</strong> Por favor, escoja otra dirección de correo electrónico.",
+                "errorRfcExists": "<strong>¡El RFC especificado ya está en uso!</strong> Por favor, escoja otro RFC."
             }
         }
     }
