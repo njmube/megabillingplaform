@@ -13,35 +13,22 @@
         vm.taxpayer_account = entity;
         vm.taxpayer_accounts = Taxpayer_account.query();
         vm.type_transactions = Type_transaction.query();
+        vm.taxpayer_transaction = {};
         vm.ring_packs = Ring_pack.query();
         vm.accountdestiny = {};
+        vm.accountbuy = {};
+        vm.accountsource = {};
         vm.ring_pack = {};
         vm.counttransfer = 0;
-        vm.countbuy = 0;
         vm.showaccountmess = null;
         vm.showcounttransfmess = null;
+        vm.showaccountsource = null;
+        vm.showaccountbuy = null;
         vm.buy = buy;
         vm.transfer = transfer;
         vm.clear = clear;
         vm.getAbsolutePath = getAbsolutePath;
         vm.changeAccount = changeAccount;
-
-        loadAll();
-
-        function loadAll () {
-            Taxpayer_transactions.query({
-                page: 0,
-                size: 20,
-                idaccount:vm.taxpayer_account.id
-            }, onSuccess, onError);
-            function onSuccess(data, headers) {
-                vm.taxpayer_transactions = data;
-                vm.taxpayer_transaction = vm.taxpayer_transactions[0];
-            }
-            function onError(error) {
-                AlertService.error(error.data.message);
-            }
-        }
 
         function changeAccount(){
             window.location.assign(getAbsolutePath()+vm.taxpayer_account.id);
@@ -63,12 +50,13 @@
         $scope.$on('$destroy', unsubscribe);
 
         function buy(){
-            if(vm.ring_pack != null && vm.countbuy > 0){
+            if(vm.ring_pack != null && vm.accountbuy != null){
                 Ring_pack.buytransactions({
-                    idaccount: vm.taxpayer_account.id,
-                    idring_pack: vm.ring_pack.id,
-                    count: vm.countbuy
+                    idaccount: vm.accountbuy.id,
+                    idring_pack: vm.ring_pack.id
                 }, onSuccessbuy, onErrorbuy);
+            }else{
+                vm.showaccountbuy = 'OK';
             }
         }
 
@@ -81,10 +69,12 @@
         function transfer(){
             vm.showcounttransfmess = null;
             vm.showaccountmess = null;
-            if(vm.taxpayer_transaction != null){
+            vm.showaccountsource = null;
+
+            if(vm.accountsource != null){
                 if(vm.accountdestine != null) {
-                    if (vm.accountdestine.id != vm.taxpayer_account.id) {
-                        if (vm.counttransfer <= vm.taxpayer_transaction.transactions_available) {
+                    if (vm.accountdestine.id != vm.accountsource.id) {
+
                             $uibModal.open({
                                 templateUrl: 'app/entities/taxpayer-account/confirmation-transfer.html',
                                 controller: 'Confirmation_transferController',
@@ -96,21 +86,45 @@
                                     Taxpayer_transactions.query({
                                         page: 0,
                                         size: 20,
-                                        idaccount: vm.accountdestine.id
-                                    }, onSuccess1, onError1);
+                                        idaccount:vm.accountsource.id
+                                    }, onSuccess, onError);
+
+                                    function onSuccess(data, headers) {
+                                        vm.taxpayer_transactions = data;
+                                        vm.taxpayer_transaction = vm.taxpayer_transactions[0];
+
+                                        if (vm.counttransfer <= vm.taxpayer_transaction.transactions_available){
+                                            Taxpayer_transactions.query({
+                                                page: 0,
+                                                size: 20,
+                                                idaccount: vm.accountdestine.id
+                                            }, onSuccess1, onError1);
+
+                                        }else {
+                                            //Cantidad insuficiente
+                                            vm.showcounttransfmess = 'OK';
+                                        }
+                                    }
+                                    function onError(error) {
+                                        AlertService.error(error.data.message);
+                                    }
+
                                     function onSuccess1(data, headers) {
                                         vm.taxpayer_transactions1 = data;
                                         vm.accountdestiny = vm.taxpayer_transactions1[0];
+
+                                        vm.taxpayer_transaction.transactions_available -= vm.counttransfer;
+
+                                        Taxpayer_transactions.update(vm.taxpayer_transaction, onSaveSuccessTrans, onSaveErrorTras);
+
                                     }
                                     function onError1(error) {
                                         AlertService.error(error.data.message);
                                     }
-                                    var counttemp = vm.counttransfer;
-                                    vm.taxpayer_transaction.transactions_available -= vm.counttransfer;
-
-                                    Taxpayer_transactions.update(vm.taxpayer_transaction, onSaveSuccessTrans, onSaveErrorTras);
                                     function onSaveSuccessTrans(resulttrans){
                                         vm.taxpayer_transaction = resulttrans;
+
+                                        var counttemp = vm.counttransfer;
                                         var temp = parseInt(vm.accountdestiny.transactions_available);
                                         var sum = 0;
                                         sum = temp + parseInt(counttemp);
@@ -119,6 +133,17 @@
                                         function onSaveSuccessTrans1(resulttrans1){
                                             vm.counttransfer = 0;
                                             vm.accountdestiny = resulttrans1;
+                                            Taxpayer_transactions.history_email({
+                                                idsource: vm.taxpayer_transaction.id,
+                                                iddestiny: vm.accountdestiny.id,
+                                                amount: counttemp
+                                            }, onSuccessHistoty, onErrorHistory);
+                                            function onSuccessHistoty(){
+
+                                            }
+                                            function onErrorHistory(){
+
+                                            }
                                         }
                                         function onSaveErrorTras1(){
 
@@ -130,10 +155,7 @@
 
                                 }, function () {
                                 });
-                        } else {
-                            //Cantidad insuficiente
-                            vm.showcounttransfmess = 'OK';
-                        }
+
                     } else {
                         //tranfiriendo para la misma cuenta
                         vm.showaccountmess = 'OK';
@@ -142,6 +164,9 @@
                     //tranfiriendo para la misma cuenta
                     vm.showaccountmess = 'OK';
                 }
+            }else{
+                //tranfiriendo para la misma cuenta
+                vm.showaccountsource = 'OK';
             }
         }
         var onSaveSuccess = function (result) {

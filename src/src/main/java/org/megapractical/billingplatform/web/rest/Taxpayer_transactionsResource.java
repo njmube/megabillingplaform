@@ -2,7 +2,10 @@ package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import org.megapractical.billingplatform.domain.Taxpayer_transactions;
-import org.megapractical.billingplatform.service.Taxpayer_transactionsService;
+import org.megapractical.billingplatform.domain.Transactions_history;
+import org.megapractical.billingplatform.domain.Type_transaction;
+import org.megapractical.billingplatform.security.SecurityUtils;
+import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -17,8 +20,10 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,6 +38,30 @@ public class Taxpayer_transactionsResource {
 
     @Inject
     private Taxpayer_transactionsService taxpayer_transactionsService;
+
+    @Inject
+    private Transactions_historyService transactions_historyService;
+
+    @Inject
+    private C_systemService c_systemService;
+
+    @Inject
+    private Type_transactionService type_transactionService;
+
+    @Inject
+    private UserService userService;
+
+    @Inject
+    private Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    private C_state_eventService c_state_eventService;
+
+    @Inject
+    private TracemgService tracemgService;
+
+    @Inject
+    private MailService mailService;
 
     /**
      * POST  /taxpayer-transactions : Create a new taxpayer_transactions.
@@ -74,10 +103,75 @@ public class Taxpayer_transactionsResource {
         if (taxpayer_transactions.getId() == null) {
             return createTaxpayer_transactions(taxpayer_transactions);
         }
+        Taxpayer_transactions pre = taxpayer_transactionsService.findOne(taxpayer_transactions.getId());
+
         Taxpayer_transactions result = taxpayer_transactionsService.save(taxpayer_transactions);
+
+        if(taxpayer_transactions != null && result!=null){
+            //Verificado que sea una transferencia de timbres desde la cuenta
+            if(taxpayer_transactions.getTransactions_available() < pre.getTransactions_available() &&
+                taxpayer_transactions.getTransactions_spent() == pre.getTransactions_spent()){
+
+                Long id = new Long("46");
+                Long idtypeevent = new Long("1");
+                tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+
+            }
+            //Verificado que sea una transferencia de timbres hacia la cuenta
+            if(taxpayer_transactions.getTransactions_available() > pre.getTransactions_available() &&
+                taxpayer_transactions.getTransactions_spent() == pre.getTransactions_spent()){
+
+                Long id = new Long("47");
+                Long idtypeevent = new Long("1");
+                tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+
+            }
+        }else {
+            Long id = new Long("46");
+            Long idtypeevent = new Long("2");
+            tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+        }
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("taxpayer_transactions", taxpayer_transactions.getId().toString()))
             .body(result);
+    }
+
+    @RequestMapping(value = "/taxpayer-transactions",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"idsource","iddestiny","amount"})
+    @Timed
+    public ResponseEntity<String> history_email(@RequestParam(value = "idsource") Integer idsource,
+                                                @RequestParam(value = "iddestiny") Integer iddestiny,
+                                                @RequestParam(value = "amount") Integer amount,
+                                                                                   Pageable pageable)
+        throws URISyntaxException {
+        log.debug("REST request to generate history and email");
+
+        Taxpayer_transactions source = taxpayer_transactionsService.findOne(new Long(idsource.toString()));
+        Taxpayer_transactions destiny = taxpayer_transactionsService.findOne(new Long(iddestiny.toString()));
+
+        Transactions_history transactions_history = new Transactions_history();
+        transactions_history.setTaxpayer_account(source.getTaxpayer_account());
+        transactions_history.setDate_transaction(ZonedDateTime.now());
+        transactions_history.setC_system(c_systemService.findOne(new Long("1")));
+        Integer quantity = amount;
+        transactions_history.setQuantity(quantity.toString());
+        transactions_history.setRing_pack(null);
+        Type_transaction type_transaction = type_transactionService.findOne(new Long("3"));
+        transactions_history.setType_transaction(type_transaction);
+        transactions_history.setDescription("Se transfieren " + amount.toString() + " timbres a la cuenta: " + destiny.getTaxpayer_account().getBussines_name());
+        transactions_history.setUser(userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin()).get());
+        Transactions_history res =  transactions_historyService.save(transactions_history);
+
+        if(res != null) {
+
+            mailService.sendTransferRingsMail(userService.getUserWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin()).get(),res);
+            return new ResponseEntity<String>(HttpStatus.OK);
+
+        }
+        else
+            return new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
     }
 
     /**

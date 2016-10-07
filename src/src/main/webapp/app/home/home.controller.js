@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'User', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account', 'Request_taxpayer_account'];
+    HomeController.$inject = ['$scope', 'Taxpayer_transactions','User', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account', 'Request_taxpayer_account'];
 
-    function HomeController ($scope, User, Principal, Tracemg,  LoginService, $filter, Taxpayer_account, Request_taxpayer_account) {
+    function HomeController ($scope, Taxpayer_transactions,  User, Principal, Tracemg,  LoginService, $filter, Taxpayer_account, Request_taxpayer_account) {
         var vm = this;
 
         vm.account = null;
@@ -17,8 +17,10 @@
         vm.page = 1;
         vm.toDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
         vm.user = {};
+        vm.taxpayer_transactions = {};
         vm.restDate = restDate;
         vm.showmenu = 'OK';
+        vm.ringsaccount = ringsaccount;
 
         var dateFormat = 'yyyy-MM-dd';
         var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -106,6 +108,10 @@
                 vm.showmenu = null;
             }
             return Math.round(resto);
+        }
+
+        function ringsaccount(account){
+
         }
     }
 })();

@@ -12,6 +12,8 @@
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true,
                 params: {idaccount: null}},
+            'history_email': { method: 'GET',
+                params: {idsource: null, iddestiny: null, amount: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

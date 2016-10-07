@@ -131,7 +131,12 @@
             "accountmess":"Por favor, seleccione otra cuenta de contribuyente",
             "confirmationtrans":"¿Desea confirmar la transferencia?",
             "transactions_available":"Timbres disponibles: ",
-            "search_resultnull":"No existe información a mostrar"
+            "search_resultnull":"No existe información a mostrar",
+            "price": "Precio",
+            "reference_code":"Moneda",
+            "accountsourcemess":"Seleccione una cuenta de facturación origen",
+            "accountbuymess":"Seleccione correctamente una cuenta de facturación y un paquete",
+            "accountsource":"Cuenta de Contribuyente de origen"
         }
     }
 }

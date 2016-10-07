@@ -37,7 +37,7 @@ public class Ring_packServiceImpl implements Ring_packService{
         return result;
     }
 
-    public boolean buytransactions(Integer idaccount, Integer idring_pack, Long iduser, Integer count){
+    public boolean buytransactions(Integer idaccount, Integer idring_pack, Long iduser){
         return true;
     }
 

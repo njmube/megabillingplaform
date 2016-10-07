@@ -44,3 +44,6 @@ id;name;description
 43;NOTIFICACION-SOLICITUD-CUENTA-RECHAZADA;Envío de notificación de rechazo de la solicitud de cuenta de facturación
 44;NOTIFICACION-SOLICITUD-CUENTA-APROBADA;Envío de notificación de aprobación de la solicitud de cuenta de facturación
 45;ACTUALIZACION-CUENTA-FACTURACION;Se actuliza cuenta de facturación
+46;TRANSFERENCIA-DESDE-CUENTA;Se realiza una transferencia desde una cuenta de facturación
+47;TRANSFERENCIA-PARA-CUENTA;Se realiza una transferencia para una cuenta de facturación
+48;COMPRA-TIMBRES;Se realiza una compra de timbres

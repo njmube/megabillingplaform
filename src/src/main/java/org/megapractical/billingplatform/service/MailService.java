@@ -220,6 +220,18 @@ public class MailService {
     }
 
     @Async
+    public void sendTransferRingsMail(User user, Transactions_history transactions_history) {
+        log.debug("Sending transfer rings e-mail to '{}'", user.getEmail());
+        Locale locale = Locale.forLanguageTag(user.getLangKey());
+        Context context = new Context(locale);
+        context.setVariable("user", user);
+        context.setVariable("transactions_history", transactions_history);
+        String content = templateEngine.process("transferRingsEmail", context);
+        String subject = messageSource.getMessage("email.transfer.title", null, locale);
+        sendEmail(user.getEmail(), subject, content, false, true, null);
+    }
+
+    @Async
     public void sendRejectAccountMail(User user, Request_taxpayer_account request_taxpayer_account) {
         log.debug("Sending account reject e-mail to '{}'", user.getEmail());
         Locale locale = Locale.forLanguageTag(user.getLangKey());

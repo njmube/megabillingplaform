@@ -131,7 +131,12 @@
             "accountmess":"Please, select other account",
             "confirmationtrans":"Do you want continue whit transfer?",
             "transactions_available":"Transactions availables: ",
-            "search_resultnull":"No Result"
+            "search_resultnull":"No Result",
+            "price":"Price",
+            "reference_code":"Reference code",
+            "accountsourcemess":"Select a source account",
+            "accountbuymess":"Select correctly a Taxpayer Account and a Rings Pack",
+            "accountsource":"Source Taxpayer Account"
         }
     }
 }

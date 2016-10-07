@@ -27,7 +27,7 @@ public interface Ring_packService {
      */
     Page<Ring_pack> findAll(Pageable pageable);
 
-    boolean buytransactions(Integer idaccount, Integer idring_pack, Long iduser, Integer count);
+    boolean buytransactions(Integer idaccount, Integer idring_pack, Long iduser);
     /**
      *  Get the "id" ring_pack.
      *

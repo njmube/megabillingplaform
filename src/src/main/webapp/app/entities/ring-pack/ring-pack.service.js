@@ -11,7 +11,7 @@
 
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true},
-            'buytransactions': { method: 'GET', params: {idaccount: null, idring_pack: null, count: null}},
+            'buytransactions': { method: 'GET', params: {idaccount: null, idring_pack: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

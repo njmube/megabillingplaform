@@ -109,17 +109,16 @@ public class Ring_packResource {
     @RequestMapping(value = "/ring-packs",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE,
-        params = {"idaccount", "idring_pack","count"})
+        params = {"idaccount", "idring_pack"})
     @Timed
     public ResponseEntity<String> buytransactions(@RequestParam(value = "idaccount") Integer idaccount,
-                                                     @RequestParam(value = "idring_pack") Integer idring_pack,
-                                                     @RequestParam(value = "count") Integer count)
+                                                     @RequestParam(value = "idring_pack") Integer idring_pack)
         throws URISyntaxException {
         log.debug("REST request to buy Ring_packs");
 
         String login = SecurityUtils.getCurrentUserLogin();
         User user = userService.getUserWithAuthoritiesByLogin(login).get();
-        Boolean result = ring_packService.buytransactions(idaccount,idring_pack,user.getId(),count);
+        Boolean result = ring_packService.buytransactions(idaccount,idring_pack,user.getId());
         if(result)
             return new ResponseEntity<String>(HttpStatus.OK);
         else
