@@ -98,8 +98,10 @@
 		function onChangeReceiverRFC(){
             if(vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12){
                 vm.free_receiver.type_taxpayer = vm.type_taxpayers[0];
+                vm.updateCFDITotals();
             }else if(vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 13){
                 vm.free_receiver.type_taxpayer = vm.type_taxpayers[1];
+                vm.updateCFDITotals();
             }
 			else{
 				vm.free_receiver.type_taxpayer = null;
@@ -114,12 +116,16 @@
             vm.free_receiver.rfc = 'XAXX010101000';
 			vm.free_receiver.type_taxpayer = vm.type_taxpayers[1];
 			vm.free_receiver.business_name = 'Contribuyente Público General';
+
+            vm.updateCFDITotals();
         }
 
 		function onClickForeignResident(){
             vm.free_receiver.rfc = 'XEXX010101000';
 			vm.free_receiver.type_taxpayer = vm.type_taxpayers[1];
 			vm.free_receiver.business_name = 'Residente Extranjero';
+
+            vm.updateCFDITotals();
         }
 
 		function onChangeC_country () {

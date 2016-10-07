@@ -93,7 +93,7 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="addenda" type="varchar(255)">
+            <column name="addenda" type="text">
                 <constraints nullable="true" />
             </column>
             

@@ -677,7 +677,7 @@
 											<tr ng-repeat="free_concept in vm.free_concepts">
 												<td class="text-center">{{free_concept.free_concept.no_identification}}</td>
 												<td class="text-left">{{free_concept.free_concept.measure_unit.name}}</td>
-												<td class="text-left">{{free_concept.free_concept.description}}</td>
+												<td class="text-left">{{free_concept.free_concept.description | uimegahtmltoplaintext}}</td>
 												<td class="text-right">{{free_concept.free_concept.quantity}}</td>
 												<td class="text-right">{{free_concept.free_concept.unit_value | uimeganumberformat}}</td>
 												<td class="text-right">{{free_concept.free_concept.discount}}</td>

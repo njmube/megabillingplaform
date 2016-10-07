@@ -37,9 +37,9 @@
 				<div class="form-group">
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.description">Description</label>
 					<div class="col-sm-9">
-                        <textarea class="form-control" name="description" id="field_description"
-							ng-model="vm.free_concept.description" rows="5" required></textarea>
-                        <!--<trix-editor angular-trix ng-model="vm.free_concept.description" class="trix-content" required></trix-editor>-->
+                        <!--<textarea class="form-control" name="description" id="field_description"
+							ng-model="vm.free_concept.description" rows="5" required></textarea>-->
+                        <trix-editor angular-trix ng-model="vm.free_concept.description" class="trix-content" required></trix-editor>
 					</div>
 				</div>
 
@@ -143,14 +143,14 @@
 						<tr>
 							<th>No. Documento</th>
 							<th>Fecha</th>
-							<th>Description</th>
+							<th>Descripción</th>
 							<th>Acciones</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="free_customs_info in vm.free_customs_infos">
 							<td>{{free_customs_info.number_doc}}</td>
-							<td>{{free_customs_info.date}}</td>
+							<td>{{free_customs_info.date  | date:'yyyy-MM-dd'}}</td>
 							<td>{{free_customs_info.customs}}</td>
 							<td>
 								<button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeFreeCustomInfo($index)">

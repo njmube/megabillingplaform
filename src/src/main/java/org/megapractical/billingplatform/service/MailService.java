@@ -19,6 +19,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
 import java.util.Properties;
@@ -257,6 +258,11 @@ public class MailService {
         Context context = new Context(locale);
         context.setVariable("user", user);
         context.setVariable("free_cfdi", free_cfdi);
+
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm a");
+        String date_expedition = free_cfdi.getDate_expedition().format(format);
+        context.setVariable("date_expedition", date_expedition);
+
         context.setVariable("free_emitter", free_cfdi.getFree_emitter());
         context.setVariable("free_receiver", free_cfdi.getFree_receiver());
         String content = templateEngine.process("newfreecfdiEmail", context);
@@ -273,6 +279,11 @@ public class MailService {
         Context context = new Context(locale);
         context.setVariable("free_receiver", free_receiver);
         context.setVariable("free_cfdi", free_cfdi);
+
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm a");
+        String date_expedition = free_cfdi.getDate_expedition().format(format);
+        context.setVariable("date_expedition", date_expedition);
+
         context.setVariable("free_emitter", free_cfdi.getFree_emitter());
         String content = templateEngine.process("newfreecfditoreceiverEmail", context);
         String subject = messageSource.getMessage("email.newfreecfdi.title", null, locale);
