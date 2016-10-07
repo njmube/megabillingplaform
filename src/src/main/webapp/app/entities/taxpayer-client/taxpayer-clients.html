@@ -10,7 +10,7 @@
             </h1>
         </div>
         <div class="col-md-3">
-            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account"
+            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account" data-ng-change="vm.onChangeTaxPayerAccount()"
                     ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
                 <option value="">Seleccione Cuenta Contribuyente</option>
             </select>
@@ -34,7 +34,7 @@
             <li ng-show="vm.taxpayer_account != null">
                 <a href="#/">{{'global.afilitated.generateCFDI' | translate}}</a>
             </li>
-            <li ng-show="vm.taxpayer_account != null">
+            <li class="active" ng-show="vm.taxpayer_account != null">
                 <a ui-sref="taxpayer-client({id:vm.taxpayer_account.id})">{{'global.afilitated.costumers' | translate}}</a>
             </li>
             <li ng-show="vm.taxpayer_account != null">
@@ -53,7 +53,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 no-padding-left">
-                <button class="btn btn-primary pull-right" ui-sref="taxpayer-client.new" >
+                <button class="btn btn-primary pull-right" ng-click="vm.addTaxpayerClient()" ng-show="vm.taxpayer_account != null">
                     <span class="glyphicon glyphicon-plus"></span>
                     <span  translate="megabillingplatformApp.taxpayer_client.home.createLabel">
                         Create new Taxpayer Client
@@ -71,8 +71,6 @@
                     <th jh-sort-by="rfc"><span translate="megabillingplatformApp.taxpayer_client.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="bussinesname"><span translate="megabillingplatformApp.taxpayer_client.bussinesname">Bussinesname</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="email"><span translate="megabillingplatformApp.taxpayer_client.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="client_address.id"><span translate="megabillingplatformApp.taxpayer_client.client_address">Client Address</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="taxpayer_account.id"><span translate="megabillingplatformApp.taxpayer_client.taxpayer_account">Taxpayer Account</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
@@ -82,28 +80,22 @@
                     <td>{{taxpayer_client.rfc}}</td>
                     <td>{{taxpayer_client.bussinesname}}</td>
                     <td>{{taxpayer_client.email}}</td>
-                    <td>
-                        <a ui-sref="client-address-detail({id:taxpayer_client.client_address.id})">{{taxpayer_client.client_address.id}}</a>
-                    </td>
-                    <td>
-                        <a ui-sref="taxpayer-account-detail({id:taxpayer_client.taxpayer_account.id})">{{taxpayer_client.taxpayer_account.id}}</a>
-                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="submit"
-                                    ui-sref="taxpayer-client-detail({id:taxpayer_client.id})"
+                            <button type="button"
+                                    ng-click="vm.viewTaxpayerClient(taxpayer_client.id)"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
                             </button>
-                            <button type="submit"
-                                    ui-sref="taxpayer-client.edit({id:taxpayer_client.id})"
+                            <button type="button"
+                                    ng-click="vm.editTaxpayerClient(taxpayer_client.id)"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
                             </button>
-                            <button type="submit"
-                                    ui-sref="taxpayer-client.delete({id:taxpayer_client.id})"
+                            <button type="button"
+                                    ng-click="vm.deleteTaxpayerClient(taxpayer_client.id)"
                                     class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-remove-circle"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>

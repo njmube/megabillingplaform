@@ -7,14 +7,17 @@ import org.megapractical.billingplatform.domain.Taxpayer_client;
 import org.megapractical.billingplatform.repository.Taxpayer_clientRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -52,7 +55,14 @@ public class Taxpayer_clientServiceImpl implements Taxpayer_clientService{
      */
     @Transactional(readOnly = true)
     public Page<Taxpayer_client> findAll(Pageable pageable, Integer taxpayeraccount) {
-        log.debug("Request to get all Branch_offices");
+        log.debug("Request to get all Taxpayer_clients");
+
+        if(taxpayeraccount == 0) {
+            List<Taxpayer_client> emptyList = new ArrayList<>();
+            Page<Taxpayer_client> emptyPage = new PageImpl<Taxpayer_client>(emptyList, pageable, 0);
+            return emptyPage;
+        }
+
         Page<Taxpayer_client> result = taxpayer_clientRepository.findAll(pageable);
         if(taxpayeraccount != 0) {
             List<Taxpayer_client> list = new ArrayList<>();
@@ -105,6 +115,7 @@ public class Taxpayer_clientServiceImpl implements Taxpayer_clientService{
      */
     public void delete(Long id) {
         log.debug("Request to delete Taxpayer_client : {}", id);
+
         taxpayer_clientRepository.delete(id);
     }
 }

@@ -297,7 +297,7 @@ public class Taxpayer_accountResource {
     public ResponseEntity<Taxpayer_account> getTaxpayer_account(@PathVariable Long id) {
         log.debug("REST request to get Taxpayer_account : {}", id);
         Taxpayer_account taxpayer_account = taxpayer_accountService.findOne(id);
-        if(taxpayer_account.getTaxpayer_certificate()==null){
+        if(taxpayer_account.getTaxpayer_certificate() == null){
             taxpayer_account.setTaxpayer_certificate(new Taxpayer_certificate());
         }
         else{

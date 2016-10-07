@@ -1,7 +1,9 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import org.megapractical.billingplatform.domain.Client_address;
 import org.megapractical.billingplatform.domain.Taxpayer_client;
+import org.megapractical.billingplatform.service.Client_addressService;
 import org.megapractical.billingplatform.service.Taxpayer_clientService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
@@ -34,6 +36,9 @@ public class Taxpayer_clientResource {
     @Inject
     private Taxpayer_clientService taxpayer_clientService;
 
+    @Inject
+    private Client_addressService client_addressService;
+
     /**
      * POST  /taxpayer-clients : Create a new taxpayer_client.
      *
@@ -50,6 +55,10 @@ public class Taxpayer_clientResource {
         if (taxpayer_client.getId() != null) {
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("taxpayer_client", "idexists", "A new taxpayer_client cannot already have an ID")).body(null);
         }
+
+        Client_address client_address = taxpayer_client.getClient_address();
+        client_address = client_addressService.save(client_address);
+        taxpayer_client.setClient_address(client_address);
 
         Taxpayer_client result = taxpayer_clientService.save(taxpayer_client);
         return ResponseEntity.created(new URI("/api/taxpayer-clients/" + result.getId()))
@@ -75,6 +84,11 @@ public class Taxpayer_clientResource {
         if (taxpayer_client.getId() == null) {
             return createTaxpayer_client(taxpayer_client);
         }
+
+        Client_address client_address = taxpayer_client.getClient_address();
+        client_address = client_addressService.save(client_address);
+        taxpayer_client.setClient_address(client_address);
+
         Taxpayer_client result = taxpayer_clientService.save(taxpayer_client);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("taxpayer_client", taxpayer_client.getId().toString()))
@@ -133,7 +147,12 @@ public class Taxpayer_clientResource {
     @Timed
     public ResponseEntity<Void> deleteTaxpayer_client(@PathVariable Long id) {
         log.debug("REST request to delete Taxpayer_client : {}", id);
+
+        Taxpayer_client taxpayer_client = taxpayer_clientService.findOne(id);
+
         taxpayer_clientService.delete(id);
+        client_addressService.delete(taxpayer_client.getClient_address().getId());
+
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("taxpayer_client", id.toString())).build();
     }
 

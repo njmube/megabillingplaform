@@ -49,6 +49,7 @@
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('taxpayer_client');
+                    $translatePartialLoader.addPart('client_address');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
@@ -56,7 +57,7 @@
         })
         .state('taxpayer-client-detail', {
             parent: 'entity',
-            url: '/taxpayer-client/{id}',
+            url: '/taxpayer-client-detail/{id}',
             data: {
                 authorities: ['ROLE_AFILITATED'],
                 pageTitle: 'megabillingplatformApp.taxpayer_client.detail.title'
@@ -71,6 +72,7 @@
             resolve: {
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('taxpayer_client');
+                    $translatePartialLoader.addPart('client_address');
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Taxpayer_client', function($stateParams, Taxpayer_client) {
@@ -80,11 +82,11 @@
         })
         .state('taxpayer-client.new', {
             parent: 'taxpayer-client',
-            url: '/new',
+            url: '/new/{id}',
             data: {
                 authorities: ['ROLE_AFILITATED']
             },
-            onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
+            onEnter: ['$stateParams', 'Taxpayer_account', '$state', '$uibModal', function($stateParams, Taxpayer_account, $state, $uibModal) {
                 $uibModal.open({
                     templateUrl: 'app/entities/taxpayer-client/taxpayer-client-dialog.html',
                     controller: 'Taxpayer_clientDialogController',
@@ -99,6 +101,9 @@
                                 email: null,
                                 id: null
                             };
+                        },
+                        taxpayer_account_entity: function($stateParams, Taxpayer_account) {
+                            return Taxpayer_account.get({id : $stateParams.id}).$promise;
                         }
                     }
                 }).result.then(function() {
@@ -110,7 +115,7 @@
         })
         .state('taxpayer-client.edit', {
             parent: 'taxpayer-client',
-            url: '/{id}/edit',
+            url: '/edit/{id}',
             data: {
                 authorities: ['ROLE_AFILITATED']
             },
@@ -120,7 +125,7 @@
                     controller: 'Taxpayer_clientDialogController',
                     controllerAs: 'vm',
                     backdrop: 'static',
-                    size: 'lg',
+                    size: '',
                     resolve: {
                         entity: ['Taxpayer_client', function(Taxpayer_client) {
                             return Taxpayer_client.get({id : $stateParams.id}).$promise;
