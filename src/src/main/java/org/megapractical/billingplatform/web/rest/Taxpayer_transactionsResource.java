@@ -1,9 +1,7 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
-import org.megapractical.billingplatform.domain.Taxpayer_transactions;
-import org.megapractical.billingplatform.domain.Transactions_history;
-import org.megapractical.billingplatform.domain.Type_transaction;
+import org.megapractical.billingplatform.domain.*;
 import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
@@ -191,14 +189,36 @@ public class Taxpayer_transactionsResource {
         throws URISyntaxException {
         log.debug("REST request to get a page of Taxpayer_transactions");
         if(idaccount == 0) {
-            Page<Taxpayer_transactions> page = taxpayer_transactionsService.findAll(pageable);
-            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-transactions");
-            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+            String login = SecurityUtils.getCurrentUserLogin();
+            Optional<User> user = userService.getUserWithAuthoritiesByLogin(login);
+            if(user.isPresent()) {
+                boolean administrator = false;
+                for (Authority item : user.get().getAuthorities()) {
+                    if (item.getName().compareTo("ROLE_ADMIN") == 0) {
+                        administrator = true;
+                    }
+                }
+                if (administrator) {
+                    Page<Taxpayer_transactions> page = taxpayer_transactionsService.findAll(pageable);
+                    HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-transactions");
+                    return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+                }
+                else {
+                    Page<Taxpayer_transactions> page = taxpayer_transactionsService.findByUser(user.get(),pageable);
+                    HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-transactions");
+                    return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+                }
+            }
+
         }else{
             Page<Taxpayer_transactions> page = taxpayer_transactionsService.findByAccount(idaccount,pageable);
             HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-transactions");
             return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
         }
+
+        Page<Taxpayer_transactions> page = taxpayer_transactionsService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-transactions");
+        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
 
     /**

@@ -228,6 +228,9 @@
                     <li ng-show="vm.taxpayer_account != null">
                         <a href="#/">{{'global.afilitated.tax_products' | translate}}</a>
                     </li>
+                    <li>
+                        <a ui-sref="request-taxpayer-account.afilitated">{{'global.user.join.mega' | translate}}</a>
+                    </li>
                 </ul>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -254,7 +257,7 @@
                                 <td><a ui-sref="taxpayer-account-index({id:taxpayer_account.id})">{{taxpayer_account.id}}</a></td>
                                 <td>{{taxpayer_account.rfc}}</td>
                                 <td>{{taxpayer_account.bussines_name}}</td>
-                                <td>0</td>
+                                <td>{{taxpayer_account.transactions_available}}</td>
                             </tr>
                             </tbody>
                         </table>

@@ -1,6 +1,7 @@
 package org.megapractical.billingplatform.service.impl;
 
 import org.megapractical.billingplatform.domain.Taxpayer_account;
+import org.megapractical.billingplatform.domain.User;
 import org.megapractical.billingplatform.service.Taxpayer_accountService;
 import org.megapractical.billingplatform.service.Taxpayer_transactionsService;
 import org.megapractical.billingplatform.domain.Taxpayer_transactions;
@@ -61,6 +62,33 @@ public class Taxpayer_transactionsServiceImpl implements Taxpayer_transactionsSe
             newtras.setTransactions_spent(0);
             list.add(taxpayer_transactionsRepository.save(newtras));
         }
+        Page<Taxpayer_transactions> page = new PageImpl<Taxpayer_transactions>(list,pageable,result.getTotalElements());
+        return page;
+    }
+
+    public Page<Taxpayer_transactions> findByUser(User user, Pageable pageable){
+        log.debug("Request to get all Taxpayer_transactions by User");
+        List<Taxpayer_account> listaccount = taxpayer_accountService.findCustomList(user);
+        List<Taxpayer_transactions> list = new ArrayList<>();
+        Page<Taxpayer_transactions> result = taxpayer_transactionsRepository.findAll(pageable);
+
+        for(Taxpayer_account account:listaccount){
+            int contcuenta = 0;
+            for(Taxpayer_transactions tras: result.getContent()){
+                if(account.equals(tras.getTaxpayer_account())){
+                    list.add(tras);
+                    contcuenta++;
+                }
+            }
+            if(contcuenta == 0){
+                Taxpayer_transactions newtras = new Taxpayer_transactions();
+                newtras.setTaxpayer_account(account);
+                newtras.setTransactions_available(0);
+                newtras.setTransactions_spent(0);
+                list.add(taxpayer_transactionsRepository.save(newtras));
+            }
+        }
+
         Page<Taxpayer_transactions> page = new PageImpl<Taxpayer_transactions>(list,pageable,result.getTotalElements());
         return page;
     }

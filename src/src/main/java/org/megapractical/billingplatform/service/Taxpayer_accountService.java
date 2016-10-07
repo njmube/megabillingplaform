@@ -31,6 +31,8 @@ public interface Taxpayer_accountService {
 
     Page<Taxpayer_account> findCustom(User user,Pageable pageable);
 
+    List<Taxpayer_account> findCustomList(User user);
+
     /**
      *  Get the "id" taxpayer_account.
      *

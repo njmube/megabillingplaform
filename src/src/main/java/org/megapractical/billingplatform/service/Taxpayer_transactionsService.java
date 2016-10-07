@@ -1,6 +1,7 @@
 package org.megapractical.billingplatform.service;
 
 import org.megapractical.billingplatform.domain.Taxpayer_transactions;
+import org.megapractical.billingplatform.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -29,6 +30,7 @@ public interface Taxpayer_transactionsService {
 
     Page<Taxpayer_transactions> findByAccount(Integer idaccount, Pageable pageable);
 
+    Page<Taxpayer_transactions> findByUser(User user, Pageable pageable);
     /**
      *  Get the "id" taxpayer_transactions.
      *

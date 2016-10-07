@@ -58,6 +58,24 @@ public class Taxpayer_accountServiceImpl implements Taxpayer_accountService{
         return page;
     }
 
+    public List<Taxpayer_account> findCustomList(User user){
+        List<Taxpayer_account> result = taxpayer_accountRepository.findAll();
+        List<Taxpayer_account> list = new ArrayList<>();
+        for(Taxpayer_account taxpayer_account: result){
+            boolean existe = false;
+            for (User item : taxpayer_account.getUsers()) {
+                if (item.getLogin().compareTo(user.getLogin()) == 0) {
+                    existe = true;
+                }
+            }
+            if(existe){
+                list.add(taxpayer_account);
+            }
+        }
+
+        return list;
+    }
+
     /**
      *  Get all the taxpayer_accounts.
      *

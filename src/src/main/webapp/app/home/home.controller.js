@@ -83,7 +83,7 @@
 
                     vm.taxpayer_accounts = Taxpayer_account.query({
                         page: 0,
-                        size: 10
+                        size: 100
                     });
 
                     vm.request_taxpayer_accounts = Request_taxpayer_account.query({
@@ -93,9 +93,17 @@
                         dateto: toDate,
                         request_state: 1
                     });
+
+                    Taxpayer_transactions.query({
+                        page: 0,
+                        size: 100,
+                        idaccount: 0
+                    }, onSuccess1, onError1);
+
                 }
             });
         }
+
 
         function restDate(datecreated){
             var fechacreado = new Date(datecreated);
@@ -108,6 +116,22 @@
                 vm.showmenu = null;
             }
             return Math.round(resto);
+        }
+
+        function onSuccess1(data){
+            vm.taxpayer_transactions = data;
+            if(vm.taxpayer_transactions != null && vm.taxpayer_accounts != null){
+                for(var i=0;i < vm.taxpayer_accounts.length; i++){
+                    for(var j=0;j < vm.taxpayer_transactions.length; j++){
+                        if(vm.taxpayer_transactions[j].taxpayer_account.id == vm.taxpayer_accounts[i].id)
+                        vm.taxpayer_accounts[i].transactions_available = vm.taxpayer_transactions[j].transactions_available;
+                    }
+                }
+            }
+        }
+
+        function onError1(error){
+            AlertService.error(error.data.message);
         }
 
         function ringsaccount(account){
