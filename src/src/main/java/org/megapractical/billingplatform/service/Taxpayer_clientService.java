@@ -25,7 +25,7 @@ public interface Taxpayer_clientService {
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    Page<Taxpayer_client> findAll(Pageable pageable, Integer taxpayeraccount);
+    Page<Taxpayer_client> findAll(Pageable pageable, Integer taxpayeraccount, String rfc, String bussinesname, String email, String phone);
 
     /**
      *  Get the "id" taxpayer_client.

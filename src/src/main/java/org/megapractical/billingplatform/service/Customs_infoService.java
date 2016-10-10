@@ -4,8 +4,6 @@ import org.megapractical.billingplatform.domain.Customs_info;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
-
 /**
  * Service Interface for managing Customs_info.
  */
@@ -13,7 +11,7 @@ public interface Customs_infoService {
 
     /**
      * Save a customs_info.
-     * 
+     *
      * @param customs_info the entity to save
      * @return the persisted entity
      */
@@ -21,15 +19,16 @@ public interface Customs_infoService {
 
     /**
      *  Get all the customs_infos.
-     *  
+     *
      *  @param pageable the pagination information
-     *  @return the list of entities
+     *  @param conceptid
+     * @return the list of entities
      */
-    Page<Customs_info> findAll(Pageable pageable);
+    Page<Customs_info> findAll(Pageable pageable, Integer conceptid);
 
     /**
      *  Get the "id" customs_info.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +36,7 @@ public interface Customs_infoService {
 
     /**
      *  Delete the "id" customs_info.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

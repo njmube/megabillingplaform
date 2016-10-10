@@ -34,6 +34,9 @@
                 var discount = 1 - vm.free_concept.discount/100;
 				vm.free_concept.amount = bln.multiply(amount, discount, vm.accuracy);
 			}
+            else{
+                vm.free_concept.amount = null;
+            }
 		};
 
         vm.onNoIdentificationChange = function(){

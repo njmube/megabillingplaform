@@ -54,7 +54,7 @@ public class Taxpayer_clientServiceImpl implements Taxpayer_clientService{
      *  @return the list of entities
      */
     @Transactional(readOnly = true)
-    public Page<Taxpayer_client> findAll(Pageable pageable, Integer taxpayeraccount) {
+    public Page<Taxpayer_client> findAll(Pageable pageable, Integer taxpayeraccount, String rfc, String bussinesname, String email, String phone) {
         log.debug("Request to get all Taxpayer_clients");
 
         if(taxpayeraccount == 0) {
@@ -64,13 +64,40 @@ public class Taxpayer_clientServiceImpl implements Taxpayer_clientService{
         }
 
         Page<Taxpayer_client> result = taxpayer_clientRepository.findAll(pageable);
+
         if(taxpayeraccount != 0) {
             List<Taxpayer_client> list = new ArrayList<>();
             Long id = new Long(taxpayeraccount.toString());
             Taxpayer_account taxpayer_account = taxpayer_accountService.findOne(id);
 
             for (Taxpayer_client taxpayer_client : result.getContent()) {
-                if (taxpayer_client.getTaxpayer_account().getId().compareTo(taxpayer_account.getId()) == 0) {
+                boolean from_taxpayyer_account = true;
+                boolean from_rfc = true;
+                boolean from_bussinesname = true;
+                boolean from_email = true;
+                boolean from_phone = true;
+
+                if (taxpayer_client.getTaxpayer_account().getId().compareTo(taxpayer_account.getId()) != 0) {
+                    from_taxpayyer_account = false;
+                }
+
+                if(rfc.compareTo(" ") != 0 && taxpayer_client.getRfc().compareTo(rfc) != 0){
+                    from_rfc = false;
+                }
+
+                if(bussinesname.compareTo(" ") != 0 && taxpayer_client.getBussinesname().compareTo(bussinesname) != 0){
+                    from_bussinesname = false;
+                }
+
+                if(email.compareTo(" ") != 0 && taxpayer_client.getEmail().compareTo(email) != 0){
+                    from_email = false;
+                }
+
+                if(phone.compareTo(" ") != 0 && taxpayer_client.getPhone().compareTo(phone) != 0){
+                    from_phone = false;
+                }
+
+                if(from_taxpayyer_account && from_rfc && from_bussinesname && from_email && from_phone){
                     list.add(taxpayer_client);
                 }
             }

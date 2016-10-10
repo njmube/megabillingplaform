@@ -50,6 +50,19 @@
             "fieldValidateRulesMaxlength": "254",
             "fieldValidateRulesPattern": "^([a-zA-Z0-9])+([_\\.\\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9])+$",
             "fieldValidateRulesPatternJava": "^([a-zA-Z0-9])+([_\\\\.\\\\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\\\\-])+\\\\.)+([a-zA-Z0-9])+$"
+        },
+        {
+            "fieldName": "email2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phone",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^[0-9]{1,15}$",
+            "fieldValidateRulesPatternJava": "^[0-9]{1,15}$"
         }
     ],
     "changelogDate": "20160915122043",

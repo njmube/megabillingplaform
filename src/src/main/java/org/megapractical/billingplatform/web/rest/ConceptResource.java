@@ -3,6 +3,7 @@ package org.megapractical.billingplatform.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import org.megapractical.billingplatform.domain.Concept;
 import org.megapractical.billingplatform.service.ConceptService;
+import org.megapractical.billingplatform.service.Part_conceptService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -30,10 +32,10 @@ import java.util.Optional;
 public class ConceptResource {
 
     private final Logger log = LoggerFactory.getLogger(ConceptResource.class);
-        
+
     @Inject
     private ConceptService conceptService;
-    
+
     /**
      * POST  /concepts : Create a new concept.
      *
@@ -89,12 +91,18 @@ public class ConceptResource {
      */
     @RequestMapping(value = "/concepts",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"taxpayeraccount", "no_identification", "description", "measure_unit", "unit_value"})
     @Timed
-    public ResponseEntity<List<Concept>> getAllConcepts(Pageable pageable)
+    public ResponseEntity<List<Concept>> getAllConcepts(Pageable pageable,
+                                                        @RequestParam(value = "taxpayeraccount") Integer taxpayeraccount,
+                                                        @RequestParam(value = "no_identification") String no_identification,
+                                                        @RequestParam(value = "description") String description,
+                                                        @RequestParam(value = "measure_unit") String measure_unit,
+                                                        @RequestParam(value = "unit_value") BigDecimal unit_value)
         throws URISyntaxException {
         log.debug("REST request to get a page of Concepts");
-        Page<Concept> page = conceptService.findAll(pageable); 
+        Page<Concept> page = conceptService.findAll(pageable, taxpayeraccount, no_identification, description, measure_unit, unit_value);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/concepts");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

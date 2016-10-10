@@ -10,7 +10,7 @@
         var resourceUrl =  'api/part-concepts/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true},
+            'query': { method: 'GET', isArray: true, params: {conceptid: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

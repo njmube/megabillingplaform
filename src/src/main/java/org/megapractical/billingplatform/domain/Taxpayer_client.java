@@ -38,6 +38,14 @@ public class Taxpayer_client implements Serializable {
     @Column(name = "email", length = 254, nullable = false)
     private String email;
 
+    @Column(name = "email_2")
+    @Pattern(regexp = "^([a-zA-Z0-9])+([_\\.\\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9])+$")
+    private String email2;
+
+    @Pattern(regexp = "^[0-9]{1,15}$")
+    @Column(name = "phone")
+    private String phone;
+
     @OneToOne
     @JoinColumn(unique = true)
     private Client_address client_address;
@@ -75,6 +83,22 @@ public class Taxpayer_client implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getEmail2() {
+        return email2;
+    }
+
+    public void setEmail2(String email2) {
+        this.email2 = email2;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Client_address getClient_address() {
@@ -120,6 +144,8 @@ public class Taxpayer_client implements Serializable {
             ", rfc='" + rfc + "'" +
             ", bussinesname='" + bussinesname + "'" +
             ", email='" + email + "'" +
+            ", email2='" + email2 + "'" +
+            ", phone='" + phone + "'" +
             '}';
     }
 }

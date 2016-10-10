@@ -67,7 +67,7 @@ class Taxpayer_clientGatlingTest extends Simulation {
             .exec(http("Create new taxpayer_client")
             .post("/api/taxpayer-clients")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "rfc":"SAMPLE_TEXT", "bussinesname":"SAMPLE_TEXT", "email":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "rfc":"SAMPLE_TEXT", "bussinesname":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "email2":"SAMPLE_TEXT", "phone":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_taxpayer_client_url"))).exitHereIfFailed
             .pause(10)

@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -9,69 +9,80 @@
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
         <div class="form-group" ng-show="vm.part_concept.id">
-            <label for="id" translate="global.field.id">ID</label>
-            <input type="text" class="form-control" id="id" name="id"
-                    ng-model="vm.part_concept.id" readonly />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.part_concept.no_identification" for="field_no_identification">No Identification</label>
-            <input type="text" class="form-control" name="no_identification" id="field_no_identification"
-                    ng-model="vm.part_concept.no_identification"
-                     />
-        </div>
-        <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.part_concept.quanitty" for="field_quanitty">Quanitty</label>
-            <input type="number" class="form-control" name="quanitty" id="field_quanitty"
-                    ng-model="vm.part_concept.quanitty"
-                    required />
-            <div ng-show="editForm.quanitty.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.quanitty.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
-                <p class="help-block"
-                    ng-show="editForm.quanitty.$error.number" translate="entity.validation.number">
-                    This field should be a number.
-                </p>
+            <label class="col-sm-4 control-label no-padding-right" for="id" translate="global.field.id">ID</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="id" name="id"
+                        ng-model="vm.part_concept.id" readonly />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.part_concept.description" for="field_description">Description</label>
-            <input type="text" class="form-control" name="description" id="field_description"
-                    ng-model="vm.part_concept.description"
-                    required />
-            <div ng-show="editForm.description.$invalid">
-                <p class="help-block"
-                    ng-show="editForm.description.$error.required" translate="entity.validation.required">
-                    This field is required.
-                </p>
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.part_concept.no_identification" for="field_no_identification">No Identification</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="no_identification" id="field_no_identification"
+                        ng-model="vm.part_concept.no_identification" required
+                         />
             </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.part_concept.unit_value" for="field_unit_value">Unit Value</label>
-            <input type="number" class="form-control" name="unit_value" id="field_unit_value"
-                    ng-model="vm.part_concept.unit_value"
-                     />
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.part_concept.measure_unit" for="field_measure_unit">Measure Unit</label>
+            <div class="col-sm-8">
+                <select class="form-control" id="field_measure_unit" name="measure_unit" ng-model="vm.part_concept.measure_unit"
+                        ng-options="measure_unit as measure_unit.name for measure_unit in vm.measure_units track by measure_unit.id" required>
+                    <option value=""></option>
+                </select>
+            </div>
         </div>
         <div class="form-group">
-            <label class="control-label" translate="megabillingplatformApp.part_concept.amount" for="field_amount">Amount</label>
-            <input type="number" class="form-control" name="amount" id="field_amount"
-                    ng-model="vm.part_concept.amount"
-                     />
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.part_concept.description" for="field_description">Description</label>
+            <div class="col-sm-8">
+                <textarea class="form-control" name="description" id="field_description"
+                       ng-model="vm.part_concept.description"
+                       required rows="5"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.part_concept.unit_value" for="field_unit_value">Unit Value</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="unit_value" id="field_unit_value"
+                        ng-model="vm.part_concept.unit_value" ng-change="vm.calcAmount()" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                       required  />
+                <div ng-show="editForm.unit_value.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.unit_value.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                        This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.part_concept.quanitty" for="field_quanitty">Quanitty</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="quanitty" id="field_quanitty"
+                       ng-model="vm.part_concept.quanitty" ng-change="vm.calcAmount()" ng-pattern="/^(0|[1-9][0-9]*)$/"
+                       required />
+                <div ng-show="editForm.quantity.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.quantity.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                        This field should follow pattern "/^(0|[1-9][0-9]*)$/".
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.part_concept.amount" for="field_amount">Amount</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="amount" id="field_amount"
+                        ng-model="vm.part_concept.amount" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                       readonly required />
+                <div ng-show="editForm.amount.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.amount.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                        This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                    </p>
+                </div>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label translate="megabillingplatformApp.part_concept.concept" for="field_concept">Concept</label>
-            <select class="form-control" id="field_concept" name="concept" ng-model="vm.part_concept.concept" ng-options="concept as concept.id for concept in vm.concepts track by concept.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label translate="megabillingplatformApp.part_concept.measure_unit" for="field_measure_unit">Measure Unit</label>
-            <select class="form-control" id="field_measure_unit" name="measure_unit" ng-model="vm.part_concept.measure_unit" ng-options="measure_unit as measure_unit.name for measure_unit in vm.measure_units track by measure_unit.id">
-                <option value=""></option>
-            </select>
-        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">

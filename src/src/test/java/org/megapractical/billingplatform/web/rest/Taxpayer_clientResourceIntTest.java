@@ -48,6 +48,10 @@ public class Taxpayer_clientResourceIntTest {
     private static final String UPDATED_BUSSINESNAME = "BBBBB";
     private static final String DEFAULT_EMAIL = "AAAAAA";
     private static final String UPDATED_EMAIL = "BBBBBB";
+    private static final String DEFAULT_EMAIL_2 = "AAAAA";
+    private static final String UPDATED_EMAIL_2 = "BBBBB";
+    private static final String DEFAULT_PHONE = "AAAAA";
+    private static final String UPDATED_PHONE = "BBBBB";
 
     @Inject
     private Taxpayer_clientRepository taxpayer_clientRepository;
@@ -81,6 +85,8 @@ public class Taxpayer_clientResourceIntTest {
         taxpayer_client.setRfc(DEFAULT_RFC);
         taxpayer_client.setBussinesname(DEFAULT_BUSSINESNAME);
         taxpayer_client.setEmail(DEFAULT_EMAIL);
+        taxpayer_client.setEmail2(DEFAULT_EMAIL_2);
+        taxpayer_client.setPhone(DEFAULT_PHONE);
     }
 
     @Test
@@ -102,6 +108,8 @@ public class Taxpayer_clientResourceIntTest {
         assertThat(testTaxpayer_client.getRfc()).isEqualTo(DEFAULT_RFC);
         assertThat(testTaxpayer_client.getBussinesname()).isEqualTo(DEFAULT_BUSSINESNAME);
         assertThat(testTaxpayer_client.getEmail()).isEqualTo(DEFAULT_EMAIL);
+        assertThat(testTaxpayer_client.getEmail2()).isEqualTo(DEFAULT_EMAIL_2);
+        assertThat(testTaxpayer_client.getPhone()).isEqualTo(DEFAULT_PHONE);
     }
 
     @Test
@@ -171,7 +179,9 @@ public class Taxpayer_clientResourceIntTest {
                 .andExpect(jsonPath("$.[*].id").value(hasItem(taxpayer_client.getId().intValue())))
                 .andExpect(jsonPath("$.[*].rfc").value(hasItem(DEFAULT_RFC.toString())))
                 .andExpect(jsonPath("$.[*].bussinesname").value(hasItem(DEFAULT_BUSSINESNAME.toString())))
-                .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())));
+                .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
+                .andExpect(jsonPath("$.[*].email2").value(hasItem(DEFAULT_EMAIL_2.toString())))
+                .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE.toString())));
     }
 
     @Test
@@ -187,7 +197,9 @@ public class Taxpayer_clientResourceIntTest {
             .andExpect(jsonPath("$.id").value(taxpayer_client.getId().intValue()))
             .andExpect(jsonPath("$.rfc").value(DEFAULT_RFC.toString()))
             .andExpect(jsonPath("$.bussinesname").value(DEFAULT_BUSSINESNAME.toString()))
-            .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()));
+            .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))
+            .andExpect(jsonPath("$.email2").value(DEFAULT_EMAIL_2.toString()))
+            .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE.toString()));
     }
 
     @Test
@@ -212,6 +224,8 @@ public class Taxpayer_clientResourceIntTest {
         updatedTaxpayer_client.setRfc(UPDATED_RFC);
         updatedTaxpayer_client.setBussinesname(UPDATED_BUSSINESNAME);
         updatedTaxpayer_client.setEmail(UPDATED_EMAIL);
+        updatedTaxpayer_client.setEmail2(UPDATED_EMAIL_2);
+        updatedTaxpayer_client.setPhone(UPDATED_PHONE);
 
         restTaxpayer_clientMockMvc.perform(put("/api/taxpayer-clients")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -225,6 +239,8 @@ public class Taxpayer_clientResourceIntTest {
         assertThat(testTaxpayer_client.getRfc()).isEqualTo(UPDATED_RFC);
         assertThat(testTaxpayer_client.getBussinesname()).isEqualTo(UPDATED_BUSSINESNAME);
         assertThat(testTaxpayer_client.getEmail()).isEqualTo(UPDATED_EMAIL);
+        assertThat(testTaxpayer_client.getEmail2()).isEqualTo(UPDATED_EMAIL_2);
+        assertThat(testTaxpayer_client.getPhone()).isEqualTo(UPDATED_PHONE);
     }
 
     @Test

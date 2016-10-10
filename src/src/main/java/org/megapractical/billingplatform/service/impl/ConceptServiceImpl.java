@@ -1,16 +1,21 @@
 package org.megapractical.billingplatform.service.impl;
 
+import org.megapractical.billingplatform.domain.Taxpayer_account;
 import org.megapractical.billingplatform.service.ConceptService;
 import org.megapractical.billingplatform.domain.Concept;
 import org.megapractical.billingplatform.repository.ConceptRepository;
+import org.megapractical.billingplatform.service.Taxpayer_accountService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,13 +26,16 @@ import java.util.List;
 public class ConceptServiceImpl implements ConceptService{
 
     private final Logger log = LoggerFactory.getLogger(ConceptServiceImpl.class);
-    
+
     @Inject
     private ConceptRepository conceptRepository;
-    
+
+    @Inject
+    private Taxpayer_accountService taxpayer_accountService;
+
     /**
      * Save a concept.
-     * 
+     *
      * @param concept the entity to save
      * @return the persisted entity
      */
@@ -39,15 +47,69 @@ public class ConceptServiceImpl implements ConceptService{
 
     /**
      *  Get all the concepts.
-     *  
+     *
      *  @param pageable the pagination information
-     *  @return the list of entities
+     * @param taxpayeraccount
+     * @param no_identification
+     * @param description
+     * @param measure_unit
+     * @param unit_value @return the list of entities
      */
-    @Transactional(readOnly = true) 
-    public Page<Concept> findAll(Pageable pageable) {
+    @Transactional(readOnly = true)
+    public Page<Concept> findAll(Pageable pageable, Integer taxpayeraccount, String no_identification, String description, String measure_unit, BigDecimal unit_value) {
         log.debug("Request to get all Concepts");
-        Page<Concept> result = conceptRepository.findAll(pageable); 
-        return result;
+
+        if(taxpayeraccount == 0){
+            List<Concept> emptyList = new ArrayList<>();
+            Page<Concept> emptyPage = new PageImpl<Concept>(emptyList, pageable, 0);
+            return emptyPage;
+        }
+
+        Page<Concept> result = conceptRepository.findAll(pageable);
+
+        if(taxpayeraccount != 0) {
+            List<Concept> list = new ArrayList<>();
+            Long id = new Long(taxpayeraccount.toString());
+            Taxpayer_account taxpayer_account = taxpayer_accountService.findOne(id);
+
+            for (Concept concept : result.getContent()) {
+                boolean from_taxpayyer_account = true;
+                boolean from_no_identification = true;
+                boolean from_description = true;
+                boolean from_measure_unit = true;
+                boolean from_unit_value = true;
+
+                if (concept.getTaxpayer_account().getId().compareTo(taxpayer_account.getId()) != 0) {
+                    from_taxpayyer_account = false;
+                }
+
+                if(no_identification.compareTo(" ") != 0 && concept.getNo_identification().compareTo(no_identification) != 0){
+                    from_no_identification = false;
+                }
+
+                if(description.compareTo(" ") != 0 && concept.getDescription().toLowerCase().indexOf(description.toLowerCase()) == -1){
+                    from_description = false;
+                }
+
+                if(measure_unit.compareTo(" ") != 0 && concept.getMeasure_unit().getName().compareTo(measure_unit) != 0){
+                    from_measure_unit = false;
+                }
+
+                if(unit_value.compareTo(new BigDecimal("-1")) != 0 && concept.getUnit_value().compareTo(unit_value) != 0){
+                    from_unit_value = false;
+                }
+
+                if(from_taxpayyer_account && from_no_identification && from_description && from_measure_unit && from_unit_value){
+                    list.add(concept);
+                }
+            }
+
+            Page<Concept> page = new PageImpl<Concept>(list, pageable, result.getTotalElements());
+            return page;
+        }
+        else {
+            return result;
+        }
     }
 
     /**
@@ -56,7 +118,7 @@ public class ConceptServiceImpl implements ConceptService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Concept findOne(Long id) {
         log.debug("Request to get Concept : {}", id);
         Concept concept = conceptRepository.findOne(id);
@@ -65,7 +127,7 @@ public class ConceptServiceImpl implements ConceptService{
 
     /**
      *  Delete the  concept by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

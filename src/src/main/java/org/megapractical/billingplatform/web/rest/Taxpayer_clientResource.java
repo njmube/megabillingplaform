@@ -105,12 +105,17 @@ public class Taxpayer_clientResource {
     @RequestMapping(value = "/taxpayer-clients",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE,
-        params = {"taxpayeraccount"})
+        params = {"taxpayeraccount", "rfc", "bussinesname", "email", "phone"})
     @Timed
-    public ResponseEntity<List<Taxpayer_client>> getAllTaxpayer_clients(Pageable pageable, @RequestParam(value = "taxpayeraccount") Integer taxpayeraccount)
+    public ResponseEntity<List<Taxpayer_client>> getAllTaxpayer_clients(Pageable pageable,
+                                                                        @RequestParam(value = "taxpayeraccount") Integer taxpayeraccount,
+                                                                        @RequestParam(value = "rfc") String rfc,
+                                                                        @RequestParam(value = "bussinesname") String bussinesname,
+                                                                        @RequestParam(value = "email") String email,
+                                                                        @RequestParam(value = "phone") String phone)
         throws URISyntaxException {
         log.debug("REST request to get a page of Taxpayer_clients");
-        Page<Taxpayer_client> page = taxpayer_clientService.findAll(pageable, taxpayeraccount);
+        Page<Taxpayer_client> page = taxpayer_clientService.findAll(pageable, taxpayeraccount, rfc, bussinesname, email, phone);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-clients");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }
@@ -147,12 +152,7 @@ public class Taxpayer_clientResource {
     @Timed
     public ResponseEntity<Void> deleteTaxpayer_client(@PathVariable Long id) {
         log.debug("REST request to delete Taxpayer_client : {}", id);
-
-        Taxpayer_client taxpayer_client = taxpayer_clientService.findOne(id);
-
         taxpayer_clientService.delete(id);
-        client_addressService.delete(taxpayer_client.getClient_address().getId());
-
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("taxpayer_client", id.toString())).build();
     }
 

@@ -223,10 +223,10 @@
                         <a ui-sref="taxpayer-client({id:vm.taxpayer_account.id})">{{'global.afilitated.costumers' | translate}}</a>
                     </li>
                     <li ng-show="vm.taxpayer_account != null">
-                        <a href="#/">{{'global.afilitated.products' | translate}}</a>
+                        <a ui-sref="concept({id:vm.taxpayer_account.id})">{{'global.afilitated.concepts' | translate}}</a>
                     </li>
                     <li ng-show="vm.taxpayer_account != null">
-                        <a href="#/">{{'global.afilitated.tax_products' | translate}}</a>
+                        <a href="#/">{{'global.afilitated.tax_concepts' | translate}}</a>
                     </li>
                     <li>
                         <a ui-sref="request-taxpayer-account.afilitated">{{'global.user.join.mega' | translate}}</a>

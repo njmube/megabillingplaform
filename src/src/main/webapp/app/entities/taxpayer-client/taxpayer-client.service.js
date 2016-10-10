@@ -10,7 +10,7 @@
         var resourceUrl =  'api/taxpayer-clients/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true, params: {taxpayeraccount: null} },
+            'query': { method: 'GET', isArray: true, params: {taxpayeraccount: null, rfc: null, bussinesname: null, email: null, phone: null} },
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

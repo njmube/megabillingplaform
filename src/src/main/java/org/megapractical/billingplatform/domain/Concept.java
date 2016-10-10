@@ -28,14 +28,14 @@ public class Concept implements Serializable {
     private String no_identification;
 
     @NotNull
-    @Column(name = "quantity", precision=10, scale=2, nullable = false)
+    @Column(name = "quantity", precision=32, scale=6, nullable = false)
     private BigDecimal quantity;
 
     @Column(name = "description")
     private String description;
 
     @NotNull
-    @Column(name = "unit_value", precision=10, scale=2, nullable = false)
+    @Column(name = "unit_value", precision=32, scale=6, nullable = false)
     private BigDecimal unit_value;
 
     @Column(name = "predial_number")
@@ -44,7 +44,7 @@ public class Concept implements Serializable {
     @Column(name = "discount", precision=10, scale=2)
     private BigDecimal discount;
 
-    @Column(name = "amount", precision=10, scale=2)
+    @Column(name = "amount", precision=32, scale=6)
     private BigDecimal amount;
 
     @ManyToOne

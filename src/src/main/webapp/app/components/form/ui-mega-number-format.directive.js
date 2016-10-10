@@ -16,6 +16,9 @@
 
         function linkFunc (scope, element, attrs, ngModel) {
 			ngModel.$render = function() {
+				if(ngModel.$viewValue == null){
+					return null;
+				}				
 				var valString = ngModel.$viewValue.toString();
 				var index = valString.indexOf(".");  // Gets the first index where a space occours
 

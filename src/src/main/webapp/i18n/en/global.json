@@ -191,8 +191,8 @@
             "title":"Afilitated",
             "generateCFDI":"Generate CFDI",
             "costumers":"Costumners",
-            "products":"Products",
-            "tax_products":"Taxes x Products",
+            "concepts":"Concepts",
+            "tax_concepts":"Taxes x Concepts",
             "transactions":"Get transactions",
             "getCFDI":"Consult CFDI"
         },

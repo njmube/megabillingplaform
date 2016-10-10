@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Part_conceptResource {
 
     private final Logger log = LoggerFactory.getLogger(Part_conceptResource.class);
-        
+
     @Inject
     private Part_conceptService part_conceptService;
-    
+
     /**
      * POST  /part-concepts : Create a new part_concept.
      *
@@ -89,12 +89,13 @@ public class Part_conceptResource {
      */
     @RequestMapping(value = "/part-concepts",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"conceptid"})
     @Timed
-    public ResponseEntity<List<Part_concept>> getAllPart_concepts(Pageable pageable)
+    public ResponseEntity<List<Part_concept>> getAllPart_concepts(Pageable pageable, @RequestParam(value = "conceptid") Integer conceptid)
         throws URISyntaxException {
         log.debug("REST request to get a page of Part_concepts");
-        Page<Part_concept> page = part_conceptService.findAll(pageable); 
+        Page<Part_concept> page = part_conceptService.findAll(pageable, conceptid);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/part-concepts");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

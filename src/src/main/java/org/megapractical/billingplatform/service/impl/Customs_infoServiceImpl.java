@@ -6,11 +6,13 @@ import org.megapractical.billingplatform.repository.Customs_infoRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,13 +23,13 @@ import java.util.List;
 public class Customs_infoServiceImpl implements Customs_infoService{
 
     private final Logger log = LoggerFactory.getLogger(Customs_infoServiceImpl.class);
-    
+
     @Inject
     private Customs_infoRepository customs_infoRepository;
-    
+
     /**
      * Save a customs_info.
-     * 
+     *
      * @param customs_info the entity to save
      * @return the persisted entity
      */
@@ -39,15 +41,32 @@ public class Customs_infoServiceImpl implements Customs_infoService{
 
     /**
      *  Get all the customs_infos.
-     *  
+     *
      *  @param pageable the pagination information
-     *  @return the list of entities
+     *  @param conceptid
+     * @return the list of entities
      */
-    @Transactional(readOnly = true) 
-    public Page<Customs_info> findAll(Pageable pageable) {
+    @Transactional(readOnly = true)
+    public Page<Customs_info> findAll(Pageable pageable, Integer conceptid) {
         log.debug("Request to get all Customs_infos");
-        Page<Customs_info> result = customs_infoRepository.findAll(pageable); 
-        return result;
+        Page<Customs_info> result = customs_infoRepository.findAll(pageable);
+
+        if(conceptid != 0){
+            List<Customs_info> list = new ArrayList<>();
+            Long concept_id = new Long(conceptid.toString());
+
+            for(Customs_info customs_info: result.getContent()){
+                if(customs_info.getConcept().getId().compareTo(concept_id) == 0){
+                    list.add(customs_info);
+                }
+            }
+
+            Page<Customs_info> page = new PageImpl<Customs_info>(list, pageable, result.getTotalElements());
+            return  page;
+        }
+        else {
+            return result;
+        }
     }
 
     /**
@@ -56,7 +75,7 @@ public class Customs_infoServiceImpl implements Customs_infoService{
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Customs_info findOne(Long id) {
         log.debug("Request to get Customs_info : {}", id);
         Customs_info customs_info = customs_infoRepository.findOne(id);
@@ -65,7 +84,7 @@ public class Customs_infoServiceImpl implements Customs_infoService{
 
     /**
      *  Delete the  customs_info by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {

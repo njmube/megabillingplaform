@@ -190,8 +190,8 @@
             "title":"Afiliado",
             "generateCFDI":"Nuevo CFDI",
             "costumers":"Clientes",
-            "products":"Productos",
-            "tax_products":"Impuestos x Productos",
+            "concepts":"Conceptos",
+            "tax_concepts":"Impuestos x Conceptos",
             "transactions":"Adquirir timbres",
             "getCFDI":"Consultar CFDI"
         },

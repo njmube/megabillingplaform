@@ -25,15 +25,15 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="quantity" type="decimal(10,2)">
+            <column name="quantity" type="decimal(32,6)">
                 <constraints nullable="false" />
             </column>
             
-            <column name="description" type="varchar(255)">
+            <column name="description" type="text">
                 <constraints nullable="true" />
             </column>
             
-            <column name="unit_value" type="decimal(10,2)">
+            <column name="unit_value" type="decimal(32,6)">
                 <constraints nullable="false" />
             </column>
             
@@ -45,7 +45,7 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="amount" type="decimal(10,2)">
+            <column name="amount" type="decimal(32,6)">
                 <constraints nullable="true" />
             </column>
             

@@ -4,6 +4,7 @@
             "home": {
                 "title": "Taxpayer Clients",
                 "createLabel": "Crear nuevo Taxpayer Client",
+                "add": "Adicionar",
                 "createOrEditLabel": "Crear o editar Taxpayer Client",
                 "search": "Search for Taxpayer Client"
             },
@@ -19,6 +20,8 @@
             "rfc": "Rfc (*)",
             "bussinesname": "Bussinesname (*)",
             "email": "Email (*)",
+            "email2": "Email 2",
+            "phone": "Phone",
             "client_address": "Client Address",
             "taxpayer_account": "Taxpayer Account"
         }

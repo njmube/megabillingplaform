@@ -11,9 +11,9 @@
         $stateProvider
         .state('concept', {
             parent: 'entity',
-            url: '/concept?page&sort&search',
+            url: '/concepts/{id}?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_AFILITATED'],
                 pageTitle: 'megabillingplatformApp.concept.home.title'
             },
             views: {
@@ -44,8 +44,13 @@
                         search: $stateParams.search
                     };
                 }],
+                taxpayer_account_entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
+                    return Taxpayer_account.get({id : $stateParams.id}).$promise;
+                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('concept');
+                    $translatePartialLoader.addPart('part_concept');
+                    $translatePartialLoader.addPart('customs_info');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

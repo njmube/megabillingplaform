@@ -4,8 +4,6 @@ import org.megapractical.billingplatform.domain.Part_concept;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.List;
-
 /**
  * Service Interface for managing Part_concept.
  */
@@ -13,7 +11,7 @@ public interface Part_conceptService {
 
     /**
      * Save a part_concept.
-     * 
+     *
      * @param part_concept the entity to save
      * @return the persisted entity
      */
@@ -21,15 +19,16 @@ public interface Part_conceptService {
 
     /**
      *  Get all the part_concepts.
-     *  
+     *
      *  @param pageable the pagination information
-     *  @return the list of entities
+     *  @param conceptid
+     * @return the list of entities
      */
-    Page<Part_concept> findAll(Pageable pageable);
+    Page<Part_concept> findAll(Pageable pageable, Integer conceptid);
 
     /**
      *  Get the "id" part_concept.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +36,7 @@ public interface Part_conceptService {
 
     /**
      *  Delete the "id" part_concept.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

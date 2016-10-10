@@ -10,19 +10,19 @@
     function Taxpayer_clientController ($scope, $state, $uibModal, Taxpayer_client, ParseLinks, AlertService, pagingParams, paginationConstants, taxpayer_account_entity, Taxpayer_account) {
         var vm = this;
 
-        vm.loadPage = loadPage;
-        vm.predicate = pagingParams.predicate;
-        vm.reverse = pagingParams.ascending;
-        vm.transition = transition;
+
+
+
 
         vm.taxpayer_account = taxpayer_account_entity;
-
         vm.taxpayer_accounts = Taxpayer_account.query({
             page: 0,
             size: 10
         });
 
-        vm.onChangeTaxPayerAccount = function(){
+        vm.onChangeTaxPayerAccount = onChangeTaxPayerAccount;
+
+        function onChangeTaxPayerAccount(){
             if(vm.taxpayer_account == null) {
                 vm.taxpayer_account = {id: 0};
                 loadAll();
@@ -31,16 +31,57 @@
             else {
                 loadAll();
             }
-        };
+        }
+
+        vm.rfc = null;
+        vm.bussinesname = null;
+        vm.email = null;
+        vm.phone = null;
+
+        vm.search = search;
+
+        function search(){
+            loadAll();
+        }
+
+        vm.loadPage = loadPage;
+        vm.predicate = pagingParams.predicate;
+        vm.reverse = pagingParams.ascending;
+        vm.transition = transition;
 
         loadAll();
 
         function loadAll () {
+            var rfc = " ";
+            var bussinesname = " ";
+            var email = " ";
+            var phone = " ";
+
+            if(vm.rfc != null && vm.rfc != "") {
+                rfc = vm.rfc;
+            }
+
+            if(vm.bussinesname != null && vm.bussinesname != "") {
+                bussinesname = vm.bussinesname;
+            }
+
+            if(vm.email != null && vm.email != "") {
+                email = vm.email;
+            }
+
+            if(vm.phone != null && vm.phone != "") {
+                phone = vm.phone;
+            }
+
             Taxpayer_client.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,
                 sort: sort(),
-                taxpayeraccount: vm.taxpayer_account.id
+                taxpayeraccount: vm.taxpayer_account.id,
+                rfc: rfc,
+                bussinesname: bussinesname,
+                email: email,
+                phone: phone
             }, onSuccess, onError);
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
@@ -67,9 +108,36 @@
         }
 
         function transition () {
+            var rfc = " ";
+            var bussinesname = " ";
+            var email = " ";
+            var phone = " ";
+
+            if(vm.rfc != null && vm.rfc != "") {
+                rfc = vm.rfc;
+            }
+
+            if(vm.bussinesname != null && vm.bussinesname != "") {
+                bussinesname = vm.bussinesname;
+            }
+
+            if(vm.email != null && vm.email != "") {
+                email = vm.email;
+            }
+
+            if(vm.phone != null && vm.phone != "") {
+                phone = vm.phone;
+            }
+
             $state.transitionTo($state.$current, {
+                id: vm.taxpayer_account.id,
                 page: vm.page,
                 sort: vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc'),
+                taxpayeraccount: vm.taxpayer_account.id,
+                rfc: rfc,
+                bussinesname: bussinesname,
+                email: email,
+                phone: phone,
                 search: vm.currentSearch
             });
         }
@@ -85,13 +153,15 @@
                 controller: 'Taxpayer_clientDialogController',
                 controllerAs: 'vm',
                 backdrop: 'static',
-                size: '',
+                size: 'lg',
                 resolve: {
                     entity: function () {
                         return {
                             rfc: null,
                             bussinesname: null,
                             email: null,
+                            email2: null,
+                            phone: null,
                             id: null
                         };
                     },
@@ -125,7 +195,7 @@
                 controller: 'Taxpayer_clientDialogController',
                 controllerAs: 'vm',
                 backdrop: 'static',
-                size: '',
+                size: 'lg',
                 resolve: {
                     entity: function() {
                         return Taxpayer_client.get({id : id}).$promise;

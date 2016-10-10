@@ -32,6 +32,14 @@
             <column name="email" type="varchar(254)">
                 <constraints nullable="false" />
             </column>
+            
+            <column name="email_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="phone" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
                         <column name="client_address_id" type="bigint">
                 <constraints unique="true" nullable="true" />
             </column>

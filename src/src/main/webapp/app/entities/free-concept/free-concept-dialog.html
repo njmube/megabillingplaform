@@ -125,7 +125,7 @@
 					<label class="col-sm-3 control-label no-padding-right" translate="megabillingplatformApp.free_concept.amount" for="field_amount">Amount</label>
 					<div class="col-sm-9">
 						<input type="text" class="form-control text-right" name="amount" id="field_amount"
-                               ui-mega-number-format ng-model="vm.free_concept.amount" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                               ng-model="vm.free_concept.amount" ui-mega-number-format  ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
 								required readonly />
                         <div ng-show="editForm.amount.$invalid">
                             <p class="help-block"

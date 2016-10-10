@@ -34,10 +34,10 @@ public class Part_concept implements Serializable {
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Column(name = "unit_value", precision=10, scale=2)
+    @Column(name = "unit_value", precision=32, scale=6)
     private BigDecimal unit_value;
 
-    @Column(name = "amount", precision=10, scale=2)
+    @Column(name = "amount", precision=32, scale=6)
     private BigDecimal amount;
 
     @ManyToOne
