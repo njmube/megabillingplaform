@@ -132,5 +132,6 @@
     <include file="classpath:config/liquibase/changelog/20160915193619_added_entity_Customs_info.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160916123719_added_entity_Com_tfd.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160916120951_added_entity_Cfdi.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160501135633_added_entity_Tax_concept.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

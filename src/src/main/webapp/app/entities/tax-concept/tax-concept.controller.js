@@ -3,11 +3,11 @@
 
     angular
         .module('megabillingplatformApp')
-        .controller('Taxpayer_clientController', Taxpayer_clientController);
+        .controller('Tax_conceptController', Tax_conceptController);
 
-    Taxpayer_clientController.$inject = ['$scope', '$state', '$uibModal', 'Taxpayer_client', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'taxpayer_account_entity', 'Taxpayer_account'];
+    Tax_conceptController.$inject = ['$state', 'taxpayer_account_entity', 'Taxpayer_account', 'Tax_types', 'Tax_concept', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', '$uibModal'];
 
-    function Taxpayer_clientController ($scope, $state, $uibModal, Taxpayer_client, ParseLinks, AlertService, pagingParams, paginationConstants, taxpayer_account_entity, Taxpayer_account) {
+    function Tax_conceptController ($state, taxpayer_account_entity, Taxpayer_account, Tax_types, Tax_concept, ParseLinks, AlertService, pagingParams, paginationConstants, $uibModal) {
         var vm = this;
 
         vm.taxpayer_account = taxpayer_account_entity;
@@ -29,55 +29,48 @@
             }
         }
 
-        vm.rfc = null;
-        vm.bussinesname = null;
-        vm.email = null;
-        vm.phone = null;
-
+        vm.tax_type = null;
+        vm.rate = null;
+        vm.concept = null;
+        vm.tax_types = Tax_types.query({filtername: " "});
         vm.search = search;
 
         function search(){
             loadAll();
         }
 
+        vm.loadAll = loadAll;
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
-
-        loadAll();
+        vm.loadAll();
 
         function loadAll () {
-            var rfc = " ";
-            var bussinesname = " ";
-            var email = " ";
-            var phone = " ";
+            var tax_type = " ";
+            var rate = -1;
+            var concept = " ";
 
-            if(vm.rfc != null && vm.rfc != "") {
-                rfc = vm.rfc;
+            if(vm.tax_type != null) {
+                tax_type = vm.tax_type.name;
             }
 
-            if(vm.bussinesname != null && vm.bussinesname != "") {
-                bussinesname = vm.bussinesname;
+            if(vm.rate != null && vm.rate != "") {
+                rate = vm.rate;
             }
 
-            if(vm.email != null && vm.email != "") {
-                email = vm.email;
+            if(vm.concept != null && vm.concept != "") {
+                concept = vm.concept;
             }
 
-            if(vm.phone != null && vm.phone != "") {
-                phone = vm.phone;
-            }
-
-            Taxpayer_client.query({
+            Tax_concept.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,
                 sort: sort(),
                 taxpayeraccount: vm.taxpayer_account.id,
-                rfc: rfc,
-                bussinesname: bussinesname,
-                email: email,
-                phone: phone
+                tax_type: tax_type,
+                rate: rate,
+                concept: concept
             }, onSuccess, onError);
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
@@ -90,7 +83,7 @@
                 vm.links = ParseLinks.parse(headers('link'));
                 vm.totalItems = headers('X-Total-Count');
                 vm.queryCount = vm.totalItems;
-                vm.taxpayer_clients = data;
+                vm.tax_concepts = data;
                 vm.page = pagingParams.page;
             }
             function onError(error) {
@@ -112,26 +105,22 @@
             });
         }
 
-        vm.addTaxpayerClient = addTaxpayerClient;
-        vm.viewTaxpayerClient = viewTaxpayerClient;
-        vm.editTaxpayerClient = editTaxpayerClient;
-        vm.deleteTaxpayerClient = deleteTaxpayerClient;
+        vm.addTaxConcept = addTaxConcept;
+        vm.viewTaxConcept = viewTaxConcept;
+        vm.editTaxConcept = editTaxConcept;
+        vm.deleteTaxConcept = deleteTaxConcept;
 
-        function addTaxpayerClient(){
+        function addTaxConcept(){
             $uibModal.open({
-                templateUrl: 'app/entities/taxpayer-client/taxpayer-client-dialog.html',
-                controller: 'Taxpayer_clientDialogController',
+                templateUrl: 'app/entities/tax-concept/tax-concept-dialog.html',
+                controller: 'Tax_conceptDialogController',
                 controllerAs: 'vm',
                 backdrop: 'static',
-                size: 'lg',
+                size: '',
                 resolve: {
                     entity: function () {
                         return {
-                            rfc: null,
-                            bussinesname: null,
-                            email: null,
-                            email2: null,
-                            phone: null,
+                            rate: (0).toFixed(2),
                             id: null
                         };
                     },
@@ -144,31 +133,31 @@
             });
         }
 
-        function viewTaxpayerClient(id){
+        function viewTaxConcept(id){
             $uibModal.open({
-                templateUrl: 'app/entities/taxpayer-client/taxpayer-client-detail.html',
-                controller: 'Taxpayer_clientDetailController',
+                templateUrl: 'app/entities/tax-concept/tax-concept-detail.html',
+                controller: 'Tax_conceptDetailController',
                 controllerAs: 'vm',
                 backdrop: 'static',
                 size: '',
                 resolve: {
                     entity: function () {
-                        return Taxpayer_client.get({id: id}).$promise;
+                        return Tax_concept.get({id : id});
                     }
                 }
             });
         }
 
-        function editTaxpayerClient(id){
+        function editTaxConcept(id){
             $uibModal.open({
-                templateUrl: 'app/entities/taxpayer-client/taxpayer-client-dialog.html',
-                controller: 'Taxpayer_clientDialogController',
+                templateUrl: 'app/entities/tax-concept/tax-concept-dialog.html',
+                controller: 'Tax_conceptDialogController',
                 controllerAs: 'vm',
                 backdrop: 'static',
-                size: 'lg',
+                size: '',
                 resolve: {
                     entity: function() {
-                        return Taxpayer_client.get({id : id}).$promise;
+                        return Tax_concept.get({id : id});
                     },
                     taxpayer_account_entity: function() {
                         return vm.taxpayer_account;
@@ -179,15 +168,15 @@
             });
         }
 
-        function deleteTaxpayerClient(id){
+        function deleteTaxConcept(id){
             $uibModal.open({
-                templateUrl: 'app/entities/taxpayer-client/taxpayer-client-delete-dialog.html',
-                controller: 'Taxpayer_clientDeleteController',
+                templateUrl: 'app/entities/tax-concept/tax-concept-delete-dialog.html',
+                controller: 'Tax_conceptDeleteController',
                 controllerAs: 'vm',
                 size: 'md',
                 resolve: {
                     entity: function() {
-                        return Taxpayer_client.get({id : id}).$promise;
+                        return Tax_concept.get({id : id});
                     }
                 }
             }).result.then(function() {

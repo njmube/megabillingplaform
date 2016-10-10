@@ -1,0 +1,59 @@
+
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTax_conceptLabel" translate="megabillingplatformApp.tax_concept.home.createOrEditLabel">Create or edit a Tax Concept</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.tax_concept.id">
+            <label class="col-sm-4 control-label no-padding-right" for="id" translate="global.field.id">ID</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="id" name="id"
+                        ng-model="vm.tax_concept.id" readonly />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.tax_concept.concept" for="field_concept">Concept</label>
+            <div class="col-sm-8">
+                <select class="form-control" id="field_concept" name="concept" ng-model="vm.tax_concept.concept"
+                        ng-options="concept as concept.description | uimegahtmltoplaintext for concept in vm.concepts track by concept.id" required>
+                    <option value="">Seleccione un concepto</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.tax_concept.tax_types" for="field_tax_types">Tax Types</label>
+            <div class="col-sm-8">
+                <select class="form-control" id="field_tax_types" name="tax_types" ng-model="vm.tax_concept.tax_types"
+                        ng-options="tax_types as tax_types.name for tax_types in vm.tax_types track by tax_types.id" required>
+                    <option value="">Seleccione tipo de impuesto</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.tax_concept.rate" for="field_rate">Rate</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="rate" id="field_rate"
+                        ng-model="vm.tax_concept.rate" ng-pattern="/^\d{1,2}\.?\d{1,2}$/"
+                />
+                <div ng-show="editForm.rate.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.rate.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d{1,2}\.?\d{1,2}$">
+                        This field should follow pattern "/^\d{1,2}\.?\d{1,2}$/".
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

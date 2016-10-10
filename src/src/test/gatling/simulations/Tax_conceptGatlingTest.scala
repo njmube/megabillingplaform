@@ -67,7 +67,7 @@ class Tax_conceptGatlingTest extends Simulation {
             .exec(http("Create new tax_concept")
             .post("/api/tax-concepts")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "description":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "rate":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_tax_concept_url"))).exitHereIfFailed
             .pause(10)

@@ -1,21 +1,31 @@
 {
     "relationships": [
         {
-            "relationshipName": "c_tax_rate",
-            "otherEntityName": "c_tax_rate",
+            "relationshipName": "concept",
+            "otherEntityName": "concept",
             "relationshipType": "many-to-one",
-            "otherEntityField": "name"
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "tax_types",
+            "otherEntityName": "tax_types",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
         }
     ],
     "fields": [
         {
-            "fieldName": "name",
-            "fieldType": "String",
-            "fieldValidateRules": []
-        },
-        {
-            "fieldName": "description",
-            "fieldType": "String"
+            "fieldName": "rate",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
         }
     ],
     "changelogDate": "20160501135633",

@@ -53,10 +53,10 @@ public class Customs_infoServiceImpl implements Customs_infoService{
 
         if(conceptid != 0){
             List<Customs_info> list = new ArrayList<>();
-            Long concept_id = new Long(conceptid.toString());
+            Long id = new Long(conceptid.toString());
 
             for(Customs_info customs_info: result.getContent()){
-                if(customs_info.getConcept().getId().compareTo(concept_id) == 0){
+                if(customs_info.getConcept().getId().compareTo(id) == 0){
                     list.add(customs_info);
                 }
             }

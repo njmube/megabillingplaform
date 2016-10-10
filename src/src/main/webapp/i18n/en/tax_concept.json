@@ -3,22 +3,23 @@
         "tax_concept" : {
             "home": {
                 "title": "Tax Concepts",
-                "createLabel": "New Tax Concept",
+                "createLabel": "Create a new Tax Concept",
+                "add": "Add",
                 "createOrEditLabel": "Create or edit a Tax Concept",
-                "search": "Search for Tax concept"
+                "search": "Search for Tax Concept"
             },
-            "created": "A new tax concept is created with identifier {{ param }}",
-            "updated": "A tax concept is updated with identifier {{ param }}",
-            "deleted": "A tax concept is deleted with identifier {{ param }}",
+            "created": "A new Tax Concept is created with identifier {{ param }}",
+            "updated": "A Tax Concept is updated with identifier {{ param }}",
+            "deleted": "A Tax Concept is deleted with identifier {{ param }}",
             "delete": {
-                "question": "Are you sure you want to delete tax concept {{ id }}?"
+                "question": "Are you sure you want to delete Tax Concept {{ id }}?"
             },
             "detail": {
                 "title": "Tax Concept"
             },
-            "name": "Name",
-            "description": "Description",
-            "c_tax_rate": "Tax Rate"
+            "rate": "Rate (*)",
+            "concept": "Concept (*)",
+            "tax_types": "Tax Types (*)"
         }
     }
 }

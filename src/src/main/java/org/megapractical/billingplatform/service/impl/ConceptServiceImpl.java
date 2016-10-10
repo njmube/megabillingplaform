@@ -71,6 +71,7 @@ public class ConceptServiceImpl implements ConceptService{
             List<Concept> list = new ArrayList<>();
             Long id = new Long(taxpayeraccount.toString());
             Taxpayer_account taxpayer_account = taxpayer_accountService.findOne(id);
+            BigDecimal no_unit_value = new BigDecimal("-1");
 
             for (Concept concept : result.getContent()) {
                 boolean from_taxpayyer_account = true;
@@ -87,7 +88,7 @@ public class ConceptServiceImpl implements ConceptService{
                     from_no_identification = false;
                 }
 
-                if(description.compareTo(" ") != 0 && concept.getDescription().toLowerCase().indexOf(description.toLowerCase()) == -1){
+                if(description.compareTo(" ") != 0 && !concept.getDescription().toLowerCase().contains(description.toLowerCase())){
                     from_description = false;
                 }
 
@@ -95,7 +96,7 @@ public class ConceptServiceImpl implements ConceptService{
                     from_measure_unit = false;
                 }
 
-                if(unit_value.compareTo(new BigDecimal("-1")) != 0 && concept.getUnit_value().compareTo(unit_value) != 0){
+                if(unit_value.compareTo(no_unit_value) != 0 && concept.getUnit_value().compareTo(unit_value) != 0){
                     from_unit_value = false;
                 }
 

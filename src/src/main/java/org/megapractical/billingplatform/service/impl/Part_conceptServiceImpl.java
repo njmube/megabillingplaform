@@ -53,10 +53,10 @@ public class Part_conceptServiceImpl implements Part_conceptService{
 
         if(conceptid != 0){
             List<Part_concept> list = new ArrayList<>();
-            Long concept_id = new Long(conceptid.toString());
+            Long id = new Long(conceptid.toString());
 
             for(Part_concept part_concept: result.getContent()){
-                if(part_concept.getConcept().getId().compareTo(concept_id) == 0){
+                if(part_concept.getConcept().getId().compareTo(id) == 0){
                     list.add(part_concept);
                 }
             }

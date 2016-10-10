@@ -99,6 +99,20 @@
             }
         }
 
+        function loadPage (page) {
+            vm.page = page;
+            vm.transition();
+        }
+
+        function transition () {
+            $state.go($state.$current, {
+                id: vm.taxpayer_account.id,
+                page: vm.page,
+                sort: vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc'),
+                search: vm.currentSearch
+            });
+        }
+
         vm.addConcept = addConcept;
         vm.viewConcept = viewConcept;
         vm.editConcept = editConcept;
@@ -165,18 +179,6 @@
             });
         }
 
-        function loadPage (page) {
-            vm.page = page;
-            vm.transition();
-        }
 
-        function transition () {
-            $state.go($state.$current, {
-                id: vm.taxpayer_account.id,
-                page: vm.page,
-                sort: vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc'),
-                search: vm.currentSearch
-            });
-        }
     }
 })();
