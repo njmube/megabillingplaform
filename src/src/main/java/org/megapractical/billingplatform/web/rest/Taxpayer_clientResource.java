@@ -152,7 +152,11 @@ public class Taxpayer_clientResource {
     @Timed
     public ResponseEntity<Void> deleteTaxpayer_client(@PathVariable Long id) {
         log.debug("REST request to delete Taxpayer_client : {}", id);
+
+        Taxpayer_client taxpayer_client = taxpayer_clientService.findOne(id);
+
         taxpayer_clientService.delete(id);
+        client_addressService.delete(taxpayer_client.getClient_address().getId());
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert("taxpayer_client", id.toString())).build();
     }
 

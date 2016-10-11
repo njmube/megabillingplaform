@@ -120,36 +120,21 @@
         function save () {
             vm.isSaving = true;
             vm.concept.taxpayer_account = vm.taxpayer_account;
+
+            var conceptDTO = {
+                concept: vm.concept,
+                part_concepts: vm.part_concepts,
+                customs_infos: vm.customs_infos
+            };
+
             if (vm.concept.id !== null) {
-                Concept.update(vm.concept, onSaveSuccess, onSaveError);
+                Concept.update(conceptDTO, onSaveSuccess, onSaveError);
             } else {
-                Concept.save(vm.concept, onSaveSuccess, onSaveError);
+                Concept.save(conceptDTO, onSaveSuccess, onSaveError);
             }
         }
 
         function onSaveSuccess (result) {
-            var concept_saved = result;
-            var i;
-            for(i = 0; i < vm.part_concepts.length; i++){
-                var part_concept = vm.part_concepts[i];
-                part_concept.concept = concept_saved;
-                if (part_concept.id !== null) {
-                    Part_concept.update(part_concept);
-                } else {
-                    Part_concept.save(part_concept);
-                }
-            }
-
-            var j;
-            for(j = 0; j < vm.customs_infos.length; j++) {
-                var customs_info = vm.customs_infos[j];
-                customs_info.concept = concept_saved;
-                if (customs_info.id !== null) {
-                    Customs_info.update(customs_info);
-                } else {
-                    Customs_info.save(customs_info);
-                }
-            }
             $scope.$emit('megabillingplatformApp:conceptUpdate', result);
             $uibModalInstance.close(result);
             vm.isSaving = false;
@@ -158,7 +143,5 @@
         function onSaveError () {
             vm.isSaving = false;
         }
-
-
     }
 })();

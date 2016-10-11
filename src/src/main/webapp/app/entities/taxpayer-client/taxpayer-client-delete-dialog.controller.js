@@ -19,7 +19,6 @@
         }
 
         function confirmDelete (id) {
-            Client_address.delete({id: vm.taxpayer_client.client_address.id});
             Taxpayer_client.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);

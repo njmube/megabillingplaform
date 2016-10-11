@@ -127,7 +127,7 @@
                     <td>{{tax_concept.id}}</td>
                     <td>{{tax_concept.concept.description | uimegahtmltoplaintext}}</td>
                     <td>{{tax_concept.tax_types.name}}</td>
-                    <td>{{tax_concept.rate }}</td>
+                    <td>{{tax_concept.rate | number : 2}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="button"

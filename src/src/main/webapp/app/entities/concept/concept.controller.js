@@ -124,7 +124,7 @@
                 controller: 'ConceptDialogController',
                 controllerAs: 'vm',
                 backdrop: 'static',
-                size: '',
+                size: 'lg',
                 resolve: {
                     entity: function () {
                         return {
@@ -152,7 +152,7 @@
                 controller: 'ConceptDialogController',
                 controllerAs: 'vm',
                 backdrop: 'static',
-                size: '',
+                size: 'lg',
                 resolve: {
                     entity: function() {
                         return Concept.get({id : id}).$promise;
@@ -172,7 +172,8 @@
                 resolve: {
                     entity: function() {
                         return Concept.get({id : id}).$promise;
-                    }
+                    },
+                    taxpayer_account_entity: vm.taxpayer_account
                 }
             }).result.then(function() {
                 loadAll();

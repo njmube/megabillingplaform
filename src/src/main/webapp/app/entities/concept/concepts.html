@@ -82,7 +82,7 @@
                 <div class="col-sm-8">
                     <select class="form-control" id="search_form_measure_unit" name="search_form_measure_unit" ng-model="vm.measure_unit"
                             ng-options="measure_unit as measure_unit.name for measure_unit in vm.measure_units track by measure_unit.id">
-                        <option value="">Seleccione una uniddad de medida</option>
+                        <option value="">Seleccione uniddad de medida</option>
                     </select>
                 </div>
             </div>
@@ -138,9 +138,9 @@
                 <tr ng-repeat="concept in vm.concepts track by concept.id">
                     <td>{{concept.id}}</td>
                     <td>{{concept.no_identification}}</td>
-                    <td>{{concept.unit_value}}</td>
+                    <td>{{concept.unit_value | uimeganumberformat }}</td>
                     <td>{{concept.description  | uimegahtmltoplaintext}}</td>
-                    <td>{{concept.discount}}</td>
+                    <td>{{concept.discount | number: 2}}</td>
                     <td>{{concept.measure_unit.name}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
