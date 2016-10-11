@@ -10,7 +10,18 @@
         var resourceUrl =  'api/cfdis/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true},
+            'query': { method: 'GET', isArray: true,
+                params: {folio_fiscal: null,rfc_receiver: null,
+                    fromDate: null,
+                    toDate: null,
+                    idcfdi_type_doc: null,
+                    serie: null,
+                    folio: null,
+                    idaccount: null,
+                    pre: null,
+                    send: null,
+                    cancel: null,
+                    reciever: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

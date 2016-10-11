@@ -5,11 +5,11 @@
         .module('megabillingplatformApp')
         .controller('CfdiController', CfdiController);
 
-    CfdiController.$inject = ['$scope', '$state', 'Cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
+    CfdiController.$inject = ['$scope', '$filter', '$state', 'Cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
 
-    function CfdiController ($scope, $state, Cfdi, ParseLinks, AlertService, pagingParams, paginationConstants) {
+    function CfdiController ($scope, $filter,  $state, Cfdi, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
-        
+
         vm.loadPage = loadPage;
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
@@ -18,10 +18,42 @@
         loadAll();
 
         function loadAll () {
+            var dateFormat = 'yyyy-MM-dd';
+
+            var fromDate = $filter('date')("0000-01-01", dateFormat);
+            var toDate = $filter('date')("0000-01-01", dateFormat);
+            if(vm.dateStart != null){
+                fromDate = $filter('date')(vm.dateStart, dateFormat);
+            }
+            if(vm.dateEnd != null){
+                toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+            var foliof = " ";
+
+            var folio = " ";
+
+            var serie = " ";
+
+            var rfcreceiver = " ";
+
+            var idcfdi_type_doc = 0;
+
             Cfdi.query({
                 page: pagingParams.page - 1,
                 size: paginationConstants.itemsPerPage,
-                sort: sort()
+                sort: sort(),
+                folio_fiscal: foliof,
+                rfc_receiver: rfcreceiver,
+                fromDate: fromDate,
+                toDate: toDate,
+                idcfdi_type_doc: idcfdi_type_doc,
+                serie: serie,
+                folio: folio,
+                idaccount: 0,
+                pre: 0,
+                send: 0,
+                cancel: 1,
+                reciever: 0
             }, onSuccess, onError);
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];

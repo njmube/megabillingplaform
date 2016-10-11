@@ -115,7 +115,22 @@
             "filterlogin":"Usuario",
             "addtaxregime":"Asociar Régimen Fiscal",
             "nameTaxregime":"Nombre",
-            "description":"Descripción"
+            "description":"Descripción",
+            "buytransactions": "Comprar Timbres",
+            "transfer": "Transferir Timbres",
+            "transactiontype": "Paquete de Timbres",
+            "countbuy": "Cantidad",
+            "price": "Precio",
+            "reference_code": "Moneda",
+            "accountbuymess": "Debe completar los datos",
+            "accountsource": "Cuenta de Contribuyente de origen",
+            "accountdestine": "Cuenta de Contribuyente de destino",
+            "transferAction": "Transferir",
+            "buyAction": "Comprar",
+            "counttransmess": "La cantidad no es suficiente",
+            "accountmess":"Debe selecionar correctamente la cuenta",
+            "accountsourcemess":"Debe selecionar una cuenta origen"
+
         }
     }
 }

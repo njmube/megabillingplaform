@@ -290,6 +290,52 @@
                     }]
                 }
             })
+        .state('taxpayer-account-inbox', {
+                parent: 'entity',
+                url: '/taxpayer-account-inbox/{id}',
+                data: {
+                    authorities: [],
+                    pageTitle: 'megabillingplatformApp.taxpayer_account.detail.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/taxpayer-account/taxpayer-account-inbox.html',
+                        controller: 'Taxpayer_accountInboxController',
+                        controllerAs: 'vm'
+                    }
+                },
+                params: {
+                    page: {
+                        value: '1',
+                        squash: true
+                    },
+                    sort: {
+                        value: 'id,asc',
+                        squash: true
+                    },
+                    search: null
+                },
+                resolve: {
+                    pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                        return {
+                            page: PaginationUtil.parsePage($stateParams.page),
+                            sort: $stateParams.sort,
+                            predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                            ascending: PaginationUtil.parseAscending($stateParams.sort),
+                            search: $stateParams.search
+                        };
+                    }],
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('free_cfdi');
+                        $translatePartialLoader.addPart('taxpayer_account');
+                        $translatePartialLoader.addPart('global');
+                        return $translate.refresh();
+                    }],
+                    entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
+                        return Taxpayer_account.get({id : $stateParams.id}).$promise;
+                    }]
+                }
+            })
         .state('taxpayer-account.new', {
             parent: 'taxpayer-account',
             url: '/new',

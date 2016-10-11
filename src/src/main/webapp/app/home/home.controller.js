@@ -62,11 +62,45 @@
                         $('.scroll-track.scroll-active').css('height',($(window).height() - 55) + 'px');
                         $('#sidebar-shortcuts').attr('style','');
                         $('#sidebar-options').attr('style','');
+
+                        var dateFormat = 'yyyy-MM-dd';
+                        var fromDate = $filter('date')("0000-01-01", dateFormat);
+                        var toDate = $filter('date')("0000-01-01", dateFormat);
+                        User.query({
+                                filterrfc: " ",
+                                datefrom: fromDate,
+                                dateto: toDate,
+                                stateuser: -1,
+                                role: " ",
+                                filterlogin: " "},
+                            function (result) {
+                                vm.totalUser = result.length;
+                            });
+
+                        Request_taxpayer_account.query({
+                            datefrom: fromDate,
+                            dateto: toDate,
+                            request_state: -1
+                        }, function(data){
+                            vm.totalRequest_taxpayer_accounts = data.length;
+                        });
+
+                        Taxpayer_transactions.query({
+                            idaccount:0
+                        }, function(data){
+
+                            vm.totalTaxpayer_transactions = 0;
+                            for(var i = 0; i < data.length; i++){
+                                vm.totalTaxpayer_transactions += data[i].transactions_available;
+                            }
+                        });
                     }
 
                     User.get({login: vm.account.login}, function(result) {
                         vm.user = result;
                     });
+
+
                     //vm.resto = vm.toDate.getTime();
                     //var creado = new Date(vm.user.createdDate.getFullYear(), vm.user.createdDate.getMonth(), vm.user.createdDate.getDate() + 1);
 
