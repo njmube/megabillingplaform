@@ -61,7 +61,18 @@
         }
 
         function onSuccessbuy() {
-            window.location.assign("http://payu-prod.megacfdi.com/content/common/payu/transaction.jsf");
+            Principal.identity().then(function(account) {
+
+                if(account != null){
+                    User.get({login: account.login}, function(result) {
+
+                        window.location.assign("http://payu-prod.megacfdi.com/content/common/payu/integrationRequest.jsf"+
+                        "idUser="+ result.id + "&idAccount=" + vm.accountbuy.id + "&idRingPackage=" + vm.ring_pack.id);
+
+                    });
+                }
+            });
+
         }
         function onErrorbuy(error) {
             AlertService.error(error.data.message);
