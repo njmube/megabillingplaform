@@ -66,8 +66,8 @@
                 if(account != null){
                     User.get({login: account.login}, function(result) {
 
-                        window.location.assign("http://payu-prod.megacfdi.com/content/common/payu/integrationRequest.jsf"+
-                        "idUser="+ result.id + "&idAccount=" + vm.accountbuy.id + "&idRingPackage=" + vm.ring_pack.id);
+                        window.location.assign("https://payu-prod.megacfdi.com/content/common/payu/integrationRequest.jsf?"+
+                        "idUser="+ result.id + "&idAccount=" + vm.accountbuy.id + "&idRingPackage=" + vm.ring_pack.idv);
 
                     });
                 }

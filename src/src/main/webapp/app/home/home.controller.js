@@ -22,6 +22,7 @@
         vm.showmenu = 'OK';
         vm.ringsaccount = ringsaccount;
         vm.days = 0;
+        vm.messegeUser = messegeUser;
 
         var dateFormat = 'yyyy-MM-dd';
         var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -139,7 +140,7 @@
 
                 vm.isUser = vm.account.authorities.indexOf('ROLE_USER') != -1;
                 if(vm.isUser){
-                    messegeUser();
+                    var temporalizador = setInterval(vm.messegeUser(),10000);
                 }
 
             });
@@ -161,6 +162,7 @@
                     }
                 }
             }).result.then(function() {
+
                 }, function() {
                 });
         }
