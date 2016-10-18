@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Taxpayer_transactions','User', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account', 'Request_taxpayer_account'];
+    HomeController.$inject = ['$scope', '$uibModal', 'Taxpayer_transactions','User', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account', 'Request_taxpayer_account'];
 
-    function HomeController ($scope, Taxpayer_transactions,  User, Principal, Tracemg,  LoginService, $filter, Taxpayer_account, Request_taxpayer_account) {
+    function HomeController ($scope, $uibModal, Taxpayer_transactions,  User, Principal, Tracemg,  LoginService, $filter, Taxpayer_account, Request_taxpayer_account) {
         var vm = this;
 
         vm.account = null;
@@ -21,6 +21,7 @@
         vm.restDate = restDate;
         vm.showmenu = 'OK';
         vm.ringsaccount = ringsaccount;
+        vm.days = 0;
 
         var dateFormat = 'yyyy-MM-dd';
         var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -135,9 +136,34 @@
                     }, onSuccess1, onError1);
 
                 }
+
+                vm.isUser = vm.account.authorities.indexOf('ROLE_USER') != -1;
+                if(vm.isUser){
+                    messegeUser();
+                }
+
             });
+
+
         }
 
+
+        function messegeUser(){
+            $uibModal.open({
+                templateUrl: 'app/home/messegeUser.html',
+                controller: 'MessegeUserController',
+                controllerAs: 'vm',
+                backdrop: true,
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return 0;
+                    }
+                }
+            }).result.then(function() {
+                }, function() {
+                });
+        }
 
         function restDate(datecreated){
             var fechacreado = new Date(datecreated);

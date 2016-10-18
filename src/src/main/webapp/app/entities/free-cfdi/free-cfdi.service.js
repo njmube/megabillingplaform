@@ -14,7 +14,7 @@
                 params: {idFree_cfdi: null,folio_fiscal: null,rfc_receiver: null,
                     fromDate: null, toDate: null, idState: null, serie: null, folio: null}},
             'getzip':{method: 'GET', isArray: false,
-                params: {idFree_cfdi: null}},
+                params: {idFree_cfdi: null},responseType: "arraybuffer"},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

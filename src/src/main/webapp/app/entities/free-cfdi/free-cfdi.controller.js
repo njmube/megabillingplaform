@@ -182,13 +182,12 @@
         }
 
         function abrirZip(free_cfdi){
-            var zip = new JSZip();
-            zip.add("Hello.txt", "Hello World\n");
-            var content = zip.generate();
-            location.href="data:application/zip;base64,"+content;
+            var zipfile = Free_cfdi.getzip({idFree_cfdi:free_cfdi.id});
 
-            /*var temp = Free_cfdi.getzip({idFree_cfdi:free_cfdi.id});
-            var zipfile = temp.filexml;
+            var blob = new Blob([zipfile], {type: "application/zip"});
+            var url = window.URL.createObjectURL(blob);
+            document.location = url;
+            /*var zipfile = temp.filexml;
 
             var json = JSON.stringify(zipfile),
                 blob = new Blob([json], {type: "octet/stream"}),

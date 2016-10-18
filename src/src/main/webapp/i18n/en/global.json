@@ -292,7 +292,8 @@
             "viewall":"View all",
             "add":"Add",
             "apro":"Acccept",
-            "reject":"Reject"
+            "reject":"Reject",
+            "close":"close"
         },
         "detail": {
             "field": "Field",

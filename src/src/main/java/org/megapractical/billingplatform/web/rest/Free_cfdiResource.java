@@ -20,10 +20,14 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MimeType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
@@ -289,15 +293,16 @@ public class Free_cfdiResource {
         produces = MediaType.APPLICATION_JSON_VALUE,
         params = {"idFree_cfdi"})
     @Timed
-    public ResponseEntity<Free_cfdi> getZip(@RequestParam(value = "idFree_cfdi") Integer idFree_cfdi)
+    public ResponseEntity<byte[]> getZip(@RequestParam(value = "idFree_cfdi") Integer idFree_cfdi)
         throws URISyntaxException {
         log.debug("REST request to get a zip of Free_cfdis");
         if(idFree_cfdi != null)
         {
-            Free_cfdi temp = new Free_cfdi();
+            //Free_cfdi temp = new Free_cfdi();
             byte [] zip = free_cfdiService.getZip(idFree_cfdi);
-            temp.setFilexml(zip);
-            return ResponseEntity.ok().body(temp);
+            //temp.setFilexml(zip);
+
+            return ResponseEntity.ok().body(zip);
         }
 
         return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_cfdi", "notfound", "Free CFDI not found")).body(null);

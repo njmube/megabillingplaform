@@ -128,9 +128,11 @@
 					</h1>
 				</div>
 				<div class="col-md-4">
-					<a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info pull-right" href="">
-						<i class="fa fa-lightbulb-o"></i>
-					</a>
+					<p class = "pull-right">
+						<i class="fa fa-clock-o"></i>
+                        <span>{{'home.text7' | translate}}</span>
+                        <span>{{vm.restDate(vm.user.createdDate)}}</span>
+					</p>
 				</div>
 			</div>
 		</div><!-- /.page-header -->
@@ -173,10 +175,6 @@
 					<li>{{'home.text6' | translate}}</li>
 				</ol>
 				<!-- PAGE CONTENT ENDS -->
-                <div class="form-group">
-                    <span>{{'home.text7' | translate}}</span>
-                    <span>{{vm.restDate(vm.user.createdDate)}}</span>
-                </div>
 			</div><!-- /.col -->
 		</div><!-- /.row -->
 

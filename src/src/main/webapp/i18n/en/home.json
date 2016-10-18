@@ -28,6 +28,11 @@
         "text5": "Generate and send CFDI to SAT",
         "text6": "Join our company and have access to our applications",
         "text7": "Enables days: ",
+        "text8": "User",
+        "text9": "Your free account finish at: ",
+        "text10": "days",
+        "text11": "We propouse our MegaCFDI aplications and services packege.",
+        "text12": "",
         "logged": {
             "message": "You are logged in as user \"{{username}}\"."
         },

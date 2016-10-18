@@ -291,7 +291,8 @@
             "viewall":"Ver todas",
             "add":"Adicionar",
             "apro":"Aprobar",
-            "reject":"Rechazar"
+            "reject":"Rechazar",
+            "close":"Cerrar"
         },
         "detail": {
             "field": "Campo",

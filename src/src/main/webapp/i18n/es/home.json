@@ -27,7 +27,12 @@
         "text4": "Descargar CFDI enviados al SAT",
         "text5": "Generar y enviar CFDI al SAT",
         "text6": "Adquirir MegaCFDI",
-        "text7": "Días Restantes: ",
+        "text7": "Días de uso gratuito: ",
+        "text8": "Estimado usuario",
+        "text9": "Le informamos que su cuenta de usuario gratuita expira en: ",
+        "text10": "días",
+        "text11": "Le invitamos a que adquiera el paquete de aplicaciones y servicios MegaCFDI para que",
+        "text12": "pueda seguir utilizando todas las aplicaciones y servicios disponibles.",
         "logged": {
             "message": "Está conectado como \"{{username}}\"."
         },
