@@ -234,6 +234,7 @@
                 resolve: {
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('taxpayer_account');
+                        $translatePartialLoader.addPart('taxpayer_transactions');
                         return $translate.refresh();
                     }],
                     entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {

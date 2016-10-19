@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Transactions_historyDetailController', Transactions_historyDetailController);
 
-    Transactions_historyDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Transactions_history', 'C_system', 'User', 'Type_transaction', 'Taxpayer_account', 'Ring_pack'];
+    Transactions_historyDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Transactions_history', 'C_system', 'User', 'Type_transaction', 'Taxpayer_account', 'Ring_pack', 'Taxpayer_request'];
 
-    function Transactions_historyDetailController($scope, $rootScope, $stateParams, entity, Transactions_history, C_system, User, Type_transaction, Taxpayer_account, Ring_pack) {
+    function Transactions_historyDetailController($scope, $rootScope, $stateParams, entity, Transactions_history, C_system, User, Type_transaction, Taxpayer_account, Ring_pack, Taxpayer_request) {
         var vm = this;
 
         vm.transactions_history = entity;

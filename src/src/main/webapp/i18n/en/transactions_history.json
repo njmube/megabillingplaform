@@ -23,7 +23,8 @@
             "user": "User",
             "type_transaction": "Type Transaction",
             "taxpayer_account": "Taxpayer Account",
-            "ring_pack": "Ring Pack"
+            "ring_pack": "Ring Pack",
+            "taxpayer_request": "Taxpayer Request"
         }
     }
 }

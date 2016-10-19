@@ -129,6 +129,8 @@
                 "customsInfo": "Customs Info",
                 "cfdi": "Cfdi",
                 "comTfd": "Com Tfd",
+                "taxpayerRequest": "Taxpayer Request",
+                "taxpayerRequestConfirm": "Taxpayer Request Confirm",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

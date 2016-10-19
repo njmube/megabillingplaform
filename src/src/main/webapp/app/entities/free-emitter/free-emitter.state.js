@@ -72,6 +72,7 @@
 				translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
 					$translatePartialLoader.addPart('free_emitter');
 					$translatePartialLoader.addPart('global');
+                    $translatePartialLoader.addPart('home');
 					return $translate.refresh();
 				}]
 			}

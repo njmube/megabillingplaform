@@ -1,0 +1,626 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTaxpayer_request_confirmLabel" translate="megabillingplatformApp.taxpayer_request_confirm.home.createOrEditLabel">Create or edit a Taxpayer Request Confirm</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.taxpayer_request_confirm.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.taxpayer_request_confirm.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.taxpayer_request_id" for="field_taxpayer_request_id">Taxpayer Request Id</label>
+            <input type="number" class="form-control" name="taxpayer_request_id" id="field_taxpayer_request_id"
+                    ng-model="vm.taxpayer_request_confirm.taxpayer_request_id"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.account_number_ach" for="field_account_number_ach">Account Number Ach</label>
+            <input type="text" class="form-control" name="account_number_ach" id="field_account_number_ach"
+                    ng-model="vm.taxpayer_request_confirm.account_number_ach"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.account_number_ach.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.account_number_ach.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.account_type_ach" for="field_account_type_ach">Account Type Ach</label>
+            <input type="text" class="form-control" name="account_type_ach" id="field_account_type_ach"
+                    ng-model="vm.taxpayer_request_confirm.account_type_ach"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.account_type_ach.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.account_type_ach.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.additional_value" for="field_additional_value">Additional Value</label>
+            <input type="number" class="form-control" name="additional_value" id="field_additional_value"
+                    ng-model="vm.taxpayer_request_confirm.additional_value"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.administrative_fee" for="field_administrative_fee">Administrative Fee</label>
+            <input type="number" class="form-control" name="administrative_fee" id="field_administrative_fee"
+                    ng-model="vm.taxpayer_request_confirm.administrative_fee"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.administrative_fee_base" for="field_administrative_fee_base">Administrative Fee Base</label>
+            <input type="number" class="form-control" name="administrative_fee_base" id="field_administrative_fee_base"
+                    ng-model="vm.taxpayer_request_confirm.administrative_fee_base"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.administrative_fee_tax" for="field_administrative_fee_tax">Administrative Fee Tax</label>
+            <input type="number" class="form-control" name="administrative_fee_tax" id="field_administrative_fee_tax"
+                    ng-model="vm.taxpayer_request_confirm.administrative_fee_tax"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.airline_code" for="field_airline_code">Airline Code</label>
+            <input type="text" class="form-control" name="airline_code" id="field_airline_code"
+                    ng-model="vm.taxpayer_request_confirm.airline_code"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.airline_code.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.airline_code.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.attempts" for="field_attempts">Attempts</label>
+            <input type="number" class="form-control" name="attempts" id="field_attempts"
+                    ng-model="vm.taxpayer_request_confirm.attempts"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.authorization_code" for="field_authorization_code">Authorization Code</label>
+            <input type="text" class="form-control" name="authorization_code" id="field_authorization_code"
+                    ng-model="vm.taxpayer_request_confirm.authorization_code"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.authorization_code.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.authorization_code.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.bank_id" for="field_bank_id">Bank Id</label>
+            <input type="text" class="form-control" name="bank_id" id="field_bank_id"
+                    ng-model="vm.taxpayer_request_confirm.bank_id"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.bank_id.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.bank_id.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.billing_address" for="field_billing_address">Billing Address</label>
+            <input type="text" class="form-control" name="billing_address" id="field_billing_address"
+                    ng-model="vm.taxpayer_request_confirm.billing_address"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.billing_address.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.billing_address.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.billing_city" for="field_billing_city">Billing City</label>
+            <input type="text" class="form-control" name="billing_city" id="field_billing_city"
+                    ng-model="vm.taxpayer_request_confirm.billing_city"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.billing_city.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.billing_city.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.billing_country" for="field_billing_country">Billing Country</label>
+            <input type="text" class="form-control" name="billing_country" id="field_billing_country"
+                    ng-model="vm.taxpayer_request_confirm.billing_country"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.billing_country.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.billing_country.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.commision_pol" for="field_commision_pol">Commision Pol</label>
+            <input type="number" class="form-control" name="commision_pol" id="field_commision_pol"
+                    ng-model="vm.taxpayer_request_confirm.commision_pol"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.commision_pol_currency" for="field_commision_pol_currency">Commision Pol Currency</label>
+            <input type="text" class="form-control" name="commision_pol_currency" id="field_commision_pol_currency"
+                    ng-model="vm.taxpayer_request_confirm.commision_pol_currency"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.commision_pol_currency.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.commision_pol_currency.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.currency" for="field_currency">Currency</label>
+            <input type="text" class="form-control" name="currency" id="field_currency"
+                    ng-model="vm.taxpayer_request_confirm.currency"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.currency.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.currency.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.cus" for="field_cus">Cus</label>
+            <input type="text" class="form-control" name="cus" id="field_cus"
+                    ng-model="vm.taxpayer_request_confirm.cus"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.cus.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.cus.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.customer_number" for="field_customer_number">Customer Number</label>
+            <input type="number" class="form-control" name="customer_number" id="field_customer_number"
+                    ng-model="vm.taxpayer_request_confirm.customer_number"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.date" for="field_date">Date</label>
+            <input type="text" class="form-control" name="date" id="field_date"
+                    ng-model="vm.taxpayer_request_confirm.date"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.date.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.taxpayer_request_confirm.description"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.description.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.description.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.email_buyer" for="field_email_buyer">Email Buyer</label>
+            <input type="text" class="form-control" name="email_buyer" id="field_email_buyer"
+                    ng-model="vm.taxpayer_request_confirm.email_buyer"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.email_buyer.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.email_buyer.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.error_code_bank" for="field_error_code_bank">Error Code Bank</label>
+            <input type="text" class="form-control" name="error_code_bank" id="field_error_code_bank"
+                    ng-model="vm.taxpayer_request_confirm.error_code_bank"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.error_code_bank.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.error_code_bank.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.error_message_bank" for="field_error_message_bank">Error Message Bank</label>
+            <input type="text" class="form-control" name="error_message_bank" id="field_error_message_bank"
+                    ng-model="vm.taxpayer_request_confirm.error_message_bank"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.error_message_bank.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.error_message_bank.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.exchange_rate" for="field_exchange_rate">Exchange Rate</label>
+            <input type="number" class="form-control" name="exchange_rate" id="field_exchange_rate"
+                    ng-model="vm.taxpayer_request_confirm.exchange_rate"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.extra1" for="field_extra1">Extra 1</label>
+            <input type="text" class="form-control" name="extra1" id="field_extra1"
+                    ng-model="vm.taxpayer_request_confirm.extra1"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.extra1.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.extra1.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.extra2" for="field_extra2">Extra 2</label>
+            <input type="text" class="form-control" name="extra2" id="field_extra2"
+                    ng-model="vm.taxpayer_request_confirm.extra2"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.extra2.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.extra2.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.installments_number" for="field_installments_number">Installments Number</label>
+            <input type="number" class="form-control" name="installments_number" id="field_installments_number"
+                    ng-model="vm.taxpayer_request_confirm.installments_number"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.ip" for="field_ip">Ip</label>
+            <input type="text" class="form-control" name="ip" id="field_ip"
+                    ng-model="vm.taxpayer_request_confirm.ip"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.ip.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.ip.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.merchant_id" for="field_merchant_id">Merchant Id</label>
+            <input type="number" class="form-control" name="merchant_id" id="field_merchant_id"
+                    ng-model="vm.taxpayer_request_confirm.merchant_id"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.nickname_buyer" for="field_nickname_buyer">Nickname Buyer</label>
+            <input type="text" class="form-control" name="nickname_buyer" id="field_nickname_buyer"
+                    ng-model="vm.taxpayer_request_confirm.nickname_buyer"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.nickname_buyer.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nickname_buyer.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.nickname_seller" for="field_nickname_seller">Nickname Seller</label>
+            <input type="text" class="form-control" name="nickname_seller" id="field_nickname_seller"
+                    ng-model="vm.taxpayer_request_confirm.nickname_seller"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.nickname_seller.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nickname_seller.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.office_phone" for="field_office_phone">Office Phone</label>
+            <input type="text" class="form-control" name="office_phone" id="field_office_phone"
+                    ng-model="vm.taxpayer_request_confirm.office_phone"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.office_phone.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.office_phone.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.payment_method" for="field_payment_method">Payment Method</label>
+            <input type="number" class="form-control" name="payment_method" id="field_payment_method"
+                    ng-model="vm.taxpayer_request_confirm.payment_method"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.payment_method_id" for="field_payment_method_id">Payment Method Id</label>
+            <input type="number" class="form-control" name="payment_method_id" id="field_payment_method_id"
+                    ng-model="vm.taxpayer_request_confirm.payment_method_id"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.payment_method_name" for="field_payment_method_name">Payment Method Name</label>
+            <input type="text" class="form-control" name="payment_method_name" id="field_payment_method_name"
+                    ng-model="vm.taxpayer_request_confirm.payment_method_name"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.payment_method_name.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.payment_method_name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.payment_method_type" for="field_payment_method_type">Payment Method Type</label>
+            <input type="number" class="form-control" name="payment_method_type" id="field_payment_method_type"
+                    ng-model="vm.taxpayer_request_confirm.payment_method_type"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.payment_request_state" for="field_payment_request_state">Payment Request State</label>
+            <input type="text" class="form-control" name="payment_request_state" id="field_payment_request_state"
+                    ng-model="vm.taxpayer_request_confirm.payment_request_state"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.payment_request_state.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.payment_request_state.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.phone" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone"
+                    ng-model="vm.taxpayer_request_confirm.phone"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.phone.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.phone.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.pse_bank" for="field_pse_bank">Pse Bank</label>
+            <input type="text" class="form-control" name="pse_bank" id="field_pse_bank"
+                    ng-model="vm.taxpayer_request_confirm.pse_bank"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.pse_bank.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.pse_bank.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.pse_reference1" for="field_pse_reference1">Pse Reference 1</label>
+            <input type="text" class="form-control" name="pse_reference1" id="field_pse_reference1"
+                    ng-model="vm.taxpayer_request_confirm.pse_reference1"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.pse_reference1.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.pse_reference1.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.pse_reference2" for="field_pse_reference2">Pse Reference 2</label>
+            <input type="text" class="form-control" name="pse_reference2" id="field_pse_reference2"
+                    ng-model="vm.taxpayer_request_confirm.pse_reference2"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.pse_reference2.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.pse_reference2.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.pse_reference3" for="field_pse_reference3">Pse Reference 3</label>
+            <input type="text" class="form-control" name="pse_reference3" id="field_pse_reference3"
+                    ng-model="vm.taxpayer_request_confirm.pse_reference3"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.pse_reference3.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.pse_reference3.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.reference_pol" for="field_reference_pol">Reference Pol</label>
+            <input type="text" class="form-control" name="reference_pol" id="field_reference_pol"
+                    ng-model="vm.taxpayer_request_confirm.reference_pol"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.reference_pol.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.reference_pol.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.reference_sale" for="field_reference_sale">Reference Sale</label>
+            <input type="text" class="form-control" name="reference_sale" id="field_reference_sale"
+                    ng-model="vm.taxpayer_request_confirm.reference_sale"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.reference_sale.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.reference_sale.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.response_code_pol" for="field_response_code_pol">Response Code Pol</label>
+            <input type="text" class="form-control" name="response_code_pol" id="field_response_code_pol"
+                    ng-model="vm.taxpayer_request_confirm.response_code_pol"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.response_code_pol.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.response_code_pol.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.response_message_pol" for="field_response_message_pol">Response Message Pol</label>
+            <input type="text" class="form-control" name="response_message_pol" id="field_response_message_pol"
+                    ng-model="vm.taxpayer_request_confirm.response_message_pol"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.response_message_pol.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.response_message_pol.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.risk" for="field_risk">Risk</label>
+            <input type="number" class="form-control" name="risk" id="field_risk"
+                    ng-model="vm.taxpayer_request_confirm.risk"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.shipping_address" for="field_shipping_address">Shipping Address</label>
+            <input type="text" class="form-control" name="shipping_address" id="field_shipping_address"
+                    ng-model="vm.taxpayer_request_confirm.shipping_address"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.shipping_address.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.shipping_address.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.shipping_city" for="field_shipping_city">Shipping City</label>
+            <input type="text" class="form-control" name="shipping_city" id="field_shipping_city"
+                    ng-model="vm.taxpayer_request_confirm.shipping_city"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.shipping_city.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.shipping_city.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.shipping_country" for="field_shipping_country">Shipping Country</label>
+            <input type="text" class="form-control" name="shipping_country" id="field_shipping_country"
+                    ng-model="vm.taxpayer_request_confirm.shipping_country"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.shipping_country.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.shipping_country.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.sign" for="field_sign">Sign</label>
+            <input type="text" class="form-control" name="sign" id="field_sign"
+                    ng-model="vm.taxpayer_request_confirm.sign"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.sign.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.sign.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.state_pol" for="field_state_pol">State Pol</label>
+            <input type="text" class="form-control" name="state_pol" id="field_state_pol"
+                    ng-model="vm.taxpayer_request_confirm.state_pol"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.state_pol.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.state_pol.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.tax" for="field_tax">Tax</label>
+            <input type="number" class="form-control" name="tax" id="field_tax"
+                    ng-model="vm.taxpayer_request_confirm.tax"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.test" for="field_test">Test</label>
+            <input type="checkbox" class="form-control" name="test" id="field_test"
+                    ng-model="vm.taxpayer_request_confirm.test"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.transaction_bank_id" for="field_transaction_bank_id">Transaction Bank Id</label>
+            <input type="text" class="form-control" name="transaction_bank_id" id="field_transaction_bank_id"
+                    ng-model="vm.taxpayer_request_confirm.transaction_bank_id"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.transaction_bank_id.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.transaction_bank_id.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.transactiondate" for="field_transactiondate">Transactiondate</label>
+            <input type="text" class="form-control" name="transactiondate" id="field_transactiondate"
+                    ng-model="vm.taxpayer_request_confirm.transactiondate"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.transactiondate.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.transactiondate.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.transaction_id" for="field_transaction_id">Transaction Id</label>
+            <input type="text" class="form-control" name="transaction_id" id="field_transaction_id"
+                    ng-model="vm.taxpayer_request_confirm.transaction_id"
+                    ng-maxlength="255" />
+            <div ng-show="editForm.transaction_id.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.transaction_id.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="255">
+                    This field cannot be longer than 255 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.taxpayer_request_confirm.value" for="field_value">Value</label>
+            <input type="number" class="form-control" name="value" id="field_value"
+                    ng-model="vm.taxpayer_request_confirm.value"
+                     />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

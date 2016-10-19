@@ -2,27 +2,29 @@
     "megabillingplatformApp": {
         "transactions_history" : {
             "home": {
-                "title": "Históricos de transacciones",
-                "createLabel": "Adicionar",
-                "createOrEditLabel": "Adicionar o editar Histórico de transacción",
-                "search": "Búsqueda por Histórico de transacción"
+                "title": "Transactions Histories",
+                "createLabel": "Crear nuevo Transactions History",
+                "createOrEditLabel": "Crear o editar Transactions History",
+                "search": "Search for Transactions History"
             },
-            "created": "El Histórico de transacción ha sido adicionado satisfactoriamente.",
-            "updated": "El Histórico de transacción ha sido modificado satisfactoriamente.",
-            "deleted": "El Histórico de transacción ha sido eliminado satisfactoriamente.",
+            "created": "Un nuevo Transactions History ha sido creado con el identificador {{ param }}",
+            "updated": "Un Transactions History ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Transactions History ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "Se eliminará el Tipo de contribuyente seleccionado. ¿Desea continuar?"
+                "question": "¿Seguro que quiere eliminar Transactions History {{ id }}?"
             },
             "detail": {
-                "title": "Histórico de transacción"
+                "title": "Transactions History"
             },
-            "date_transaction": "Fecha de transacción:",
-            "quantity": "Cantidad:",
-            "description": "Descripción:",
-            "c_system": "Sistema:",
-            "user": "Usuario:",
-            "type_transaction": "Tipo de transacción:",
-            "taxpayer_account": "Cuenta contribuyente:"
+            "date_transaction": "Date Transaction",
+            "quantity": "Quantity",
+            "description": "Description",
+            "c_system": "C System",
+            "user": "User",
+            "type_transaction": "Type Transaction",
+            "taxpayer_account": "Taxpayer Account",
+            "ring_pack": "Ring Pack",
+            "taxpayer_request": "Taxpayer Request"
         }
     }
 }

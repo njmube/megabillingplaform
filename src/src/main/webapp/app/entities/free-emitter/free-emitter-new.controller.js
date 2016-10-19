@@ -5,14 +5,15 @@
         .module('megabillingplatformApp')
         .controller('Free_emitterNewController', Free_emitterNewController);
 
-    Free_emitterNewController.$inject = ['$scope', '$stateParams', '$uibModal', '$q', 'entity', 'DataUtils', 'Free_emitter_file','Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code','Type_taxpayer'];
+    Free_emitterNewController.$inject = ['$scope', 'Principal', '$stateParams', '$uibModal', '$q', 'entity', 'DataUtils', 'Free_emitter_file','Free_emitter', 'Tax_regime', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code','Type_taxpayer'];
 
-    function Free_emitterNewController ($scope, $stateParams, $uibModal, $q, entity, DataUtils, Free_emitter_file, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, Type_taxpayer) {
+    function Free_emitterNewController ($scope, Principal, $stateParams, $uibModal, $q, entity, DataUtils, Free_emitter_file, Free_emitter, Tax_regime, C_country, C_state, C_municipality, C_colony, C_zip_code, Type_taxpayer) {
         var vm = this;
 
         vm.free_emitter = entity;
         vm.type_taxpayers = Type_taxpayer.query();
         vm.showInfo = false;
+        vm.messegeUser = messegeUser;
         vm.accuracys = [2,3,4,5,6];
         vm.tax_regimes = Tax_regime.query({filtername:" "});
         vm.c_countrys = C_country.query({pg:1, filtername:" "});
@@ -34,6 +35,7 @@
         vm.onChangeRFC = onChangeRFC;
         vm.onValidate = onValidate;
 
+        vm.messegeUser();
 
         function clicEdit(){
             vm.edit = 'OK';
@@ -91,6 +93,34 @@
                 vm.free_emitter = result;
             });
         };
+
+        function messegeUser(){
+            Principal.identity().then(function(account) {
+                if(account != null){
+                    vm.isUser = account.authorities.indexOf('ROLE_USER') != -1;
+                    vm.isNoAdmin = account.authorities.indexOf('ROLE_ADMIN') == -1;
+
+                    if(vm.isUser && vm.isNoAdmin){
+                        $uibModal.open({
+                            templateUrl: 'app/home/messegeUser.html',
+                            controller: 'MessegeUserController',
+                            controllerAs: 'vm',
+                            backdrop: true,
+                            size: '',
+                            resolve: {
+                                entity: function () {
+                                    return 0;
+                                }
+                            }
+                        }).result.then(function () {
+
+                            }, function () {
+                            });
+                    }
+                }
+
+            });
+        }
 
         function onValidate(){
             if(vm.free_emitter.pass_certificate != null && vm.free_emitter.pass_certificate != ""){

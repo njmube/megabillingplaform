@@ -47,6 +47,7 @@
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('free_cfdi');
                     $translatePartialLoader.addPart('global');
+                    $translatePartialLoader.addPart('home');
                     return $translate.refresh();
                 }]
             }
@@ -229,6 +230,7 @@
                     $translatePartialLoader.addPart('freecom_commodity');
                     $translatePartialLoader.addPart('freecom_specific_descriptions');
 					$translatePartialLoader.addPart('global');
+                    $translatePartialLoader.addPart('home');
                     return $translate.refresh();
                 }]
             }

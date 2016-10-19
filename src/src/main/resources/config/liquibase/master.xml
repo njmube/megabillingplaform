@@ -126,6 +126,7 @@
     <include file="classpath:config/liquibase/changelog/20160915190248_added_entity_Type_transaction.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160915190525_added_entity_C_system.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161006022030_added_entity_Ring_pack.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161018220632_added_entity_Taxpayer_request.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160915191032_added_entity_Transactions_history.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160915192406_added_entity_Concept.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160915193258_added_entity_Part_concept.xml" relativeToChangelogFile="false"/>
@@ -133,5 +134,6 @@
     <include file="classpath:config/liquibase/changelog/20160916123719_added_entity_Com_tfd.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160916120951_added_entity_Cfdi.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501135633_added_entity_Tax_concept.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161018230333_added_entity_Taxpayer_request_confirm.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

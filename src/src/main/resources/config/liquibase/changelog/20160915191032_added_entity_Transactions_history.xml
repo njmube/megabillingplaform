@@ -53,6 +53,10 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="taxpayer_request_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="transactions_history" columnName="date_transaction" columnDataType="datetime"/>

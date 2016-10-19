@@ -5,14 +5,15 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['entity', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', 'Rate_type','$timeout', '$state', '$q','Freecom_taxregistration', 'Freecom_pfic', 'C_tar', 'Freecom_accreditation_ieps', 'Freecom_taxlegends', 'Freecom_legend', 'Freecom_airline', 'Freecom_charge', 'C_well_type', 'C_acquired_title', 'C_features_work_piece','Freecom_apaw', 'Freecom_donees', 'C_school_level', 'Freecom_educational_institutions', 'C_committee_type', 'C_process_type', 'Freecom_ine', 'Freecom_ine_entity', 'Accounting', 'Freecom_kind_payment','C_transit_type','C_type_road','Freecom_foreign_tourist_passenger','C_federal_entity','Freecom_partial_construction_services','C_type_operation','Freecom_foreign_exchange','Freecom_local_taxes','Freecom_local_retentions', 'Freecom_local_transfered', 'Freecom_used_vehicle','Freecom_vehicle_customs_information', 'C_type_series','Freecom_destruction_certificate','Freecom_info_customs_destruction','Freecom_fuel_consumption','Freecom_concept_fuel', 'Freecom_determined', 'Freecom_storeroom_paybill', 'Freecom_paybill_concept', 'Freecom_ecc11', 'Freecom_ecc11_concept', 'Freecom_ecc11_transfer', 'Freecom_spei', 'Freecom_payer', 'Freecom_beneficiary', 'Freecom_spei_third','C_type_operation_ce','C_key_pediment','Freecom_incoterm','Freecom_addressee','Freecom_foreign_trade','Freecom_commodity','Freecom_specific_descriptions'];
+    Free_cfdiNewController.$inject = ['entity', 'Principal', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', 'Rate_type','$timeout', '$state', '$q','Freecom_taxregistration', 'Freecom_pfic', 'C_tar', 'Freecom_accreditation_ieps', 'Freecom_taxlegends', 'Freecom_legend', 'Freecom_airline', 'Freecom_charge', 'C_well_type', 'C_acquired_title', 'C_features_work_piece','Freecom_apaw', 'Freecom_donees', 'C_school_level', 'Freecom_educational_institutions', 'C_committee_type', 'C_process_type', 'Freecom_ine', 'Freecom_ine_entity', 'Accounting', 'Freecom_kind_payment','C_transit_type','C_type_road','Freecom_foreign_tourist_passenger','C_federal_entity','Freecom_partial_construction_services','C_type_operation','Freecom_foreign_exchange','Freecom_local_taxes','Freecom_local_retentions', 'Freecom_local_transfered', 'Freecom_used_vehicle','Freecom_vehicle_customs_information', 'C_type_series','Freecom_destruction_certificate','Freecom_info_customs_destruction','Freecom_fuel_consumption','Freecom_concept_fuel', 'Freecom_determined', 'Freecom_storeroom_paybill', 'Freecom_paybill_concept', 'Freecom_ecc11', 'Freecom_ecc11_concept', 'Freecom_ecc11_transfer', 'Freecom_spei', 'Freecom_payer', 'Freecom_beneficiary', 'Freecom_spei_third','C_type_operation_ce','C_key_pediment','Freecom_incoterm','Freecom_addressee','Freecom_foreign_trade','Freecom_commodity','Freecom_specific_descriptions'];
 
-    function Free_cfdiNewController (entity, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, Rate_type, $timeout, $state, $q, Freecom_taxregistration, Freecom_pfic, C_tar, Freecom_accreditation_ieps, Freecom_taxlegends, Freecom_legend, Freecom_airline, Freecom_charge, C_well_type, C_acquired_title, C_features_work_piece, Freecom_apaw, Freecom_donees, C_school_level, Freecom_educational_institutions, C_committee_type, C_process_type, Freecom_ine, Freecom_ine_entity, Accounting, Freecom_kind_payment, C_transit_type, C_type_road, Freecom_foreign_tourist_passenger, C_federal_entity, Freecom_partial_construction_services, C_type_operation, Freecom_foreign_exchange, Freecom_local_taxes, Freecom_local_retentions, Freecom_local_transfered, Freecom_used_vehicle, Freecom_vehicle_customs_information, C_type_series, Freecom_destruction_certificate, Freecom_info_customs_destruction, Freecom_fuel_consumption, Freecom_concept_fuel, Freecom_determined, Freecom_storeroom_paybill, Freecom_paybill_concept, Freecom_ecc11, Freecom_ecc11_concept, Freecom_ecc11_transfer, Freecom_spei, Freecom_payer, Freecom_beneficiary, Freecom_spei_third, C_type_operation_ce, C_key_pediment, Freecom_incoterm, Freecom_addressee, Freecom_foreign_trade, Freecom_commodity, Freecom_specific_descriptions) {
+    function Free_cfdiNewController (entity, Principal, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, Rate_type, $timeout, $state, $q, Freecom_taxregistration, Freecom_pfic, C_tar, Freecom_accreditation_ieps, Freecom_taxlegends, Freecom_legend, Freecom_airline, Freecom_charge, C_well_type, C_acquired_title, C_features_work_piece, Freecom_apaw, Freecom_donees, C_school_level, Freecom_educational_institutions, C_committee_type, C_process_type, Freecom_ine, Freecom_ine_entity, Accounting, Freecom_kind_payment, C_transit_type, C_type_road, Freecom_foreign_tourist_passenger, C_federal_entity, Freecom_partial_construction_services, C_type_operation, Freecom_foreign_exchange, Freecom_local_taxes, Freecom_local_retentions, Freecom_local_transfered, Freecom_used_vehicle, Freecom_vehicle_customs_information, C_type_series, Freecom_destruction_certificate, Freecom_info_customs_destruction, Freecom_fuel_consumption, Freecom_concept_fuel, Freecom_determined, Freecom_storeroom_paybill, Freecom_paybill_concept, Freecom_ecc11, Freecom_ecc11_concept, Freecom_ecc11_transfer, Freecom_spei, Freecom_payer, Freecom_beneficiary, Freecom_spei_third, C_type_operation_ce, C_key_pediment, Freecom_incoterm, Freecom_addressee, Freecom_foreign_trade, Freecom_commodity, Freecom_specific_descriptions) {
 
 		var vm = this;
 
         vm.free_cfdi = entity;
         vm.free_emitter = free_emitter_entity;
+        vm.messegeUser = messegeUser;
         vm.free_cfdi.free_emitter = vm.free_emitter;
 		vm.free_cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
 		vm.free_cfdi.c_money = {id: 100, name: "MXN", description: "Peso Mexicano"};
@@ -79,6 +80,8 @@
 				});
 			}
         });
+
+        vm.messegeUser();
 
         vm.load = function(id) {
             Free_cfdi.get({id : id}, function(result) {
@@ -641,6 +644,34 @@
 
             saveConcept();
         };
+
+        function messegeUser(){
+            Principal.identity().then(function(account) {
+                if(account != null){
+                    vm.isUser = account.authorities.indexOf('ROLE_USER') != -1;
+                    vm.isNoAdmin = account.authorities.indexOf('ROLE_ADMIN') == -1;
+
+                    if(vm.isUser && vm.isNoAdmin){
+                        $uibModal.open({
+                            templateUrl: 'app/home/messegeUser.html',
+                            controller: 'MessegeUserController',
+                            controllerAs: 'vm',
+                            backdrop: true,
+                            size: '',
+                            resolve: {
+                                entity: function () {
+                                    return 0;
+                                }
+                            }
+                        }).result.then(function () {
+
+                            }, function () {
+                            });
+                    }
+                }
+
+            });
+        }
 
         vm.freecom_ecc11_saved = null;
         vm.freecom_ecc11_concept_index = null;

@@ -138,16 +138,21 @@
 
                 }
 
-                vm.isUser = vm.account.authorities.indexOf('ROLE_USER') != -1;
-                if(vm.isUser){
-                    var temporalizador = setInterval(vm.messegeUser(),10000);
+                if(vm.account != null){
+                    vm.isUser = vm.account.authorities.indexOf('ROLE_USER') != -1;
+                    vm.isNoAdmin = vm.account.authorities.indexOf('ROLE_ADMIN') == -1;
+
+                    if(vm.isUser && vm.isNoAdmin){
+                        //var temporalizador = setInterval(vm.messegeUser(),10000);
+                       vm.messegeUser();
+                        //window.reque
+                    }
                 }
 
             });
 
 
         }
-
 
         function messegeUser(){
             $uibModal.open({

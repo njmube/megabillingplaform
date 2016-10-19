@@ -1,0 +1,58 @@
+{
+    "megabillingplatformApp": {
+        "taxpayer_request" : {
+            "home": {
+                "title": "Taxpayer Requests",
+                "createLabel": "Crear nuevo Taxpayer Request",
+                "createOrEditLabel": "Crear o editar Taxpayer Request",
+                "search": "Search for Taxpayer Request"
+            },
+            "created": "Un nuevo Taxpayer Request ha sido creado con el identificador {{ param }}",
+            "updated": "Un Taxpayer Request ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Taxpayer Request ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Taxpayer Request {{ id }}?"
+            },
+            "detail": {
+                "title": "Taxpayer Request"
+            },
+            "account_id": "Account Id",
+            "ring_pack_id": "Ring Pack Id",
+            "algorithm_signature": "Algorithm Signature",
+            "amount": "Amount",
+            "billing_address": "Billing Address",
+            "billing_city": "Billing City",
+            "billing_country": "Billing Country",
+            "buyer_email": "Buyer Email",
+            "buyer_full_name": "Buyer Full Name",
+            "confirmation_url": "Confirmation Url",
+            "currency": "Currency",
+            "description": "Description",
+            "discount": "Discount",
+            "extra1": "Extra 1",
+            "extra2": "Extra 2",
+            "extra3": "Extra 3",
+            "lng": "Lng",
+            "merchant_id": "Merchant Id",
+            "mobile_phone": "Mobile Phone",
+            "office_telephone": "Office Telephone",
+            "payer_document": "Payer Document",
+            "payer_email": "Payer Email",
+            "payer_full_name": "Payer Full Name",
+            "payer_mobile_phone": "Payer Mobile Phone",
+            "payer_office_phone": "Payer Office Phone",
+            "payer_phone": "Payer Phone",
+            "reference_code": "Reference Code",
+            "response_url": "Response Url",
+            "shipping_address": "Shipping Address",
+            "shipping_city": "Shipping City",
+            "shipping_country": "Shipping Country",
+            "signature": "Signature",
+            "tax": "Tax",
+            "tax_return_base": "Tax Return Base",
+            "telephone": "Telephone",
+            "test": "Test",
+            "zipcode": "Zipcode"
+        }
+    }
+}

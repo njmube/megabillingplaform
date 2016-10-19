@@ -1,0 +1,132 @@
+<div>
+    <h2 translate="megabillingplatformApp.taxpayer_request.home.title">Taxpayer Requests</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="taxpayer-request.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.taxpayer_request.home.createLabel">
+                        Create new Taxpayer Request
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="account_id"><span translate="megabillingplatformApp.taxpayer_request.account_id">Account Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ring_pack_id"><span translate="megabillingplatformApp.taxpayer_request.ring_pack_id">Ring Pack Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="algorithm_signature"><span translate="megabillingplatformApp.taxpayer_request.algorithm_signature">Algorithm Signature</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amount"><span translate="megabillingplatformApp.taxpayer_request.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="billing_address"><span translate="megabillingplatformApp.taxpayer_request.billing_address">Billing Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="billing_city"><span translate="megabillingplatformApp.taxpayer_request.billing_city">Billing City</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="billing_country"><span translate="megabillingplatformApp.taxpayer_request.billing_country">Billing Country</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="buyer_email"><span translate="megabillingplatformApp.taxpayer_request.buyer_email">Buyer Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="buyer_full_name"><span translate="megabillingplatformApp.taxpayer_request.buyer_full_name">Buyer Full Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="confirmation_url"><span translate="megabillingplatformApp.taxpayer_request.confirmation_url">Confirmation Url</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="currency"><span translate="megabillingplatformApp.taxpayer_request.currency">Currency</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span translate="megabillingplatformApp.taxpayer_request.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="discount"><span translate="megabillingplatformApp.taxpayer_request.discount">Discount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="extra1"><span translate="megabillingplatformApp.taxpayer_request.extra1">Extra 1</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="extra2"><span translate="megabillingplatformApp.taxpayer_request.extra2">Extra 2</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="extra3"><span translate="megabillingplatformApp.taxpayer_request.extra3">Extra 3</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="lng"><span translate="megabillingplatformApp.taxpayer_request.lng">Lng</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="merchant_id"><span translate="megabillingplatformApp.taxpayer_request.merchant_id">Merchant Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mobile_phone"><span translate="megabillingplatformApp.taxpayer_request.mobile_phone">Mobile Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="office_telephone"><span translate="megabillingplatformApp.taxpayer_request.office_telephone">Office Telephone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payer_document"><span translate="megabillingplatformApp.taxpayer_request.payer_document">Payer Document</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payer_email"><span translate="megabillingplatformApp.taxpayer_request.payer_email">Payer Email</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payer_full_name"><span translate="megabillingplatformApp.taxpayer_request.payer_full_name">Payer Full Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payer_mobile_phone"><span translate="megabillingplatformApp.taxpayer_request.payer_mobile_phone">Payer Mobile Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payer_office_phone"><span translate="megabillingplatformApp.taxpayer_request.payer_office_phone">Payer Office Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payer_phone"><span translate="megabillingplatformApp.taxpayer_request.payer_phone">Payer Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reference_code"><span translate="megabillingplatformApp.taxpayer_request.reference_code">Reference Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="response_url"><span translate="megabillingplatformApp.taxpayer_request.response_url">Response Url</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="shipping_address"><span translate="megabillingplatformApp.taxpayer_request.shipping_address">Shipping Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="shipping_city"><span translate="megabillingplatformApp.taxpayer_request.shipping_city">Shipping City</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="shipping_country"><span translate="megabillingplatformApp.taxpayer_request.shipping_country">Shipping Country</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="signature"><span translate="megabillingplatformApp.taxpayer_request.signature">Signature</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax"><span translate="megabillingplatformApp.taxpayer_request.tax">Tax</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax_return_base"><span translate="megabillingplatformApp.taxpayer_request.tax_return_base">Tax Return Base</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="telephone"><span translate="megabillingplatformApp.taxpayer_request.telephone">Telephone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="test"><span translate="megabillingplatformApp.taxpayer_request.test">Test</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="zipcode"><span translate="megabillingplatformApp.taxpayer_request.zipcode">Zipcode</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="taxpayer_request in vm.taxpayer_requests track by taxpayer_request.id">
+                    <td><a ui-sref="taxpayer-request-detail({id:taxpayer_request.id})">{{taxpayer_request.id}}</a></td>
+                    <td>{{taxpayer_request.account_id}}</td>
+                    <td>{{taxpayer_request.ring_pack_id}}</td>
+                    <td>{{taxpayer_request.algorithm_signature}}</td>
+                    <td>{{taxpayer_request.amount}}</td>
+                    <td>{{taxpayer_request.billing_address}}</td>
+                    <td>{{taxpayer_request.billing_city}}</td>
+                    <td>{{taxpayer_request.billing_country}}</td>
+                    <td>{{taxpayer_request.buyer_email}}</td>
+                    <td>{{taxpayer_request.buyer_full_name}}</td>
+                    <td>{{taxpayer_request.confirmation_url}}</td>
+                    <td>{{taxpayer_request.currency}}</td>
+                    <td>{{taxpayer_request.description}}</td>
+                    <td>{{taxpayer_request.discount}}</td>
+                    <td>{{taxpayer_request.extra1}}</td>
+                    <td>{{taxpayer_request.extra2}}</td>
+                    <td>{{taxpayer_request.extra3}}</td>
+                    <td>{{taxpayer_request.lng}}</td>
+                    <td>{{taxpayer_request.merchant_id}}</td>
+                    <td>{{taxpayer_request.mobile_phone}}</td>
+                    <td>{{taxpayer_request.office_telephone}}</td>
+                    <td>{{taxpayer_request.payer_document}}</td>
+                    <td>{{taxpayer_request.payer_email}}</td>
+                    <td>{{taxpayer_request.payer_full_name}}</td>
+                    <td>{{taxpayer_request.payer_mobile_phone}}</td>
+                    <td>{{taxpayer_request.payer_office_phone}}</td>
+                    <td>{{taxpayer_request.payer_phone}}</td>
+                    <td>{{taxpayer_request.reference_code}}</td>
+                    <td>{{taxpayer_request.response_url}}</td>
+                    <td>{{taxpayer_request.shipping_address}}</td>
+                    <td>{{taxpayer_request.shipping_city}}</td>
+                    <td>{{taxpayer_request.shipping_country}}</td>
+                    <td>{{taxpayer_request.signature}}</td>
+                    <td>{{taxpayer_request.tax}}</td>
+                    <td>{{taxpayer_request.tax_return_base}}</td>
+                    <td>{{taxpayer_request.telephone}}</td>
+                    <td>{{taxpayer_request.test}}</td>
+                    <td>{{taxpayer_request.zipcode}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="taxpayer-request-detail({id:taxpayer_request.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="taxpayer-request.edit({id:taxpayer_request.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="taxpayer-request.delete({id:taxpayer_request.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Transactions_historyDialogController', Transactions_historyDialogController);
 
-    Transactions_historyDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Transactions_history', 'C_system', 'User', 'Type_transaction', 'Taxpayer_account', 'Ring_pack'];
+    Transactions_historyDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Transactions_history', 'C_system', 'User', 'Type_transaction', 'Taxpayer_account', 'Ring_pack', 'Taxpayer_request'];
 
-    function Transactions_historyDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Transactions_history, C_system, User, Type_transaction, Taxpayer_account, Ring_pack) {
+    function Transactions_historyDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Transactions_history, C_system, User, Type_transaction, Taxpayer_account, Ring_pack, Taxpayer_request) {
         var vm = this;
 
         vm.transactions_history = entity;
@@ -20,6 +20,7 @@
         vm.type_transactions = Type_transaction.query();
         vm.taxpayer_accounts = Taxpayer_account.query();
         vm.ring_packs = Ring_pack.query();
+        vm.taxpayer_requests = Taxpayer_request.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

@@ -2,23 +2,23 @@
     "megabillingplatformApp": {
         "taxpayer_transactions" : {
             "home": {
-                "title": "Taxpayer Transactions",
-                "createLabel": "Crear nuevo Taxpayer Transactions",
-                "createOrEditLabel": "Crear o editar Taxpayer Transactions",
-                "search": "Search for Taxpayer Transactions"
+                "title": "Timbres",
+                "createLabel": "Crear nuevo Timbre",
+                "createOrEditLabel": "Crear o editar Timbre",
+                "search": "Búsqueda para Timbre"
             },
-            "created": "Un nuevo Taxpayer Transactions ha sido creado con el identificador {{ param }}",
-            "updated": "Un Taxpayer Transactions ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Taxpayer Transactions ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo Timbre ha sido creado con el identificador {{ param }}",
+            "updated": "Los timbres han sido actualizados con el identificador {{ param }}",
+            "deleted": "Los timbres han sido eliminados con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Taxpayer Transactions {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Timbre {{ id }}?"
             },
             "detail": {
-                "title": "Taxpayer Transactions"
+                "title": "Timbre"
             },
-            "transactions_available": "Transactions Available",
-            "transactions_spent": "Transactions Spent",
-            "taxpayer_account": "Taxpayer Account"
+            "transactions_available": "Timbres disponibles",
+            "transactions_spent": "Timbres gastadas",
+            "taxpayer_account": "Cuenta de Contribuyente"
         }
     }
 }

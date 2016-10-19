@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiController', Free_cfdiController);
 
-    Free_cfdiController.$inject = ['$scope', 'Principal', 'User', 'DataUtils','$filter','$state', 'Free_cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'Cfdi_states'];
+    Free_cfdiController.$inject = ['$scope', '$uibModal', 'Principal', 'User', 'DataUtils','$filter','$state', 'Free_cfdi', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', 'Cfdi_states'];
 
-    function Free_cfdiController ($scope, Principal, User, DataUtils, $filter, $state, Free_cfdi, ParseLinks, AlertService, pagingParams, paginationConstants, Cfdi_states) {
+    function Free_cfdiController ($scope, $uibModal, Principal, User, DataUtils, $filter, $state, Free_cfdi, ParseLinks, AlertService, pagingParams, paginationConstants, Cfdi_states) {
         var vm = this;
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
@@ -26,6 +26,7 @@
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
+        vm.messegeUser = messegeUser;
         vm.loadAll();
         vm.folio_fiscal = null;
         vm.rfc_receiver = null;
@@ -41,6 +42,7 @@
 
         function loadAll () {
             vm.restDate();
+            vm.messegeUser();
             var dateFormat = 'yyyy-MM-dd';
             var fromDate = $filter('date')("0000-01-01", dateFormat);
             var toDate = $filter('date')("0000-01-01", dateFormat);
@@ -79,6 +81,8 @@
 
         function search() {
             vm.restDate();
+
+            vm.messegeUser();
             var dateFormat = 'yyyy-MM-dd';
 
             var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -143,6 +147,34 @@
             function onError(error) {
                 AlertService.error(error.data.message);
             }
+        }
+
+        function messegeUser(){
+            Principal.identity().then(function(account) {
+                if(account != null){
+                    vm.isUser = account.authorities.indexOf('ROLE_USER') != -1;
+                    vm.isNoAdmin = account.authorities.indexOf('ROLE_ADMIN') == -1;
+
+                    if(vm.isUser && vm.isNoAdmin){
+                        $uibModal.open({
+                            templateUrl: 'app/home/messegeUser.html',
+                            controller: 'MessegeUserController',
+                            controllerAs: 'vm',
+                            backdrop: true,
+                            size: '',
+                            resolve: {
+                                entity: function () {
+                                    return 0;
+                                }
+                            }
+                        }).result.then(function () {
+
+                            }, function () {
+                            });
+                    }
+                }
+
+            });
         }
 
         function restDate(){

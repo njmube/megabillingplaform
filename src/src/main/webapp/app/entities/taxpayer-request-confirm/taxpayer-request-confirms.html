@@ -1,0 +1,176 @@
+<div>
+    <h2 translate="megabillingplatformApp.taxpayer_request_confirm.home.title">Taxpayer Request Confirms</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="taxpayer-request-confirm.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.taxpayer_request_confirm.home.createLabel">
+                        Create new Taxpayer Request Confirm
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="taxpayer_request_id"><span translate="megabillingplatformApp.taxpayer_request_confirm.taxpayer_request_id">Taxpayer Request Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="account_number_ach"><span translate="megabillingplatformApp.taxpayer_request_confirm.account_number_ach">Account Number Ach</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="account_type_ach"><span translate="megabillingplatformApp.taxpayer_request_confirm.account_type_ach">Account Type Ach</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="additional_value"><span translate="megabillingplatformApp.taxpayer_request_confirm.additional_value">Additional Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="administrative_fee"><span translate="megabillingplatformApp.taxpayer_request_confirm.administrative_fee">Administrative Fee</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="administrative_fee_base"><span translate="megabillingplatformApp.taxpayer_request_confirm.administrative_fee_base">Administrative Fee Base</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="administrative_fee_tax"><span translate="megabillingplatformApp.taxpayer_request_confirm.administrative_fee_tax">Administrative Fee Tax</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="airline_code"><span translate="megabillingplatformApp.taxpayer_request_confirm.airline_code">Airline Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="attempts"><span translate="megabillingplatformApp.taxpayer_request_confirm.attempts">Attempts</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="authorization_code"><span translate="megabillingplatformApp.taxpayer_request_confirm.authorization_code">Authorization Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bank_id"><span translate="megabillingplatformApp.taxpayer_request_confirm.bank_id">Bank Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="billing_address"><span translate="megabillingplatformApp.taxpayer_request_confirm.billing_address">Billing Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="billing_city"><span translate="megabillingplatformApp.taxpayer_request_confirm.billing_city">Billing City</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="billing_country"><span translate="megabillingplatformApp.taxpayer_request_confirm.billing_country">Billing Country</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="commision_pol"><span translate="megabillingplatformApp.taxpayer_request_confirm.commision_pol">Commision Pol</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="commision_pol_currency"><span translate="megabillingplatformApp.taxpayer_request_confirm.commision_pol_currency">Commision Pol Currency</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="currency"><span translate="megabillingplatformApp.taxpayer_request_confirm.currency">Currency</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cus"><span translate="megabillingplatformApp.taxpayer_request_confirm.cus">Cus</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="customer_number"><span translate="megabillingplatformApp.taxpayer_request_confirm.customer_number">Customer Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date"><span translate="megabillingplatformApp.taxpayer_request_confirm.date">Date</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="description"><span translate="megabillingplatformApp.taxpayer_request_confirm.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="email_buyer"><span translate="megabillingplatformApp.taxpayer_request_confirm.email_buyer">Email Buyer</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="error_code_bank"><span translate="megabillingplatformApp.taxpayer_request_confirm.error_code_bank">Error Code Bank</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="error_message_bank"><span translate="megabillingplatformApp.taxpayer_request_confirm.error_message_bank">Error Message Bank</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="exchange_rate"><span translate="megabillingplatformApp.taxpayer_request_confirm.exchange_rate">Exchange Rate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="extra1"><span translate="megabillingplatformApp.taxpayer_request_confirm.extra1">Extra 1</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="extra2"><span translate="megabillingplatformApp.taxpayer_request_confirm.extra2">Extra 2</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="installments_number"><span translate="megabillingplatformApp.taxpayer_request_confirm.installments_number">Installments Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ip"><span translate="megabillingplatformApp.taxpayer_request_confirm.ip">Ip</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="merchant_id"><span translate="megabillingplatformApp.taxpayer_request_confirm.merchant_id">Merchant Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nickname_buyer"><span translate="megabillingplatformApp.taxpayer_request_confirm.nickname_buyer">Nickname Buyer</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nickname_seller"><span translate="megabillingplatformApp.taxpayer_request_confirm.nickname_seller">Nickname Seller</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="office_phone"><span translate="megabillingplatformApp.taxpayer_request_confirm.office_phone">Office Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payment_method"><span translate="megabillingplatformApp.taxpayer_request_confirm.payment_method">Payment Method</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payment_method_id"><span translate="megabillingplatformApp.taxpayer_request_confirm.payment_method_id">Payment Method Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payment_method_name"><span translate="megabillingplatformApp.taxpayer_request_confirm.payment_method_name">Payment Method Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payment_method_type"><span translate="megabillingplatformApp.taxpayer_request_confirm.payment_method_type">Payment Method Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payment_request_state"><span translate="megabillingplatformApp.taxpayer_request_confirm.payment_request_state">Payment Request State</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="phone"><span translate="megabillingplatformApp.taxpayer_request_confirm.phone">Phone</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pse_bank"><span translate="megabillingplatformApp.taxpayer_request_confirm.pse_bank">Pse Bank</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pse_reference1"><span translate="megabillingplatformApp.taxpayer_request_confirm.pse_reference1">Pse Reference 1</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pse_reference2"><span translate="megabillingplatformApp.taxpayer_request_confirm.pse_reference2">Pse Reference 2</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="pse_reference3"><span translate="megabillingplatformApp.taxpayer_request_confirm.pse_reference3">Pse Reference 3</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reference_pol"><span translate="megabillingplatformApp.taxpayer_request_confirm.reference_pol">Reference Pol</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reference_sale"><span translate="megabillingplatformApp.taxpayer_request_confirm.reference_sale">Reference Sale</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="response_code_pol"><span translate="megabillingplatformApp.taxpayer_request_confirm.response_code_pol">Response Code Pol</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="response_message_pol"><span translate="megabillingplatformApp.taxpayer_request_confirm.response_message_pol">Response Message Pol</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="risk"><span translate="megabillingplatformApp.taxpayer_request_confirm.risk">Risk</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="shipping_address"><span translate="megabillingplatformApp.taxpayer_request_confirm.shipping_address">Shipping Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="shipping_city"><span translate="megabillingplatformApp.taxpayer_request_confirm.shipping_city">Shipping City</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="shipping_country"><span translate="megabillingplatformApp.taxpayer_request_confirm.shipping_country">Shipping Country</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sign"><span translate="megabillingplatformApp.taxpayer_request_confirm.sign">Sign</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="state_pol"><span translate="megabillingplatformApp.taxpayer_request_confirm.state_pol">State Pol</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tax"><span translate="megabillingplatformApp.taxpayer_request_confirm.tax">Tax</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="test"><span translate="megabillingplatformApp.taxpayer_request_confirm.test">Test</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="transaction_bank_id"><span translate="megabillingplatformApp.taxpayer_request_confirm.transaction_bank_id">Transaction Bank Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="transactiondate"><span translate="megabillingplatformApp.taxpayer_request_confirm.transactiondate">Transactiondate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="transaction_id"><span translate="megabillingplatformApp.taxpayer_request_confirm.transaction_id">Transaction Id</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="value"><span translate="megabillingplatformApp.taxpayer_request_confirm.value">Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="taxpayer_request_confirm in vm.taxpayer_request_confirms track by taxpayer_request_confirm.id">
+                    <td><a ui-sref="taxpayer-request-confirm-detail({id:taxpayer_request_confirm.id})">{{taxpayer_request_confirm.id}}</a></td>
+                    <td>{{taxpayer_request_confirm.taxpayer_request_id}}</td>
+                    <td>{{taxpayer_request_confirm.account_number_ach}}</td>
+                    <td>{{taxpayer_request_confirm.account_type_ach}}</td>
+                    <td>{{taxpayer_request_confirm.additional_value}}</td>
+                    <td>{{taxpayer_request_confirm.administrative_fee}}</td>
+                    <td>{{taxpayer_request_confirm.administrative_fee_base}}</td>
+                    <td>{{taxpayer_request_confirm.administrative_fee_tax}}</td>
+                    <td>{{taxpayer_request_confirm.airline_code}}</td>
+                    <td>{{taxpayer_request_confirm.attempts}}</td>
+                    <td>{{taxpayer_request_confirm.authorization_code}}</td>
+                    <td>{{taxpayer_request_confirm.bank_id}}</td>
+                    <td>{{taxpayer_request_confirm.billing_address}}</td>
+                    <td>{{taxpayer_request_confirm.billing_city}}</td>
+                    <td>{{taxpayer_request_confirm.billing_country}}</td>
+                    <td>{{taxpayer_request_confirm.commision_pol}}</td>
+                    <td>{{taxpayer_request_confirm.commision_pol_currency}}</td>
+                    <td>{{taxpayer_request_confirm.currency}}</td>
+                    <td>{{taxpayer_request_confirm.cus}}</td>
+                    <td>{{taxpayer_request_confirm.customer_number}}</td>
+                    <td>{{taxpayer_request_confirm.date}}</td>
+                    <td>{{taxpayer_request_confirm.description}}</td>
+                    <td>{{taxpayer_request_confirm.email_buyer}}</td>
+                    <td>{{taxpayer_request_confirm.error_code_bank}}</td>
+                    <td>{{taxpayer_request_confirm.error_message_bank}}</td>
+                    <td>{{taxpayer_request_confirm.exchange_rate}}</td>
+                    <td>{{taxpayer_request_confirm.extra1}}</td>
+                    <td>{{taxpayer_request_confirm.extra2}}</td>
+                    <td>{{taxpayer_request_confirm.installments_number}}</td>
+                    <td>{{taxpayer_request_confirm.ip}}</td>
+                    <td>{{taxpayer_request_confirm.merchant_id}}</td>
+                    <td>{{taxpayer_request_confirm.nickname_buyer}}</td>
+                    <td>{{taxpayer_request_confirm.nickname_seller}}</td>
+                    <td>{{taxpayer_request_confirm.office_phone}}</td>
+                    <td>{{taxpayer_request_confirm.payment_method}}</td>
+                    <td>{{taxpayer_request_confirm.payment_method_id}}</td>
+                    <td>{{taxpayer_request_confirm.payment_method_name}}</td>
+                    <td>{{taxpayer_request_confirm.payment_method_type}}</td>
+                    <td>{{taxpayer_request_confirm.payment_request_state}}</td>
+                    <td>{{taxpayer_request_confirm.phone}}</td>
+                    <td>{{taxpayer_request_confirm.pse_bank}}</td>
+                    <td>{{taxpayer_request_confirm.pse_reference1}}</td>
+                    <td>{{taxpayer_request_confirm.pse_reference2}}</td>
+                    <td>{{taxpayer_request_confirm.pse_reference3}}</td>
+                    <td>{{taxpayer_request_confirm.reference_pol}}</td>
+                    <td>{{taxpayer_request_confirm.reference_sale}}</td>
+                    <td>{{taxpayer_request_confirm.response_code_pol}}</td>
+                    <td>{{taxpayer_request_confirm.response_message_pol}}</td>
+                    <td>{{taxpayer_request_confirm.risk}}</td>
+                    <td>{{taxpayer_request_confirm.shipping_address}}</td>
+                    <td>{{taxpayer_request_confirm.shipping_city}}</td>
+                    <td>{{taxpayer_request_confirm.shipping_country}}</td>
+                    <td>{{taxpayer_request_confirm.sign}}</td>
+                    <td>{{taxpayer_request_confirm.state_pol}}</td>
+                    <td>{{taxpayer_request_confirm.tax}}</td>
+                    <td>{{taxpayer_request_confirm.test}}</td>
+                    <td>{{taxpayer_request_confirm.transaction_bank_id}}</td>
+                    <td>{{taxpayer_request_confirm.transactiondate}}</td>
+                    <td>{{taxpayer_request_confirm.transaction_id}}</td>
+                    <td>{{taxpayer_request_confirm.value}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="taxpayer-request-confirm-detail({id:taxpayer_request_confirm.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="taxpayer-request-confirm.edit({id:taxpayer_request_confirm.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="taxpayer-request-confirm.delete({id:taxpayer_request_confirm.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>
