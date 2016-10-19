@@ -2,7 +2,7 @@
     "login": {
         "title": "Autenticarse",
         "form": {
-            "password": "Contraseña",
+            "password": "Contraseña:",
             "password.placeholder": "Su contraseña",
             "rememberme": "Recordar contraseña",
             "button": "Autenticarse"

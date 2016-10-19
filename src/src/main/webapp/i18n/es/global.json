@@ -198,7 +198,7 @@
             "getCFDI":"Consultar CFDI"
         },
         "form": {
-            "username": "Nombre de Usuario (*)",
+            "username": "Nombre de Usuario (*):",
             "username.placeholder": "Introduzca su Nombre de Usuario Ej: yandry",
             "rfc": "RFC (*)",
             "rfc.placeholder": "RFC Ej: ",

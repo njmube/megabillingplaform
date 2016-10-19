@@ -17,7 +17,9 @@
                 "title": "Branch Office"
             },
             "bussines_name": "Bussines Name (*)",
+            "bussines_name1": "Bussines Name",
             "tax_address": "Tax Address",
+            "tax_address1": "Tax Address",
             "taxpayer_account": "Taxpayer Account"
         }
     }

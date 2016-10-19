@@ -17,7 +17,9 @@
                 "title": "Sucursal"
             },
             "bussines_name": "Nombre o Razón Social(*):",
+            "bussines_name1": "Nombre o Razón Social",
             "tax_address": "Dirección:",
+            "tax_address1": "Dirección",
             "taxpayer_account": "Cuenta de facturación:"
         }
     }

@@ -17,6 +17,8 @@
         vm.taxpayer_account = entity;
         vm.taxpayer_accounts = Taxpayer_account.query();
         vm.add = add;
+        vm.campo = 'bussines_name';
+        vm.orden = true;
         vm.deleteOffice = deleteOffice;
         vm.getAbsolutePath = getAbsolutePath;
         vm.changeAccount = changeAccount;

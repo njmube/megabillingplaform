@@ -80,14 +80,21 @@
         <div class="table-responsive">
             <table class="jh-table table table-striped">
                 <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="bussines_name"><span translate="megabillingplatformApp.branch_office.bussines_name">Bussines Name</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="tax_address.id"><span translate="megabillingplatformApp.branch_office.tax_address">Tax Address</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <tr>
+                    <th>
+                        <span translate="megabillingplatformApp.branch_office.bussines_name1">Bussines Name</span>
+                        <a href="" ng-click="vm.campo = 'bussines_name'; vm.orden=!vm.orden">
+                            <span class="glyphicon glyphicon-sort"></span>
+                        </a>
+                    </th>
+                    <th>
+                        <span translate="megabillingplatformApp.branch_office.tax_address1">Tax Address</span>
+                    </th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="branch_office in vm.branch_offices track by branch_office.id">
+                <tr ng-repeat="branch_office in vm.branch_offices  | orderBy:vm.campo:vm.orden track by branch_office.id">
                     <td>{{branch_office.bussines_name}}</td>
                     <td>
                         <a ui-sref="tax-address-detail({id:branch_office.tax_address.id})">{{'entity.action.view' | translate}}</a>

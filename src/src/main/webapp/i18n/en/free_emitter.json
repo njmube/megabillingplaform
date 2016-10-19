@@ -25,6 +25,9 @@
                         "maxlength": "Your RFC cannot be longer than 13 characters.",
                         "pattern": "RFC format is incorrect"
                     },
+                    "pass": {
+                        "required": "Your password is required."
+                    },
                     "phone": {
                         "required": "Your phone is required.",
                         "minlength": "Your phone is required to be at least 1 character.",

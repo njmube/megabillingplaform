@@ -15,6 +15,7 @@
         vm.messcertificate = null;
         vm.meskey = null;
         vm.edit = null;
+        vm.messpass = null;
 
         vm.onValidate = onValidate;
 
@@ -26,9 +27,13 @@
 
         function onValidate(){
             if(vm.free_emitter.pass_certificate != null && vm.free_emitter.pass_certificate != "" && vm.free_emitter.filekey!=null && vm.free_emitter.filecertificate!=null){
+                vm.messpass = null;
                 vm.messvalidate = false;
                 vm.free_emitter.info_certificate = 'validating...';
                 Free_emitter.update(vm.free_emitter, onSaveSuccess, onSaveError);
+            }
+            if(vm.free_emitter.pass_certificate == null || vm.free_emitter.pass_certificate == ""){
+                vm.messpass = 'OK';
             }
         }
 

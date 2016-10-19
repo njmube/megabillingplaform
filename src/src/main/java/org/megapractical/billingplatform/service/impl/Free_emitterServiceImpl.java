@@ -84,7 +84,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
     public String[] validateCertificate(byte[] cert, byte[]key, String pass){
         String[] response = new String[2];
         response[0] = "3";
-        response[1] = "Error validation";
+        response[1] = "Error de validación";
         try{
             return UCertificate.validate(cert, key, pass);
         }catch (Exception ex){

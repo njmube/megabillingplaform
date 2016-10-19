@@ -25,6 +25,9 @@
                         "maxlength": "Su RFC no puede tener más de 13 caracteres.",
                         "pattern": "Patrón de RFC incorrecto."
                     },
+                    "pass": {
+                        "required": "Su contraseña es requerida."
+                    },
                     "phone": {
                         "required": "Su teléfono es obligatorio.",
                         "minlength": "Su teléfono debe tener al menos 1 caracter.",

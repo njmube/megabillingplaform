@@ -41,8 +41,11 @@
                         />
                     <input type="hidden" class="form-control" name="path_certificate_type" id="field_path_certificate_type"
                            ng-model="vm.free_emitter.filecertificateContentType" />
-
-                    <span ng-show="vm.messcertificate" translate="megabillingplatformApp.free_emitter.messcertificate">.cer file extention is required and file size <= 10 Mb</span>
+                    </div>
+                <div class="form-group">
+                    <div class="col-sm-10 pull-right">
+                        <span ng-show="vm.messcertificate" translate="megabillingplatformApp.free_emitter.messcertificate">.cer file extention is required and file size <= 10 Mb</span>
+                    </div>
                 </div>
                 <div class="form-group" ngf-drop ngf-change="vm.setPath_Key($file, vm.free_emitter)">
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.path_key" for="field_path_key">Path key</label>
@@ -73,12 +76,19 @@
                         />
                     <input type="hidden" class="form-control" name="path_key_type" id="field_path_key_type"
                            ng-model="vm.free_emitter.filekeyContentType" />
-                    <span ng-show="vm.messkey" translate="megabillingplatformApp.free_emitter.messkey">.key file extention is required and file size <= 10 Mb</span>
+                    </div>
+                <div class="form-group">
+                    <div class="col-sm-10 pull-right">
+                        <span ng-show="vm.messkey" translate="megabillingplatformApp.free_emitter.messkey">.key file extention is required and file size <= 10 Mb</span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_emitter.pass" for="pass">Password</label>
                     <div class="col-sm-5">
                         <input type="password" class="form-control" name="pass" id="pass" ng-model="vm.free_emitter.pass_certificate">
+                        <p class="help-block" ng-show="vm.messpass!=null" translate="megabillingplatformApp.free_emitter.messages.validate.pass.required">
+                                Your password is required.
+                        </p>
                     </div>
                 </div>
                 <div class="form-group">
