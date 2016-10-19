@@ -176,10 +176,10 @@
             var fechacreado = new Date(datecreated);
             var dias = (vm.toDate.getTime() - fechacreado.getTime())/86400000;
             var resto = 0;
-            if(dias < 15){
-                resto = 15 - dias;
+            if(dias < 7){
+                resto = 7 - dias;
             }
-            if(dias >= 15){
+            if(dias >= 7){
                 vm.showmenu = null;
             }
             return Math.round(resto);
