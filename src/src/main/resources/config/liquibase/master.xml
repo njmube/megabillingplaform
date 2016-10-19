@@ -134,13 +134,10 @@
     <include file="classpath:config/liquibase/changelog/20160916123719_added_entity_Com_tfd.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160916120951_added_entity_Cfdi.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160501135633_added_entity_Tax_concept.xml" relativeToChangelogFile="false"/>
-<<<<<<< f4a3ffa3a6491aa6831863adae95f2f12dd34af3
     <include file="classpath:config/liquibase/changelog/20161018230333_added_entity_Taxpayer_request_confirm.xml" relativeToChangelogFile="false"/>
-=======
     <include file="classpath:config/liquibase/changelog/20161018013022_added_entity_Taxpayer_concept.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161018013559_added_entity_Measure_unit_concept.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161018014244_added_entity_Price_concept.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161018014914_added_entity_Discount_concept.xml" relativeToChangelogFile="false"/>
->>>>>>> a10ea1de3304747a31ea1f70b8b4d466b349bc7e
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
