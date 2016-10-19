@@ -1,0 +1,62 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "taxpayer_account",
+            "otherEntityName": "taxpayer_account",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "measure_unit_concept",
+            "otherEntityName": "measure_unit_concept",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "taxpayer_concept"
+        },
+        {
+            "relationshipName": "measure_unit_concept",
+            "otherEntityName": "measure_unit_concept",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "taxpayer_concept"
+        },
+        {
+            "relationshipName": "discount_concept",
+            "otherEntityName": "discount_concept",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "taxpayer_concept"
+        },
+        {
+            "relationshipName": "tax_concept",
+            "otherEntityName": "tax_concept",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "taxpayer_concept"
+        },
+        {
+            "relationshipName": "price_concept",
+            "otherEntityName": "price_concept",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "taxpayer_concept"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "no_identification",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "predial_number",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161018013022",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "taxpayer_concept",
+    "pagination": "pagination"
+}

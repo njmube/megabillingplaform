@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "discount_concept" : {
+            "home": {
+                "title": "Discount Concepts",
+                "createLabel": "Create a new Discount Concept",
+                "createOrEditLabel": "Create or edit a Discount Concept",
+                "search": "Search for Discount Concept"
+            },
+            "created": "A new Discount Concept is created with identifier {{ param }}",
+            "updated": "A Discount Concept is updated with identifier {{ param }}",
+            "deleted": "A Discount Concept is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Discount Concept {{ id }}?"
+            },
+            "detail": {
+                "title": "Discount Concept"
+            },
+            "value": "Discount (%)",
+            "taxpayer_concept": "Taxpayer Concept"
+        }
+    }
+}

@@ -98,6 +98,9 @@ public class Cfdi implements Serializable {
     @Column(name = "certificate", nullable = false)
     private String certificate;
 
+    @Column(name = "way_payment")
+    private String way_payment;
+
     @ManyToOne
     @NotNull
     private Cfdi_states cfdi_states;
@@ -308,6 +311,14 @@ public class Cfdi implements Serializable {
         this.certificate = certificate;
     }
 
+    public String getWay_payment() {
+        return way_payment;
+    }
+
+    public void setWay_payment(String way_payment) {
+        this.way_payment = way_payment;
+    }
+
     public Cfdi_states getCfdi_states() {
         return cfdi_states;
     }
@@ -425,6 +436,7 @@ public class Cfdi implements Serializable {
             ", addenda='" + addenda + "'" +
             ", number_certificate='" + number_certificate + "'" +
             ", certificate='" + certificate + "'" +
+            ", way_payment='" + way_payment + "'" +
             '}';
     }
 }

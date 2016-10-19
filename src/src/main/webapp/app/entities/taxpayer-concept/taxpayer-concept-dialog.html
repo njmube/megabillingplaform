@@ -1,0 +1,178 @@
+
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myTaxpayer_conceptLabel" translate="megabillingplatformApp.taxpayer_concept.home.createOrEditLabel">Create or edit a Taxpayer Concept</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <h3 class="header smaller lighter blue">
+            Datos Generales
+        </h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group" ng-show="vm.taxpayer_concept.id">
+                    <label class="col-sm-4 control-label no-padding-right" for="id" translate="global.field.id">ID</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="id" name="id"
+                                ng-model="vm.taxpayer_concept.id" readonly />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_concept.no_identification" for="field_no_identification">No Identification</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="no_identification" id="field_no_identification"
+                                ng-model="vm.taxpayer_concept.no_identification"
+                                required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.measure_unit_concept.measure_unit" for="field_measure_unit">Measure Unit</label>
+                    <div class="col-sm-6">
+                        <select class="form-control" id="field_measure_unit" name="measure_unit" ng-model="vm.measure_unit"
+                                ng-options="measure_unit as measure_unit.name for measure_unit in vm.measure_units track by measure_unit.id" data-ng-change="vm.onMeasureUnitChange()">
+                            <option value="">Seleccione...</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-2 ">
+                        <button type="button" class="btn btn-xs btn-primary pull-right" ng-disabled="vm.measure_unit == null || vm.measure_unit_concept_add_error == true" ng-click="vm.addMeasureUnitConcept()">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-8 col-sm-offset-4">
+                        <div class="has-error" ng-show="vm.measure_unit_concept_add_error">
+                            <p class="help-block" translate="megabillingplatformApp.taxpayer_concept.validate.add_measure_unit_concept_error">
+                                Measure units can not be repeated.
+                            </p>
+                        </div>
+                        <table id="measure-unit-table" class="table table-striped table-bordered">
+                            <tbody>
+                            <tr ng-repeat="measure_unit_concept in vm.measure_unit_concepts">
+                                <td>{{measure_unit_concept.measure_unit.name}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-defaultv pull-right" ng-click="vm.removeMeasureUnitConcept($index)">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_concept.description" for="field_description">Description</label>
+                    <div class="col-sm-8">
+                        <!--<input type="text" class="form-control" name="description" id="field_description"
+                                ng-model="vm.taxpayer_concept.description"
+                                 />-->
+                        <trix-editor angular-trix id="field_description" ng-model="vm.taxpayer_concept.description" class="trix-content" required></trix-editor>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_concept.predial_number" for="field_predial_number">Predial Number</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="predial_number" id="field_predial_number"
+                               ng-model="vm.taxpayer_concept.predial_number"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.price_concept.value" for="field_value">Value</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="price_value" id="field_value"
+                               ng-model="vm.price_concept" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                               />
+                        <div ng-show="editForm.price_value.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.value.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                                This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-xs btn-primary pull-right" ng-disabled="vm.price_concept == null || vm.price_concept == 0" ng-click="vm.addPriceConcept()">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-8 col-sm-offset-4">
+                        <div class="has-error" ng-show="vm.price_concept_add_error">
+                            <p class="help-block" translate="megabillingplatformApp.taxpayer_concept.validate.add_price_concept_error">
+                                Prices can not be repeated.
+                            </p>
+                        </div>
+                        <table id="price-concept-table" class="table table-striped table-bordered">
+                            <tbody>
+                            <tr ng-repeat="price_concept in vm.price_concepts">
+                                <td>{{price_concept.value}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-defaultv pull-right" ng-click="vm.removePriceConcept($index)">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.discount_concept.value" for="field_discount_value">Value</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="discount_value" id="field_discount_value"
+                               ng-model="vm.discount_concept" ng-pattern="/^\d{1,2}\.?\d{1,2}$/"
+                               />
+                        <div ng-show="editForm.discount_value.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.discount_value.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d{1,2}\.?\d{1,2}$">
+                                This field should follow pattern "/^\d{1,2}\.?\d{1,2}$/".
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="button" class="btn btn-xs btn-primary pull-right" ng-disabled="vm.discount_concept == null || vm.discount_concept == 0" ng-click="vm.addDiscountConcept()">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-8 col-sm-offset-4">
+                        <div class="has-error" ng-show="vm.discount_concept_add_error">
+                            <p class="help-block" translate="megabillingplatformApp.taxpayer_concept.validate.add_discount_concept_error">
+                                Discounts can not be repeated.
+                            </p>
+                        </div>
+                        <table id="discount-concept-table" class="table table-striped table-bordered">
+                            <tbody>
+                            <tr ng-repeat="discount_concept in vm.discount_concepts">
+                                <td>{{discount_concept.value}}</td>
+                                <td>
+                                    <button type="button" class="btn btn-sm btn-defaultv pull-right" ng-click="vm.removeDiscountConcept($index)">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving || vm.measure_unit_concepts.length == 0 || vm.price_concepts.length == 0" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

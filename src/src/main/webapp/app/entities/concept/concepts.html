@@ -1,166 +1,71 @@
-<div class="page-header">
-    <div class="row">
-        <div class="col-md-8">
-            <h1>
-                Facturación En Línea
-                <small>
-                    <i class="ace-icon fa fa-angle-double-right"></i>
-                    {{'global.afilitated.concepts' | translate}}
-                </small>
-            </h1>
-        </div>
-        <div class="col-md-3">
-            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account" data-ng-change="vm.onChangeTaxPayerAccount()"
-                    ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
-                <option value="">Seleccione Cuenta Contribuyente</option>
-            </select>
-        </div>
-        <div class="col-md-1">
-            <a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info pull-right" href="">
-                <i class="fa fa-lightbulb-o"></i>
-            </a>
-        </div>
-    </div>
-</div><!-- /.page-header -->
-
-<div class="row">
-    <div class="col-xs-12">
-        <ul class="nav nav-pills">
-            <li>
-                <a href="#/">
-                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
-                </a>
-            </li>
-            <li ng-show="vm.taxpayer_account != null">
-                <a href="#/">{{'global.afilitated.generateCFDI' | translate}}</a>
-            </li>
-            <li ng-show="vm.taxpayer_account != null">
-                <a ui-sref="taxpayer-client({id:vm.taxpayer_account.id})">{{'global.afilitated.costumers' | translate}}</a>
-            </li>
-            <li class="active" ng-show="vm.taxpayer_account != null">
-                <a ui-sref="concept({id:vm.taxpayer_account.id})">{{'global.afilitated.concepts' | translate}}</a>
-            </li>
-            <li ng-show="vm.taxpayer_account != null">
-                <a ui-sref="tax-concept({id:vm.taxpayer_account.id})">{{'global.afilitated.tax_concepts' | translate}}</a>
-            </li>
-            <li>
-                <a ui-sref="request-taxpayer-account.afilitated">{{'global.user.join.mega' | translate}}</a>
-            </li>
-        </ul>
-    </div><!-- /.col -->
-</div><!-- /.row -->
-
-<div class="space-24"></div>
-
-<form name="searchForm" class="form-horizontal" role="form" novalidate ng-submit="vm.search()" show-validation>
-    <div class="row" ng-show="vm.taxpayer_account != null">
-        <div class="col-md-5">
-            <div class="form-group">
-                <label class="col-sm-4 control-label no-padding-right" for="search_form_no_identification">
-                    Código:
-                </label>
-                <div class="col-sm-8">
-                    <input type="text" id="search_form_no_identification" name="search_form_no_identification" class="form-control"
-                           ng-model="vm.no_identification" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-4 control-label no-padding-right" for="search_form_description">
-                    Descripción:
-                </label>
-                <div class="col-sm-8">
-                    <input type="text" id="search_form_description" name="search_form_description" class="form-control"
-                           ng-model="vm.description" />
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5">
-            <div class="form-group">
-                <label class="col-sm-4 control-label no-padding-right" for="search_form_measure_unit">
-                    Unidad de Medida:
-                </label>
-                <div class="col-sm-8">
-                    <select class="form-control" id="search_form_measure_unit" name="search_form_measure_unit" ng-model="vm.measure_unit"
-                            ng-options="measure_unit as measure_unit.name for measure_unit in vm.measure_units track by measure_unit.id">
-                        <option value="">Seleccione uniddad de medida</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-4 control-label no-padding-right" for="search_form_unit_value">
-                    Valor Unitario:
-                </label>
-                <div class="col-sm-8">
-                    <input type="text" id="search_form_unit_value" name="search_form_unit_value" class="form-control"
-                           ng-model="vm.unit_value" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-12">
-                    <button type="submit" class="btn btn-primary pull-right">Buscar</button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="form-group">
-                <div class="col-sm-12">
-                    <button type="button" class="btn btn-primary pull-right" ng-click="vm.addConcept()">
-                        <span class="glyphicon glyphicon-plus"></span>
-                        <span  translate="megabillingplatformApp.concept.home.add">
-                            Add
-                        </span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
-
 <div>
-    <!--<h2 translate="megabillingplatformApp.concept.home.title">Concepts</h2>-->
+    <h2 translate="megabillingplatformApp.concept.home.title">Concepts</h2>
     <jhi-alert></jhi-alert>
-    <div class="space-8"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="concept.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.concept.home.createLabel">
+                        Create new Concept
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
     <br/>
     <div class="table-responsive">
-        <table class="jh-table table table-striped table-bordered table-hover">
+        <table class="jh-table table table-striped">
             <thead>
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="no_identification"><span translate="megabillingplatformApp.concept.no_identification">No Identification</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="unit_value"><span translate="megabillingplatformApp.concept.unit_value">Unit Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quantity"><span translate="megabillingplatformApp.concept.quantity">Quantity</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="description"><span translate="megabillingplatformApp.concept.description">Description</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="unit_value"><span translate="megabillingplatformApp.concept.unit_value">Unit Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="predial_number"><span translate="megabillingplatformApp.concept.predial_number">Predial Number</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th jh-sort-by="discount"><span translate="megabillingplatformApp.concept.discount">Discount</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th><span translate="megabillingplatformApp.concept.measure_unit">Measure Unit</span></th>
+                    <th jh-sort-by="amount"><span translate="megabillingplatformApp.concept.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="measure_unit.name"><span translate="megabillingplatformApp.concept.measure_unit">Measure Unit</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfdi.id"><span translate="megabillingplatformApp.concept.cfdi">Cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="concept in vm.concepts track by concept.id">
-                    <td>{{concept.id}}</td>
+                    <td><a ui-sref="concept-detail({id:concept.id})">{{concept.id}}</a></td>
                     <td>{{concept.no_identification}}</td>
-                    <td>{{concept.unit_value | uimeganumberformat }}</td>
-                    <td>{{concept.description  | uimegahtmltoplaintext}}</td>
-                    <td>{{concept.discount | number: 2}}</td>
-                    <td>{{concept.measure_unit.name}}</td>
+                    <td>{{concept.quantity}}</td>
+                    <td>{{concept.description}}</td>
+                    <td>{{concept.unit_value}}</td>
+                    <td>{{concept.predial_number}}</td>
+                    <td>{{concept.discount}}</td>
+                    <td>{{concept.amount}}</td>
+                    <td>
+                        <a ui-sref="measure-unit-detail({id:concept.measure_unit.id})">{{concept.measure_unit.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="cfdi-detail({id:concept.cfdi.id})">{{concept.cfdi.id}}</a>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <!--<button type="button"
-                                    ng-click="vm.viewConcept(concept.id)"
+                            <button type="submit"
+                                    ui-sref="concept-detail({id:concept.id})"
                                     class="btn btn-info btn-sm">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                                 <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
-                            </button>-->
-                            <button type="button"
-                                    ng-click="vm.editConcept(concept.id)"
+                            </button>
+                            <button type="submit"
+                                    ui-sref="concept.edit({id:concept.id})"
                                     class="btn btn-primary btn-sm">
                                 <span class="glyphicon glyphicon-pencil"></span>
-                                <!--<span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>-->
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
                             </button>
-                            <button type="button"
-                                    ng-click="vm.deleteConcept(concept.id)"
+                            <button type="submit"
+                                    ui-sref="concept.delete({id:concept.id})"
                                     class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-trash"></span>
-                                <!--<span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>-->
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                             </button>
                         </div>
                     </td>

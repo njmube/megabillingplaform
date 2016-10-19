@@ -16,10 +16,10 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.tax_concept.concept" for="field_concept">Concept</label>
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.tax_concept.taxpayer_concept" for="field_taxpayer_concept">Taxpayer Concept</label>
             <div class="col-sm-8">
-                <select class="form-control" id="field_concept" name="concept" ng-model="vm.tax_concept.concept"
-                        ng-options="concept as concept.description | uimegahtmltoplaintext for concept in vm.concepts track by concept.id" required>
+                <select class="form-control" id="field_taxpayer_concept" name="taxpayer_concept" ng-model="vm.tax_concept.taxpayer_concept"
+                        ng-options="taxpayer_concept as taxpayer_concept.description | uimegahtmltoplaintext for taxpayer_concept in vm.taxpayer_concepts track by taxpayer_concept.id" required>
                     <option value="">Seleccione un concepto</option>
                 </select>
             </div>
@@ -38,7 +38,7 @@
             <div class="col-sm-8">
                 <input type="text" class="form-control" name="rate" id="field_rate"
                         ng-model="vm.tax_concept.rate" ng-pattern="/^\d{1,2}\.?\d{1,2}$/"
-                />
+                    required/>
                 <div ng-show="editForm.rate.$invalid">
                     <p class="help-block"
                        ng-show="editForm.rate.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d{1,2}\.?\d{1,2}$">

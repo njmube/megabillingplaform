@@ -1,0 +1,62 @@
+<div>
+    <h2 translate="megabillingplatformApp.measure_unit_concept.home.title">Measure Unit Concepts</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="measure-unit-concept.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.measure_unit_concept.home.createLabel">
+                        Create new Measure Unit Concept
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="megabillingplatformApp.measure_unit_concept.measure_unit">Measure Unit</span></th>
+                    <th><span translate="megabillingplatformApp.measure_unit_concept.taxpayer_concept">Taxpayer Concept</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="measure_unit_concept in vm.measure_unit_concepts track by measure_unit_concept.id">
+                    <td><a ui-sref="measure-unit-concept-detail({id:measure_unit_concept.id})">{{measure_unit_concept.id}}</a></td>
+                    <td>
+                        <a ui-sref="measure-unit-detail({id:measure_unit_concept.measure_unit.id})">{{measure_unit_concept.measure_unit.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="taxpayer-concept-detail({id:measure_unit_concept.taxpayer_concept.id})">{{measure_unit_concept.taxpayer_concept.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="measure-unit-concept-detail({id:measure_unit_concept.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="measure-unit-concept.edit({id:measure_unit_concept.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="measure-unit-concept.delete({id:measure_unit_concept.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

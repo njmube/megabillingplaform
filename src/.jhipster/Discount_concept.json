@@ -1,0 +1,27 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "taxpayer_concept",
+            "otherEntityName": "taxpayer_concept",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "value",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20161018014914",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "discount_concept",
+    "pagination": "no"
+}

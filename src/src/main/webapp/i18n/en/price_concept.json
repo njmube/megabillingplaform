@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "price_concept" : {
+            "home": {
+                "title": "Price Concepts",
+                "createLabel": "Create a new Price Concept",
+                "createOrEditLabel": "Create or edit a Price Concept",
+                "search": "Search for Price Concept"
+            },
+            "created": "A new Price Concept is created with identifier {{ param }}",
+            "updated": "A Price Concept is updated with identifier {{ param }}",
+            "deleted": "A Price Concept is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Price Concept {{ id }}?"
+            },
+            "detail": {
+                "title": "Price Concept"
+            },
+            "value": "Unit Value",
+            "taxpayer_concept": "Taxpayer Concept"
+        }
+    }
+}

@@ -1,10 +1,8 @@
 package org.megapractical.billingplatform.service.impl;
 
-import org.megapractical.billingplatform.domain.Taxpayer_account;
 import org.megapractical.billingplatform.service.Tax_conceptService;
 import org.megapractical.billingplatform.domain.Tax_concept;
 import org.megapractical.billingplatform.repository.Tax_conceptRepository;
-import org.megapractical.billingplatform.service.Taxpayer_accountService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -30,9 +28,6 @@ public class Tax_conceptServiceImpl implements Tax_conceptService{
     @Inject
     private Tax_conceptRepository tax_conceptRepository;
 
-    @Inject
-    private Taxpayer_accountService taxpayer_accountService;
-
     /**
      * Save a tax_concept.
      *
@@ -47,13 +42,13 @@ public class Tax_conceptServiceImpl implements Tax_conceptService{
 
     /**
      *  Get all the tax_concepts.
-     *   @param pageable the pagination information
+     *
+     *  @param pageable the pagination information
      *  @param taxpayeraccount
      * @param tax_type
-     * @param rate
-     * @param concept
-     * @return the list of entities
-     * */
+     *@param rate
+     * @param concept @return the list of entities
+     */
     @Transactional(readOnly = true)
     public Page<Tax_concept> findAll(Pageable pageable, Integer taxpayeraccount, String tax_type, BigDecimal rate, String concept) {
         log.debug("Request to get all Tax_concepts");
@@ -68,8 +63,7 @@ public class Tax_conceptServiceImpl implements Tax_conceptService{
 
         if(taxpayeraccount != 0) {
             List<Tax_concept> list = new ArrayList<>();
-            Long id = new Long(taxpayeraccount.toString());
-            Taxpayer_account taxpayer_account = taxpayer_accountService.findOne(id);
+            Long taxpayer_account_id = new Long(taxpayeraccount.toString());
             BigDecimal noRate = new BigDecimal("-1");
 
             for (Tax_concept tax_concept : result.getContent()) {
@@ -78,7 +72,7 @@ public class Tax_conceptServiceImpl implements Tax_conceptService{
                 boolean from_rate = true;
                 boolean from_concept = true;
 
-                if (tax_concept.getConcept().getTaxpayer_account().getId().compareTo(taxpayer_account.getId()) != 0) {
+                if (tax_concept.getTaxpayer_concept().getTaxpayer_account().getId().compareTo(taxpayer_account_id) != 0) {
                     from_taxpayyer_account = false;
                 }
 
@@ -90,7 +84,7 @@ public class Tax_conceptServiceImpl implements Tax_conceptService{
                     from_rate = false;
                 }
 
-                if(concept.compareTo(" ") != 0 && !tax_concept.getConcept().getDescription().toLowerCase().contains(concept.toLowerCase())){
+                if(concept.compareTo(" ") != 0 && !tax_concept.getTaxpayer_concept().getDescription().toLowerCase().contains(concept.toLowerCase())){
                     from_concept = false;
                 }
 

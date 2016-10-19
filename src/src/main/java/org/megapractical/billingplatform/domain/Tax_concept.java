@@ -29,11 +29,11 @@ public class Tax_concept implements Serializable {
 
     @ManyToOne
     @NotNull
-    private Concept concept;
+    private Tax_types tax_types;
 
     @ManyToOne
     @NotNull
-    private Tax_types tax_types;
+    private Taxpayer_concept taxpayer_concept;
 
     public Long getId() {
         return id;
@@ -51,20 +51,20 @@ public class Tax_concept implements Serializable {
         this.rate = rate;
     }
 
-    public Concept getConcept() {
-        return concept;
-    }
-
-    public void setConcept(Concept concept) {
-        this.concept = concept;
-    }
-
     public Tax_types getTax_types() {
         return tax_types;
     }
 
     public void setTax_types(Tax_types tax_types) {
         this.tax_types = tax_types;
+    }
+
+    public Taxpayer_concept getTaxpayer_concept() {
+        return taxpayer_concept;
+    }
+
+    public void setTaxpayer_concept(Taxpayer_concept taxpayer_concept) {
+        this.taxpayer_concept = taxpayer_concept;
     }
 
     @Override

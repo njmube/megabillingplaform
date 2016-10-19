@@ -5,25 +5,19 @@
         .module('megabillingplatformApp')
         .controller('ConceptDeleteController',ConceptDeleteController);
 
-    ConceptDeleteController.$inject = ['$uibModalInstance', 'entity', 'taxpayer_account_entity', 'Concept'];
+    ConceptDeleteController.$inject = ['$uibModalInstance', 'entity', 'Concept'];
 
-    function ConceptDeleteController($uibModalInstance, entity, taxpayer_account_entity, Concept) {
+    function ConceptDeleteController($uibModalInstance, entity, Concept) {
         var vm = this;
-
         vm.concept = entity;
-        vm.taxpayer_account = taxpayer_account_entity;
-        vm.clear = clear;
-        vm.confirmDelete = confirmDelete;
-
-        function clear () {
+        vm.clear = function() {
             $uibModalInstance.dismiss('cancel');
-        }
-
-        function confirmDelete (id) {
-            Concept.delete({id: id, taxpayeraccount: vm.taxpayer_account.id},
+        };
+        vm.confirmDelete = function (id) {
+            Concept.delete({id: id},
                 function () {
                     $uibModalInstance.close(true);
                 });
-        }
+        };
     }
 })();

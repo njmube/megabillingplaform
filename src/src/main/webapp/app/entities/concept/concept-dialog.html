@@ -1,5 +1,5 @@
 
-<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -8,195 +8,98 @@
     </div>
     <div class="modal-body">
         <jhi-alert-error></jhi-alert-error>
-
-        <h3 class="header smaller lighter blue">
-            Datos Generales
-        </h3>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group" ng-show="vm.concept.id">
-                    <label class="col-sm-4 control-label no-padding-right" for="id" translate="global.field.id">ID</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="id" name="id"
-                               ng-model="vm.concept.id" readonly />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.concept.no_identification" for="field_no_identification">No Identification</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" name="no_identification" id="field_no_identification"
-                               ng-model="vm.concept.no_identification"
-                               required />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.concept.measure_unit" for="field_measure_unit">Measure Unit</label>
-                    <div class="col-sm-8">
-                        <select class="form-control" id="field_measure_unit" name="measure_unit" ng-model="vm.concept.measure_unit"
-                                ng-options="measure_unit as measure_unit.name for measure_unit in vm.measure_units track by measure_unit.id" required>
-                            <option value="">Seleccione uniddad de medida</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.concept.description">Description</label>
-                    <div class="col-sm-8">
-                        <!--<input type="text" class="form-control" name="description" id="field_description"
-                               ng-model="vm.concept.description"
-                        />-->
-                        <trix-editor angular-trix ng-model="vm.concept.description" class="trix-content" required></trix-editor>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.concept.predial_number" for="field_predial_number">Predial Number</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" name="predial_number" id="field_predial_number"
-                               ng-model="vm.concept.predial_number"
-                        />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.concept.unit_value" for="field_unit_value">Unit Value</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" name="unit_value" id="field_unit_value"
-                               ng-model="vm.concept.unit_value" ng-change="vm.calcAmount()" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
-                               required />
-                        <div ng-show="editForm.unit_value.$invalid">
-                            <p class="help-block"
-                               ng-show="editForm.unit_value.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
-                                This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.concept.quantity" for="field_quantity">Quantity</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" name="quantity" id="field_quantity"
-                               ng-model="vm.concept.quantity" ng-change="vm.calcAmount()" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
-                               required />
-                        <div ng-show="editForm.quantity.$invalid">
-                            <p class="help-block"
-                               ng-show="editForm.quantity.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
-                                This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.concept.discount" for="field_discount">Discount</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" name="discount" id="field_discount"
-                               ng-model="vm.concept.discount" ng-change="vm.calcAmount()" ng-pattern="/^\d{1,2}\.?\d{1,2}$/"
-                        />
-                        <div ng-show="editForm.discount.$invalid">
-                            <p class="help-block"
-                               ng-show="editForm.discount.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d{1,2}\.?\d{1,2}$">
-                                This field should follow pattern "/^\d{1,2}\.?\d{1,2}$/".
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.concept.amount" for="field_amount">Amount</label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" name="amount" id="field_amount"
-                               ng-model="vm.concept.amount" ui-mega-number-format  ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
-                               required readonly />
-                        <div ng-show="editForm.amount.$invalid">
-                            <p class="help-block"
-                               ng-show="editForm.amount.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d+\.?\d*$">
-                                This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
-                            </p>
-                        </div>
-                    </div>
-                </div>
+        <div class="form-group" ng-show="vm.concept.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.concept.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.concept.no_identification" for="field_no_identification">No Identification</label>
+            <input type="text" class="form-control" name="no_identification" id="field_no_identification"
+                    ng-model="vm.concept.no_identification"
+                    required />
+            <div ng-show="editForm.no_identification.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.no_identification.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
             </div>
         </div>
-
-        <div class="space-12"></div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="header smaller lighter blue">
-                    Partes
-                </h3>
-                <table id="parts-table" class="table table-striped table-bordered table-hover">
-                    <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>U/M</th>
-                        <th>Descripción</th>
-                        <th>Valor Unitario</th>
-                        <th>Importe</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="part_concept in vm.part_concepts">
-                        <td>{{part_concept.no_identification}}</td>
-                        <td>{{part_concept.measure_unit.name}}</td>
-                        <td>{{part_concept.description}}</td>
-                        <td>{{part_concept.unit_value | uimeganumberformat}}</td>
-                        <td>{{part_concept.amount | uimeganumberformat}}</td>
-                        <td>
-                            <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removePartConcept($index)">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addPartConcept()">
-                    Adicionar
-                </button>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.concept.quantity" for="field_quantity">Quantity</label>
+            <input type="number" class="form-control" name="quantity" id="field_quantity"
+                    ng-model="vm.concept.quantity"
+                    required />
+            <div ng-show="editForm.quantity.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.quantity.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.quantity.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
             </div>
         </div>
-
-        <div class="space-12"></div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h3 class="header smaller lighter blue">
-                    Información Aduanera
-                </h3>
-                <table id="custom-info-table" class="table table-striped table-bordered table-hover">
-                    <thead>
-                    <tr>
-                        <th>No. Documento</th>
-                        <th>Fecha</th>
-                        <th>Aduana</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="customs_info in vm.customs_infos">
-                        <td>{{customs_info.number_doc}}</td>
-                        <td>{{customs_info.date  | date:'yyyy-MM-dd'}}</td>
-                        <td>{{customs_info.customs}}</td>
-                        <td>
-                            <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeCustomInfo($index)">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addCustomInfo()">
-                    Adicionar
-                </button>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.concept.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                    ng-model="vm.concept.description"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.concept.unit_value" for="field_unit_value">Unit Value</label>
+            <input type="number" class="form-control" name="unit_value" id="field_unit_value"
+                    ng-model="vm.concept.unit_value"
+                    required />
+            <div ng-show="editForm.unit_value.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.unit_value.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.unit_value.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
             </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.concept.predial_number" for="field_predial_number">Predial Number</label>
+            <input type="text" class="form-control" name="predial_number" id="field_predial_number"
+                    ng-model="vm.concept.predial_number"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.concept.discount" for="field_discount">Discount</label>
+            <input type="number" class="form-control" name="discount" id="field_discount"
+                    ng-model="vm.concept.discount"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.concept.amount" for="field_amount">Amount</label>
+            <input type="number" class="form-control" name="amount" id="field_amount"
+                    ng-model="vm.concept.amount"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.concept.measure_unit" for="field_measure_unit">Measure Unit</label>
+            <select class="form-control" id="field_measure_unit" name="measure_unit" ng-model="vm.concept.measure_unit" ng-options="measure_unit as measure_unit.name for measure_unit in vm.measure_units track by measure_unit.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.concept.cfdi" for="field_cfdi">Cfdi</label>
+            <select class="form-control" id="field_cfdi" name="cfdi" ng-model="vm.concept.cfdi" ng-options="cfdi as cfdi.id for cfdi in vm.cfdis track by cfdi.id">
+                <option value=""></option>
+            </select>
         </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
         </button>
-        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
             <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
         </button>
     </div>

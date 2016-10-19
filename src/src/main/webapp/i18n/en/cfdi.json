@@ -5,6 +5,7 @@
                 "title": "Cfdis",
                 "createLabel": "Create a new Cfdi",
                 "createOrEditLabel": "Create or edit a Cfdi",
+                "chooseClientLabel": "Choose Clients",
                 "search": "Search for Cfdi"
             },
             "created": "A new Cfdi is created with identifier {{ param }}",
@@ -38,14 +39,22 @@
             "number_certificate": "Number Certificate",
             "certificate": "Certificate",
             "cfdi_states": "Cfdi States",
-            "payment_method": "Payment Method",
+            "payment_method": "Payment Method (*)",
+            "way_payment": "Way Payment (*)",
             "cfdi_types": "Cfdi Types",
-            "cfdi_type_doc": "Cfdi Type Doc",
+            "cfdi_type_doc": "Cfdi Type Doc (*)",
             "c_money": "C Money",
             "com_tfd": "Com Tfd",
             "taxpayer_account": "Taxpayer Account",
             "tax_regime": "Tax Regime",
-            "taxpayer_client": "Taxpayer Client"
+            "taxpayer_client": "Taxpayer Client",
+            "choose_client": "Choose Client",
+            "choose": "Choose",
+            "generate": "Generate",
+			"validation":{
+				"way_paymentxnomorey":"First value have to be minor than the last value",
+				"way_paymentxynocero":"Above values can not be cero"
+			}
         }
     }
 }

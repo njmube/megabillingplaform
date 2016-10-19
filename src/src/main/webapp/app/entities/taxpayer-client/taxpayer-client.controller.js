@@ -113,7 +113,6 @@
         }
 
         vm.addTaxpayerClient = addTaxpayerClient;
-        vm.viewTaxpayerClient = viewTaxpayerClient;
         vm.editTaxpayerClient = editTaxpayerClient;
         vm.deleteTaxpayerClient = deleteTaxpayerClient;
 
@@ -141,21 +140,6 @@
                 }
             }).result.then(function() {
                 loadAll();
-            });
-        }
-
-        function viewTaxpayerClient(id){
-            $uibModal.open({
-                templateUrl: 'app/entities/taxpayer-client/taxpayer-client-detail.html',
-                controller: 'Taxpayer_clientDetailController',
-                controllerAs: 'vm',
-                backdrop: 'static',
-                size: '',
-                resolve: {
-                    entity: function () {
-                        return Taxpayer_client.get({id: id}).$promise;
-                    }
-                }
             });
         }
 

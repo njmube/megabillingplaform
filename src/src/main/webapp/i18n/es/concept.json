@@ -4,7 +4,6 @@
             "home": {
                 "title": "Concepts",
                 "createLabel": "Crear nuevo Concept",
-                "add": "Adicionar",
                 "createOrEditLabel": "Crear o editar Concept",
                 "search": "Search for Concept"
             },
@@ -17,15 +16,15 @@
             "detail": {
                 "title": "Concept"
             },
-            "no_identification": "No Identification (*)",
-            "quantity": "Quantity  (*)",
-            "description": "Description  (*)",
-            "unit_value": "Unit Value (*)",
+            "no_identification": "No Identification",
+            "quantity": "Quantity",
+            "description": "Description",
+            "unit_value": "Unit Value",
             "predial_number": "Predial Number",
             "discount": "Discount",
-            "amount": "Amount (*)",
-            "taxpayer_account": "Taxpayer Account",
-            "measure_unit": "Measure Unit  (*)"
+            "amount": "Amount",
+            "measure_unit": "Measure Unit",
+            "cfdi": "Cfdi"
         }
     }
 }

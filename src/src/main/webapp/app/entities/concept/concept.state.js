@@ -11,9 +11,9 @@
         $stateProvider
         .state('concept', {
             parent: 'entity',
-            url: '/concepts/{id}?page&sort&search',
+            url: '/concept?page&sort&search',
             data: {
-                authorities: ['ROLE_AFILITATED'],
+                authorities: ['ROLE_USER'],
                 pageTitle: 'megabillingplatformApp.concept.home.title'
             },
             views: {
@@ -44,13 +44,8 @@
                         search: $stateParams.search
                     };
                 }],
-                taxpayer_account_entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
-                    return Taxpayer_account.get({id : $stateParams.id}).$promise;
-                }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('concept');
-                    $translatePartialLoader.addPart('part_concept');
-                    $translatePartialLoader.addPart('customs_info');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
@@ -76,7 +71,7 @@
                     return $translate.refresh();
                 }],
                 entity: ['$stateParams', 'Concept', function($stateParams, Concept) {
-                    return Concept.get({id : $stateParams.id}).$promise;
+                    return Concept.get({id : $stateParams.id});
                 }]
             }
         })
@@ -129,7 +124,7 @@
                     size: 'lg',
                     resolve: {
                         entity: ['Concept', function(Concept) {
-                            return Concept.get({id : $stateParams.id}).$promise;
+                            return Concept.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {
@@ -153,7 +148,7 @@
                     size: 'md',
                     resolve: {
                         entity: ['Concept', function(Concept) {
-                            return Concept.get({id : $stateParams.id}).$promise;
+                            return Concept.get({id : $stateParams.id});
                         }]
                     }
                 }).result.then(function() {

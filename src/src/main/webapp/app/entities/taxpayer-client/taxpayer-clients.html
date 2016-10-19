@@ -33,13 +33,13 @@
                 </a>
             </li>
             <li ng-show="vm.taxpayer_account != null">
-                <a href="#/">{{'global.afilitated.generateCFDI' | translate}}</a>
+                <a ui-sref="cfdi-new({id:vm.taxpayer_account.id})">{{'global.afilitated.generateCFDI' | translate}}</a>
             </li>
             <li class="active" ng-show="vm.taxpayer_account != null">
                 <a ui-sref="taxpayer-client({id:vm.taxpayer_account.id})">{{'global.afilitated.costumers' | translate}}</a>
             </li>
             <li ng-show="vm.taxpayer_account != null">
-                <a ui-sref="concept({id:vm.taxpayer_account.id})">{{'global.afilitated.concepts' | translate}}</a>
+                <a ui-sref="taxpayer-concept({id:vm.taxpayer_account.id})">{{'global.afilitated.concepts' | translate}}</a>
             </li>
             <li ng-show="vm.taxpayer_account != null">
                 <a ui-sref="tax-concept({id:vm.taxpayer_account.id})">{{'global.afilitated.tax_concepts' | translate}}</a>
@@ -51,7 +51,7 @@
     </div><!-- /.col -->
 </div><!-- /.row -->
 
-<div class="space-24"></div>
+<div class="hr hr-16 hr-dotted"></div>
 
 <form name="searchForm" class="form-horizontal" role="form" novalidate ng-submit="vm.search()" show-validation>
 <div class="row" ng-show="vm.taxpayer_account != null">
@@ -122,13 +122,6 @@
     <div class="table-responsive">
         <table class="jh-table table table-striped table-bordered">
             <thead>
-                <!--<tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.taxpayer_client.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="bussinesname"><span translate="megabillingplatformApp.taxpayer_client.bussinesname">Bussinesname</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th jh-sort-by="email"><span translate="megabillingplatformApp.taxpayer_client.email">Email</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>-->
                 <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
                     <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
                     <th><span translate="megabillingplatformApp.client_address.c_country">C Country</span></th>
@@ -151,12 +144,6 @@
                     <td>{{taxpayer_client.phone}}</td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
-                            <button type="button"
-                                    ng-click="vm.viewTaxpayerClient(taxpayer_client.id)"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <!--<span class="hidden-xs hidden-sm" translate="entity.action.view"></span>-->
-                            </button>
                             <button type="button"
                                     ng-click="vm.editTaxpayerClient(taxpayer_client.id)"
                                     class="btn btn-primary btn-sm">

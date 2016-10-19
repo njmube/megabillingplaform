@@ -1,16 +1,16 @@
 {
     "relationships": [
         {
-            "relationshipName": "taxpayer_account",
-            "otherEntityName": "taxpayer_account",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
             "relationshipName": "measure_unit",
             "otherEntityName": "measure_unit",
             "relationshipType": "many-to-one",
             "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "cfdi",
+            "otherEntityName": "cfdi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

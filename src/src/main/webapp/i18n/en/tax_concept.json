@@ -17,9 +17,9 @@
             "detail": {
                 "title": "Tax Concept"
             },
-            "rate": "Rate (*)",
-            "concept": "Concept (*)",
-            "tax_types": "Tax Types (*)"
+            "rate": "Rate  (*)",
+            "tax_types": "Tax Types (*)",
+            "taxpayer_concept": "Taxpayer Concept (*)"
         }
     }
 }

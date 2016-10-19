@@ -1,0 +1,60 @@
+<div>
+    <h2 translate="megabillingplatformApp.price_concept.home.title">Price Concepts</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="price-concept.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.price_concept.home.createLabel">
+                        Create new Price Concept
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span translate="global.field.id">ID</span></th>
+                    <th><span translate="megabillingplatformApp.price_concept.value">Value</span></th>
+                    <th><span translate="megabillingplatformApp.price_concept.taxpayer_concept">Taxpayer Concept</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="price_concept in vm.price_concepts track by price_concept.id">
+                    <td><a ui-sref="price-concept-detail({id:price_concept.id})">{{price_concept.id}}</a></td>
+                    <td>{{price_concept.value}}</td>
+                    <td>
+                        <a ui-sref="taxpayer-concept-detail({id:price_concept.taxpayer_concept.id})">{{price_concept.taxpayer_concept.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="price-concept-detail({id:price_concept.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="price-concept.edit({id:price_concept.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="price-concept.delete({id:price_concept.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

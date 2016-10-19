@@ -48,10 +48,10 @@ public class Concept implements Serializable {
     private BigDecimal amount;
 
     @ManyToOne
-    private Taxpayer_account taxpayer_account;
+    private Measure_unit measure_unit;
 
     @ManyToOne
-    private Measure_unit measure_unit;
+    private Cfdi cfdi;
 
     public Long getId() {
         return id;
@@ -117,20 +117,20 @@ public class Concept implements Serializable {
         this.amount = amount;
     }
 
-    public Taxpayer_account getTaxpayer_account() {
-        return taxpayer_account;
-    }
-
-    public void setTaxpayer_account(Taxpayer_account taxpayer_account) {
-        this.taxpayer_account = taxpayer_account;
-    }
-
     public Measure_unit getMeasure_unit() {
         return measure_unit;
     }
 
     public void setMeasure_unit(Measure_unit measure_unit) {
         this.measure_unit = measure_unit;
+    }
+
+    public Cfdi getCfdi() {
+        return cfdi;
+    }
+
+    public void setCfdi(Cfdi cfdi) {
+        this.cfdi = cfdi;
     }
 
     @Override

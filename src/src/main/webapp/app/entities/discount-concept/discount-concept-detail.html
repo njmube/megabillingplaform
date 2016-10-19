@@ -1,0 +1,22 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.discount_concept.detail.title">Discount Concept</span> {{vm.discount_concept.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.discount_concept.value">Value</span></dt>
+        <dd>
+            <span>{{vm.discount_concept.value}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.discount_concept.taxpayer_concept">Taxpayer Concept</span></dt>
+        <dd>
+            <a ui-sref="taxpayer-concept-detail({id:vm.discount_concept.taxpayer_concept.id})">{{vm.discount_concept.taxpayer_concept.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

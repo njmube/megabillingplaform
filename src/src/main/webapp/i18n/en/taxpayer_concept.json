@@ -1,0 +1,35 @@
+{
+    "megabillingplatformApp": {
+        "taxpayer_concept" : {
+            "home": {
+                "title": "Taxpayer Concepts",
+                "createLabel": "Create a new Taxpayer Concept",
+                "add": "Add",
+                "createOrEditLabel": "Create or edit a Taxpayer Concept",
+                "search": "Search for Taxpayer Concept"
+            },
+            "created": "A new Taxpayer Concept is created with identifier {{ param }}",
+            "updated": "A Taxpayer Concept is updated with identifier {{ param }}",
+            "deleted": "A Taxpayer Concept is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Taxpayer Concept {{ id }}?"
+            },
+            "detail": {
+                "title": "Taxpayer Concept"
+            },
+            "no_identification": "No Identification (*)",
+            "description": "Description (*)",
+            "predial_number": "Predial Number",
+            "taxpayer_account": "Taxpayer Account",
+            "measure_unit_concept": "Measure Unit Concept",
+            "price_concept": "Price Concept",
+            "tax_concept": "Tax Concept",
+            "discount_concept": "Discount Concept",
+			"validate": {
+                "add_measure_unit_concept_error": "Measure units can not be repeated.",
+                "add_price_concept_error": "Prices can not be repeated.",
+                "add_discount_concept_error": "Dicounts can not be repeated."
+            }
+        }
+    }
+}

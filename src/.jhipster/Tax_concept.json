@@ -1,8 +1,8 @@
 {
     "relationships": [
         {
-            "relationshipName": "concept",
-            "otherEntityName": "concept",
+            "relationshipName": "tax_types",
+            "otherEntityName": "tax_types",
             "relationshipType": "many-to-one",
             "relationshipValidateRules": [
                 "required"
@@ -10,8 +10,8 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipName": "tax_types",
-            "otherEntityName": "tax_types",
+            "relationshipName": "taxpayer_concept",
+            "otherEntityName": "taxpayer_concept",
             "relationshipType": "many-to-one",
             "relationshipValidateRules": [
                 "required"

@@ -5,13 +5,14 @@
         .module('megabillingplatformApp')
         .controller('Tax_conceptDialogController', Tax_conceptDialogController);
 
-    Tax_conceptDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'taxpayer_account_entity', 'Tax_concept', 'Concept', 'Tax_types'];
+    Tax_conceptDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'taxpayer_account_entity', 'Tax_concept', 'Tax_types', 'Taxpayer_concept'];
 
-    function Tax_conceptDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, taxpayer_account_entity, Tax_concept, Concept, Tax_types) {
+    function Tax_conceptDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, taxpayer_account_entity, Tax_concept, Tax_types, Taxpayer_concept) {
         var vm = this;
         vm.tax_concept = entity;
         vm.taxpayer_account = taxpayer_account_entity;
-        vm.concepts = Concept.query({taxpayeraccount: vm.taxpayer_account.id, no_identification: " ", description: " ", measure_unit: " ", unit_value: -1});
+
+        vm.taxpayer_concepts = Taxpayer_concept.query({taxpayeraccount: vm.taxpayer_account.id, no_identification: " ", description: " ", measure_unit: " ", unit_value: -1});
         vm.tax_types = Tax_types.query({filtername: " "});
 
         $timeout(function (){

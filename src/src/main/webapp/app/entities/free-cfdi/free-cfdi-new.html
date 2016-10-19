@@ -51,7 +51,6 @@
 				<uib-tab heading="Emisor">
 					<div class="row">
 						<div class="col-md-6">
-
 							<h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_emitter.labelDE">
 								Datos del Emisor
 							</h3>
@@ -2658,9 +2657,9 @@
 							<input type="text" class="form-control text-right" name="free_cfdi_subtotal" id="field_subtotal"
                                    ui-mega-number-format ng-model="vm.free_cfdi.subtotal" mg-pattern="/^\d{1,24}\.?\d{1,6}$/"
 									required readonly />
-                            <div ng-show="editForm.free_cfdi_iva.$invalid">
+                            <div ng-show="editForm.free_cfdi_subtotal.$invalid">
                                 <p class="help-block"
-                                   ng-show="editForm.free_cfdi_iva.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                                   ng-show="editForm.free_cfdi_subtotal.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
                                     This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
                                 </p>
                             </div>

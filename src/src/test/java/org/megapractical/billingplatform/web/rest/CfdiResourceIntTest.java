@@ -101,6 +101,8 @@ public class CfdiResourceIntTest {
     private static final String UPDATED_NUMBER_CERTIFICATE = "BBBBBBBBBBBBBBBBBBBB";
     private static final String DEFAULT_CERTIFICATE = "AAAAA";
     private static final String UPDATED_CERTIFICATE = "BBBBB";
+    private static final String DEFAULT_WAY_PAYMENT = "AAAAA";
+    private static final String UPDATED_WAY_PAYMENT = "BBBBB";
 
     @Inject
     private CfdiRepository cfdiRepository;
@@ -152,6 +154,7 @@ public class CfdiResourceIntTest {
         cfdi.setAddenda(DEFAULT_ADDENDA);
         cfdi.setNumber_certificate(DEFAULT_NUMBER_CERTIFICATE);
         cfdi.setCertificate(DEFAULT_CERTIFICATE);
+        cfdi.setWay_payment(DEFAULT_WAY_PAYMENT);
     }
 
     @Test
@@ -191,6 +194,7 @@ public class CfdiResourceIntTest {
         assertThat(testCfdi.getAddenda()).isEqualTo(DEFAULT_ADDENDA);
         assertThat(testCfdi.getNumber_certificate()).isEqualTo(DEFAULT_NUMBER_CERTIFICATE);
         assertThat(testCfdi.getCertificate()).isEqualTo(DEFAULT_CERTIFICATE);
+        assertThat(testCfdi.getWay_payment()).isEqualTo(DEFAULT_WAY_PAYMENT);
     }
 
     @Test
@@ -350,7 +354,8 @@ public class CfdiResourceIntTest {
                 .andExpect(jsonPath("$.[*].total").value(hasItem(DEFAULT_TOTAL.intValue())))
                 .andExpect(jsonPath("$.[*].addenda").value(hasItem(DEFAULT_ADDENDA.toString())))
                 .andExpect(jsonPath("$.[*].number_certificate").value(hasItem(DEFAULT_NUMBER_CERTIFICATE.toString())))
-                .andExpect(jsonPath("$.[*].certificate").value(hasItem(DEFAULT_CERTIFICATE.toString())));
+                .andExpect(jsonPath("$.[*].certificate").value(hasItem(DEFAULT_CERTIFICATE.toString())))
+                .andExpect(jsonPath("$.[*].way_payment").value(hasItem(DEFAULT_WAY_PAYMENT.toString())));
     }
 
     @Test
@@ -384,7 +389,8 @@ public class CfdiResourceIntTest {
             .andExpect(jsonPath("$.total").value(DEFAULT_TOTAL.intValue()))
             .andExpect(jsonPath("$.addenda").value(DEFAULT_ADDENDA.toString()))
             .andExpect(jsonPath("$.number_certificate").value(DEFAULT_NUMBER_CERTIFICATE.toString()))
-            .andExpect(jsonPath("$.certificate").value(DEFAULT_CERTIFICATE.toString()));
+            .andExpect(jsonPath("$.certificate").value(DEFAULT_CERTIFICATE.toString()))
+            .andExpect(jsonPath("$.way_payment").value(DEFAULT_WAY_PAYMENT.toString()));
     }
 
     @Test
@@ -427,6 +433,7 @@ public class CfdiResourceIntTest {
         updatedCfdi.setAddenda(UPDATED_ADDENDA);
         updatedCfdi.setNumber_certificate(UPDATED_NUMBER_CERTIFICATE);
         updatedCfdi.setCertificate(UPDATED_CERTIFICATE);
+        updatedCfdi.setWay_payment(UPDATED_WAY_PAYMENT);
 
         restCfdiMockMvc.perform(put("/api/cfdis")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -458,6 +465,7 @@ public class CfdiResourceIntTest {
         assertThat(testCfdi.getAddenda()).isEqualTo(UPDATED_ADDENDA);
         assertThat(testCfdi.getNumber_certificate()).isEqualTo(UPDATED_NUMBER_CERTIFICATE);
         assertThat(testCfdi.getCertificate()).isEqualTo(UPDATED_CERTIFICATE);
+        assertThat(testCfdi.getWay_payment()).isEqualTo(UPDATED_WAY_PAYMENT);
     }
 
     @Test

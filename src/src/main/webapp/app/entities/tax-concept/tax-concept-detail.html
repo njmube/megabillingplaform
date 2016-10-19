@@ -1,19 +1,26 @@
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
-            ng-click="vm.clear()">&times;</button>
-    <h4 class="modal-title"><span translate="megabillingplatformApp.tax_concept.detail.title">Tax Concept</span> {{vm.tax_concept.id}}</h4>
-</div>
-<div class="modal-body">
-    <div>
-        <!--<h2><span translate="megabillingplatformApp.tax_concept.detail.title">Tax Concept</span> {{vm.tax_concept.id}}</h2>-->
-        <jhi-alert-error></jhi-alert-error>
-        <dl class="dl-horizontal jh-entity-details">
-            <dt><span translate="megabillingplatformApp.tax_concept.concept">Concept</span></dt>
-            <dd>{{vm.tax_concept.concept.description | uimegahtmltoplaintext}}</dd>
-            <dt><span translate="megabillingplatformApp.tax_concept.tax_types">Tax Types</span></dt>
-            <dd>{{vm.tax_concept.tax_types.name}}</dd>
-            <dt><span translate="megabillingplatformApp.tax_concept.rate">Rate</span></dt>
-            <dd><span>{{vm.tax_concept.rate}}</span></dd>
-        </dl>
-    </div>
+
+<div>
+    <h2><span translate="megabillingplatformApp.tax_concept.detail.title">Tax Concept</span> {{vm.tax_concept.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.tax_concept.rate">Rate</span></dt>
+        <dd>
+            <span>{{vm.tax_concept.rate}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.tax_concept.tax_types">Tax Types</span></dt>
+        <dd>
+            <a ui-sref="tax-types-detail({id:vm.tax_concept.tax_types.id})">{{vm.tax_concept.tax_types.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.tax_concept.taxpayer_concept">Taxpayer Concept</span></dt>
+        <dd>
+            <a ui-sref="taxpayer-concept-detail({id:vm.tax_concept.taxpayer_concept.id})">{{vm.tax_concept.taxpayer_concept.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
 </div>

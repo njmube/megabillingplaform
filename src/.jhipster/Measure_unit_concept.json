@@ -1,0 +1,28 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "measure_unit",
+            "otherEntityName": "measure_unit",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "taxpayer_concept",
+            "otherEntityName": "taxpayer_concept",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20161018013559",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "measure_unit_concept",
+    "pagination": "no"
+}

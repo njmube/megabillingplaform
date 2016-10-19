@@ -5,16 +5,13 @@
         .module('megabillingplatformApp')
         .controller('Tax_conceptController', Tax_conceptController);
 
-    Tax_conceptController.$inject = ['$state', 'taxpayer_account_entity', 'Taxpayer_account', 'Tax_types', 'Tax_concept', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants', '$uibModal'];
+    Tax_conceptController.$inject = ['$uibModal', '$state', 'taxpayer_account_entity', 'Taxpayer_account', 'Tax_types', 'Tax_concept', 'ParseLinks', 'AlertService', 'pagingParams', 'paginationConstants'];
 
-    function Tax_conceptController ($state, taxpayer_account_entity, Taxpayer_account, Tax_types, Tax_concept, ParseLinks, AlertService, pagingParams, paginationConstants, $uibModal) {
+    function Tax_conceptController ($uibModal, $state, taxpayer_account_entity, Taxpayer_account, Tax_types, Tax_concept, ParseLinks, AlertService, pagingParams, paginationConstants) {
         var vm = this;
 
         vm.taxpayer_account = taxpayer_account_entity;
-        vm.taxpayer_accounts = Taxpayer_account.query({
-            page: 0,
-            size: 10
-        });
+        vm.taxpayer_accounts = Taxpayer_account.query({ page: 0, size: 10});
 
         vm.onChangeTaxPayerAccount = onChangeTaxPayerAccount;
 
@@ -106,7 +103,6 @@
         }
 
         vm.addTaxConcept = addTaxConcept;
-        vm.viewTaxConcept = viewTaxConcept;
         vm.editTaxConcept = editTaxConcept;
         vm.deleteTaxConcept = deleteTaxConcept;
 
@@ -130,21 +126,6 @@
                 }
             }).result.then(function() {
                 loadAll();
-            });
-        }
-
-        function viewTaxConcept(id){
-            $uibModal.open({
-                templateUrl: 'app/entities/tax-concept/tax-concept-detail.html',
-                controller: 'Tax_conceptDetailController',
-                controllerAs: 'vm',
-                backdrop: 'static',
-                size: '',
-                resolve: {
-                    entity: function () {
-                        return Tax_concept.get({id : id});
-                    }
-                }
             });
         }
 
@@ -183,5 +164,6 @@
                 loadAll();
             });
         }
+
     }
 })();

@@ -105,6 +105,10 @@
                 <constraints nullable="false" />
             </column>
             
+            <column name="way_payment" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="cfdi_states_id" type="bigint">
                 <constraints nullable="false" />
             </column>

@@ -1,0 +1,764 @@
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>
+                Facturación En Línea
+                <small>
+                    <i class="ace-icon fa fa-angle-double-right"></i>
+                    {{'global.afilitated.generateCFDI' | translate}}
+                </small>
+            </h1>
+        </div>
+        <div class="col-md-3">
+            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account" data-ng-change="vm.onChangeTaxPayerAccount()"
+                    ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
+                <option value="">Seleccione Cuenta Contribuyente</option>
+            </select>
+        </div>
+        <div class="col-md-1">
+            <a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info pull-right" href="">
+                <i class="fa fa-lightbulb-o"></i>
+            </a>
+        </div>
+    </div>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="nav nav-pills">
+            <li>
+                <a href="#/">
+                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                </a>
+            </li>
+            <li class="active" ng-show="vm.taxpayer_account != null">
+                <a ui-sref="cfdi-new({id:vm.taxpayer_account.id})">{{'global.afilitated.generateCFDI' | translate}}</a>
+            </li>
+            <li ng-show="vm.taxpayer_account != null">
+                <a ui-sref="taxpayer-client({id:vm.taxpayer_account.id})">{{'global.afilitated.costumers' | translate}}</a>
+            </li>
+            <li ng-show="vm.taxpayer_account != null">
+                <a ui-sref="concept({id:vm.taxpayer_account.id})">{{'global.afilitated.concepts' | translate}}</a>
+            </li>
+            <li ng-show="vm.taxpayer_account != null">
+                <a ui-sref="tax-concept({id:vm.taxpayer_account.id})">{{'global.afilitated.tax_concepts' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="request-taxpayer-account.afilitated">{{'global.user.join.mega' | translate}}</a>
+            </li>
+        </ul>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="hr hr-16 hr-dotted"></div>
+
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+    <jhi-alert></jhi-alert>
+
+    <uib-tabset active="active">
+        <uib-tab heading="Emisor">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.taxpayer_account.general_data">
+                        Datos Generales
+                    </h3>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.rfc" for="field_taxpayer_account_rfc">Rfc</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="taxpayer_account_rfc" id="field_taxpayer_account_rfc"
+                                   ng-model="vm.taxpayer_account.rfc"
+                                   ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/" required readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.type_taxpayer" for="field_taxpayer_account_type_taxpayer">Type Taxpayer</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="field_taxpayer_account_type_taxpayer" name="taxpayer_account_type_taxpayer" ng-model="vm.taxpayer_account.type_taxpayer.name" required readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.tax_regime" for="field_taxpayer_account_tax_regime">Tax Regime</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_taxpayer_account_tax_regime" multiple name="taxpayer_account_tax_regime" ng-model="vm.taxpayer_account.tax_regimes"
+                                    ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimes track by tax_regime.id" disabled ></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.bussines_name" for="field_taxpayer_account_bussines_name">Bussines Name</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="taxpayer_account_bussines_name" id="field_taxpayer_account_bussines_name"
+                                   ng-model="vm.taxpayer_account.bussines_name"
+                                   required readonly />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.email" for="field_taxpayer_account_email">Email</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="taxpayer_account_email" id="field_taxpayer_account_email"
+                                   ng-model="vm.taxpayer_account.email"
+                                   ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" required readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.fax" for="field_taxpayer_account_fax">Fax</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="taxpayer_account_fax" id="field_taxpayer_account_fax"
+                                   ng-model="vm.taxpayer_account.fax" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.phone1" for="field_taxpayer_account_phone1">Phone 1</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="taxpayer_account_phone1" id="field_taxpayer_account_phone1"
+                                   ng-model="vm.taxpayer_account.phone1" readonly
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.phone2" for="field_taxpayer_account_phone2">Phone 2</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="taxpayer_account_phone2" id="field_taxpayer_account_phone2"
+                                   ng-model="vm.taxpayer_account.phone2" readonly
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.accuracy" for="field_taxpayer_account_accuracy">Accuracy</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="taxpayer_account_accuracy" id="field_taxpayer_account_accuracy"
+                                   ng-model="vm.taxpayer_account.accuracy"
+                                   required readonly/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.taxpayer_account.fiscal_ubication">
+                        Ubicación Fiscal
+                    </h3>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.c_country" for="field_tax_address_c_country">c_country</label>
+                        <div class="col-md-8">
+                            <input type="text" id="field_tax_address_c_country" name="tax_address_c_country" class="form-control"
+                                   ng-model="vm.taxpayer_account.tax_address.c_country.name" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.c_state" for="field_tax_address_c_state">c_state</label>
+                        <div class="col-md-8">
+                            <input type="text" id="field_tax_address_c_state" name="tax_address_c_state" class="form-control"
+                                   ng-model="vm.taxpayer_account.tax_address.c_state.name" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.c_municipality" for="field_tax_address_c_municipality">c_municipality</label>
+                        <div class="col-md-8">
+                            <input type="text" id="field_tax_address_c_municipality" name="tax_address_c_municipality" class="form-control"
+                                   ng-model="vm.taxpayer_account.tax_address.c_municipality.name" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.taxpayer_account.street" for="field_tax_address_street">Street</label>
+                        <div class="col-md-8">
+                            <input type="text" id="field_tax_address_street" name="tax_address_street" class="form-control"
+                                   ng-model="vm.taxpayer_account.tax_address.street" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.no_ext" for="field_tax_address_num_ext">No ext</label>
+                        <div class="col-md-2">
+                            <input type="text" id="field_tax_address_num_ext" name="tax_address_num_ext" class="form-control"
+                                   ng-model="vm.taxpayer_account.tax_address.no_ext" readonly/>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="col-md-5 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.no_int" for="field_tax_address_num_int">No int</label>
+                            <div class="col-md-7">
+                                <input type="text" id="field_tax_address_num_int" class="form-control"
+                                       ng-model="vm.taxpayer_account.tax_address.no_int" readonly/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.c_colony" for="field_tax_address_c_colony">c_colony</label>
+                        <div class="col-md-8">
+                            <input type="text" id="field_tax_address_c_colony" name="tax_address_c_colony" class="form-control"
+                                   ng-model="vm.taxpayer_account.tax_address.c_colony.code" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.c_zip_code" for="field_tax_address_c_zip_code">c_zip_code</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="tax_address_c_zip_dode" id="field_tax_address_c_zip_code"
+                                   ng-model="vm.taxpayer_account.tax_address.c_zip_code.code" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.taxpayer_account.location" for="field_tax_address_location">Location</label>
+                        <div class="col-md-8">
+                           <input type="text" id="field_tax_address_location" class="form-control"
+                                   ng-model="vm.taxpayer_account.tax_address.location" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right"  translate="megabillingplatformApp.taxpayer_account.intersection" for="field_tax_address_intersection">Intersection</label>
+                        <div class="col-md-8">
+                            <input type="text" id="field_tax_address_intersection" name="tax_address_intersection" class="form-control"
+                                   ng-model="vm.taxpayer_account.tax_address.intersection" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.reference" for="field_tax_address_reference">
+                            Reference
+                        </label>
+                        <div class="col-md-8">
+                            <textarea type="text" id="field_tax_address_reference" name="tax_address_reference" class="form-control"
+                                      ng-model="vm.taxpayer_account.tax_address.reference" readonly></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+
+        <uib-tab heading="Receptor">
+            <div class="row">
+                <div class="col-xs-12 no-padding-left">
+                    <button type="button" class="btn btn-primary pull-right" ng-click="vm.chooseClient()">
+                        <span class="glyphicon glyphicon-plus"></span>
+                        <span  translate="megabillingplatformApp.cfdi.choose_client">
+                            Choose Client
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="header smaller lighter blue">
+                        Datos Generales
+                    </h3>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_client.rfc" for="field_taxpayer_client_rfc">Rfc</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="taxpayer_client_rfc" id="field_taxpayer_client_rfc"
+                                   ng-model="vm.taxpayer_client.rfc"
+                                   required readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_client.bussinesname" for="field_taxpayer_client_bussinesname">Bussinesname</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="taxpayer_client_bussinesname" id="field_taxpayer_client_bussinesname"
+                                   ng-model="vm.taxpayer_client.bussinesname"
+                                   required readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_client.email" for="field_taxpayer_client_email">Email</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="taxpayer_client_email" id="field_taxpayer_client_email"
+                                   ng-model="vm.taxpayer_client.email"
+                                   required readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_client.email2" for="field_taxpayer_client_email2">Email2</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="taxpayer_client_email2" id="field_taxpayer_client_email2"
+                                   ng-model="vm.taxpayer_client.email2"
+                                   required readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_client.phone" for="field_taxpayer_client_phone">Phone</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="taxpayer_client_phone" id="field_taxpayer_client_phone"
+                                   ng-model="vm.taxpayer_client.phone" readonly />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <h3 class="header smaller lighter blue">
+                        Domicilio Fiscal
+                    </h3>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.client_address.c_country" for="field_client_address_c_country">C Country</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="field_client_address_c_country" name="client_address_c_country"
+                                   ng-model="vm.taxpayer_client.client_address.c_country.name" required readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.client_address.c_state" for="field_client_address_c_state">C State</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="field_client_address_c_state" name="client_address_c_state"
+                                   ng-model="vm.taxpayer_client.client_address.c_state.name" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.client_address.c_municipality" for="field_client_address_c_municipality">C Municipality</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="field_client_address_c_municipality" name="client_address_c_municipality"
+                                   ng-model="vm.taxpayer_client.client_address.c_municipality.name" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.client_address.c_colony" for="field_client_address_c_colony">C Colony</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="field_client_address_c_colony" name="client_address_c_colony"
+                                   ng-model="vm.taxpayer_client.client_address.c_colony.code" readonly />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.client_address.c_zip_code" for="field_client_address_c_zip_code">C Zip Code</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="field_client_address_c_zip_code" name="client_address_c_zip_code"
+                                   ng-model="vm.taxpayer_client.client_address.c_zip_code.code" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.client_address.location" for="field_client_address_location">Location</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="client_address_location" id="field_client_address_location"
+                                   ng-model="vm.taxpayer_client.client_address.location" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.client_address.street" for="field_client_address_street">Street</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="client_address_street" id="field_client_address_street"
+                                   ng-model="vm.taxpayer_client.client_address.street" required readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.client_address.intersection" for="field_client_address_intersection">Intersection</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="client_address_intersection" id="field_client_address_intersection"
+                                   ng-model="vm.taxpayer_client.client_address.intersection" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.client_address.no_ext" for="field_client_address_no_ext">No Ext</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" name="client_address_no_ext" id="field_client_address_no_ext"
+                                   ng-model="vm.taxpayer_client.client_address.no_ext" readonly/>
+                        </div>
+                        <div class="col-md-5">
+                            <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.client_address.no_int" for="field_client_address_no_int">No Int</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control" name="client_address_no_int" id="field_client_address_no_int"
+                                       ng-model="vm.taxpayer_client.client_address.no_int" readonly/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.client_address.reference" for="field_client_address_reference">Reference</label>
+                        <div class="col-sm-8">
+                        <textarea class="form-control" name="client_address_reference" id="field_client_address_reference"
+                                  ng-model="vm.taxpayer_client.client_address.reference" rows="5" readonly>
+                        </textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </uib-tab>
+
+        <uib-tab heading="Comprobante">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.cfdi_type_doc" for="field_cfdi_type_doc">Cfdi Type Doc</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_cfdi_type_doc" name="cfdi_type_doc" ng-model="vm.cfdi.cfdi_type_doc"
+                                    ng-options="cfdi_type_doc as cfdi_type_doc.name for cfdi_type_doc in vm.cfdi_type_docs track by cfdi_type_doc.id" data-ng-change="vm.onChangeCFDITypeDoc()" required>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.cfdi_types" for="field_cfdi_types">Cfdi Types</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="field_cfdi_types" name="cfdi_types"
+                                   ng-model="vm.cfdi.cfdi_types.name" readonly required />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.payment_method" for="field_payment_method">Payment Method</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_payment_method" name="payment_method"
+                                    ng-model="vm.cfdi.payment_method" ng-options="payment_method as payment_method.name + ' ('+payment_method.code + ')' for payment_method in vm.payment_methods track by payment_method.id" required>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.way_payment" for="field_way_payment">way_payment</label>
+                        <div class="col-sm-5">
+                            <select class="form-control" id="field_way_payment" name="way_payment"
+                                    ng-model="vm.way_payment" ng-options="way_payment as way_payment.name for way_payment in vm.way_payments track by way_payment.id" ng-disabled="vm.enableWayPayment()" data-ng-change="vm.partialityChange()" required >
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <div class="col-sm-1 no-padding-right">
+                            <input type="text" class="form-control" name="way_payment_x" id="way_payment_x"
+                                   ng-model="vm.way_payment_x" ng-disabled="vm.enableWithByPartiality()" data-ng-change="vm.wayPaymentXYChange()"
+                                   required />
+                        </div>
+                        <label class="col-sm-1 control-label">
+                            <p class="text-center">/</p>
+                        </label>
+                        <div class="col-sm-1 no-padding-left">
+                            <input type="text" class="form-control" name="way_payment_y" id="way_payment_y"
+                                   ng-model="vm.way_payment_y" ng-disabled="vm.enableWithByPartiality()" data-ng-change="vm.wayPaymentXYChange()"
+                                   required />
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="vm.failWayPaymentXYValidation()">
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <p class="help-block"
+                               ng-show="vm.way_payment_x > vm.way_payment_y"
+                               translate="megabillingplatformApp.cfdi.validation.way_paymentxnomorey">
+                                X can not be more than y.
+                            </p>
+                            <p class="help-block"
+                               ng-show="vm.way_payment_x == 0 || vm.way_payment_y == 0"
+                               translate="megabillingplatformApp.cfdi.validation.way_paymentxynocero">
+                                X and Y can not be cero.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.serial_folio_fiscal_orig" for="field_serial_folio_fiscal_orig">Serial Folio Fiscal Orig</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="serial_folio_fiscal_orig" id="field_serial_folio_fiscal_orig"
+                                   ng-model="vm.cfdi.serial_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.folio_fiscal_orig" for="field_folio_fiscal_orig">Folio Fiscal Orig</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="folio_fiscal_orig" id="field_folio_fiscal_orig"
+                                   ng-model="vm.cfdi.folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.date_folio_fiscal_orig" for="field_date_folio_fiscal_orig">Date Folio Fiscal Orig</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" datetime-picker="{{dateformat}}"
+                                       ng-model="vm.cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()" readonly
+                                />
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_folio_fiscal_orig')" ng-disabled="vm.enableWithByPartiality()"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.mont_folio_fiscal_orig" for="field_mont_folio_fiscal_orig">Mont Folio Fiscal Orig</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="mont_folio_fiscal_orig" id="field_mont_folio_fiscal_orig"
+                                   ng-model="vm.cfdi.mont_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.serial" for="field_serial">Serial</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="serial" id="field_serial"
+                                   ng-model="vm.cfdi.serial"
+                                   ng-minlength="1" ng-maxlength="25" />
+                            <div ng-show="editForm.serial.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.serial.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
+                                    This field is required to be at least 1 characters.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.serial.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="25">
+                                    This field cannot be longer than 25 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.folio" for="field_folio">Folio</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="folio" id="field_folio"
+                                   ng-model="vm.cfdi.folio"
+                                   ng-minlength="1" ng-maxlength="20" />
+                            <div ng-show="editForm.free_cfdi_folio.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.free_cfdi_folio.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
+                                    This field is required to be at least 1 characters.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.free_cfdi_folio.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                                    This field cannot be longer than 20 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.c_money" for="field_c_money">C Money</label>
+                        <div class="col-md-8">
+                            <select class="form-control" id="field_c_money" name="c_money" ng-model="vm.cfdi.c_money"
+                                    ng-options="c_money as c_money.name for c_money in vm.c_monies track by c_money.id" data-ng-change="vm.checkMoneyType()">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.change_type" for="field_change_type">Change Type</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="change_type" id="field_change_type"
+                                   ng-model="vm.cfdi.change_type" ng-pattern="/[0-9]{1,14}(.([0-9]{1,6}))?/"
+                                />
+                            <div ng-show="editForm.change_type.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.change_type.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="[0-9]{1,14}(.([0-9]{1,6}))?">
+                                    This field should follow pattern "[0-9]{1,14}(.([0-9]{1,6}))?".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.account_number" for="field_account_number">Account Number</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" name="account_number" id="field_account_number"
+                                   ng-model="vm.cfdi.account_number" ng-maxlength="4" ng-disabled="vm.enableAccountNumber()"
+                                />
+                            <div ng-show="editForm.account_number.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.account_number.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="4">
+                                    This field cannot be longer than 4 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.payment_conditions" for="field_payment_conditions">Payment Conditions</label>
+                        <div class="col-md-8">
+                            <textarea class="form-control" name="payment_conditions" id="field_payment_conditions"
+                                   ng-model="vm.cfdi.payment_conditions" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.discount_reason" for="field_discount_reason">Discount Reason</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" name="discount_reason" id="field_discount_reason"
+                                   ng-model="vm.cfdi.discount_reason" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-24"></div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <uib-tabset>
+                        <uib-tab heading="Conceptos">
+                            <table id="concepto-table" class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">No. Id</th>
+                                    <th class="text-left">U/M</th>
+                                    <th class="text-left">Descripción &nbsp;&nbsp;&nbsp;</th>
+                                    <th class="text-right">Cantidad</th>
+                                    <th class="text-right">Valor Unitario</th>
+                                    <th class="text-right">Descuento</th>
+                                    <th class="text-right">IVA / IEPS (%)</th>
+                                    <th class="text-right">Importe</th>
+                                    <th class="text-center">Acciones</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="free_concept in vm.free_concepts">
+                                    <td class="text-center">{{free_concept.free_concept.no_identification}}</td>
+                                    <td class="text-left">{{free_concept.free_concept.measure_unit.name}}</td>
+                                    <td class="text-left">{{free_concept.free_concept.description | uimegahtmltoplaintext}}</td>
+                                    <td class="text-right">{{free_concept.free_concept.quantity}}</td>
+                                    <td class="text-right">{{free_concept.free_concept.unit_value | uimeganumberformat}}</td>
+                                    <td class="text-right">{{free_concept.free_concept.discount}}</td>
+                                    <td class="text-right">{{free_concept.free_concept_iva.rate}} / {{free_concept.free_concept_ieps.rate}}</td>
+                                    <td class="text-right">{{free_concept.free_concept.amount | uimeganumberformat}}</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeConcept($index)">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addConcept()" ng-disabled="vm.cfdi.cfdi_type_doc == null">
+                                Añadir Concepto
+                            </button>
+                        </uib-tab>
+
+                        <uib-tab heading="Addenda">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <trix-editor angular-trix ng-model="vm.cfdi.addenda" class="trix-content"></trix-editor>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </uib-tab>
+                    </uib-tabset>
+
+                </div>
+            </div>
+        </uib-tab>
+        <!--<uib-tab heading="Complementos">
+        </uib-tab>-->
+    </uib-tabset>
+
+    <div class="row">
+        <div class="col-md-5 col-md-offset-7">
+            <div class="hr hr-16 hr-dotted"></div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.subtotal" for="field_subtotal">Subtotal</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="subtotal" id="field_subtotal"
+                           ng-model="vm.cfdi.subtotal" mg-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                           required readonly />
+                    <div ng-show="editForm.subtotal.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.subtotal.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                            This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label no-padding-right" for="form-field-15">IVA ({{vm.show_iva}} %): $</label>
+                <div class="col-sm-8">
+                    <input type="text" id="form-field-15" class="form-control text-right" name="cfdi_iva"
+                           ui-mega-number-format ng-model="vm.calc_iva" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                           readonly />
+                    <div ng-show="editForm.cfdi_iva.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.cfdi_iva.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                            This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label no-padding-right" for="field_ieps">IEPS: $</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control text-right" name="cfdi_ieps" id="field_ieps"
+                           ui-mega-number-format ng-model="vm.ieps" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                           readonly />
+                    <div ng-show="editForm.cfdi_ieps.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.cfdi_ieps.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                            This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label no-padding-right" for="field_ret_iva">RET IVA: $</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control text-right" name="cfdi_ret_iva" id="field_ret_iva"
+                           ui-mega-number-format ng-model="vm.ret_iva" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                           readonly/>
+                    <div ng-show="editForm.cfdi_ret_iva.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.free_cfdi_ret_iva.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                            This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label no-padding-right" for="field_ret_isr">RET ISR: $</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control text-right" name="cfdi_ret_isr" id="field_ret_isr"
+                           ui-mega-number-format ng-model="vm.ret_isr" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                           readonly/>
+                    <div ng-show="editForm.cfdi_ret_isr.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.cfdi_ret_isr.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                            This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.discount" for="field_discount">Discount</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control text-right" name="cfdi_discount" id="field_discount"
+                           ui-mega-number-format ng-model="vm.cfdi.discount" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                           readonly />
+                    <div ng-show="editForm.cfdi_discount.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.cfdi_discount.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                            This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label no-padding-right" for="field_subtotal_discount">Subtotal-Descuentos: $</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control text-right" name="cfdi_subtotal_discount" id="field_subtotal_discount"
+                           ui-mega-number-format ng-model="vm.subtotal_discount" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                           readonly />
+                    <div ng-show="editForm.cfdi_subtotal_discount.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.cfdi_subtotal_discount.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                            This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.total" for="field_total">Total</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control text-right" name="cfdi_total" id="field_total"
+                           ui-mega-number-format ng-model="vm.cfdi.total" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
+                           required readonly />
+                    <div ng-show="editForm.cfdi_total.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.cfdi_total.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                            This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hr hr-16 hr-dotted"></div>
+
+            <div class="form-group">
+                <button type="submit"
+                        ng-disabled="editForm.$invalid || vm.free_concepts.length == 0 || vm.failWayPaymentXYValidation() || (!vm.add_button_ine_entity_disabled && vm.freecom_ine_entities.length == 0) || (vm.show_spei == true && vm.freecom_spei_thirds.length == 0)"
+                        class="btn btn-primary pull-right" style="margin: 0 15px">
+                    <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="megabillingplatformApp.cfdi.generate">Save</span>
+                </button>
+
+                <button type="button" class="btn btn-default pull-right" onclick="window.history.back()">
+                    <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+                </button>
+            </div>
+
+            <jhi-alert></jhi-alert>
+
+        </div>
+
+    </div>
+</form>

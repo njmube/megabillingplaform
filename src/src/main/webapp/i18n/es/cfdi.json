@@ -5,6 +5,7 @@
                 "title": "CFDI",
                 "createLabel": "Adicionar nuevo CFDI",
                 "createOrEditLabel": "Adicionar o editar un CFDI",
+                "chooseClientLabel": "Escoger Clientes",
                 "search": "Búsqueda por CFDI"
             },
             "created": "El CFDI ha sido adicionado satisfactoriamente.",
@@ -38,14 +39,22 @@
             "number_certificate": "No. Certificado:",
             "certificate": "Certificado:",
             "cfdi_states": "Estados de CFDI",
-            "payment_method": "Método de pago",
+            "payment_method": "Método de pago (*)",
+            "way_payment": "Forma de Pago (*)",
             "cfdi_types": "Tipos CFDI",
-            "cfdi_type_doc": "Tipo de documento CFDI",
+            "cfdi_type_doc": "Tipo de documento CFDI (*)",
             "c_money": "Moneda:",
             "com_tfd": "Complemento TFD:",
             "taxpayer_account": "Taxpayer Account:",
             "tax_regime": "Régimen de impuesto:",
-            "taxpayer_client": "Cliente contribuyente:"
+            "taxpayer_client": "Cliente contribuyente:",
+            "choose_client": "Escoger Receptor",
+            "choose": "Escoger",
+            "generate": "Generar",
+			"validation":{
+				"way_paymentxnomorey":"El primer valor no puede ser menor que le segundo.",
+				"way_paymentxynocero":"Ninguno de los dos valores numéricos de arriba pueden ser cero."
+			}		
         }
     }
 }

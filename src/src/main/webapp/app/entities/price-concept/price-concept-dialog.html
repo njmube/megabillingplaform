@@ -1,0 +1,54 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPrice_conceptLabel" translate="megabillingplatformApp.price_concept.home.createOrEditLabel">Create or edit a Price Concept</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.price_concept.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.price_concept.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.price_concept.value" for="field_value">Value</label>
+            <input type="number" class="form-control" name="value" id="field_value"
+                    ng-model="vm.price_concept.value"
+                    required />
+            <div ng-show="editForm.value.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.value.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.value.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.price_concept.taxpayer_concept" for="field_taxpayer_concept">Taxpayer Concept</label>
+            <select class="form-control" id="field_taxpayer_concept" name="taxpayer_concept" ng-model="vm.price_concept.taxpayer_concept" ng-options="taxpayer_concept as taxpayer_concept.id for taxpayer_concept in vm.taxpayer_concepts track by taxpayer_concept.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.taxpayer_concept.$invalid">
+            <p class="help-block"
+                ng-show="editForm.taxpayer_concept.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

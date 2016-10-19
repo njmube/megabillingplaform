@@ -49,11 +49,11 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="taxpayer_account_id" type="bigint">
+            <column name="measure_unit_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
-            <column name="measure_unit_id" type="bigint">
+            <column name="cfdi_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

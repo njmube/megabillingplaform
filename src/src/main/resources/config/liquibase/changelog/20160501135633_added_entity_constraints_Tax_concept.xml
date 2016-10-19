@@ -8,17 +8,17 @@
     -->
     <changeSet id="20160501135633-2" author="jhipster">
         
-        <addForeignKeyConstraint baseColumnNames="concept_id"
-                                 baseTableName="tax_concept"
-                                 constraintName="fk_tax_concept_concept_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="concept"/>
-
         <addForeignKeyConstraint baseColumnNames="tax_types_id"
                                  baseTableName="tax_concept"
                                  constraintName="fk_tax_concept_tax_types_id"
                                  referencedColumnNames="id"
                                  referencedTableName="tax_types"/>
+
+        <addForeignKeyConstraint baseColumnNames="taxpayer_concept_id"
+                                 baseTableName="tax_concept"
+                                 constraintName="fk_tax_concept_taxpayer_concept_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_concept"/>
 
     </changeSet>
 </databaseChangeLog>

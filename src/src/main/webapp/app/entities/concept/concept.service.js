@@ -10,7 +10,7 @@
         var resourceUrl =  'api/concepts/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true, param: {taxpayeraccount: null, no_identification: null, description: null, measure_unit: null, unit_value: null}},
+            'query': { method: 'GET', isArray: true},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
@@ -20,8 +20,7 @@
                     return data;
                 }
             },
-            'update': { method:'PUT' },
-            'delete': { method:'DELETE', param: {taxpayeraccount: null} }
+            'update': { method:'PUT' }
         });
     }
 })();

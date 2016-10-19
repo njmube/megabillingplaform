@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "measure_unit_concept" : {
+            "home": {
+                "title": "Measure Unit Concepts",
+                "createLabel": "Crear nuevo Measure Unit Concept",
+                "createOrEditLabel": "Crear o editar Measure Unit Concept",
+                "search": "Search for Measure Unit Concept"
+            },
+            "created": "Un nuevo Measure Unit Concept ha sido creado con el identificador {{ param }}",
+            "updated": "Un Measure Unit Concept ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Measure Unit Concept ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Measure Unit Concept {{ id }}?"
+            },
+            "detail": {
+                "title": "Measure Unit Concept"
+            },
+            "measure_unit": "Measure Unit",
+            "taxpayer_concept": "Taxpayer Concept"
+        }
+    }
+}

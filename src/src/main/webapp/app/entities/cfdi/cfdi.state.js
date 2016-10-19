@@ -13,7 +13,7 @@
             parent: 'entity',
             url: '/cfdi?page&sort&search',
             data: {
-                authorities: ['ROLE_USER'],
+                authorities: ['ROLE_AFILITATED'],
                 pageTitle: 'megabillingplatformApp.cfdi.home.title'
             },
             views: {
@@ -51,6 +51,60 @@
                 }]
             }
         })
+        .state('cfdi-new', {
+            parent: 'entity',
+            url: '/cfdi-new/{id}',
+            data: {
+                authorities: ['ROLE_AFILITATED'],
+                pageTitle: 'megabillingplatformApp.cfdi.home.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/cfdi/cfdi-new.html',
+                    controller: 'CfdiNewController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                entity: [function () {
+                    return {
+                        version: null,
+                        serial: null,
+                        folio: null,
+                        date_expedition: null,
+                        payment_conditions: null,
+                        change_type: null,
+                        place_expedition: null,
+                        account_number: null,
+                        folio_fiscal_orig: null,
+                        serial_folio_fiscal_orig: null,
+                        date_folio_fiscal_orig: null,
+                        mont_folio_fiscal_orig: null,
+                        total_tax_retention: null,
+                        total_tax_transfered: null,
+                        discount: null,
+                        discount_reason: null,
+                        subtotal: null,
+                        total: null,
+                        addenda: null,
+                        number_certificate: null,
+                        certificate: null,
+                        id: null
+                    };
+                }],
+                taxpayer_account_entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
+                    return Taxpayer_account.get({id : $stateParams.id}).$promise;
+                }],
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('cfdi');
+                    $translatePartialLoader.addPart('taxpayer_account');
+                    $translatePartialLoader.addPart('taxpayer_client');
+                    $translatePartialLoader.addPart('client_address');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
+            }
+        })
         .state('cfdi-detail', {
             parent: 'entity',
             url: '/cfdi/{id}',
@@ -79,7 +133,7 @@
             parent: 'cfdi',
             url: '/new',
             data: {
-                authorities: ['ROLE_USER']
+                authorities: ['ROLE_AFILITATED']
             },
             onEnter: ['$stateParams', '$state', '$uibModal', function($stateParams, $state, $uibModal) {
                 $uibModal.open({

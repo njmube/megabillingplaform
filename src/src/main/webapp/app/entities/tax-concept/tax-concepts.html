@@ -32,13 +32,13 @@
                 </a>
             </li>
             <li ng-show="vm.taxpayer_account != null">
-                <a href="#/">{{'global.afilitated.generateCFDI' | translate}}</a>
+                <a ui-sref="cfdi-new({id:vm.taxpayer_account.id})">{{'global.afilitated.generateCFDI' | translate}}</a>
             </li>
             <li ng-show="vm.taxpayer_account != null">
                 <a ui-sref="taxpayer-client({id:vm.taxpayer_account.id})">{{'global.afilitated.costumers' | translate}}</a>
             </li>
             <li ng-show="vm.taxpayer_account != null">
-                <a ui-sref="concept({id:vm.taxpayer_account.id})">{{'global.afilitated.concepts' | translate}}</a>
+                <a ui-sref="taxpayer-concept({id:vm.taxpayer_account.id})">{{'global.afilitated.concepts' | translate}}</a>
             </li>
             <li class="active" ng-show="vm.taxpayer_account != null">
                 <a ui-sref="tax-concept({id:vm.taxpayer_account.id})">{{'global.afilitated.tax_concepts' | translate}}</a>
@@ -50,7 +50,7 @@
     </div><!-- /.col -->
 </div><!-- /.row -->
 
-<div class="space-24"></div>
+<div class="hr hr-16 hr-dotted"></div>
 
 <form name="searchForm" class="form-horizontal" role="form" novalidate ng-submit="vm.search()" show-validation>
     <div class="row" ng-show="vm.taxpayer_account != null">
@@ -112,45 +112,39 @@
     <jhi-alert></jhi-alert>
     <div class="space-8"></div>
     <div class="table-responsive">
-        <table class="jh-table table table-striped">
+        <table class="jh-table table table-striped table-bordered">
             <thead>
-                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th><span translate="megabillingplatformApp.tax_concept.concept">Concept</span></th>
-                    <th><span translate="megabillingplatformApp.tax_concept.tax_types">Tax Types</span></th>
-                    <th jh-sort-by="rate"><span translate="megabillingplatformApp.tax_concept.rate">Rate</span> <span class="glyphicon glyphicon-sort"></span></th>
-                    <th></th>
-                </tr>
+            <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th><span translate="megabillingplatformApp.tax_concept.taxpayer_concept">Concept</span></th>
+                <th><span translate="megabillingplatformApp.tax_concept.tax_types">Tax Types</span></th>
+                <th jh-sort-by="rate"><span translate="megabillingplatformApp.tax_concept.rate">Rate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                <th></th>
+            </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="tax_concept in vm.tax_concepts track by tax_concept.id">
-                    <td>{{tax_concept.id}}</td>
-                    <td>{{tax_concept.concept.description | uimegahtmltoplaintext}}</td>
-                    <td>{{tax_concept.tax_types.name}}</td>
-                    <td>{{tax_concept.rate | number : 2}}</td>
-                    <td class="text-right">
-                        <div class="btn-group flex-btn-group-container">
-                            <button type="button"
-                                    ng-click="vm.viewTaxConcept(tax_concept.id)"
-                                    class="btn btn-info btn-sm">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                                <!--<span class="hidden-xs hidden-sm" translate="entity.action.view"></span>-->
-                            </button>
-                            <button type="button"
-                                    ng-click="vm.editTaxConcept(tax_concept.id)"
-                                    class="btn btn-primary btn-sm">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                                <!--<span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>-->
-                            </button>
-                            <button type="button"
-                                    ng-click="vm.deleteTaxConcept(tax_concept.id)"
-                                    class="btn btn-danger btn-sm">
-                                <span class="glyphicon glyphicon-trash"></span>
-                                <!--<span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>-->
-                            </button>
-                        </div>
-                    </td>
-                </tr>
+            <tr ng-repeat="tax_concept in vm.tax_concepts track by tax_concept.id">
+                <td>{{tax_concept.id}}</td>
+                <td>{{tax_concept.concept.description | uimegahtmltoplaintext}}</td>
+                <td>{{tax_concept.tax_types.name}}</td>
+                <td>{{tax_concept.rate | number : 2}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="button"
+                                ng-click="vm.editTaxConcept(tax_concept.id)"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            <!--<span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>-->
+                        </button>
+                        <button type="button"
+                                ng-click="vm.deleteTaxConcept(tax_concept.id)"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-trash"></span>
+                            <!--<span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>-->
+                        </button>
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
