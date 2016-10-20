@@ -130,7 +130,7 @@
             </column>
 
             <column name="com_tfd_id" type="bigint">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
 
             <column name="taxpayer_account_id" type="bigint">

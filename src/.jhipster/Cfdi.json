@@ -46,9 +46,6 @@
             "relationshipName": "com_tfd",
             "otherEntityName": "com_tfd",
             "relationshipType": "many-to-one",
-            "relationshipValidateRules": [
-                "required"
-            ],
             "otherEntityField": "id"
         },
         {

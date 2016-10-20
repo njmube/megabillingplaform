@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Timed;
 import org.megapractical.billingplatform.domain.*;
 import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.*;
+import org.megapractical.billingplatform.web.rest.dto.CfdiDTO;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -22,6 +23,7 @@ import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,7 +57,7 @@ public class CfdiResource {
     /**
      * POST  /cfdis : Create a new cfdi.
      *
-     * @param cfdi the cfdi to create
+     * @param cfdiDTO the cfdi to create
      * @return the ResponseEntity with status 201 (Created) and with body the new cfdi, or with status 400 (Bad Request) if the cfdi has already an ID
      * @throws URISyntaxException if the Location URI syntax is incorrect
      */
@@ -63,12 +65,51 @@ public class CfdiResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Cfdi> createCfdi(@Valid @RequestBody Cfdi cfdi) throws URISyntaxException {
+    public ResponseEntity<Cfdi> createCfdi(@RequestBody CfdiDTO cfdiDTO) throws URISyntaxException {
+        Cfdi cfdi = cfdiDTO.getCfdi();
         log.debug("REST request to save Cfdi : {}", cfdi);
         if (cfdi.getId() != null) {
+            Long idauditevent = new Long("4");
+            Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+            C_state_event c_state_event;
+            Long idstate = new Long("2");
+            c_state_event = c_state_eventService.findOne(idstate);
+            tracemgService.saveTrace(audit_event_type,c_state_event);
             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("cfdi", "idexists", "A new cfdi cannot already have an ID")).body(null);
         }
+
+        cfdi.setVersion("3.2");
+        cfdi.setDate_expedition(ZonedDateTime.now());
+
+        String place_expedition = cfdi.getTaxpayer_account().getTax_address().getC_country().getName();
+
+        if(cfdi.getTaxpayer_account().getTax_address().getC_state() != null)
+            place_expedition += ", " + cfdi.getTaxpayer_account().getTax_address().getC_state().getName();
+
+        if(cfdi.getTaxpayer_account().getTax_address().getC_municipality() != null)
+            place_expedition += ", " + cfdi.getTaxpayer_account().getTax_address().getC_municipality().getName();
+
+        if(cfdi.getTaxpayer_account().getTax_address().getC_colony() != null)
+            place_expedition += ", " + cfdi.getTaxpayer_account().getTax_address().getC_colony().getCode();
+
+        if(cfdi.getTaxpayer_account().getTax_address().getC_zip_code() != null)
+            place_expedition += ", " + cfdi.getTaxpayer_account().getTax_address().getC_zip_code().getCode();
+
+        cfdi.setPlace_expedition(place_expedition);
+        cfdi.setCertificate("cetificate");
+        cfdi.setNumber_certificate("numbercertificate");
+
         Cfdi result = cfdiService.save(cfdi);
+
+        //Saving concepts...
+
+        Long idauditevent = new Long("4");
+        Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+        C_state_event c_state_event;
+        Long idstate = new Long("1");
+        c_state_event = c_state_eventService.findOne(idstate);
+        tracemgService.saveTrace(audit_event_type, c_state_event);
+
         return ResponseEntity.created(new URI("/api/cfdis/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("cfdi", result.getId().toString()))
             .body(result);
@@ -77,7 +118,7 @@ public class CfdiResource {
     /**
      * PUT  /cfdis : Updates an existing cfdi.
      *
-     * @param cfdi the cfdi to update
+     * @param cfdiDTO the cfdi to update
      * @return the ResponseEntity with status 200 (OK) and with body the updated cfdi,
      * or with status 400 (Bad Request) if the cfdi is not valid,
      * or with status 500 (Internal Server Error) if the cfdi couldnt be updated
@@ -87,10 +128,11 @@ public class CfdiResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<Cfdi> updateCfdi(@Valid @RequestBody Cfdi cfdi) throws URISyntaxException {
+    public ResponseEntity<Cfdi> updateCfdi(@RequestBody CfdiDTO cfdiDTO) throws URISyntaxException {
+        Cfdi cfdi = cfdiDTO.getCfdi();
         log.debug("REST request to update Cfdi : {}", cfdi);
         if (cfdi.getId() == null) {
-            return createCfdi(cfdi);
+            return createCfdi(cfdiDTO);
         }
         Cfdi result = cfdiService.save(cfdi);
         return ResponseEntity.ok()

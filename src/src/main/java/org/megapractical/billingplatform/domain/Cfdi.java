@@ -121,7 +121,6 @@ public class Cfdi implements Serializable {
     private C_money c_money;
 
     @ManyToOne
-    @NotNull
     private Com_tfd com_tfd;
 
     @ManyToOne

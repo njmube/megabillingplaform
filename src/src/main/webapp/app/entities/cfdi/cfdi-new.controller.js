@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('CfdiNewController', CfdiNewController);
 
-    CfdiNewController.$inject = ['$scope', 'entity', 'taxpayer_account_entity', 'Cfdi', 'Cfdi_states', 'Payment_method', 'Cfdi_types', 'Cfdi_type_doc', 'C_money', 'Com_tfd', 'Taxpayer_account', 'Tax_regime', '$uibModal', 'Way_payment'];
+    CfdiNewController.$inject = ['$scope', 'entity', 'taxpayer_account_entity', 'Cfdi', 'Cfdi_states', 'Payment_method', 'Cfdi_types', 'Cfdi_type_doc', 'C_money', 'Taxpayer_account', 'Tax_regime', '$uibModal', 'Way_payment', 'Tax_types'];
 
-    function CfdiNewController($scope, entity, taxpayer_account_entity, Cfdi, Cfdi_states, Payment_method, Cfdi_types, Cfdi_type_doc, C_money, Com_tfd, Taxpayer_account, Tax_regime, $uibModal, Way_payment) {
+    function CfdiNewController($scope, entity, taxpayer_account_entity, Cfdi, Cfdi_states, Payment_method, Cfdi_types, Cfdi_type_doc, C_money, Taxpayer_account, Tax_regime, $uibModal, Way_payment, Tax_types) {
         var vm = this;
 
         vm.cfdi = entity;
@@ -48,6 +48,8 @@
         vm.c_monies = C_money.query({pg: -1});
         vm.checkMoneyType = checkMoneyType;
         vm.enableAccountNumber = enableAccountNumber;
+        vm.tax_typess = Tax_types.query({filtername: " "});
+        vm.com_tfds = Com_tfd.query();
 
         vm.show_iva = (0).toFixed(2);
         vm.calc_iva = (0).toFixed(2);
@@ -323,118 +325,122 @@
             vm.cfdi.total_tax_retention = total_tax_retention;
         }
 
+        function save () {
+            var bln = new BigLargeNumberOperations();
+
+            vm.cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
+            vm.cfdi.taxpayer_account = vm.taxpayer_account;
+            vm.cfdi.taxpayer_client = vm.taxpayer_client;
+
+            if(vm.cfdi.mont_folio_fiscal_orig != null && vm.cfdi.mont_folio_fiscal_orig > 0){
+                vm.cfdi.mont_folio_fiscal_orig = bln.add(vm.cfdi.mont_folio_fiscal_orig, 0, vm.taxpayer_account.accuracy);
+            }
+
+            var concept;
+            var concepts = [];
+
+            var tax_transfereds = [];
+            var tax_transfered_iva;
+            var tax_transfered_ieps;
+
+            var tax_retentions = [];
+            var amount_iva_retentions;
+            var tax_retentions_iva;
+            var amount_isr_retentions;
+            var tax_retentions_isr;
+
+            var i;
+            for(i=0; i < vm.concepts.length; i++){
+                concept = vm.concepts[i].concept;
+                concepts.push(concept);
+
+                //getting IVA for tax_transferred...
+                tax_transfered_iva = vm.concepts[i].concept_iva;
+                if(tax_transfered_iva.amount > 0){
+                    tax_transfereds.push(tax_transfered_iva);
+                }
+
+                //getting IEPS for tax_transferred...
+                tax_transfered_ieps = vm.concepts[i].concept_ieps;
+                if(tax_transfered_ieps.amount > 0){
+                    tax_transfereds.push(tax_transfered_ieps);
+                }
+
+                //getting IVA for tax_retentions
+                amount_iva_retentions = 0;
+                //calculating free cfdi ret iva...
+                if((vm.taxpayer_account.rfc != undefined && vm.taxpayer_account.rfc.length == 13 && vm.taxpayer_client != null && vm.taxpayer_client.rfc.length == 12) && (vm.cfdi.cfdi_type_doc != undefined && (vm.cfdi.cfdi_type_doc.id == 2 || vm.cfdi.cfdi_type_doc.id == 3 || vm.cfdi.cfdi_type_doc.id == 5))){
+                    //amount_iva_retentions = 2/3 * free_concept.quantity * free_concept.unit_value;
+                    amount_iva_retentions = bln.multiply(bln.multiply(2/3, concept.quantity, 6), concept.unit_value, vm.taxpayer_account.accuracy);
+                }
+                if(vm.cfdi.cfdi_type_doc != undefined && vm.cfdi.cfdi_type_doc.id == 4){
+                    //amount_iva_retentions = 0.04 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
+                    amount_iva_retentions = bln.multiply(bln.multiply(bln.multiply(0.04, concept.quantity, 6), concept.unit_value, 6), (1 - concept.discount/100), vm.taxpayer_account.accuracy);
+                }
+
+                if(amount_iva_retentions > 0){
+                    tax_retentions_iva = {
+                        amount: amount_iva_retentions,
+                        tax_types: vm.tax_typess[0],
+                        id: null
+                    };
+
+                    tax_retentions.push(tax_retentions_iva);
+
+                    vm.concepts[i].tax_retentions_iva = tax_retentions_iva;
+                }
+                else{
+                    vm.concepts[i].tax_retentions_iva = null;
+                }
+
+                //getting ISR for tax_retentions
+                amount_isr_retentions = 0;
+                //calculating free cfdi ret isr...
+                if((vm.taxpayer_account.rfc != undefined && vm.taxpayer_account.rfc.length == 13 && vm.taxpayer_client != null && vm.taxpayer_client.rfc.length == 12) || (vm.cfdi.cfdi_type_doc != undefined && (vm.cfdi.cfdi_type_doc.id == 2 || vm.cfdi.cfdi_type_doc.id == 5))){
+                    //amount_isr_retentions = 1/10 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
+                    amount_isr_retentions = bln.multiply(bln.multiply(bln.multiply(1/10, concept.quantity, 6), concept.unit_value, 6), (1 - concept.discount/100), vm.taxpayer_account.accuracy);
+                }
+
+                if(amount_isr_retentions > 0){
+                    tax_retentions_isr = {
+                        amount: amount_isr_retentions,
+                        tax_types: vm.tax_typess[1],
+                        id: null
+                    };
+
+                    tax_retentions.push(tax_retentions_isr);
+
+                    vm.concepts[i].tax_retentions_isr = tax_retentions_isr;
+                }
+                else {
+                    vm.concepts[i].tax_retentions_isr = null;
+                }
+            }
+
+            var cfdiDTO = {
+                cfdi: vm.cfdi,
+                conceptDTOs: vm.concepts,
+                concepts: concepts,
+                taxTransfereds: tax_transfereds,
+                taxRetentions: tax_retentions
+            };
+
+            vm.isSaving = true;
+
+            if (vm.cfdi.id !== null) {
+                Cfdi.update(cfdiDTO, onSaveSuccess, onSaveError);
+            } else {
+                Cfdi.save(cfdiDTO, onSaveSuccess, onSaveError);
+            }
+        }
+
         var onSaveError = function () {
             vm.isSaving = false;
         };
 
-        var onSaveConceptSuccess = function (result) {
-            var free_concept = result;
-
-            var bln = new BigLargeNumberOperations();
-
-            //saving IVA in free_tax_transferred...
-            if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id != 6) {
-                var free_tax_transfered_iva = vm.free_concepts[vm.current_free_concept].free_concept_iva;
-                if (free_tax_transfered_iva.amount > 0) {
-                    free_tax_transfered_iva.free_concept = free_concept;
-                    Free_tax_transfered.save(free_tax_transfered_iva);
-                }
-            }
-
-            //saving IEPS in free_tax_transferred...
-            if(vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 1 || vm.free_cfdi.cfdi_type_doc.id == 8)) {
-                var free_tax_transfered_ieps = vm.free_concepts[vm.current_free_concept].free_concept_ieps;
-                if (free_tax_transfered_ieps.amount > 0) {
-                    free_tax_transfered_ieps.free_concept = free_concept;
-                    Free_tax_transfered.save(free_tax_transfered_ieps);
-                }
-            }
-
-            //saving IVA in free_tax_retentions
-            var amount_iva_retentions = 0;
-            //calculating free cfdi ret iva...
-            if(vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12 && vm.free_cfdi.cfdi_type_doc != undefined) {
-                if (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5 || vm.free_cfdi.cfdi_type_doc.id == 3) {
-                    //amount_iva_retentions = 2/3 * free_concept.quantity * free_concept.unit_value;
-                    amount_iva_retentions = bln.multiply(bln.multiply(2 / 3, free_concept.quantity, 6), free_concept.unit_value, vm.accuracy);
-                }
-            }
-            else if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 4){
-                //amount_iva_retentions = 0.04 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
-                amount_iva_retentions = bln.multiply(bln.multiply(bln.multiply(0.04, free_concept.quantity, 6), free_concept.unit_value, 6), (1 - free_concept.discount/100), vm.accuracy);
-            }
-
-            if(amount_iva_retentions > 0){
-                var free_tax_retentions_iva = {
-                    amount: amount_iva_retentions,
-                    free_concept: free_concept,
-                    tax_types: vm.tax_typess[0],
-                    id: null
-                };
-                Free_tax_retentions.save(free_tax_retentions_iva);
-            }
-
-            //saving ISR in free_tax_retentions
-            var amount_isr_retentions = 0;
-            //calculating free cfdi ret isr...
-            if(vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12 && vm.free_cfdi.cfdi_type_doc != undefined) {
-                if (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5) {
-                    //amount_isr_retentions = 1/10 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
-                    amount_isr_retentions = bln.multiply(bln.multiply(bln.multiply(1/10, free_concept.quantity, 6), free_concept.unit_value, 6), (1 - free_concept.discount/100), vm.accuracy);
-                }
-            }
-
-            if(amount_isr_retentions > 0){
-                var free_tax_retentions_isr = {
-                    amount: amount_isr_retentions,
-                    free_concept: free_concept,
-                    tax_types: vm.tax_typess[1],
-                    id: null
-                };
-                Free_tax_retentions.save(free_tax_retentions_isr);
-            }
-
-            //saving free_customs_infos
-            var free_customs_infos = vm.free_concepts[vm.current_free_concept].free_customs_infos;
-            var i;
-            for(i=0; i < free_customs_infos.length; i++){
-                var free_customs_info = free_customs_infos[i];
-                free_customs_info.free_concept = free_concept;
-                Free_customs_info.save(free_customs_info);
-            }
-
-            //saving free_part_concept
-            var free_part_concepts = vm.free_concepts[vm.current_free_concept].free_part_concepts;
-            var j;
-            for(j=0; j < free_part_concepts.length; j++){
-                var free_part_concept = free_part_concepts[j];
-                free_part_concept.free_concept = free_concept;
-                free_part_concept.amount = bln.multiply(free_part_concept.quantity, free_part_concept.unit_value, vm.accuracy);
-                Free_part_concept.save(free_part_concept);
-            }
-            var next_index = vm.current_free_concept + 1;
-            if(next_index < vm.free_concepts.length){
-                vm.current_free_concept++;
-                saveConcept();
-            }
-            else{
-                resetView();
-
-                vm.free_saved_success = true;
-                $timeout(function() {
-                    vm.free_saved_success = false;
-                }, 2000);
-            }
-        }
-
-        function save () {
-            vm.isSaving = true;
-            if (vm.cfdi.id !== null) {
-                Cfdi.update(vm.cfdi, onSaveSuccess, onSaveError);
-            } else {
-                Cfdi.save(vm.cfdi, onSaveSuccess, onSaveError);
-            }
-        }
+        var onSaveSuccess = function () {
+            vm.isSaving = false;
+        };
 
         vm.current_complement = null;
     }

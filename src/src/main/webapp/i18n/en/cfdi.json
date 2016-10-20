@@ -46,7 +46,7 @@
             "c_money": "C Money",
             "com_tfd": "Com Tfd",
             "taxpayer_account": "Taxpayer Account",
-            "tax_regime": "Tax Regime",
+            "tax_regime": "Tax Regime (*)",
             "taxpayer_client": "Taxpayer Client",
             "choose_client": "Choose Client",
             "choose": "Choose",

@@ -80,7 +80,7 @@ public class Free_cfdiResource {
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
     //public ResponseEntity<Free_cfdi> createFree_cfdi(@Valid @RequestBody Free_cfdi free_cfdi) throws URISyntaxException {
-    public ResponseEntity<Free_cfdi> createFree_cfdi(@Valid @RequestBody Free_cfdiDTO free_cfdi_dto) throws URISyntaxException {
+    public ResponseEntity<Free_cfdi> createFree_cfdi(@RequestBody Free_cfdiDTO free_cfdi_dto) throws URISyntaxException {
 
         Free_cfdi free_cfdi = free_cfdi_dto.getFreeCFDI();
 

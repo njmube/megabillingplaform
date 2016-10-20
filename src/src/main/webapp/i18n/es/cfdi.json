@@ -46,7 +46,7 @@
             "c_money": "Moneda:",
             "com_tfd": "Complemento TFD:",
             "taxpayer_account": "Taxpayer Account:",
-            "tax_regime": "Régimen de impuesto:",
+            "tax_regime": "Régimen de impuesto (*):",
             "taxpayer_client": "Cliente contribuyente:",
             "choose_client": "Escoger Receptor",
             "choose": "Escoger",

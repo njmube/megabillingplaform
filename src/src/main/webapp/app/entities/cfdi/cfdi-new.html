@@ -77,10 +77,12 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.tax_regime" for="field_taxpayer_account_tax_regime">Tax Regime</label>
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.tax_regime" for="field_taxpayer_account_tax_regime">Tax Regime</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_taxpayer_account_tax_regime" multiple name="taxpayer_account_tax_regime" ng-model="vm.taxpayer_account.tax_regimes"
-                                    ng-options="tax_regime as tax_regime.name for tax_regime in vm.tax_regimes track by tax_regime.id" disabled ></select>
+                            <select class="form-control" id="field_taxpayer_account_tax_regime" name="taxpayer_account_tax_regime" ng-model="vm.cfdi.tax_regime"
+                                    ng-options="tax_regime as tax_regime.name for tax_regime in vm.taxpayer_account.tax_regimes track by tax_regime.id" required>
+                                <option value=""></option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
