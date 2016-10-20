@@ -130,7 +130,11 @@
             "confirmationtrans":"¿Desea ccontinuar con la transacción?",
             "counttransmess": "La cantidad no es suficiente",
             "accountmess":"Debe selecionar correctamente la cuenta",
-            "accountsourcemess":"Debe selecionar una cuenta origen"
+            "accountsourcemess":"Debe selecionar una cuenta origen",
+            "search_resultnull":"No hay resultados de la búsqueda",
+            "patternservername":"Incorrecto nombre para el servidor",
+            "patternusername": "Incorrecto nombre de usuario",
+            "patternport":"Incorrecto número de puerto"
 
         }
     }

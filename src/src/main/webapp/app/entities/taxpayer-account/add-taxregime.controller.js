@@ -14,6 +14,8 @@
         vm.showInfo = false;
         vm.edit = null;
         vm.tax_regimes = Tax_regime.query({filtername:" "});
+        vm.check = check;
+
         vm.add = add;
 
         vm.load = function(id) {
@@ -23,6 +25,15 @@
         };
 
 
+        function check(taxregime){
+            for(var i = 0; i < vm.taxpayer_account.tax_regimes.length; i++){
+                if(taxregime.id == vm.taxpayer_account.tax_regimes[i].id)
+                {
+                    return null;
+                }
+            }
+            return 'OK';
+        }
         function add(taxregime){
             vm.taxpayer_account.tax_regimes[vm.taxpayer_account.tax_regimes.length] = taxregime;
             Taxpayer_account.update(vm.taxpayer_account, onSaveSuccess, onSaveError);

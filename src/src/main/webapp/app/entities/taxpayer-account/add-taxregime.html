@@ -31,7 +31,7 @@
                                     <td>{{taxregime.description}}</td>
                                     <td class="text-right">
                                         <div class="btn-group flex-btn-group-container">
-                                            <button type="button" ng-click="vm.add(taxregime)"
+                                            <button ng-show="vm.check(taxregime) != null" type="button" ng-click="vm.add(taxregime)"
                                                     class="btn btn-primary btn-sm">
                                                 <span class="hidden-xs hidden-sm" translate="entity.action.add"></span>
                                             </button>

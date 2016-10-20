@@ -84,11 +84,16 @@
                 <div class="col-md-5">
                     <input type="text" class="form-control" name="incoming_server_name" id="field_incoming_server_name"
                            ng-model="vm.taxpayer_mail_accounts.incoming_server_name"
+                           ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*$/"
                            required />
                     <div ng-show="editForm.incoming_server_name.$dirty && editForm.incoming_server_name.$invalid">
                         <p class="help-block"
                            ng-show="editForm.incoming_server_name.$error.required" translate="entity.validation.required">
                             This field is required.
+                        </p>
+                        <p class="help-block"
+                           ng-show="editForm.incoming_server_name.$error.pattern" translate="megabillingplatformApp.taxpayer_account.patternservername">
+                            This field should be a correct server name.
                         </p>
                     </div>
                 </div>
@@ -97,7 +102,7 @@
                 <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_mail_accounts.incoming_port" for="field_incoming_port">Incoming Port</label>
                 <div class="col-md-5">
                     <input type="number" class="form-control" name="incoming_port" id="field_incoming_port"
-                           ng-model="vm.taxpayer_mail_accounts.incoming_port"
+                           ng-model="vm.taxpayer_mail_accounts.incoming_port" ng-pattern="/^[0-9]*$/"
                            required />
                     <div ng-show="editForm.incoming_port.$dirty && editForm.incoming_port.$invalid">
                         <p class="help-block"
@@ -105,7 +110,11 @@
                             This field is required.
                         </p>
                         <p class="help-block"
-                           ng-show="editForm.incoming_port.$error.number" translate="entity.validation.number">
+                           ng-show="editForm.incoming_port.$error.number" translate="megabillingplatformApp.taxpayer_account.patternport">
+                            This field should be a number.
+                        </p>
+                        <p class="help-block"
+                           ng-show="editForm.incoming_port.$error.pattern" translate="megabillingplatformApp.taxpayer_account.patternport">
                             This field should be a number.
                         </p>
                     </div>
@@ -114,9 +123,16 @@
             <div class="form-group">
                 <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_mail_accounts.username" for="field_username">Username</label>
                 <div class="col-md-5">
-                    <input type="text" class="form-control" name="username" id="field_username"
+                    <input type="text" class="form-control" name="field_username" id="field_username"
                            ng-model="vm.taxpayer_mail_accounts.username"
+                           ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*$/"
                         />
+                    <div ng-show="editForm.field_username.$dirty && editForm.field_username.$invalid">
+                        <p class="help-block"
+                           ng-show="editForm.field_username.$error.pattern" translate="megabillingplatformApp.taxpayer_account.patternusername">
+                            This field should be a correct username.
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="form-group">

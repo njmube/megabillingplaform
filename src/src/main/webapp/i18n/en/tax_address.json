@@ -22,11 +22,11 @@
             "location": "Location",
             "intersection": "Intersection",
             "reference": "Reference",
-            "c_country": "C Country",
-            "c_state": "C State",
-            "c_municipality": "C Municipality",
-            "c_colony": "C Colony",
-            "c_zip_code": "C Zip Code"
+            "c_country": "Country",
+            "c_state": "State",
+            "c_municipality": "Municipality",
+            "c_colony": "Colony",
+            "c_zip_code": "Zip Code"
         }
     }
 }
