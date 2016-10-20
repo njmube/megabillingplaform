@@ -19,7 +19,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -216,11 +215,9 @@ public class Taxpayer_conceptResource {
         Pageable pageable = new PageRequest(0, 30, defaultSort);
         BigDecimal rate = new BigDecimal("-1");
 
-        Page<Tax_concept> tax_concept_page = tax_conceptService.findAll(pageable, taxpayeraccount, " ", rate, " ");
-        for(Tax_concept tax_concept: tax_concept_page.getContent()){
-            if(tax_concept.getTaxpayer_concept().getId().compareTo(id) == 0) {
-                tax_conceptService.delete(tax_concept.getId());
-            }
+        Page<Tax_concept> tax_concept_page = tax_conceptService.findAll(pageable, taxpayeraccount, " ", rate, " ", id);
+        for(Tax_concept tax_concept: tax_concept_page.getContent()) {
+            tax_conceptService.delete(tax_concept.getId());
         }
 
         taxpayer_conceptService.delete(id);

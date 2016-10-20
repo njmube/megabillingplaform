@@ -91,16 +91,17 @@ public class Tax_conceptResource {
     @RequestMapping(value = "/tax-concepts",
         method = RequestMethod.GET,
         produces = MediaType.APPLICATION_JSON_VALUE,
-        params = {"taxpayeraccount", "tax_type", "rate", "concept"})
+        params = {"taxpayeraccount", "tax_type", "rate", "concept", "conceptid"})
     @Timed
     public ResponseEntity<List<Tax_concept>> getAllTax_concepts(Pageable pageable,
                                                                 @RequestParam(value = "taxpayeraccount") Integer taxpayeraccount,
                                                                 @RequestParam(value = "tax_type") String tax_type,
                                                                 @RequestParam(value = "rate") BigDecimal rate,
-                                                                @RequestParam(value = "concept") String concept)
+                                                                @RequestParam(value = "concept") String concept,
+                                                                @RequestParam(value = "conceptid") Long conceptid)
         throws URISyntaxException {
         log.debug("REST request to get a page of Tax_concepts");
-        Page<Tax_concept> page = tax_conceptService.findAll(pageable, taxpayeraccount, tax_type, rate, concept);
+        Page<Tax_concept> page = tax_conceptService.findAll(pageable, taxpayeraccount, tax_type, rate, concept, conceptid);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/tax-concepts");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

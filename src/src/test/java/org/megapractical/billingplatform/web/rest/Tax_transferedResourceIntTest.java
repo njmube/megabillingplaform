@@ -47,6 +47,9 @@ public class Tax_transferedResourceIntTest {
     private static final BigDecimal DEFAULT_AMOUNT = new BigDecimal(1);
     private static final BigDecimal UPDATED_AMOUNT = new BigDecimal(2);
 
+    private static final BigDecimal DEFAULT_RATE = new BigDecimal(1);
+    private static final BigDecimal UPDATED_RATE = new BigDecimal(2);
+
     @Inject
     private Tax_transferedRepository tax_transferedRepository;
 
@@ -77,6 +80,7 @@ public class Tax_transferedResourceIntTest {
     public void initTest() {
         tax_transfered = new Tax_transfered();
         tax_transfered.setAmount(DEFAULT_AMOUNT);
+        tax_transfered.setRate(DEFAULT_RATE);
     }
 
     @Test
@@ -96,6 +100,7 @@ public class Tax_transferedResourceIntTest {
         assertThat(tax_transfereds).hasSize(databaseSizeBeforeCreate + 1);
         Tax_transfered testTax_transfered = tax_transfereds.get(tax_transfereds.size() - 1);
         assertThat(testTax_transfered.getAmount()).isEqualTo(DEFAULT_AMOUNT);
+        assertThat(testTax_transfered.getRate()).isEqualTo(DEFAULT_RATE);
     }
 
     @Test
@@ -127,7 +132,8 @@ public class Tax_transferedResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(tax_transfered.getId().intValue())))
-                .andExpect(jsonPath("$.[*].amount").value(hasItem(DEFAULT_AMOUNT.intValue())));
+                .andExpect(jsonPath("$.[*].amount").value(hasItem(DEFAULT_AMOUNT.intValue())))
+                .andExpect(jsonPath("$.[*].rate").value(hasItem(DEFAULT_RATE.intValue())));
     }
 
     @Test
@@ -141,7 +147,8 @@ public class Tax_transferedResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(tax_transfered.getId().intValue()))
-            .andExpect(jsonPath("$.amount").value(DEFAULT_AMOUNT.intValue()));
+            .andExpect(jsonPath("$.amount").value(DEFAULT_AMOUNT.intValue()))
+            .andExpect(jsonPath("$.rate").value(DEFAULT_RATE.intValue()));
     }
 
     @Test
@@ -164,6 +171,7 @@ public class Tax_transferedResourceIntTest {
         Tax_transfered updatedTax_transfered = new Tax_transfered();
         updatedTax_transfered.setId(tax_transfered.getId());
         updatedTax_transfered.setAmount(UPDATED_AMOUNT);
+        updatedTax_transfered.setRate(UPDATED_RATE);
 
         restTax_transferedMockMvc.perform(put("/api/tax-transfereds")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -175,6 +183,7 @@ public class Tax_transferedResourceIntTest {
         assertThat(tax_transfereds).hasSize(databaseSizeBeforeUpdate);
         Tax_transfered testTax_transfered = tax_transfereds.get(tax_transfereds.size() - 1);
         assertThat(testTax_transfered.getAmount()).isEqualTo(UPDATED_AMOUNT);
+        assertThat(testTax_transfered.getRate()).isEqualTo(UPDATED_RATE);
     }
 
     @Test

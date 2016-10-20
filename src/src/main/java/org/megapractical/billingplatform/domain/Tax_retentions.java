@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * A Tax_retentions.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "tax_retentions")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Tax_retentions implements Serializable {
@@ -31,7 +31,7 @@ public class Tax_retentions implements Serializable {
     private Tax_types tax_types;
 
     @ManyToOne
-    private Free_concept free_concept;
+    private Concept concept;
 
     public Long getId() {
         return id;
@@ -57,12 +57,12 @@ public class Tax_retentions implements Serializable {
         this.tax_types = tax_types;
     }
 
-    public Free_concept getFree_concept() {
-        return free_concept;
+    public Concept getConcept() {
+        return concept;
     }
 
-    public void setFree_concept(Free_concept free_concept) {
-        this.free_concept = free_concept;
+    public void setConcept(Concept concept) {
+        this.concept = concept;
     }
 
     @Override

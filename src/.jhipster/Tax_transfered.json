@@ -7,8 +7,8 @@
             "otherEntityField": "name"
         },
         {
-            "relationshipName": "free_concept",
-            "otherEntityName": "free_concept",
+            "relationshipName": "concept",
+            "otherEntityName": "concept",
             "relationshipType": "many-to-one",
             "otherEntityField": "id"
         }
@@ -20,6 +20,11 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "rate",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": []
         }
     ],
     "changelogDate": "20160624062731",

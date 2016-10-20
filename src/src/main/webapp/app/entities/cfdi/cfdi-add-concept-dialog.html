@@ -1,0 +1,86 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            ng-click="vm.clear()">&times;</button>
+    <h4 class="modal-title" id="myConceptLabel">Adicionar Concepto</h4>
+</div>
+<div class="modal-body">
+    <jhi-alert-error></jhi-alert-error>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>U/M</th>
+                <th>IVA</th>
+                <th>IEPS</th>
+                <th>Descuento</th>
+                <th>Cantidad</th>
+                <th>Importe</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="taxpayer_concept in vm.taxpayer_concepts track by taxpayer_concept.id">
+                <td>{{taxpayer_concept.no_identification}}</td>
+                <td>{{taxpayer_concept.description | uimegahtmltoplaintext}}</td>
+                <td>
+                    <select ng-model="vm.unit_value[$index]"
+                            ng-options="price_concept as price_concept.value | uimeganumberformat for price_concept in vm.price_concepts[$index] track by price_concept.id" data-ng-change="vm.calcConceptAmount($index)">
+                        <option value=""></option>
+                    </select>
+                </td>
+                <td>
+                    <select ng-model="vm.measure_unit[$index]"
+                            ng-options="measure_unit_concept as measure_unit_concept.measure_unit.name for measure_unit_concept in vm.measure_unit_concepts[$index] track by measure_unit_concept.id">
+                        <option value=""></option>
+                    </select>
+                </td>
+                <td>
+                    <select ng-model="vm.iva[$index]"
+                            ng-options="iva_concept as iva_concept.rate | number : 2 for iva_concept in vm.iva_concepts[$index] track by iva_concept.id">
+                        <option value=""></option>
+                    </select>
+                </td>
+                <td>
+                    <select ng-model="vm.ieps[$index]"
+                            ng-options="ieps_concept as ieps_concept.rate | number : 2 for ieps_concept in vm.ieps_concepts[$index] track by ieps_concept.id">
+                        <option value=""></option>
+                    </select>
+                </td>
+                <td>
+                    <select ng-model="vm.discount[$index]"
+                            ng-options="discount_concept as discount_concept.value | uimeganumberformat for discount_concept in vm.discount_concepts[$index] track by discount_concept.id" data-ng-change="vm.calcConceptAmount($index)">
+                        <option value=""></option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" ng-model="vm.quantity[$index]" ng-change="vm.calcConceptAmount($index)" />
+                </td>
+                <td>
+                    {{vm.amount[$index] | uimeganumberformat}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="button"
+                                ng-click="vm.save($index)"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-plus"></span>
+                            <span  translate="megabillingplatformApp.cfdi.add">
+                                Add
+                            </span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+        <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+    </button>
+</div>
+

@@ -21,14 +21,14 @@ public interface Tax_conceptService {
 
     /**
      *  Get all the tax_concepts.
-     *
-     *  @param pageable the pagination information
+     *   @param pageable the pagination information
      *  @param taxpayeraccount
      * @param tax_type
-     *@param rate
+     * @param rate
      * @param concept @return the list of entities
-     */
-    Page<Tax_concept> findAll(Pageable pageable, Integer taxpayeraccount, String tax_type, BigDecimal rate, String concept);
+     * @param conceptid
+     * */
+    Page<Tax_concept> findAll(Pageable pageable, Integer taxpayeraccount, String tax_type, BigDecimal rate, String concept, Long conceptid);
 
     /**
      *  Get the "id" tax_concept.

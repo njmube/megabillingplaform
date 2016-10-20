@@ -10,7 +10,7 @@
         var resourceUrl =  'api/tax-concepts/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true, params: {taxpayeraccount: null, tax_type: null, rate: null, concept: null}},
+            'query': { method: 'GET', isArray: true, params: {taxpayeraccount: null, tax_type: null, rate: null, concept: null, conceptid: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

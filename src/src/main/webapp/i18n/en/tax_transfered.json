@@ -17,8 +17,9 @@
                 "title": "Tax Transfered"
             },
             "amount": "Amount",
+            "rate": "Rate",
             "tax_types": "Tax Types",
-            "free_concept": "Free Concept"
+            "concept": "Concept"
         }
     }
 }

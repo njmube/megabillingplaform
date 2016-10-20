@@ -67,7 +67,7 @@ class Tax_transferedGatlingTest extends Simulation {
             .exec(http("Create new tax_transfered")
             .post("/api/tax-transfereds")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "amount":null}""")).asJSON
+            .body(StringBody("""{"id":null, "amount":null, "rate":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_tax_transfered_url"))).exitHereIfFailed
             .pause(10)

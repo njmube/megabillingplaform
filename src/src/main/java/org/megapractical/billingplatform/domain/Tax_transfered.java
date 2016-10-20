@@ -12,7 +12,7 @@ import java.util.Objects;
 /**
  * A Tax_transfered.
  */
-@javax.persistence.Entity
+@Entity
 @Table(name = "tax_transfered")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Tax_transfered implements Serializable {
@@ -27,11 +27,14 @@ public class Tax_transfered implements Serializable {
     @Column(name = "amount", precision=32, scale=6, nullable = false)
     private BigDecimal amount;
 
+    @Column(name = "rate", precision=10, scale=2)
+    private BigDecimal rate;
+
     @ManyToOne
     private Tax_types tax_types;
 
     @ManyToOne
-    private Free_concept free_concept;
+    private Concept concept;
 
     public Long getId() {
         return id;
@@ -49,6 +52,14 @@ public class Tax_transfered implements Serializable {
         this.amount = amount;
     }
 
+    public BigDecimal getRate() {
+        return rate;
+    }
+
+    public void setRate(BigDecimal rate) {
+        this.rate = rate;
+    }
+
     public Tax_types getTax_types() {
         return tax_types;
     }
@@ -57,12 +68,12 @@ public class Tax_transfered implements Serializable {
         this.tax_types = tax_types;
     }
 
-    public Free_concept getFree_concept() {
-        return free_concept;
+    public Concept getConcept() {
+        return concept;
     }
 
-    public void setFree_concept(Free_concept free_concept) {
-        this.free_concept = free_concept;
+    public void setConcept(Concept concept) {
+        this.concept = concept;
     }
 
     @Override
@@ -90,6 +101,7 @@ public class Tax_transfered implements Serializable {
         return "Tax_transfered{" +
             "id=" + id +
             ", amount='" + amount + "'" +
+            ", rate='" + rate + "'" +
             '}';
     }
 }

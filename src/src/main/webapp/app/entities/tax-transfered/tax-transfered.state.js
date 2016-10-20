@@ -92,6 +92,7 @@
                         entity: function () {
                             return {
                                 amount: null,
+                                rate: null,
                                 id: null
                             };
                         }

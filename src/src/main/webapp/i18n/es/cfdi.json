@@ -51,6 +51,7 @@
             "choose_client": "Escoger Receptor",
             "choose": "Escoger",
             "generate": "Generar",
+            "add": "Adicionar",
 			"validation":{
 				"way_paymentxnomorey":"El primer valor no puede ser menor que le segundo.",
 				"way_paymentxynocero":"Ninguno de los dos valores numéricos de arriba pueden ser cero."

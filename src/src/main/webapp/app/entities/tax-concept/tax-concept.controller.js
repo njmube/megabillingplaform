@@ -47,6 +47,7 @@
             var tax_type = " ";
             var rate = -1;
             var concept = " ";
+            var conceptid = 0;
 
             if(vm.tax_type != null) {
                 tax_type = vm.tax_type.name;
@@ -67,7 +68,8 @@
                 taxpayeraccount: vm.taxpayer_account.id,
                 tax_type: tax_type,
                 rate: rate,
-                concept: concept
+                concept: concept,
+                conceptid: conceptid
             }, onSuccess, onError);
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];

@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Tax_transferedDetailController', Tax_transferedDetailController);
 
-    Tax_transferedDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Tax_transfered', 'Tax_types', 'Free_concept'];
+    Tax_transferedDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Tax_transfered', 'Tax_types', 'Concept'];
 
-    function Tax_transferedDetailController($scope, $rootScope, $stateParams, entity, Tax_transfered, Tax_types, Free_concept) {
+    function Tax_transferedDetailController($scope, $rootScope, $stateParams, entity, Tax_transfered, Tax_types, Concept) {
         var vm = this;
         vm.tax_transfered = entity;
         

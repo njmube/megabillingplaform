@@ -125,7 +125,7 @@
             <tbody>
             <tr ng-repeat="tax_concept in vm.tax_concepts track by tax_concept.id">
                 <td>{{tax_concept.id}}</td>
-                <td>{{tax_concept.concept.description | uimegahtmltoplaintext}}</td>
+                <td>{{tax_concept.taxpayer_concept.description | uimegahtmltoplaintext}}</td>
                 <td>{{tax_concept.tax_types.name}}</td>
                 <td>{{tax_concept.rate | number : 2}}</td>
                 <td class="text-right">

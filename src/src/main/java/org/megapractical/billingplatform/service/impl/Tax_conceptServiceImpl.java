@@ -42,15 +42,15 @@ public class Tax_conceptServiceImpl implements Tax_conceptService{
 
     /**
      *  Get all the tax_concepts.
-     *
-     *  @param pageable the pagination information
+     *   @param pageable the pagination information
      *  @param taxpayeraccount
      * @param tax_type
-     *@param rate
+     * @param rate
      * @param concept @return the list of entities
-     */
+     * @param conceptid
+     * */
     @Transactional(readOnly = true)
-    public Page<Tax_concept> findAll(Pageable pageable, Integer taxpayeraccount, String tax_type, BigDecimal rate, String concept) {
+    public Page<Tax_concept> findAll(Pageable pageable, Integer taxpayeraccount, String tax_type, BigDecimal rate, String concept, Long conceptid) {
         log.debug("Request to get all Tax_concepts");
 
         if(taxpayeraccount == 0) {
@@ -65,12 +65,14 @@ public class Tax_conceptServiceImpl implements Tax_conceptService{
             List<Tax_concept> list = new ArrayList<>();
             Long taxpayer_account_id = new Long(taxpayeraccount.toString());
             BigDecimal noRate = new BigDecimal("-1");
+            Long noConceptId = new Long("0");
 
             for (Tax_concept tax_concept : result.getContent()) {
                 boolean from_taxpayyer_account = true;
                 boolean from_tax_type = true;
                 boolean from_rate = true;
                 boolean from_concept = true;
+                boolean from_conceptid = true;
 
                 if (tax_concept.getTaxpayer_concept().getTaxpayer_account().getId().compareTo(taxpayer_account_id) != 0) {
                     from_taxpayyer_account = false;
@@ -88,7 +90,11 @@ public class Tax_conceptServiceImpl implements Tax_conceptService{
                     from_concept = false;
                 }
 
-                if(from_taxpayyer_account && from_tax_type && from_rate && from_concept){
+                if(conceptid.compareTo(noConceptId) != 0 && tax_concept.getTaxpayer_concept().getId().compareTo(conceptid) != 0){
+                    from_conceptid = false;
+                }
+
+                if(from_taxpayyer_account && from_tax_type && from_rate && from_concept && from_conceptid){
                     list.add(tax_concept);
                 }
             }

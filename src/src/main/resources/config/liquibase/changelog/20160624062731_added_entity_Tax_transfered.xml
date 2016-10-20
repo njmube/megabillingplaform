@@ -24,17 +24,21 @@
             <column name="amount" type="decimal(32,6)">
                 <constraints nullable="false" />
             </column>
-
+            
+            <column name="rate" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+            
             <column name="tax_types_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
-            <column name="free_concept_id" type="bigint">
+            <column name="concept_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-
+        
     </changeSet>
 </databaseChangeLog>

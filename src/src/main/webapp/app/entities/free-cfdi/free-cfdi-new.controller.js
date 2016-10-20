@@ -666,7 +666,7 @@
                         }).result.then(function () {
 
                             }, function () {
-                            });
+                        });
                     }
                 }
 

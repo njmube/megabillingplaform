@@ -14,11 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="tax_types"/>
 
-        <addForeignKeyConstraint baseColumnNames="free_concept_id"
+        <addForeignKeyConstraint baseColumnNames="concept_id"
                                  baseTableName="tax_retentions"
-                                 constraintName="fk_tax_retentions_free_concept_id"
+                                 constraintName="fk_tax_retentions_concept_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="free_concept"/>
+                                 referencedTableName="concept"/>
 
     </changeSet>
 </databaseChangeLog>
