@@ -14,6 +14,7 @@ import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
@@ -268,16 +269,23 @@ public class Free_cfdiResource {
                     }
                 }else
                 {
+                    log.debug("No se encuentra el free_emitter");
                     Long idauditevent = new Long("36");
                     Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
                     C_state_event c_state_event;
                     Long idstate = new Long("2");
                     c_state_event = c_state_eventService.findOne(idstate);
                     tracemgService.saveTrace(audit_event_type, c_state_event);
-                    return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_cfdi", "notfound", "Free CFDI not found")).body(null);
+
+                    List<Free_cfdi> listtemp = new ArrayList<>();
+                    Page<Free_cfdi> page = new PageImpl<Free_cfdi>(listtemp);
+                    HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-cfdis");
+
+                    return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
                 }
             }
         }
+        log.debug("No se encuentra el user autenticado");
         Long idauditevent = new Long("36");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;

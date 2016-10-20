@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="format-detection" content="telephone=no" /> <!-- disable auto telephone linking in iOS -->
@@ -255,7 +255,7 @@
                                                     <table border="0" cellpadding="30" cellspacing="0" width="100%">
                                                         <tr>
                                                             <td align="center" valign="top" class="textContent">
-                                                                <h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;" th:text="#{email.activation.title}">Creación de cuenta de usuario</h1>
+                                                                <h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;" th:text="#{email.activation.title}">CreaciÃ³n de cuenta de usuario</h1>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -297,7 +297,7 @@
                                                                                 you to edit certain row. It makes it easy for you to quickly edit row sections.
                                                                                 http://kb.mailchimp.com/templates/code/create-editable-content-areas-with-mailchimps-template-language
                                                                             -->
-                                                                            <h3 mc:edit="header" style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:18px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;" th:text="#{email.activation.greeting(${user.getName()} + ' ' + ${user.getFirtsurname()} + ' ' + ${user.getSecondsurname()})}"><b>Señor(a):</b> Lisandra Rado Naranjo </h3> <br/>
+                                                                            <h3 mc:edit="header" style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:18px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;" th:text="#{email.activation.greeting(${user.getName()} + ' ' + ${user.getFirtsurname()} + ' ' + ${user.getSecondsurname()})}"><b>SeÃ±or(a):</b> Lisandra Rado Naranjo </h3> <br/>
                                                                             <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;" th:text="#{email.creation.text1}">
                                                                                 Su cuenta de usuario ha sido credada, por favor haga clic para acceder a la misma:
                                                                             </div> <br/>
@@ -305,7 +305,7 @@
                                                                                 <a th:href="@{|${baseUrl}/#/reset/finish?key=${user.resetKey}|}" target="_blank" style="text-decoration:none;border-bottom:1px solid #828282;color:#828282;"><span style="color:#828282;" th:text="|${user.login}|">Login</span></a>
                                                                             </div> <br/>
                                                                             <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;" th:text="#{email.activation.text2}">
-                                                                                O si desea puede hacer click en el siguiente botón:
+                                                                                O si desea puede hacer click en el siguiente botÃ³n:
                                                                             </div> <br/>
                                                                             <div>
                                                                                 <!-- FLEXIBLE CONTAINER // -->
@@ -378,7 +378,7 @@
                                                                                 Usuario: lrado
                                                                             </div><br/>
                                                                             <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:14px;margin-bottom:0;color:#5F5F5F;line-height:135%;" th:text="#{email.request.phone(${user.getPhone()})}">
-                                                                                Teléfono: 0987332794
+                                                                                TelÃ©fono: 0987332794
                                                                             </div>
                                                                         </td>
                                                                     </tr>
@@ -428,7 +428,7 @@
                                                                 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                                                     <tr>
                                                                         <td valign="top" class="textContent">
-                                                                            <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;margin-top:3px;color:#5F5F5F;line-height:135%;">Le recordamos que deberá realizar la activación de usuario en el período de 7 días, pasado este período si no realiza la activación su cuenta se eliminará del sistema.</div>
+                                                                            <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;margin-top:3px;color:#5F5F5F;line-height:135%;">Le recordamos que deberÃ¡ realizar la activaciÃ³n de usuario en el perÃ­odo de 7 dÃ­as, pasado este perÃ­odo si no realiza la activaciÃ³n su cuenta se eliminarÃ¡ del sistema.</div>
                                                                         </td>
                                                                     </tr>
                                                                 </table>

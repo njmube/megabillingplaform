@@ -19,6 +19,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import java.nio.charset.Charset;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
@@ -138,6 +139,8 @@ public class MailService {
         context.setVariable("user", user);
         context.setVariable("baseUrl", baseUrl);
         String content = templateEngine.process("activationEmail", context);
+        //content = new String(content.getBytes(), Charset.forName("iso-8859-9"));
+        //log.debug("!!!Texto del mensaje UTF8: ", content);
         String subject = messageSource.getMessage("email.activation.title", null, locale);
         sendEmail(user.getEmail(), subject, content, false, true, null);
         Long idauditevent = new Long("25");
