@@ -41,8 +41,11 @@
                         />
                     <input type="hidden" class="form-control" name="path_certificate_type" id="field_path_certificate_type"
                            ng-model="vm.taxpayer_account.taxpayer_certificate.filecertificateContentType" />
-
-                    <span ng-show="vm.messcertificate" translate="megabillingplatformApp.taxpayer_account.messcertificate">.cer file extention is required and file size <= 10 Mb</span>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 pull-right">
+                        <span ng-show="vm.messcertificate" translate="megabillingplatformApp.taxpayer_account.messcertificate">.cer file extention is required and file size <= 10 Mb</span>
+                    </div>
                 </div>
                 <div class="form-group" ngf-drop ngf-change="vm.setPath_Key($file, vm.taxpayer_account)">
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.path_key" for="field_path_key">Path key</label>
@@ -74,12 +77,19 @@
                         />
                     <input type="hidden" class="form-control" name="path_key_type" id="field_path_key_type"
                            ng-model="vm.taxpayer_account.taxpayer_certificate.filekeyContentType" />
-                    <span ng-show="vm.messkey" translate="megabillingplatformApp.taxpayer_account.messkey">.key file extention is required and file size <= 10 Mb</span>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 pull-right">
+                        <span ng-show="vm.messkey" translate="megabillingplatformApp.taxpayer_account.messkey">.key file extention is required and file size <= 10 Mb</span>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.pass" for="pass">Password</label>
                     <div class="col-sm-5">
                         <input type="password" class="form-control" name="pass" id="pass" ng-model="vm.taxpayer_account.taxpayer_certificate.pass_certificate">
+                        <p class="help-block" ng-show="vm.messpass!=null" translate="megabillingplatformApp.taxpayer_account.messages.validate.pass.required">
+                            Your password is required.
+                        </p>
                     </div>
                 </div>
                 <div class="form-group">

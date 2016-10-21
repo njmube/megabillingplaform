@@ -83,6 +83,15 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "path_logo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "file_logo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
         }
     ],
     "changelogDate": "20160902131523",

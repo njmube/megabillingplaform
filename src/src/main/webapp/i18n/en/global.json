@@ -132,6 +132,7 @@
                 "ringPack": "Ring Pack",
                 "taxpayerRequest": "Taxpayer Request",
                 "taxpayerRequestConfirm": "Taxpayer Request Confirm",
+                "taxpayerSeriesFolio": "Taxpayer Series Folio",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

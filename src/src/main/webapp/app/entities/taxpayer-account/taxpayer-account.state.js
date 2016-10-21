@@ -219,7 +219,7 @@
             })
         .state('taxpayer-account-transaction', {
                 parent: 'entity',
-                url: '/taxpayer-account-transaction/{id}',
+                url: '/taxpayer-account-transaction',
                 data: {
                     authorities: [],
                     pageTitle: 'megabillingplatformApp.taxpayer_account.detail.title'
@@ -236,9 +236,6 @@
                         $translatePartialLoader.addPart('taxpayer_account');
                         $translatePartialLoader.addPart('taxpayer_transactions');
                         return $translate.refresh();
-                    }],
-                    entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
-                        return Taxpayer_account.get({id : $stateParams.id}).$promise;
                     }]
                 }
             })

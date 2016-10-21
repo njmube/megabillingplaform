@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "taxpayer_series_folio" : {
+            "home": {
+                "title": "Taxpayer Series Folios",
+                "createLabel": "Crear nuevo Taxpayer Series Folio",
+                "createOrEditLabel": "Crear o editar Taxpayer Series Folio",
+                "search": "Search for Taxpayer Series Folio"
+            },
+            "created": "Un nuevo Taxpayer Series Folio ha sido creado con el identificador {{ param }}",
+            "updated": "Un Taxpayer Series Folio ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Taxpayer Series Folio ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Taxpayer Series Folio {{ id }}?"
+            },
+            "detail": {
+                "title": "Taxpayer Series Folio"
+            },
+            "serie": "Serie",
+            "folio_start": "Folio Start",
+            "folio_end": "Folio End",
+            "folio_current": "Folio Current",
+            "date_creation": "Date Creation",
+            "taxpayer_account": "Taxpayer Account"
+        }
+    }
+}

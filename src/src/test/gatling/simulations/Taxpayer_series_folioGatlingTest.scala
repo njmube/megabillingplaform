@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory
 import scala.concurrent.duration._
 
 /**
- * Performance test for the Taxpayer_account entity.
+ * Performance test for the Taxpayer_series_folio entity.
  */
-class Taxpayer_accountGatlingTest extends Simulation {
+class Taxpayer_series_folioGatlingTest extends Simulation {
 
     val context: LoggerContext = LoggerFactory.getILoggerFactory.asInstanceOf[LoggerContext]
     // Log all HTTP requests
@@ -37,7 +37,7 @@ class Taxpayer_accountGatlingTest extends Simulation {
         "X-CSRF-TOKEN" -> "${csrf_token}"
     )
 
-    val scn = scenario("Test the Taxpayer_account entity")
+    val scn = scenario("Test the Taxpayer_series_folio entity")
         .exec(http("First unauthenticated request")
         .get("/api/account")
         .headers(headers_http)
@@ -59,26 +59,26 @@ class Taxpayer_accountGatlingTest extends Simulation {
         .check(headerRegex("Set-Cookie", "CSRF-TOKEN=(.*); [P,p]ath=/").saveAs("csrf_token")))
         .pause(10)
         .repeat(2) {
-            exec(http("Get all taxpayer_accounts")
-            .get("/api/taxpayer-accounts")
+            exec(http("Get all taxpayer_series_folios")
+            .get("/api/taxpayer-series-folios")
             .headers(headers_http_authenticated)
             .check(status.is(200)))
             .pause(10 seconds, 20 seconds)
-            .exec(http("Create new taxpayer_account")
-            .post("/api/taxpayer-accounts")
+            .exec(http("Create new taxpayer_series_folio")
+            .post("/api/taxpayer-series-folios")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "rfc":"SAMPLE_TEXT", "bussines_name":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "fax":"SAMPLE_TEXT", "phone1":"SAMPLE_TEXT", "phone2":"SAMPLE_TEXT", "accuracy":"0", "path_logo":"SAMPLE_TEXT", "file_logo":null}""")).asJSON
+            .body(StringBody("""{"id":null, "serie":"SAMPLE_TEXT", "folio_start":"0", "folio_end":"0", "folio_current":"0", "date_creation":"2020-01-01T00:00:00.000Z"}""")).asJSON
             .check(status.is(201))
-            .check(headerRegex("Location", "(.*)").saveAs("new_taxpayer_account_url"))).exitHereIfFailed
+            .check(headerRegex("Location", "(.*)").saveAs("new_taxpayer_series_folio_url"))).exitHereIfFailed
             .pause(10)
             .repeat(5) {
-                exec(http("Get created taxpayer_account")
-                .get("${new_taxpayer_account_url}")
+                exec(http("Get created taxpayer_series_folio")
+                .get("${new_taxpayer_series_folio_url}")
                 .headers(headers_http_authenticated))
                 .pause(10)
             }
-            .exec(http("Delete created taxpayer_account")
-            .delete("${new_taxpayer_account_url}")
+            .exec(http("Delete created taxpayer_series_folio")
+            .delete("${new_taxpayer_series_folio_url}")
             .headers(headers_http_authenticated))
             .pause(10)
         }

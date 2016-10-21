@@ -52,6 +52,16 @@ public class Taxpayer_account implements Serializable {
     @Column(name = "accuracy", nullable = false)
     private Integer accuracy;
 
+    @Column(name = "path_logo")
+    private String path_logo;
+
+    @Lob
+    @Column(name = "file_logo")
+    private byte[] file_logo;
+
+    @Column(name = "file_logo_content_type")
+    private String file_logoContentType;
+
     @OneToOne
     @JoinColumn(unique = true)
     private Tax_address tax_address;
@@ -140,6 +150,30 @@ public class Taxpayer_account implements Serializable {
         this.accuracy = accuracy;
     }
 
+    public String getPath_logo() {
+        return path_logo;
+    }
+
+    public void setPath_logo(String path_logo) {
+        this.path_logo = path_logo;
+    }
+
+    public byte[] getFile_logo() {
+        return file_logo;
+    }
+
+    public void setFile_logo(byte[] file_logo) {
+        this.file_logo = file_logo;
+    }
+
+    public String getFile_logoContentType() {
+        return file_logoContentType;
+    }
+
+    public void setFile_logoContentType(String file_logoContentType) {
+        this.file_logoContentType = file_logoContentType;
+    }
+
     public Tax_address getTax_address() {
         return tax_address;
     }
@@ -211,6 +245,9 @@ public class Taxpayer_account implements Serializable {
             ", phone1='" + phone1 + "'" +
             ", phone2='" + phone2 + "'" +
             ", accuracy='" + accuracy + "'" +
+            ", path_logo='" + path_logo + "'" +
+            ", file_logo='" + file_logo + "'" +
+            ", file_logoContentType='" + file_logoContentType + "'" +
             '}';
     }
 }

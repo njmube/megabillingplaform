@@ -5,12 +5,12 @@
         .module('megabillingplatformApp')
         .controller('Taxpayer_accountTransactionController', Taxpayer_accountTransactionController);
 
-    Taxpayer_accountTransactionController.$inject = ['$scope', 'Ring_pack', 'Type_transaction', 'AlertService', 'Taxpayer_transactions', '$uibModal','Principal', '$rootScope', '$stateParams', 'entity', 'Taxpayer_account', 'Tax_address', 'Taxpayer_certificate', 'Type_taxpayer', 'Tax_regime', 'User'];
+    Taxpayer_accountTransactionController.$inject = ['$scope', 'Ring_pack', 'Type_transaction', 'AlertService', 'Taxpayer_transactions', '$uibModal','Principal', '$rootScope', '$stateParams', 'Taxpayer_account', 'Tax_address', 'Taxpayer_certificate', 'Type_taxpayer', 'Tax_regime', 'User'];
 
-    function Taxpayer_accountTransactionController($scope, Ring_pack, Type_transaction, AlertService, Taxpayer_transactions, $uibModal, Principal, $rootScope, $stateParams, entity, Taxpayer_account, Tax_address, Taxpayer_certificate, Type_taxpayer, Tax_regime, User) {
+    function Taxpayer_accountTransactionController($scope, Ring_pack, Type_transaction, AlertService, Taxpayer_transactions, $uibModal, Principal, $rootScope, $stateParams,  Taxpayer_account, Tax_address, Taxpayer_certificate, Type_taxpayer, Tax_regime, User) {
         var vm = this;
 
-        vm.taxpayer_account = entity;
+
         vm.taxpayer_accounts = Taxpayer_account.query();
         vm.type_transactions = Type_transaction.query();
         vm.taxpayer_transaction = {};

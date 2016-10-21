@@ -9,13 +9,7 @@
                 </small>
             </h1>
         </div>
-        <div class="col-md-3">
-            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account" ng-change="vm.changeAccount()"
-                    ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
-                <option value=""></option>
-            </select>
-        </div>
-        <div class="col-md-1">
+        <div>
             <a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info" href="#">
                 <i class="fa fa-lightbulb-o"></i>
             </a>
@@ -85,7 +79,7 @@
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_account.transactiontype" for="transactiontype">Paquete de Timbre</label>
                         <div class="col-sm-8">
                             <select name="transactiontype" id="transactiontype" ng-model="vm.ring_pack"
-                                    ng-options="ring_pack as ring_pack.currency for ring_pack in vm.ring_packs track by ring_pack.id">
+                                    ng-options="ring_pack as ring_pack.rings for ring_pack in vm.ring_packs track by ring_pack.id">
                                 <option value=""></option>
                             </select>
                         </div>
@@ -97,7 +91,7 @@
                                for="countbuy">Cantidad</label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" name="countbuy" id="countbuy"
-                                   ng-model="vm.ring_pack.rings" readonly>
+                                   ng-model="vm.ring_pack.currency" readonly>
                         </div>
                     </div>
 
