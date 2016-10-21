@@ -48,7 +48,7 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="bussinesname" id="field_bussinesname"
                             ng-model="vm.taxpayer_client.bussinesname"
-                            required />
+                            />
                     </div>
                 </div>
                 <div class="form-group">
@@ -78,7 +78,7 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="email2" id="field_email2"
                                ng-model="vm.taxpayer_client.email2"
-                               required ng-minlength="6" ng-maxlength="254" ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" />
+                               ng-minlength="6" ng-maxlength="254" ng-pattern="/^([a-zA-Z0-9])+([_\.\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9])+$/" />
                         <div ng-show="editForm.email2.$invalid">
                             <p class="help-block"
                                ng-show="editForm.email2.$error.minlength" translate="entity.validation.minlength" translate-value-min="6">
@@ -171,7 +171,7 @@
                     <div class="col-sm-8">
                         <input type="text" class="form-control" name="street" id="field_street"
                                ng-model="vm.client_address.street"
-                               required />
+                               />
                     </div>
                 </div>
                 <div class="form-group">

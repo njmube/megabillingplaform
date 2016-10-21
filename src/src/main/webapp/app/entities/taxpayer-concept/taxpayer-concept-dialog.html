@@ -66,10 +66,9 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.taxpayer_concept.description" for="field_description">Description</label>
                     <div class="col-sm-8">
-                        <!--<input type="text" class="form-control" name="description" id="field_description"
-                                ng-model="vm.taxpayer_concept.description"
-                                 />-->
-                        <trix-editor angular-trix id="field_description" ng-model="vm.taxpayer_concept.description" class="trix-content" required></trix-editor>
+                        <textarea class="form-control" name="description" id="field_description"
+                                  ng-model="vm.taxpayer_concept.description" rows="5" required></textarea>
+                        <!--<trix-editor angular-trix id="field_description" ng-model="vm.taxpayer_concept.description" class="trix-content" required></trix-editor>-->
                     </div>
                 </div>
             </div>

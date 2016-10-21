@@ -37,10 +37,7 @@
     "fields": [
         {
             "fieldName": "street",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldType": "String"
         },
         {
             "fieldName": "no_int",

@@ -66,10 +66,8 @@
         {
             "relationshipName": "taxpayer_client",
             "otherEntityName": "taxpayer_client",
-            "relationshipType": "one-to-one",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "cfdi"
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

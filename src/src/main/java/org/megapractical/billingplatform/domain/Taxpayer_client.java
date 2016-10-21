@@ -28,7 +28,6 @@ public class Taxpayer_client implements Serializable {
     @Column(name = "rfc", length = 13, nullable = false)
     private String rfc;
 
-    @NotNull
     @Column(name = "bussinesname", nullable = false)
     private String bussinesname;
 

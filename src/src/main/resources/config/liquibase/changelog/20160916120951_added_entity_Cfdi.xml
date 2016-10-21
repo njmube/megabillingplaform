@@ -93,7 +93,7 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="addenda" type="text">
+            <column name="addenda" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             
@@ -140,9 +140,11 @@
             <column name="tax_regime_id" type="bigint">
                 <constraints nullable="false" />
             </column>
+
             <column name="taxpayer_client_id" type="bigint">
-                <constraints unique="true" nullable="true" />
+                <constraints nullable="true" />
             </column>
+
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="cfdi" columnName="date_expedition" columnDataType="datetime"/>

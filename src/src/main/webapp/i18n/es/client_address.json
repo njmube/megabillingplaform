@@ -16,7 +16,7 @@
             "detail": {
                 "title": "Client Address"
             },
-            "street": "Street (*)",
+            "street": "Street",
             "no_int": "No Int",
             "no_ext": "No Ext",
             "location": "Location",

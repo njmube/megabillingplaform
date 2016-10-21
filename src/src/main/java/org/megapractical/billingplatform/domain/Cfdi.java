@@ -130,8 +130,7 @@ public class Cfdi implements Serializable {
     @NotNull
     private Tax_regime tax_regime;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
     private Taxpayer_client taxpayer_client;
 
     public Long getId() {

@@ -32,10 +32,7 @@
         },
         {
             "fieldName": "bussinesname",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldType": "String"
         },
         {
             "fieldName": "email",

@@ -41,7 +41,7 @@
                 vm.taxpayer_transaction = vm.taxpayer_transactions[0];
 
                 if(vm.taxpayer_transaction.transactions_available == 0){
-                    AlertService.error('No tiene timbres disponibles. Debe comprar timbres para poder generar una factura. El sistema lo redigirá en en unos segundos...');
+                    AlertService.error("No tiene timbres disponibles. Debe comprar timbres para poder generar una factura. El sistema lo redigirá en en unos segundos...");
                     $timeout(function() {
                         $state.go('taxpayer-account-transaction',{id: vm.taxpayer_account.id});
                     }, 5000);
@@ -53,7 +53,7 @@
         }
 
         function checkAccountCertificate(){
-            if(vm.taxpayer_account.taxpayer_certificate == null){
+            if(vm.taxpayer_account.taxpayer_certificate.id == null){
                 AlertService.error('Debe de validar su cuenta para poder generar facturas. El sistema lo redigirá en en unos segundos...');
                 $timeout(function() {
                     $state.go('taxpayer-account-general',{id: vm.taxpayer_account.id});

@@ -22,7 +22,6 @@ public class Client_address implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @NotNull
     @Column(name = "street", nullable = false)
     private String street;
 
