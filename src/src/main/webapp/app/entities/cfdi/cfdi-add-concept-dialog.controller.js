@@ -10,6 +10,7 @@
     function CfdiAddConceptDialogController ($scope, $uibModalInstance, entity, taxpayer_account_entity, Tax_types, Taxpayer_concept, Price_concept, Discount_concept, Measure_unit_concept, Tax_concept, AlertService) {
         var vm = this;
         vm.concept = entity;
+        vm.conceptDTOs = [];
         vm.taxpayer_account = taxpayer_account_entity;
         vm.tax_typess = Tax_types.query({filtername: " "});
 
@@ -26,6 +27,8 @@
         vm.discount = [];
         vm.quantity = [];
         vm.amount = [];
+        vm.choosen = [];
+
 
         vm.calcConceptAmount = calcConceptAmount;
 
@@ -38,6 +41,8 @@
             var unit_value = -1;
 
             Taxpayer_concept.query({
+                page: 0,
+                size: 100,
                 taxpayeraccount: vm.taxpayer_account.id,
                 no_identification: no_identification,
                 description: description,
@@ -61,7 +66,6 @@
                     vm.ieps_concepts.push(ieps);
                     vm.discount_concepts.push(discounts);
 
-
                     vm.unit_value.push(null);
                     vm.measure_unit.push(null);
                     vm.iva.push(null);
@@ -69,6 +73,7 @@
                     vm.discount.push(null);
                     vm.quantity.push((0).toFixed(vm.taxpayer_account.accuracy));
                     vm.amount.push((0).toFixed(vm.taxpayer_account.accuracy));
+                    vm.choosen.push(false);
                 }
             }
             function onError(error) {
@@ -105,62 +110,71 @@
             return (parseInt(figure*d)/d).toFixed(decimals);
         }
 
-        vm.save = function (index) {
+        vm.save = function () {
             vm.isSaving = true;
+            var index;
+            for(index = 0; index < vm.choosen.length; index++) {
+                if(vm.choosen[index]) {
 
-            var regexp = /^\d{1,24}\.?\d{1,6}$/;
-            var quantity = vm.quantity[index] + '';
+                    var regexp = /^\d{1,24}\.?\d{1,6}$/;
+                    var quantity = vm.quantity[index] + '';
 
-            if(vm.unit_value[index] && vm.quantity[index] != 0 && vm.quantity[index] != "" && quantity.match(regexp)){
-                var bln = new BigLargeNumberOperations();
+                    if (vm.unit_value[index] && vm.quantity[index] != 0 && vm.quantity[index] != "" && quantity.match(regexp)) {
+                        var bln = new BigLargeNumberOperations();
 
-                if (!vm.discount[index]) {
-                    vm.discount[index] = {value: 0};
-                }
+                        if (!vm.discount[index]) {
+                            vm.discount[index] = {value: 0};
+                        }
 
-                if(!vm.iva[index]){
-                    vm.iva[index] = {rate: 0};
-                }
+                        if (!vm.iva[index]) {
+                            vm.iva[index] = {rate: 0};
+                        }
 
-                if(!vm.ieps[index]){
-                    vm.ieps[index] = {rate: 0};
-                }
+                        if (!vm.ieps[index]) {
+                            vm.ieps[index] = {rate: 0};
+                        }
 
-                var free_concept_iva_amount_p1 = bln.multiply(vm.quantity[index], vm.unit_value[index].value, 6);
-                var free_concept_iva_amount_p2 = (1 - vm.discount[index].value / 100) * vm.iva[index].rate / 100;
-                var free_concept_iva_amount = bln.multiply(free_concept_iva_amount_p1, free_concept_iva_amount_p2, vm.taxpayer_account.accuracy);
+                        var free_concept_iva_amount_p1 = bln.multiply(vm.quantity[index], vm.unit_value[index].value, 6);
+                        var free_concept_iva_amount_p2 = (1 - vm.discount[index].value / 100) * vm.iva[index].rate / 100;
+                        var free_concept_iva_amount = bln.multiply(free_concept_iva_amount_p1, free_concept_iva_amount_p2, vm.taxpayer_account.accuracy);
 
-                var free_concept_ieps_amount_p1 = bln.multiply(vm.quantity[index], vm.unit_value[index].value, 6);
-                var free_concept_ieps_amount_p2 = (1 - vm.discount[index].value / 100) * vm.ieps[index].rate / 100;
-                var free_concept_ieps_amount = bln.multiply(free_concept_ieps_amount_p1, free_concept_ieps_amount_p2, vm.taxpayer_account.accuracy);
+                        var free_concept_ieps_amount_p1 = bln.multiply(vm.quantity[index], vm.unit_value[index].value, 6);
+                        var free_concept_ieps_amount_p2 = (1 - vm.discount[index].value / 100) * vm.ieps[index].rate / 100;
+                        var free_concept_ieps_amount = bln.multiply(free_concept_ieps_amount_p1, free_concept_ieps_amount_p2, vm.taxpayer_account.accuracy);
 
-                vm.concept = {
-                    no_identification: vm.taxpayer_concepts[index].no_identification,
-                    quantity: vm.quantity[index],
-                    description: vm.taxpayer_concepts[index].description,
-                    unit_value: vm.unit_value[index].value,
-                    predial_number: vm.taxpayer_concepts[index].predial_number,
-                    discount: floorFigure(vm.discount[index].value, 2),
-                    amount: vm.amount[index],
-                    measure_unit: vm.measure_unit[index].measure_unit,
-                    id: null
-                };
+                        vm.concept = {
+                            no_identification: vm.taxpayer_concepts[index].no_identification,
+                            quantity: vm.quantity[index],
+                            description: vm.taxpayer_concepts[index].description,
+                            unit_value: vm.unit_value[index].value,
+                            predial_number: vm.taxpayer_concepts[index].predial_number,
+                            discount: floorFigure(vm.discount[index].value, 2),
+                            amount: vm.amount[index],
+                            measure_unit: vm.measure_unit[index].measure_unit,
+                            id: null
+                        };
 
-                $uibModalInstance.close({
-                    concept: vm.concept,
-                    concept_iva: {
-                        rate: floorFigure(vm.iva[index].rate, 2),
-                        amount: free_concept_iva_amount,
-                        tax_types: vm.tax_typess[0],
-                        id: null
-                    },
-                    concept_ieps: {
-                        rate: floorFigure(vm.ieps[index].rate, 2),
-                        amount: free_concept_ieps_amount,
-                        tax_types: vm.tax_typess[2],
-                        id: null
+                        var conceptDTO = {
+                            concept: vm.concept,
+                            concept_iva: {
+                                rate: floorFigure(vm.iva[index].rate, 2),
+                                amount: free_concept_iva_amount,
+                                tax_types: vm.tax_typess[0],
+                                id: null
+                            },
+                            concept_ieps: {
+                                rate: floorFigure(vm.ieps[index].rate, 2),
+                                amount: free_concept_ieps_amount,
+                                tax_types: vm.tax_typess[2],
+                                id: null
+                            }
+                        };
+
+                        vm.conceptDTOs.push(conceptDTO);
                     }
-                });
+                }
+
+                $uibModalInstance.close(vm.conceptDTOs);
             }
             vm.isSaving = false;
         };

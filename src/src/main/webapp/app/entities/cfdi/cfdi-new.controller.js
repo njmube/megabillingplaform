@@ -219,7 +219,8 @@
                     taxpayer_account_entity: vm.taxpayer_account
                 }
             }).result.then(function(result) {
-                vm.concepts.push(result);
+                var result_concat = vm.concepts.concat(result);
+                vm.concepts = result_concat;
                 updateCFDITotals();
             });
         }
