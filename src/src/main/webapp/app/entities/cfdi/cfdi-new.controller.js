@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('CfdiNewController', CfdiNewController);
 
-    CfdiNewController.$inject = ['$scope', 'entity', 'taxpayer_account_entity', 'Cfdi', 'Cfdi_states', 'Payment_method', 'Cfdi_types', 'Cfdi_type_doc', 'C_money', 'Taxpayer_account', 'Tax_regime', '$uibModal', 'Way_payment', 'Tax_types'];
+    CfdiNewController.$inject = ['$state', '$timeout', 'entity', 'taxpayer_account_entity', 'Cfdi', 'Payment_method', 'Cfdi_types', 'Cfdi_type_doc', 'C_money', 'Taxpayer_account', 'Taxpayer_transactions', 'AlertService', '$uibModal', 'Way_payment', 'Tax_types'];
 
-    function CfdiNewController($scope, entity, taxpayer_account_entity, Cfdi, Cfdi_states, Payment_method, Cfdi_types, Cfdi_type_doc, C_money, Taxpayer_account, Tax_regime, $uibModal, Way_payment, Tax_types) {
+    function CfdiNewController($state, $timeout, entity, taxpayer_account_entity, Cfdi, Payment_method, Cfdi_types, Cfdi_type_doc, C_money, Taxpayer_account, Taxpayer_transactions, AlertService, $uibModal, Way_payment, Tax_types) {
         var vm = this;
 
         vm.cfdi = entity;
@@ -25,7 +25,41 @@
             }
         }
 
-        vm.tax_regimes = Tax_regime.query({filtername:" "});
+        checkAvailableRings();
+
+        checkAccountCertificate();
+
+        function checkAvailableRings(){
+            Taxpayer_transactions.query({
+                page: 0,
+                size: 20,
+                idaccount: vm.taxpayer_account.id
+            }, onSuccess, onError);
+
+            function onSuccess(data) {
+                vm.taxpayer_transactions = data;
+                vm.taxpayer_transaction = vm.taxpayer_transactions[0];
+
+                if(vm.taxpayer_transaction.transactions_available == 0){
+                    AlertService.error('No tiene timbres disponibles. Debe comprar timbres para poder generar una factura. El sistema lo redigirá en en unos segundos...');
+                    $timeout(function() {
+                        $state.go('taxpayer-account-transaction',{id: vm.taxpayer_account.id});
+                    }, 5000);
+                }
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+        }
+
+        function checkAccountCertificate(){
+            if(vm.taxpayer_account.taxpayer_certificate == null){
+                AlertService.error('Debe de validar su cuenta para poder generar facturas. El sistema lo redigirá en en unos segundos...');
+                $timeout(function() {
+                    $state.go('taxpayer-account-general',{id: vm.taxpayer_account.id});
+                }, 5000);
+            }
+        }
 
         vm.taxpayer_client = null;
         vm.chooseClient = chooseClient;
@@ -49,7 +83,6 @@
         vm.checkMoneyType = checkMoneyType;
         vm.enableAccountNumber = enableAccountNumber;
         vm.tax_typess = Tax_types.query({filtername: " "});
-        vm.com_tfds = Com_tfd.query();
 
         vm.show_iva = (0).toFixed(2);
         vm.calc_iva = (0).toFixed(2);
@@ -439,7 +472,24 @@
         };
 
         var onSaveSuccess = function () {
+            vm.taxpayer_client = null;
+            vm.cfdi = {version: null, serial: null, folio: null, date_expedition: null, payment_conditions: null, change_type: (1).toFixed(2), place_expedition: null, account_number: null, folio_fiscal_orig: null, serial_folio_fiscal_orig: null, date_folio_fiscal_orig: null, mont_folio_fiscal_orig: null, total_tax_retention: null, total_tax_transfered: null, discount: (0).toFixed(2), discount_reason: null, subtotal: (0).toFixed(2), total: (0).toFixed(2), addenda: null, number_certificate: null, certificate: null, id: null};
+            vm.cfdi.tax_regime = null;
+            vm.cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
+            vm.cfdi.c_money = {id: 100, name: "MXN", description: "Peso Mexicano"};
+            vm.show_iva = (0).toFixed(2);
+            vm.calc_iva = (0).toFixed(2);
+            vm.ieps = (0).toFixed(2);
+            vm.ret_iva = (0).toFixed(2);
+            vm.ret_isr = (0).toFixed(2);
+            vm.subtotal_discount = (0).toFixed(2);
+            vm.concepts = [];
+
+            checkAvailableRings();
+
             vm.isSaving = false;
+
+
         };
 
         vm.current_complement = null;

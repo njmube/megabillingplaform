@@ -54,7 +54,6 @@
 
 <form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
     <jhi-alert></jhi-alert>
-
     <uib-tabset active="active">
         <uib-tab heading="Emisor">
             <div class="row">
@@ -748,7 +747,7 @@
 
             <div class="form-group">
                 <button type="submit"
-                        ng-disabled="editForm.$invalid || vm.free_concepts.length == 0 || vm.failWayPaymentXYValidation() || (!vm.add_button_ine_entity_disabled && vm.freecom_ine_entities.length == 0) || (vm.show_spei == true && vm.freecom_spei_thirds.length == 0)"
+                        ng-disabled="editForm.$invalid || vm.concepts.length == 0 || vm.failWayPaymentXYValidation() || (!vm.add_button_ine_entity_disabled && vm.freecom_ine_entities.length == 0) || (vm.show_spei == true && vm.freecom_spei_thirds.length == 0)"
                         class="btn btn-primary pull-right" style="margin: 0 15px">
                     <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="megabillingplatformApp.cfdi.generate">Save</span>
                 </button>
@@ -758,9 +757,9 @@
                 </button>
             </div>
 
-            <jhi-alert></jhi-alert>
+
 
         </div>
-
     </div>
+    <jhi-alert></jhi-alert>
 </form>

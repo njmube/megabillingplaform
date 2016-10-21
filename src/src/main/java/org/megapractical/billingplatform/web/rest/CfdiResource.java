@@ -5,12 +5,15 @@ import org.megapractical.billingplatform.domain.*;
 import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.web.rest.dto.CfdiDTO;
+import org.megapractical.billingplatform.web.rest.dto.ConceptDTO;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
+import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
@@ -50,6 +54,18 @@ public class CfdiResource {
 
     @Inject
     private TracemgService tracemgService;
+
+    @Inject
+    private Taxpayer_transactionsService taxpayer_transactionsService;
+
+    @Inject
+    private ConceptService conceptService;
+
+    @Inject
+    private Tax_transferedService tax_transferedService;
+
+    @Inject
+    private Tax_retentionsService tax_retentionsService;
 
     @Inject
     private MailService mailService;
@@ -101,7 +117,54 @@ public class CfdiResource {
 
         Cfdi result = cfdiService.save(cfdi);
 
-        //Saving concepts...
+        //Updating taxpayer transactions
+        Integer taxpayer_accout_id = new Integer(result.getTaxpayer_account().getId().toString());
+        Sort defaultSort = new Sort(new Sort.Order(Sort.Direction.ASC, "id"));
+        Pageable pageable = new PageRequest(0, 30, defaultSort);
+        Page<Taxpayer_transactions> taxpayer_transactions = taxpayer_transactionsService.findByAccount(taxpayer_accout_id, pageable);
+        Taxpayer_transactions taxpayer_transactions_account = taxpayer_transactions.getContent().get(0);
+        taxpayer_transactions_account.setTransactions_available(taxpayer_transactions_account.getTransactions_available() - 1);
+        taxpayer_transactions_account.setTransactions_spent(taxpayer_transactions_account.getTransactions_spent() + 1);
+        taxpayer_transactionsService.save(taxpayer_transactions_account);
+
+        //Saving conceptDTOs
+        List<ConceptDTO> conceptDTOs = cfdiDTO.getConceptDTOs();
+        BigDecimal ceroValue = new BigDecimal("0");
+
+        for(ConceptDTO conceptDTO: conceptDTOs){
+            //save concept
+            Concept concept = conceptDTO.getConcept();
+            concept.setCfdi(result);
+            concept = conceptService.save(concept);
+
+            //save tax trasnfered iva
+            Tax_transfered concept_iva = conceptDTO.getConcept_iva();
+            if(concept_iva.getAmount().compareTo(ceroValue) == 1){
+                concept_iva.setConcept(concept);
+                tax_transferedService.save(concept_iva);
+            }
+
+            //save tax trasnfered ieps
+            Tax_transfered concept_ieps = conceptDTO.getConcept_ieps();
+            if(concept_ieps.getAmount().compareTo(ceroValue) == 1){
+                concept_ieps.setConcept(concept);
+                tax_transferedService.save(concept_ieps);
+            }
+
+            //save tax retentions iva
+            Tax_retentions tax_retentions_iva = conceptDTO.getTax_retentions_iva();
+            if(tax_retentions_iva != null && tax_retentions_iva.getAmount().compareTo(ceroValue) == 1){
+                tax_retentions_iva.setConcept(concept);
+                tax_retentionsService.save(tax_retentions_iva);
+            }
+
+            //save tax retentions isr
+            Tax_retentions tax_retentions_isr = conceptDTO.getTax_retentions_isr();
+            if(tax_retentions_isr != null && tax_retentions_isr.getAmount().compareTo(ceroValue) == 1){
+                tax_retentions_isr.setConcept(concept);
+                tax_retentionsService.save(tax_retentions_isr);
+            }
+        }
 
         Long idauditevent = new Long("4");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
@@ -109,6 +172,8 @@ public class CfdiResource {
         Long idstate = new Long("1");
         c_state_event = c_state_eventService.findOne(idstate);
         tracemgService.saveTrace(audit_event_type, c_state_event);
+
+        //Sending emails
 
         return ResponseEntity.created(new URI("/api/cfdis/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert("cfdi", result.getId().toString()))
