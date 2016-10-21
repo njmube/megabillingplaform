@@ -1,11 +1,11 @@
 package org.megapractical.billingplatform.service.impl;
 
-import org.megapractical.billingplatform.domain.Config_pathrootfile;
 import org.megapractical.billingplatform.domain.Taxpayer_account;
 import org.megapractical.billingplatform.service.CfdiService;
 import org.megapractical.billingplatform.domain.Cfdi;
 import org.megapractical.billingplatform.repository.CfdiRepository;
 import org.megapractical.billingplatform.service.Taxpayer_accountService;
+import org.megapractical.billingplatform.web.rest.dto.CfdiDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -15,9 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +37,11 @@ public class CfdiServiceImpl implements CfdiService{
     /**
      * Save a cfdi.
      *
-     * @param cfdi the entity to save
+     * @param cfdiDTO the entity to save
      * @return the persisted entity
      */
-    public Cfdi save(Cfdi cfdi) {
+    public Cfdi save(CfdiDTO cfdiDTO) {
+        Cfdi cfdi = cfdiDTO.getCfdi();
         log.debug("Request to save Cfdi : {}", cfdi);
         Cfdi result = cfdiRepository.save(cfdi);
         return result;

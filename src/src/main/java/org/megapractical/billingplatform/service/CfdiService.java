@@ -1,11 +1,11 @@
 package org.megapractical.billingplatform.service;
 
 import org.megapractical.billingplatform.domain.Cfdi;
+import org.megapractical.billingplatform.web.rest.dto.CfdiDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.time.LocalDate;
-import java.util.List;
 
 /**
  * Service Interface for managing Cfdi.
@@ -18,7 +18,7 @@ public interface CfdiService {
      * @param cfdi the entity to save
      * @return the persisted entity
      */
-    Cfdi save(Cfdi cfdi);
+    Cfdi save(CfdiDTO cfdi);
 
     /**
      *  Get all the cfdis.

@@ -115,7 +115,7 @@ public class CfdiResource {
         cfdi.setCertificate("cetificate");
         cfdi.setNumber_certificate("numbercertificate");
 
-        Cfdi result = cfdiService.save(cfdi);
+        Cfdi result = cfdiService.save(cfdiDTO);
 
         //Updating taxpayer transactions
         Integer taxpayer_accout_id = new Integer(result.getTaxpayer_account().getId().toString());
@@ -199,7 +199,7 @@ public class CfdiResource {
         if (cfdi.getId() == null) {
             return createCfdi(cfdiDTO);
         }
-        Cfdi result = cfdiService.save(cfdi);
+        Cfdi result = cfdiService.save(cfdiDTO);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert("cfdi", cfdi.getId().toString()))
             .body(result);
