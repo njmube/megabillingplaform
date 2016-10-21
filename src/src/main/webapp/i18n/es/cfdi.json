@@ -3,9 +3,9 @@
         "cfdi" : {
             "home": {
                 "title": "CFDI",
-                "createLabel": "Adicionar nuevo CFDI",
+                "createLabel": "Nuevo CFDI",
                 "createOrEditLabel": "Adicionar o editar un CFDI",
-                "chooseClientLabel": "Escoger Clientes",
+                "chooseClientLabel": "Seleccionar Clientes",
                 "search": "Búsqueda por CFDI"
             },
             "created": "El CFDI ha sido adicionado satisfactoriamente.",
@@ -20,11 +20,11 @@
             "version": "Versión:",
             "serial": "Serial:",
             "folio": "Folio:",
-            "date_expedition": "Fecha de expedición:",
-            "payment_conditions": "Condiciones de pago:",
-            "change_type": "Tipo de cambio:",
-            "place_expedition": "Lugar de expedición:",
-            "account_number": "No. de cuenta:",
+            "date_expedition": "Fecha de Expedición:",
+            "payment_conditions": "Condiciones de Pago:",
+            "change_type": "Tipo de Cambio:",
+            "place_expedition": "Lugar de Expedición:",
+            "account_number": "No. Cuenta:",
             "folio_fiscal_orig": "Folio Fiscal Original:",
             "serial_folio_fiscal_orig": "Serial Folio Fiscal Original:",
             "date_folio_fiscal_orig": "Fecha Folio Fiscal Original:",
@@ -32,30 +32,30 @@
             "total_tax_retention": "Total Impuesto de Retención:",
             "total_tax_transfered": "Total Impuesto Transferido:",
             "discount": "Descuento:",
-            "discount_reason": "Razón de descuento:",
+            "discount_reason": "Motivo Descuento:",
             "subtotal": "Subtotal",
             "total": "Total",
             "addenda": "Addenda",
             "number_certificate": "No. Certificado:",
             "certificate": "Certificado:",
             "cfdi_states": "Estados de CFDI",
-            "payment_method": "Método de pago (*)",
+            "payment_method": "Método de Pago (*)",
             "way_payment": "Forma de Pago (*)",
             "cfdi_types": "Tipos CFDI",
-            "cfdi_type_doc": "Tipo de documento CFDI (*)",
+            "cfdi_type_doc": "Tipo Documento (*)",
             "c_money": "Moneda:",
             "com_tfd": "Complemento TFD:",
-            "taxpayer_account": "Taxpayer Account:",
-            "tax_regime": "Régimen de impuesto (*):",
-            "taxpayer_client": "Cliente contribuyente:",
-            "choose_client": "Escoger Receptor",
-            "choose": "Escoger",
+            "taxpayer_account": "Cuenta Contribuyente:",
+            "tax_regime": "Régimen Fiscal (*):",
+            "taxpayer_client": "Cliente:",
+            "choose_client": "Seleccionar Cliente",
+            "choose": "Seleccionar",
             "generate": "Generar",
             "add": "Adicionar",
 			"validation":{
 				"way_paymentxnomorey":"El primer valor no puede ser menor que le segundo.",
 				"way_paymentxynocero":"Ninguno de los dos valores numéricos de arriba pueden ser cero."
-			}		
+			}
         }
     }
 }
