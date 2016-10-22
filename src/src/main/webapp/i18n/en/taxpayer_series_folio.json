@@ -2,7 +2,7 @@
     "megabillingplatformApp": {
         "taxpayer_series_folio" : {
             "home": {
-                "title": "Taxpayer Series Folios",
+                "title": "Series and Folios",
                 "createLabel": "Create a new Taxpayer Series Folio",
                 "createOrEditLabel": "Create or edit a Taxpayer Series Folio",
                 "search": "Search for Taxpayer Series Folio"

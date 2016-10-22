@@ -13,7 +13,7 @@ public interface Taxpayer_series_folioService {
 
     /**
      * Save a taxpayer_series_folio.
-     * 
+     *
      * @param taxpayer_series_folio the entity to save
      * @return the persisted entity
      */
@@ -21,15 +21,15 @@ public interface Taxpayer_series_folioService {
 
     /**
      *  Get all the taxpayer_series_folios.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    Page<Taxpayer_series_folio> findAll(Pageable pageable);
+    Page<Taxpayer_series_folio> findAll(Pageable pageable, Integer taxpayer_account);
 
     /**
      *  Get the "id" taxpayer_series_folio.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,7 +37,7 @@ public interface Taxpayer_series_folioService {
 
     /**
      *  Delete the "id" taxpayer_series_folio.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);

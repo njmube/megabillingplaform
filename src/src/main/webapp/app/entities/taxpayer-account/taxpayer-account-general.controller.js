@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Taxpayer_accountGeneralController', Taxpayer_accountGeneralController);
 
-    Taxpayer_accountGeneralController.$inject = ['$scope', '$rootScope', '$uibModal', 'C_state', 'C_country', 'C_municipality', 'C_colony', 'C_zip_code', '$stateParams', 'entity', 'Taxpayer_account', 'Tax_address', 'Taxpayer_certificate', 'Type_taxpayer', 'Tax_regime', 'User'];
+    Taxpayer_accountGeneralController.$inject = ['$scope', 'DataUtils', '$rootScope', '$uibModal', 'C_state', 'C_country', 'C_municipality', 'C_colony', 'C_zip_code', '$stateParams', 'entity', 'Taxpayer_account', 'Tax_address', 'Taxpayer_certificate', 'Type_taxpayer', 'Tax_regime', 'User'];
 
-    function Taxpayer_accountGeneralController($scope, $rootScope, $uibModal, C_state, C_country, C_municipality, C_colony, C_zip_code, $stateParams, entity, Taxpayer_account, Tax_address, Taxpayer_certificate, Type_taxpayer, Tax_regime, User) {
+    function Taxpayer_accountGeneralController($scope, DataUtils, $rootScope, $uibModal, C_state, C_country, C_municipality, C_colony, C_zip_code, $stateParams, entity, Taxpayer_account, Tax_address, Taxpayer_certificate, Type_taxpayer, Tax_regime, User) {
         var vm = this;
 
         vm.taxpayer_account = entity;
@@ -19,6 +19,7 @@
         vm.edit = null;
         vm.accuracys = [2,3,4,5,6];
         vm.showInfo = false;
+        vm.messlogo = null;
 
         vm.clearInfor = clearInfor;
         vm.add = add;
@@ -183,5 +184,25 @@
                 vm.taxpayer_account.tax_address.c_zip_code = result;
             });
         }
+
+        vm.setLogo = function ($file, taxpayer_account) {
+            if ($file) {
+                vm.logo_file = $file;
+                DataUtils.toBase64($file, function(base64Data) {
+                    $scope.$apply(function() {
+
+                        if($file.size <= 10485760 && ($file.type == "image/png" || $file.type == "image/jpeg") ){
+                            vm.taxpayer_account.path_logo = $file.name;
+                            taxpayer_account.file_logo = base64Data;
+                            taxpayer_account.file_logoContentType = $file.type;
+                            vm.messlogo = null;
+                        }
+                        else{
+                            vm.messlogo = true;
+                        }
+                    });
+                });
+            }
+        };
     }
 })();

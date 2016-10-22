@@ -137,7 +137,12 @@
             "search_resultnull":"No hay resultados de la búsqueda",
             "patternservername":"Incorrecto nombre para el servidor",
             "patternusername": "Incorrecto nombre de usuario",
-            "patternport":"Incorrecto número de puerto"
+            "patternport":"Incorrecto número de puerto",
+            "messlogo":"La extensión del fichero debe ser .png o .jpg y el tamaño <= 10 Mb",
+            "path_logo":"Logo",
+            "labelLogo":"Logo",
+            "seriefolio":"Series y Folios",
+            "messfolio":"Folios incorrectos"
 
         }
     }

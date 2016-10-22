@@ -52,6 +52,9 @@
             <li>
                 <a ui-sref="taxpayer-account-transaction">{{'megabillingplatformApp.taxpayer_account.adquired' | translate}}</a>
             </li>
+            <li>
+                <a ui-sref="taxpayer-account-seriefolio({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.seriefolio' | translate}}</a>
+            </li>
         </ul>
     </div><!-- /.col -->
 </div><!-- /.row -->
@@ -446,6 +449,48 @@
                             <textarea type="text" id="field_reference1" class="form-control" rows="5"
                                       ng-model="vm.taxpayer_account.tax_address.reference" ng-show = "vm.edit == null" readonly></textarea>
                         </div>
+                    </div>
+
+                    <div class="space-6"></div>
+
+                    <h3 class="header smaller lighter blue" translate="megabillingplatformApp.taxpayer_account.labelLogo">
+                        Logo
+                    </h3>
+                    <div class="form-group" ngf-drop ngf-change="vm.setLogo($file, vm.taxpayer_account)" ngf-
+                         pattern="'image/*'">
+                        <label class="col-sm-4 control-label no-padding-right"
+                               translate="megabillingplatformApp.taxpayer_account.path_logo"
+                               for="field_logo">Logo</label>
+                        <div class="col-sm-8">
+                            <img data-ng-src="{{'data:' + vm.taxpayer_accounttaxpayer_account.file_logoContentType + ';base64,' + vm.taxpayer_account.file_logo}}" style="max-height: 100px;" ng-if="vm.taxpayer_account.file_logo"/>
+                            <br>
+                            <div class="help-block clearfix">
+                                <span class="pull-left">{{vm.taxpayer_account.file_logoContentType}}, {{byteSize(vm.taxpayer_account.file_logo)}}  &nbsp;&nbsp;</span>
+                                <button ng-click="vm.taxpayer_account.file_logo=null;vm.taxpayer_account.file_logoContentType=null;"
+                                        ng-if="vm.taxpayer_account.file_logo">
+                                    <a class="remove">
+                                        <i class="glyphicon glyphicon-trash"></i>
+                                    </a>
+                                </button>
+                            </div>
+                            <div>
+                                <label class="ace-file-input">
+                                    <input type="file" id="id-input-file-4" accept="image/*" ngf-select ngf-change="vm.setLogo($file, vm.taxpayer_account)">
+                                        <span class="ace-file-container" data-title="Buscar">
+                                            <span class="ace-file-name" data-title="...">
+                                                <i class=" ace-icon fa fa-upload"></i>
+                                            </span>
+                                        </span>
+                                </label>
+                            </div>
+                        </div>
+                        <input type="hidden" class="form-control" name="logo" id="field_logo"
+                               ng-model="vm.taxpayer_account.file_logo"/>
+                        <input type="hidden" class="form-control" name="logoContentType"
+                               id="field_logoContentType"
+                               ng-model="vm.taxpayer_account.file_logoContentType" />
+                        <span ng-show="vm.messlogo" translate="megabillingplatformApp.taxpayer_account.messlogo">.png or .jpg file extention is required and file size <= 10 Mb</span>
+
                     </div>
 
                     <div class="space-6"></div>

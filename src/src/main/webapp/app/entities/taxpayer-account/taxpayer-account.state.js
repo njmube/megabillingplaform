@@ -192,6 +192,51 @@
                     }]
                 }
             })
+        .state('taxpayer-account-seriefolio', {
+                parent: 'entity',
+                url: '/taxpayer-account-seriefolio/{id}',
+                data: {
+                    authorities: [],
+                    pageTitle: 'megabillingplatformApp.taxpayer_account.detail.title'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/taxpayer-account/taxpayer-account-seriefolio.html',
+                        controller: 'Taxpayer_accountSerieFolioController',
+                        controllerAs: 'vm'
+                    }
+                },
+                params: {
+                    page: {
+                        value: '1',
+                        squash: true
+                    },
+                    sort: {
+                        value: 'id,asc',
+                        squash: true
+                    },
+                    search: null
+                },
+                resolve: {
+                    pagingParams: ['$stateParams', 'PaginationUtil', function ($stateParams, PaginationUtil) {
+                        return {
+                            page: PaginationUtil.parsePage($stateParams.page),
+                            sort: $stateParams.sort,
+                            predicate: PaginationUtil.parsePredicate($stateParams.sort),
+                            ascending: PaginationUtil.parseAscending($stateParams.sort),
+                            search: $stateParams.search
+                        };
+                    }],
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('taxpayer_account');
+                        $translatePartialLoader.addPart('taxpayer_series_folio');
+                        return $translate.refresh();
+                    }],
+                    entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
+                        return Taxpayer_account.get({id : $stateParams.id}).$promise;
+                    }]
+                }
+            })
         .state('taxpayer-account-mail', {
                 parent: 'entity',
                 url: '/taxpayer-account-mail/{id}',

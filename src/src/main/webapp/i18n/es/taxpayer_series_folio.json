@@ -2,26 +2,26 @@
     "megabillingplatformApp": {
         "taxpayer_series_folio" : {
             "home": {
-                "title": "Taxpayer Series Folios",
-                "createLabel": "Crear nuevo Taxpayer Series Folio",
-                "createOrEditLabel": "Crear o editar Taxpayer Series Folio",
-                "search": "Search for Taxpayer Series Folio"
+                "title": "Series y Folios",
+                "createLabel": "Crear nueva Serie y Folio",
+                "createOrEditLabel": "Crear o editar Serie y Folio",
+                "search": "búsqueda para Serie y Folio"
             },
-            "created": "Un nuevo Taxpayer Series Folio ha sido creado con el identificador {{ param }}",
-            "updated": "Un Taxpayer Series Folio ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Taxpayer Series Folio ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Serie y Folio ha sido creado con el identificador {{ param }}",
+            "updated": "Una Serie y Folio ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Una Serie y Folio ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Taxpayer Series Folio {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Serie y Folio {{ id }}?"
             },
             "detail": {
-                "title": "Taxpayer Series Folio"
+                "title": "Serie y Folio"
             },
             "serie": "Serie",
-            "folio_start": "Folio Start",
-            "folio_end": "Folio End",
-            "folio_current": "Folio Current",
-            "date_creation": "Date Creation",
-            "taxpayer_account": "Taxpayer Account"
+            "folio_start": "Folio inicial",
+            "folio_end": "Folio final",
+            "folio_current": "Folio actual",
+            "date_creation": "Fecha de creación",
+            "taxpayer_account": "Cuenta de contribuyente"
         }
     }
 }

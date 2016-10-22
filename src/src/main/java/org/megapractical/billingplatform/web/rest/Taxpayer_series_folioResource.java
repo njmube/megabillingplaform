@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Taxpayer_series_folioResource {
 
     private final Logger log = LoggerFactory.getLogger(Taxpayer_series_folioResource.class);
-        
+
     @Inject
     private Taxpayer_series_folioService taxpayer_series_folioService;
-    
+
     /**
      * POST  /taxpayer-series-folios : Create a new taxpayer_series_folio.
      *
@@ -89,12 +89,14 @@ public class Taxpayer_series_folioResource {
      */
     @RequestMapping(value = "/taxpayer-series-folios",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"taxpayeraccount"})
     @Timed
-    public ResponseEntity<List<Taxpayer_series_folio>> getAllTaxpayer_series_folios(Pageable pageable)
+    public ResponseEntity<List<Taxpayer_series_folio>> getAllTaxpayer_series_folios(Pageable pageable,
+                                                                                    @RequestParam(value = "taxpayeraccount") Integer taxpayeraccount)
         throws URISyntaxException {
         log.debug("REST request to get a page of Taxpayer_series_folios");
-        Page<Taxpayer_series_folio> page = taxpayer_series_folioService.findAll(pageable); 
+        Page<Taxpayer_series_folio> page = taxpayer_series_folioService.findAll(pageable, taxpayeraccount);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/taxpayer-series-folios");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

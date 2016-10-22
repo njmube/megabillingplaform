@@ -142,7 +142,12 @@
             "accountsource":"Source Taxpayer Account",
             "patternservername":"Incorrect server name",
             "patternusername": "Incorrect username",
-            "patternport":"Incorrecto port number"
+            "patternport":"Incorrecto port number",
+            "messlogo":".png or .jpg file extention is required and file size <= 10 Mb",
+            "path_logo":"Logo",
+            "labelLogo":"Logo",
+            "seriefolio":"Series and Folios",
+            "messfolio":"Incorrect Folio number"
         }
     }
 }
