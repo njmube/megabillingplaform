@@ -24,25 +24,29 @@
             <column name="currency" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="description" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="price" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="reference_code" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="rings" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/ring_pack.csv"
+                  separator=";"
+                  tableName="ring_pack">
+        </loadData>
     </changeSet>
 </databaseChangeLog>

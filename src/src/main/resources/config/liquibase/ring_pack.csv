@@ -1,0 +1,11 @@
+id;currency;description;price;reference_code;rings
+1;MXN;50 timbres por sólo 150 Mex$;150;T0001;50
+2;MXN;100 timbres por sólo 300 Mex$;300;T0002;100
+3;MXN;200 timbres por sólo 500 Mex$;500;T0003;200
+4;MXN;400 timbres por sólo 1000 Mex$;1000;T0004;400
+5;MXN;600 timbres por sólo 1200 Mex$;1200;T0005;600
+6;MXN;1000 timbres por sólo 2000 Mex$;2000;T0006;1000
+7;MXN;3000 timbres por sólo 4500 Mex$;4500;T0007;3000
+8;MXN;7000 timbres por sólo 8400 Mex$;8400;T0008;7000
+9;MXN;12000 timbres por sólo 12400 Mex$;12400;T0009;12000
+10;MXN;20000 timbres por sólo 20000 Mex$;20000;T0010;20000

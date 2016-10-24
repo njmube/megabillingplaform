@@ -33,7 +33,12 @@
                 if(vm.registerAccount.firtsurname != null)
                     vm.registerAccount.login += vm.registerAccount.firtsurname.toLowerCase();
             }
-
+            var temp = "";
+            for(var i = 0; i < vm.registerAccount.login.length ; i++){
+                if(vm.registerAccount.login.substring(i,i+1) != " ")
+                    temp += vm.registerAccount.login.substring(i,i+1);
+            }
+            vm.registerAccount.login = temp;
         }
 
         function suges(){

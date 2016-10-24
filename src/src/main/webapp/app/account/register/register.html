@@ -80,7 +80,7 @@
                     <label class="control-label" for="firtsurname" translate="global.form.firtsurname">Firt surname</label>
                     <input type="text" class="form-control" id="firtsurname" name="firtsurname" placeholder="{{'global.form.firtsurname.placeholder' | translate}}"
                            ng-model="vm.registerAccount.firtsurname" ng-change="vm.onChangeUser()" ng-minlength=3 ng-maxlength=50
-                           ng-pattern="/^[A-Za-z]{3,50}$/" required>
+                           ng-pattern="/^[A-ZÑa-zñ]+[A-ZÑa-zñ\s]+[A-ZÑa-zñ]{3,50}$/" required>
                     <div ng-show="form.firtsurname.$dirty && form.firtsurname.$invalid">
                         <p class="help-block"
                            ng-show="form.firtsurname.$error.required" translate="register.messages.validate.firtsurname.required">

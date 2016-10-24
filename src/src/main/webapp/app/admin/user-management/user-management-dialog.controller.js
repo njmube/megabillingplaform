@@ -57,6 +57,12 @@
                 if(vm.user.firtsurname != null)
                     vm.user.login += vm.user.firtsurname.toLowerCase();
             }
+            var temp = "";
+            for(var i = 0; i < vm.user.login.length ; i++){
+                if(vm.user.login.substring(i,i+1) != " ")
+                    temp += vm.user.login.substring(i,i+1);
+            }
+            vm.user.login = temp;
         }
 
         function save () {
