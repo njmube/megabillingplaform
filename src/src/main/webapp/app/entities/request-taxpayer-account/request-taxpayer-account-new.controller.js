@@ -40,6 +40,9 @@
                 vm.request_taxpayer_account.email = vm.account.email;
                 vm.current_gender = vm.account.gender;
                 vm.request_taxpayer_account.gender = vm.account.gender;
+                vm.request_taxpayer_account.rfc = vm.account.rfc;
+                vm.request_taxpayer_account.bussinesname = vm.account.login;
+                vm.request_taxpayer_account.accountemail = vm.account.email;
             });
         };
 
@@ -53,7 +56,6 @@
         vm.onChangeC_colony = onChangeC_colony;
 
         vm.genders = [{code:'M', name: 'global.form.gender.male'}, {code: 'F', name: 'global.form.gender.female'}];
-        vm.current_gender = null;
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
