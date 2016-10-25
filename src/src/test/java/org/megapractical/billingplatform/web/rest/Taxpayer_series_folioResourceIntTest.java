@@ -59,6 +59,9 @@ public class Taxpayer_series_folioResourceIntTest {
     private static final LocalDate DEFAULT_DATE_CREATION = LocalDate.ofEpochDay(0L);
     private static final LocalDate UPDATED_DATE_CREATION = LocalDate.now(ZoneId.systemDefault());
 
+    private static final Boolean DEFAULT_ENABLE = false;
+    private static final Boolean UPDATED_ENABLE = true;
+
     @Inject
     private Taxpayer_series_folioRepository taxpayer_series_folioRepository;
 
@@ -93,6 +96,7 @@ public class Taxpayer_series_folioResourceIntTest {
         taxpayer_series_folio.setFolio_end(DEFAULT_FOLIO_END);
         taxpayer_series_folio.setFolio_current(DEFAULT_FOLIO_CURRENT);
         taxpayer_series_folio.setDate_creation(DEFAULT_DATE_CREATION);
+        taxpayer_series_folio.setEnable(DEFAULT_ENABLE);
     }
 
     @Test
@@ -116,6 +120,7 @@ public class Taxpayer_series_folioResourceIntTest {
         assertThat(testTaxpayer_series_folio.getFolio_end()).isEqualTo(DEFAULT_FOLIO_END);
         assertThat(testTaxpayer_series_folio.getFolio_current()).isEqualTo(DEFAULT_FOLIO_CURRENT);
         assertThat(testTaxpayer_series_folio.getDate_creation()).isEqualTo(DEFAULT_DATE_CREATION);
+        assertThat(testTaxpayer_series_folio.isEnable()).isEqualTo(DEFAULT_ENABLE);
     }
 
     @Test
@@ -223,7 +228,8 @@ public class Taxpayer_series_folioResourceIntTest {
                 .andExpect(jsonPath("$.[*].folio_start").value(hasItem(DEFAULT_FOLIO_START)))
                 .andExpect(jsonPath("$.[*].folio_end").value(hasItem(DEFAULT_FOLIO_END)))
                 .andExpect(jsonPath("$.[*].folio_current").value(hasItem(DEFAULT_FOLIO_CURRENT)))
-                .andExpect(jsonPath("$.[*].date_creation").value(hasItem(DEFAULT_DATE_CREATION.toString())));
+                .andExpect(jsonPath("$.[*].date_creation").value(hasItem(DEFAULT_DATE_CREATION.toString())))
+                .andExpect(jsonPath("$.[*].enable").value(hasItem(DEFAULT_ENABLE.booleanValue())));
     }
 
     @Test
@@ -241,7 +247,8 @@ public class Taxpayer_series_folioResourceIntTest {
             .andExpect(jsonPath("$.folio_start").value(DEFAULT_FOLIO_START))
             .andExpect(jsonPath("$.folio_end").value(DEFAULT_FOLIO_END))
             .andExpect(jsonPath("$.folio_current").value(DEFAULT_FOLIO_CURRENT))
-            .andExpect(jsonPath("$.date_creation").value(DEFAULT_DATE_CREATION.toString()));
+            .andExpect(jsonPath("$.date_creation").value(DEFAULT_DATE_CREATION.toString()))
+            .andExpect(jsonPath("$.enable").value(DEFAULT_ENABLE.booleanValue()));
     }
 
     @Test
@@ -268,6 +275,7 @@ public class Taxpayer_series_folioResourceIntTest {
         updatedTaxpayer_series_folio.setFolio_end(UPDATED_FOLIO_END);
         updatedTaxpayer_series_folio.setFolio_current(UPDATED_FOLIO_CURRENT);
         updatedTaxpayer_series_folio.setDate_creation(UPDATED_DATE_CREATION);
+        updatedTaxpayer_series_folio.setEnable(UPDATED_ENABLE);
 
         restTaxpayer_series_folioMockMvc.perform(put("/api/taxpayer-series-folios")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -283,6 +291,7 @@ public class Taxpayer_series_folioResourceIntTest {
         assertThat(testTaxpayer_series_folio.getFolio_end()).isEqualTo(UPDATED_FOLIO_END);
         assertThat(testTaxpayer_series_folio.getFolio_current()).isEqualTo(UPDATED_FOLIO_CURRENT);
         assertThat(testTaxpayer_series_folio.getDate_creation()).isEqualTo(UPDATED_DATE_CREATION);
+        assertThat(testTaxpayer_series_folio.isEnable()).isEqualTo(UPDATED_ENABLE);
     }
 
     @Test

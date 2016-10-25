@@ -67,7 +67,7 @@ class Taxpayer_series_folioGatlingTest extends Simulation {
             .exec(http("Create new taxpayer_series_folio")
             .post("/api/taxpayer-series-folios")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "serie":"SAMPLE_TEXT", "folio_start":"0", "folio_end":"0", "folio_current":"0", "date_creation":"2020-01-01T00:00:00.000Z"}""")).asJSON
+            .body(StringBody("""{"id":null, "serie":"SAMPLE_TEXT", "folio_start":"0", "folio_end":"0", "folio_current":"0", "date_creation":"2020-01-01T00:00:00.000Z", "enable":null}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_taxpayer_series_folio_url"))).exitHereIfFailed
             .pause(10)
