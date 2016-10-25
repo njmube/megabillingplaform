@@ -16,6 +16,7 @@
         vm.hidemenu = hidemenu;
         var today = new Date();
         vm.user = {};
+        vm.request_taxpayer_account = {};
         vm.account = null;
         vm.restDate = restDate;
         vm.toDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
@@ -25,11 +26,20 @@
         vm.c_municipalitys = null;
         vm.c_colonys = null;
         vm.save = save;
-        vm.propio = null;
         vm.isSaving = null;
         vm.loadRequest = function () {
             Request_state.get({id: 1}, function(result) {
                 vm.request_state = result;
+            });
+            Principal.identity().then(function(account) {
+                vm.account = account;
+                vm.request_taxpayer_account.name = vm.account.name;
+                vm.request_taxpayer_account.firtsurname = vm.account.firtsurname;
+                vm.request_taxpayer_account.secondsurname = vm.account.secondsurname;
+                vm.request_taxpayer_account.phone = vm.account.phone;
+                vm.request_taxpayer_account.email = vm.account.email;
+                vm.current_gender = vm.account.gender;
+                vm.request_taxpayer_account.gender = vm.account.gender;
             });
         };
 
@@ -41,7 +51,6 @@
         vm.onChangeC_state = onChangeC_state;
         vm.onChangeC_municipality = onChangeC_municipality;
         vm.onChangeC_colony = onChangeC_colony;
-        vm.clicPropio = clicPropio;
 
         vm.genders = [{code:'M', name: 'global.form.gender.male'}, {code: 'F', name: 'global.form.gender.female'}];
         vm.current_gender = null;
@@ -49,30 +58,6 @@
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
         });
-
-        function clicPropio(){
-            if(vm.propio == true){
-                Principal.identity().then(function(account) {
-                    vm.account = account;
-                    vm.request_taxpayer_account.name = vm.account.name;
-                    vm.request_taxpayer_account.firtsurname = vm.account.firtsurname;
-                    vm.request_taxpayer_account.secondsurname = vm.account.secondsurname;
-                    vm.request_taxpayer_account.phone = vm.account.phone;
-                    vm.request_taxpayer_account.email = vm.account.email;
-                    vm.current_gender = vm.account.gender;
-                    vm.request_taxpayer_account.gender = vm.account.gender;
-                });
-            }
-            else{
-                vm.request_taxpayer_account.name = null;
-                vm.request_taxpayer_account.firtsurname = null;
-                vm.request_taxpayer_account.secondsurname = null;
-                vm.request_taxpayer_account.phone = null;
-                vm.request_taxpayer_account.email = null;
-                vm.current_gender = null;
-                vm.request_taxpayer_account.gender = null;
-            }
-        }
 
         function restDate(){
             Principal.identity().then(function(account) {

@@ -44,6 +44,10 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "enable",
+            "fieldType": "Boolean"
         }
     ],
     "changelogDate": "20161021125221",

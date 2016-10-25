@@ -44,6 +44,9 @@ public class Taxpayer_series_folio implements Serializable {
     @Column(name = "date_creation", nullable = false)
     private LocalDate date_creation;
 
+    @Column(name = "enable")
+    private Boolean enable;
+
     @ManyToOne
     private Taxpayer_account taxpayer_account;
 
@@ -95,6 +98,14 @@ public class Taxpayer_series_folio implements Serializable {
         this.date_creation = date_creation;
     }
 
+    public Boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(Boolean enable) {
+        this.enable = enable;
+    }
+
     public Taxpayer_account getTaxpayer_account() {
         return taxpayer_account;
     }
@@ -132,6 +143,7 @@ public class Taxpayer_series_folio implements Serializable {
             ", folio_end='" + folio_end + "'" +
             ", folio_current='" + folio_current + "'" +
             ", date_creation='" + date_creation + "'" +
+            ", enable='" + enable + "'" +
             '}';
     }
 }
