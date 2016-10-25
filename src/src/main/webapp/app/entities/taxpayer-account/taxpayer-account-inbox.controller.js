@@ -11,6 +11,7 @@
         var vm = this;
         vm.taxpayer_account = entity;
         vm.taxpayer_accounts = Taxpayer_account.query();
+        vm.states = Cfdi_states.query({filtername:" "});
         vm.loadAll = loadAll;
         vm.loadPage = loadPage;
         vm.searchSending = searchSending;
@@ -282,7 +283,15 @@
         function cancelar(cfdi){
             cfdi.cfdi_states = vm.states[1];
 
-            cfdi = Cfdi.update(cfdi);
+            var cfdiDTO = {
+                cfdi: cfdi,
+                conceptDTOs: null,
+                concepts: null,
+                taxTransfereds: null,
+                taxRetentions: null
+            };
+
+            cfdi = Cfdi.update(cfdiDTO);
         }
 
         function loadPage (page) {

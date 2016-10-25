@@ -42,7 +42,7 @@ public interface CfdiService {
 
 
 
-    void cancelarFree_cfdi(Cfdi cfdi);
+    void cancelarCfdi(Cfdi cfdi);
 
 
     /**

@@ -167,6 +167,13 @@ public class Free_cfdiResource {
             if(pre.getCfdi_states().getId() == 1){
                 log.debug("Cancelando free_cfdi");
                 free_cfdiService.cancelarFree_cfdi(free_cfdi);
+
+                Long idauditevent = new Long("52");
+                Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                C_state_event c_state_event;
+                Long idstate = new Long("1");
+                c_state_event = c_state_eventService.findOne(idstate);
+                tracemgService.saveTrace(audit_event_type, c_state_event);
             }
         }
         Free_cfdi result = free_cfdiService.save(free_cfdi_dto);

@@ -65,19 +65,19 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="mont_folio_fiscal_orig" type="decimal(32,6)">
+            <column name="mont_folio_fiscal_orig" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
             
-            <column name="total_tax_retention" type="decimal(32,6)">
+            <column name="total_tax_retention" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
             
-            <column name="total_tax_transfered" type="decimal(32,6)">
+            <column name="total_tax_transfered" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
             
-            <column name="discount" type="decimal(32,6)">
+            <column name="discount" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
             
@@ -85,11 +85,11 @@
                 <constraints nullable="true" />
             </column>
             
-            <column name="subtotal" type="decimal(32,6)">
+            <column name="subtotal" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
             
-            <column name="total" type="decimal(32,6)">
+            <column name="total" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
             
@@ -106,6 +106,24 @@
             </column>
             
             <column name="way_payment" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="path_cfdi" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="filepdf" type="blob">
+                <constraints nullable="true" />
+            </column>
+            <column name="filepdf_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            
+            <column name="filexml" type="blob">
+                <constraints nullable="true" />
+            </column>
+            <column name="filexml_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             

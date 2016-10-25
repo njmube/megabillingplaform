@@ -47,3 +47,7 @@ id;name;description
 46;TRANSFERENCIA-DESDE-CUENTA;Se realiza una transferencia desde una cuenta de facturación
 47;TRANSFERENCIA-PARA-CUENTA;Se realiza una transferencia para una cuenta de facturación
 48;COMPRA-TIMBRES;Se realiza una compra de timbres
+49;GENERACION-CFDI;Se genera un nuevo CFDI
+50;REPORTE-CFDI;Se consulta cfdi
+51;CANCELACION-CFDI;Se cancela un CFDI
+52;CANCELACION-CFDI-GRATUITO;Se cancela un CFDI gratuito

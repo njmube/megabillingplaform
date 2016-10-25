@@ -85,7 +85,7 @@ public class CfdiResource {
         Cfdi cfdi = cfdiDTO.getCfdi();
         log.debug("REST request to save Cfdi : {}", cfdi);
         if (cfdi.getId() != null) {
-            Long idauditevent = new Long("4");
+            Long idauditevent = new Long("49");
             Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
             C_state_event c_state_event;
             Long idstate = new Long("2");
@@ -166,7 +166,7 @@ public class CfdiResource {
             }
         }
 
-        Long idauditevent = new Long("4");
+        Long idauditevent = new Long("49");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;
         Long idstate = new Long("1");
@@ -198,6 +198,20 @@ public class CfdiResource {
         log.debug("REST request to update Cfdi : {}", cfdi);
         if (cfdi.getId() == null) {
             return createCfdi(cfdiDTO);
+        }
+        if(cfdiDTO.getCfdi().getCfdi_states().getId() == 2){
+            Cfdi pre = cfdiService.findOne(cfdiDTO.getCfdi().getId());
+            if(pre.getCfdi_states().getId() == 1){
+                log.debug("Cancelando cfdi");
+                cfdiService.cancelarCfdi(cfdiDTO.getCfdi());
+
+                Long idauditevent = new Long("51");
+                Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
+                C_state_event c_state_event;
+                Long idstate = new Long("1");
+                c_state_event = c_state_eventService.findOne(idstate);
+                tracemgService.saveTrace(audit_event_type, c_state_event);
+            }
         }
         Cfdi result = cfdiService.save(cfdiDTO);
         return ResponseEntity.ok()
@@ -249,7 +263,7 @@ public class CfdiResource {
                     log.debug("Obtener todos para el admin");
                     Page<Cfdi> page = cfdiService.findAll(pageable);
                     HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/cfdis");
-                    Long idauditevent = new Long("36");
+                    Long idauditevent = new Long("50");
                     Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
                     C_state_event c_state_event;
                     Long idstate = new Long("1");
@@ -264,7 +278,7 @@ public class CfdiResource {
                     Page<Cfdi> page = cfdiService.findCustom(folio_fiscal, rfc_receiver, fromDate, toDate, serie,
                         folio, idaccount, idcfdi_type_doc, pre, send, cancel, reciever, pageable);
                     HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-cfdis");
-                    Long idauditevent = new Long("36");
+                    Long idauditevent = new Long("50");
                     Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
                     C_state_event c_state_event;
                     Long idstate = new Long("1");
@@ -276,7 +290,7 @@ public class CfdiResource {
                 Page<Cfdi> page = cfdiService.findCustom(folio_fiscal,rfc_receiver,fromDate,toDate,serie,
                     folio,idaccount,idcfdi_type_doc,pre,send,cancel,reciever,pageable);
                 HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/free-cfdis");
-                Long idauditevent = new Long("36");
+                Long idauditevent = new Long("50");
                 Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
                 C_state_event c_state_event;
                 Long idstate = new Long("1");
@@ -285,7 +299,7 @@ public class CfdiResource {
                 return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
             }
         }
-        Long idauditevent = new Long("36");
+        Long idauditevent = new Long("50");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
         C_state_event c_state_event;
         Long idstate = new Long("2");

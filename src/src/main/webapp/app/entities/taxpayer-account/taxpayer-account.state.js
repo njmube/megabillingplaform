@@ -370,6 +370,7 @@
                     }],
                     translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                         $translatePartialLoader.addPart('free_cfdi');
+                        $translatePartialLoader.addPart('cfdi');
                         $translatePartialLoader.addPart('taxpayer_account');
                         $translatePartialLoader.addPart('global');
                         return $translate.refresh();

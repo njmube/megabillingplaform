@@ -63,27 +63,27 @@ public class Cfdi implements Serializable {
     @Column(name = "date_folio_fiscal_orig")
     private ZonedDateTime date_folio_fiscal_orig;
 
-    @Column(name = "mont_folio_fiscal_orig", precision=32, scale=6)
+    @Column(name = "mont_folio_fiscal_orig", precision=10, scale=2)
     private BigDecimal mont_folio_fiscal_orig;
 
-    @Column(name = "total_tax_retention", precision=32, scale=6)
+    @Column(name = "total_tax_retention", precision=10, scale=2)
     private BigDecimal total_tax_retention;
 
-    @Column(name = "total_tax_transfered", precision=32, scale=6)
+    @Column(name = "total_tax_transfered", precision=10, scale=2)
     private BigDecimal total_tax_transfered;
 
-    @Column(name = "discount", precision=32, scale=6)
+    @Column(name = "discount", precision=10, scale=2)
     private BigDecimal discount;
 
     @Column(name = "discount_reason")
     private String discount_reason;
 
     @NotNull
-    @Column(name = "subtotal", precision=32, scale=6, nullable = false)
+    @Column(name = "subtotal", precision=10, scale=2, nullable = false)
     private BigDecimal subtotal;
 
     @NotNull
-    @Column(name = "total", precision=32, scale=6, nullable = false)
+    @Column(name = "total", precision=10, scale=2, nullable = false)
     private BigDecimal total;
 
     @Column(name = "addenda")
@@ -100,6 +100,23 @@ public class Cfdi implements Serializable {
 
     @Column(name = "way_payment")
     private String way_payment;
+
+    @Column(name = "path_cfdi")
+    private String path_cfdi;
+
+    @Lob
+    @Column(name = "filepdf")
+    private byte[] filepdf;
+
+    @Column(name = "filepdf_content_type")
+    private String filepdfContentType;
+
+    @Lob
+    @Column(name = "filexml")
+    private byte[] filexml;
+
+    @Column(name = "filexml_content_type")
+    private String filexmlContentType;
 
     @ManyToOne
     @NotNull
@@ -317,6 +334,46 @@ public class Cfdi implements Serializable {
         this.way_payment = way_payment;
     }
 
+    public String getPath_cfdi() {
+        return path_cfdi;
+    }
+
+    public void setPath_cfdi(String path_cfdi) {
+        this.path_cfdi = path_cfdi;
+    }
+
+    public byte[] getFilepdf() {
+        return filepdf;
+    }
+
+    public void setFilepdf(byte[] filepdf) {
+        this.filepdf = filepdf;
+    }
+
+    public String getFilepdfContentType() {
+        return filepdfContentType;
+    }
+
+    public void setFilepdfContentType(String filepdfContentType) {
+        this.filepdfContentType = filepdfContentType;
+    }
+
+    public byte[] getFilexml() {
+        return filexml;
+    }
+
+    public void setFilexml(byte[] filexml) {
+        this.filexml = filexml;
+    }
+
+    public String getFilexmlContentType() {
+        return filexmlContentType;
+    }
+
+    public void setFilexmlContentType(String filexmlContentType) {
+        this.filexmlContentType = filexmlContentType;
+    }
+
     public Cfdi_states getCfdi_states() {
         return cfdi_states;
     }
@@ -435,6 +492,11 @@ public class Cfdi implements Serializable {
             ", number_certificate='" + number_certificate + "'" +
             ", certificate='" + certificate + "'" +
             ", way_payment='" + way_payment + "'" +
+            ", path_cfdi='" + path_cfdi + "'" +
+            ", filepdf='" + filepdf + "'" +
+            ", filepdfContentType='" + filepdfContentType + "'" +
+            ", filexml='" + filexml + "'" +
+            ", filexmlContentType='" + filexmlContentType + "'" +
             '}';
     }
 }
