@@ -21,7 +21,10 @@
             "folio_end": "Folio final",
             "folio_current": "Folio actual",
             "date_creation": "Fecha de creación",
-            "taxpayer_account": "Cuenta de contribuyente"
+            "taxpayer_account": "Cuenta de contribuyente",
+            "enable":"Activo",
+            "messenable":"Otro Serie y Folio está activo, solo un elemento puede estar activo.",
+            "disable":"Desactivo"
         }
     }
 }

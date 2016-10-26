@@ -116,6 +116,7 @@
                         </a>
                     </th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -126,6 +127,13 @@
                     <td>{{taxpayer_series_folio.folio_end}}</td>
                     <td>{{taxpayer_series_folio.folio_current}}</td>
                     <td>{{taxpayer_series_folio.date_creation | date:'mediumDate'}}</td>
+                    <td>
+                        <span class="label label-danger" ng-show="!taxpayer_series_folio.enable"
+                              translate="megabillingplatformApp.taxpayer_series_folio.disable"
+                              style="cursor: pointer;">Desactivated</span>
+                        <span class="label label-success" ng-show="taxpayer_series_folio.enable"
+                          translate="megabillingplatformApp.taxpayer_series_folio.enable" style="cursor: pointer;">Enable</span>
+                    </td>
                     <td class="text-right">
                         <div class="btn-group flex-btn-group-container">
                             <button type="submit"

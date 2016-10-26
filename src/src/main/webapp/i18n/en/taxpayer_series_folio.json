@@ -21,7 +21,10 @@
             "folio_end": "Folio End",
             "folio_current": "Folio Current",
             "date_creation": "Date Creation",
-            "taxpayer_account": "Taxpayer Account"
+            "taxpayer_account": "Taxpayer Account",
+            "enable":"Enable",
+            "messenable":"Other Serie and Folio is enable",
+            "disable":"Deactivated"
         }
     }
 }
