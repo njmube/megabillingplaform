@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            ng-click="vm.close()">&times;</button>
+    <h4 class="modal-title" id="myConceptLabel">Notificación del sistema</h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-12">
+            <p translate="megabillingplatformApp.taxpayer_account.textuser">Estimado usuario</p>
+            <p>
+                <span translate="megabillingplatformApp.taxpayer_account.textuser3">Le informamos que para operar con nuestro sistema su
+                    cuenta de contribuyente debe contar con al menos 1 timbres
+                    disponible.</span>
+            </p>
+            <p>
+                <span translate="megabillingplatformApp.taxpayer_account.textuser2">Le invitamos a que adquiera timbres a través de la
+                    funcionalidad Adquirir Timbres que aparece en el menú.
+                    Tambien puede acceder a dicha funcionalidad presionando el
+                    botón que aparece debajo.</span>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button"  class="btn btn-primary" ng-click="vm.close()" ui-sref="taxpayer-account-transaction">
+        <span translate="megabillingplatformApp.taxpayer_account.adquired">Adquirir Timbres</span>
+    </button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.close()">
+        <span translate="entity.action.close">Cerrar</span>
+    </button>
+</div>
+

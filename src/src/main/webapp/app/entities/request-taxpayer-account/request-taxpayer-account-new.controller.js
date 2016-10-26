@@ -20,6 +20,7 @@
         vm.account = null;
         vm.restDate = restDate;
         vm.toDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+        vm.genders = [{code:'M', name: 'global.form.gender.male'}, {code: 'F', name: 'global.form.gender.female'}];
         vm.openCalendar = openCalendar;
         vm.c_countrys = C_country.query({pg:1, filtername:" "});
         vm.c_states = C_state.query({countryId:151, filtername:" "});
@@ -38,8 +39,15 @@
                 vm.request_taxpayer_account.secondsurname = vm.account.secondsurname;
                 vm.request_taxpayer_account.phone = vm.account.phone;
                 vm.request_taxpayer_account.email = vm.account.email;
-                vm.current_gender = vm.account.gender;
-                vm.request_taxpayer_account.gender = vm.account.gender;
+                if(vm.account.gender == 'M'){
+                    vm.current_gender =  vm.genders[0];
+                    vm.request_taxpayer_account.gender = vm.current_gender.code;
+                }
+                else if(vm.account.gender == 'F'){
+                    vm.current_gender =  vm.genders[1];
+                    vm.request_taxpayer_account.gender = vm.current_gender.code;
+                }
+
                 vm.request_taxpayer_account.rfc = vm.account.rfc;
                 vm.request_taxpayer_account.bussinesname = vm.account.login;
                 vm.request_taxpayer_account.accountemail = vm.account.email;
@@ -55,7 +63,6 @@
         vm.onChangeC_municipality = onChangeC_municipality;
         vm.onChangeC_colony = onChangeC_colony;
 
-        vm.genders = [{code:'M', name: 'global.form.gender.male'}, {code: 'F', name: 'global.form.gender.female'}];
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

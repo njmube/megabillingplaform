@@ -32,8 +32,14 @@
                 vm.request_taxpayer_account.secondsurname = vm.account.secondsurname;
                 vm.request_taxpayer_account.phone = vm.account.phone;
                 vm.request_taxpayer_account.email = vm.account.email;
-                vm.current_gender = vm.account.gender;
-                vm.request_taxpayer_account.gender = vm.account.gender;
+                if(vm.account.gender == 'M'){
+                    vm.current_gender =  vm.genders[0];
+                    vm.request_taxpayer_account.gender = vm.current_gender.code;
+                }
+                else if(vm.account.gender == 'F'){
+                    vm.current_gender =  vm.genders[1];
+                    vm.request_taxpayer_account.gender = vm.current_gender.code;
+                }
                 vm.request_taxpayer_account.rfc = vm.account.rfc;
                 vm.request_taxpayer_account.bussinesname = vm.account.login;
                 vm.request_taxpayer_account.accountemail = vm.account.email;

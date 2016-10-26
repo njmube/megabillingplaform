@@ -26,6 +26,7 @@
                     $translatePartialLoader.addPart('home');
                     $translatePartialLoader.addPart('audits');
                     $translatePartialLoader.addPart('tracemg');
+                    $translatePartialLoader.addPart('taxpayer_account');
                     return $translate.refresh();
                 }]
             }

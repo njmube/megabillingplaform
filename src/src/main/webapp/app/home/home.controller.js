@@ -130,12 +130,6 @@
                         request_state: 1
                     });
 
-                    Taxpayer_transactions.query({
-                        page: 0,
-                        size: 100,
-                        idaccount: 0
-                    }, onSuccess1, onError1);
-
                 }
 
                 if(vm.account != null){
@@ -143,9 +137,14 @@
                     vm.isNoAdmin = vm.account.authorities.indexOf('ROLE_ADMIN') == -1;
 
                     if(vm.isUser && vm.isNoAdmin){
-                        //var temporalizador = setInterval(vm.messegeUser(),10000);
-                       vm.messegeUser();
-                        //window.reque
+                        vm.messegeUser();
+                    }
+                    if(!vm.isUser && vm.isNoAdmin){
+                        Taxpayer_transactions.query({
+                            page: 0,
+                            size: 100,
+                            idaccount: 0
+                        }, onSuccess1, onError1);
                     }
                 }
 
@@ -187,12 +186,23 @@
 
         function onSuccess1(data){
             vm.taxpayer_transactions = data;
+            var totaltra = 0;
             if(vm.taxpayer_transactions != null && vm.taxpayer_accounts != null){
                 for(var i=0;i < vm.taxpayer_accounts.length; i++){
                     for(var j=0;j < vm.taxpayer_transactions.length; j++){
                         if(vm.taxpayer_transactions[j].taxpayer_account.id == vm.taxpayer_accounts[i].id)
                         vm.taxpayer_accounts[i].transactions_available = vm.taxpayer_transactions[j].transactions_available;
+                        totaltra += vm.taxpayer_transactions[j].transactions_available;
                     }
+                }
+                if(totaltra == 0){
+                    $uibModal.open({
+                        templateUrl: 'app/entities/taxpayer-account/messWelcome.html',
+                        controller: 'MessWelcomeController',
+                        controllerAs: 'vm',
+                        backdrop: true,
+                        size: ''
+                    }).result.then(function () {}, function () {});
                 }
             }
         }

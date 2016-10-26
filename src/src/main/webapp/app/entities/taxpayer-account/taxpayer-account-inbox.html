@@ -490,9 +490,6 @@
                                         <a ng-click="vm.openFile('application/pdf', cfdi.filepdf)" ng-if="cfdi.filepdf">
                                             <i class="fa fa-file-pdf-o bigger-125">&nbsp;</i>
                                         </a>
-                                        <a ng-click="vm.cancelar(cfdi)" ng-show = "cfdi.cfdi_states.id == 1">
-                                            <i class="glyphicon glyphicon-ban-circle bigger-125">&nbsp;</i>
-                                        </a>
                                     </td>
                                     <td>{{cfdi.cfdi_states.name}}</td>
                                     <td>{{cfdi.date_expedition | date:'medium'}}</td>
