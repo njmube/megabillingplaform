@@ -274,18 +274,11 @@
                                         Cuenta de Contribuyente
                                         <i class="ace-icon fa fa-angle-down icon-on-right bigger-110"></i>
                                     </button>
-
                                     <ul class="dropdown-menu dropdown-menu-right dropdown-125 dropdown-lighter dropdown-close dropdown-caret">
-                                        <li class="active">
-                                            <a href="#" class="blue">
+                                        <li ng-repeat="taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
+                                            <a href="#" class="blue" ng-click = "vm.drawAccount(taxpayer_account)">
                                                 <i class="ace-icon fa fa-caret-right bigger-110">&nbsp;</i>
-                                                Yandry Alberto Terry
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="ace-icon fa fa-caret-right bigger-110">&nbsp;</i>
-                                                Heladería Coopelia
+                                                {{taxpayer_account.bussines_name}}
                                             </a>
                                         </li>
                                     </ul>
@@ -293,19 +286,19 @@
 
                                 <div class="inline dropdown-hover">
                                     <button class="btn btn-minier btn-primary">
-                                        Este Mes
+                                        Momento
                                         <i class="ace-icon fa fa-angle-down icon-on-right bigger-110"></i>
                                     </button>
 
                                     <ul class="dropdown-menu dropdown-menu-right dropdown-125 dropdown-lighter dropdown-close dropdown-caret">
                                         <li>
-                                            <a href="#">
+                                            <a href="#" ng-click = "vm.pie()">
                                                 <i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
                                                 Este Mes
                                             </a>
                                         </li>
                                         <li class="active">
-                                            <a href="#" class="blue">
+                                            <a href="#" class="blue" ng-click = "vm.pie()">
                                                 <i class="ace-icon fa fa-caret-right bigger-110">&nbsp;</i>
                                                 Esta Semana
                                             </a>
@@ -317,10 +310,9 @@
 
                         <div class="widget-body">
                             <div class="widget-main">
-                                <p>Total: 522354</p>
-                                <div id="piechart-placeholder1">
-
-                                </div>
+                                <p>Cuenta de contribuyente: {{vm.taxpayer_accountsta.bussines_name}}</p>
+                                <p>Total: {{vm.totaltrans}}</p>
+                                <div id="piechart-placeholder1" style="width: 95%;height: 150px">.</div>
                             </div><!-- /.widget-main -->
                         </div><!-- /.widget-body -->
                     </div><!-- /.widget-box -->

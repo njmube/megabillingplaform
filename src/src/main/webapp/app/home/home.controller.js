@@ -23,6 +23,8 @@
         vm.ringsaccount = ringsaccount;
         vm.days = 0;
         vm.messegeUser = messegeUser;
+        vm.pie = pie;
+        vm.drawAccount = drawAccount;
 
         var dateFormat = 'yyyy-MM-dd';
         var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -36,6 +38,10 @@
         vm.login = null;
 
         vm.taxpayer_account = null;
+        vm.taxpayer_accountsta = null;
+        vm.totaltrans = 0;
+        vm.transactions_available = 0;
+        vm.transactions_spent = 0;
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();
@@ -140,6 +146,7 @@
                         vm.messegeUser();
                     }
                     if(!vm.isUser && vm.isNoAdmin){
+
                         Taxpayer_transactions.query({
                             page: 0,
                             size: 100,
@@ -215,6 +222,88 @@
 
         }
 
+        function pie(){
+            var placeholder = $('#piechart-placeholder1').css({'width': '90%' , 'height': '150px'});
+            var data = [
+                { label: "Habilitados",  data: 40, color: "#68BC31"},
+                { label: "Gastados",  data: 60, color: "#2091CF"}
+            ]
+            $.plot(placeholder, data, {
+                series: {
+                    pie: {
+                        show: true,
+                        tilt:0.8,
+                        highlight: {
+                            opacity: 0.25
+                        },
+                        stroke: {
+                            color: '#fff',
+                            width: 2
+                        },
+                        startAngle: 2
+                    }
+                },
+                legend: {
+                    show: true,
+                    position: "ne",
+                    labelBoxBorderColor: null,
+                    margin:[-30,15]
+                }
+                ,
+                grid: {
+                    hoverable: true,
+                    clickable: true
+                }
+            });
+        }
+
+        function drawAccount(account){
+            vm.taxpayer_accountsta = account;
+            Taxpayer_transactions.query({
+                idaccount: vm.taxpayer_accountsta.id
+            }, function(data){
+                vm.totaltrans = 0;
+                vm.transactions_available = 0;
+                vm.transactions_spent = 0;
+                vm.totaltrans += data[0].transactions_available + data[0].transactions_spent;
+                vm.transactions_available = data[0].transactions_available;
+                vm.transactions_spent = data[0].transactions_spent;
+
+                var placeholder = $('#piechart-placeholder1').css({'width': '90%' , 'height': '150px'});
+                var data = [
+                    { label: "Habilitados",  data: vm.transactions_available, color: "#68BC31"},
+                    { label: "Gastados",  data: vm.transactions_spent, color: "#2091CF"}
+                ]
+                $.plot(placeholder, data, {
+                    series: {
+                        pie: {
+                            show: true,
+                            tilt:0.8,
+                            highlight: {
+                                opacity: 0.25
+                            },
+                            stroke: {
+                                color: '#fff',
+                                width: 2
+                            },
+                            startAngle: 2
+                        }
+                    },
+                    legend: {
+                        show: true,
+                        position: "ne",
+                        labelBoxBorderColor: null,
+                        margin:[-30,15]
+                    }
+                    ,
+                    grid: {
+                        hoverable: true,
+                        clickable: true
+                    }
+                });
+
+            });
+        }
 
     }
 })();
