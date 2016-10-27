@@ -506,7 +506,6 @@
             vm.cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
             vm.cfdi.c_money = {id: 100, name: "MXN", description: "Peso Mexicano"};
             chooseSerieFolio();
-
             vm.show_iva = (0).toFixed(2);
             vm.calc_iva = (0).toFixed(2);
             vm.ieps = (0).toFixed(2);
