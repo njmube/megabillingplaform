@@ -2,6 +2,9 @@
     <div class="row">
         <div class="col-md-8">
             <h1>
+                <a ng-show="vm.taxpayer_account != null" ui-sref="taxpayer-account-taxer-home({id:vm.taxpayer_account.id})" class="no-effect-link">
+                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                </a>
                 Facturación En Línea
                 <small>
                     <i class="ace-icon fa fa-angle-double-right"></i>

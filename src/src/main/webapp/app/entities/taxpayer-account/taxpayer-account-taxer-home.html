@@ -1,0 +1,71 @@
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>
+                <a ng-show="vm.taxpayer_account != null" ui-sref="taxpayer-account-taxer-home({id:vm.taxpayer_account.id})" class="no-effect-link">
+                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                </a>
+                Facturación En Línea
+                <small>
+                    <i class="ace-icon fa fa-angle-double-right"></i>
+                    {{'home.home' | translate}}
+                </small>
+            </h1>
+        </div>
+        <div class="col-md-3">
+            <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account"
+                    ng-options="taxpayer_account as taxpayer_account.bussines_name for taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
+                <option value="">Seleccione Cuenta Contribuyente</option>
+            </select>
+        </div>
+        <div class="col-md-1">
+            <a title="Ayuda" data-rel="tooltip" class="btn btn-sm btn-info tooltip-info pull-right" href="">
+                <i class="fa fa-lightbulb-o"></i>
+            </a>
+        </div>
+    </div>
+</div><!-- /.page-header -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <ul class="nav nav-pills">
+            <li>
+                <a href="#/">
+                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                </a>
+            </li>
+            <li ng-show="vm.taxpayer_account != null">
+                <a ui-sref="cfdi-new({id:vm.taxpayer_account.id})">{{'global.afilitated.generateCFDI' | translate}}</a>
+            </li>
+            <li ng-show="vm.taxpayer_account != null">
+                <a ui-sref="taxpayer-client({id:vm.taxpayer_account.id})">{{'global.afilitated.costumers' | translate}}</a>
+            </li>
+            <li ng-show="vm.taxpayer_account != null">
+                <a ui-sref="taxpayer-concept({id:vm.taxpayer_account.id})">{{'global.afilitated.concepts' | translate}}</a>
+            </li>
+            <li ng-show="vm.taxpayer_account != null">
+                <a ui-sref="tax-concept({id:vm.taxpayer_account.id})">{{'global.afilitated.tax_concepts' | translate}}</a>
+            </li>
+            <li>
+                <a ui-sref="request-taxpayer-account.afilitated">{{'global.user.join.mega' | translate}}</a>
+            </li>
+        </ul>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="hr hr-16 hr-dotted"></div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <!-- PAGE CONTENT BEGINS -->
+        <h4>Bienvenido al subsistema de Facturación En Línea</h4>
+        <p>El subsistema le da la posiblidad de realizar las siguientes operaciones:</p>
+        <ol>
+            <li>Nuevo CFDI:  Generar comprobantes fiscales por internet. Se pueden generar CFDI con un total de 24 complementos definidos por el SAT.</li>
+            <li>Gestionar Clientes: Asociar contribuyentes como sus clientes de factura electrónica a su cuenta de contribuyentes.</li>
+            <li>Gestionar Conceptos: Crear productos y servicios que serán utilizados como conceptos dentro de los CFDI a generar.</li>
+            <li>Gestionar Impuestos x Conceptos: Permite asociar impuestos a los conceptos creados en el catálogo.</li>
+        </ol>
+        <!-- PAGE CONTENT ENDS -->
+    </div><!-- /.col -->
+</div><!-- /.row -->

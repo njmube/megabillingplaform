@@ -227,6 +227,10 @@ ul#strength {
   padding: 0 !important;
 }
 
+a.no-effect-link:hover{
+    text-decoration: none;
+}
+
 /* bootstrap 3 input-group 100% width
    http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 .width-min {

@@ -59,6 +59,9 @@ public class CfdiResource {
     private Taxpayer_transactionsService taxpayer_transactionsService;
 
     @Inject
+    private Taxpayer_series_folioService taxpayer_series_folioService;
+
+    @Inject
     private ConceptService conceptService;
 
     @Inject
@@ -117,15 +120,38 @@ public class CfdiResource {
 
         Cfdi result = cfdiService.save(cfdiDTO);
 
-        //Updating taxpayer transactions
         Integer taxpayer_accout_id = new Integer(result.getTaxpayer_account().getId().toString());
+
         Sort defaultSort = new Sort(new Sort.Order(Sort.Direction.ASC, "id"));
         Pageable pageable = new PageRequest(0, 30, defaultSort);
+
+        //Updating taxpayer transactions
         Page<Taxpayer_transactions> taxpayer_transactions = taxpayer_transactionsService.findByAccount(taxpayer_accout_id, pageable);
         Taxpayer_transactions taxpayer_transactions_account = taxpayer_transactions.getContent().get(0);
         taxpayer_transactions_account.setTransactions_available(taxpayer_transactions_account.getTransactions_available() - 1);
         taxpayer_transactions_account.setTransactions_spent(taxpayer_transactions_account.getTransactions_spent() + 1);
         taxpayer_transactionsService.save(taxpayer_transactions_account);
+
+        //Update taxpayer series folios
+        Taxpayer_series_folio taxpayer_series_folio = cfdiDTO.getTaxpayer_series_folio();
+        Integer folio_current = taxpayer_series_folio.getFolio_current() + 1;
+        if(folio_current > taxpayer_series_folio.getFolio_end()){
+            taxpayer_series_folio.setEnable(false);
+            taxpayer_series_folioService.save(taxpayer_series_folio);
+
+            Page<Taxpayer_series_folio> taxpayer_series_folio_page = taxpayer_series_folioService.findAll(pageable, taxpayer_accout_id);
+            for(Taxpayer_series_folio taxpayer_series_folio_item: taxpayer_series_folio_page.getContent()){
+                if(taxpayer_series_folio_item.getFolio_current() < taxpayer_series_folio_item.getFolio_end()){
+                    taxpayer_series_folio_item.setEnable(true);
+                    taxpayer_series_folioService.save(taxpayer_series_folio_item);
+                    break;
+                }
+            }
+        }
+        else {
+            taxpayer_series_folio.setFolio_current(folio_current);
+            taxpayer_series_folioService.save(taxpayer_series_folio);
+        }
 
         //Saving conceptDTOs
         List<ConceptDTO> conceptDTOs = cfdiDTO.getConceptDTOs();

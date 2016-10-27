@@ -310,29 +310,55 @@
                 }
             })
         .state('taxpayer-account-index', {
-                parent: 'entity',
-                url: '/taxpayer-account-index/{id}',
-                data: {
-                    authorities: [],
-                    pageTitle: 'megabillingplatformApp.taxpayer_account.detail.title'
-                },
-                views: {
-                    'content@': {
-                        templateUrl: 'app/entities/taxpayer-account/taxpayer-account-index.html',
-                        controller: 'Taxpayer_accountIndexController',
-                        controllerAs: 'vm'
-                    }
-                },
-                resolve: {
-                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
-                        $translatePartialLoader.addPart('taxpayer_account');
-                        return $translate.refresh();
-                    }],
-                    entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
-                        return Taxpayer_account.get({id : $stateParams.id}).$promise;
-                    }]
+            parent: 'entity',
+            url: '/taxpayer-account-index/{id}',
+            data: {
+                authorities: [],
+                pageTitle: 'megabillingplatformApp.taxpayer_account.detail.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/taxpayer-account/taxpayer-account-index.html',
+                    controller: 'Taxpayer_accountIndexController',
+                    controllerAs: 'vm'
                 }
-            })
+            },
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('taxpayer_account');
+                    return $translate.refresh();
+                }],
+                entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
+                    return Taxpayer_account.get({id : $stateParams.id}).$promise;
+                }]
+            }
+        })
+        .state('taxpayer-account-taxer-home', {
+            parent: 'entity',
+            url: '/taxpayer-account-taxer-home/{id}',
+            data: {
+                authorities: ['ROLE_AFILITATED'],
+                pageTitle: 'megabillingplatformApp.taxpayer_account.taxpayer_online'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/taxpayer-account/taxpayer-account-taxer-home.html',
+                    controller: 'Taxpayer_accountTaxerHomeController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('taxpayer_account');
+                    $translatePartialLoader.addPart('home');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }],
+                entity: ['$stateParams', 'Taxpayer_account', function($stateParams, Taxpayer_account) {
+                    return Taxpayer_account.get({id : $stateParams.id}).$promise;
+                }]
+            }
+        })
         .state('taxpayer-account-inbox', {
                 parent: 'entity',
                 url: '/taxpayer-account-inbox/{id}',

@@ -5,14 +5,15 @@
         .module('megabillingplatformApp')
         .controller('CfdiNewController', CfdiNewController);
 
-    CfdiNewController.$inject = ['$state', '$timeout', 'entity', 'taxpayer_account_entity', 'Cfdi', 'Payment_method', 'Cfdi_types', 'Cfdi_type_doc', 'C_money', 'Taxpayer_account', 'Taxpayer_transactions', 'AlertService', '$uibModal', 'Way_payment', 'Tax_types'];
+    CfdiNewController.$inject = ['$state', '$timeout', 'entity', 'taxpayer_account_entity', 'Cfdi', 'Payment_method', 'Cfdi_types', 'Cfdi_type_doc', 'C_money', 'Taxpayer_account', 'Taxpayer_transactions', 'AlertService', 'Taxpayer_series_folio', '$uibModal', 'Way_payment', 'Tax_types'];
 
-    function CfdiNewController($state, $timeout, entity, taxpayer_account_entity, Cfdi, Payment_method, Cfdi_types, Cfdi_type_doc, C_money, Taxpayer_account, Taxpayer_transactions, AlertService, $uibModal, Way_payment, Tax_types) {
+    function CfdiNewController($state, $timeout, entity, taxpayer_account_entity, Cfdi, Payment_method, Cfdi_types, Cfdi_type_doc, C_money, Taxpayer_account, Taxpayer_transactions, AlertService, Taxpayer_series_folio, $uibModal, Way_payment, Tax_types) {
         var vm = this;
 
         vm.cfdi = entity;
         vm.cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
         vm.cfdi.c_money = {id: 100, name: "MXN", description: "Peso Mexicano"};
+        vm.taxpayer_series_folio = null;
 
         vm.taxpayer_account = taxpayer_account_entity;
         vm.taxpayer_accounts = Taxpayer_account.query({page: 0, size: 10});
@@ -58,6 +59,31 @@
                 $timeout(function() {
                     $state.go('taxpayer-account-general',{id: vm.taxpayer_account.id});
                 }, 5000);
+            }
+        }
+
+        chooseSerieFolio();
+
+        function chooseSerieFolio() {
+            Taxpayer_series_folio.query({
+                page: 0,
+                size: 30,
+                taxpayeraccount: vm.taxpayer_account.id
+            }, onSuccess, onError);
+            function onSuccess(data) {
+                var taxpayer_series_folios = data;
+                var i;
+                for(i = 0; i< taxpayer_series_folios.length; i++){
+                    if(taxpayer_series_folios[i].enable){
+                        vm.taxpayer_series_folio = taxpayer_series_folios[i];
+                        vm.cfdi.serial = vm.taxpayer_series_folio.serie;
+                        vm.cfdi.folio = vm.taxpayer_series_folio.folio_current;
+                        break;
+                    }
+                }
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
             }
         }
 
@@ -453,6 +479,7 @@
 
             var cfdiDTO = {
                 cfdi: vm.cfdi,
+                taxpayer_series_folio: vm.taxpayer_series_folio,
                 conceptDTOs: vm.concepts,
                 concepts: concepts,
                 taxTransfereds: tax_transfereds,
@@ -478,6 +505,8 @@
             vm.cfdi.tax_regime = null;
             vm.cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
             vm.cfdi.c_money = {id: 100, name: "MXN", description: "Peso Mexicano"};
+            chooseSerieFolio();
+
             vm.show_iva = (0).toFixed(2);
             vm.calc_iva = (0).toFixed(2);
             vm.ieps = (0).toFixed(2);

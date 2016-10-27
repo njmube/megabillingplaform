@@ -2,6 +2,9 @@
     <div class="row">
         <div class="col-md-8">
             <h1>
+                <a ng-show="vm.taxpayer_account != null" ui-sref="taxpayer-account-taxer-home({id:vm.taxpayer_account.id})" class="no-effect-link">
+                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                </a>
                 Facturación En Línea
                 <small>
                     <i class="ace-icon fa fa-angle-double-right"></i>
@@ -479,7 +482,7 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="serial" id="field_serial"
                                    ng-model="vm.cfdi.serial"
-                                   ng-minlength="1" ng-maxlength="25" />
+                                   ng-minlength="1" ng-maxlength="25" readonly/>
                             <div ng-show="editForm.serial.$invalid">
                                 <p class="help-block"
                                    ng-show="editForm.serial.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
@@ -497,7 +500,7 @@
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="folio" id="field_folio"
                                    ng-model="vm.cfdi.folio"
-                                   ng-minlength="1" ng-maxlength="20" />
+                                   ng-minlength="1" ng-maxlength="20" readonly/>
                             <div ng-show="editForm.free_cfdi_folio.$invalid">
                                 <p class="help-block"
                                    ng-show="editForm.free_cfdi_folio.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">

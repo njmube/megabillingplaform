@@ -27,7 +27,7 @@
         <div class="form-group">
             <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.tax_concept.tax_types" for="field_tax_types">Tax Types</label>
             <div class="col-sm-8">
-                <select class="form-control" id="field_tax_types" name="tax_types" ng-model="vm.tax_concept.tax_types"
+                <select class="form-control" id="field_tax_types" name="tax_types" ng-model="vm.tax_concept.tax_types" data-ng-change="vm.onTaxTypesChange()"
                         ng-options="tax_types as tax_types.name for tax_types in vm.tax_types track by tax_types.id" required>
                     <option value="">Seleccione tipo de impuesto</option>
                 </select>
@@ -37,12 +37,12 @@
             <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.tax_concept.rate" for="field_rate">Rate</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" name="rate" id="field_rate"
-                        ng-model="vm.tax_concept.rate" ng-pattern="/^\d{1,2}\.?\d{1,2}$/"
+                        ng-model="vm.tax_concept.rate" ng-pattern="/^[1-9]{1}[0-9]{0,1}\.?\d{1,2}$/"
                     required/>
                 <div ng-show="editForm.rate.$invalid">
                     <p class="help-block"
-                       ng-show="editForm.rate.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d{1,2}\.?\d{1,2}$">
-                        This field should follow pattern "/^\d{1,2}\.?\d{1,2}$/".
+                       ng-show="editForm.rate.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[1-9]{1}[0-9]{0,1}\.?\d{1,2}$">
+                        This field should follow pattern "/^[1-9]{1}[0-9]{0,1}\.?\d{1,2}$/".
                     </p>
                 </div>
             </div>

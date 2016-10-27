@@ -13,11 +13,31 @@
         vm.taxpayer_account = taxpayer_account_entity;
 
         vm.taxpayer_concepts = Taxpayer_concept.query({taxpayeraccount: vm.taxpayer_account.id, no_identification: " ", description: " ", measure_unit: " ", unit_value: -1});
-        vm.tax_types = Tax_types.query({filtername: " "});
+        vm.tax_types = [];
+        Tax_types.query({filtername: " "}, function(data){
+            var tax_types = data;
+            var i;
+            for(i = 0; tax_types.length; i++){
+                if(tax_types[i].id != 2){
+                    vm.tax_types.push(tax_types[i]);
+                }
+            }
+        });
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
         });
+
+        vm.onTaxTypesChange = onTaxTypesChange;
+
+        function onTaxTypesChange() {
+            if (vm.tax_concept.tax_types != null && vm.tax_concept.tax_types != undefined && vm.tax_concept.tax_types.id == 1) {
+                vm.tax_concept.rate = (16).toFixed(2);
+            }
+            else {
+                vm.tax_concept.rate = (1).toFixed(2);
+            }
+        }
 
         var onSaveSuccess = function (result) {
             $scope.$emit('megabillingplatformApp:tax_conceptUpdate', result);

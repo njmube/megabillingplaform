@@ -190,7 +190,7 @@
 				"search.cfdi": "Search CFDI",
 				"join.mega": "Join to Megapractical"
             },
-        "afilitated": {
+        "afilitated": {			
             "title":"Afilitated",
             "generateCFDI":"Generate CFDI",
             "costumers":"Costumners",

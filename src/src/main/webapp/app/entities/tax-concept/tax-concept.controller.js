@@ -29,7 +29,16 @@
         vm.tax_type = null;
         vm.rate = null;
         vm.concept = null;
-        vm.tax_types = Tax_types.query({filtername: " "});
+        vm.tax_types = [];
+        Tax_types.query({filtername: " "}, function(data){
+            var tax_types = data;
+            var i;
+            for(i = 0; tax_types.length; i++){
+                if(tax_types[i].id != 2){
+                    vm.tax_types.push(tax_types[i]);
+                }
+            }
+        });
         vm.search = search;
 
         function search(){
@@ -118,7 +127,7 @@
                 resolve: {
                     entity: function () {
                         return {
-                            rate: (0).toFixed(2),
+                            rate: (1).toFixed(2),
                             id: null
                         };
                     },

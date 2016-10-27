@@ -1,15 +1,14 @@
 package org.megapractical.billingplatform.web.rest.dto;
 
-import org.megapractical.billingplatform.domain.Cfdi;
-import org.megapractical.billingplatform.domain.Concept;
-import org.megapractical.billingplatform.domain.Tax_retentions;
-import org.megapractical.billingplatform.domain.Tax_transfered;
+import org.megapractical.billingplatform.domain.*;
 
 import java.util.List;
 
 public class CfdiDTO {
 
     private Cfdi cfdi;
+
+    private Taxpayer_series_folio taxpayer_series_folio;
 
     private List<ConceptDTO> conceptDTOs;
 
@@ -57,5 +56,13 @@ public class CfdiDTO {
 
     public void setTaxRetentions(List<Tax_retentions> taxRetentions) {
         this.taxRetentions = taxRetentions;
+    }
+
+    public Taxpayer_series_folio getTaxpayer_series_folio() {
+        return taxpayer_series_folio;
+    }
+
+    public void setTaxpayer_series_folio(Taxpayer_series_folio taxpayer_series_folio) {
+        this.taxpayer_series_folio = taxpayer_series_folio;
     }
 }
