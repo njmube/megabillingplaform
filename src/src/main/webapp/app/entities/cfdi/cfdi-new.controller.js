@@ -77,7 +77,12 @@
                     if(taxpayer_series_folios[i].enable){
                         vm.taxpayer_series_folio = taxpayer_series_folios[i];
                         vm.cfdi.serial = vm.taxpayer_series_folio.serie;
-                        vm.cfdi.folio = vm.taxpayer_series_folio.folio_current;
+                        if(vm.taxpayer_series_folio.folio_current == null) {
+                            vm.cfdi.folio = vm.taxpayer_series_folio.folio_start;
+                        }
+                        else {
+                            vm.cfdi.folio = vm.taxpayer_series_folio.folio_current + 1;
+                        }
                         break;
                     }
                 }

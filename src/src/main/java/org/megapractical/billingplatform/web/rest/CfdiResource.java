@@ -134,14 +134,22 @@ public class CfdiResource {
 
         //Update taxpayer series folios
         Taxpayer_series_folio taxpayer_series_folio = cfdiDTO.getTaxpayer_series_folio();
-        Integer folio_current = taxpayer_series_folio.getFolio_current() + 1;
-        if(folio_current > taxpayer_series_folio.getFolio_end()){
+        Integer folio_current = 0;
+        if(taxpayer_series_folio.getFolio_current() == null){
+            folio_current = taxpayer_series_folio.getFolio_start();
+        }
+        else{
+            folio_current = taxpayer_series_folio.getFolio_current() + 1;
+        }
+
+        if(folio_current == taxpayer_series_folio.getFolio_end()){
             taxpayer_series_folio.setEnable(false);
+            taxpayer_series_folio.setFolio_current(folio_current);
             taxpayer_series_folioService.save(taxpayer_series_folio);
 
             Page<Taxpayer_series_folio> taxpayer_series_folio_page = taxpayer_series_folioService.findAll(pageable, taxpayer_accout_id);
             for(Taxpayer_series_folio taxpayer_series_folio_item: taxpayer_series_folio_page.getContent()){
-                if(taxpayer_series_folio_item.getFolio_current() < taxpayer_series_folio_item.getFolio_end()){
+                if(taxpayer_series_folio_item.getFolio_current() == null || taxpayer_series_folio_item.getFolio_current() < taxpayer_series_folio_item.getFolio_end()){
                     taxpayer_series_folio_item.setEnable(true);
                     taxpayer_series_folioService.save(taxpayer_series_folio_item);
                     break;

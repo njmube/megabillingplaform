@@ -232,6 +232,9 @@
                     <li>
                         <a ui-sref="request-taxpayer-account.afilitated">{{'global.user.join.mega' | translate}}</a>
                     </li>
+                    <li ng-show="vm.taxpayer_account != null">
+                        <a ui-sref="taxpayer-account-inbox({id:vm.taxpayer_account.id})">{{'megabillingplatformApp.taxpayer_account.inbox' | translate}}</a>
+                    </li>
                 </ul>
             </div><!-- /.col -->
         </div><!-- /.row -->
