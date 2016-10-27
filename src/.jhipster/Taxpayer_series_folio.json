@@ -33,10 +33,7 @@
         },
         {
             "fieldName": "folio_current",
-            "fieldType": "Integer",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldType": "Integer"
         },
         {
             "fieldName": "date_creation",

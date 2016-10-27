@@ -123,6 +123,7 @@ public class Free_emitterResource {
             free_emitter.setInfo_certificate(response[1]);
 
             free_emitter = free_emitterService.InfoCertificate(free_emitter);
+            //log.debug("RFC del certificado: " + free_emitter.getRfc_certificate());
             if(free_emitter.getRfc().compareTo(free_emitter.getRfc_certificate())!=0) {
                 free_emitter.setInfo_certificate("ERROR: El RFC del emisor es diferente al RFC del certificado");
                 free_emitter.setNumber_certificate(null);
@@ -150,6 +151,7 @@ public class Free_emitterResource {
         }else {
             if(free_emitter.getFilecertificate() != null) {
                 free_emitter = free_emitterService.InfoCertificate(free_emitter);
+                //log.debug("RFC del certificado: " + free_emitter.getRfc_certificate());
                 if (free_emitter.getRfc().compareTo(free_emitter.getRfc_certificate()) != 0) {
                     free_emitter.setInfo_certificate("ERROR: El RFC del emisor es diferente al RFC del certificado");
                     free_emitter.setNumber_certificate(null);

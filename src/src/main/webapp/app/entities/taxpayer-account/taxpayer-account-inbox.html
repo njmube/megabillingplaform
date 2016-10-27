@@ -2,6 +2,9 @@
     <div class="page-header">
         <div class="row">
             <div class="col-md-8">
+                <a href="#/">
+                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                </a>
                 <h1>
                     {{'megabillingplatformApp.taxpayer_account.detail.title' | translate}}
                     <small>
@@ -26,13 +29,19 @@
     <div class="row">
         <div class="col-xs-12">
             <ul class="nav nav-pills">
-                <li>
-                    <a href="#/">
+                <li ng-show="vm.taxpayer_account != null">
+                    <a ui-sref="taxpayer-account-index({id:vm.taxpayer_account.id})">
                         <i class="ace-icon fa fa-home light-blue bigger-150"></i>
                     </a>
                 </li>
-                <li class="active">
-                    <a href="#">{{'megabillingplatformApp.taxpayer_account.inbox' | translate}}</a>
+                <li ng-show="vm.taxpayer_account != null">
+                    <a ui-sref="cfdi-new({id:vm.taxpayer_account.id})">{{'global.afilitated.generateCFDI' | translate}}</a>
+                </li>
+                <li>
+                    <a ui-sref="taxpayer-account-transaction">{{'megabillingplatformApp.taxpayer_account.adquired' | translate}}</a>
+                </li>
+                <li>
+                    <a ui-sref="request-taxpayer-account.afilitated">{{'global.user.join.mega' | translate}}</a>
                 </li>
 
             </ul>
@@ -499,6 +508,164 @@
                                     <td>{{cfdi.taxpayer_client.bussinesname}}</td>
                                     <td>{{cfdi.cfdi_type_doc.name}}</td>
                                     <td class = "pull-right">{{cfdi.total | uimeganumberformat}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-center">
+                            <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+                            <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+                        </div>
+                    </uib-tab>
+                    <uib-tab heading="CFDI Gratuitos">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" for="field_state">CFDI</label>
+                                    <div class="col-md-8">
+                                        <select class="form-control" id="field_free_cfdis" name="free_cfdis" ng-model="vm.free_cfdi"
+                                                ng-options="free_cfdi as free_cfdi.id for free_cfdi in vm.freecfdi_all track by free_cfdi.id">
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.folio_fiscal_orig" for="field_folio_fiscal4">Folio Fiscal</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="folio_fiscal" id="field_folio_fiscal4"
+                                               ng-model="vm.folio_fiscal" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.date_from" for="field_date4">Date from</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <input id="field_date4" type="text" class="form-control" name="date" uib-datepicker-popup="{{dateformat}}" ng-model="vm.dateStart" is-open="vm.datePickerOpenStatus.date"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.date_to" for="field_date5">Date to</label>
+                                    <div class="col-sm-8">
+                                        <div class="input-group">
+                                            <input id="field_date5" type="text" class="form-control" name="date1" uib-datepicker-popup="{{dateformat}}" ng-model="vm.dateEnd" is-open="vm.datePickerOpenStatus1.date"/>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar1('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                    </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.rfc_receiver" for="field_rfc_receiver4">RFC receptor</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" name="rfc_receiver" id="field_rfc_receiver4"
+                                               ng-model="vm.rfc_receiver" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.cfdi_states" for="field_state">CFDI state</label>
+                                    <div class="col-sm-8">
+                                        <select class="form-control" id="field_state" name="state" ng-model="vm.state" ng-options="state as state.name for state in vm.states track by state.id">
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.serial" for="field_serie4">Serie</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" class="form-control" name="serie" id="field_serie4"
+                                               ng-model="vm.serie" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.free_cfdi.folio" for="field_folio4">Folio</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" name="folio" id="field_folio4"
+                                                   ng-model="vm.folio" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary pull-right" ng-click = "vm.searchFree()">
+                                    <span translate="entity.action.search">Search</span>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="header smaller lighter blue" translate="megabillingplatformApp.free_cfdi.search_result">
+                            Resultados de la búsqueda
+                        </h3>
+
+                        <div class="table-responsive">
+                            <table class="jh-table table table-striped">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th><span translate="megabillingplatformApp.free_cfdi.cfdi_states1">State</span>
+                                        <a href="" ng-click="vm.campo = 'cfdi_states.name'; vm.orden=!vm.orden">
+                                            <span class="glyphicon glyphicon-sort"></span>
+                                        </a>
+                                    </th>
+                                    <th><span translate="megabillingplatformApp.free_cfdi.date_expedition1">Date_expedition</span>
+                                        <a href="" ng-click="vm.campo = 'date_expedition'; vm.orden=!vm.orden">
+                                            <span class="glyphicon glyphicon-sort"></span>
+                                        </a>
+                                    </th>
+                                    <th><span translate="megabillingplatformApp.free_cfdi.serial1">Serial</span>
+                                        <a href="" ng-click="vm.campo = 'serial'; vm.orden=!vm.orden">
+                                            <span class="glyphicon glyphicon-sort"></span>
+                                        </a>
+                                    </th>
+                                    <th><span translate="megabillingplatformApp.free_cfdi.folio1">Folio</span>
+                                        <a href="" ng-click="vm.campo = 'folio'; vm.orden=!vm.orden">
+                                            <span class="glyphicon glyphicon-sort"></span>
+                                        </a>
+                                    </th>
+                                    <th><span translate="megabillingplatformApp.free_cfdi.free_emitter">Free emitter</span>
+                                        <a href="" ng-click="vm.campo = 'free_emitter.rfc'; vm.orden=!vm.orden">
+                                            <span class="glyphicon glyphicon-sort"></span>
+                                        </a>
+                                    </th>
+                                    <th><span translate="megabillingplatformApp.free_cfdi.free_receiver">Free receiver</span>
+                                        <a href="" ng-click="vm.campo = 'free_receiver.business_name'; vm.orden=!vm.orden">
+                                            <span class="glyphicon glyphicon-sort"></span>
+                                        </a>
+                                    </th>
+                                    <th><span translate="megabillingplatformApp.free_cfdi.cfdi_type_doc1">CFDI type doc</span>
+                                        <a href="" ng-click="vm.campo = 'cfdi_type_doc.name'; vm.orden=!vm.orden">
+                                            <span class="glyphicon glyphicon-sort"></span>
+                                        </a>
+                                    </th>
+                                    <th><span translate="megabillingplatformApp.free_cfdi.total1">Total</span>
+                                        <a href="" ng-click="vm.campo = 'total'; vm.orden=!vm.orden">
+                                            <span class="glyphicon glyphicon-sort"></span>
+                                        </a>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="free_cfdi in vm.free_cfdis | orderBy:vm.campo:vm.orden track by free_cfdi.id">
+                                    <td>
+                                        <a ng-click="vm.openFile('text/xml', free_cfdi.filexml)" ng-if="free_cfdi.filexml">
+                                            <i class="fa fa-file-text-o bigger-125">&nbsp;</i>
+                                        </a>
+                                        <a ng-click="vm.openFile('application/pdf', free_cfdi.filepdf)" ng-if="free_cfdi.filepdf">
+                                            <i class="fa fa-file-pdf-o bigger-125">&nbsp;</i>
+                                        </a>
+                                        <a ng-click="vm.cancelar(free_cfdi)" ng-show = "free_cfdi.cfdi_states.id == 1">
+                                            <i class="glyphicon glyphicon-ban-circle bigger-125">&nbsp;</i>
+                                        </a>
+                                    </td>
+                                    <td>{{free_cfdi.cfdi_states.name}}</td>
+                                    <td>{{free_cfdi.date_expedition | date:'medium'}}</td>
+                                    <td>{{free_cfdi.serial}}</td>
+                                    <td>{{free_cfdi.folio}}</td>
+                                    <td>{{free_cfdi.free_emitter.rfc}}</td>
+                                    <td>{{free_cfdi.free_receiver.business_name}}</td>
+                                    <td>{{free_cfdi.cfdi_type_doc.name}}</td>
+                                    <td class = "pull-right">{{free_cfdi.total | uimeganumberformat}}</td>
                                 </tr>
                                 </tbody>
                             </table>

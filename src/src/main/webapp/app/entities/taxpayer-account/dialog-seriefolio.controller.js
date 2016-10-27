@@ -20,8 +20,7 @@
         function add(){
             vm.isSaving = true;
             vm.messfolio = null;
-            if(vm.taxpayer_series_folio.folio_start <= vm.taxpayer_series_folio.folio_current &&
-                vm.taxpayer_series_folio.folio_end >= vm.taxpayer_series_folio.folio_current){
+            if(vm.taxpayer_series_folio.folio_start <= vm.taxpayer_series_folio.folio_end){
                 Taxpayer_series_folio.update(vm.taxpayer_series_folio, onSaveSuccess, onSaveError);
             }
             else{

@@ -36,8 +36,7 @@ public class Taxpayer_series_folio implements Serializable {
     @Column(name = "folio_end", nullable = false)
     private Integer folio_end;
 
-    @NotNull
-    @Column(name = "folio_current", nullable = false)
+    @Column(name = "folio_current")
     private Integer folio_current;
 
     @NotNull

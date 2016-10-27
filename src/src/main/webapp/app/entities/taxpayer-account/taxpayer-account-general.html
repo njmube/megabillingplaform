@@ -1,13 +1,18 @@
 <div class="page-header">
     <div class="row">
         <div class="col-md-8">
-            <h1>
-                {{'megabillingplatformApp.taxpayer_account.detail.title' | translate}}
-                <small>
-                    <i class="ace-icon fa fa-angle-double-right"></i>
-                    {{'megabillingplatformApp.taxpayer_account.general' | translate}}
-                </small>
-            </h1>
+            <div class="form-group">
+                <a href="#/">
+                    <i class="ace-icon fa fa-home light-blue bigger-150"></i>
+                </a>
+                <h1>
+                    {{'megabillingplatformApp.taxpayer_account.detail.title' | translate}}
+                    <small>
+                        <i class="ace-icon fa fa-angle-double-right"></i>
+                        {{'megabillingplatformApp.taxpayer_account.general' | translate}}
+                    </small>
+                </h1>
+            </div>
         </div>
         <div class="col-md-3">
             <select class="form-control" id="field_account" name="account" ng-model="vm.taxpayer_account" ng-change="vm.changeAccount()"
@@ -27,7 +32,7 @@
     <div class="col-xs-12">
         <ul class="nav nav-pills">
             <li>
-                <a href="#/">
+                <a ui-sref="taxpayer-account-index({id:vm.taxpayer_account.id})">
                     <i class="ace-icon fa fa-home light-blue bigger-150"></i>
                 </a>
             </li>

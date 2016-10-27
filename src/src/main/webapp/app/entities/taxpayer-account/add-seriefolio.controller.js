@@ -33,7 +33,6 @@
             vm.messfolio = null;
             vm.messenable = null;
             vm.taxpayer_series_folio.taxpayer_account = vm.taxpayer_account;
-            vm.taxpayer_series_folio.folio_current = vm.taxpayer_series_folio.folio_start;
             vm.taxpayer_series_folio.date_creation = vm.toDate;
                 if(vm.taxpayer_series_folio.folio_start <= vm.taxpayer_series_folio.folio_end ){
                     Taxpayer_series_folio.save(vm.taxpayer_series_folio, onSaveSuccess, onSaveError);
