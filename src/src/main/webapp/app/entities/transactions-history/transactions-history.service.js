@@ -10,7 +10,8 @@
         var resourceUrl =  'api/transactions-histories/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true},
+            'query': { method: 'GET', isArray: true,
+                params: {idaccount: null, month: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

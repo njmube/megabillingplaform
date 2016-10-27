@@ -295,13 +295,13 @@
 
                                     <ul class="dropdown-menu dropdown-menu-right dropdown-125 dropdown-lighter dropdown-close dropdown-caret">
                                         <li>
-                                            <a href="#" ng-click = "vm.pie()">
+                                            <a href="#" ng-click = "vm.drawMontWeek(1)">
                                                 <i class="ace-icon fa fa-caret-right bigger-110 invisible">&nbsp;</i>
                                                 Este Mes
                                             </a>
                                         </li>
                                         <li class="active">
-                                            <a href="#" class="blue" ng-click = "vm.pie()">
+                                            <a href="#" class="blue" ng-click = "vm.drawMontWeek(2)">
                                                 <i class="ace-icon fa fa-caret-right bigger-110">&nbsp;</i>
                                                 Esta Semana
                                             </a>
@@ -314,6 +314,8 @@
                         <div class="widget-body">
                             <div class="widget-main">
                                 <p>Cuenta de contribuyente: {{vm.taxpayer_accountsta.bussines_name}}</p>
+                                <p ng-show = "vm.showDraw != null">Habilitados: {{vm.transactions_available}}, Gastados: {{vm.transactions_spent}}</p>
+                                <p ng-show = "vm.showDrawMonth != null">Adquiridos: {{vm.transactions_adquired}}, Gastados: {{vm.transactions_spent}}, Transferidos: {{vm.transactions_transfer}}</p>
                                 <p>Total: {{vm.totaltrans}}</p>
                                 <div id="piechart-placeholder1" style="width: 95%;height: 150px">.</div>
                             </div><!-- /.widget-main -->

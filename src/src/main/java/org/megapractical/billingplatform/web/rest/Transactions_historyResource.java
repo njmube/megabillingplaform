@@ -1,8 +1,12 @@
 package org.megapractical.billingplatform.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
+import org.megapractical.billingplatform.domain.Authority;
 import org.megapractical.billingplatform.domain.Transactions_history;
+import org.megapractical.billingplatform.domain.User;
+import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.Transactions_historyService;
+import org.megapractical.billingplatform.service.UserService;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -30,10 +34,13 @@ import java.util.Optional;
 public class Transactions_historyResource {
 
     private final Logger log = LoggerFactory.getLogger(Transactions_historyResource.class);
-        
+
     @Inject
     private Transactions_historyService transactions_historyService;
-    
+
+    @Inject
+    private UserService userService;
+
     /**
      * POST  /transactions-histories : Create a new transactions_history.
      *
@@ -89,12 +96,42 @@ public class Transactions_historyResource {
      */
     @RequestMapping(value = "/transactions-histories",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"idaccount","month"})
     @Timed
-    public ResponseEntity<List<Transactions_history>> getAllTransactions_histories(Pageable pageable)
+    public ResponseEntity<List<Transactions_history>> getAllTransactions_histories(@RequestParam(value = "idaccount") Integer idaccount,
+                                                                                   @RequestParam(value = "month") Integer month,
+                                                                                   Pageable pageable)
         throws URISyntaxException {
         log.debug("REST request to get a page of Transactions_histories");
-        Page<Transactions_history> page = transactions_historyService.findAll(pageable); 
+        if(idaccount == 0) {
+            String login = SecurityUtils.getCurrentUserLogin();
+            Optional<User> user = userService.getUserWithAuthoritiesByLogin(login);
+            if(user.isPresent()) {
+                boolean administrator = false;
+                for (Authority item : user.get().getAuthorities()) {
+                    if (item.getName().compareTo("ROLE_ADMIN") == 0) {
+                        administrator = true;
+                    }
+                }
+                if (administrator) {
+                    Page<Transactions_history> page = transactions_historyService.findAll(pageable);
+                    HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/transactions-histories");
+                    return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+                }
+                else {
+                    Page<Transactions_history> page = transactions_historyService.findByUser(user.get(),month, pageable);
+                    HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/transactions-histories");
+                    return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+                }
+            }
+
+        }else{
+            Page<Transactions_history> page = transactions_historyService.findByAccount(idaccount, month, pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/transactions-histories");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
+        Page<Transactions_history> page = transactions_historyService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/transactions-histories");
         return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
     }

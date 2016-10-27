@@ -5,14 +5,16 @@
         .module('megabillingplatformApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$uibModal', 'Taxpayer_transactions','User', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account', 'Request_taxpayer_account'];
+    HomeController.$inject = ['$scope', '$uibModal', 'Transactions_history','Taxpayer_transactions','User', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account', 'Request_taxpayer_account'];
 
-    function HomeController ($scope, $uibModal, Taxpayer_transactions,  User, Principal, Tracemg,  LoginService, $filter, Taxpayer_account, Request_taxpayer_account) {
+    function HomeController ($scope, $uibModal, Transactions_history, Taxpayer_transactions,  User, Principal, Tracemg,  LoginService, $filter, Taxpayer_account, Request_taxpayer_account) {
         var vm = this;
 
         vm.account = null;
         vm.isAuthenticated = null;
         vm.isNoAdmin = null;
+        vm.showDraw = null;
+        vm.showDrawMonth = null;
         var today = new Date();
         vm.page = 1;
         vm.toDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
@@ -25,6 +27,7 @@
         vm.messegeUser = messegeUser;
         vm.pie = pie;
         vm.drawAccount = drawAccount;
+        vm.drawMontWeek = drawMontWeek;
 
         var dateFormat = 'yyyy-MM-dd';
         var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -42,6 +45,8 @@
         vm.totaltrans = 0;
         vm.transactions_available = 0;
         vm.transactions_spent = 0;
+        vm.transactions_adquired = 0;
+        vm.transactions_transfer = 0;
 
         $scope.$on('authenticationSuccess', function() {
             getAccount();
@@ -259,6 +264,7 @@
 
         function drawAccount(account){
             vm.taxpayer_accountsta = account;
+            vm.showDrawMonth = null;
             Taxpayer_transactions.query({
                 idaccount: vm.taxpayer_accountsta.id
             }, function(data){
@@ -268,11 +274,81 @@
                 vm.totaltrans += data[0].transactions_available + data[0].transactions_spent;
                 vm.transactions_available = data[0].transactions_available;
                 vm.transactions_spent = data[0].transactions_spent;
+                vm.showDraw = 'OK';
 
                 var placeholder = $('#piechart-placeholder1').css({'width': '90%' , 'height': '150px'});
                 var data = [
                     { label: "Habilitados",  data: vm.transactions_available, color: "#68BC31"},
                     { label: "Gastados",  data: vm.transactions_spent, color: "#2091CF"}
+                ]
+                $.plot(placeholder, data, {
+                    series: {
+                        pie: {
+                            show: true,
+                            tilt:0.8,
+                            highlight: {
+                                opacity: 0.25
+                            },
+                            stroke: {
+                                color: '#fff',
+                                width: 2
+                            },
+                            startAngle: 2
+                        }
+                    },
+                    legend: {
+                        show: true,
+                        position: "ne",
+                        labelBoxBorderColor: null,
+                        margin:[-30,15]
+                    }
+                    ,
+                    grid: {
+                        hoverable: true,
+                        clickable: true
+                    }
+                });
+
+            });
+        }
+
+        function drawMontWeek(month){
+            vm.showDraw = null;
+            var idaccount = 0;
+            if(vm.taxpayer_accountsta != null)
+            {
+                idaccount = vm.taxpayer_accountsta.id;
+            }
+            Transactions_history.query({
+                idaccount: idaccount,
+                month: month
+            }, function(data){
+                vm.totaltrans = 0;
+                vm.transactions_adquired = 0;
+                vm.transactions_spent = 0;
+                vm.transactions_transfer = 0;
+                for(var i = 0; i < data.length; i++){
+                    var quantity = 0;
+                    quantity = parseInt(data[i].quantity);
+                    vm.totaltrans += quantity;
+
+                    if(data[i].type_transaction.id == 1){
+                        vm.transactions_adquired += quantity;
+                    }
+                    if(data[i].type_transaction.id == 2){
+                        vm.transactions_spent += quantity;
+                    }
+                    if(data[i].type_transaction.id == 3){
+                        vm.transactions_transfer += quantity;
+                    }
+                }
+                vm.showDrawMonth = 'OK';
+
+                var placeholder = $('#piechart-placeholder1').css({'width': '90%' , 'height': '150px'});
+                var data = [
+                    { label: "Adquiridos",  data: vm.transactions_adquired, color: "#68BC31"},
+                    { label: "Gastados",  data: vm.transactions_spent, color: "#2091CF"},
+                    { label: "Transferidos",  data: vm.transactions_transfer, color: "#C2101C"}
                 ]
                 $.plot(placeholder, data, {
                     series: {
