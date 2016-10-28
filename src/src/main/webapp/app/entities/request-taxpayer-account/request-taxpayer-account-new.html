@@ -182,25 +182,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.date_born" for="field_date_born">Date Born</label>
-                        <div class="col-sm-8">
-                            <div class="input-group">
-                                <input id="field_date_born" type="text" class="form-control" name="date_born" uib-datepicker-popup="{{dateformat}}"
-                                       ng-model="vm.request_taxpayer_account.dateborn" is-open="vm.datePickerOpenStatus.date_born"
-                                       required/>
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_born')"><i class="glyphicon glyphicon-calendar"></i></button>
-                            </span>
-                            </div>
-                            <div ng-show="editForm.date_born.$dirty && editForm.date_born.$invalid">
-                                <p class="help-block"
-                                   ng-show="editForm.date_born.$error.required" translate="entity.validation.required">
-                                    This field is required.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.request_taxpayer_account.gender" for="gender">Gender</label>
                         <div class="col-sm-8">
                             <select name=gender id="gender" class="form-control"

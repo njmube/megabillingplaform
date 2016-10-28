@@ -24,7 +24,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import java.time.LocalDate;
 import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -63,9 +62,6 @@ public class Request_taxpayer_accountResourceIntTest {
     private static final String UPDATED_PHONE = "BBBBB";
     private static final String DEFAULT_EMAIL = "AAAAA";
     private static final String UPDATED_EMAIL = "BBBBB";
-
-    private static final LocalDate DEFAULT_DATEBORN = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_DATEBORN = LocalDate.now(ZoneId.systemDefault());
     private static final String DEFAULT_GENDER = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
     private static final String UPDATED_GENDER = "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB";
     private static final String DEFAULT_RFC = "AAAAA";
@@ -110,7 +106,6 @@ public class Request_taxpayer_accountResourceIntTest {
         request_taxpayer_account.setSecondsurname(DEFAULT_SECONDSURNAME);
         request_taxpayer_account.setPhone(DEFAULT_PHONE);
         request_taxpayer_account.setEmail(DEFAULT_EMAIL);
-        request_taxpayer_account.setDateborn(DEFAULT_DATEBORN);
         request_taxpayer_account.setGender(DEFAULT_GENDER);
         request_taxpayer_account.setRfc(DEFAULT_RFC);
         request_taxpayer_account.setBussinesname(DEFAULT_BUSSINESNAME);
@@ -139,7 +134,6 @@ public class Request_taxpayer_accountResourceIntTest {
         assertThat(testRequest_taxpayer_account.getSecondsurname()).isEqualTo(DEFAULT_SECONDSURNAME);
         assertThat(testRequest_taxpayer_account.getPhone()).isEqualTo(DEFAULT_PHONE);
         assertThat(testRequest_taxpayer_account.getEmail()).isEqualTo(DEFAULT_EMAIL);
-        assertThat(testRequest_taxpayer_account.getDateborn()).isEqualTo(DEFAULT_DATEBORN);
         assertThat(testRequest_taxpayer_account.getGender()).isEqualTo(DEFAULT_GENDER);
         assertThat(testRequest_taxpayer_account.getRfc()).isEqualTo(DEFAULT_RFC);
         assertThat(testRequest_taxpayer_account.getBussinesname()).isEqualTo(DEFAULT_BUSSINESNAME);
@@ -256,24 +250,6 @@ public class Request_taxpayer_accountResourceIntTest {
 
     @Test
     @Transactional
-    public void checkDatebornIsRequired() throws Exception {
-        int databaseSizeBeforeTest = request_taxpayer_accountRepository.findAll().size();
-        // set the field null
-        request_taxpayer_account.setDateborn(null);
-
-        // Create the Request_taxpayer_account, which fails.
-
-        restRequest_taxpayer_accountMockMvc.perform(post("/api/request-taxpayer-accounts")
-                .contentType(TestUtil.APPLICATION_JSON_UTF8)
-                .content(TestUtil.convertObjectToJsonBytes(request_taxpayer_account)))
-                .andExpect(status().isBadRequest());
-
-        List<Request_taxpayer_account> request_taxpayer_accounts = request_taxpayer_accountRepository.findAll();
-        assertThat(request_taxpayer_accounts).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void checkRfcIsRequired() throws Exception {
         int databaseSizeBeforeTest = request_taxpayer_accountRepository.findAll().size();
         // set the field null
@@ -343,7 +319,6 @@ public class Request_taxpayer_accountResourceIntTest {
                 .andExpect(jsonPath("$.[*].secondsurname").value(hasItem(DEFAULT_SECONDSURNAME.toString())))
                 .andExpect(jsonPath("$.[*].phone").value(hasItem(DEFAULT_PHONE.toString())))
                 .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
-                .andExpect(jsonPath("$.[*].dateborn").value(hasItem(DEFAULT_DATEBORN.toString())))
                 .andExpect(jsonPath("$.[*].gender").value(hasItem(DEFAULT_GENDER.toString())))
                 .andExpect(jsonPath("$.[*].rfc").value(hasItem(DEFAULT_RFC.toString())))
                 .andExpect(jsonPath("$.[*].bussinesname").value(hasItem(DEFAULT_BUSSINESNAME.toString())))
@@ -367,7 +342,6 @@ public class Request_taxpayer_accountResourceIntTest {
             .andExpect(jsonPath("$.secondsurname").value(DEFAULT_SECONDSURNAME.toString()))
             .andExpect(jsonPath("$.phone").value(DEFAULT_PHONE.toString()))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))
-            .andExpect(jsonPath("$.dateborn").value(DEFAULT_DATEBORN.toString()))
             .andExpect(jsonPath("$.gender").value(DEFAULT_GENDER.toString()))
             .andExpect(jsonPath("$.rfc").value(DEFAULT_RFC.toString()))
             .andExpect(jsonPath("$.bussinesname").value(DEFAULT_BUSSINESNAME.toString()))
@@ -399,7 +373,6 @@ public class Request_taxpayer_accountResourceIntTest {
         updatedRequest_taxpayer_account.setSecondsurname(UPDATED_SECONDSURNAME);
         updatedRequest_taxpayer_account.setPhone(UPDATED_PHONE);
         updatedRequest_taxpayer_account.setEmail(UPDATED_EMAIL);
-        updatedRequest_taxpayer_account.setDateborn(UPDATED_DATEBORN);
         updatedRequest_taxpayer_account.setGender(UPDATED_GENDER);
         updatedRequest_taxpayer_account.setRfc(UPDATED_RFC);
         updatedRequest_taxpayer_account.setBussinesname(UPDATED_BUSSINESNAME);
@@ -420,7 +393,6 @@ public class Request_taxpayer_accountResourceIntTest {
         assertThat(testRequest_taxpayer_account.getSecondsurname()).isEqualTo(UPDATED_SECONDSURNAME);
         assertThat(testRequest_taxpayer_account.getPhone()).isEqualTo(UPDATED_PHONE);
         assertThat(testRequest_taxpayer_account.getEmail()).isEqualTo(UPDATED_EMAIL);
-        assertThat(testRequest_taxpayer_account.getDateborn()).isEqualTo(UPDATED_DATEBORN);
         assertThat(testRequest_taxpayer_account.getGender()).isEqualTo(UPDATED_GENDER);
         assertThat(testRequest_taxpayer_account.getRfc()).isEqualTo(UPDATED_RFC);
         assertThat(testRequest_taxpayer_account.getBussinesname()).isEqualTo(UPDATED_BUSSINESNAME);

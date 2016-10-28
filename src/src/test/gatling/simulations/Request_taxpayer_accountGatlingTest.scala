@@ -67,7 +67,7 @@ class Request_taxpayer_accountGatlingTest extends Simulation {
             .exec(http("Create new request_taxpayer_account")
             .post("/api/request-taxpayer-accounts")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "daterequest":"2020-01-01T00:00:00.000Z", "firtsurname":"SAMPLE_TEXT", "secondsurname":"SAMPLE_TEXT", "phone":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "dateborn":"2020-01-01T00:00:00.000Z", "gender":"SAMPLE_TEXT", "rfc":"SAMPLE_TEXT", "bussinesname":"SAMPLE_TEXT", "accountemail":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "name":"SAMPLE_TEXT", "daterequest":"2020-01-01T00:00:00.000Z", "firtsurname":"SAMPLE_TEXT", "secondsurname":"SAMPLE_TEXT", "phone":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "gender":"SAMPLE_TEXT", "rfc":"SAMPLE_TEXT", "bussinesname":"SAMPLE_TEXT", "accountemail":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_request_taxpayer_account_url"))).exitHereIfFailed
             .pause(10)

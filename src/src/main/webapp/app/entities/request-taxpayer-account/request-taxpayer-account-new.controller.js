@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Request_taxpayer_accountNewController', Request_taxpayer_accountNewController);
 
-    Request_taxpayer_accountNewController.$inject = ['$timeout','User', '$filter','Principal', '$scope', '$stateParams', 'C_country','C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'Request_taxpayer_account', 'Request_state', 'Tax_address_request'];
+    Request_taxpayer_accountNewController.$inject = ['$rootScope', '$timeout','User', '$filter','Principal', '$scope', '$stateParams', 'C_country','C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'Request_taxpayer_account', 'Request_state', 'Tax_address_request'];
 
-    function Request_taxpayer_accountNewController ($timeout, User, $filter, Principal, $scope, $stateParams, C_country, C_state, C_municipality, C_colony, C_zip_code, Request_taxpayer_account, Request_state, Tax_address_request) {
+    function Request_taxpayer_accountNewController ($rootScope, $timeout, User, $filter, Principal, $scope, $stateParams, C_country, C_state, C_municipality, C_colony, C_zip_code, Request_taxpayer_account, Request_state, Tax_address_request) {
         var vm = this;
 
         vm.datePickerOpenStatus = {};
@@ -132,7 +132,7 @@
 
             vm.request_taxpayer_account.request_state = vm.request_state;
             vm.request_taxpayer_account.tax_address_request = vm.tax_address_request;
-
+            vm.request_taxpayer_account.daterequest = today;
             if (vm.request_taxpayer_account.id !== null) {
                 Request_taxpayer_account.update(vm.request_taxpayer_account, onSaveSuccess, onSaveError);
             } else {
@@ -142,6 +142,7 @@
 
         function onSaveSuccess (result) {
             vm.isSaving = true;
+            $rootScope.mess = 'OK';
             window.location.assign("#/");
             window.location.reload(true);
         }

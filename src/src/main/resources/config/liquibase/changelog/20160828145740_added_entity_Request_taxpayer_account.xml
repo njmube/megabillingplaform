@@ -45,10 +45,6 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="dateborn" type="date">
-                <constraints nullable="false" />
-            </column>
-            
             <column name="gender" type="varchar(50)">
                 <constraints nullable="true" />
             </column>

@@ -72,13 +72,6 @@
             "fieldValidateRulesPatternJava": "^([a-zA-Z0-9])+([_\\\\.\\\\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\\\\-])+\\\\.)+([a-zA-Z0-9])+$"
         },
         {
-            "fieldName": "dateborn",
-            "fieldType": "LocalDate",
-            "fieldValidateRules": [
-                "required"
-            ]
-        },
-        {
             "fieldName": "gender",
             "fieldType": "String",
             "fieldValidateRules": [

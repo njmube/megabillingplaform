@@ -6,7 +6,6 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
@@ -28,6 +27,7 @@ public class Request_taxpayer_account implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @NotNull
     @Column(name = "daterequest", nullable = false)
     private ZonedDateTime daterequest;
 
@@ -48,10 +48,6 @@ public class Request_taxpayer_account implements Serializable {
     @Pattern(regexp = "^([a-zA-Z0-9])+([_\\.\\-]([a-zA-Z0-9])+)*@(([a-zA-Z0-9\\-])+\\.)+([a-zA-Z0-9])+$")
     @Column(name = "email", nullable = false)
     private String email;
-
-    @NotNull
-    @Column(name = "dateborn", nullable = false)
-    private LocalDate dateborn;
 
     @Size(max = 50)
     @Column(name = "gender", length = 50)
@@ -135,14 +131,6 @@ public class Request_taxpayer_account implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public LocalDate getDateborn() {
-        return dateborn;
-    }
-
-    public void setDateborn(LocalDate dateborn) {
-        this.dateborn = dateborn;
     }
 
     public String getGender() {
@@ -231,7 +219,6 @@ public class Request_taxpayer_account implements Serializable {
             ", secondsurname='" + secondsurname + "'" +
             ", phone='" + phone + "'" +
             ", email='" + email + "'" +
-            ", dateborn='" + dateborn + "'" +
             ", gender='" + gender + "'" +
             ", rfc='" + rfc + "'" +
             ", bussinesname='" + bussinesname + "'" +

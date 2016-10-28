@@ -12,6 +12,7 @@
 
         vm.datePickerOpenStatus = {};
         vm.request_taxpayer_account = {};
+        var today = new Date();
         vm.openCalendar = openCalendar;
         vm.c_countrys = C_country.query({pg:1, filtername:" "});
         vm.c_states = C_state.query({countryId:151, filtername:" "});
@@ -102,6 +103,7 @@
 
             vm.request_taxpayer_account.request_state = vm.request_state;
             vm.request_taxpayer_account.tax_address_request = vm.tax_address_request;
+            vm.request_taxpayer_account.daterequest = today;
 
             if (vm.request_taxpayer_account.id !== null) {
                 Request_taxpayer_account.update(vm.request_taxpayer_account, onSaveSuccess, onSaveError);

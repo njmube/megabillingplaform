@@ -131,7 +131,7 @@
             "accountdestine": "Cuenta de Contribuyente de destino",
             "transferAction": "Transferir",
             "buyAction": "Comprar",
-            "confirmationtrans":"¿Desea ccontinuar con la transacción?",
+            "confirmationtrans":"¿Desea continuar con la transacción?",
             "counttransmess": "La cantidad no es suficiente",
             "accountmess":"Debe selecionar correctamente la cuenta",
             "accountsourcemess":"Debe selecionar una cuenta origen",

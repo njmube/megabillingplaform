@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$uibModal', 'Transactions_history','Taxpayer_transactions','User', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account', 'Request_taxpayer_account'];
+    HomeController.$inject = ['$rootScope', '$scope', '$uibModal', 'Transactions_history','Taxpayer_transactions','User', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account', 'Request_taxpayer_account'];
 
-    function HomeController ($scope, $uibModal, Transactions_history, Taxpayer_transactions,  User, Principal, Tracemg,  LoginService, $filter, Taxpayer_account, Request_taxpayer_account) {
+    function HomeController ($rootScope, $scope, $uibModal, Transactions_history, Taxpayer_transactions,  User, Principal, Tracemg,  LoginService, $filter, Taxpayer_account, Request_taxpayer_account) {
         var vm = this;
 
         vm.account = null;
@@ -35,8 +35,6 @@
         var principal = " ";
         var auditEventType = " ";
         var ip = " ";
-
-
         vm.audits = null;
         vm.login = null;
 
@@ -54,6 +52,8 @@
         });
 
         getAccount();
+
+        messegeUser();
 
         function getAccount() {
 
@@ -113,11 +113,6 @@
                         vm.user = result;
                     });
 
-
-                    //vm.resto = vm.toDate.getTime();
-                    //var creado = new Date(vm.user.createdDate.getFullYear(), vm.user.createdDate.getMonth(), vm.user.createdDate.getDate() + 1);
-
-
                     vm.tracemgs = Tracemg.query({
                         page: 0,
                         size: 10,
@@ -141,16 +136,9 @@
                         request_state: 1
                     });
 
-                }
+                    vm.isAfilitated = vm.account.authorities.indexOf('ROLE_AFILITATED') != -1;
 
-                if(vm.account != null){
-                    vm.isUser = vm.account.authorities.indexOf('ROLE_USER') != -1;
-                    vm.isNoAdmin = vm.account.authorities.indexOf('ROLE_ADMIN') == -1;
-
-                    if(vm.isUser && vm.isNoAdmin){
-                        vm.messegeUser();
-                    }
-                    if(!vm.isUser && vm.isNoAdmin){
+                    if(vm.isAfilitated){
 
                         Taxpayer_transactions.query({
                             page: 0,
@@ -166,21 +154,32 @@
         }
 
         function messegeUser(){
-            $uibModal.open({
-                templateUrl: 'app/home/messegeUser.html',
-                controller: 'MessegeUserController',
-                controllerAs: 'vm',
-                backdrop: true,
-                size: '',
-                resolve: {
-                    entity: function () {
-                        return 0;
-                    }
-                }
-            }).result.then(function() {
+            if($rootScope.mess == null){
+                Principal.identity().then(function(account) {
+                    if(account != null) {
+                        vm.isUser = account.authorities.indexOf('ROLE_USER') != -1;
+                        vm.isNoAdmin = account.authorities.indexOf('ROLE_ADMIN') == -1;
 
-                }, function() {
+                        if (vm.isUser && vm.isNoAdmin) {
+                            $uibModal.open({
+                                templateUrl: 'app/home/messegeUser.html',
+                                controller: 'MessegeUserController',
+                                controllerAs: 'vm',
+                                backdrop: true,
+                                size: '',
+                                resolve: {
+                                    entity: function () {
+                                        return 0;
+                                    }
+                                }
+                            }).result.then(function () {
+
+                                }, function () {
+                                });
+                        }
+                    }
                 });
+            }
         }
 
         function restDate(datecreated){
