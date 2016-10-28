@@ -55,10 +55,10 @@
         <div class="col-sm-12">
             <form name="editForm" class="form-horizontal" role="form">
                 <uib-tabset active="active">
-                    <uib-tab heading="Prefacturas">
+                    <uib-tab heading="Prefacturas" ng-click="vm.clearSeach()">
 
                     </uib-tab>
-                    <uib-tab heading="CFDI Enviados">
+                    <uib-tab heading="CFDI Enviados" ng-click="vm.clearSeach()">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -212,7 +212,7 @@
                             <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
                         </div>
                     </uib-tab>
-                    <uib-tab heading="CFDI Cancelados">
+                    <uib-tab heading="CFDI Cancelados" ng-click="vm.clearSeach()">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -366,7 +366,7 @@
                             <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
                         </div>
                     </uib-tab>
-                    <uib-tab heading="CFDI Recibidos">
+                    <uib-tab heading="CFDI Recibidos" ng-click="vm.clearSeach()">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -517,7 +517,7 @@
                             <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
                         </div>
                     </uib-tab>
-                    <uib-tab heading="CFDI Gratuitos">
+                    <uib-tab heading="CFDI Gratuitos" ng-click="vm.clearSeach()">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">

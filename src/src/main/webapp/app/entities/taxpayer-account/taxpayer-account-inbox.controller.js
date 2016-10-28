@@ -41,6 +41,7 @@
         vm.cfdi_type_docs = Cfdi_type_doc.query({filtername:" "});
         vm.cfdi_all = null;
         vm.freecfdi_all = null;
+        vm.clearSeach = clearSeach;
 
         loadAll();
 
@@ -383,6 +384,24 @@
             };
 
             cfdi = Cfdi.update(cfdiDTO);
+        }
+
+        function clearSeach(){
+
+            vm.dateStart = null;
+            vm.dateEnd = null;
+            vm.folio_fiscal = null;
+            vm.folio = null;
+            vm.serie = null;
+            vm.rfc_receiver = null;
+            vm.cfdi_type_doc = null;
+            vm.cfdis = [];
+            vm.cfdisCancel = [];
+            vm.cfdisRecieve = [];
+            vm.free_cfdis = [];
+            vm.page = 1;
+            vm.queryCount = 0;
+            vm.totalItems = 0;
         }
 
         function loadPage (page) {
