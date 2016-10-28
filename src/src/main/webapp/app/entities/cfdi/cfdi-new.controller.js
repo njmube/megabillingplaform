@@ -124,6 +124,7 @@
 
         vm.concepts = [];
         vm.addConcept = addConcept;
+        vm.addConceptInfo = addConceptInfo;
         vm.removeConcept = removeConcept;
         vm.save = save;
 
@@ -253,6 +254,39 @@
                 var result_concat = vm.concepts.concat(result);
                 vm.concepts = result_concat;
                 updateCFDITotals();
+            });
+        }
+
+        function addConceptInfo(index){
+            $uibModal.open({
+                templateUrl: 'app/entities/cfdi/cfdi-add-concept-info-dialog.html',
+                controller: 'CfdiAddConceptInfoDialogController',
+                controllerAs: 'vm',
+                backdrop: 'static',
+                size: 'lg',
+                resolve: {
+                    customs_infos: function () {
+                        if(vm.concepts[index].customs_infos != null && vm.concepts[index].customs_infos != undefined){
+                            return vm.concepts[index].customs_infos;
+                        }
+                        else {
+                            return [];
+                        }
+                    },
+                    part_concepts: function () {
+                        if(vm.concepts[index].part_concepts != null && vm.concepts[index].part_concepts != undefined){
+                            return vm.concepts[index].part_concepts;
+                        }
+                        else {
+                            return [];
+                        }
+                    },
+                    taxpayer_account_entity: vm.taxpayer_account
+                }
+            }).result.then(function(result) {
+                var data = result;
+                vm.concepts[index].customs_infos = data.customs_infos;
+                vm.concepts[index].part_concepts = data.part_concepts;
             });
         }
 

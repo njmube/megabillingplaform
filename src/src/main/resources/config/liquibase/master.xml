@@ -140,5 +140,6 @@
     <include file="classpath:config/liquibase/changelog/20161018014244_added_entity_Price_concept.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161018014914_added_entity_Discount_concept.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161021125221_added_entity_Taxpayer_series_folio.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161027223330_added_entity_Customs_info_part.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

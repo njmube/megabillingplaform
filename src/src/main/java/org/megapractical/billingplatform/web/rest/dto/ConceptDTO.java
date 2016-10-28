@@ -1,8 +1,11 @@
 package org.megapractical.billingplatform.web.rest.dto;
 
 import org.megapractical.billingplatform.domain.Concept;
+import org.megapractical.billingplatform.domain.Customs_info;
 import org.megapractical.billingplatform.domain.Tax_retentions;
 import org.megapractical.billingplatform.domain.Tax_transfered;
+
+import java.util.List;
 
 public class ConceptDTO {
 
@@ -15,6 +18,10 @@ public class ConceptDTO {
     private Tax_retentions tax_retentions_iva;
 
     private Tax_retentions tax_retentions_isr;
+
+    private List<Customs_info> customs_infos;
+
+    private List<Part_conceptDTO> part_concepts;
 
     public Concept getConcept() {
         return concept;
@@ -54,5 +61,21 @@ public class ConceptDTO {
 
     public void setTax_retentions_isr(Tax_retentions tax_retentions_isr) {
         this.tax_retentions_isr = tax_retentions_isr;
+    }
+
+    public List<Customs_info> getCustoms_infos() {
+        return customs_infos;
+    }
+
+    public void setCustoms_infos(List<Customs_info> customs_infos) {
+        this.customs_infos = customs_infos;
+    }
+
+    public List<Part_conceptDTO> getPart_concepts() {
+        return part_concepts;
+    }
+
+    public void setPart_concepts(List<Part_conceptDTO> part_concepts) {
+        this.part_concepts = part_concepts;
     }
 }

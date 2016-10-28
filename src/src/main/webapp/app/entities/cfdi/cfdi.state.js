@@ -100,6 +100,9 @@
                     $translatePartialLoader.addPart('taxpayer_account');
                     $translatePartialLoader.addPart('taxpayer_client');
                     $translatePartialLoader.addPart('client_address');
+                    $translatePartialLoader.addPart('customs_info');
+                    $translatePartialLoader.addPart('part_concept');
+                    $translatePartialLoader.addPart('customs_info_part');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

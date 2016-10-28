@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Part_conceptDialogController', Part_conceptDialogController);
 
-    Part_conceptDialogController.$inject = ['$uibModalInstance', 'entity', 'acurracy', 'Measure_unit'];
+    Part_conceptDialogController.$inject = ['$uibModalInstance', 'entity', 'acurracy', 'Measure_unit', '$uibModal'];
 
-    function Part_conceptDialogController ($uibModalInstance, entity, acurracy, Measure_unit) {
+    function Part_conceptDialogController ($uibModalInstance, entity, acurracy, Measure_unit, $uibModal) {
         var vm = this;
 
         vm.part_concept = entity;
@@ -15,6 +15,9 @@
         vm.clear = clear;
         vm.save = save;
         vm.measure_units = Measure_unit.query({pg: -1, filtername:" "});
+        vm.customs_info_parts = [];
+        vm.addCustomInfoPart = addCustomInfoPart;
+        vm.removeCustomInfoPart = removeCustomInfoPart;
 
         function clear () {
             $uibModalInstance.dismiss('cancel');
@@ -35,9 +38,38 @@
             }
         }
 
+        function addCustomInfoPart(){
+            $uibModal.open({
+                templateUrl: 'app/entities/customs-info-part/customs-info-part-dialog.html',
+                controller: 'Customs_info_partDialogController',
+                controllerAs: 'vm',
+                backdrop: 'static',
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return {
+                            number_doc: null,
+                            date: null,
+                            customs: null,
+                            id: null
+                        };
+                    }
+                }
+            }).result.then(function(result) {
+                vm.customs_info_parts.push(result);
+            });
+        }
+
+        function removeCustomInfoPart(index){
+            vm.customs_info_parts.splice(index, 1);
+        }
+
         function save () {
             vm.isSaving = true;
-            $uibModalInstance.close(vm.part_concept);
+            $uibModalInstance.close({
+                part_concept: vm.part_concept,
+                customs_info_parts: vm.customs_info_parts
+            });
             vm.isSaving = false;
         }
     }

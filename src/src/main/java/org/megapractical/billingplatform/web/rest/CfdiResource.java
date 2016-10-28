@@ -6,6 +6,7 @@ import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.web.rest.dto.CfdiDTO;
 import org.megapractical.billingplatform.web.rest.dto.ConceptDTO;
+import org.megapractical.billingplatform.web.rest.dto.Part_conceptDTO;
 import org.megapractical.billingplatform.web.rest.util.HeaderUtil;
 import org.megapractical.billingplatform.web.rest.util.PaginationUtil;
 import org.slf4j.Logger;
@@ -22,7 +23,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
-import javax.validation.Valid;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -69,6 +69,15 @@ public class CfdiResource {
 
     @Inject
     private Tax_retentionsService tax_retentionsService;
+
+    @Inject
+    private Customs_infoService customs_infoService;
+
+    @Inject
+    private Part_conceptService part_conceptService;
+
+    @Inject
+    private Customs_info_partService customs_info_partService;
 
     @Inject
     private MailService mailService;
@@ -197,6 +206,31 @@ public class CfdiResource {
             if(tax_retentions_isr != null && tax_retentions_isr.getAmount().compareTo(ceroValue) == 1){
                 tax_retentions_isr.setConcept(concept);
                 tax_retentionsService.save(tax_retentions_isr);
+            }
+
+            //save customs infos
+            List<Customs_info> customs_infos = conceptDTO.getCustoms_infos();
+            if(customs_infos != null) {
+                for (Customs_info customs_info : customs_infos) {
+                    customs_info.setConcept(concept);
+                    customs_infoService.save(customs_info);
+                }
+            }
+
+            //save part concepts
+            List<Part_conceptDTO> part_conceptDTOs = conceptDTO.getPart_concepts();
+            if(part_conceptDTOs != null) {
+                for (Part_conceptDTO part_conceptDTO : part_conceptDTOs) {
+                    Part_concept part_concept = part_conceptDTO.getPart_concept();
+                    part_concept.setConcept(concept);
+                    part_concept = part_conceptService.save(part_concept);
+
+                    List<Customs_info_part> customs_info_parts = part_conceptDTO.getCustoms_info_parts();
+                    for (Customs_info_part customs_info_part : customs_info_parts) {
+                        customs_info_part.setPart_concept(part_concept);
+                        customs_info_partService.save(customs_info_part);
+                    }
+                }
             }
         }
 

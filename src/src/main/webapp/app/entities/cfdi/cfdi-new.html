@@ -604,6 +604,9 @@
                                     <td class="text-right">{{concept.concept_iva.rate}} / {{concept.concept_ieps.rate}}</td>
                                     <td class="text-right">{{concept.concept.amount | uimeganumberformat}}</td>
                                     <td class="text-center">
+                                        <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addConceptInfo($index)">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
                                         <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeConcept($index)">
                                             <span class="glyphicon glyphicon-trash"></span>
                                         </button>

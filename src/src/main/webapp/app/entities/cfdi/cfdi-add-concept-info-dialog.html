@@ -1,0 +1,87 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+            ng-click="vm.clear()">&times;</button>
+    <h4 class="modal-title" id="myConceptLabel">Adicionar Información del Concepto</h4>
+</div>
+<div class="modal-body">
+    <jhi-alert-error></jhi-alert-error>
+
+    <h3 class="header smaller lighter blue">
+        Información Aduanera
+    </h3>
+    <div class="table-responsive">
+        <table id="custom-info-table" class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>No. Documento</th>
+                <th>Fecha</th>
+                <th>Aduana</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="customs_info in vm.customs_infos">
+                <td>{{customs_info.number_doc}}</td>
+                <td>{{customs_info.date  | date:'yyyy-MM-dd'}}</td>
+                <td>{{customs_info.customs}}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeCustomInfo($index)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addCustomInfo()">
+            Adicionar
+        </button>
+    </div>
+
+    <div class="space-12"></div>
+
+    <h3 class="header smaller lighter blue">
+        Partes
+    </h3>
+    <div class="table-responsive">
+        <table id="parts-table" class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th>Código</th>
+                <th>U/M</th>
+                <th>Descripción</th>
+                <th>Valor Unitario</th>
+                <th>Importe</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="part_concept in vm.part_concepts">
+                <td>{{part_concept.part_concept.no_identification}}</td>
+                <td>{{part_concept.part_concept.measure_unit.name}}</td>
+                <td>{{part_concept.part_concept.description}}</td>
+                <td>{{part_concept.part_concept.unit_value | uimeganumberformat}}</td>
+                <td>{{part_concept.part_concept.amount | uimeganumberformat}}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removePartConcept($index)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addPartConcept()">
+            Adicionar
+        </button>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+        <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+    </button>
+    <button type="button" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary" ng-click="vm.save()">
+        <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+    </button>
+</div>
+

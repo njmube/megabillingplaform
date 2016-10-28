@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.customs_info_part.detail.title">Customs Info Part</span> {{vm.customs_info_part.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.customs_info_part.number_doc">Number Doc</span></dt>
+        <dd>
+            <span>{{vm.customs_info_part.number_doc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.customs_info_part.date">Date</span></dt>
+        <dd>
+            <span>{{vm.customs_info_part.date | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.customs_info_part.customs">Customs</span></dt>
+        <dd>
+            <span>{{vm.customs_info_part.customs}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.customs_info_part.part_concept">Part Concept</span></dt>
+        <dd>
+            <a ui-sref="part-concept-detail({id:vm.customs_info_part.part_concept.id})">{{vm.customs_info_part.part_concept.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>
