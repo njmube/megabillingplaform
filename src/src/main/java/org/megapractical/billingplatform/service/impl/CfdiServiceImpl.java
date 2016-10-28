@@ -137,6 +137,16 @@ public class CfdiServiceImpl implements CfdiService{
                     g = false;
                 }
             }
+            if(pre == 1){
+                if(cfdi.getCom_tfd() != null){
+                    h = false;
+                }
+            }
+            if(send == 1){
+                if(cfdi.getCom_tfd() == null){
+                    i = false;
+                }
+            }
             if(cancel == 1){
                 if(cfdi.getCfdi_states().getId().toString().compareTo("2")!=0){
                     j = false;
