@@ -5,6 +5,39 @@
 </div>
 <div class="modal-body">
     <jhi-alert-error></jhi-alert-error>
+
+    <div class="row" ng-show="vm.unit_value_error">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                <p>¡Lo sentimos! Uno de los conceptos escogidos no tiene <strong>Precio</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-show="vm.measure_unit_error">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                <p>¡Lo sentimos! Uno de los conceptos escogidos no tiene <strong>Unidad de Medida</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-show="vm.iva_error">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                <p>¡Lo sentimos! Uno de los conceptos escogidos no tiene <strong>IVA</strong>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-show="vm.quantity_error">
+        <div class="col-md-12">
+            <div class="alert alert-danger">
+                <p>¡Lo sentimos! Uno de los conceptos escogidos no tiene una <strong>Cantidad</strong> correcta especificada.</p>
+            </div>
+        </div>
+    </div>
+
     <div class="table-responsive">
         <table class="jh-table table table-striped table-bordered">
             <thead>
@@ -24,7 +57,7 @@
             <tbody>
             <tr ng-repeat="taxpayer_concept in vm.taxpayer_concepts track by taxpayer_concept.id">
                 <td>
-                    <input type="checkbox" ng-model="vm.choosen[$index]" />
+                    <input type="checkbox" ng-model="vm.choosen[$index]" ng-click="vm.onChooseConcept()"/>
                 </td>
                 <td>{{taxpayer_concept.no_identification}}</td>
                 <td>{{taxpayer_concept.description | uimegahtmltoplaintext}}</td>
@@ -42,7 +75,7 @@
                 </td>
                 <td>
                     <select ng-model="vm.iva[$index]"
-                            ng-options="iva_concept as iva_concept.rate | number : 2 for iva_concept in vm.iva_concepts[$index] track by iva_concept.id">
+                            ng-options="iva_concept as iva_concept.rate for iva_concept in vm.iva_concepts[$index].concat(vm.other_ivas) track by iva_concept.id">
                         <option value=""></option>
                     </select>
                 </td>
@@ -73,7 +106,7 @@
     <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
         <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
     </button>
-    <button type="button" class="btn btn-primary" ng-click="vm.save()">
+    <button type="button" class="btn btn-primary" ng-click="vm.save()" ng-disabled="vm.isSaving || vm.no_one">
         <span class="glyphicon glyphicon-plus"></span> <span translate="megabillingplatformApp.cfdi.add">Add</span>
     </button>
 </div>

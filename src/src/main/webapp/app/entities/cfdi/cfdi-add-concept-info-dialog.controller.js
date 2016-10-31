@@ -53,7 +53,7 @@
                             no_identification: null,
                             quanitty: 0,
                             description: null,
-                            unit_value: (0).toFixed(6),
+                            unit_value: (0).toFixed(vm.taxpayer_account.accuracy),
                             amount: null,
                             id: null
                         };

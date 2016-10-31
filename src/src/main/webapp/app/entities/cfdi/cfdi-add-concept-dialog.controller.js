@@ -13,6 +13,7 @@
         vm.conceptDTOs = [];
         vm.taxpayer_account = taxpayer_account_entity;
         vm.tax_typess = Tax_types.query({filtername: " "});
+        vm.other_ivas = [{id: 101, rate: "0.00"}, {id: 102, rate: "No aplica"} , {id: 103, rate: "Excento"}];
 
         vm.price_concepts = [];
         vm.measure_unit_concepts = [];
@@ -29,8 +30,12 @@
         vm.amount = [];
         vm.choosen = [];
 
+        vm.no_one = true;
 
-        vm.calcConceptAmount = calcConceptAmount;
+        vm.unit_value_error = false;
+        vm.measure_unit_value_error = false;
+        vm.iva_error = false;
+        vm.quantity_error = false;
 
         loadAll();
 
@@ -81,7 +86,16 @@
             }
         }
 
-        function calcConceptAmount(index){
+        vm.onChooseConcept = function(){
+            vm.no_one = true;
+            var i;
+            for(i = 0; i < vm.choosen.length; i++) {
+                if (vm.choosen[i]){
+                    vm.no_one = false;
+                }}
+        };
+
+        vm.calcConceptAmount = function (index){
             var regexp = /^\d{1,24}\.?\d{1,6}$/;
             var quantity = vm.quantity[index] + '';
             if(vm.unit_value[index] && vm.quantity[index] != 0 && vm.quantity[index] != "" && quantity.match(regexp)) {
@@ -102,7 +116,7 @@
             else{
                 vm.amount[index] = (0).toFixed(vm.taxpayer_account.accuracy);
             }
-        }
+        };
 
         function floorFigure(figure, decimals){
             if (!decimals) decimals = 2;
@@ -112,26 +126,66 @@
 
         vm.save = function () {
             vm.isSaving = true;
-            var index;
-            for(index = 0; index < vm.choosen.length; index++) {
-                if(vm.choosen[index]) {
 
-                    var regexp = /^\d{1,24}\.?\d{1,6}$/;
+            vm.unit_value_error = false;
+            vm.measure_unit_error = false;
+            vm.iva_error = false;
+            vm.quantity_error = false;
+
+            var valid_unit_value = true;
+            var valid_measure_unit = true;
+            var valid_iva = true;
+            var valid_quantity = true;
+
+            var regexp = /^\d{1,24}\.?\d{1,6}$/;
+
+            var index;
+            //validating all choosen concepts
+            for(index = 0; index < vm.choosen.length; index++) {
+                if (vm.choosen[index]) {
+
+                    if (!vm.unit_value[index]) {
+                        vm.unit_value_error = true;
+                        valid_unit_value = false;
+                    }
+
+                    if (!vm.measure_unit[index]) {
+                        vm.measure_unit_error = true;
+                        valid_measure_unit = false;
+                    }
+
+                    if (!vm.iva[index]) {
+                        vm.iva_error = true;
+                        valid_iva = false;
+                    }
+
                     var quantity = vm.quantity[index] + '';
 
-                    if (vm.unit_value[index] && vm.quantity[index] != 0 && vm.quantity[index] != "" && quantity.match(regexp)) {
+                    if (!vm.quantity[index] || vm.quantity[index] == "" || vm.quantity[index] == 0 || !quantity.match(regexp)) {
+                        vm.quantity_error = true;
+                        valid_quantity = false;
+                    }
+                }
+            }
+
+            //Adding concepts
+            if (valid_unit_value && valid_measure_unit && valid_iva && valid_quantity) {
+
+                for (index = 0; index < vm.choosen.length; index++) {
+                    if (vm.choosen[index]) {
+
                         var bln = new BigLargeNumberOperations();
 
-                        if (!vm.discount[index]) {
-                            vm.discount[index] = {value: 0};
-                        }
-
-                        if (!vm.iva[index]) {
+                        if (vm.iva[index].rate == "0.00" || vm.iva[index].rate == "No aplica" || vm.iva[index].rate == "Excento") {
                             vm.iva[index] = {rate: 0};
                         }
 
                         if (!vm.ieps[index]) {
                             vm.ieps[index] = {rate: 0};
+                        }
+
+                        if (!vm.discount[index]) {
+                            vm.discount[index] = {value: 0};
                         }
 
                         var free_concept_iva_amount_p1 = bln.multiply(vm.quantity[index], vm.unit_value[index].value, 6);
@@ -176,6 +230,7 @@
 
                 $uibModalInstance.close(vm.conceptDTOs);
             }
+
             vm.isSaving = false;
         };
 
