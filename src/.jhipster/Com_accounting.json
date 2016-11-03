@@ -1,0 +1,24 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "com_ine_entity",
+            "otherEntityName": "com_ine_entity",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "keyaccounting",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160712204648",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_accounting",
+    "pagination": "pagination"
+}

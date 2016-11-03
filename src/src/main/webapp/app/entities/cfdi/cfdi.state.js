@@ -115,7 +115,7 @@
                     $translatePartialLoader.addPart('com_educational_institutions');
                     $translatePartialLoader.addPart('com_ine');
                     $translatePartialLoader.addPart('com_ine_entity');
-                    $translatePartialLoader.addPart('accounting');
+                    $translatePartialLoader.addPart('com_accounting');
                     $translatePartialLoader.addPart('com_kind_payment');
                     $translatePartialLoader.addPart('com_foreign_tourist_passenger');
                     $translatePartialLoader.addPart('com_partial_construction_services');

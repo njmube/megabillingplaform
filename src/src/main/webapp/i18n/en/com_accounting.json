@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "com_accounting" : {
+            "home": {
+                "title": "Accountings",
+                "createLabel": "New Accounting",
+                "createOrEditLabel": "Create or edit a Accounting",
+                "search": "Search for Accounting"
+            },
+            "created": "A new accounting is created with identifier {{ param }}",
+            "updated": "A accounting is updated with identifier {{ param }}",
+            "deleted": "A accounting is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete accounting {{ id }}?"
+            },
+            "detail": {
+                "title": "Accounting"
+            },
+            "keyaccounting": "Key Accounting (*)",
+            "com_ine_entity": "INE Entity"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myComAccountingLabel" translate="megabillingplatformApp.com_accounting.home.createOrEditLabel">Create or edit a Com Accounting</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_accounting.keyaccounting" for="field_keyaccounting">Keyaccounting</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="keyaccounting" id="field_keyaccounting"
+                       ng-model="vm.com_accounting.keyaccounting" ng-pattern="/^([1-9][0-9]*)$/" ng-maxlength="6"
+                       required />
+                <div ng-show="editForm.keyaccounting.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.keyaccounting.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                        This field should follow pattern "/^(0|[1-9][0-9]*)$/".
+                    </p>
+                    <p class="help-block"
+                       ng-show="editForm.keyaccounting.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="6">
+                        This field cannot be longer than 40 characters.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

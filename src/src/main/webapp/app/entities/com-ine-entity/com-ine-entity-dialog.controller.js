@@ -34,8 +34,8 @@
 
         vm.addAccounting = function(){
             $uibModal.open({
-                templateUrl: 'app/entities/accounting/accounting-dialog.html',
-                controller: 'AccountingDialogController',
+                templateUrl: 'app/entities/com-accounting/com-accounting-dialog.html',
+                controller: 'Com_accountingDialogController',
                 controllerAs: 'vm',
                 backdrop: 'static',
                 size: '',

@@ -580,7 +580,6 @@
                         cfdiDTO.com_partial_construction_services = vm.com_partial_construction_services;
                         break;
                     case "foreign_exchange":
-                        vm.com_foreign_exchange.version = "1.0";
                         cfdiDTO.com_foreign_exchange = vm.com_foreign_exchange;
                         break;
                     case "local_taxes":
@@ -596,7 +595,9 @@
                     case "destruction_certificate":
                         vm.com_destruction_certificate.version = "1.0";
                         cfdiDTO.com_destruction_certificate = vm.com_destruction_certificate;
-                        cfdiDTO.com_info_customs_destruction = vm.com_info_customs_destruction;
+                        if(vm.use_info_customs_destruction) {
+                            cfdiDTO.com_info_customs_destruction = vm.com_info_customs_destruction;
+                        }
                         break;
                     case "fuel_consumption":
                         vm.com_fuel_consumption.version = "1.0";
