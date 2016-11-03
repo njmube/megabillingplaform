@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "com_charge" : {
+            "home": {
+                "title": "Com_charges",
+                "createLabel": "Crear nuevo Com_charge",
+                "createOrEditLabel": "Crear o editar Com_charge",
+                "search": "Search for Com_charge"
+            },
+            "created": "Un nuevo Com_charge ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com_charge ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com_charge ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com_charge {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_charge"
+            },
+            "codecharge": "Código Cargo (*)",
+            "amount": "Importe (*)",
+            "freecom_airline": "Freecom_airline"
+        }
+    }
+}

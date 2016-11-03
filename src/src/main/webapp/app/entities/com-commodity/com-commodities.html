@@ -1,0 +1,78 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_commodity.home.title">Com Commodities</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-commodity.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_commodity.home.createLabel">
+                        Create new Com Commodity
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="noidentification"><span translate="megabillingplatformApp.com_commodity.noidentification">Noidentification</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="customs_quantity"><span translate="megabillingplatformApp.com_commodity.customs_quantity">Customs Quantity</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="customs_unit_value"><span translate="megabillingplatformApp.com_commodity.customs_unit_value">Customs Unit Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dollar_value"><span translate="megabillingplatformApp.com_commodity.dollar_value">Dollar Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="com_foreign_trade.id"><span translate="megabillingplatformApp.com_commodity.com_foreign_trade">Com Foreign Trade</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="com_tariff_fraction.value"><span translate="megabillingplatformApp.com_commodity.com_tariff_fraction">Com Tariff Fraction</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="com_custom_unit.value"><span translate="megabillingplatformApp.com_commodity.com_custom_unit">Com Custom Unit</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_commodity in vm.com_commodities track by com_commodity.id">
+                    <td><a ui-sref="com-commodity-detail({id:com_commodity.id})">{{com_commodity.id}}</a></td>
+                    <td>{{com_commodity.noidentification}}</td>
+                    <td>{{com_commodity.customs_quantity}}</td>
+                    <td>{{com_commodity.customs_unit_value}}</td>
+                    <td>{{com_commodity.dollar_value}}</td>
+                    <td>
+                        <a ui-sref="com-foreign-trade-detail({id:com_commodity.com_foreign_trade.id})">{{com_commodity.com_foreign_trade.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="com-tariff-fraction-detail({id:com_commodity.com_tariff_fraction.id})">{{com_commodity.com_tariff_fraction.value}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="com-custom-unit-detail({id:com_commodity.com_custom_unit.id})">{{com_commodity.com_custom_unit.value}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-commodity-detail({id:com_commodity.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-commodity.edit({id:com_commodity.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-commodity.delete({id:com_commodity.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

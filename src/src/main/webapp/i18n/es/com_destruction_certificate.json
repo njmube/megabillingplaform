@@ -1,0 +1,37 @@
+{
+    "megabillingplatformApp": {
+        "com_destruction_certificate" : {
+            "home": {
+                "title": "Com Destruction Certificates",
+                "createLabel": "Crear nuevo Com Destruction Certificate",
+                "createOrEditLabel": "Crear o editar Com Destruction Certificate",
+                "search": "Search for Com Destruction Certificate"
+            },
+            "created": "Un nuevo Com Destruction Certificate ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Destruction Certificate ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Destruction Certificate ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Destruction Certificate {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Destruction Certificate"
+            },
+            "version": "Version",
+            "numfoldesveh": "No. Folio Destrucción (*)",
+            "brand": "Marca (*):",
+            "class_dc": "Tipo Clase (*):",
+            "year": "Año (*):",
+            "model": "Modelo:",
+            "niv": "NIV:",
+            "no_serie": "No. Serie:",
+            "number_plates": "No. Placas (*):",
+            "number_engine": "No. Motor::",
+            "numfoltarjcir": "No. Folio Tarjeta (*):",
+            "free_cfdi": "Free Cfdi",
+            "c_type_series": "Series (*):",
+			"validation": {
+				"year": "El año debe ser superior a 1900."
+			}
+        }
+    }
+}

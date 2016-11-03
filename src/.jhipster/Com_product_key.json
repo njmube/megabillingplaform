@@ -1,0 +1,17 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160810154022",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_product_key",
+    "pagination": "pagination"
+}

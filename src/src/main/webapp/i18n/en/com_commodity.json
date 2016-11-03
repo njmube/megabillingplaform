@@ -1,0 +1,28 @@
+{
+    "megabillingplatformApp": {
+        "com_commodity" : {
+            "home": {
+                "title": "Com Commodities",
+                "createLabel": "Create a new Com Commodity",
+                "createOrEditLabel": "Create or edit a Com Commodity",
+                "search": "Search for Com Commodity"
+            },
+            "created": "A new Com Commodity is created with identifier {{ param }}",
+            "updated": "A Com Commodity is updated with identifier {{ param }}",
+            "deleted": "A Com Commodity is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Commodity {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Commodity"
+            },
+            "noidentification": "Noidentification (*)",
+            "customs_quantity": "Customs Quantity",
+            "customs_unit_value": "Customs Unit Value",
+            "dollar_value": "Dollar Value (*)",
+            "com_foreign_trade": "Foreign Trade",
+            "com_tariff_fraction": "Tariff Fraction",
+            "com_custom_unit": "Custom Unit"
+        }
+    }
+}

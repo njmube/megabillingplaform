@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "com_fuel_consumption" : {
+            "home": {
+                "title": "Com_fuel_consumptions",
+                "createLabel": "Crear nuevo Com_fuel_consumption",
+                "createOrEditLabel": "Crear o editar Com_fuel_consumption",
+                "search": "Search for Com_fuel_consumption"
+            },
+            "created": "Un nuevo Com_fuel_consumption ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com_fuel_consumption ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com_fuel_consumption ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com_fuel_consumption {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_fuel_consumption"
+            },
+            "version": "Version",
+            "type_operation": "Tipo Operación (*):",
+            "account_number": "No. Cuenta (*):",
+            "subtotal": "Subtotal:",
+            "total": "Total (*):",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

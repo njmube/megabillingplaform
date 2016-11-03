@@ -1,0 +1,72 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_storeroom_paybill.home.title">Com Storeroom Paybills</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-storeroom-paybill.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_storeroom_paybill.home.createLabel">
+                        Create new Com Storeroom Paybill
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version"><span translate="megabillingplatformApp.com_storeroom_paybill.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="type_operation"><span translate="megabillingplatformApp.com_storeroom_paybill.type_operation">Type Operation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="employer_registration"><span translate="megabillingplatformApp.com_storeroom_paybill.employer_registration">Employer Registration</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="account_number"><span translate="megabillingplatformApp.com_storeroom_paybill.account_number">Account Number</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="total"><span translate="megabillingplatformApp.com_storeroom_paybill.total">Total</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfdi.id"><span translate="megabillingplatformApp.com_storeroom_paybill.cfdi">Cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_storeroom_paybill in vm.com_storeroom_paybills track by com_storeroom_paybill.id">
+                    <td><a ui-sref="com-storeroom-paybill-detail({id:com_storeroom_paybill.id})">{{com_storeroom_paybill.id}}</a></td>
+                    <td>{{com_storeroom_paybill.version}}</td>
+                    <td>{{com_storeroom_paybill.type_operation}}</td>
+                    <td>{{com_storeroom_paybill.employer_registration}}</td>
+                    <td>{{com_storeroom_paybill.account_number}}</td>
+                    <td>{{com_storeroom_paybill.total}}</td>
+                    <td>
+                        <a ui-sref="cfdi-detail({id:com_storeroom_paybill.cfdi.id})">{{com_storeroom_paybill.cfdi.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-storeroom-paybill-detail({id:com_storeroom_paybill.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-storeroom-paybill.edit({id:com_storeroom_paybill.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-storeroom-paybill.delete({id:com_storeroom_paybill.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

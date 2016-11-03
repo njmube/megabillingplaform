@@ -1,0 +1,84 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_used_vehicle.home.title">Com Used Vehicles</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-used-vehicle.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_used_vehicle.home.createLabel">
+                        Create new Com Used Vehicle
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version"><span translate="megabillingplatformApp.com_used_vehicle.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="acquisition_amount"><span translate="megabillingplatformApp.com_used_vehicle.acquisition_amount">Acquisition Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="monto_enajenacion"><span translate="megabillingplatformApp.com_used_vehicle.monto_enajenacion">Monto Enajenacion</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="key_vehicle"><span translate="megabillingplatformApp.com_used_vehicle.key_vehicle">Key Vehicle</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="brand"><span translate="megabillingplatformApp.com_used_vehicle.brand">Brand</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="type"><span translate="megabillingplatformApp.com_used_vehicle.type">Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="model"><span translate="megabillingplatformApp.com_used_vehicle.model">Model</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_engine"><span translate="megabillingplatformApp.com_used_vehicle.number_engine">Number Engine</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_serie"><span translate="megabillingplatformApp.com_used_vehicle.no_serie">No Serie</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="niv"><span translate="megabillingplatformApp.com_used_vehicle.niv">Niv</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="value"><span translate="megabillingplatformApp.com_used_vehicle.value">Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfdi.id"><span translate="megabillingplatformApp.com_used_vehicle.cfdi">Cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_used_vehicle in vm.com_used_vehicles track by com_used_vehicle.id">
+                    <td><a ui-sref="com-used-vehicle-detail({id:com_used_vehicle.id})">{{com_used_vehicle.id}}</a></td>
+                    <td>{{com_used_vehicle.version}}</td>
+                    <td>{{com_used_vehicle.acquisition_amount}}</td>
+                    <td>{{com_used_vehicle.monto_enajenacion}}</td>
+                    <td>{{com_used_vehicle.key_vehicle}}</td>
+                    <td>{{com_used_vehicle.brand}}</td>
+                    <td>{{com_used_vehicle.type}}</td>
+                    <td>{{com_used_vehicle.model}}</td>
+                    <td>{{com_used_vehicle.number_engine}}</td>
+                    <td>{{com_used_vehicle.no_serie}}</td>
+                    <td>{{com_used_vehicle.niv}}</td>
+                    <td>{{com_used_vehicle.value}}</td>
+                    <td>
+                        <a ui-sref="cfdi-detail({id:com_used_vehicle.cfdi.id})">{{com_used_vehicle.cfdi.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-used-vehicle-detail({id:com_used_vehicle.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-used-vehicle.edit({id:com_used_vehicle.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-used-vehicle.delete({id:com_used_vehicle.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "com_ecc_11" : {
+            "home": {
+                "title": "Com Ecc 11 S",
+                "createLabel": "Crear nuevo Com Ecc 11",
+                "createOrEditLabel": "Crear o editar Com Ecc 11",
+                "search": "Search for Com Ecc 11"
+            },
+            "created": "Un nuevo Com Ecc 11 ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Ecc 11 ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Ecc 11 ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Ecc 11 {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Ecc 11"
+            },
+            "version": "Version",
+            "type_operation": "Type Operation (*)",
+            "number_account": "Number Account (*)",
+            "subtotal": "Subtotal (*)",
+            "total": "Total (*)",
+            "free_cfdi": "Free Cfdi"
+        }
+    }
+}

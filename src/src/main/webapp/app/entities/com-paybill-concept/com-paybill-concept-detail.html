@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_paybill_concept.detail.title">Com Paybill Concept</span> {{vm.com_paybill_concept.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_paybill_concept.identification_number">Identification Number</span></dt>
+        <dd>
+            <span>{{vm.com_paybill_concept.identification_number}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_paybill_concept.date_expedition">Date Expedition</span></dt>
+        <dd>
+            <span>{{vm.com_paybill_concept.date_expedition | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_paybill_concept.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.com_paybill_concept.rfc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_paybill_concept.curp">Curp</span></dt>
+        <dd>
+            <span>{{vm.com_paybill_concept.curp}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_paybill_concept.name">Name</span></dt>
+        <dd>
+            <span>{{vm.com_paybill_concept.name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_paybill_concept.social_security_number">Social Security Number</span></dt>
+        <dd>
+            <span>{{vm.com_paybill_concept.social_security_number}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_paybill_concept.amount">Amount</span></dt>
+        <dd>
+            <span>{{vm.com_paybill_concept.amount}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_paybill_concept.com_storeroom_paybill">Com Storeroom Paybill</span></dt>
+        <dd>
+            <a ui-sref="com-storeroom-paybill-detail({id:vm.com_paybill_concept.com_storeroom_paybill.id})">{{vm.com_paybill_concept.com_storeroom_paybill.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,42 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "com_destruction_certificate",
+            "otherEntityName": "com_destruction_certificate",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "com_info_customs_destruction"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "numpedimp",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "40"
+        },
+        {
+            "fieldName": "date_expedition",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "customs",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160804151653",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_info_customs_destruction",
+    "pagination": "pagination"
+}

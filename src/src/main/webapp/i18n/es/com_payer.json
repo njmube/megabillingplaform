@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "com_payer" : {
+            "home": {
+                "title": "Com Payers",
+                "createLabel": "Crear nuevo Com Payer",
+                "createOrEditLabel": "Crear o editar Com Payer",
+                "search": "Search for Com Payer"
+            },
+            "created": "Un nuevo Com Payer ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Payer ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Payer ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Payer {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Payer"
+            },
+            "emitter_bank": "Banco Emisor (*):",
+            "name": "Nombre (*):",
+            "type_account": "Tipo Cuenta (*):",
+            "account": "Cuenta (*):",
+            "rfc": "RFC (*):"
+        }
+    }
+}

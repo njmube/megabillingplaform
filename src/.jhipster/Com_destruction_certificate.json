@@ -1,0 +1,106 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "cfdi",
+            "otherEntityName": "cfdi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "c_type_series",
+            "otherEntityName": "c_type_series",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "value"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numfoldesveh",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "brand",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "class_dc",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "year",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "model",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "niv",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "no_serie",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "17"
+        },
+        {
+            "fieldName": "number_plates",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        },
+        {
+            "fieldName": "number_engine",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "17"
+        },
+        {
+            "fieldName": "numfoltarjcir",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "40"
+        }
+    ],
+    "changelogDate": "20160804150941",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_destruction_certificate",
+    "pagination": "pagination"
+}

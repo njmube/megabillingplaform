@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_local_retentions.detail.title">Com Local Retentions</span> {{vm.com_local_retentions.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_local_retentions.implocretentions">Implocretentions</span></dt>
+        <dd>
+            <span>{{vm.com_local_retentions.implocretentions}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_local_retentions.retentionrate">Retentionrate</span></dt>
+        <dd>
+            <span>{{vm.com_local_retentions.retentionrate}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_local_retentions.amountretentions">Amountretentions</span></dt>
+        <dd>
+            <span>{{vm.com_local_retentions.amountretentions}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_local_retentions.com_local_taxes">Com Local Taxes</span></dt>
+        <dd>
+            <a ui-sref="com-local-taxes-detail({id:vm.com_local_retentions.com_local_taxes.id})">{{vm.com_local_retentions.com_local_taxes.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

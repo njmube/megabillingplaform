@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "com_tariff_fraction" : {
+            "home": {
+                "title": "Com Tariff Fractions",
+                "createLabel": "Create a new Com Tariff Fraction",
+                "createOrEditLabel": "Create or edit a Com Tariff Fraction",
+                "search": "Search for Com Tariff Fraction"
+            },
+            "created": "A new Com Tariff Fraction is created with identifier {{ param }}",
+            "updated": "A Com Tariff Fraction is updated with identifier {{ param }}",
+            "deleted": "A Com Tariff Fraction is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Tariff Fraction {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Tariff Fraction"
+            },
+            "value": "Value"
+        }
+    }
+}

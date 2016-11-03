@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Com_accreditation_ieps.
+    -->
+    <changeSet id="20160712220809-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="c_tar_id"
+                                 baseTableName="com_accreditation_ieps"
+                                 constraintName="fk_com_accreditation_ieps_c_tar_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_tar"/>
+
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_accreditation_ieps"
+                                 constraintName="fk_com_accreditation_ieps_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
+
+    </changeSet>
+</databaseChangeLog>

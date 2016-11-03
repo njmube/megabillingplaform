@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "com_info_customs_destruction" : {
+            "home": {
+                "title": "Com_info_customs_destructions",
+                "createLabel": "Crear nuevo Com_info_customs_destruction",
+                "createOrEditLabel": "Crear o editar Com_info_customs_destruction",
+                "search": "Search for Com_info_customs_destruction"
+            },
+            "created": "Un nuevo Com_info_customs_destruction ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com_info_customs_destruction ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com_info_customs_destruction ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com_info_customs_destruction {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_info_customs_destruction"
+            },
+            "numpedimp": "No. Doc. Aduanero (*):",
+            "date_expedition": "Fecha Expedición (*):",
+            "customs": "Aduana (*):",
+            "freecom_destruction_certificate": "Freecom_destruction_certificate"
+        }
+    }
+}

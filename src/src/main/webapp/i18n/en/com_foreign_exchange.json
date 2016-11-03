@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "com_foreign_exchange" : {
+            "home": {
+                "title": "Com_foreign_exchanges",
+                "createLabel": "Create a new Com_foreign_exchange",
+                "createOrEditLabel": "Create or edit a Com_foreign_exchange",
+                "search": "Search for Com_foreign_exchange"
+            },
+            "created": "A new Com_foreign_exchange is created with identifier {{ param }}",
+            "updated": "A Com_foreign_exchange is updated with identifier {{ param }}",
+            "deleted": "A Com_foreign_exchange is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com_foreign_exchange {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_foreign_exchange"
+            },
+            "c_type_operation": "Operation Type (*)",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

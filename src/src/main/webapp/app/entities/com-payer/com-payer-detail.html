@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_payer.detail.title">Com Payer</span> {{vm.com_payer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_payer.emitter_bank">Emitter Bank</span></dt>
+        <dd>
+            <span>{{vm.com_payer.emitter_bank}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_payer.name">Name</span></dt>
+        <dd>
+            <span>{{vm.com_payer.name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_payer.type_account">Type Account</span></dt>
+        <dd>
+            <span>{{vm.com_payer.type_account}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_payer.account">Account</span></dt>
+        <dd>
+            <span>{{vm.com_payer.account}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_payer.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.com_payer.rfc}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

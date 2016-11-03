@@ -1,0 +1,92 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCom_educational_institutionsLabel" translate="megabillingplatformApp.com_educational_institutions.home.createOrEditLabel">Create or edit a Com Educational Institutions</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.com_educational_institutions.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.com_educational_institutions.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_educational_institutions.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.com_educational_institutions.version"
+                    required />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.version.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_educational_institutions.name_student" for="field_name_student">Name Student</label>
+            <input type="text" class="form-control" name="name_student" id="field_name_student"
+                    ng-model="vm.com_educational_institutions.name_student"
+                    required />
+            <div ng-show="editForm.name_student.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.name_student.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_educational_institutions.curp" for="field_curp">Curp</label>
+            <input type="text" class="form-control" name="curp" id="field_curp"
+                    ng-model="vm.com_educational_institutions.curp"
+                    required />
+            <div ng-show="editForm.curp.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.curp.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_educational_institutions.autrvoe" for="field_autrvoe">Autrvoe</label>
+            <input type="text" class="form-control" name="autrvoe" id="field_autrvoe"
+                    ng-model="vm.com_educational_institutions.autrvoe"
+                    required />
+            <div ng-show="editForm.autrvoe.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.autrvoe.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_educational_institutions.rfcpayment" for="field_rfcpayment">Rfcpayment</label>
+            <input type="text" class="form-control" name="rfcpayment" id="field_rfcpayment"
+                    ng-model="vm.com_educational_institutions.rfcpayment"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_educational_institutions.cfdi" for="field_cfdi">Cfdi</label>
+            <select class="form-control" id="field_cfdi" name="cfdi" ng-model="vm.com_educational_institutions.cfdi" ng-options="cfdi as cfdi.id for cfdi in vm.cfdis | orderBy:'id' track by cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_educational_institutions.c_school_level" for="field_c_school_level">C School Level</label>
+            <select class="form-control" id="field_c_school_level" name="c_school_level" ng-model="vm.com_educational_institutions.c_school_level" ng-options="c_school_level as c_school_level.name for c_school_level in vm.c_school_levels track by c_school_level.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_ine.detail.title">Com Ine</span> {{vm.com_ine.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_ine.version">Version</span></dt>
+        <dd>
+            <span>{{vm.com_ine.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_ine.ident">Ident</span></dt>
+        <dd>
+            <span>{{vm.com_ine.ident}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_ine.cfdi">Cfdi</span></dt>
+        <dd>
+            <a ui-sref="cfdi-detail({id:vm.com_ine.cfdi.id})">{{vm.com_ine.cfdi.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_ine.c_committee_type">C Committee Type</span></dt>
+        <dd>
+            <a ui-sref="c-committee-type-detail({id:vm.com_ine.c_committee_type.id})">{{vm.com_ine.c_committee_type.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_ine.c_process_type">C Process Type</span></dt>
+        <dd>
+            <a ui-sref="c-process-type-detail({id:vm.com_ine.c_process_type.id})">{{vm.com_ine.c_process_type.name}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

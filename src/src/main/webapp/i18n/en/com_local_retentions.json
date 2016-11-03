@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "com_local_retentions" : {
+            "home": {
+                "title": "Com Local Retentions",
+                "createLabel": "Create a new Com Local Retentions",
+                "createOrEditLabel": "Add or edit Local Taxes",
+                "search": "Search for Com Local Retentions"
+            },
+            "created": "A new Com Local Retentions is created with identifier {{ param }}",
+            "updated": "A Com Local Retentions is updated with identifier {{ param }}",
+            "deleted": "A Com Local Retentions is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Local Retentions {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Local Retentions"
+            },
+            "implocretentions": "Local Tax (*)",
+            "retentionrate": "Rate  (*)",
+            "amountretentions": "Amount  (*)",
+            "freecom_local_taxes": "Freecom Local Taxes"
+        }
+    }
+}

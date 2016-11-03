@@ -1,0 +1,76 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCom_info_customs_destructionLabel" translate="megabillingplatformApp.com_info_customs_destruction.home.createOrEditLabel">Create or edit a Com Info Customs Destruction</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.com_info_customs_destruction.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.com_info_customs_destruction.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_info_customs_destruction.numpedimp" for="field_numpedimp">Numpedimp</label>
+            <input type="text" class="form-control" name="numpedimp" id="field_numpedimp"
+                    ng-model="vm.com_info_customs_destruction.numpedimp"
+                    required ng-maxlength="40" />
+            <div ng-show="editForm.numpedimp.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.numpedimp.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.numpedimp.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                    This field cannot be longer than 40 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_info_customs_destruction.date_expedition" for="field_date_expedition">Date Expedition</label>
+                <div class="input-group">
+                    <input id="field_date_expedition" type="text" class="form-control" name="date_expedition" uib-datepicker-popup="{{dateformat}}" ng-model="vm.com_info_customs_destruction.date_expedition" is-open="vm.datePickerOpenStatus.date_expedition"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_expedition')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_expedition.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_expedition.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_info_customs_destruction.customs" for="field_customs">Customs</label>
+            <input type="text" class="form-control" name="customs" id="field_customs"
+                    ng-model="vm.com_info_customs_destruction.customs"
+                    required />
+            <div ng-show="editForm.customs.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.customs.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_info_customs_destruction.com_destruction_certificate" for="field_com_destruction_certificate">Com Destruction Certificate</label>
+            <select class="form-control" id="field_com_destruction_certificate" name="com_destruction_certificate" ng-model="vm.com_info_customs_destruction.com_destruction_certificate" ng-options="com_destruction_certificate as com_destruction_certificate.id for com_destruction_certificate in vm.com_destruction_certificates | orderBy:'id' track by com_destruction_certificate.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

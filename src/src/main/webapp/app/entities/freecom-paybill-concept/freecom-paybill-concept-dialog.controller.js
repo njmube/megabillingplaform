@@ -13,17 +13,8 @@
 
         vm.save = function () {
             vm.isSaving = true;
-            $uibModalInstance.close({
-                identification_number: vm.freecom_paybill_concept.identification_number,
-                date_expedition: vm.freecom_paybill_concept.date_expedition,
-                rfc: vm.freecom_paybill_concept.rfc,
-                curp: vm.freecom_paybill_concept.curp,
-                name: vm.freecom_paybill_concept.name,
-                social_security_number: vm.freecom_paybill_concept.social_security_number,
-                amount: vm.freecom_paybill_concept.amount,
-                id: null
-            });
-            vm.isSaving = true;
+            $uibModalInstance.close(vm.freecom_paybill_concept);
+            vm.isSaving = false;
         };
 
         vm.clear = function() {

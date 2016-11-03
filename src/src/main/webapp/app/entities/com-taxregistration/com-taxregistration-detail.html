@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_taxregistration.detail.title">Com Taxregistration</span> {{vm.com_taxregistration.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_taxregistration.version">Version</span></dt>
+        <dd>
+            <span>{{vm.com_taxregistration.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_taxregistration.folio">Folio</span></dt>
+        <dd>
+            <span>{{vm.com_taxregistration.folio}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_taxregistration.cfdi">Cfdi</span></dt>
+        <dd>
+            <a ui-sref="cfdi-detail({id:vm.com_taxregistration.cfdi.id})">{{vm.com_taxregistration.cfdi.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

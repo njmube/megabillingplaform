@@ -1,0 +1,68 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_local_retentions.home.title">Com Local Retentions</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-local-retentions.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_local_retentions.home.createLabel">
+                        Create new Com Local Retentions
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="implocretentions"><span translate="megabillingplatformApp.com_local_retentions.implocretentions">Implocretentions</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="retentionrate"><span translate="megabillingplatformApp.com_local_retentions.retentionrate">Retentionrate</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amountretentions"><span translate="megabillingplatformApp.com_local_retentions.amountretentions">Amountretentions</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="com_local_taxes.id"><span translate="megabillingplatformApp.com_local_retentions.com_local_taxes">Com Local Taxes</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_local_retentions in vm.com_local_retentions track by com_local_retentions.id">
+                    <td><a ui-sref="com-local-retentions-detail({id:com_local_retentions.id})">{{com_local_retentions.id}}</a></td>
+                    <td>{{com_local_retentions.implocretentions}}</td>
+                    <td>{{com_local_retentions.retentionrate}}</td>
+                    <td>{{com_local_retentions.amountretentions}}</td>
+                    <td>
+                        <a ui-sref="com-local-taxes-detail({id:com_local_retentions.com_local_taxes.id})">{{com_local_retentions.com_local_taxes.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-local-retentions-detail({id:com_local_retentions.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-local-retentions.edit({id:com_local_retentions.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-local-retentions.delete({id:com_local_retentions.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

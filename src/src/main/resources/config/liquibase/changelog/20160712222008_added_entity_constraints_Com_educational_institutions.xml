@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Com_educational_institutions.
+    -->
+    <changeSet id="20160712222008-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_educational_institutions"
+                                 constraintName="fk_com_educational_institutions_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_school_level_id"
+                                 baseTableName="com_educational_institutions"
+                                 constraintName="fk_com_educational_institutions_c_school_level_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_school_level"/>
+
+    </changeSet>
+</databaseChangeLog>

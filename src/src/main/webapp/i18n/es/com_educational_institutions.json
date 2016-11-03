@@ -1,0 +1,28 @@
+{
+    "megabillingplatformApp": {
+        "com_educational_institutions" : {
+            "home": {
+                "title": "Com Educational Institutions",
+                "createLabel": "Crear nuevo Com Educational Institutions",
+                "createOrEditLabel": "Crear o editar Com Educational Institutions",
+                "search": "Search for Com Educational Institutions"
+            },
+            "created": "Un nuevo Com Educational Institutions ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Educational Institutions ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Educational Institutions ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Educational Institutions {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Educational Institutions"
+            },
+            "version": "Version",
+            "name_student": "Nombre Alumno (*):",
+            "curp": "CURP (*):",
+            "autrvoe": "Autrvoe:",
+            "rfcpayment": "RFC Pago (*):",
+            "c_school_level": "Nivel Educativo (*):",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

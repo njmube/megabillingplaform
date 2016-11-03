@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "com_donees" : {
+            "home": {
+                "title": "Com Donees",
+                "createLabel": "Crear nuevo Com Donees",
+                "createOrEditLabel": "Crear o editar Com Donees",
+                "search": "Search for Com Donees"
+            },
+            "created": "Un nuevo Com Donees ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Donees ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Donees ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Donees {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Donees"
+            },
+            "version": "Version",
+            "no_authorization": "No. Autorización (*)",
+            "date_authorization": "Fecha de Autorización (*)",
+            "legend": "Leyenda (*)",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

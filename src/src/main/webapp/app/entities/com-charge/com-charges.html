@@ -1,0 +1,66 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_charge.home.title">Com Charges</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-charge.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_charge.home.createLabel">
+                        Create new Com Charge
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="codecharge"><span translate="megabillingplatformApp.com_charge.codecharge">Codecharge</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amount"><span translate="megabillingplatformApp.com_charge.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="com_airline.version"><span translate="megabillingplatformApp.com_charge.com_airline">Com Airline</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_charge in vm.com_charges track by com_charge.id">
+                    <td><a ui-sref="com-charge-detail({id:com_charge.id})">{{com_charge.id}}</a></td>
+                    <td>{{com_charge.codecharge}}</td>
+                    <td>{{com_charge.amount}}</td>
+                    <td>
+                        <a ui-sref="com-airline-detail({id:com_charge.com_airline.id})">{{com_charge.com_airline.version}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-charge-detail({id:com_charge.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-charge.edit({id:com_charge.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-charge.delete({id:com_charge.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

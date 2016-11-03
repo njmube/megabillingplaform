@@ -394,9 +394,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.payment_method" for="field_payment_method">Payment Method</label>
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.payment_method" for="field_cfdi_payment_method">Payment Method</label>
                         <div class="col-sm-8">
-                            <select class="form-control" id="field_payment_method" name="payment_method"
+                            <select class="form-control" id="field_cfdi_payment_method" name="cfdi_payment_method"
                                     ng-model="vm.cfdi.payment_method" ng-options="payment_method as payment_method.name + ' ('+payment_method.code + ')' for payment_method in vm.payment_methods track by payment_method.id" required>
                                 <option value=""></option>
                             </select>
@@ -404,15 +404,15 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.way_payment" for="field_way_payment">way_payment</label>
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.way_payment" for="field_cfdi_way_payment">way_payment</label>
                         <div class="col-sm-5">
-                            <select class="form-control" id="field_way_payment" name="way_payment"
+                            <select class="form-control" id="field_cfdi_way_payment" name="cfdi_way_payment"
                                     ng-model="vm.way_payment" ng-options="way_payment as way_payment.name for way_payment in vm.way_payments track by way_payment.id" ng-disabled="vm.enableWayPayment()" data-ng-change="vm.partialityChange()" required >
                                 <option value=""></option>
                             </select>
                         </div>
                         <div class="col-sm-1 no-padding-right">
-                            <input type="text" class="form-control" name="way_payment_x" id="way_payment_x"
+                            <input type="text" class="form-control" name="cfdi_way_payment_x" id="cfdi_way_payment_x"
                                    ng-model="vm.way_payment_x" ng-disabled="vm.enableWithByPartiality()" data-ng-change="vm.wayPaymentXYChange()"
                                    required />
                         </div>
@@ -420,7 +420,7 @@
                             <p class="text-center">/</p>
                         </label>
                         <div class="col-sm-1 no-padding-left">
-                            <input type="text" class="form-control" name="way_payment_y" id="way_payment_y"
+                            <input type="text" class="form-control" name="cfdi_way_payment_y" id="cfdi_way_payment_y"
                                    ng-model="vm.way_payment_y" ng-disabled="vm.enableWithByPartiality()" data-ng-change="vm.wayPaymentXYChange()"
                                    required />
                         </div>
@@ -441,28 +441,28 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.serial_folio_fiscal_orig" for="field_serial_folio_fiscal_orig">Serial Folio Fiscal Orig</label>
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.serial_folio_fiscal_orig" for="field_cfdi_serial_folio_fiscal_orig">Serial Folio Fiscal Orig</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="serial_folio_fiscal_orig" id="field_serial_folio_fiscal_orig"
+                            <input type="text" class="form-control" name="cfdi_serial_folio_fiscal_orig" id="field_cfdi_serial_folio_fiscal_orig"
                                    ng-model="vm.cfdi.serial_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()"
                             />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.folio_fiscal_orig" for="field_folio_fiscal_orig">Folio Fiscal Orig</label>
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.folio_fiscal_orig" for="field_cfdi_folio_fiscal_orig">Folio Fiscal Orig</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="folio_fiscal_orig" id="field_folio_fiscal_orig"
+                            <input type="text" class="form-control" name="cfdi_folio_fiscal_orig" id="field_cfdi_folio_fiscal_orig"
                                    ng-model="vm.cfdi.folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()"
                             />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.date_folio_fiscal_orig" for="field_date_folio_fiscal_orig">Date Folio Fiscal Orig</label>
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.date_folio_fiscal_orig" for="field_cfdi_date_folio_fiscal_orig">Date Folio Fiscal Orig</label>
                         <div class="col-sm-8">
                             <div class="input-group">
-                                <input id="field_date_folio_fiscal_orig" type="text" class="form-control" name="date_folio_fiscal_orig" datetime-picker="{{dateformat}}"
+                                <input id="field_cfdi_date_folio_fiscal_orig" type="text" class="form-control" name="cfdi_date_folio_fiscal_orig" datetime-picker="{{dateformat}}"
                                        ng-model="vm.cfdi.date_folio_fiscal_orig" is-open="vm.datePickerOpenStatus.date_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()" readonly
                                 />
                                 <span class="input-group-btn">
@@ -473,9 +473,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.mont_folio_fiscal_orig" for="field_mont_folio_fiscal_orig">Mont Folio Fiscal Orig</label>
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.mont_folio_fiscal_orig" for="field_cfdi_mont_folio_fiscal_orig">Mont Folio Fiscal Orig</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="mont_folio_fiscal_orig" id="field_mont_folio_fiscal_orig"
+                            <input type="text" class="form-control" name="cfdi_mont_folio_fiscal_orig" id="field_cfdi_mont_folio_fiscal_orig"
                                    ng-model="vm.cfdi.mont_folio_fiscal_orig" ng-disabled="vm.enableWithByPartiality()"
                             />
                         </div>
@@ -484,89 +484,89 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.serial" for="field_serial">Serial</label>
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.serial" for="field_cfdi_serial">Serial</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="serial" id="field_serial"
+                            <input type="text" class="form-control" name="cfdi_serial" id="field_cfdi_serial"
                                    ng-model="vm.cfdi.serial"
                                    ng-minlength="1" ng-maxlength="25" readonly/>
-                            <div ng-show="editForm.serial.$invalid">
+                            <div ng-show="editForm.cfdi_serial.$invalid">
                                 <p class="help-block"
-                                   ng-show="editForm.serial.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
+                                   ng-show="editForm.cfdi_serial.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
                                     This field is required to be at least 1 characters.
                                 </p>
                                 <p class="help-block"
-                                   ng-show="editForm.serial.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="25">
+                                   ng-show="editForm.cfdi_serial.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="25">
                                     This field cannot be longer than 25 characters.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.folio" for="field_folio">Folio</label>
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.folio" for="field_cfdi_folio">Folio</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="folio" id="field_folio"
+                            <input type="text" class="form-control" name="cfdi_folio" id="field_cfdi_folio"
                                    ng-model="vm.cfdi.folio"
                                    ng-minlength="1" ng-maxlength="20" readonly/>
-                            <div ng-show="editForm.free_cfdi_folio.$invalid">
+                            <div ng-show="editForm.cfdi_folio.$invalid">
                                 <p class="help-block"
-                                   ng-show="editForm.free_cfdi_folio.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
+                                   ng-show="editForm.cfdi_folio.$error.minlength" translate="entity.validation.minlength" translate-value-min="1">
                                     This field is required to be at least 1 characters.
                                 </p>
                                 <p class="help-block"
-                                   ng-show="editForm.free_cfdi_folio.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                                   ng-show="editForm.cfdi_folio.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
                                     This field cannot be longer than 20 characters.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.c_money" for="field_c_money">C Money</label>
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.c_money" for="field_cfdi_c_money">C Money</label>
                         <div class="col-md-8">
-                            <select class="form-control" id="field_c_money" name="c_money" ng-model="vm.cfdi.c_money"
+                            <select class="form-control" id="field_cfdi_c_money" name="cfdi_c_money" ng-model="vm.cfdi.c_money"
                                     ng-options="c_money as c_money.name for c_money in vm.c_monies track by c_money.id" data-ng-change="vm.checkMoneyType()">
                                 <option value=""></option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.change_type" for="field_change_type">Change Type</label>
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.change_type" for="field_cfdi_change_type">Change Type</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="change_type" id="field_change_type"
+                            <input type="text" class="form-control" name="cfdi_change_type" id="field_cfdi_change_type"
                                    ng-model="vm.cfdi.change_type" ng-pattern="/[0-9]{1,14}(.([0-9]{1,6}))?/"
                                 />
-                            <div ng-show="editForm.change_type.$invalid">
+                            <div ng-show="editForm.cfdi_change_type.$invalid">
                                 <p class="help-block"
-                                   ng-show="editForm.change_type.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="[0-9]{1,14}(.([0-9]{1,6}))?">
+                                   ng-show="editForm.cfdi_change_type.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="[0-9]{1,14}(.([0-9]{1,6}))?">
                                     This field should follow pattern "[0-9]{1,14}(.([0-9]{1,6}))?".
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.account_number" for="field_account_number">Account Number</label>
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.account_number" for="field_cfdi_account_number">Account Number</label>
                         <div class="col-md-8">
-                            <input type="text" class="form-control" name="account_number" id="field_account_number"
+                            <input type="text" class="form-control" name="cfdi_account_number" id="field_cfdi_account_number"
                                    ng-model="vm.cfdi.account_number" ng-maxlength="4" ng-disabled="vm.enableAccountNumber()"
                                 />
-                            <div ng-show="editForm.account_number.$invalid">
+                            <div ng-show="editForm.cfdi_account_number.$invalid">
                                 <p class="help-block"
-                                   ng-show="editForm.account_number.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="4">
+                                   ng-show="editForm.cfdi_account_number.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="4">
                                     This field cannot be longer than 4 characters.
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.payment_conditions" for="field_payment_conditions">Payment Conditions</label>
+                        <label class="col-md-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.payment_conditions" for="field_cfdi_payment_conditions">Payment Conditions</label>
                         <div class="col-md-8">
-                            <textarea class="form-control" name="payment_conditions" id="field_payment_conditions"
+                            <textarea class="form-control" name="cfdi_payment_conditions" id="field_cfdi_payment_conditions"
                                    ng-model="vm.cfdi.payment_conditions" rows="5"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.discount_reason" for="field_discount_reason">Discount Reason</label>
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.discount_reason" for="field_cfdi_discount_reason">Discount Reason</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control" name="discount_reason" id="field_discount_reason"
+                            <textarea class="form-control" name="cfdi_discount_reason" id="field_cfdi_discount_reason"
                                    ng-model="vm.cfdi.discount_reason" rows="5"></textarea>
                         </div>
                     </div>
@@ -636,22 +636,1954 @@
                 </div>
             </div>
         </uib-tab>
-        <!--<uib-tab heading="Complementos">
-        </uib-tab>-->
+
+        <uib-tab heading="Complementos">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="complement-changer">Complementos:</label>
+                        <div class="col-sm-9">
+                            <select class="form-control" id="complement-changer"  ng-options="complement as complement.name for complement in vm.complements track by complement.id"
+                                    ng-model="vm.current_complement" data-ng-change="vm.onChangeComplemennt()">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hr hr-16 hr-dotted"></div>
+
+            <div class="space-6"></div>
+
+            <!--//Tax Registration-->
+            <div class="row" ng-show="vm.show_taxregistration">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_taxregistration.folio" for="field_com_taxregistration_folio">Folio</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_taxregistration_folio" id="field_com_taxregistration_folio"
+                                   ng-model="vm.com_taxregistration.folio" ng-pattern="/^[0-9]{16}$/"
+                                   ng-required="vm.show_taxregistration" />
+                            <div ng-show="editForm.com_taxregistration_folio.$dirty && editForm.com_taxregistration_folio.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_taxregistration_folio.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{16}$">
+                                    This field should follow pattern "/^[0-9]{16}$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//PIFC-->
+            <div class="row" ng-show="vm.show_pfic">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_pfic.key_vehicle" for="field_com_pfic_key_vehicle">Key_vehicle</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="key_vehicle" id="field_com_pfic_key_vehicle"
+                                   ng-model="vm.com_pfic.key_vehicle"
+                                   ng-required="vm.show_pfic" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_pfic.license_plate" for="field_com_pfic_license_plate">License_plate</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="license_plate" id="field_com_pfic_license_plate"
+                                   ng-model="vm.com_pfic.license_plate"
+                                   ng-required="vm.show_pfic" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_pfic.rfcpf" for="field_com_pfic_rfcpf">Rfcpf</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_pfic_rfcpf" id="field_com_pfic_rfcpf"
+                                   ng-model="vm.com_pfic.rfcpf" ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/" />
+                            <div ng-show="editForm.com_pfic_rfcpf.$dirty && editForm.com_pfic_rfcpf.$invalid">
+                                <p class="help-block" ng-show="editForm.com_pfic_rfcpf.$error.minlength" translate="global.messages.validate.rfc.minlength">
+                                    Your RFC is required to be at least 12 character.
+                                </p>
+                                <p class="help-block" ng-show="editForm.com_pfic_rfcpf.$error.maxlength" translate="global.messages.validate.rfc.maxlength">
+                                    Your RFC cannot be longer than 13 characters.
+                                </p>
+                                <p class="help-block" ng-show="editForm.com_pfic_rfcpf.$error.pattern" translate="global.messages.validate.rfc.pattern">
+                                    RFC format is incorrect.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//Accreditation IEPS-->
+            <div class="row" ng-show="vm.show_accreditation_ieps">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_accreditation_ieps.c_tar" for="field_com_accreditation_ieps_c_tar">c_tar</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_com_accreditation_ieps_c_tar" name="c_tar" ng-model="vm.com_accreditation_ieps.c_tar" ng-options="c_tar as c_tar.name for c_tar in vm.c_tars track by c_tar.id" ng-required="vm.show_accreditation_ieps">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//Tax Legends-->
+            <h3 class="header smaller lighter blue" ng-show="vm.show_taxlegends">
+                Leyendas Fiscales
+            </h3>
+
+            <table id="taxlegends-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_taxlegends">
+                <thead>
+                <tr>
+                    <th class="text-center">Disposición Fiscal</th>
+                    <th class="text-center">Norma</th>
+                    <th class="text-center">Texto Leyenda</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="legend in vm.legends">
+                    <td class="text-center">{{legend.tax_provision}}</td>
+                    <td class="text-center">{{legend.norm}}</td>
+                    <td class="text-center">{{legend.text_legend}}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-sm btn-default" ng-click="vm.removeLegend($index)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <button type="button" class="btn btn-sm btn-primary" ng-show="vm.show_taxlegends" ng-click="vm.addLegend()">
+                Adicionar
+            </button>
+
+            <!--//AirLine-->
+            <div class="row" ng-show="vm.show_airline">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.com_airline.tua" for="field_com_airline_tua">Tua</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="com_airline_tua" id="field_com_airline_tua"
+                                   ng-model="vm.com_airline.tua" ng-pattern="/^\d+\.?\d{1,2}$/"
+                                   ng-required="vm.show_airline" />
+                            <div ng-show="editForm.com_airline_tua.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_airline_tua.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
+                                    This field should follow pattern "/^\d+\.?\d{1,2}$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="header smaller lighter blue" ng-show="vm.show_airline">
+                Otros Cargos
+            </h3>
+
+            <table id="charges-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_airline">
+                <thead>
+                <tr>
+                    <th class="text-center">Código Cargo</th>
+                    <th class="text-center">Importe</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="charge in vm.charges">
+                    <td class="text-center">{{charge.codecharge}}</td>
+                    <td class="text-center">{{charge.amount}}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-sm btn-default" ng-click="vm.removeCharge($index)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <button type="button" class="btn btn-sm btn-primary" ng-show="vm.show_airline" ng-click="vm.addCharge()">
+                Adicionar Cargo
+            </button>
+
+            <div class="row" ng-show="vm.show_airline">
+                <div class="col-md-offset-8 col-md-4">
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.com_airline.total_charge" for="field_total_charge">Total_charge</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="total_charge" id="field_total_charge"
+                                   ng-model="vm.com_airline.total_charge"
+                                   ng-required="vm.show_airline" readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//Apaw-->
+            <div class="row" ng-show="vm.show_apaw">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_apaw.c_well_type" for="field_com_apaw_well_type">well_type</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_com_apaw_well_type" name="com_apaw_well_type" ng-model="vm.com_apaw.c_well_type"
+                                    ng-options="well_type as well_type.name for well_type in vm.c_well_types track by well_type.id" ng-required="vm.show_apaw" data-ng-change="vm.onApawWellTypeChange()">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_apaw.others_well_type" for="field_others_well_type">Others_well_type</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="others_well_type" id="field_others_well_type"
+                                   ng-model="vm.com_apaw.others_well_type" ng-required="!vm.disable_others_well_type" ng-disabled="vm.disable_others_well_type"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_apaw.c_acquired_title" for="field_com_apaw_acquired_title">acquired_title</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_com_apaw_acquired_title" name="acquired_title" ng-model="vm.com_apaw.c_acquired_title"
+                                    ng-options="acquired_title as acquired_title.name for acquired_title in vm.c_acquired_titles track by acquired_title.id" data-ng-change="vm.onApawAcquiredTitleChange()">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_apaw.others_acquired_title" for="field_com_apaw_others_acquired_title">Others_acquired_title</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="others_acquired_title" id="field_com_apaw_others_acquired_title"
+                                   ng-model="vm.com_apaw.others_acquired_title" ng-required="!vm.disable_others_acquired_title" ng-disabled="vm.disable_others_acquired_title"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_apaw.subtotal" for="field_com_apaw_subtotal">Subtotal</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_apaw_subtotal" id="field_com_apaw_subtotal"
+                                   ng-model="vm.com_apaw.subtotal" ng-pattern="/^\d+\.?\d{2}$/"
+                            />
+                            <div ng-show="editForm.com_apaw_subtotal.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_apaw_subtotal.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                    This field should follow pattern "/^\d+\.?\d{2}$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_apaw.iva" for="field_com_apaw_iva">Iva</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_apaw_iva" id="field_com_apaw_iva"
+                                   ng-model="vm.com_apaw.iva" ng-pattern="/^\d+\.?\d{2}$/"
+                            />
+                            <div ng-show="editForm.com_apaw_iva.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_apaw_iva.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{2}">
+                                    This field should follow pattern "/^\d+\.?\d{2}$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_apaw.date_acquisition" for="field_date_acquisition">Date_acquisition</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <input id="field_date_acquisition" type="text" class="form-control" name="date_acquisition" max-date="vm.maxApawDate" datetime-picker="{{dateformat}}" ng-model="vm.com_apaw.date_acquisition" is-open="vm.dateApawPickerOpenStatus.date_acquisition"
+                                       ng-required="vm.show_apaw"  readonly />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="vm.openApawCalendar('date_acquisition')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                            </div>
+                            <div ng-show="editForm.date_acquisition.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.date_acquisition.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                                    This field should be a date and time.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_apaw.c_features_work_piece" for="field_com_apaw_features_work_piece">features_work_piece</label>
+                        <div class="col-sm-8">
+
+                            <select class="form-control" id="field_com_apaw_features_work_piece" name="com_apaw_features_work_piece" ng-model="vm.com_apaw.c_features_work_piece" ng-options="features_work_piece as features_work_piece.name for features_work_piece in vm.c_features_work_pieces track by features_work_piece.id" ng-required="vm.show_apaw">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//Donees-->
+            <div class="row" ng-show="vm.show_donees">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_donees.no_authorization" for="field_com_donees_no_authorization">No_authorization</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_donees_no_authorization" id="field_com_donees_no_authorization"
+                                   ng-model="vm.com_donees.no_authorization"
+                                   ng-required="vm.show_donees" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_donees.date_authorization" for="field_freecom_date_authorization">Date_authorization</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <input id="field_freecom_date_authorization" type="text" class="form-control" name="freecom_date_authorization" datetime-picker="{{dateformat}}" ng-model="vm.com_donees.date_authorization" is-open="vm.dateDoneesPickerOpenStatus.date_authorization"
+                                       ng-required="vm.show_donees"  readonly />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="vm.openDoneesCalendar('date_authorization')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                            </div>
+                            <div ng-show="editForm.freecom_date_authorization.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.date_authorization.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                                    This field should be a date and time.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_donees.legend" for="field_com_donees_legend">Legend</label>
+                        <div class="col-sm-8">
+                                    <textarea class="form-control" name="freecom_legend" id="field_com_donees_legend"
+                                              ng-model="vm.com_donees.legend" ng-required="vm.show_donees"
+                                              rows="5"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--//Educational Institutions-->
+            <div class="row" ng-show="vm.show_educational_institutions">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_educational_institutions.name_student" for="field_com_educational_institutions_name_student">Name_student</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="name_student" id="field_com_educational_institutions_name_student"
+                                   ng-model="vm.com_educational_institutions.name_student"
+                                   ng-required="vm.show_educational_institutions" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_educational_institutions.curp" for="field_com_educational_institutions_curp">Curp</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_educational_institutions_curp" id="field_com_educational_institutions_curp"
+                                   ng-model="vm.com_educational_institutions.curp" ng-required="vm.show_educational_institutions" ng-minlength="18" ng-maxlength="18" ng-pattern="/^[A-Z][A,E,I,O,U,X][A-Z]{2}[0-9]{2}[0-1][0-9][0-3][0-9][M,H][A-Z]{2}[B,C,D,F,G,H,J,K,L,M,N,Ñ,P,Q,R,S,T,V,W,X,Y,Z]{3}[0-9,A-Z][0-9]$/" />
+                            <div ng-show="editForm.com_educational_institutions_curp.$dirty && editForm.com_educational_institutions_curp.$invalid">
+                                <p class="help-block" ng-show="editForm.com_educational_institutions_curp.$error.minlength || editForm.com_educational_institutions_curp.$error.maxlength" translate="global.messages.validate.curp.length">
+                                    Your CURP is required to be 18 characters.
+                                </p>
+                                <p class="help-block" ng-show="editForm.com_educational_institutions_curp.$error.length" translate="global.messages.validate.curp.length">
+                                    Your CURP is required to be 18 characters.
+                                </p>
+                                <p class="help-block" ng-show="editForm.com_educational_institutions_curp.$error.pattern" translate="global.messages.validate.curp.pattern">
+                                    CURP format is incorrect.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_educational_institutions.autrvoe" for="field_com_educational_institutions_autrvoe">Autrvoe</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="autrvoe" id="field_com_educational_institutions_autrvoe"
+                                   ng-model="vm.com_educational_institutions.autrvoe"
+                                   ng-required="vm.show_educational_institutions" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_educational_institutions.c_school_level" for="field_com_educational_institutions_school_level">school_level</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_com_educational_institutions_school_level" name="school_level" ng-model="vm.com_educational_institutions.c_school_level" ng-options="school_level as school_level.name for school_level in vm.c_school_levels track by school_level.id" ng-required="vm.show_educational_institutions" >
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_educational_institutions.rfcpayment" for="field_com_educational_institutions_rfcpayment">Rfcpayment</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_educational_institutions_rfcpayment" id="field_com_educational_institutions_rfcpayment"
+                                   ng-model="vm.com_educational_institutions.rfcpayment" ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/" />
+                            <div ng-show="editForm.com_educational_institutions_rfcpayment.$dirty && editForm.com_educational_institutions_rfcpayment.$invalid">
+                                <p class="help-block" ng-show="editForm.com_educational_institutions_rfcpayment.$error.minlength" translate="global.messages.validate.rfc.minlength">
+                                    Your RFC is required to be at least 12 character.
+                                </p>
+                                <p class="help-block" ng-show="editForm.com_educational_institutions_rfcpayment.$error.maxlength" translate="global.messages.validate.rfc.maxlength">
+                                    Your RFC cannot be longer than 13 characters.
+                                </p>
+                                <p class="help-block" ng-show="editForm.com_educational_institutions_rfcpayment.$error.pattern" translate="global.messages.validate.rfc.pattern">
+                                    RFC format is incorrect.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//Ine-->
+            <div class="row" ng-show="vm.show_ine">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ine.c_process_type" for="field_com_ine_c_process_type">c_process_type</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_com_ine_c_process_type" name="com_ine_c_process_type" ng-model="vm.com_ine.c_process_type" ng-options="c_process_type as c_process_type.name for c_process_type in vm.c_process_types track by c_process_type.id" ng-required="vm.show_ine"
+                                    data-ng-change="vm.onChangeCprocessType()" >
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ine.c_committee_type" for="field_com_ine_c_committee_type">c_committee_type</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_com_ine_c_committee_type" name="com_ine_c_committee_type" ng-model="vm.com_ine.c_committee_type" ng-options="c_committee_type as c_committee_type.name for c_committee_type in vm.c_committee_types track by c_committee_type.id"
+                                    ng-required="vm.c_committee_type_required" ng-disabled="vm.c_committee_type_disabled" data-ng-change="vm.onChangeCcommitteeType()">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ine.ident" for="field_com_ine_ident">Ident</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_ine_ident" id="field_com_ine_ident"
+                                   ng-model="vm.com_ine.ident" ng-disabled="vm.ident_disabled" ng-pattern="/^([1-9][0-9]*)$/" ng-maxlength="6"
+                            />
+                            <div ng-show="editForm.com_ine_ident.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_ine_ident.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                    This field should follow pattern "/^(0|[1-9][0-9]*)$/".
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.com_ine_ident.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="6">
+                                    This field cannot be longer than 40 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="header smaller lighter blue" style="margin-top:0">
+                        Datos Entidades
+                    </h3>
+                    <table id="ine-entities-table" class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th class="text-left">Clave Entidad</th>
+                            <th class="text-left">Ámbito</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="com_ine_entity in vm.com_ine_entities">
+                            <td class="text-left">{{com_ine_entity.com_ine_entity.key_entity.key}}</td>
+                            <td class="text-left">{{com_ine_entity.com_ine_entity.c_scope_type.name}}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeIneEntity($index)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addIneEntity()" ng-disabled="vm.add_button_ine_entity_disabled">
+                        Adicionar Entidad
+                    </button>
+                </div>
+            </div>
+
+            <!--//Kind Payment-->
+            <div class="row" ng-show="vm.show_kind_payment">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.com_kind_payment.cvepic" for="field_com_kind_payment_cvepic">Cvepic</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="com_kind_payment_cvepic" id="field_com_kind_payment_cvepic"
+                                   ng-model="vm.com_kind_payment.cvepic" ng-pattern="/^[A-Z,Ñ,&amp;]{3}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]-(18|19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])-[0-9]{3}$/"
+                                   ng-required="vm.show_kind_payment" />
+                            <div ng-show="editForm.com_kind_payment_cvepic.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_kind_payment_cvepic.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[A-Z,Ñ,&amp;]{3}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]-(18|19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])-[0-9]{3}$">
+                                    This field should follow pattern "/^[A-Z,Ñ,&amp;]{3}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]?[A-Z,0-9]?[0-9,A-Z]-(18|19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])-[0-9]{3}$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.com_kind_payment.foliosoldon" for="field_com_kind_payment_foliosoldon">Foliosoldon</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="com_kind_payment_foliosoldon" id="field_com_kind_payment_foliosoldon"
+                                   ng-model="vm.com_kind_payment.foliosoldon" ng-pattern="/^PE-[0-9]{2}-[0-9]{5}$/"
+                                   ng-required="vm.show_kind_payment" />
+                            <div ng-show="editForm.com_kind_payment_foliosoldon.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_kind_payment_foliosoldon.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^PE-[0-9]{2}-[0-9]{5}$">
+                                    This field should follow pattern "/^PE-[0-9]{2}-[0-9]{5}$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.com_kind_payment.art_piece_name" for="field_com_kind_payment_art_piece_name">Art_piece_name</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="com_kind_payment_art_piece_name" id="field_com_kind_payment_art_piece_name"
+                                   ng-model="vm.com_kind_payment.art_piece_name"
+                                   ng-required="vm.show_kind_payment" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.com_kind_payment.technical_art_piece" for="field_com_kind_payment_technical_art_piece">Technical_art_piece</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" name="com_kind_payment_technical_art_piece" id="field_com_kind_payment_technical_art_piece"
+                                   ng-model="vm.com_kind_payment.technical_art_piece"
+                                   ng-required="vm.show_kind_payment" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.com_kind_payment.year_art_piece" for="field_com_kind_payment_year_art_piece">Year_art_piece</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="com_kind_payment_year_art_piece" id="field_com_kind_payment_year_art_piece"
+                                   ng-model="vm.com_kind_payment.year_art_piece" ng-pattern="/^[0-9]{4}$/"
+                                   ng-required="vm.show_kind_payment" />
+                            <div ng-show="editForm.com_kind_payment_year_art_piece.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_kind_payment_year_art_piece.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{4}$">
+                                    This field should follow pattern "/^[0-9]{4}$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-5 control-label no-padding-right" translate="megabillingplatformApp.com_kind_payment.dimensional_art_piece" for="field_com_kind_payment_dimensional_art_piece">Dimensional_art_piece</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="com_kind_payment_dimensional_art_piece" id="field_com_kind_payment_dimensional_art_piece"
+                                   ng-model="vm.com_kind_payment.dimensional_art_piece"
+                                   ng-required="vm.show_kind_payment" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//Foreign Tourist Passenger-->
+            <div class="row" ng-show="vm.show_foreign_tourist_passenger">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_tourist_passenger.date_traffic" for="field_com_foreign_tourist_passenger_date_traffic">Date_traffic</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <input id="field_com_foreign_tourist_passenger_date_traffic" type="text" class="form-control" name="foreign_tourist_passenger_date_traffic" datetime-picker="{{dateformat}}" ng-model="vm.com_foreign_tourist_passenger.date_traffic" is-open="vm.dateForeignTouristPassengerPickerOpenStatus.date_traffic"
+                                       ng-required="vm.show_foreign_tourist_passenger"  readonly />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="vm.openForeignTouristPassengerCalendar('date_traffic')"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                            </div>
+                            <div ng-show="editForm.foreign_tourist_passenger_date_traffic.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.foreign_tourist_passenger_date_traffic.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                                    This field should be a date and time.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_tourist_passenger.c_transit_type" for="field_com_foreign_tourist_passenger_c_transit_type">c_transit_type</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_com_foreign_tourist_passenger_c_transit_type" name="foreign_tourist_passenger_c_transit_type" ng-model="vm.com_foreign_tourist_passenger.c_transit_type" ng-options="c_transit_type as c_transit_type.name for c_transit_type in vm.c_transit_types track by c_transit_type.id" ng-required="vm.show_foreign_tourist_passenger">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h3 class="header smaller lighter blue">
+                        Datos Tránsito
+                    </h3>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_tourist_passenger.c_type_road" for="field_foreign_tourist_passenger_c_type_road">c_type_road</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_foreign_tourist_passenger_c_type_road" name="foreign_tourist_passenger_c_type_road" ng-model="vm.com_foreign_tourist_passenger.c_type_road" ng-options="c_type_road as c_type_road.name for c_type_road in vm.c_type_roads track by c_type_road.id" ng-required="vm.show_foreign_tourist_passenger" >
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_tourist_passenger.typeid" for="field_com_foreign_tourist_passenger_typeid">Typeid</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_foreign_tourist_passenger_typeid" id="field_com_foreign_tourist_passenger_typeid"
+                                   ng-model="vm.com_foreign_tourist_passenger.typeid"
+                                   ng-required="vm.show_foreign_tourist_passenger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_tourist_passenger.numerid" for="field_com_foreign_tourist_passenger_numerid">Numerid</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_foreign_tourist_passenger_numerid" id="field_com_foreign_tourist_passenger_numerid"
+                                   ng-model="vm.com_foreign_tourist_passenger.numerid"
+                                   ng-required="vm.show_foreign_tourist_passenger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_tourist_passenger.nationality" for="field_com_foreign_tourist_passenger_nationality">Nationality</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_foreign_tourist_passenger_nationality" id="field_com_foreign_tourist_passenger_nationality"
+                                   ng-model="vm.com_foreign_tourist_passenger.nationality"
+                                   ng-required="vm.show_foreign_tourist_passenger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_tourist_passenger.transportcompany" for="field_com_foreign_tourist_passenger_transportcompany">Transportcompany</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_foreign_tourist_passenger_transportcompany" id="field_com_foreign_tourist_passenger_transportcompany"
+                                   ng-model="vm.com_foreign_tourist_passenger.transportcompany"
+                                   ng-required="vm.show_foreign_tourist_passenger" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_tourist_passenger.idtransport" for="field_com_foreign_tourist_passenger_idtransport">Idtransport</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_foreign_tourist_passenger_idtransport" id="field_com_foreign_tourist_passenger_idtransport"
+                                   ng-model="vm.com_foreign_tourist_passenger.idtransport"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//Partial Construction Services-->
+            <div class="row" ng-show="vm.show_partial_construction_services">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_partial_construction_services.numperlicoaut" for="field_com_partial_construction_services_numperlicoaut">Numperlicoaut</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_partial_construction_services_numperlicoaut" id="field_com_partial_construction_services_numperlicoaut"
+                                   ng-model="vm.com_partial_construction_services.numperlicoaut"
+                                   ng-required="vm.show_partial_construction_services" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="header smaller lighter blue" ng-show="vm.show_partial_construction_services">
+                Datos del Inmueble
+            </h3>
+            <div class="row" ng-show="vm.show_partial_construction_services">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_partial_construction_services.c_municipality" for="field_com_partial_construction_services_c_municipality">C Municipality</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_com_partial_construction_services_c_municipality" name="com_partial_construction_services_c_municipality" ng-model="vm.com_partial_construction_services.c_municipality"
+                                    ng-options="c_municipality as c_municipality.name for c_municipality in vm.pcs_c_municipalities track by c_municipality.id"  ng-required="vm.show_partial_construction_services" data-ng-change="vm.onChangePCS_C_municipality()">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_partial_construction_services.c_colony" for="field_com_partial_construction_services_c_colony">C Colony</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_com_partial_construction_services_c_colony" name="com_partial_construction_services_c_colony" ng-model="vm.com_partial_construction_services.c_colony"
+                                    ng-options="c_colony as c_colony.code for c_colony in vm.pcs_c_colonies track by c_colony.id" data-ng-change="vm.onChangePCS_C_colony()">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_partial_construction_services.c_zip_code" for="field_com_partial_construction_services_c_zip_code">C Zip Code</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="field_com_partial_construction_services_c_zip_code" name="com_partial_construction_services_c_zip_code"
+                                   ng-model="vm.com_partial_construction_services.c_zip_code.code" readonly
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_partial_construction_services.location" for="field_com_partial_construction_services_location">Location</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_partial_construction_services_location" id="field_com_partial_construction_services_location"
+                                   ng-model="vm.com_partial_construction_services.location"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_partial_construction_services.street" for="field_com_partial_construction_services_street">Street</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_partial_construction_services_street" id="field_com_partial_construction_services_street"
+                                   ng-model="vm.com_partial_construction_services.street"
+                                   ng-required="vm.show_partial_construction_services" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_partial_construction_services.noext" for="field_com_partial_construction_services_noext">Noext</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_partial_construction_services_noext" id="field_com_partial_construction_services_noext"
+                                   ng-model="vm.com_partial_construction_services.noext"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_partial_construction_services.noint" for="field_com_partial_construction_services_noint">Noint</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_partial_construction_services_noint" id="field_com_partial_construction_services_noint"
+                                   ng-model="vm.com_partial_construction_services.noint"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_partial_construction_services.reference" for="field_com_partial_construction_services_reference">Reference</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_partial_construction_services_reference" id="field_com_partial_construction_services_reference"
+                                   ng-model="vm.com_partial_construction_services.reference"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_partial_construction_services.c_federal_entity" for="field_com_partial_construction_services_c_federal_entity">c_federal_entity</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_com_partial_construction_services_c_federal_entity" name="com_partial_construction_services_c_federal_entity" ng-model="vm.com_partial_construction_services.c_federal_entity"
+                                    ng-options="c_federal_entity as c_federal_entity.name for c_federal_entity in vm.c_federal_entitys track by c_federal_entity.id" ng-required="vm.show_partial_construction_services">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--// Foreign Exchange-->
+            <div class="row" ng-show="vm.show_foreign_exchange">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_exchange.c_type_operation" for="field_com_foreign_exchange_c_type_operation">c_type_operation</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_com_foreign_exchange_c_type_operation" name="com_foreign_exchange_c_type_operation" ng-model="vm.com_foreign_exchange.c_type_operation" ng-options="c_type_operation as c_type_operation.name for c_type_operation in vm.c_type_operations track by c_type_operation.id" ng-required="vm.show_foreign_exchange">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//Local Taxes-->
+            <h1 class="smaller lighter blue" ng-show="vm.show_local_taxes">
+                Impuestos Locales
+            </h1>
+
+            <table id="taxes-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_local_taxes">
+                <thead>
+                <tr>
+                    <th class="text-left">Impuesto Local  (Ret / Trasl)</th>
+                    <th class="text-right">Tasa  (Ret / Trasl)</th>
+                    <th class="text-right">Importe  (Ret / Trasl)</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="com_ret_transf in vm.com_ret_transfs">
+                    <td class="text-left">{{com_ret_transf.retentions.implocretentions}} / {{com_ret_transf.transfered.imploctransfered}}</td>
+                    <td class="text-right">{{com_ret_transf.retentions.retentionrate}} / {{com_ret_transf.transfered.transferedrate}}</td>
+                    <td class="text-right">{{com_ret_transf.retentions.amountretentions}} / {{com_ret_transf.transfered.amounttransfered}}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-sm btn-default" ng-click="vm.removeFreecomRetTransf($index)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <button type="button" class="btn btn-sm btn-primary"  ng-show="vm.show_local_taxes" ng-click="vm.addFreecomRetTransf()">
+                Adicionar Impuesto
+            </button>
+
+            <div class="row" ng-show="vm.show_local_taxes">
+                <div class="col-md-4 col-md-offset-8">
+                    <h3 class="header smaller lighter blue">
+                        Totales
+                    </h3>
+                </div>
+            </div>
+            <div class="row" ng-show="vm.show_local_taxes">
+                <div class="col-md-4 col-md-offset-8">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_local_taxes.total_local_retentions" for="field_com_local_taxes_total_local_retentions">Total Local Retentions</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_local_taxes_total_local_retentions" id="field_com_local_taxes_total_local_retentions"
+                                   ng-model="vm.com_local_taxes.total_local_retentions"
+                                   ng-required="vm.show_local_taxes" readonly/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_local_taxes.total_local_transfered" for="field_com_local_taxes_total_local_transfered">Total Local Transfered</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_local_taxes_total_local_transfered" id="field_com_local_taxes_total_local_transfered"
+                                   ng-model="vm.com_local_taxes.total_local_transfered"
+                                   ng-required="vm.show_local_taxes" readonly />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//Used Vehicle-->
+            <div class="row" ng-show="vm.show_used_vehicle">
+                <div class="col-md-6">
+                    <h3 class="header smaller lighter blue">
+                        Datos Vehículos
+                    </h3>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_used_vehicle.acquisition_amount" for="field_com_used_vehicle_acquisition_amount">Acquisition_amount</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_used_vehicle_acquisition_amount" id="field_com_used_vehicle_acquisition_amount"
+                                   ng-model="vm.com_used_vehicle.acquisition_amount"
+                                   ng-required="vm.show_used_vehicle" ng-pattern="/^(0|[1-9][0-9]*)$/"/>
+                            <div ng-show="editForm.com_used_vehicle_acquisition_amount.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_used_vehicle_acquisition_amount.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                    This field should follow pattern "^(0|[1-9][0-9]*)$".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_used_vehicle.monto_enajenacion" for="field_com_used_vehicle_monto_enajenacion">Monto_enajenacion</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_used_vehicle_monto_enajenacion" id="field_com_used_vehicle_monto_enajenacion"
+                                   ng-model="vm.com_used_vehicle.monto_enajenacion"
+                                   ng-required="vm.show_used_vehicle" ng-pattern="/^\d+\.?\d{1,2}$/"/>
+                            <div ng-show="editForm.com_used_vehicle_monto_enajenacion.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_used_vehicle_monto_enajenacion.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
+                                    This field should follow pattern "^\d+\.?\d{1,2}$".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_used_vehicle.key_vehicle" for="field_com_used_vehicle_key_vehicle">Key_vehicle</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_used_vehicle_key_vehicle" id="field_com_used_vehicle_key_vehicle"
+                                   ng-model="vm.com_used_vehicle.key_vehicle"
+                                   ng-required="vm.show_used_vehicle" ng-maxlength="7" />
+                            <div ng-show="editForm.com_used_vehicle_key_vehicle.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_used_vehicle_key_vehicle.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="7">
+                                    This field cannot be longer than 7 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_used_vehicle.brand" for="field_com_used_vehicle_brand">Brand</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_used_vehicle_brand" id="field_com_used_vehicle_brand"
+                                   ng-model="vm.com_used_vehicle.brand"
+                                   ng-required="vm.show_used_vehicle" ng-maxlength="50" />
+                            <div ng-show="editForm.com_used_vehicle_brand.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_used_vehicle_brand.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                    This field cannot be longer than 50 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_used_vehicle.type" for="field_com_used_vehicle_type">Type</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_used_vehicle_type" id="field_com_used_vehicle_type"
+                                   ng-model="vm.com_used_vehicle.type"
+                                   ng-required="vm.show_used_vehicle" ng-maxlength="50" />
+                            <div ng-show="editForm.com_used_vehicle_type.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_used_vehicle_type.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                    This field cannot be longer than 50 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_used_vehicle.model" for="field_com_used_vehicle_model">Model</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_used_vehicle_model" id="field_com_used_vehicle_model"
+                                   ng-model="vm.com_used_vehicle.model"
+                                   ng-required="vm.show_used_vehicle" ng-maxlength="50" ng-pattern="/^[0-9]{4}$/"/>
+                            <div ng-show="editForm.com_used_vehicle_model.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_used_vehicle_model.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                    This field cannot be longer than 50 characters.
+                                </p>
+                                <p class="help-block"
+                                   ng-show="editForm.com_used_vehicle_model.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{4}$">
+                                    This field should follow pattern "/^[0-9]{4}$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_used_vehicle.number_engine" for="field_com_used_vehicle_number_engine">Number_engine</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_used_vehicle_number_engine" id="field_com_used_vehicle_number_engine"
+                                   ng-model="vm.com_used_vehicle.number_engine"
+                                   ng-maxlength="17" />
+                            <div ng-show="editForm.com_used_vehicle_number_engine.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_used_vehicle_number_engine.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                                    This field cannot be longer than 17 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_used_vehicle.no_serie" for="field_com_used_vehicle_no_serie">No_serie</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_used_vehicle_no_serie" id="field_com_used_vehicle_no_serie"
+                                   ng-model="vm.com_used_vehicle.no_serie"
+                                   ng-required="vm.show_used_vehicle" ng-maxlength="17" />
+                            <div ng-show="editForm.com_used_vehicle_no_serie.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_used_vehicle_no_serie.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                                    This field cannot be longer than 17 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_used_vehicle.niv" for="field_com_used_vehicle_niv">Niv</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_used_vehicle_niv" id="field_com_used_vehicle_niv"
+                                   ng-model="vm.com_used_vehicle.niv"
+                                   ng-required="vm.show_used_vehicle" ng-maxlength="17" />
+                            <div ng-show="editForm.com_used_vehicle_niv.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_used_vehicle_niv.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                                    This field cannot be longer than 17 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_used_vehicle.value" for="field_com_used_vehicle_value">Value</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_used_vehicle_value" id="field_com_used_vehicle_value"
+                                   ng-model="vm.com_used_vehicle.value" ng-pattern="/^(0|[1-9][0-9]*)$/"
+                            />
+                            <div ng-show="editForm.com_used_vehicle_value.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_used_vehicle_value.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                    This field should follow pattern "^(0|[1-9][0-9]*)$".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="header smaller lighter blue">
+                        Información Aduanera
+                    </h3>
+
+                    <table id="custom-info-used-vehicle-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_used_vehicle">
+                        <thead>
+                        <tr>
+                            <th class="text-left">No. Doc. Aduanero</th>
+                            <th class="text-left">Fecha Expedición</th>
+                            <th class="text-left">Aduana</th>
+                            <th class="text-center">Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="vehicle_customs_information in vm.vehicle_customs_informations">
+                            <td class="text-left">{{vehicle_customs_information.number}}</td>
+                            <td class="text-left">{{vehicle_customs_information.date_expedition}}</td>
+                            <td class="text-left">{{vehicle_customs_information.customs}}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-sm btn-default" ng-click="vm.removeVehicleCustomsInformation($index)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <button type="button" class="btn btn-sm btn-primary"  ng-show="vm.show_used_vehicle" ng-click="vm.addVehicleCustomsInformation()">
+                        Adicionar
+                    </button>
+                </div>
+            </div>
+
+            <!--//Destruction Certificate-->
+            <div class="row" ng-show="vm.show_destruction_certificate">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_destruction_certificate.numfoldesveh" for="field_com_destruction_certificate_numfoldesveh">Numfoldesveh</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_destruction_certificate_numfoldesveh" id="field_com_destruction_certificate_numfoldesveh"
+                                   ng-model="vm.com_destruction_certificate.numfoldesveh"
+                                   ng-required="vm.show_destruction_certificate" ng-maxlength="20" />
+                            <div ng-show="editForm.com_destruction_certificate_numfoldesveh.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_destruction_certificate_numfoldesveh.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                                    This field cannot be longer than 20 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_destruction_certificate.c_type_series" for="field_com_destruction_certificate_c_type_series">C Type Series</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="field_com_destruction_certificate_c_type_series" name="com_destruction_certificate_c_type_series"
+                                    ng-model="vm.com_destruction_certificate.c_type_series" ng-options="c_type_series as c_type_series.value for c_type_series in vm.c_type_series track by c_type_series.id" ng-required="vm.show_destruction_certificate">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h3 class="header smaller lighter blue" ng-show="vm.show_destruction_certificate">
+                Datos del Vehículo
+            </h3>
+            <div class="row" ng-show="vm.show_destruction_certificate">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_destruction_certificate.brand" for="field_com_destruction_certificate_brand">Brand</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_destruction_certificate_brand" id="field_com_destruction_certificate_brand"
+                                   ng-model="vm.com_destruction_certificate.brand"
+                                   ng-required="vm.show_destruction_certificate" ng-maxlength="50" />
+                            <div ng-show="editForm.com_destruction_certificate_brand.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_destruction_certificate_brand.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                    This field cannot be longer than 50 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_destruction_certificate.class_dc" for="field_com_destruction_certificate_class_dc">Class_dc</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_destruction_certificate_class_dc" id="field_com_destruction_certificate_class_dc"
+                                   ng-model="vm.com_destruction_certificate.class_dc"
+                                   ng-required="vm.show_destruction_certificate" ng-maxlength="50" />
+                            <div ng-show="editForm.com_destruction_certificate_class_dc.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_destruction_certificate_class_dc.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                    This field cannot be longer than 50 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_destruction_certificate.year" for="field_com_destruction_certificate_year">Year</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_destruction_certificate_year" id="field_com_destruction_certificate_year"
+                                   ng-model="vm.com_destruction_certificate.year"
+                                   ng-required="vm.show_destruction_certificate" ng-pattern="/^(19|20)[0-9]{2}$/"/>
+                            <div ng-show="editForm.com_destruction_certificate_year.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_destruction_certificate_year.$error.pattern" translate="megabillingplatformApp.com_destruction_certificate.validation.year" translate-value-pattern="/^(19|20)[0-9]{2}$/">
+                                    The year must be bigger than 1900.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right"  translate="megabillingplatformApp.com_destruction_certificate.model" for="field_com_destruction_certificate_model">Model</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_destruction_certificate_model" id="field_com_destruction_certificate_model"
+                                   ng-model="vm.com_destruction_certificate.model"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_destruction_certificate.niv" for="field_com_destruction_certificate_niv">Niv</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_destruction_certificate_niv" id="field_com_destruction_certificate_niv"
+                                   ng-model="vm.com_destruction_certificate.niv"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_destruction_certificate.no_serie" for="field_com_destruction_certificate_no_serie">No_serie</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="field_com_destruction_certificate_no_serie" name="com_destruction_certificate_no_serie"
+                                   ng-model="vm.com_destruction_certificate.no_serie"
+                            />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_destruction_certificate.number_plates" for="field_com_destruction_certificate_number_plates">Number_plates</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_destruction_certificate_number_plates" id="field_com_destruction_certificate_number_plates"
+                                   ng-model="vm.com_destruction_certificate.number_plates"
+                                   ng-required="vm.show_destruction_certificate" ng-maxlength="10" />
+                            <div ng-show="editForm.com_destruction_certificate_number_plates.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_destruction_certificate_number_plates.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="10">
+                                    This field cannot be longer than 10 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_destruction_certificate.number_engine" for="field_com_destruction_certificate_number_engine">Number_engine</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_destruction_certificate_number_engine" id="field_com_destruction_certificate_number_engine"
+                                   ng-model="vm.com_destruction_certificate.number_engine"
+                                   ng-maxlength="17" />
+                            <div ng-show="editForm.com_destruction_certificate_number_engine.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_destruction_certificate_number_engine.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                                    This field cannot be longer than 17 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_destruction_certificate.numfoltarjcir" for="field_com_destruction_certificate_numfoltarjcir">Numfoltarjcir</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_destruction_certificate_numfoltarjcir" id="field_com_destruction_certificate_numfoltarjcir"
+                                   ng-model="vm.com_destruction_certificate.numfoltarjcir"
+                                   ng-required="vm.show_destruction_certificate" ng-maxlength="40" />
+                            <div ng-show="editForm.com_destruction_certificate_numfoltarjcir.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_destruction_certificate_numfoltarjcir.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                    This field cannot be longer than 40 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkbox" ng-show="vm.show_destruction_certificate">
+                <label class="block">
+                    <input name="destruction_certificate_use_info_customs_destruction" type="checkbox" class="ace input-lg"
+                           ng-model="vm.use_info_customs_destruction"
+                    />
+                    <span class="lbl bigger-140 header smaller lighter blue" style="width:100%"> Información Aduanera</span>
+                </label>
+            </div>
+
+            <div class="space-6" ng-show="vm.show_destruction_certificate"></div>
+
+            <div class="row" ng-show="vm.show_destruction_certificate">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_info_customs_destruction.numpedimp" for="field_com_info_customs_destruction_numpedimp">Numpedimp</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_info_customs_destruction_numpedimp" id="field_com_info_customs_destruction_numpedimp"
+                                   ng-model="vm.com_info_customs_destruction.numpedimp"
+                                   ng-required="vm.use_info_customs_destruction" ng-maxlength="40" ng-disabled="!vm.use_info_customs_destruction" />
+                            <div ng-show="editForm.com_info_customs_destruction_numpedimp.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_info_customs_destruction_numpedimp.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                    This field cannot be longer than 40 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_info_customs_destruction.customs" for="field_com_info_customs_destruction_customs">Customs</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_info_customs_destruction_customs" id="field_com_info_customs_destruction_customs"
+                                   ng-model="vm.com_info_customs_destruction.customs"
+                                   ng-required="vm.use_info_customs_destruction" ng-disabled="!vm.use_info_customs_destruction" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_info_customs_destruction.date_expedition" for="field_com_info_customs_destruction_date_expedition">Date_expedition</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <input id="field_com_info_customs_destruction_date_expedition" type="text" class="form-control" name="com_info_customs_destruction_date_expedition" uib-datepicker-popup="{{dateformat}}" ng-model="vm.com_info_customs_destruction.date_expedition" is-open="vm.dateInfoCustomsDestructionPickerOpenStatus.date_expedition"
+                                       ng-required="vm.use_info_customs_destruction" ng-disabled="!vm.use_info_customs_destruction" readonly />
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-default" ng-click="vm.openInfoCustomsDestructionCalendar('date_expedition')" ng-disabled="!vm.use_info_customs_destruction"><i class="glyphicon glyphicon-calendar"></i></button>
+                                        </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//Fuel Consumption-->
+            <h3 class="header smaller lighter blue" ng-show="vm.show_fuel_consumption">
+                Consumo de Combustibles
+            </h3>
+            <div class="row" ng-show="vm.show_fuel_consumption">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_fuel_consumption.type_operation" for="field_com_fuel_consumption_type_operation">Type_operation</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_fuel_consumption_type_operation" id="field_com_fuel_consumption_type_operation"
+                                   ng-model="vm.com_fuel_consumption.type_operation"
+                                   ng-required="vm.show_fuel_consumption" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_fuel_consumption.account_number" for="field_com_fuel_consumption_account_number">Account_number</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_fuel_consumption_account_number" id="field_com_fuel_consumption_account_number"
+                                   ng-model="vm.com_fuel_consumption.account_number"
+                                   ng-required="vm.show_fuel_consumption" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_fuel_consumption.subtotal" for="field_com_fuel_consumption_subtotal">Subtotal</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_fuel_consumption_subtotal" id="field_com_fuel_consumption_subtotal"
+                                   ng-model="vm.com_fuel_consumption.subtotal" ng-pattern="/^\d+\.?\d{1,2}$/"
+                                   readonly />
+                            <div ng-show="editForm.com_fuel_consumption_subtotal.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_fuel_consumption_subtotal.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
+                                    This field should follow pattern "/^\d+\.?\d{1,2}$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_fuel_consumption.total" for="field_com_fuel_consumption_total">Total</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_fuel_consumption_total" id="field_com_fuel_consumption_total"
+                                   ng-model="vm.com_fuel_consumption.total" ng-pattern="/^\d+\.?\d{1,2}$/"
+                                   ng-required="vm.show_fuel_consumption" readonly />
+                            <div ng-show="editForm.com_fuel_consumption_total.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_fuel_consumption_total.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
+                                    This field should follow pattern "/^\d+\.?\d{1,2}$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-6" ng-show="vm.show_fuel_consumption"></div>
+
+            <table id="fuel-concept-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_fuel_consumption">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>RFC</th>
+                    <th>Clave Estación</th>
+                    <th>Cantidad</th>
+                    <th>Nombre de Combustible</th>
+                    <th>Folio</th>
+                    <th>Precio</th>
+                    <th>Importe</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="com_concept_fuel in vm.com_concept_fuels">
+                    <td class="text-left">{{com_concept_fuel.concept_fuel.identifier}}</td>
+                    <td class="text-left">{{com_concept_fuel.concept_fuel.date_expedition}}</td>
+                    <td class="text-left">{{com_concept_fuel.concept_fuel.rfc}}</td>
+                    <td class="text-left">{{com_concept_fuel.concept_fuel.key_station}}</td>
+                    <td class="text-left">{{com_concept_fuel.concept_fuel.quantity}}</td>
+                    <td class="text-left">{{com_concept_fuel.concept_fuel.fuel_name}}</td>
+                    <td class="text-left">{{com_concept_fuel.concept_fuel.folio_operation}}</td>
+                    <td class="text-left">{{com_concept_fuel.concept_fuel.unit_value}}</td>
+                    <td class="text-left">{{com_concept_fuel.concept_fuel.amount}}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeFuelConcept($index)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <button type="button" class="btn btn-sm btn-primary"  ng-show="vm.show_fuel_consumption" ng-click="vm.addFuelConcept()">
+                Adicionar Concepto
+            </button>
+
+            <!--//Storeroom Paybill-->
+            <h3 class="header smaller lighter blue" ng-show="vm.show_storeroom_paybill">
+                Vales de Despensa
+            </h3>
+            <div class="row" ng-show="vm.show_storeroom_paybill">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_storeroom_paybill.type_operation" for="field_com_storeroom_paybill_type_operation">Type_operation</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_storeroom_paybill_type_operation" id="field_com_storeroom_paybill_type_operation"
+                                   ng-model="vm.com_storeroom_paybill.type_operation"
+                                   ng-required="vm.show_storeroom_paybill" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_storeroom_paybill.employer_registration" for="field_com_storeroom_paybill_employer_registration">Employer_registration</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_storeroom_paybill_employer_registration" id="field_com_storeroom_paybill_employer_registration"
+                                   ng-model="vm.com_storeroom_paybill.employer_registration"
+                                   ng-maxlength="20" />
+                            <div ng-show="editForm.com_storeroom_paybill_employer_registration.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_storeroom_paybill_employer_registration.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                                    This field cannot be longer than 20 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_storeroom_paybill.account_number" for="field_com_storeroom_paybill_account_number">Account_number</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_storeroom_paybill_account_number" id="field_com_storeroom_paybill_account_number"
+                                   ng-model="vm.com_storeroom_paybill.account_number"
+                                   ng-required="vm.show_storeroom_paybill" ng-maxlength="20" />
+                            <div ng-show="editForm.com_storeroom_paybill_account_number.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_storeroom_paybill_account_number.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                                    This field cannot be longer than 20 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_storeroom_paybill.total" for="field_com_storeroom_paybill_total">Total</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_storeroom_paybill_total" id="field_com_storeroom_paybill_total"
+                                   ng-model="vm.com_storeroom_paybill.total" ng-pattern="/^\d+\.?\d*$/"
+                                   ng-required="vm.show_storeroom_paybill" />
+                            <div ng-show="editForm.com_storeroom_paybill_total.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_storeroom_paybill_total.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                    This field should follow pattern "/^\d+\.?\d*$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="header smaller lighter blue" ng-show="vm.show_storeroom_paybill">
+                Conceptos
+            </h3>
+
+            <table id="storeroom-paybill-concept-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_storeroom_paybill">
+                <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Fecha</th>
+                    <th>RFC</th>
+                    <th>CURP</th>
+                    <th>Nombre</th>
+                    <th>No. Seguridad Social</th>
+                    <th>Importe</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="com_paybill_concept in vm.com_paybill_concepts">
+                    <td class="text-left">{{com_paybill_concept.identification_number}}</td>
+                    <td class="text-left">{{com_paybill_concept.date_expedition}}</td>
+                    <td class="text-left">{{com_paybill_concept.rfc}}</td>
+                    <td class="text-left">{{com_paybill_concept.curp}}</td>
+                    <td class="text-left">{{com_paybill_concept.name}}</td>
+                    <td class="text-left">{{com_paybill_concept.social_security_number}}</td>
+                    <td class="text-left">{{com_paybill_concept.amount}}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-sm btn-default" ng-click="vm.removePaybillConcept($index)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <button type="button" class="btn btn-sm btn-primary"  ng-show="vm.show_storeroom_paybill" ng-click="vm.addPaybillConcept()">
+                Adicionar Concepto
+            </button>
+
+            <!--//Ecc11-->
+            <div class="alert alert-danger" ng-show="vm.show_ecc11_invalid">
+                Para adicionar este complemento el Tipo de Comprobante debe de ser Ingreso.
+            </div>
+            <h3 class="header smaller lighter blue" ng-show="vm.show_ecc11">
+                Conceptos
+            </h3>
+
+            <table id="ecc11-concept-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_ecc11">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha | Hora</th>
+                    <th>RFC</th>
+                    <th>Clave Estación</th>
+                    <th>Cantidad</th>
+                    <th>Folio Operación</th>
+                    <th>Valor Unitario</th>
+                    <th>Importe</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="com_ecc_11_concept in vm.com_ecc_11_concepts">
+                    <td class="text-left">{{com_ecc_11_concept.concept.identifier}}</td>
+                    <td class="text-left">{{com_ecc_11_concept.concept.date}}</td>
+                    <td class="text-left">{{com_ecc_11_concept.concept.rfc}}</td>
+                    <td class="text-left">{{com_ecc_11_concept.concept.key_station}}</td>
+                    <td class="text-left">{{com_ecc_11_concept.concept.quantity}}</td>
+                    <td class="text-left">{{com_ecc_11_concept.concept.folio_operation}}</td>
+                    <td class="text-left">{{com_ecc_11_concept.concept.unit_value}}</td>
+                    <td class="text-left">{{com_ecc_11_concept.concept.amount}}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-sm btn-default" ng-click="vm.removeEcc11Concept($index)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <button type="button" class="btn btn-sm btn-primary"  ng-show="vm.show_ecc11" ng-click="vm.addEcc11Concept()">
+                Adicionar Concepto
+            </button>
+
+            <div class="hr hr-16 hr-dotted" ng-show="vm.show_ecc11"></div>
+
+            <div class="space-6" ng-show="vm.show_ecc11"></div>
+
+            <div class="row" ng-show="vm.show_ecc11">
+                <div class="col-md-5 col-md-offset-7">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11.type_operation" for="field_com_ecc_11_type_operation">Type Operation</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_ecc_11_type_operation" id="field_com_ecc_11_type_operation"
+                                   ng-model="vm.com_ecc_11.type_operation"
+                                   ng-required="vm.show_ecc11" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11.number_account" for="field_com_ecc_11_number_account">Number Account</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_ecc_11_number_account" id="field_com_ecc_11_number_account"
+                                   ng-model="vm.com_ecc_11.number_account"
+                                   ng-required="vm.show_ecc11" ng-maxlength="50" />
+                            <div ng-show="editForm.com_ecc_11_number_account.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_ecc_11_number_account.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                    This field cannot be longer than 50 characters.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11.subtotal" for="field_com_ecc_11_subtotal">Subtotal</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_ecc_11_subtotal" id="field_com_ecc_11_subtotal"
+                                   ng-model="vm.com_ecc_11.subtotal" ng-pattern="/^\d+\.?\d*$/"
+                                   ng-required="vm.show_ecc11" readonly />
+                            <div ng-show="editForm.com_ecc_11_subtotal.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_ecc_11_subtotal.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                    This field should follow pattern "/^\d+\.?\d*$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11.total" for="field_com_ecc_11_total">Total</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="com_ecc_11_total" id="field_com_ecc_11_total"
+                                   ng-model="vm.com_ecc_11.total" ng-pattern="/^\d+\.?\d*$/"
+                                   ng-required="vm.show_ecc11" readonly />
+                            <div ng-show="editForm.com_ecc_11_total.$invalid">
+                                <p class="help-block"
+                                   ng-show="editForm.com_ecc_11_total.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                    This field should follow pattern "/^\d+\.?\d*$/".
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--//Spei Third-->
+            <h3 class="header smaller lighter blue" ng-show="vm.show_spei">
+                SPEI Terceros
+            </h3>
+
+            <table id="spei-thirds-table" class="table table-striped table-bordered table-hover" ng-show="vm.show_spei">
+                <thead>
+                <tr>
+                    <th>Ordenante</th>
+                    <th>Beneficiario</th>
+                    <th>Fecha Operación</th>
+                    <th>Hora</th>
+                    <th>Clave SPEI</th>
+                    <th>Sello</th>
+                    <th>No. Certificado</th>
+                    <th>Cadena CDA</th>
+                    <th class="text-center">Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="com_spei_third in vm.com_spei_thirds">
+                    <td class="text-left">{{com_spei_third.payer.name}}</td>
+                    <td class="text-left">{{com_spei_third.beneficiary.name}}</td>
+                    <td class="text-left">{{com_spei_third.spei_third.date_operation}}</td>
+                    <td class="text-left">{{com_spei_third.spei_third.hour}}</td>
+                    <td class="text-left">{{com_spei_third.spei_third.key_spei}}</td>
+                    <td class="text-left">{{com_spei_third.spei_third.stamp}}</td>
+                    <td class="text-left">{{com_spei_third.spei_third.number_certificate}}</td>
+                    <td class="text-left">{{com_spei_third.spei_third.cda}}</td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-sm btn-default" ng-click="vm.removeSpeiThird($index)">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <button type="button" class="btn btn-sm btn-primary"  ng-show="vm.show_spei" ng-click="vm.addSpeiThird()">
+                Adicionar
+            </button>
+
+            <!--//Foreign Trade-->
+            <uib-tabset ng-show="vm.show_foreign_trade">
+                <uib-tab heading="Datos Generales">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.c_type_operation_ce" for="field_com_foreign_trade_c_type_operation_ce">C Type Operation Ce</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_com_foreign_trade_c_type_operation_ce" name="com_foreign_trade_c_type_operation_ce" ng-model="vm.com_foreign_trade.c_type_operation_ce"
+                                            ng-options="c_type_operation_ce as c_type_operation_ce.value for c_type_operation_ce in vm.c_type_operation_ces track by c_type_operation_ce.id">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.c_key_pediment" for="field_com_foreign_trade_c_key_pediment">C Key Pediment</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_com_foreign_trade_c_key_pediment" name="com_foreign_trade_c_key_pediment" ng-model="vm.com_foreign_trade.c_key_pediment"
+                                            ng-options="c_key_pediment as c_key_pediment.value for c_key_pediment in vm.c_key_pediments track by c_key_pediment.id">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.origin_certificate" for="field_com_foreign_trade_origin_certificate">Origin Certificate</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_foreign_trade_origin_certificate" id="field_com_foreign_trade_origin_certificate"
+                                           ng-model="vm.com_foreign_trade.origin_certificate" ng-pattern="/^(0|[1-9][0-9]*)$/"
+                                    />
+                                    <div ng-show="editForm.com_foreign_trade_origin_certificate.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_foreign_trade_origin_certificate.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                            This field should follow pattern "/^(0|[1-9][0-9]*)$/".
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.number_origin_certificate" for="field_com_foreign_trade_number_origin_certificate">Number Origin Certificate</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_foreign_trade_number_origin_certificate" id="field_com_foreign_trade_number_origin_certificate"
+                                           ng-model="vm.com_foreign_trade.number_origin_certificate"
+                                           ng-maxlength="40" />
+                                    <div ng-show="editForm.com_foreign_trade_number_origin_certificate.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_foreign_trade_number_origin_certificate.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                            This field cannot be longer than 40 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.number_reliable_exporter" for="field_com_foreign_trade_number_reliable_exporter">Number Reliable Exporter</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_foreign_trade_number_reliable_exporter" id="field_com_foreign_trade_number_reliable_exporter"
+                                           ng-model="vm.com_foreign_trade.number_reliable_exporter"
+                                           ng-maxlength="50" />
+                                    <div ng-show="editForm.com_foreign_trade_number_reliable_exporter.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_foreign_trade_number_reliable_exporter.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                            This field cannot be longer than 50 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.com_incoterm" for="field_com_foreign_trade_com_incoterm">Freecom Incoterm</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_com_foreign_trade_com_incoterm" name="com_foreign_trade_com_incoterm" ng-model="vm.com_foreign_trade.com_incoterm"
+                                            ng-options="com_incoterm as com_incoterm.value for com_incoterm in vm.com_incoterms track by com_incoterm.id">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.subdivision" for="field_com_foreign_trade_subdivision">Subdivision</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_foreign_trade_subdivision" id="field_com_foreign_trade_subdivision"
+                                           ng-model="vm.com_foreign_trade.subdivision" ng-pattern="/^(0|[1-9][0-9]*)$/"
+                                    />
+                                    <div ng-show="editForm.com_foreign_trade_subdivision.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_foreign_trade_subdivision.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
+                                            This field should follow pattern "/^(0|[1-9][0-9]*)$/".
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.observations" for="field_com_foreign_trade_observations">Observations</label>
+                                <div class="col-sm-8">
+                                            <textarea class="form-control" name="com_foreign_trade_observations" id="field_com_foreign_trade_observations"
+                                                      ng-model="vm.com_foreign_trade.observations"
+                                                      ng-maxlength="300" rows="5"></textarea>
+                                    <div ng-show="editForm.com_foreign_trade_observations.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_foreign_trade_observations.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="300">
+                                            This field cannot be longer than 300 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.typechangeusd" for="field_com_foreign_trade_typechangeusd">Typechangeusd</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_foreign_trade_typechangeusd" id="field_com_foreign_trade_typechangeusd"
+                                           ng-model="vm.com_foreign_trade.typechangeusd" ng-pattern="/^\d+\.?\d{1,2}$/"
+                                    />
+                                    <div ng-show="editForm.com_foreign_trade_typechangeusd.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_foreign_trade_typechangeusd.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
+                                            This field should follow pattern "/^\d+\.?\d{1,2}$/".
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.totalusd" for="field_com_foreign_trade_totalusd">Totalusd</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_foreign_trade_totalusd" id="field_com_foreign_trade_totalusd"
+                                           ng-model="vm.com_foreign_trade.totalusd" ng-pattern="/^\d+\.?\d{1,2}$/"
+                                    />
+                                    <div ng-show="editForm.com_foreign_trade_totalusd.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_foreign_trade_totalusd.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
+                                            This field should follow pattern "/^\d+\.?\d{1,2}$/".
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h3 class="header smaller lighter blue">
+                                Datos Emisor
+                            </h3>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.emitter_curp" for="field_com_foreign_trade_emitter_curp">Emitter Curp</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_foreign_trade_emitter_curp" id="field_com_foreign_trade_emitter_curp"
+                                           ng-model="vm.com_foreign_trade.emitter_curp"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <h3 class="header smaller lighter blue">
+                                Datos Receptor
+                            </h3>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.receiver_curp" for="field_com_foreign_trade_receiver_curp">Receiver Curp</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_foreign_trade_receiver_curp" id="field_com_foreign_trade_receiver_curp"
+                                           ng-model="vm.com_foreign_trade.receiver_curp"
+                                           ng-maxlength="10" />
+                                    <div ng-show="editForm.com_foreign_trade_receiver_curp.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_foreign_trade_receiver_curp.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="10">
+                                            This field cannot be longer than 10 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_foreign_trade.receiver_numregidtrib" for="field_com_foreign_trade_receiver_numregidtrib">Receiver Numregidtrib</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_foreign_trade_receiver_numregidtrib" id="field_com_foreign_trade_receiver_numregidtrib"
+                                           ng-model="vm.com_foreign_trade.receiver_numregidtrib"
+                                           ng-required="vm.show_foreign_trade" ng-maxlength="40" />
+                                    <div ng-show="editForm.com_foreign_trade_receiver_numregidtrib.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_foreign_trade_receiver_numregidtrib.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                            This field cannot be longer than 40 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+                <uib-tab heading="Destinatario">
+                    <h3 class="header smaller lighter blue">
+                        Datos Generales
+                    </h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.numregidtrib" for="field_com_addressee_numregidtrib">Numregidtrib</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_addressee_numregidtrib" id="field_com_addressee_numregidtrib"
+                                           ng-model="vm.com_addressee.numregidtrib"
+                                           ng-maxlength="40" />
+                                    <div ng-show="editForm.com_addressee_numregidtrib.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_addressee_numregidtrib.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                            This field cannot be longer than 40 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.name" for="field_com_addressee_name">Name</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_addressee_name" id="field_com_addressee_name"
+                                           ng-model="vm.com_addressee.name"
+                                           ng-maxlength="300" />
+                                    <div ng-show="editForm.com_addressee_name.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_addressee_name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="300">
+                                            This field cannot be longer than 300 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.rfc" for="field_com_addressee_rfc">Rfc</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_addressee_rfc" id="field_com_addressee_rfc"
+                                           ng-model="vm.com_addressee.rfc"
+                                    />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.curp" for="field_com_addressee_curp">Curp</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_addressee_curp" id="field_com_addressee_curp"
+                                           ng-model="vm.com_addressee.curp"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="header smaller lighter blue">
+                        Domicilio
+                    </h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.c_country" for="field_com_addressee_c_country">C Country</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_com_addressee_c_country" name="com_addressee_c_country" ng-model="vm.com_addressee.c_country"
+                                            ng-options="c_country as c_country.name for c_country in vm.f_add_c_countries track by c_country.id" data-ng-change="vm.onFreecomAddresseeChangeC_country()">
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.c_state" for="field_com_addressee_c_state">C State</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_com_addressee_c_state" name="com_addressee_c_state" ng-model="vm.com_addressee.c_state"
+                                            ng-options="c_state as c_state.name for c_state in vm.f_add_c_states track by c_state.id" data-ng-change="vm.onFreecomAddresseeChangeC_state()" >
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.c_municipality" for="field_com_addressee_c_municipality">C Municipality</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_com_addressee_c_municipality" name="com_addressee_c_municipality" ng-model="vm.com_addressee.c_municipality"
+                                            ng-options="c_municipality as c_municipality.name for c_municipality in vm.f_add_c_municipalities track by c_municipality.id" data-ng-change="vm.onFreecomAddresseeChangeC_municipality()" >
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.c_colony" for="field_com_addressee_c_colony">C Colony</label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" id="field_com_addressee_c_colony" name="com_addressee_c_colony" ng-model="vm.com_addressee.c_colony"
+                                            ng-options="c_colony as c_colony.code for c_colony in vm.f_add_c_colonies track by c_colony.id" data-ng-change="vm.onFreecomAddresseeChangeC_colony()" >
+                                        <option value=""></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.c_zip_code" for="field_com_addressee_c_zip_code">C Zip Code</label>
+                                <div class="col-sm-8">
+                                    <input type="text" id="field_com_addressee_c_zip_code" class="form-control" name="com_addressee_c_zip_code"
+                                           ng-model="vm.com_addressee.c_zip_code.code" readonly />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.locate" for="field_com_addressee_locate">Locate</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_addressee_locate" id="field_com_addressee_locate"
+                                           ng-model="vm.com_addressee.locate"
+                                           ng-maxlength="120" />
+                                    <div ng-show="editForm.com_addressee_locate.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_addressee_locate.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="120">
+                                            This field cannot be longer than 120 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.street" for="field_com_addressee_street">Street</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_addressee_street" id="field_com_addressee_street"
+                                           ng-model="vm.com_addressee.street"
+                                           ng-required="vm.show_foreign_trade" ng-maxlength="100" />
+                                    <div ng-show="editForm.com_addressee_street.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_addressee_street.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="100">
+                                            This field cannot be longer than 100 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.no_ext" for="field_com_addressee_no_ext">No Ext</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_addressee_no_ext" id="field_com_addressee_no_ext"
+                                           ng-model="vm.com_addressee.no_ext"
+                                           ng-maxlength="55" />
+                                    <div ng-show="editForm.com_addressee_no_ext.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_addressee_no_ext.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="55">
+                                            This field cannot be longer than 55 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.no_int" for="field_com_addressee_no_int">No Int</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" name="com_addressee_no_int" id="field_com_addressee_no_int"
+                                           ng-model="vm.com_addressee.no_int"
+                                           ng-maxlength="55" />
+                                    <div ng-show="editForm.com_addressee_no_int.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_addressee_no_int.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="55">
+                                            This field cannot be longer than 55 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_addressee.reference" for="field_com_addressee_reference">Reference</label>
+                                <div class="col-sm-8">
+                                            <textarea class="form-control" name="com_addressee_reference" id="field_com_addressee_reference"
+                                                      ng-model="vm.com_addressee.reference" ng-maxlength="250" rows="5"></textarea>
+                                    <div ng-show="editForm.com_addressee_reference.$invalid">
+                                        <p class="help-block"
+                                           ng-show="editForm.com_addressee_reference.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="250">
+                                            This field cannot be longer than 250 characters.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+                <uib-tab heading="Mercancía">
+                    <h3 class="header smaller lighter blue">
+                        Mercancías Exportadas
+                    </h3>
+
+                    <table id="commodity-table" class="table table-striped table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Fracción Arancelaria</th>
+                            <th>Cantidad Aduana</th>
+                            <th>Unidad Aduana</th>
+                            <th>Valor Unitario Aduana</th>
+                            <th>Valor Dolares</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="c_add_commodity in vm.c_add_commodities">
+                            <td class="text-left">{{c_add_commodity.com_commodity.noidentification}}</td>
+                            <td class="text-left">{{c_add_commodity.com_commodity.com_tariff_fraction.value}}</td>
+                            <td class="text-left">{{c_add_commodity.com_commodity.customs_quantity}}</td>
+                            <td class="text-left">{{c_add_commodity.com_commodity.com_custom_unit.value}}</td>
+                            <td class="text-left">{{c_add_commodity.com_commodity.customs_unit_value}}</td>
+                            <td class="text-left">{{c_add_commodity.com_commodity.dollar_value}}</td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeComCommodity($index)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addComCommodity()">
+                        Adicionar Mercancía
+                    </button>
+
+                </uib-tab>
+            </uib-tabset>
+
+        </uib-tab>
     </uib-tabset>
 
     <div class="row">
         <div class="col-md-5 col-md-offset-7">
             <div class="hr hr-16 hr-dotted"></div>
             <div class="form-group">
-                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.subtotal" for="field_subtotal">Subtotal</label>
+                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.subtotal" for="field_cfdi_subtotal">Subtotal</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control text-right" name="subtotal" id="field_subtotal"
+                    <input type="text" class="form-control text-right" name="cfdi_subtotal" id="field_cfdi_subtotal"
                            ng-model="vm.cfdi.subtotal" mg-pattern="/^\d{1,24}\.?\d{1,6}$/"
                            required readonly />
-                    <div ng-show="editForm.subtotal.$invalid">
+                    <div ng-show="editForm.cfdi_subtotal.$invalid">
                         <p class="help-block"
-                           ng-show="editForm.subtotal.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
+                           ng-show="editForm.cfdi_subtotal.$error.pattern" translate="entity.validation.patternlargenumber" translate-value-pattern="^\d{1,24}\.?\d{1,6}$">
                             This field should follow pattern "/^\d{1,24}\.?\d{1,6}$/".
                         </p>
                     </div>
@@ -672,9 +2604,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label no-padding-right" for="field_ieps">IEPS: $</label>
+                <label class="col-sm-4 control-label no-padding-right" for="field_cfdi_ieps">IEPS: $</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control text-right" name="cfdi_ieps" id="field_ieps"
+                    <input type="text" class="form-control text-right" name="cfdi_ieps" id="field_cfdi_ieps"
                            ui-mega-number-format ng-model="vm.ieps" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
                            readonly />
                     <div ng-show="editForm.cfdi_ieps.$invalid">
@@ -686,9 +2618,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label no-padding-right" for="field_ret_iva">RET IVA: $</label>
+                <label class="col-sm-4 control-label no-padding-right" for="field_cfdi_ret_iva">RET IVA: $</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control text-right" name="cfdi_ret_iva" id="field_ret_iva"
+                    <input type="text" class="form-control text-right" name="cfdi_ret_iva" id="field_cfdi_ret_iva"
                            ui-mega-number-format ng-model="vm.ret_iva" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
                            readonly/>
                     <div ng-show="editForm.cfdi_ret_iva.$invalid">
@@ -700,9 +2632,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label no-padding-right" for="field_ret_isr">RET ISR: $</label>
+                <label class="col-sm-4 control-label no-padding-right" for="field_cfdi_ret_isr">RET ISR: $</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control text-right" name="cfdi_ret_isr" id="field_ret_isr"
+                    <input type="text" class="form-control text-right" name="cfdi_ret_isr" id="field_cfdi_ret_isr"
                            ui-mega-number-format ng-model="vm.ret_isr" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
                            readonly/>
                     <div ng-show="editForm.cfdi_ret_isr.$invalid">
@@ -714,9 +2646,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.discount" for="field_discount">Discount</label>
+                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.discount" for="field_cfdi_discount">Discount</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control text-right" name="cfdi_discount" id="field_discount"
+                    <input type="text" class="form-control text-right" name="cfdi_discount" id="field_cfdi_discount"
                            ui-mega-number-format ng-model="vm.cfdi.discount" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
                            readonly />
                     <div ng-show="editForm.cfdi_discount.$invalid">
@@ -728,9 +2660,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label no-padding-right" for="field_subtotal_discount">Subtotal-Descuentos: $</label>
+                <label class="col-sm-4 control-label no-padding-right" for="field_cfdi_subtotal_discount">Subtotal-Descuentos: $</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control text-right" name="cfdi_subtotal_discount" id="field_subtotal_discount"
+                    <input type="text" class="form-control text-right" name="cfdi_subtotal_discount" id="field_cfdi_subtotal_discount"
                            ui-mega-number-format ng-model="vm.subtotal_discount" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
                            readonly />
                     <div ng-show="editForm.cfdi_subtotal_discount.$invalid">
@@ -742,9 +2674,9 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.total" for="field_total">Total</label>
+                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.cfdi.total" for="field_cfdi_total">Total</label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control text-right" name="cfdi_total" id="field_total"
+                    <input type="text" class="form-control text-right" name="cfdi_total" id="field_cfdi_total"
                            ui-mega-number-format ng-model="vm.cfdi.total" ng-pattern="/^\d{1,24}\.?\d{1,6}$/"
                            required readonly />
                     <div ng-show="editForm.cfdi_total.$invalid">
@@ -760,7 +2692,7 @@
 
             <div class="form-group">
                 <button type="submit"
-                        ng-disabled="editForm.$invalid || vm.concepts.length == 0 || vm.failWayPaymentXYValidation() || (!vm.add_button_ine_entity_disabled && vm.freecom_ine_entities.length == 0) || (vm.show_spei == true && vm.freecom_spei_thirds.length == 0)"
+                        ng-disabled="editForm.$invalid || vm.concepts.length == 0 || vm.failWayPaymentXYValidation() || (!vm.add_button_ine_entity_disabled && vm.com_ine_entities.length == 0) || (vm.show_spei == true && vm.com_spei_thirds.length == 0)"
                         class="btn btn-primary pull-right" style="margin: 0 15px">
                     <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="megabillingplatformApp.cfdi.generate">Save</span>
                 </button>
@@ -769,8 +2701,6 @@
                     <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
                 </button>
             </div>
-
-
 
         </div>
     </div>

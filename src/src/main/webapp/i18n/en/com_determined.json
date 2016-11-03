@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "com_determined" : {
+            "home": {
+                "title": "Com_determineds",
+                "createLabel": "Create a new Com_determined",
+                "createOrEditLabel": "Create or edit a Com_determined",
+                "search": "Search for Com_determined"
+            },
+            "created": "A new Com_determined is created with identifier {{ param }}",
+            "updated": "A Com_determined is updated with identifier {{ param }}",
+            "deleted": "A Com_determined is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com_determined {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_determined"
+            },
+            "rate": "Rate (*)",
+            "amount": "Amount (*)",
+            "freecom_concept_fuel": "Freecom_concept_fuel",
+            "freecom_tax_type": "Freecom_tax_type"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "com_specific_descriptions" : {
+            "home": {
+                "title": "Com Specific Descriptions",
+                "createLabel": "Create a new Com Specific Descriptions",
+                "createOrEditLabel": "Create or edit a Com Specific Descriptions",
+                "search": "Search for Com Specific Descriptions"
+            },
+            "created": "A new Com Specific Descriptions is created with identifier {{ param }}",
+            "updated": "A Com Specific Descriptions is updated with identifier {{ param }}",
+            "deleted": "A Com Specific Descriptions is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Specific Descriptions {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Specific Descriptions"
+            },
+            "brand": "Brand (*)",
+            "model": "Model",
+            "submodel": "Submodel",
+            "serial_number": "Serial Number",
+            "com_commodity": "Commodity"
+        }
+    }
+}

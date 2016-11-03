@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Com_spei_third.
+    -->
+    <changeSet id="20160810161306-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="com_spei_id"
+                                 baseTableName="com_spei_third"
+                                 constraintName="fk_com_spei_third_com_spei_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_spei"/>
+
+        <addForeignKeyConstraint baseColumnNames="com_payer_id"
+                                 baseTableName="com_spei_third"
+                                 constraintName="fk_com_spei_third_com_payer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_payer"/>
+
+        <addForeignKeyConstraint baseColumnNames="com_beneficiary_id"
+                                 baseTableName="com_spei_third"
+                                 constraintName="fk_com_spei_third_com_beneficiary_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_beneficiary"/>
+
+    </changeSet>
+</databaseChangeLog>

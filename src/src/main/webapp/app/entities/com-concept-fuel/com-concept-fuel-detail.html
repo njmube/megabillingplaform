@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_concept_fuel.detail.title">Com Concept Fuel</span> {{vm.com_concept_fuel.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_concept_fuel.identifier">Identifier</span></dt>
+        <dd>
+            <span>{{vm.com_concept_fuel.identifier}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_concept_fuel.date_expedition">Date Expedition</span></dt>
+        <dd>
+            <span>{{vm.com_concept_fuel.date_expedition | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_concept_fuel.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.com_concept_fuel.rfc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_concept_fuel.key_station">Key Station</span></dt>
+        <dd>
+            <span>{{vm.com_concept_fuel.key_station}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_concept_fuel.quantity">Quantity</span></dt>
+        <dd>
+            <span>{{vm.com_concept_fuel.quantity}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_concept_fuel.fuel_name">Fuel Name</span></dt>
+        <dd>
+            <span>{{vm.com_concept_fuel.fuel_name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_concept_fuel.folio_operation">Folio Operation</span></dt>
+        <dd>
+            <span>{{vm.com_concept_fuel.folio_operation}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_concept_fuel.unit_value">Unit Value</span></dt>
+        <dd>
+            <span>{{vm.com_concept_fuel.unit_value}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_concept_fuel.amount">Amount</span></dt>
+        <dd>
+            <span>{{vm.com_concept_fuel.amount}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_concept_fuel.com_fuel_consumption">Com Fuel Consumption</span></dt>
+        <dd>
+            <a ui-sref="com-fuel-consumption-detail({id:vm.com_concept_fuel.com_fuel_consumption.id})">{{vm.com_concept_fuel.com_fuel_consumption.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

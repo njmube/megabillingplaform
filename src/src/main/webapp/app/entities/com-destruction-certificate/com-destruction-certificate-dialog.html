@@ -1,0 +1,182 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCom_destruction_certificateLabel" translate="megabillingplatformApp.com_destruction_certificate.home.createOrEditLabel">Create or edit a Com Destruction Certificate</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.com_destruction_certificate.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.com_destruction_certificate.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_destruction_certificate.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.com_destruction_certificate.version"
+                    required />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.version.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_destruction_certificate.numfoldesveh" for="field_numfoldesveh">Numfoldesveh</label>
+            <input type="text" class="form-control" name="numfoldesveh" id="field_numfoldesveh"
+                    ng-model="vm.com_destruction_certificate.numfoldesveh"
+                    required ng-maxlength="20" />
+            <div ng-show="editForm.numfoldesveh.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.numfoldesveh.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.numfoldesveh.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                    This field cannot be longer than 20 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_destruction_certificate.brand" for="field_brand">Brand</label>
+            <input type="text" class="form-control" name="brand" id="field_brand"
+                    ng-model="vm.com_destruction_certificate.brand"
+                    required ng-maxlength="50" />
+            <div ng-show="editForm.brand.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.brand.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.brand.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_destruction_certificate.class_dc" for="field_class_dc">Class Dc</label>
+            <input type="text" class="form-control" name="class_dc" id="field_class_dc"
+                    ng-model="vm.com_destruction_certificate.class_dc"
+                    required ng-maxlength="50" />
+            <div ng-show="editForm.class_dc.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.class_dc.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.class_dc.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_destruction_certificate.year" for="field_year">Year</label>
+            <input type="number" class="form-control" name="year" id="field_year"
+                    ng-model="vm.com_destruction_certificate.year"
+                    required />
+            <div ng-show="editForm.year.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.year.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.year.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_destruction_certificate.model" for="field_model">Model</label>
+            <input type="text" class="form-control" name="model" id="field_model"
+                    ng-model="vm.com_destruction_certificate.model"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_destruction_certificate.niv" for="field_niv">Niv</label>
+            <input type="text" class="form-control" name="niv" id="field_niv"
+                    ng-model="vm.com_destruction_certificate.niv"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_destruction_certificate.no_serie" for="field_no_serie">No Serie</label>
+            <input type="text" class="form-control" name="no_serie" id="field_no_serie"
+                    ng-model="vm.com_destruction_certificate.no_serie"
+                    ng-maxlength="17" />
+            <div ng-show="editForm.no_serie.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.no_serie.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                    This field cannot be longer than 17 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_destruction_certificate.number_plates" for="field_number_plates">Number Plates</label>
+            <input type="text" class="form-control" name="number_plates" id="field_number_plates"
+                    ng-model="vm.com_destruction_certificate.number_plates"
+                    required ng-maxlength="10" />
+            <div ng-show="editForm.number_plates.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number_plates.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.number_plates.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="10">
+                    This field cannot be longer than 10 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_destruction_certificate.number_engine" for="field_number_engine">Number Engine</label>
+            <input type="text" class="form-control" name="number_engine" id="field_number_engine"
+                    ng-model="vm.com_destruction_certificate.number_engine"
+                    ng-maxlength="17" />
+            <div ng-show="editForm.number_engine.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number_engine.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                    This field cannot be longer than 17 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_destruction_certificate.numfoltarjcir" for="field_numfoltarjcir">Numfoltarjcir</label>
+            <input type="text" class="form-control" name="numfoltarjcir" id="field_numfoltarjcir"
+                    ng-model="vm.com_destruction_certificate.numfoltarjcir"
+                    required ng-maxlength="40" />
+            <div ng-show="editForm.numfoltarjcir.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.numfoltarjcir.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.numfoltarjcir.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                    This field cannot be longer than 40 characters.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_destruction_certificate.cfdi" for="field_cfdi">Cfdi</label>
+            <select class="form-control" id="field_cfdi" name="cfdi" ng-model="vm.com_destruction_certificate.cfdi" ng-options="cfdi as cfdi.id for cfdi in vm.cfdis track by cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_destruction_certificate.c_type_series" for="field_c_type_series">C Type Series</label>
+            <select class="form-control" id="field_c_type_series" name="c_type_series" ng-model="vm.com_destruction_certificate.c_type_series" ng-options="c_type_series as c_type_series.value for c_type_series in vm.c_type_series track by c_type_series.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

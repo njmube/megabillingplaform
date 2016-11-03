@@ -1,0 +1,50 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "com_commodity",
+            "otherEntityName": "com_commodity",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "brand",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "35"
+        },
+        {
+            "fieldName": "model",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "80"
+        },
+        {
+            "fieldName": "submodel",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "serial_number",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "40"
+        }
+    ],
+    "changelogDate": "20160822131147",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_specific_descriptions",
+    "pagination": "pagination"
+}

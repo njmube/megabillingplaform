@@ -1,0 +1,106 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "c_country",
+            "otherEntityName": "c_country",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "c_state",
+            "otherEntityName": "c_state",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "c_municipality",
+            "otherEntityName": "c_municipality",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "c_colony",
+            "otherEntityName": "c_colony",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipName": "c_zip_code",
+            "otherEntityName": "c_zip_code",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "street",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "no_ext",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "55"
+        },
+        {
+            "fieldName": "no_int",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "55"
+        },
+        {
+            "fieldName": "locate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "120"
+        },
+        {
+            "fieldName": "reference",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "250"
+        },
+        {
+            "fieldName": "numregidtrib",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "40"
+        },
+        {
+            "fieldName": "rfc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "curp",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "300"
+        }
+    ],
+    "changelogDate": "20160822124633",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_addressee",
+    "pagination": "pagination"
+}

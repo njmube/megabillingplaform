@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "com_custom_unit" : {
+            "home": {
+                "title": "Com Custom Units",
+                "createLabel": "Create a new Com Custom Unit",
+                "createOrEditLabel": "Create or edit a Com Custom Unit",
+                "search": "Search for Com Custom Unit"
+            },
+            "created": "A new Com Custom Unit is created with identifier {{ param }}",
+            "updated": "A Com Custom Unit is updated with identifier {{ param }}",
+            "deleted": "A Com Custom Unit is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Custom Unit {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Custom Unit"
+            },
+            "value": "Value"
+        }
+    }
+}

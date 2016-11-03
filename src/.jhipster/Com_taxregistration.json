@@ -1,0 +1,33 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "cfdi",
+            "otherEntityName": "cfdi",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "com_taxregistration"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "folio",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160712212935",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_taxregistration",
+    "pagination": "pagination"
+}

@@ -1,0 +1,190 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCom_used_vehicleLabel" translate="megabillingplatformApp.com_used_vehicle.home.createOrEditLabel">Create or edit a Com Used Vehicle</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.com_used_vehicle.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.com_used_vehicle.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_used_vehicle.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.com_used_vehicle.version"
+                    required />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.version.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_used_vehicle.acquisition_amount" for="field_acquisition_amount">Acquisition Amount</label>
+            <input type="number" class="form-control" name="acquisition_amount" id="field_acquisition_amount"
+                    ng-model="vm.com_used_vehicle.acquisition_amount"
+                    required />
+            <div ng-show="editForm.acquisition_amount.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.acquisition_amount.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.acquisition_amount.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_used_vehicle.monto_enajenacion" for="field_monto_enajenacion">Monto Enajenacion</label>
+            <input type="number" class="form-control" name="monto_enajenacion" id="field_monto_enajenacion"
+                    ng-model="vm.com_used_vehicle.monto_enajenacion"
+                    required />
+            <div ng-show="editForm.monto_enajenacion.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.monto_enajenacion.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.monto_enajenacion.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_used_vehicle.key_vehicle" for="field_key_vehicle">Key Vehicle</label>
+            <input type="text" class="form-control" name="key_vehicle" id="field_key_vehicle"
+                    ng-model="vm.com_used_vehicle.key_vehicle"
+                    required ng-maxlength="50" />
+            <div ng-show="editForm.key_vehicle.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.key_vehicle.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.key_vehicle.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_used_vehicle.brand" for="field_brand">Brand</label>
+            <input type="text" class="form-control" name="brand" id="field_brand"
+                    ng-model="vm.com_used_vehicle.brand"
+                    required ng-maxlength="50" />
+            <div ng-show="editForm.brand.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.brand.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.brand.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_used_vehicle.type" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                    ng-model="vm.com_used_vehicle.type"
+                    required ng-maxlength="50" />
+            <div ng-show="editForm.type.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.type.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.type.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_used_vehicle.model" for="field_model">Model</label>
+            <input type="text" class="form-control" name="model" id="field_model"
+                    ng-model="vm.com_used_vehicle.model"
+                    required ng-maxlength="50" />
+            <div ng-show="editForm.model.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.model.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.model.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_used_vehicle.number_engine" for="field_number_engine">Number Engine</label>
+            <input type="text" class="form-control" name="number_engine" id="field_number_engine"
+                    ng-model="vm.com_used_vehicle.number_engine"
+                    ng-maxlength="17" />
+            <div ng-show="editForm.number_engine.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.number_engine.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                    This field cannot be longer than 17 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_used_vehicle.no_serie" for="field_no_serie">No Serie</label>
+            <input type="text" class="form-control" name="no_serie" id="field_no_serie"
+                    ng-model="vm.com_used_vehicle.no_serie"
+                    required ng-maxlength="17" />
+            <div ng-show="editForm.no_serie.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.no_serie.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.no_serie.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                    This field cannot be longer than 17 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_used_vehicle.niv" for="field_niv">Niv</label>
+            <input type="text" class="form-control" name="niv" id="field_niv"
+                    ng-model="vm.com_used_vehicle.niv"
+                    required ng-maxlength="17" />
+            <div ng-show="editForm.niv.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.niv.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.niv.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="17">
+                    This field cannot be longer than 17 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_used_vehicle.value" for="field_value">Value</label>
+            <input type="number" class="form-control" name="value" id="field_value"
+                    ng-model="vm.com_used_vehicle.value"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_used_vehicle.cfdi" for="field_cfdi">Cfdi</label>
+            <select class="form-control" id="field_cfdi" name="cfdi" ng-model="vm.com_used_vehicle.cfdi" ng-options="cfdi as cfdi.id for cfdi in vm.cfdis track by cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

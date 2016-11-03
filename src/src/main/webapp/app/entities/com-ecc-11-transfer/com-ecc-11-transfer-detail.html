@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_ecc_11_transfer.detail.title">Com Ecc 11 Transfer</span> {{vm.com_ecc_11_transfer.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_ecc_11_transfer.type_tax">Type Tax</span></dt>
+        <dd>
+            <span>{{vm.com_ecc_11_transfer.type_tax}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_ecc_11_transfer.rate">Rate</span></dt>
+        <dd>
+            <span>{{vm.com_ecc_11_transfer.rate}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_ecc_11_transfer.amount">Amount</span></dt>
+        <dd>
+            <span>{{vm.com_ecc_11_transfer.amount}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_ecc_11_transfer.com_ecc_11_concept">Com Ecc 11 Concept</span></dt>
+        <dd>
+            <a ui-sref="com-ecc-11-concept-detail({id:vm.com_ecc_11_transfer.com_ecc_11_concept.id})">{{vm.com_ecc_11_transfer.com_ecc_11_concept.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_airline.detail.title">Com Airline</span> {{vm.com_airline.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_airline.version">Version</span></dt>
+        <dd>
+            <span>{{vm.com_airline.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_airline.tua">Tua</span></dt>
+        <dd>
+            <span>{{vm.com_airline.tua}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_airline.total_charge">Total Charge</span></dt>
+        <dd>
+            <span>{{vm.com_airline.total_charge}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_airline.cfdi">Cfdi</span></dt>
+        <dd>
+            <a ui-sref="cfdi-detail({id:vm.com_airline.cfdi.id})">{{vm.com_airline.cfdi.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

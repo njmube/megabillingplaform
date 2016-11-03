@@ -14,7 +14,7 @@ public class Free_cfdiDTO {
 
     private List<Free_tax_retentions> freeTaxRetentions;
 
-    //Complements...
+    //COMPLEMENTS...
 
     private Freecom_taxregistration freecom_taxregistration;
 
@@ -93,9 +93,6 @@ public class Free_cfdiDTO {
 
     private List<Freecom_CommodityDTO> commodities;
 
-
-    public Free_cfdiDTO(){
-    }
 
     public Free_cfdi getFreeCFDI() {
         return freeCFDI;

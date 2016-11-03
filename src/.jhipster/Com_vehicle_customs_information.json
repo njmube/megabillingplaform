@@ -1,0 +1,35 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "com_used_vehicle",
+            "otherEntityName": "com_used_vehicle",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "number",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date_expedition",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "customs",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160804150011",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_vehicle_customs_information",
+    "pagination": "pagination"
+}

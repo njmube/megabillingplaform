@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "com_fuel_consumption" : {
+            "home": {
+                "title": "Com_fuel_consumptions",
+                "createLabel": "Create a new Com_fuel_consumption",
+                "createOrEditLabel": "Create or edit a Com_fuel_consumption",
+                "search": "Search for Com_fuel_consumption"
+            },
+            "created": "A new Com_fuel_consumption is created with identifier {{ param }}",
+            "updated": "A Com_fuel_consumption is updated with identifier {{ param }}",
+            "deleted": "A Com_fuel_consumption is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com_fuel_consumption {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_fuel_consumption"
+            },
+            "version": "Version",
+            "type_operation": "Type_operation (*)",
+            "account_number": "Account_number (*)",
+            "subtotal": "Subtotal",
+            "total": "Total (*)",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

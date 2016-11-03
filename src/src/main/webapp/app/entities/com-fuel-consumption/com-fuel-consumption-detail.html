@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_fuel_consumption.detail.title">Com Fuel Consumption</span> {{vm.com_fuel_consumption.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_fuel_consumption.version">Version</span></dt>
+        <dd>
+            <span>{{vm.com_fuel_consumption.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_fuel_consumption.type_operation">Type Operation</span></dt>
+        <dd>
+            <span>{{vm.com_fuel_consumption.type_operation}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_fuel_consumption.account_number">Account Number</span></dt>
+        <dd>
+            <span>{{vm.com_fuel_consumption.account_number}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_fuel_consumption.subtotal">Subtotal</span></dt>
+        <dd>
+            <span>{{vm.com_fuel_consumption.subtotal}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_fuel_consumption.total">Total</span></dt>
+        <dd>
+            <span>{{vm.com_fuel_consumption.total}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_fuel_consumption.cfdi">Cfdi</span></dt>
+        <dd>
+            <a ui-sref="cfdi-detail({id:vm.com_fuel_consumption.cfdi.id})">{{vm.com_fuel_consumption.cfdi.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

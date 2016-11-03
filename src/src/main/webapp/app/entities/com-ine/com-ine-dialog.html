@@ -1,0 +1,70 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCom_ineLabel" translate="megabillingplatformApp.com_ine.home.createOrEditLabel">Create or edit a Com Ine</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.com_ine.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.com_ine.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_ine.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.com_ine.version"
+                    required ng-minlength="3" ng-maxlength="50" />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.version.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.version.$error.minlength" translate="entity.validation.minlength" translate-value-min="3">
+                    This field is required to be at least 3 characters.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.version.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                    This field cannot be longer than 50 characters.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_ine.ident" for="field_ident">Ident</label>
+            <input type="number" class="form-control" name="ident" id="field_ident"
+                    ng-model="vm.com_ine.ident"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_ine.cfdi" for="field_cfdi">Cfdi</label>
+            <select class="form-control" id="field_cfdi" name="cfdi" ng-model="vm.com_ine.cfdi" ng-options="cfdi as cfdi.id for cfdi in vm.cfdis | orderBy:'id' track by cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_ine.c_committee_type" for="field_c_committee_type">C Committee Type</label>
+            <select class="form-control" id="field_c_committee_type" name="c_committee_type" ng-model="vm.com_ine.c_committee_type" ng-options="c_committee_type as c_committee_type.name for c_committee_type in vm.c_committee_types track by c_committee_type.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_ine.c_process_type" for="field_c_process_type">C Process Type</label>
+            <select class="form-control" id="field_c_process_type" name="c_process_type" ng-model="vm.com_ine.c_process_type" ng-options="c_process_type as c_process_type.name for c_process_type in vm.c_process_types track by c_process_type.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

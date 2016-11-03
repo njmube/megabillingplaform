@@ -1,0 +1,122 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCom_partial_construction_servicesLabel" translate="megabillingplatformApp.com_partial_construction_services.home.createOrEditLabel">Create or edit a Com Partial Construction Services</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.com_partial_construction_services.id">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.com_partial_construction_services.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_partial_construction_services.version" for="field_version">Version</label>
+            <input type="text" class="form-control" name="version" id="field_version"
+                    ng-model="vm.com_partial_construction_services.version"
+                    required />
+            <div ng-show="editForm.version.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.version.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_partial_construction_services.street" for="field_street">Street</label>
+            <input type="text" class="form-control" name="street" id="field_street"
+                    ng-model="vm.com_partial_construction_services.street"
+                    required />
+            <div ng-show="editForm.street.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.street.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_partial_construction_services.noext" for="field_noext">Noext</label>
+            <input type="text" class="form-control" name="noext" id="field_noext"
+                    ng-model="vm.com_partial_construction_services.noext"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_partial_construction_services.noint" for="field_noint">Noint</label>
+            <input type="text" class="form-control" name="noint" id="field_noint"
+                    ng-model="vm.com_partial_construction_services.noint"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_partial_construction_services.location" for="field_location">Location</label>
+            <input type="text" class="form-control" name="location" id="field_location"
+                    ng-model="vm.com_partial_construction_services.location"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_partial_construction_services.reference" for="field_reference">Reference</label>
+            <input type="text" class="form-control" name="reference" id="field_reference"
+                    ng-model="vm.com_partial_construction_services.reference"
+                     />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_partial_construction_services.numperlicoaut" for="field_numperlicoaut">Numperlicoaut</label>
+            <input type="text" class="form-control" name="numperlicoaut" id="field_numperlicoaut"
+                    ng-model="vm.com_partial_construction_services.numperlicoaut"
+                    required />
+            <div ng-show="editForm.numperlicoaut.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.numperlicoaut.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_partial_construction_services.cfdi" for="field_cfdi">Cfdi</label>
+            <select class="form-control" id="field_cfdi" name="cfdi" ng-model="vm.com_partial_construction_services.cfdi" ng-options="cfdi as cfdi.id for cfdi in vm.cfdis track by cfdi.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_partial_construction_services.c_federal_entity" for="field_c_federal_entity">C Federal Entity</label>
+            <select class="form-control" id="field_c_federal_entity" name="c_federal_entity" ng-model="vm.com_partial_construction_services.c_federal_entity" ng-options="c_federal_entity as c_federal_entity.code for c_federal_entity in vm.c_federal_entities track by c_federal_entity.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_partial_construction_services.c_municipality" for="field_c_municipality">C Municipality</label>
+            <select class="form-control" id="field_c_municipality" name="c_municipality" ng-model="vm.com_partial_construction_services.c_municipality" ng-options="c_municipality as c_municipality.name for c_municipality in vm.c_municipalities track by c_municipality.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.c_municipality.$invalid">
+            <p class="help-block"
+                ng-show="editForm.c_municipality.$error.required" translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_partial_construction_services.c_colony" for="field_c_colony">C Colony</label>
+            <select class="form-control" id="field_c_colony" name="c_colony" ng-model="vm.com_partial_construction_services.c_colony" ng-options="c_colony as c_colony.code for c_colony in vm.c_colonies track by c_colony.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_partial_construction_services.c_zip_code" for="field_c_zip_code">C Zip Code</label>
+            <select class="form-control" id="field_c_zip_code" name="c_zip_code" ng-model="vm.com_partial_construction_services.c_zip_code" ng-options="c_zip_code as c_zip_code.code for c_zip_code in vm.c_zip_codes track by c_zip_code.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,118 @@
+
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCom_local_retentionsLabel" translate="megabillingplatformApp.com_local_retentions.home.createOrEditLabel">Create or edit a Com Local Retentions</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="checkbox">
+            <label class="block">
+                <input name="use_local_retentions" type="checkbox" class="ace input-lg"
+                       ng-model="vm.use_local_retentions"
+                />
+                <span class="lbl bigger-140 header smaller lighter blue" style="width:100%"> Retenciones Locales</span>
+            </label>
+        </div>
+
+        <div class="space-6"></div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_local_retentions.implocretentions" for="field_implocretentions">Implocretentions</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="implocretentions" id="field_implocretentions"
+                       ng-model="vm.com_local_retentions.implocretentions" ng-disabled="!vm.use_local_retentions"
+                       ng-required="vm.use_local_retentions" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_local_retentions.retentionrate" for="field_retentionrate">Retentionrate</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="retentionrate" id="field_retentionrate"
+                       ng-model="vm.com_local_retentions.retentionrate" ng-disabled="!vm.use_local_retentions" ng-pattern="/^\d+\.?\d{2}$/"
+                       ng-required="vm.use_local_retentions" />
+                <div ng-show="editForm.retentionrate.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.retentionrate.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{2}$">
+                        This field should follow pattern "/^\d+\.?\d{2}$/".
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_local_retentions.amountretentions" for="field_amountretentions">Amountretentions</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="amountretentions" id="field_amountretentions"
+                       ng-model="vm.com_local_retentions.amountretentions" ng-disabled="!vm.use_local_retentions" ng-pattern="/^\d+\.?\d{2}$/"
+                       ng-required="vm.use_local_retentions" />
+                <div ng-show="editForm.amountretentions.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.amountretentions.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{2}$">
+                        This field should follow pattern "/^\d+\.?\d{2}$/".
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="checkbox">
+            <label class="block">
+                <input name="use_local_transfered" type="checkbox" class="ace input-lg"
+                       ng-model="vm.use_local_transfered"
+                />
+                <span class="lbl bigger-140 header smaller lighter blue" style="width:100%"> Traslados Locales </span>
+            </label>
+        </div>
+
+        <div class="space-6"></div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_local_transfered.imploctransfered" for="field_imploctransfered">Imploctransfered</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="imploctransfered" id="field_imploctransfered"
+                       ng-model="vm.com_local_transfered.imploctransfered" ng-disabled="!vm.use_local_transfered"
+                       ng-required="vm.use_local_transfered" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_local_transfered.transferedrate" for="field_transferedrate">Transferedrate</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="transferedrate" id="field_transferedrate"
+                       ng-model="vm.com_local_transfered.transferedrate" ng-disabled="!vm.use_local_transfered" ng-pattern="/^\d+\.?\d{2}$/"
+                       ng-required="vm.use_local_transfered" />
+                <div ng-show="editForm.transferedrate.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.transferedrate.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{2}$">
+                        This field should follow pattern "/^\d+\.?\d{2}$/".
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_local_transfered.amounttransfered" for="field_amounttransfered">Amounttransfered</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="amounttransfered" id="field_amounttransfered"
+                       ng-model="vm.com_local_transfered.amounttransfered" ng-disabled="!vm.use_local_transfered" ng-pattern="/^\d+\.?\d{2}$/"
+                       ng-required="vm.use_local_transfered" />
+                <div ng-show="editForm.amounttransfered.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.amounttransfered.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{2}$">
+                        This field should follow pattern "/^\d+\.?\d{2}$/".
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving || (vm.use_local_retentions == false && vm.use_local_transfered == false)" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,46 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "cfdi",
+            "otherEntityName": "cfdi",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "com_ine"
+        },
+        {
+            "relationshipName": "c_committee_type",
+            "otherEntityName": "c_committee_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "c_process_type",
+            "otherEntityName": "c_process_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "3",
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "ident",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20160712204117",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_ine",
+    "pagination": "pagination"
+}

@@ -1,0 +1,48 @@
+
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCom_chargeLabel" translate="megabillingplatformApp.com_charge.home.createOrEditLabel">Create or edit a Com Charge</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_charge.codecharge" for="field_codecharge">Codecharge</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="codecharge" id="field_codecharge"
+                       ng-model="vm.com_charge.codecharge"
+                       required ng-maxlength="8" />
+                <div ng-show="editForm.codecharge.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.codecharge.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="8">
+                        This field cannot be longer than 8 characters.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_charge.amount" for="field_amount">Amount</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="amount" id="field_amount"
+                       ng-model="vm.com_charge.amount" ng-pattern="/^\d+\.?\d{1,2}$/"
+                       required />
+                <div ng-show="editForm.amount.$invalid">
+                    <p class="help-block"
+                       ng-show="editForm.amount.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,2}$">
+                        This field should follow pattern "/^\d+\.?\d{1,2}$/".
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

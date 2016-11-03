@@ -1,0 +1,62 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_partial_construction_services.detail.title">Com Partial Construction Services</span> {{vm.com_partial_construction_services.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_partial_construction_services.version">Version</span></dt>
+        <dd>
+            <span>{{vm.com_partial_construction_services.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_partial_construction_services.street">Street</span></dt>
+        <dd>
+            <span>{{vm.com_partial_construction_services.street}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_partial_construction_services.noext">Noext</span></dt>
+        <dd>
+            <span>{{vm.com_partial_construction_services.noext}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_partial_construction_services.noint">Noint</span></dt>
+        <dd>
+            <span>{{vm.com_partial_construction_services.noint}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_partial_construction_services.location">Location</span></dt>
+        <dd>
+            <span>{{vm.com_partial_construction_services.location}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_partial_construction_services.reference">Reference</span></dt>
+        <dd>
+            <span>{{vm.com_partial_construction_services.reference}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_partial_construction_services.numperlicoaut">Numperlicoaut</span></dt>
+        <dd>
+            <span>{{vm.com_partial_construction_services.numperlicoaut}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_partial_construction_services.cfdi">Cfdi</span></dt>
+        <dd>
+            <a ui-sref="cfdi-detail({id:vm.com_partial_construction_services.cfdi.id})">{{vm.com_partial_construction_services.cfdi.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_partial_construction_services.c_federal_entity">C Federal Entity</span></dt>
+        <dd>
+            <a ui-sref="c-federal-entity-detail({id:vm.com_partial_construction_services.c_federal_entity.id})">{{vm.com_partial_construction_services.c_federal_entity.code}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_partial_construction_services.c_municipality">C Municipality</span></dt>
+        <dd>
+            <a ui-sref="c-municipality-detail({id:vm.com_partial_construction_services.c_municipality.id})">{{vm.com_partial_construction_services.c_municipality.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_partial_construction_services.c_colony">C Colony</span></dt>
+        <dd>
+            <a ui-sref="c-colony-detail({id:vm.com_partial_construction_services.c_colony.id})">{{vm.com_partial_construction_services.c_colony.code}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_partial_construction_services.c_zip_code">C Zip Code</span></dt>
+        <dd>
+            <a ui-sref="c-zip-code-detail({id:vm.com_partial_construction_services.c_zip_code.id})">{{vm.com_partial_construction_services.c_zip_code.code}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

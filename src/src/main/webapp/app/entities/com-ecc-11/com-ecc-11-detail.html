@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_ecc_11.detail.title">Com Ecc 11</span> {{vm.com_ecc_11.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_ecc_11.version">Version</span></dt>
+        <dd>
+            <span>{{vm.com_ecc_11.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_ecc_11.type_operation">Type Operation</span></dt>
+        <dd>
+            <span>{{vm.com_ecc_11.type_operation}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_ecc_11.number_account">Number Account</span></dt>
+        <dd>
+            <span>{{vm.com_ecc_11.number_account}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_ecc_11.subtotal">Subtotal</span></dt>
+        <dd>
+            <span>{{vm.com_ecc_11.subtotal}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_ecc_11.total">Total</span></dt>
+        <dd>
+            <span>{{vm.com_ecc_11.total}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_ecc_11.cfdi">Cfdi</span></dt>
+        <dd>
+            <a ui-sref="cfdi-detail({id:vm.com_ecc_11.cfdi.id})">{{vm.com_ecc_11.cfdi.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

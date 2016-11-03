@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Com_foreign_trade.
+    -->
+    <changeSet id="20160822130836-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_foreign_trade"
+                                 constraintName="fk_com_foreign_trade_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
+
+        <addForeignKeyConstraint baseColumnNames="com_incoterm_id"
+                                 baseTableName="com_foreign_trade"
+                                 constraintName="fk_com_foreign_trade_com_incoterm_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_incoterm"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_type_operation_ce_id"
+                                 baseTableName="com_foreign_trade"
+                                 constraintName="fk_com_foreign_trade_c_type_operation_ce_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_type_operation_ce"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_key_pediment_id"
+                                 baseTableName="com_foreign_trade"
+                                 constraintName="fk_com_foreign_trade_c_key_pediment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_key_pediment"/>
+
+        <addForeignKeyConstraint baseColumnNames="com_addressee_id"
+                                 baseTableName="com_foreign_trade"
+                                 constraintName="fk_com_foreign_trade_com_addressee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_addressee"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,37 @@
+{
+    "megabillingplatformApp": {
+        "com_destruction_certificate" : {
+            "home": {
+                "title": "Com Destruction Certificates",
+                "createLabel": "Create a new Com Destruction Certificate",
+                "createOrEditLabel": "Create or edit a Com Destruction Certificate",
+                "search": "Search for Com Destruction Certificate"
+            },
+            "created": "A new Com Destruction Certificate is created with identifier {{ param }}",
+            "updated": "A Com Destruction Certificate is updated with identifier {{ param }}",
+            "deleted": "A Com Destruction Certificate is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Destruction Certificate {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Destruction Certificate"
+            },
+            "version": "Version",
+            "numfoldesveh": "Numfoldesveh (*)",
+            "brand": "Brand (*)",
+            "class_dc": "Class Dc (*)",
+            "year": "Year (*)",
+            "model": "Model",
+            "niv": "Niv",
+            "no_serie": "No Serie",
+            "number_plates": "Number Plates (*)",
+            "number_engine": "Number Engine",
+            "numfoltarjcir": "Numfoltarjcir (*)",
+            "free_cfdi": "Free Cfdi",
+            "c_type_series": "C Type Series (*)",
+			"validation": {
+				"year": "The year must be bigger than 1900."
+			}
+        }
+    }
+}

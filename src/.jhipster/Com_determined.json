@@ -1,0 +1,37 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "com_concept_fuel",
+            "otherEntityName": "com_concept_fuel",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "identifier"
+        },
+        {
+            "relationshipName": "freecom_tax_type",
+            "otherEntityName": "freecom_tax_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "rate",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "amount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160805131933",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_determined",
+    "pagination": "pagination"
+}

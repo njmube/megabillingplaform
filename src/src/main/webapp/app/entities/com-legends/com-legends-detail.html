@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_legends.detail.title">Com Legends</span> {{vm.com_legends.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_legends.tax_provision">Tax Provision</span></dt>
+        <dd>
+            <span>{{vm.com_legends.tax_provision}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_legends.norm">Norm</span></dt>
+        <dd>
+            <span>{{vm.com_legends.norm}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_legends.text_legend">Text Legend</span></dt>
+        <dd>
+            <span>{{vm.com_legends.text_legend}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_legends.com_taxlegends">Com Taxlegends</span></dt>
+        <dd>
+            <a ui-sref="com-taxlegends-detail({id:vm.com_legends.com_taxlegends.id})">{{vm.com_legends.com_taxlegends.version}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -1,0 +1,33 @@
+{
+    "megabillingplatformApp": {
+        "com_used_vehicle" : {
+            "home": {
+                "title": "Com_used_vehicles",
+                "createLabel": "Crear nuevo Com_used_vehicle",
+                "createOrEditLabel": "Crear o editar Com_used_vehicle",
+                "search": "Search for Com_used_vehicle"
+            },
+            "created": "Un nuevo Com_used_vehicle ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com_used_vehicle ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com_used_vehicle ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com_used_vehicle {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_used_vehicle"
+            },
+            "version": "Version",
+            "acquisition_amount": "Monto Adquisicion (*):",
+            "monto_enajenacion": "Monto Enajenación (*):",
+            "key_vehicle": "Clave Vehicular (*):",
+            "brand": "Marca (*):",
+            "type": "Tipo (*):",
+            "model": "Modelo (*):",
+            "number_engine": "No. Motor:",
+            "no_serie": "No. Serie (*):",
+            "niv": "NIV (*):",
+            "value": "Valor:",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

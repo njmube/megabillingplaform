@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "com_airline" : {
+            "home": {
+                "title": "Com Airlines",
+                "createLabel": "Crear nuevo Com Airline",
+                "createOrEditLabel": "Crear o editar Com Airline",
+                "search": "Search for Com Airline"
+            },
+            "created": "Un nuevo Com Airline ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Airline ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Airline ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Airline {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Airline"
+            },
+            "version": "Version",
+            "tua": "TUA (*)",
+            "total_charge": "Total Cargos (*)",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

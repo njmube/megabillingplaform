@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "com_pfic" : {
+            "home": {
+                "title": "Com Pfics",
+                "createLabel": "Crear nuevo Com Pfic",
+                "createOrEditLabel": "Crear o editar Com Pfic",
+                "search": "Search for Com Pfic"
+            },
+            "created": "Un nuevo Com Pfic ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Pfic ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Pfic ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Pfic {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Pfic"
+            },
+            "version": "Versión (*)",
+            "key_vehicle": "Clave Vehicular (*)",
+            "license_plate": "Placa (*)",
+            "rfcpf": "RFCPF",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

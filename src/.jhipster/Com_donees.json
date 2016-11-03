@@ -1,0 +1,51 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "cfdi",
+            "otherEntityName": "cfdi",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "com_donees"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": "3",
+            "fieldValidateRulesMaxlength": "50"
+        },
+        {
+            "fieldName": "no_authorization",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date_authorization",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "legend",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160712210337",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_donees",
+    "pagination": "pagination"
+}

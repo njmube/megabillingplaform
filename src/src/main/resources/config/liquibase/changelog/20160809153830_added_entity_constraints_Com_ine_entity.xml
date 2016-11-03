@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Com_ine_entity.
+    -->
+    <changeSet id="20160809153830-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="key_entity_id"
+                                 baseTableName="com_ine_entity"
+                                 constraintName="fk_com_ine_entity_key_entity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="key_entity"/>
+
+        <addForeignKeyConstraint baseColumnNames="com_ine_id"
+                                 baseTableName="com_ine_entity"
+                                 constraintName="fk_com_ine_entity_com_ine_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_ine"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_scope_type_id"
+                                 baseTableName="com_ine_entity"
+                                 constraintName="fk_com_ine_entity_c_scope_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_scope_type"/>
+
+    </changeSet>
+</databaseChangeLog>

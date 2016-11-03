@@ -1,0 +1,79 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "com_spei",
+            "otherEntityName": "com_spei",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "com_payer",
+            "otherEntityName": "com_payer",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "com_spei_third"
+        },
+        {
+            "relationshipName": "com_beneficiary",
+            "otherEntityName": "com_beneficiary",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "com_spei_third"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date_operation",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "hour",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "key_spei",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "stamp",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "number_certificate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "20"
+        },
+        {
+            "fieldName": "cda",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "841"
+        }
+    ],
+    "changelogDate": "20160810161306",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_spei_third",
+    "pagination": "pagination"
+}

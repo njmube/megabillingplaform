@@ -1,0 +1,31 @@
+{
+    "megabillingplatformApp": {
+        "com_foreign_tourist_passenger" : {
+            "home": {
+                "title": "Com_foreign_tourist_passengers",
+                "createLabel": "Crear nuevo Com_foreign_tourist_passenger",
+                "createOrEditLabel": "Crear o editar Com_foreign_tourist_passenger",
+                "search": "Search for Com_foreign_tourist_passenger"
+            },
+            "created": "Un nuevo Com_foreign_tourist_passenger ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com_foreign_tourist_passenger ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com_foreign_tourist_passenger ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com_foreign_tourist_passenger {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_foreign_tourist_passenger"
+            },
+            "version": "Version",
+            "date_traffic": "Fecha de Tránsito (*)",
+            "typeid": "Tipo ID (*)",
+            "numerid": "Número ID (*)",
+            "nationality": "Nacionalidad (*)",
+            "transportcompany": "Empresa Transporte (*)",
+            "idtransport": "Transporte ID",
+            "c_transit_type": "Tipo de Tránsito (*)",
+            "c_type_road": "Vía (*)",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

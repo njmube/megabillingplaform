@@ -1,0 +1,293 @@
+
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCom_spei_thirdLabel" translate="megabillingplatformApp.com_spei_third.home.createOrEditLabel">Create or edit a Com Spei Third</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="header smaller lighter blue">
+                    Ordenante
+                </h3>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_payer.emitter_bank" for="field_com_payer_emitter_bank">Emitter Bank</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_payer_emitter_bank" id="field_com_payer_emitter_bank"
+                               ng-model="vm.com_payer.emitter_bank"
+                               required ng-maxlength="40" />
+                        <div ng-show="editForm.com_payer_emitter_bank.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.com_payer_emitter_bank.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                This field cannot be longer than 40 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_payer.name" for="field_com_payer_name">Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_payer_name" id="field_com_payer_name"
+                               ng-model="vm.com_payer.name"
+                               required ng-maxlength="40" />
+                        <div ng-show="editForm.com_payer_name.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.com_payer_name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                This field cannot be longer than 40 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_payer.type_account" for="field_com_payer_type_account">Type Account</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_payer_type_account" id="field_com_payer_type_account"
+                               ng-model="vm.com_payer.type_account" ng-pattern="/^[0-9]{1,2}$/"
+                               required />
+                        <div ng-show="editForm.com_payer_type_account.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.com_payer_type_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{1,20}$">
+                                This field should follow pattern "/^[0-9]{1,20}$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_payer.account" for="field_com_payer_account">Account</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_payer_account" id="field_com_payer_account"
+                               ng-model="vm.com_payer.account" ng-pattern="/^[0-9]{20}$/"
+                               required />
+                        <div ng-show="editForm.com_payer_account.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.com_payer_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{20}$">
+                                This field should follow pattern "^[0-9]{20}$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_payer.rfc" for="field_com_payer_rfc">Rfc</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_payer_rfc" id="field_com_payer_rfc"
+                               ng-model="vm.com_payer.rfc" ng-pattern="/^ND$|^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[A-Z,0-9]{3}$/"
+                               required />
+                        <div ng-show="editForm.com_payer_rfc.$invalid">
+                            <p class="help-block" ng-show="editForm.com_payer_rfc.$error.pattern" translate="global.messages.validate.rfc.pattern">
+                                RFC format is incorrect.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="header smaller lighter blue">
+                    Datos Adicionales
+                </h3>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_spei_third.date_operation" for="field_date_operation">Date Operation</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input id="field_date_operation" type="text" class="form-control" name="date_operation" uib-datepicker-popup="{{dateformat}}" ng-model="vm.com_spei_third.date_operation" is-open="vm.datePickerOpenStatus.date_operation"
+                                   required  readonly />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_operation')"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_spei_third.hour" for="field_hour">Hour</label>
+                    <div class="col-sm-8">
+                        <input id="field_hour" type="text" class="form-control" name="hour" ng-model="vm.com_spei_third.hour"
+                               required ng-pattern="/^(([01][0-9])|(2[0-3]))(:[0-5][0-9]){2}(\.[0-9]{1,11})?$/" />
+                        <div ng-show="editForm.hour.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.hour.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="(([01][0-9])|(2[0-3]))(:[0-5][0-9]){2}(\.[0-9]+)?">
+                                This field should follow pattern "/(([01][0-9])|(2[0-3]))(:[0-5][0-9]){2}(\.[0-9]+)?/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_spei_third.key_spei" for="field_key_spei">Key Spei</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="key_spei" id="field_key_spei"
+                               ng-model="vm.com_spei_third.key_spei" ng-pattern="/^[0-9]{5}$/"
+                               required />
+                        <div ng-show="editForm.key_spei.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.key_spei.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{5}$">
+                                This field should follow pattern "/^[0-9]{5}$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_spei_third.stamp" for="field_stamp">Stamp</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="stamp" id="field_stamp"
+                               ng-model="vm.com_spei_third.stamp"
+                               required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_spei_third.number_certificate" for="field_number_certificate">Number Certificate</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="number_certificate" id="field_number_certificate"
+                               ng-model="vm.com_spei_third.number_certificate"
+                               required ng-maxlength="20" />
+                        <div ng-show="editForm.number_certificate.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.number_certificate.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="20">
+                                This field cannot be longer than 20 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_spei_third.cda" for="field_cda">Cda</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="cda" id="field_cda"
+                               ng-model="vm.com_spei_third.cda"
+                               required ng-maxlength="841" />
+                        <div ng-show="editForm.cda.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.cda.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="841">
+                                This field cannot be longer than 841 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 class="header smaller lighter blue">
+                    Beneficiario
+                </h3>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_beneficiary.receiver_bank" for="field_com_beneficiary_receiver_bank">Receiver Bank</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_beneficiary_receiver_bank" id="field_com_beneficiary_receiver_bank"
+                               ng-model="vm.com_beneficiary.receiver_bank"
+                               required ng-maxlength="40" />
+                        <div ng-show="editForm.com_beneficiary_receiver_bank.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.com_beneficiary_receiver_bank.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                This field cannot be longer than 40 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_beneficiary.name" for="field_com_beneficiary_name">Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_beneficiary_name" id="field_com_beneficiary_name"
+                               ng-model="vm.com_beneficiary.name"
+                               required ng-maxlength="40" />
+                        <div ng-show="editForm.com_beneficiary_name.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.com_beneficiary_name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                This field cannot be longer than 40 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_beneficiary.type_account" for="field_com_beneficiary_type_account">Type Account</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_beneficiary_type_account" id="field_com_beneficiary_type_account"
+                               ng-model="vm.com_beneficiary.type_account" ng-pattern="/^[0-9]{1,2}$/"
+                               required />
+                        <div ng-show="editForm.com_beneficiary_type_account.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.com_beneficiary_type_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                This field should follow pattern "/^[0-9]{1,2}$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_beneficiary.account" for="field_com_beneficiary_account">Account</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_beneficiary_account" id="field_com_beneficiary_account"
+                               ng-model="vm.com_beneficiary.account" ng-pattern="/^[0-9]{20}$/"
+                               required />
+                        <div ng-show="editForm.com_beneficiary_account.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.com_beneficiary_account.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{20}$">
+                                This field should follow pattern "/^[0-9]{20}$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_beneficiary.rfc" for="field_com_beneficiary_rfc">Rfc</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_beneficiary_rfc" id="field_com_beneficiary_rfc"
+                               ng-model="vm.com_beneficiary.rfc" ng-pattern="/^ND$|^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1]{1}[0-9]{1}[0-3]{1}[0-9]{1}[A-Z,0-9]{3}$/"
+                               required data-ng-change="vm.onBeneficiaryRrcChange()"/>
+                        <div ng-show="editForm.com_beneficiary_rfc.$invalid">
+                            <p class="help-block" ng-show="editForm.com_beneficiary_rfc.$error.pattern" translate="global.messages.validate.rfc.pattern">
+                                RFC format is incorrect.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_beneficiary.concept" for="field_com_beneficiary_concept">Concept</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_beneficiary_concept" id="field_com_beneficiary_concept"
+                               ng-model="vm.com_beneficiary.concept"
+                               required ng-maxlength="40" />
+                        <div ng-show="editForm.com_beneficiary_concept.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.com_beneficiary_concept.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="40">
+                                This field cannot be longer than 40 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_beneficiary.iva" for="field_com_beneficiary_iva">Iva</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_beneficiary_iva" id="field_com_beneficiary_iva"
+                               ng-model="vm.com_beneficiary.iva" ng-pattern="/^[0-9]{1,19}\.?\d{2}$/"
+                               required />
+                        <div ng-show="editForm.com_beneficiary_iva.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.com_beneficiary_iva.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^[0-9]{1,19}\.?\d{2}$">
+                                This field should follow pattern "/^[0-9]{1,19}\.?\d{2}$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_beneficiary.payment_amount" for="field_com_beneficiary_payment_amount">Payment Amount</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="com_beneficiary_payment_amount" id="field_com_beneficiary_payment_amount"
+                               ng-model="vm.com_beneficiary.payment_amount" ng-pattern="/^[1-9]{1,19}\.?\d{2}$/"
+                               required />
+                        <div ng-show="editForm.com_beneficiary_payment_amount.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.com_beneficiary_payment_amount.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                This field should follow pattern "/^\d+\.?\d*$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

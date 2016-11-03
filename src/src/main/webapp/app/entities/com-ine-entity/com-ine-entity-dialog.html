@@ -1,0 +1,74 @@
+
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCom_ine_entityLabel" translate="megabillingplatformApp.com_ine_entity.home.createOrEditLabel">Create or edit a Com Ine Entity</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+
+        <uib-tabset active="active">
+            <uib-tab heading="Entidad">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ine_entity.key_entity" for="field_key_entity">Key Entity</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="field_key_entity" name="key_entity" ng-model="vm.com_ine_entity.key_entity" ng-options="key_entity as key_entity.key for key_entity in vm.key_entities track by key_entity.id">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ine_entity.c_scope_type" for="field_c_scope_type">C Scope Type</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="field_c_scope_type" name="c_scope_type" ng-model="vm.com_ine_entity.c_scope_type"
+                                ng-options="c_scope_type as c_scope_type.name for c_scope_type in vm.c_scope_types track by c_scope_type.id"  data-ng-change="vm.onScopeChange()"
+                                ng-required="vm.com_ine_entity_req.ine_entity_scope_required" ng-disabled="vm.com_ine_entity_req.ine_entity_scope_disabled">
+                            <option value=""></option>
+                        </select>
+                        <div ng-show="vm.key_scope_combination_repeated">
+                            <p class="help-block"
+                               ng-show="vm.key_scope_combination_repeated">
+                                La combinación Clave Entidad y Ambito no se debe repetir.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab heading="Contabilidad">
+                <table id="accounting-table" class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th class="text-left">ID Contabilidad</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="accounting in vm.accountings">
+                        <td class="text-left">{{accounting.keyaccounting}}</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeAccounting($index)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addAccounting()">
+                    Adicionar Contabilidad
+                </button>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving || vm.key_scope_combination_repeated || vm.accountings.length == 0" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

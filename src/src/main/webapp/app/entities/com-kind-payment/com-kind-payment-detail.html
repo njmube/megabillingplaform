@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_kind_payment.detail.title">Com Kind Payment</span> {{vm.com_kind_payment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_kind_payment.version">Version</span></dt>
+        <dd>
+            <span>{{vm.com_kind_payment.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_kind_payment.cvepic">Cvepic</span></dt>
+        <dd>
+            <span>{{vm.com_kind_payment.cvepic}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_kind_payment.foliosoldon">Foliosoldon</span></dt>
+        <dd>
+            <span>{{vm.com_kind_payment.foliosoldon}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_kind_payment.art_piece_name">Art Piece Name</span></dt>
+        <dd>
+            <span>{{vm.com_kind_payment.art_piece_name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_kind_payment.technical_art_piece">Technical Art Piece</span></dt>
+        <dd>
+            <span>{{vm.com_kind_payment.technical_art_piece}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_kind_payment.year_art_piece">Year Art Piece</span></dt>
+        <dd>
+            <span>{{vm.com_kind_payment.year_art_piece}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_kind_payment.dimensional_art_piece">Dimensional Art Piece</span></dt>
+        <dd>
+            <span>{{vm.com_kind_payment.dimensional_art_piece}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_kind_payment.cfdi">Cfdi</span></dt>
+        <dd>
+            <a ui-sref="cfdi-detail({id:vm.com_kind_payment.cfdi.id})">{{vm.com_kind_payment.cfdi.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

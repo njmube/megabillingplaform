@@ -1,0 +1,31 @@
+{
+    "megabillingplatformApp": {
+        "com_apaw" : {
+            "home": {
+                "title": "Com Apaws",
+                "createLabel": "Create a new Com Apaw",
+                "createOrEditLabel": "Create or edit a Com Apaw",
+                "search": "Search for Com Apaw"
+            },
+            "created": "A new Com Apaw is created with identifier {{ param }}",
+            "updated": "A Com Apaw is updated with identifier {{ param }}",
+            "deleted": "A Com Apaw is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Apaw {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Apaw"
+            },
+            "version": "Version",
+            "others_well_type": "Others Well Type",
+            "others_acquired_title": "Others Acquired Titles",
+            "subtotal": "Subtotal",
+            "iva": "IVA",
+            "date_acquisition": "Acquisition Date (*)",
+            "c_well_type": "Well Type (*)",
+            "c_acquired_title": "Acquired Title",
+            "c_features_work_piece": "Work Features (*)",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

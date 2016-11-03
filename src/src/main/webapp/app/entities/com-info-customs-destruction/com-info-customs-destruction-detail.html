@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_info_customs_destruction.detail.title">Com Info Customs Destruction</span> {{vm.com_info_customs_destruction.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_info_customs_destruction.numpedimp">Numpedimp</span></dt>
+        <dd>
+            <span>{{vm.com_info_customs_destruction.numpedimp}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_info_customs_destruction.date_expedition">Date Expedition</span></dt>
+        <dd>
+            <span>{{vm.com_info_customs_destruction.date_expedition | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_info_customs_destruction.customs">Customs</span></dt>
+        <dd>
+            <span>{{vm.com_info_customs_destruction.customs}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_info_customs_destruction.com_destruction_certificate">Com Destruction Certificate</span></dt>
+        <dd>
+            <a ui-sref="com-destruction-certificate-detail({id:vm.com_info_customs_destruction.com_destruction_certificate.id})">{{vm.com_info_customs_destruction.com_destruction_certificate.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

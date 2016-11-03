@@ -1,0 +1,37 @@
+{
+    "megabillingplatformApp": {
+        "com_foreign_trade" : {
+            "home": {
+                "title": "Com Foreign Trades",
+                "createLabel": "Create a new Com Foreign Trade",
+                "createOrEditLabel": "Create or edit a Com Foreign Trade",
+                "search": "Search for Com Foreign Trade"
+            },
+            "created": "A new Com Foreign Trade is created with identifier {{ param }}",
+            "updated": "A Com Foreign Trade is updated with identifier {{ param }}",
+            "deleted": "A Com Foreign Trade is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Foreign Trade {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Foreign Trade"
+            },
+            "version": "Version",
+            "emitter_curp": "Emitter Curp",
+            "receiver_curp": "Receiver Curp",
+            "receiver_numregidtrib": "Receiver Numregidtrib (*)",
+            "origin_certificate": "Origin Certificate",
+            "number_origin_certificate": "Number Origin Certificate",
+            "number_reliable_exporter": "Number Reliable Exporter",
+            "subdivision": "Subdivision",
+            "observations": "Observations",
+            "typechangeusd": "Typechangeusd",
+            "totalusd": "Totalusd",
+            "cfdi": "Cfdi",
+            "com_incoterm": "Incoterm",
+            "c_type_operation_ce": "C Type Operation Ce",
+            "c_key_pediment": "C Key Pediment",
+            "com_addressee": "Addressee"
+        }
+    }
+}

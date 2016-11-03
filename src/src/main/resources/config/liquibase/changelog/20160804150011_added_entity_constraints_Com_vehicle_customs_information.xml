@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Com_vehicle_customs_information.
+    -->
+    <changeSet id="20160804150011-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="com_used_vehicle_id"
+                                 baseTableName="com_vehicle_customs_information"
+                                 constraintName="fk_com_vehicle_customs_information_com_used_vehicle_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_used_vehicle"/>
+
+    </changeSet>
+</databaseChangeLog>

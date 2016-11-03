@@ -21,12 +21,7 @@
 
         function save () {
             vm.isSaving = true;
-            $uibModalInstance.close({
-                type_tax: vm.freecom_ecc11_transfer.type_tax,
-                rate: vm.freecom_ecc11_transfer.rate,
-                amount: vm.freecom_ecc11_transfer.amount,
-                id: null
-            });
+            $uibModalInstance.close(vm.freecom_ecc11_transfer);
             vm.isSaving = false;
         }
     }

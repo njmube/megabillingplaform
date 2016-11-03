@@ -80,8 +80,22 @@ public class CfdiResource {
     private Customs_info_partService customs_info_partService;
 
     @Inject
-    private MailService mailService;
+    private Com_taxregistrationService com_taxregistrationService;
 
+    @Inject
+    private Com_pficService com_pficService;
+
+    @Inject
+    private Com_accreditation_iepsService com_accreditation_iepsService;
+
+    @Inject
+    private Com_taxlegendsService com_taxlegendsService;
+
+    @Inject
+    private Com_legendsService com_legendsService;
+
+    /*@Inject
+    private MailService mailService;*/
     /**
      * POST  /cfdis : Create a new cfdi.
      *
@@ -233,6 +247,44 @@ public class CfdiResource {
                 }
             }
         }
+
+        //SAVING COMPLEMENTS
+
+        //taxregistration
+        Com_taxregistration com_taxregistration = cfdiDTO.getCom_taxregistration();
+        if(com_taxregistration != null && com_taxregistration.getVersion() != null) {
+            com_taxregistration.setCfdi(result);
+            com_taxregistrationService.save(com_taxregistration);
+        }
+
+        //pfic
+        Com_pfic com_pfic = cfdiDTO.getCom_pfic();
+        if(com_pfic != null && com_pfic.getVersion() != null) {
+            com_pfic.setCfdi(result);
+            com_pficService.save(com_pfic);
+        }
+
+        //accreditation_ieps
+        Com_accreditation_ieps com_accreditation_ieps = cfdiDTO.getCom_accreditation_ieps();
+        if(com_accreditation_ieps != null && com_accreditation_ieps.getVersion() != null) {
+            com_accreditation_ieps.setCfdi(result);
+            com_accreditation_iepsService.save(com_accreditation_ieps);
+        }
+
+        //taxlegends
+        Com_taxlegends com_taxlegends = cfdiDTO.getCom_taxlegends();
+        if(com_taxlegends != null && com_taxlegends.getVersion() != null) {
+            com_taxlegends.setCfdi(result);
+            com_taxlegends = com_taxlegendsService.save(com_taxlegends);
+
+            List<Com_legends> com_legends = cfdiDTO.getCom_legends();
+            for (Com_legends com_legend : com_legends) {
+                com_legend.setCom_taxlegends(com_taxlegends);
+                com_legendsService.save(com_legend);
+            }
+        }
+
+
 
         Long idauditevent = new Long("49");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);

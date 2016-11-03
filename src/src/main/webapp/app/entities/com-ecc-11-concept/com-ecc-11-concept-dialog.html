@@ -1,0 +1,207 @@
+
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFreecom_ecc11_conceptLabel" translate="megabillingplatformApp.com_ecc_11_concept.home.createOrEditLabel">Create or edit a Freecom Ecc 11 Concept</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+
+        <uib-tabset active="active">
+            <uib-tab heading="Concepto">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11_concept.identifier" for="field_identifier">Identifier</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="identifier" id="field_identifier"
+                               ng-model="vm.com_ecc_11_concept.identifier"
+                               required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11_concept.date" for="field_date">Date</label>
+                    <div class="col-sm-8">
+                        <div class="input-group">
+                            <input id="field_date" type="text" class="form-control" name="date" datetime-picker="{{dateformat}}" min-date="vm.minDate" ng-model="vm.com_ecc_11_concept.date" is-open="vm.datePickerOpenStatus.date"
+                                   required  readonly />
+                            <span class="input-group-btn">
+                                <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date')"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>
+                        </div>
+                        <div ng-show="editForm.date.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.date.$error.ZonedDateTimelocal" translate="entity.validation.ZonedDateTimelocal">
+                                This field should be a date and time.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11_concept.rfc" for="field_rfc">Rfc</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="rfc" id="field_rfc"
+                               ng-model="vm.com_ecc_11_concept.rfc"
+                               required ng-minlength="12" ng-maxlength="13" ng-pattern="/^[A-Z,Ñ,&]{3,4}[0-9]{2}[0-1][0-9][0-3][0-9][A-Z,0-9]{3}$/" />
+                        <div ng-show="editForm.rfc.$invalid">
+                            <p class="help-block" ng-show="editForm.rfc.$error.minlength" translate="global.messages.validate.rfc.minlength">
+                                Your RFC is required to be at least 12 character.
+                            </p>
+                            <p class="help-block" ng-show="editForm.rfc.$error.maxlength" translate="global.messages.validate.rfc.maxlength">
+                                Your RFC cannot be longer than 13 characters.
+                            </p>
+                            <p class="help-block" ng-show="editForm.rfc.$error.pattern" translate="global.messages.validate.rfc.pattern">
+                                RFC format is incorrect.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11_concept.key_station" for="field_key_station">Key Station</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="key_station" id="field_key_station"
+                               ng-model="vm.com_ecc_11_concept.key_station"
+                               required ng-maxlength="10" />
+                        <div ng-show="editForm.key_station.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.key_station.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="10">
+                                This field cannot be longer than 10 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11_concept.quantity" for="field_quantity">Quantity</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="quantity" id="field_quantity"
+                               ng-model="vm.com_ecc_11_concept.quantity" data-ng-change="vm.onUnitValueQuantityChange()"
+                               required ng-pattern="/^\d+\.?\d{1,3}$/" />
+                        <div ng-show="editForm.quantity.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.quantity.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d{1,3}$">
+                                This field should follow pattern "/^\d+\.?\d{1,3}$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11_concept.unit" for="field_unit">Unit</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="unit" id="field_unit"
+                               ng-model="vm.com_ecc_11_concept.unit"
+                               ng-maxlength="25" />
+                        <div ng-show="editForm.unit.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.unit.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="25">
+                                This field cannot be longer than 25 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11_concept.fuel_name" for="field_fuel_name">Fuel Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="fuel_name" id="field_fuel_name"
+                               ng-model="vm.com_ecc_11_concept.fuel_name"
+                               required ng-maxlength="300" />
+                        <div ng-show="editForm.fuel_name.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.fuel_name.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="300">
+                                This field cannot be longer than 300 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11_concept.folio_operation" for="field_folio_operation">Folio Operation</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="folio_operation" id="field_folio_operation"
+                               ng-model="vm.com_ecc_11_concept.folio_operation"
+                               required ng-maxlength="50" />
+                        <div ng-show="editForm.folio_operation.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.folio_operation.$error.maxlength" translate="entity.validation.maxlength" translate-value-max="50">
+                                This field cannot be longer than 50 characters.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11_concept.unit_value" for="field_unit_value">Unit Value</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="unit_value" id="field_unit_value"
+                               ng-model="vm.com_ecc_11_concept.unit_value" data-ng-change="vm.onUnitValueQuantityChange()" ng-pattern="/^\d+\.?\d*$/"
+                               required />
+                        <div ng-show="editForm.unit_value.$invalid">
+                            <p class="help-block"
+                               ng-show="editForm.unit_value.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^\d+\.?\d*$">
+                                This field should follow pattern "/^\d+\.?\d*$/".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11_concept.amount" for="field_amount">Amount</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" name="amount" id="field_amount"
+                               ng-model="vm.com_ecc_11_concept.amount" readonly
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11_concept.com_product_key" for="field_com_product_key">Com Product Key</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="field_com_product_key" name="com_product_key" ng-model="vm.com_ecc_11_concept.com_product_key" ng-options="com_product_key as com_product_key.code for com_product_key in vm.com_product_keys track by com_product_key.id">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_ecc_11_concept.c_tar" for="field_c_tar">C Tar</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="field_c_tar" name="c_tar" ng-model="vm.com_ecc_11_concept.c_tar" ng-options="c_tar as c_tar.name for c_tar in vm.c_tars track by c_tar.id">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                </div>
+            </uib-tab>
+            <uib-tab heading="Traslados">
+                <table id="traslados-table" class="table table-striped table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>Tipo Impuesto</th>
+                        <th>Tasa o Cuota</th>
+                        <th>Importe</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="com_ecc_11_transfer in vm.com_ecc_11_transfers">
+                        <td class="text-left">{{com_ecc_11_transfer.type_tax}}</td>
+                        <td class="text-left">{{com_ecc_11_transfer.rate}}</td>
+                        <td class="text-left">{{com_ecc_11_transfer.amount}}</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-sm btn-default" ng-click="vm.removeTransfer($index)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addTransfer()">
+                    Adicionar Traslado
+                </button>
+            </uib-tab>
+        </uib-tabset>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving || vm.com_ecc_11_transfers.length == 0" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

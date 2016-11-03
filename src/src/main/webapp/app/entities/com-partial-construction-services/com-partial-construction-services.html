@@ -1,0 +1,92 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_partial_construction_services.home.title">Com Partial Construction Services</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-partial-construction-services.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_partial_construction_services.home.createLabel">
+                        Create new Com Partial Construction Services
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version"><span translate="megabillingplatformApp.com_partial_construction_services.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="street"><span translate="megabillingplatformApp.com_partial_construction_services.street">Street</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="noext"><span translate="megabillingplatformApp.com_partial_construction_services.noext">Noext</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="noint"><span translate="megabillingplatformApp.com_partial_construction_services.noint">Noint</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="location"><span translate="megabillingplatformApp.com_partial_construction_services.location">Location</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reference"><span translate="megabillingplatformApp.com_partial_construction_services.reference">Reference</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numperlicoaut"><span translate="megabillingplatformApp.com_partial_construction_services.numperlicoaut">Numperlicoaut</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfdi.id"><span translate="megabillingplatformApp.com_partial_construction_services.cfdi">Cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_federal_entity.code"><span translate="megabillingplatformApp.com_partial_construction_services.c_federal_entity">C Federal Entity</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_municipality.name"><span translate="megabillingplatformApp.com_partial_construction_services.c_municipality">C Municipality</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_colony.code"><span translate="megabillingplatformApp.com_partial_construction_services.c_colony">C Colony</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_zip_code.code"><span translate="megabillingplatformApp.com_partial_construction_services.c_zip_code">C Zip Code</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_partial_construction_services in vm.com_partial_construction_services track by com_partial_construction_services.id">
+                    <td><a ui-sref="com-partial-construction-services-detail({id:com_partial_construction_services.id})">{{com_partial_construction_services.id}}</a></td>
+                    <td>{{com_partial_construction_services.version}}</td>
+                    <td>{{com_partial_construction_services.street}}</td>
+                    <td>{{com_partial_construction_services.noext}}</td>
+                    <td>{{com_partial_construction_services.noint}}</td>
+                    <td>{{com_partial_construction_services.location}}</td>
+                    <td>{{com_partial_construction_services.reference}}</td>
+                    <td>{{com_partial_construction_services.numperlicoaut}}</td>
+                    <td>
+                        <a ui-sref="cfdi-detail({id:com_partial_construction_services.cfdi.id})">{{com_partial_construction_services.cfdi.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-federal-entity-detail({id:com_partial_construction_services.c_federal_entity.id})">{{com_partial_construction_services.c_federal_entity.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-municipality-detail({id:com_partial_construction_services.c_municipality.id})">{{com_partial_construction_services.c_municipality.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-colony-detail({id:com_partial_construction_services.c_colony.id})">{{com_partial_construction_services.c_colony.code}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-zip-code-detail({id:com_partial_construction_services.c_zip_code.id})">{{com_partial_construction_services.c_zip_code.code}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-partial-construction-services-detail({id:com_partial_construction_services.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-partial-construction-services.edit({id:com_partial_construction_services.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-partial-construction-services.delete({id:com_partial_construction_services.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

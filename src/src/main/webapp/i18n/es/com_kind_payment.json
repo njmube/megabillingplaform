@@ -1,0 +1,29 @@
+{
+    "megabillingplatformApp": {
+        "com_kind_payment" : {
+            "home": {
+                "title": "Com_kind_payments",
+                "createLabel": "Crear nuevo Com_kind_payment",
+                "createOrEditLabel": "Crear o editar Com_kind_payment",
+                "search": "Search for Com_kind_payment"
+            },
+            "created": "Un nuevo Com_kind_payment ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com_kind_payment ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com_kind_payment ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com_kind_payment {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_kind_payment"
+            },
+            "version": "Version",
+            "cvepic": "CvePIC (*)",
+            "foliosoldon": "No. Folio Solicitud (*)",
+            "art_piece_name": "Nombre Pieza de Arte (*)",
+            "technical_art_piece": "Técnica Producción Pieza de Arte (*)",
+            "year_art_piece": "Año Producción de Pieza de Arte (*)",
+            "dimensional_art_piece": "Dimenciones Pieza de Arte (*)",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

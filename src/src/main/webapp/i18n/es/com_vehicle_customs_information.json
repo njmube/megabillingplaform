@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "com_vehicle_customs_information" : {
+            "home": {
+                "title": "Com_vehicle_customs_informations",
+                "createLabel": "Crear nuevo Com_vehicle_customs_information",
+                "createOrEditLabel": "Crear o editar Com_vehicle_customs_information",
+                "search": "Search for Com_vehicle_customs_information"
+            },
+            "created": "Un nuevo Com_vehicle_customs_information ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com_vehicle_customs_information ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com_vehicle_customs_information ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com_vehicle_customs_information {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_vehicle_customs_information"
+            },
+            "number": "No. Doc. Aduanero (*):",
+            "date_expedition": "Fecha Expedición (*):",
+            "customs": "Aduana:",
+            "freecom_used_vehicle": "Freecom_used_vehicle"
+        }
+    }
+}

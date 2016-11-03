@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "com_ine" : {
+            "home": {
+                "title": "Com Ines",
+                "createLabel": "Crear nuevo Com Ine",
+                "createOrEditLabel": "Crear o editar Com Ine",
+                "search": "Search for Com Ine"
+            },
+            "created": "Un nuevo Com Ine ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Ine ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Ine ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Ine {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Ine"
+            },
+            "version": "Version",
+            "ident": "ID Contabilidad",
+            "free_cfdi": "Free_cfdi",
+            "c_committee_type": "Tipo Comité",
+            "c_process_type": "Tipo Proceso (*)"
+        }
+    }
+}

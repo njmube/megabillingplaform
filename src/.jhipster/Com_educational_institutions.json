@@ -1,0 +1,57 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "cfdi",
+            "otherEntityName": "cfdi",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "com_educational_institutions"
+        },
+        {
+            "relationshipName": "c_school_level",
+            "otherEntityName": "c_school_level",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name_student",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "curp",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "autrvoe",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "rfcpayment",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160712222008",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_educational_institutions",
+    "pagination": "pagination"
+}

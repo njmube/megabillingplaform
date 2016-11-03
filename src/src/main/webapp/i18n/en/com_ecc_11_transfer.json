@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "com_ecc_11_transfer" : {
+            "home": {
+                "title": "Com Ecc 11 Transfers",
+                "createLabel": "Create a new Com Ecc 11 Transfer",
+                "createOrEditLabel": "Create or edit a Com Ecc 11 Transfer",
+                "search": "Search for Com Ecc 11 Transfer"
+            },
+            "created": "A new Com Ecc 11 Transfer is created with identifier {{ param }}",
+            "updated": "A Com Ecc 11 Transfer is updated with identifier {{ param }}",
+            "deleted": "A Com Ecc 11 Transfer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Ecc 11 Transfer {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Ecc 11 Transfer"
+            },
+            "type_tax": "Type Tax (*)",
+            "rate": "Rate (*)",
+            "amount": "Amount (*)",
+            "Com_ecc11_concept": "Com Ecc 11 Concept"
+        }
+    }
+}

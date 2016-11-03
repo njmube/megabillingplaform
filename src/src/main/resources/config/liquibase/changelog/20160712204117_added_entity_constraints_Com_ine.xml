@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Com_ine.
+    -->
+    <changeSet id="20160712204117-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_ine"
+                                 constraintName="fk_com_ine_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_committee_type_id"
+                                 baseTableName="com_ine"
+                                 constraintName="fk_com_ine_c_committee_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_committee_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_process_type_id"
+                                 baseTableName="com_ine"
+                                 constraintName="fk_com_ine_c_process_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_process_type"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,70 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_ine_entity.home.title">Com Ine Entities</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-ine-entity.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_ine_entity.home.createLabel">
+                        Create new Com Ine Entity
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="key_entity.id"><span translate="megabillingplatformApp.com_ine_entity.key_entity">Key Entity</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="com_ine.id"><span translate="megabillingplatformApp.com_ine_entity.com_ine">Com Ine</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_scope_type.id"><span translate="megabillingplatformApp.com_ine_entity.c_scope_type">C Scope Type</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_ine_entity in vm.com_ine_entities track by com_ine_entity.id">
+                    <td><a ui-sref="com-ine-entity-detail({id:com_ine_entity.id})">{{com_ine_entity.id}}</a></td>
+                    <td>
+                        <a ui-sref="key-entity-detail({id:com_ine_entity.key_entity.id})">{{com_ine_entity.key_entity.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="com-ine-detail({id:com_ine_entity.com_ine.id})">{{com_ine_entity.com_ine.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-scope-type-detail({id:com_ine_entity.c_scope_type.id})">{{com_ine_entity.c_scope_type.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-ine-entity-detail({id:com_ine_entity.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-ine-entity.edit({id:com_ine_entity.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-ine-entity.delete({id:com_ine_entity.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+    </div>
+    <uib-pager total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pager>
+</div>

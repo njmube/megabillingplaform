@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "com_taxlegends" : {
+            "home": {
+                "title": "Com Taxlegends",
+                "createLabel": "Crear nuevo Com Taxlegends",
+                "createOrEditLabel": "Crear o editar Com Taxlegends",
+                "search": "Search for Com Taxlegends"
+            },
+            "created": "Un nuevo Com Taxlegends ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Taxlegends ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Taxlegends ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Taxlegends {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Taxlegends"
+            },
+            "version": "Version",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

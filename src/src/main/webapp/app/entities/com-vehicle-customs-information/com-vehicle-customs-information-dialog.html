@@ -1,0 +1,48 @@
+
+<form name="editForm" class="form-horizontal" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCom_vehicle_customs_informationLabel" translate="megabillingplatformApp.com_vehicle_customs_information.home.createOrEditLabel">Create or edit a Com Vehicle Customs Information</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_vehicle_customs_information.number" for="field_number">Number</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="number" id="field_number"
+                       ng-model="vm.com_vehicle_customs_information.number"
+                       required />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_vehicle_customs_information.date_expedition" for="field_date_expedition">Date_expedition</label>
+            <div class="col-sm-8">
+                <div class="input-group">
+                    <input id="field_date_expedition" type="text" class="form-control" name="date_expedition" uib-datepicker-popup="{{dateformat}}" ng-model="vm.com_vehicle_customs_information.date_expedition" is-open="vm.datePickerOpenStatus.date_expedition"
+                           required readonly/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_expedition')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_vehicle_customs_information.customs" for="field_customs">Customs</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="customs" id="field_customs"
+                       ng-model="vm.com_vehicle_customs_information.customs"
+                />
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

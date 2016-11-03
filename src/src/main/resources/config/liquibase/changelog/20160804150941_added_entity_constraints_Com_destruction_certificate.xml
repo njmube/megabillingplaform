@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Com_destruction_certificate.
+    -->
+    <changeSet id="20160804150941-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_destruction_certificate"
+                                 constraintName="fk_com_destruction_certificate_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_type_series_id"
+                                 baseTableName="com_destruction_certificate"
+                                 constraintName="fk_com_destruction_certificate_c_type_series_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_type_series"/>
+
+    </changeSet>
+</databaseChangeLog>

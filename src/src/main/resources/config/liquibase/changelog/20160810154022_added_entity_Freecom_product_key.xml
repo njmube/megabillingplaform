@@ -28,7 +28,7 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
 		<loadData encoding="UTF-8"
-                  file="config/liquibase/product_key.csv"
+                  file="config/liquibase/free_product_key.csv"
                   separator=";"
                   tableName="freecom_product_key">
         </loadData>        

@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "com_local_taxes" : {
+            "home": {
+                "title": "Com Local Taxes",
+                "createLabel": "Create a new Com Local Taxes",
+                "createOrEditLabel": "Create or edit a Com Local Taxes",
+                "search": "Search for Com Local Taxes"
+            },
+            "created": "A new Com Local Taxes is created with identifier {{ param }}",
+            "updated": "A Com Local Taxes is updated with identifier {{ param }}",
+            "deleted": "A Com Local Taxes is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Local Taxes {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Local Taxes"
+            },
+            "version": "Version",
+            "total_local_retentions": "Total Retentions",
+            "total_local_transfered": "Total Transfered",
+            "free_cfdi": "Free Cfdi"
+        }
+    }
+}

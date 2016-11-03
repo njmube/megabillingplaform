@@ -1,0 +1,28 @@
+{
+    "megabillingplatformApp": {
+        "com_legends" : {
+            "home": {
+                "title": "Com Legends",
+                "createLabel": "Crear nuevo Com Legend",
+                "createOrEditLabel": "Crear o editar Com Legend",
+                "search": "Search for Com Legend"
+            },
+            "created": "Un nuevo Com Legend ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Legend ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Legend ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Legend {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Legend"
+            },
+            "tax_provision": "Disposición Fiscal:",
+            "norm": "Norma:",
+            "text_legend": "Texto Leyenda (*):",
+            "Com_taxlegends": "Com Taxlegends",
+			"validation": {
+                "patternuppercaseletters": "Formato incorrecto, solo se aceptan letras mayúsculas."
+            }
+        }
+    }
+}

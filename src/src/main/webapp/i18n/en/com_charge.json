@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "com_charge" : {
+            "home": {
+                "title": "Com Charges",
+                "createLabel": "Create a new Com Charge",
+                "createOrEditLabel": "Create or edit a Com Charge",
+                "search": "Search for Com Charge"
+            },
+            "created": "A new Com Charge is created with identifier {{ param }}",
+            "updated": "A Com Charge is updated with identifier {{ param }}",
+            "deleted": "A Com Charge is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Charge {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Charge"
+            },
+            "codecharge": "Charge Code (*)",
+            "amount": "Amount (*)",
+            "freecom_airline": "Freecom_airline"
+        }
+    }
+}

@@ -141,5 +141,48 @@
     <include file="classpath:config/liquibase/changelog/20161018014914_added_entity_Discount_concept.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161021125221_added_entity_Taxpayer_series_folio.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161027223330_added_entity_Customs_info_part.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712212935_added_entity_Com_taxregistration.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712222643_added_entity_Com_pfic.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712220809_added_entity_Com_accreditation_ieps.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712202048_added_entity_Com_taxlegends.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712201728_added_entity_Com_legends.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712211602_added_entity_Com_airline.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712212523_added_entity_Com_charge.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712201235_added_entity_Com_apaw.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712210337_added_entity_Com_donees.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712222008_added_entity_Com_educational_institutions.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712204117_added_entity_Com_ine.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160809153830_added_entity_Com_ine_entity.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160712223303_added_entity_Com_kind_payment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729120824_added_entity_Com_foreign_tourist_passenger.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729131312_added_entity_Com_partial_construction_services.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729115046_added_entity_Com_foreign_exchange.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160729115442_added_entity_Com_local_taxes.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160906175601_added_entity_Com_local_retentions.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160906175805_added_entity_Com_local_transfered.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160804145717_added_entity_Com_used_vehicle.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160804150011_added_entity_Com_vehicle_customs_information.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160804150941_added_entity_Com_destruction_certificate.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160804151653_added_entity_Com_info_customs_destruction.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160805131037_added_entity_Com_fuel_consumption.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160805131543_added_entity_Com_concept_fuel.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160805131933_added_entity_Com_determined.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160804144432_added_entity_Com_storeroom_paybill.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160804144924_added_entity_Com_paybill_concept.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810153920_added_entity_Com_ecc_11.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810154846_added_entity_Com_ecc_11_concept.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810154022_added_entity_Com_product_key.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810155120_added_entity_Com_ecc_11_transfer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810160015_added_entity_Com_spei.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810160314_added_entity_Com_payer.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810160701_added_entity_Com_beneficiary.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160810161306_added_entity_Com_spei_third.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822122750_added_entity_Com_incoterm.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822124633_added_entity_Com_addressee.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822130836_added_entity_Com_foreign_trade.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822122938_added_entity_Com_tariff_fraction.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822123126_added_entity_Com_custom_unit.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822131651_added_entity_Com_commodity.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160822131147_added_entity_Com_specific_descriptions.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

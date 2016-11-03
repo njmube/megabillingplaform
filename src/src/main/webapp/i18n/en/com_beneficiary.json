@@ -1,0 +1,29 @@
+{
+    "megabillingplatformApp": {
+        "com_beneficiary" : {
+            "home": {
+                "title": "Com Beneficiaries",
+                "createLabel": "Create a new Com Beneficiary",
+                "createOrEditLabel": "Create or edit a Com Beneficiary",
+                "search": "Search for Com Beneficiary"
+            },
+            "created": "A new Com Beneficiary is created with identifier {{ param }}",
+            "updated": "A Com Beneficiary is updated with identifier {{ param }}",
+            "deleted": "A Com Beneficiary is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Beneficiary {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Beneficiary"
+            },
+            "receiver_bank": "Receiver Bank (*)",
+            "name": "Name (*)",
+            "type_account": "Type Account (*)",
+            "account": "Account (*)",
+            "rfc": "Rfc (*)",
+            "concept": "Concept (*)",
+            "iva": "Iva (*)",
+            "payment_amount": "Payment Amount (*)"
+        }
+    }
+}

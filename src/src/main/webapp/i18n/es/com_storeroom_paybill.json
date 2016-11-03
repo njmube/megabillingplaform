@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "com_storeroom_paybill" : {
+            "home": {
+                "title": "Com_storeroom_paybills",
+                "createLabel": "Crear nuevo Com_storeroom_paybill",
+                "createOrEditLabel": "Crear o editar Com_storeroom_paybill",
+                "search": "Search for Com_storeroom_paybill"
+            },
+            "created": "Un nuevo Com_storeroom_paybill ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com_storeroom_paybill ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com_storeroom_paybill ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com_storeroom_paybill {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_storeroom_paybill"
+            },
+            "version": "Version",
+            "type_operation": "Tipo Operación (*):",
+            "employer_registration": "Registro Patronal:",
+            "account_number": "No. Cuenta (*):",
+            "total": "Total (*):",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "com_local_taxes",
+            "otherEntityName": "com_local_taxes",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "implocretentions",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "retentionrate",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "amountretentions",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160906175601",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_local_retentions",
+    "pagination": "pagination"
+}

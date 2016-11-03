@@ -1,0 +1,74 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_beneficiary.home.title">Com Beneficiaries</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-beneficiary.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_beneficiary.home.createLabel">
+                        Create new Com Beneficiary
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="receiver_bank"><span translate="megabillingplatformApp.com_beneficiary.receiver_bank">Receiver Bank</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="megabillingplatformApp.com_beneficiary.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="type_account"><span translate="megabillingplatformApp.com_beneficiary.type_account">Type Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="account"><span translate="megabillingplatformApp.com_beneficiary.account">Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.com_beneficiary.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="concept"><span translate="megabillingplatformApp.com_beneficiary.concept">Concept</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="iva"><span translate="megabillingplatformApp.com_beneficiary.iva">Iva</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="payment_amount"><span translate="megabillingplatformApp.com_beneficiary.payment_amount">Payment Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_beneficiary in vm.com_beneficiaries track by com_beneficiary.id">
+                    <td><a ui-sref="com-beneficiary-detail({id:com_beneficiary.id})">{{com_beneficiary.id}}</a></td>
+                    <td>{{com_beneficiary.receiver_bank}}</td>
+                    <td>{{com_beneficiary.name}}</td>
+                    <td>{{com_beneficiary.type_account}}</td>
+                    <td>{{com_beneficiary.account}}</td>
+                    <td>{{com_beneficiary.rfc}}</td>
+                    <td>{{com_beneficiary.concept}}</td>
+                    <td>{{com_beneficiary.iva}}</td>
+                    <td>{{com_beneficiary.payment_amount}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-beneficiary-detail({id:com_beneficiary.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-beneficiary.edit({id:com_beneficiary.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-beneficiary.delete({id:com_beneficiary.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

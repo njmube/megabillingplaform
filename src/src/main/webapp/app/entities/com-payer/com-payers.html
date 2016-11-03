@@ -1,0 +1,68 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_payer.home.title">Com Payers</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-payer.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_payer.home.createLabel">
+                        Create new Com Payer
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="emitter_bank"><span translate="megabillingplatformApp.com_payer.emitter_bank">Emitter Bank</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="megabillingplatformApp.com_payer.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="type_account"><span translate="megabillingplatformApp.com_payer.type_account">Type Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="account"><span translate="megabillingplatformApp.com_payer.account">Account</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.com_payer.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_payer in vm.com_payers track by com_payer.id">
+                    <td><a ui-sref="com-payer-detail({id:com_payer.id})">{{com_payer.id}}</a></td>
+                    <td>{{com_payer.emitter_bank}}</td>
+                    <td>{{com_payer.name}}</td>
+                    <td>{{com_payer.type_account}}</td>
+                    <td>{{com_payer.account}}</td>
+                    <td>{{com_payer.rfc}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-payer-detail({id:com_payer.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-payer.edit({id:com_payer.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-payer.delete({id:com_payer.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

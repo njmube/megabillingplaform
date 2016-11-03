@@ -1,0 +1,29 @@
+{
+    "megabillingplatformApp": {
+        "com_paybill_concept" : {
+            "home": {
+                "title": "Com_paybill_concepts",
+                "createLabel": "Crear nuevo Com_paybill_concept",
+                "createOrEditLabel": "Crear o editar Com_paybill_concept",
+                "search": "Search for Com_paybill_concept"
+            },
+            "created": "Un nuevo Com_paybill_concept ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com_paybill_concept ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com_paybill_concept ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com_paybill_concept {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_paybill_concept"
+            },
+            "identification_number": "No. Identificación (*):",
+            "date_expedition": "Fecha de Expedición (*):",
+            "rfc": "RFC (*):",
+            "curp": "CURP (*):",
+            "name": "Nombre (*):",
+            "social_security_number": "No. Seguridad Social:",
+            "amount": "Importe (*):",
+            "freecom_storeroom_paybill": "Freecom_storeroom_paybill"
+        }
+    }
+}

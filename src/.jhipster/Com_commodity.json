@@ -1,0 +1,53 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "com_foreign_trade",
+            "otherEntityName": "com_foreign_trade",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "com_tariff_fraction",
+            "otherEntityName": "com_tariff_fraction",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "value"
+        },
+        {
+            "relationshipName": "com_custom_unit",
+            "otherEntityName": "com_custom_unit",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "value"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "noidentification",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "customs_quantity",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "customs_unit_value",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "dollar_value",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160822131651",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_commodity",
+    "pagination": "pagination"
+}

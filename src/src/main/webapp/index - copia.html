@@ -1,0 +1,1719 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Plataforma de Facturación Electrónica</title>
+    <meta name="description" content="">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css content/css/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" href="content/css/vendor.css">
+    <!-- endbuild -->
+
+	<!-- build:css content/css/main.css -->
+    <link rel="stylesheet" href="content/css/main.css">
+    <!-- endbuild -->
+
+	<!-- page specific plugin styles -->
+
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="content/font-awesome/4.6.3/css/font-awesome.min.css" />
+
+	<!-- page specific plugin styles -->
+
+	<!-- text fonts -->
+	<link rel="stylesheet" href="content/fonts/fonts.googleapis.com.css" />
+
+	<!-- ace styles -->
+	<link rel="stylesheet" href="content/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+	<link rel="stylesheet" href="content/css/style.css" class="ace-main-stylesheet" id="custom-ace-style" />
+
+	<!--Editot trix style-->
+	<link rel="stylesheet" href="bower_components/trix/dist/trix.css" class="trix-stylesheet" id="trix-style" />
+
+
+	<!--[if lte IE 9]>
+		<link rel="stylesheet" href="content/css/ace-part2.min.css" class="ace-main-stylesheet" />
+	<![endif]-->
+
+	<!--[if lte IE 9]>
+	  <link rel="stylesheet" href="content/css/ace-ie.min.css" />
+	<![endif]-->
+
+	<!-- inline styles related to this page -->
+
+	<!-- ace settings handler -->
+	<script src="content/js/ace-extra.min.js"></script>
+
+	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+	<!--[if lte IE 8]>
+	<script src="content/js/html5shiv.min.js"></script>
+	<script src="content/js/respond.min.js"></script>
+	<![endif]-->
+
+
+</head>
+<body class="no-skin" ng-app="megabillingplatformApp">
+    <!--[if lt IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <div ng-show="{{ENV === 'dev'}}" class="development" ng-cloak></div>
+    <div ui-view="navbar" ng-cloak></div>
+
+	<div class="main-container" id="main-container">
+		<script type="text/javascript">
+			try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+		</script>
+
+		<div id="sidebar" class="sidebar h-sidebar navbar-collapse collapse" >
+            <div class="nav-wrap-up pos-rel">
+                <div class="nav-wrap" style="max-height: 233px;">
+                    <div style="position: relative; top: 0px; transition-property: top; transition-duration: 0.15s;">
+                        <div id="sidebar-shortcuts" class="sidebar-shortcuts" style="display:none">
+                            <div id="sidebar-shortcuts-large" class="sidebar-shortcuts-large">
+                                <button class="btn btn-success">
+                                    <i class="ace-icon fa fa-user"></i>
+                                </button>
+
+                                <button class="btn btn-info">
+                                    <i class="ace-icon fa fa-check"></i>
+                                </button>
+
+                                <button class="btn btn-grey">
+                                    <i class="ace-icon fa fa-cog"></i>
+                                </button>
+
+                                <button class="btn btn-danger">
+                                    <i class="ace-icon fa fa-bar-chart"></i>
+                                </button>
+                            </div>
+
+                            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini" style="display:none">
+                                <span class="btn btn-success"></span>
+
+                                <span class="btn btn-info"></span>
+
+                                <span class="btn btn-warning"></span>
+
+                                <span class="btn btn-danger"></span>
+                            </div>
+                        </div><!-- /.sidebar-shortcuts -->
+
+                        <ul id="sidebar-options" class="nav nav-list" style="display:none">
+                            <li class="active">
+                                <a href="index.html">
+                                    <span class="menu-text">{{'global.menu.entities.dashboard' | translate}}</span>
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li uib-dropdown class="">
+                                <a href="" uib-dropdown-toggle class="dropdown-toggle">
+                                    <span class="menu-text">{{'global.menu.entities.nom.complement' | translate}}</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <b class="arrow"></b>
+                                <ul class="submenu">
+                                    <li class="">
+                                        <a href="#/c-well-type">
+                                            <span class="menu-text">{{'global.menu.entities.well.type' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-acquired-title">
+                                            <span class="menu-text">{{'global.menu.entities.acquired.title' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-features-work-piece">
+                                            <span class="menu-text">{{'global.menu.entities.features.work.piece' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-committee-type">
+                                            <span class="menu-text">{{'global.menu.entities.committee.type' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-process-type">
+                                            <span class="menu-text">{{'global.menu.entities.process.type' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/key-entity">
+                                            <span class="menu-text">{{'global.menu.entities.key.entity' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-scope-type">
+                                            <span class="menu-text">{{'global.menu.entities.scope.type' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-tar">
+                                            <span class="menu-text">{{'global.menu.entities.tar' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-school-level">
+                                            <span class="menu-text">{{'global.menu.entities.school.level' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li uib-dropdown class="">
+                                <a href="" uib-dropdown-toggle class="dropdown-toggle">
+                                    <span class="menu-text">{{'global.menu.admin.states' | translate}}</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+
+                                <b class="arrow"></b>
+
+                                <ul class="submenu">
+                                    <li class="">
+                                        <a href="#/request-state">
+                                            <span class="menu-text">{{'global.menu.entities.request.account.state' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/cfdi-states">
+                                            <span class="menu-text">{{'global.menu.entities.cfdi.state' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/file-state">
+                                            <span class="menu-text">{{'global.menu.entities.file.state' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/billing-account-state">
+                                            <span class="menu-text">{{'global.menu.entities.taxpayer.account.state' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/package-state">
+                                            <span class="menu-text">{{'global.menu.entities.package.transactions.state' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li uib-dropdown class="">
+                                <a href="" uib-dropdown-toggle class="dropdown-toggle">
+                                    <span class="menu-text">{{'global.menu.admin.types' | translate}}</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+
+                                <b class="arrow"></b>
+
+                                <ul class="submenu">
+
+                                    <li class="">
+                                        <a href="#/file-type">
+                                            <span class="menu-text">{{'global.menu.entities.file.types' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/cfdi-types">
+                                            <span class="menu-text">{{'global.menu.entities.cfdi.types' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/rate-type">
+                                            <span class="menu-text">{{'global.menu.entities.rate.type' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/cfdi-type-doc">
+                                            <span class="menu-text">{{'global.menu.entities.cfdi.type.doc' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/tax-types">
+                                            <span class="menu-text">{{'global.menu.entities.tax.types' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li uib-dropdown class="">
+                                <a href="" uib-dropdown-toggle class="dropdown-toggle">
+                                    <span class="menu-text">{{'global.menu.admin.general.catalogs' | translate}}</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+
+                                <b class="arrow"></b>
+
+                                <ul class="submenu">
+
+                                    <li class="">
+                                        <a href="#/tax-regime">
+                                            <span class="menu-text">{{'global.menu.entities.tax.regime' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/measure-unit">
+                                            <span class="menu-text">{{'global.menu.entities.measure.unit' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/way-payment">
+                                            <span class="menu-text">{{'global.menu.entities.way.payment' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/payment-method">
+                                            <span class="menu-text">{{'global.menu.entities.payment.method' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-country">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.ccountry' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-state">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.cstate' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-municipality">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.cmunicipality' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-zip-code">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.czipcode' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-colony">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.ccolony' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/c-money">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.cmoney' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/cfdi-template">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.cfdi.template' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            <li uib-dropdown class="">
+                                <a href="" uib-dropdown-toggle class="dropdown-toggle">
+                                    <span class="menu-text">{{'global.menu.admin.free.cfdi' | translate}}</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+
+                                <b class="arrow"></b>
+
+                                <ul class="submenu">
+
+                                    <li class="">
+                                        <a href="#/free-emitter">
+                                            <span class="menu-text">{{'global.menu.entities.free.emitter' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/free-reciever">
+                                            <span class="menu-text">{{'global.menu.entities.free.reciver' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/complement">
+                                            <span class="menu-text">{{'global.menu.entities.complement' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/free-cfdi-admin">
+                                            <span class="menu-text">{{'global.menu.entities.free.cfdi' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/tax-transfered">
+                                            <span class="menu-text">{{'global.menu.entities.tax.transfered' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/tax-retentions">
+                                            <span class="menu-text">{{'global.menu.entities.tax.retentions' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/free-concept">
+                                            <span class="menu-text">{{'global.menu.entities.free.concept' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/free-part-concept">
+                                            <span class="menu-text">{{'global.menu.entities.free.part.concept' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/free-customs-info">
+                                            <span class="menu-text">{{'global.menu.entities.free.customs.info' | translate}}</span>
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li uib-dropdown class="">
+                                <a href="#/request-taxpayer-account">
+                                    <span class="menu-text">{{'global.menu.entities.request.account' | translate}}</span>
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class="">
+                                <a href="#/taxpayer-account">
+                                    <span class="menu-text">{{'global.menu.entities.taxpayer.account' | translate}}</span>
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class="">
+                                <a href="#">
+                                    <span class="menu-text">{{'global.menu.entities.taxpayer' | translate}}</span>
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class="">
+                                <a href="#/package-transactions">
+                                    <span class="menu-text">{{'global.menu.entities.package.transactions' | translate}}</span>
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class="">
+                                <a href="#/file">
+                                    <span class="menu-text">{{'global.menu.entities.file' | translate}}</span>
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li class="">
+                                <a href="#">
+                                    <span class="menu-text">{{'global.menu.entities.reports' | translate}}</span>
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
+
+                            <li uib-dropdown class="">
+                                <a href="" uib-dropdown-toggle class="dropdown-toggle">
+                                    <span class="menu-text">{{'global.menu.admin.main' | translate}}</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+
+                                <b class="arrow"></b>
+
+                                <ul class="submenu">
+
+                                    <li class="">
+                                        <a ui-sref="general-data.new({id:0})">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.general.data' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a ui-sref="config-pathrootfile.new({id: 1})">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.pathrootfile' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/user-management">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.users' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/mail-configuration">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.email' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a ui-sref="#">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.ftp' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/digital-certificate">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.digital.certificate' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/metrics">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.metrics' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/health">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.health.services' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/configuration">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.configuration' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/logs">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.logs' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/tracemg">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.audits' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#/task">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.scheduled.task' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.use.policy' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li class="">
+                                        <a href="#">
+                                            <i class="menu-icon fa fa-caret-right"></i>
+                                            {{'global.menu.admin.privacy' | translate}}
+                                        </a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul><!-- /.nav-list -->
+                    </div>
+                </div>
+                <div class="ace-scroll nav-scroll">
+                    <div class="scroll-track scroll-active" style="display: block; height: 233px;">
+                        <div class="scroll-bar" style="height: 74px; top: 0px; transition-property: top; transition-duration: 0.1s;"></div>
+                    </div>
+                    <div class="scroll-content" style="max-height: 233px;">
+                        <div style="height: 729px; width: 8px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+		<div class="main-content">
+			<div class="main-content-inner">
+
+				<div ui-view="breadcrumbs" ng-cloak></div>
+
+				<div class="page-content" ui-view="content">
+
+				</div><!-- /.page-content -->
+			</div>
+		</div><!-- /.main-content -->
+
+		<div class="footer" ui-view="footer" ng-cloak></div>
+
+		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+			<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
+		</a>
+	</div><!-- /.main-container -->
+
+
+    <!--<div class="container">
+        <div class="well" ui-view="content"></div>
+
+        <div class="footer" ng-cloak>
+            <p translate="footer">This is your footer</p>
+        </div>
+    </div>-->
+
+    <!-- Google Analytics: uncomment and change UA-XXXXX-X to be your site's ID.
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>-->
+
+    <!-- build:js app/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/messageformat/messageformat.js"></script>
+    <script src="bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
+    <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+	<!--bower installed-->
+    <script src="bower_components/trix/dist/trix.js"></script>
+	<script src="bower_components/angular-trix/dist/angular-trix.min.js"></script>
+    <script src='bower_components/biglargenumberoperations/biglargenumberoperations.js'></script>
+	<!--endbower installed-->
+
+    <!-- build:js app/app.js  -->
+    <!-- inject:js -->
+    <script src="app/app.module.js"></script>
+    <script src="app/account/reset/request/reset.request.state.js"></script>
+    <script src="app/account/reset/request/reset.request.controller.js"></script>
+    <script src="app/account/reset/finish/reset.finish.state.js"></script>
+    <script src="app/account/reset/finish/reset.finish.controller.js"></script>
+    <script src="app/services/user/user.service.js"></script>
+    <script src="app/services/auth/sessions.service.js"></script>
+    <script src="app/services/auth/register.service.js"></script>
+    <script src="app/services/auth/principal.service.js"></script>
+    <script src="app/services/auth/password.service.js"></script>
+    <script src="app/services/auth/password-reset-init.service.js"></script>
+    <script src="app/services/auth/password-reset-finish.service.js"></script>
+    <script src="app/services/auth/has-authority.directive.js"></script>
+    <script src="app/services/auth/has-any-authority.directive.js"></script>
+    <script src="app/services/auth/auth.session.service.js"></script>
+    <script src="app/services/auth/auth.service.js"></script>
+    <script src="app/services/auth/activate.service.js"></script>
+    <script src="app/services/auth/account.service.js"></script>
+    <script src="app/layouts/navbar/navbar.controller.js"></script>
+    <script src="app/layouts/navbar/active-menu.directive.js"></script>
+    <script src="app/layouts/navbar/active-link.directive.js"></script>
+    <script src="app/layouts/footer/footer.controller.js"></script>
+    <script src="app/layouts/error/error.state.js"></script>
+    <script src="app/layouts/breadcrumbs/breadcrumbs.controller.js"></script>
+    <script src="app/entities/way-payment/way-payment.state.js"></script>
+    <script src="app/entities/way-payment/way-payment.service.js"></script>
+    <script src="app/entities/way-payment/way-payment.controller.js"></script>
+    <script src="app/entities/way-payment/way-payment-dialog.controller.js"></script>
+    <script src="app/entities/way-payment/way-payment-detail.controller.js"></script>
+    <script src="app/entities/way-payment/way-payment-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-type-operation/c-type-operation.state.js"></script>
+    <script src="app/entities/c-type-operation/c-type-operation.service.js"></script>
+    <script src="app/entities/c-type-operation/c-type-operation.controller.js"></script>
+    <script src="app/entities/c-type-operation/c-type-operation-dialog.controller.js"></script>
+    <script src="app/entities/c-type-operation/c-type-operation-detail.controller.js"></script>
+    <script src="app/entities/c-type-operation/c-type-operation-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-foreign-exchange/freecom-foreign-exchange.state.js"></script>
+    <script src="app/entities/freecom-foreign-exchange/freecom-foreign-exchange.service.js"></script>
+    <script src="app/entities/freecom-foreign-exchange/freecom-foreign-exchange.controller.js"></script>
+    <script src="app/entities/freecom-foreign-exchange/freecom-foreign-exchange-dialog.controller.js"></script>
+    <script src="app/entities/freecom-foreign-exchange/freecom-foreign-exchange-detail.controller.js"></script>
+    <script src="app/entities/freecom-foreign-exchange/freecom-foreign-exchange-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-local-taxes/freecom-local-taxes.state.js"></script>
+    <script src="app/entities/freecom-local-taxes/freecom-local-taxes.service.js"></script>
+    <script src="app/entities/freecom-local-taxes/freecom-local-taxes.controller.js"></script>
+    <script src="app/entities/freecom-local-taxes/freecom-local-taxes-dialog.controller.js"></script>
+    <script src="app/entities/freecom-local-taxes/freecom-local-taxes-detail.controller.js"></script>
+    <script src="app/entities/freecom-local-taxes/freecom-local-taxes-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-type-road/c-type-road.state.js"></script>
+    <script src="app/entities/c-type-road/c-type-road.service.js"></script>
+    <script src="app/entities/c-type-road/c-type-road.controller.js"></script>
+    <script src="app/entities/c-type-road/c-type-road-dialog.controller.js"></script>
+    <script src="app/entities/c-type-road/c-type-road-detail.controller.js"></script>
+    <script src="app/entities/c-type-road/c-type-road-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-transit-type/c-transit-type.state.js"></script>
+    <script src="app/entities/c-transit-type/c-transit-type.service.js"></script>
+    <script src="app/entities/c-transit-type/c-transit-type.controller.js"></script>
+    <script src="app/entities/c-transit-type/c-transit-type-dialog.controller.js"></script>
+    <script src="app/entities/c-transit-type/c-transit-type-detail.controller.js"></script>
+    <script src="app/entities/c-transit-type/c-transit-type-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-foreign-tourist-passenger/freecom-foreign-tourist-passenger.state.js"></script>
+    <script src="app/entities/freecom-foreign-tourist-passenger/freecom-foreign-tourist-passenger.service.js"></script>
+    <script src="app/entities/freecom-foreign-tourist-passenger/freecom-foreign-tourist-passenger.controller.js"></script>
+    <script src="app/entities/freecom-foreign-tourist-passenger/freecom-foreign-tourist-passenger-dialog.controller.js"></script>
+    <script src="app/entities/freecom-foreign-tourist-passenger/freecom-foreign-tourist-passenger-detail.controller.js"></script>
+    <script src="app/entities/freecom-foreign-tourist-passenger/freecom-foreign-tourist-passenger-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-federal-entity/c-federal-entity.state.js"></script>
+    <script src="app/entities/c-federal-entity/c-federal-entity.service.js"></script>
+    <script src="app/entities/c-federal-entity/c-federal-entity.controller.js"></script>
+    <script src="app/entities/c-federal-entity/c-federal-entity-dialog.controller.js"></script>
+    <script src="app/entities/c-federal-entity/c-federal-entity-detail.controller.js"></script>
+    <script src="app/entities/c-federal-entity/c-federal-entity-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-partial-construction-services/freecom-partial-construction-services.state.js"></script>
+    <script src="app/entities/freecom-partial-construction-services/freecom-partial-construction-services.service.js"></script>
+    <script src="app/entities/freecom-partial-construction-services/freecom-partial-construction-services.controller.js"></script>
+    <script src="app/entities/freecom-partial-construction-services/freecom-partial-construction-services-dialog.controller.js"></script>
+    <script src="app/entities/freecom-partial-construction-services/freecom-partial-construction-services-detail.controller.js"></script>
+    <script src="app/entities/freecom-partial-construction-services/freecom-partial-construction-services-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-kind-payment/freecom-kind-payment.state.js"></script>
+    <script src="app/entities/freecom-kind-payment/freecom-kind-payment.service.js"></script>
+    <script src="app/entities/freecom-kind-payment/freecom-kind-payment.controller.js"></script>
+    <script src="app/entities/freecom-kind-payment/freecom-kind-payment-dialog.controller.js"></script>
+    <script src="app/entities/freecom-kind-payment/freecom-kind-payment-detail.controller.js"></script>
+    <script src="app/entities/freecom-kind-payment/freecom-kind-payment-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-pfic/freecom-pfic.state.js"></script>
+    <script src="app/entities/freecom-pfic/freecom-pfic.service.js"></script>
+    <script src="app/entities/freecom-pfic/freecom-pfic.controller.js"></script>
+    <script src="app/entities/freecom-pfic/freecom-pfic-dialog.controller.js"></script>
+    <script src="app/entities/freecom-pfic/freecom-pfic-detail.controller.js"></script>
+    <script src="app/entities/freecom-pfic/freecom-pfic-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-educational-institutions/freecom-educational-institutions.state.js"></script>
+    <script src="app/entities/freecom-educational-institutions/freecom-educational-institutions.service.js"></script>
+    <script src="app/entities/freecom-educational-institutions/freecom-educational-institutions.controller.js"></script>
+    <script src="app/entities/freecom-educational-institutions/freecom-educational-institutions-dialog.controller.js"></script>
+    <script src="app/entities/freecom-educational-institutions/freecom-educational-institutions-detail.controller.js"></script>
+    <script src="app/entities/freecom-educational-institutions/freecom-educational-institutions-delete-dialog.controller.js"></script>
+    <script src="app/entities/audit-event-type/audit-event-type.state.js"></script>
+    <script src="app/entities/audit-event-type/audit-event-type.service.js"></script>
+    <script src="app/entities/audit-event-type/audit-event-type.controller.js"></script>
+    <script src="app/entities/audit-event-type/audit-event-type.controller.js"></script>
+    <script src="app/entities/audit-event-type/audit-event-type-detail.controller.js"></script>
+    <script src="app/entities/audit-event-type/audit-event-type-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-accreditation-ieps/freecom-accreditation-ieps.state.js"></script>
+    <script src="app/entities/freecom-accreditation-ieps/freecom-accreditation-ieps.service.js"></script>
+    <script src="app/entities/freecom-accreditation-ieps/freecom-accreditation-ieps.controller.js"></script>
+    <script src="app/entities/freecom-accreditation-ieps/freecom-accreditation-ieps-dialog.controller.js"></script>
+    <script src="app/entities/freecom-accreditation-ieps/freecom-accreditation-ieps-detail.controller.js"></script>
+    <script src="app/entities/freecom-accreditation-ieps/freecom-accreditation-ieps-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-tar/c-tar.state.js"></script>
+    <script src="app/entities/c-tar/c-tar.service.js"></script>
+    <script src="app/entities/c-tar/c-tar.controller.js"></script>
+    <script src="app/entities/c-tar/c-tar-dialog.controller.js"></script>
+    <script src="app/entities/c-tar/c-tar-detail.controller.js"></script>
+    <script src="app/entities/c-tar/c-tar-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-taxregistration/freecom-taxregistration.state.js"></script>
+    <script src="app/entities/freecom-taxregistration/freecom-taxregistration.service.js"></script>
+    <script src="app/entities/freecom-taxregistration/freecom-taxregistration.controller.js"></script>
+    <script src="app/entities/freecom-taxregistration/freecom-taxregistration-dialog.controller.js"></script>
+    <script src="app/entities/freecom-taxregistration/freecom-taxregistration-detail.controller.js"></script>
+    <script src="app/entities/freecom-taxregistration/freecom-taxregistration-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-charge/freecom-charge.state.js"></script>
+    <script src="app/entities/freecom-charge/freecom-charge.service.js"></script>
+    <script src="app/entities/freecom-charge/freecom-charge.controller.js"></script>
+    <script src="app/entities/freecom-charge/freecom-charge-dialog.controller.js"></script>
+    <script src="app/entities/freecom-charge/freecom-charge-detail.controller.js"></script>
+    <script src="app/entities/freecom-charge/freecom-charge-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-airline/freecom-airline.state.js"></script>
+    <script src="app/entities/freecom-airline/freecom-airline.service.js"></script>
+    <script src="app/entities/freecom-airline/freecom-airline.controller.js"></script>
+    <script src="app/entities/freecom-airline/freecom-airline-dialog.controller.js"></script>
+    <script src="app/entities/freecom-airline/freecom-airline-detail.controller.js"></script>
+    <script src="app/entities/freecom-airline/freecom-airline-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-donees/freecom-donees.state.js"></script>
+    <script src="app/entities/freecom-donees/freecom-donees.service.js"></script>
+    <script src="app/entities/freecom-donees/freecom-donees.controller.js"></script>
+    <script src="app/entities/freecom-donees/freecom-donees-dialog.controller.js"></script>
+    <script src="app/entities/freecom-donees/freecom-donees-detail.controller.js"></script>
+    <script src="app/entities/freecom-donees/freecom-donees-delete-dialog.controller.js"></script>
+    <script src="app/entities/key-entity/key-entity.state.js"></script>
+    <script src="app/entities/key-entity/key-entity.service.js"></script>
+    <script src="app/entities/key-entity/key-entity.controller.js"></script>
+    <script src="app/entities/key-entity/key-entity-dialog.controller.js"></script>
+    <script src="app/entities/key-entity/key-entity-detail.controller.js"></script>
+    <script src="app/entities/key-entity/key-entity-delete-dialog.controller.js"></script>
+    <script src="app/entities/accounting/accounting.state.js"></script>
+    <script src="app/entities/accounting/accounting.service.js"></script>
+    <script src="app/entities/accounting/accounting.controller.js"></script>
+    <script src="app/entities/accounting/accounting-dialog.controller.js"></script>
+    <script src="app/entities/accounting/accounting-detail.controller.js"></script>
+    <script src="app/entities/accounting/accounting-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-ine/freecom-ine.state.js"></script>
+    <script src="app/entities/freecom-ine/freecom-ine.service.js"></script>
+    <script src="app/entities/freecom-ine/freecom-ine.controller.js"></script>
+    <script src="app/entities/freecom-ine/freecom-ine-dialog.controller.js"></script>
+    <script src="app/entities/freecom-ine/freecom-ine-detail.controller.js"></script>
+    <script src="app/entities/freecom-ine/freecom-ine-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-ine-entity/freecom-ine-entity.state.js"></script>
+    <script src="app/entities/freecom-ine-entity/freecom-ine-entity.service.js"></script>
+    <script src="app/entities/freecom-ine-entity/freecom-ine-entity.controller.js"></script>
+    <script src="app/entities/freecom-ine-entity/freecom-ine-entity-dialog.controller.js"></script>
+    <script src="app/entities/freecom-ine-entity/freecom-ine-entity-detail.controller.js"></script>
+    <script src="app/entities/freecom-ine-entity/freecom-ine-entity-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-taxlegends/freecom-taxlegends.state.js"></script>
+    <script src="app/entities/freecom-taxlegends/freecom-taxlegends.service.js"></script>
+    <script src="app/entities/freecom-taxlegends/freecom-taxlegends.controller.js"></script>
+    <script src="app/entities/freecom-taxlegends/freecom-taxlegends-dialog.controller.js"></script>
+    <script src="app/entities/freecom-taxlegends/freecom-taxlegends-detail.controller.js"></script>
+    <script src="app/entities/freecom-taxlegends/freecom-taxlegends-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-legend/freecom-legend.state.js"></script>
+    <script src="app/entities/freecom-legend/freecom-legend.service.js"></script>
+    <script src="app/entities/freecom-legend/freecom-legend.controller.js"></script>
+    <script src="app/entities/freecom-legend/freecom-legend-dialog.controller.js"></script>
+    <script src="app/entities/freecom-legend/freecom-legend-detail.controller.js"></script>
+    <script src="app/entities/freecom-legend/freecom-legend-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-apaw/freecom-apaw.state.js"></script>
+    <script src="app/entities/freecom-apaw/freecom-apaw.service.js"></script>
+    <script src="app/entities/freecom-apaw/freecom-apaw.controller.js"></script>
+    <script src="app/entities/freecom-apaw/freecom-apaw-dialog.controller.js"></script>
+    <script src="app/entities/freecom-apaw/freecom-apaw-detail.controller.js"></script>
+    <script src="app/entities/freecom-apaw/freecom-apaw-delete-dialog.controller.js"></script>
+    <script src="app/entities/tax-concept/tax-concept.state.js"></script>
+    <script src="app/entities/tax-concept/tax-concept.service.js"></script>
+    <script src="app/entities/tax-concept/tax-concept.controller.js"></script>
+    <script src="app/entities/tax-concept/tax-concept-dialog.controller.js"></script>
+    <script src="app/entities/tax-concept/tax-concept-detail.controller.js"></script>
+    <script src="app/entities/tax-concept/tax-concept-delete-dialog.controller.js"></script>
+    <script src="app/entities/tax-types/tax-types.state.js"></script>
+    <script src="app/entities/tax-types/tax-types.service.js"></script>
+    <script src="app/entities/tax-types/tax-types.controller.js"></script>
+    <script src="app/entities/tax-types/tax-types-dialog.controller.js"></script>
+    <script src="app/entities/tax-types/tax-types-detail.controller.js"></script>
+    <script src="app/entities/tax-types/tax-types-delete-dialog.controller.js"></script>
+    <script src="app/entities/tax-transfered/tax-transfered.state.js"></script>
+    <script src="app/entities/tax-transfered/tax-transfered.service.js"></script>
+    <script src="app/entities/tax-transfered/tax-transfered.controller.js"></script>
+    <script src="app/entities/tax-transfered/tax-transfered-dialog.controller.js"></script>
+    <script src="app/entities/tax-transfered/tax-transfered-detail.controller.js"></script>
+    <script src="app/entities/tax-transfered/tax-transfered-delete-dialog.controller.js"></script>
+    <script src="app/entities/tax-retentions/tax-retentions.state.js"></script>
+    <script src="app/entities/tax-retentions/tax-retentions.service.js"></script>
+    <script src="app/entities/tax-retentions/tax-retentions.controller.js"></script>
+    <script src="app/entities/tax-retentions/tax-retentions-dialog.controller.js"></script>
+    <script src="app/entities/tax-retentions/tax-retentions-detail.controller.js"></script>
+    <script src="app/entities/tax-retentions/tax-retentions-delete-dialog.controller.js"></script>
+    <script src="app/entities/tax-regime/tax-regime.state.js"></script>
+    <script src="app/entities/tax-regime/tax-regime.service.js"></script>
+    <script src="app/entities/tax-regime/tax-regime.controller.js"></script>
+    <script src="app/entities/tax-regime/tax-regime-dialog.controller.js"></script>
+    <script src="app/entities/tax-regime/tax-regime-detail.controller.js"></script>
+    <script src="app/entities/tax-regime/tax-regime-delete-dialog.controller.js"></script>
+    <script src="app/entities/task/task.state.js"></script>
+    <script src="app/entities/task/task.service.js"></script>
+    <script src="app/entities/task/task.controller.js"></script>
+    <script src="app/entities/task/task-dialog.controller.js"></script>
+    <script src="app/entities/task/task-detail.controller.js"></script>
+    <script src="app/entities/task/task-delete-dialog.controller.js"></script>
+    <script src="app/entities/services/services.state.js"></script>
+    <script src="app/entities/services/services.service.js"></script>
+    <script src="app/entities/services/services.controller.js"></script>
+    <script src="app/entities/services/services-dialog.controller.js"></script>
+    <script src="app/entities/services/services-detail.controller.js"></script>
+    <script src="app/entities/services/services-delete-dialog.controller.js"></script>
+    <script src="app/entities/request-state/request-state.state.js"></script>
+    <script src="app/entities/request-state/request-state.service.js"></script>
+    <script src="app/entities/request-state/request-state.controller.js"></script>
+    <script src="app/entities/request-state/request-state-dialog.controller.js"></script>
+    <script src="app/entities/request-state/request-state-detail.controller.js"></script>
+    <script src="app/entities/request-state/request-state-delete-dialog.controller.js"></script>
+    <script src="app/entities/rate-type/rate-type.state.js"></script>
+    <script src="app/entities/rate-type/rate-type.service.js"></script>
+    <script src="app/entities/rate-type/rate-type.controller.js"></script>
+    <script src="app/entities/rate-type/rate-type-dialog.controller.js"></script>
+    <script src="app/entities/rate-type/rate-type-detail.controller.js"></script>
+    <script src="app/entities/rate-type/rate-type-delete-dialog.controller.js"></script>
+    <script src="app/entities/payment-method/payment-method.state.js"></script>
+    <script src="app/entities/payment-method/payment-method.service.js"></script>
+    <script src="app/entities/payment-method/payment-method.controller.js"></script>
+    <script src="app/entities/payment-method/payment-method-dialog.controller.js"></script>
+    <script src="app/entities/payment-method/payment-method-detail.controller.js"></script>
+    <script src="app/entities/payment-method/payment-method-delete-dialog.controller.js"></script>
+    <script src="app/entities/package-transactions/package-transactions.state.js"></script>
+    <script src="app/entities/package-transactions/package-transactions.service.js"></script>
+    <script src="app/entities/package-transactions/package-transactions.controller.js"></script>
+    <script src="app/entities/package-transactions/package-transactions-dialog.controller.js"></script>
+    <script src="app/entities/package-transactions/package-transactions-detail.controller.js"></script>
+    <script src="app/entities/package-transactions/package-transactions-delete-dialog.controller.js"></script>
+    <script src="app/entities/package-state/package-state.state.js"></script>
+    <script src="app/entities/package-state/package-state.service.js"></script>
+    <script src="app/entities/package-state/package-state.controller.js"></script>
+    <script src="app/entities/package-state/package-state-dialog.controller.js"></script>
+    <script src="app/entities/package-state/package-state-detail.controller.js"></script>
+    <script src="app/entities/package-state/package-state-delete-dialog.controller.js"></script>
+    <script src="app/entities/measure-unit/measure-unit.state.js"></script>
+    <script src="app/entities/measure-unit/measure-unit.service.js"></script>
+    <script src="app/entities/measure-unit/measure-unit.controller.js"></script>
+    <script src="app/entities/measure-unit/measure-unit-dialog.controller.js"></script>
+    <script src="app/entities/measure-unit/measure-unit-detail.controller.js"></script>
+    <script src="app/entities/measure-unit/measure-unit-delete-dialog.controller.js"></script>
+    <script src="app/entities/mail-configuration/mail-configuration.state.js"></script>
+    <script src="app/entities/mail-configuration/mail-configuration.service.js"></script>
+    <script src="app/entities/mail-configuration/mail-configuration.controller.js"></script>
+    <script src="app/entities/mail-configuration/mail-configuration-dialog.controller.js"></script>
+    <script src="app/entities/mail-configuration/mail-configuration-detail.controller.js"></script>
+    <script src="app/entities/mail-configuration/mail-configuration-delete-dialog.controller.js"></script>
+    <script src="app/entities/general-data/general-data.state.js"></script>
+    <script src="app/entities/general-data/general-data.service.js"></script>
+    <script src="app/entities/general-data/general-data.controller.js"></script>
+    <script src="app/entities/general-data/general-data-dialog.controller.js"></script>
+    <script src="app/entities/general-data/general-data-detail.controller.js"></script>
+    <script src="app/entities/general-data/general-data-delete-dialog.controller.js"></script>
+    <script src="app/entities/general-data/general-data-new.controller.js"></script>
+    <script src="app/entities/free-receiver/free-receiver.state.js"></script>
+    <script src="app/entities/free-receiver/free-receiver.service.js"></script>
+    <script src="app/entities/free-receiver/free-receiver.controller.js"></script>
+    <script src="app/entities/free-receiver/free-receiver-dialog.controller.js"></script>
+    <script src="app/entities/free-receiver/free-receiver-detail.controller.js"></script>
+    <script src="app/entities/free-receiver/free-receiver-delete-dialog.controller.js"></script>
+    <script src="app/entities/free-part-concept/free-part-concept.state.js"></script>
+    <script src="app/entities/free-part-concept/free-part-concept.service.js"></script>
+    <script src="app/entities/free-part-concept/free-part-concept.controller.js"></script>
+    <script src="app/entities/free-part-concept/free-part-concept-dialog.controller.js"></script>
+    <script src="app/entities/free-part-concept/free-part-concept-detail.controller.js"></script>
+    <script src="app/entities/free-part-concept/free-part-concept-delete-dialog.controller.js"></script>
+    <script src="app/entities/free-emitter/free-emitter.state.js"></script>
+    <script src="app/entities/free-emitter/free-emitter.service.js"></script>
+    <script src="app/entities/free-emitter/free-emitter-file.service.js"></script>
+    <script src="app/entities/free-emitter/free-emitter.controller.js"></script>
+    <script src="app/entities/free-emitter/free-emitter-new.controller.js"></script>
+    <script src="app/entities/free-emitter/free-emitter-detail.controller.js"></script>
+    <script src="app/entities/free-emitter/free-emitter-delete-dialog.controller.js"></script>
+    <script src="app/entities/free-emitter/conformation-delete-cert.controller.js"></script>
+    <script src="app/entities/free-emitter/validate.controller.js"></script>
+    <script src="app/entities/free-customs-info/free-customs-info.state.js"></script>
+    <script src="app/entities/free-customs-info/free-customs-info.service.js"></script>
+    <script src="app/entities/free-customs-info/free-customs-info.controller.js"></script>
+    <script src="app/entities/free-customs-info/free-customs-info-dialog.controller.js"></script>
+    <script src="app/entities/free-customs-info/free-customs-info-detail.controller.js"></script>
+    <script src="app/entities/free-customs-info/free-customs-info-delete-dialog.controller.js"></script>
+    <script src="app/entities/free-concept/free-concept.state.js"></script>
+    <script src="app/entities/free-concept/free-concept.service.js"></script>
+    <script src="app/entities/free-concept/free-concept.controller.js"></script>
+    <script src="app/entities/free-concept/free-concept-dialog.controller.js"></script>
+    <script src="app/entities/free-concept/free-concept-detail.controller.js"></script>
+    <script src="app/entities/free-concept/free-concept-delete-dialog.controller.js"></script>
+    <script src="app/entities/free-cfdi/free-cfdi.state.js"></script>
+    <script src="app/entities/free-cfdi/free-cfdi.service.js"></script>
+    <script src="app/entities/free-cfdi/free-cfdi.controller.js"></script>
+    <script src="app/entities/free-cfdi/free-cfdi-new.controller.js"></script>
+    <script src="app/entities/free-cfdi/free-cfdi-detail.controller.js"></script>
+    <script src="app/entities/free-cfdi/free-cfdi-delete-dialog.controller.js"></script>
+    <script src="app/entities/free-cfdi/free-cfdi-not-free-emitter-certificate-dialog.controller.js"></script>
+    <script src="app/entities/file-type/file-type.state.js"></script>
+    <script src="app/entities/file-type/file-type.service.js"></script>
+    <script src="app/entities/file-type/file-type.controller.js"></script>
+    <script src="app/entities/file-type/file-type-dialog.controller.js"></script>
+    <script src="app/entities/file-type/file-type-detail.controller.js"></script>
+    <script src="app/entities/file-type/file-type-delete-dialog.controller.js"></script>
+    <script src="app/entities/file-state/file-state.state.js"></script>
+    <script src="app/entities/file-state/file-state.service.js"></script>
+    <script src="app/entities/file-state/file-state.controller.js"></script>
+    <script src="app/entities/file-state/file-state-dialog.controller.js"></script>
+    <script src="app/entities/file-state/file-state-detail.controller.js"></script>
+    <script src="app/entities/file-state/file-state-delete-dialog.controller.js"></script>
+    <script src="app/entities/file/file.state.js"></script>
+    <script src="app/entities/file/file.service.js"></script>
+    <script src="app/entities/file/file.controller.js"></script>
+    <script src="app/entities/file/file-dialog.controller.js"></script>
+    <script src="app/entities/file/file-detail.controller.js"></script>
+    <script src="app/entities/file/file-delete-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-series-folio/taxpayer-series-folio.state.js"></script>
+    <script src="app/entities/taxpayer-series-folio/taxpayer-series-folio.service.js"></script>
+    <script src="app/entities/taxpayer-series-folio/taxpayer-series-folio.controller.js"></script>
+    <script src="app/entities/taxpayer-series-folio/taxpayer-series-folio-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-series-folio/taxpayer-series-folio-detail.controller.js"></script>
+    <script src="app/entities/taxpayer-series-folio/taxpayer-series-folio-delete-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-request-confirm/taxpayer-request-confirm.state.js"></script>
+    <script src="app/entities/taxpayer-request-confirm/taxpayer-request-confirm.service.js"></script>
+    <script src="app/entities/taxpayer-request-confirm/taxpayer-request-confirm.controller.js"></script>
+    <script src="app/entities/taxpayer-request-confirm/taxpayer-request-confirm-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-request-confirm/taxpayer-request-confirm-detail.controller.js"></script>
+    <script src="app/entities/taxpayer-request-confirm/taxpayer-request-confirm-delete-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-request/taxpayer-request.state.js"></script>
+    <script src="app/entities/taxpayer-request/taxpayer-request.service.js"></script>
+    <script src="app/entities/taxpayer-request/taxpayer-request.controller.js"></script>
+    <script src="app/entities/taxpayer-request/taxpayer-request-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-request/taxpayer-request-detail.controller.js"></script>
+    <script src="app/entities/taxpayer-request/taxpayer-request-delete-dialog.controller.js"></script>
+    <script src="app/entities/ring-pack/ring-pack.state.js"></script>
+    <script src="app/entities/ring-pack/ring-pack.service.js"></script>
+    <script src="app/entities/ring-pack/ring-pack.controller.js"></script>
+    <script src="app/entities/ring-pack/ring-pack-dialog.controller.js"></script>
+    <script src="app/entities/ring-pack/ring-pack-detail.controller.js"></script>
+    <script src="app/entities/ring-pack/ring-pack-delete-dialog.controller.js"></script>
+    <script src="app/entities/com-tfd/com-tfd.state.js"></script>
+    <script src="app/entities/com-tfd/com-tfd.service.js"></script>
+    <script src="app/entities/com-tfd/com-tfd.controller.js"></script>
+    <script src="app/entities/com-tfd/com-tfd-dialog.controller.js"></script>
+    <script src="app/entities/com-tfd/com-tfd-detail.controller.js"></script>
+    <script src="app/entities/com-tfd/com-tfd-delete-dialog.controller.js"></script>
+    <script src="app/entities/cfdi/cfdi.state.js"></script>
+    <script src="app/entities/cfdi/cfdi.service.js"></script>
+    <script src="app/entities/cfdi/cfdi.controller.js"></script>
+    <script src="app/entities/cfdi/cfdi-dialog.controller.js"></script>
+    <script src="app/entities/cfdi/cfdi-new.controller.js"></script>	
+    <script src="app/entities/cfdi/cfdi-choose-client-dialog.controller.js"></script>
+    <script src="app/entities/cfdi/cfdi-add-concept-dialog.controller.js"></script>
+    <script src="app/entities/cfdi/cfdi-add-concept-info-dialog.controller.js"></script>
+    <script src="app/entities/cfdi/cfdi-detail.controller.js"></script>
+    <script src="app/entities/cfdi/cfdi-delete-dialog.controller.js"></script>
+    <script src="app/entities/customs-info/customs-info.state.js"></script>
+    <script src="app/entities/customs-info/customs-info.service.js"></script>
+    <script src="app/entities/customs-info/customs-info.controller.js"></script>
+    <script src="app/entities/customs-info/customs-info-dialog.controller.js"></script>
+    <script src="app/entities/customs-info/customs-info-detail.controller.js"></script>
+    <script src="app/entities/customs-info/customs-info-delete-dialog.controller.js"></script>
+    <script src="app/entities/part-concept/part-concept.state.js"></script>
+    <script src="app/entities/part-concept/part-concept.service.js"></script>
+    <script src="app/entities/part-concept/part-concept.controller.js"></script>
+    <script src="app/entities/part-concept/part-concept-dialog.controller.js"></script>
+    <script src="app/entities/part-concept/part-concept-detail.controller.js"></script>
+    <script src="app/entities/part-concept/part-concept-delete-dialog.controller.js"></script>
+    <script src="app/entities/concept/concept.state.js"></script>
+    <script src="app/entities/concept/concept.service.js"></script>
+    <script src="app/entities/concept/concept.controller.js"></script>
+    <script src="app/entities/concept/concept-dialog.controller.js"></script>
+    <script src="app/entities/concept/concept-detail.controller.js"></script>
+    <script src="app/entities/concept/concept-delete-dialog.controller.js"></script>
+    <script src="app/entities/transactions-history/transactions-history.state.js"></script>
+    <script src="app/entities/transactions-history/transactions-history.service.js"></script>
+    <script src="app/entities/transactions-history/transactions-history.controller.js"></script>
+    <script src="app/entities/transactions-history/transactions-history-dialog.controller.js"></script>
+    <script src="app/entities/transactions-history/transactions-history-detail.controller.js"></script>
+    <script src="app/entities/transactions-history/transactions-history-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-system/c-system.state.js"></script>
+    <script src="app/entities/c-system/c-system.service.js"></script>
+    <script src="app/entities/c-system/c-system.controller.js"></script>
+    <script src="app/entities/c-system/c-system-dialog.controller.js"></script>
+    <script src="app/entities/c-system/c-system-detail.controller.js"></script>
+    <script src="app/entities/c-system/c-system-delete-dialog.controller.js"></script>
+    <script src="app/entities/type-transaction/type-transaction.state.js"></script>
+    <script src="app/entities/type-transaction/type-transaction.service.js"></script>
+    <script src="app/entities/type-transaction/type-transaction.controller.js"></script>
+    <script src="app/entities/type-transaction/type-transaction-dialog.controller.js"></script>
+    <script src="app/entities/type-transaction/type-transaction-detail.controller.js"></script>
+    <script src="app/entities/type-transaction/type-transaction-delete-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-transactions/taxpayer-transactions.state.js"></script>
+    <script src="app/entities/taxpayer-transactions/taxpayer-transactions.service.js"></script>
+    <script src="app/entities/taxpayer-transactions/taxpayer-transactions.controller.js"></script>
+    <script src="app/entities/taxpayer-transactions/taxpayer-transactions-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-transactions/taxpayer-transactions-detail.controller.js"></script>
+    <script src="app/entities/taxpayer-transactions/taxpayer-transactions-delete-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-ftp-account/taxpayer-ftp-account.state.js"></script>
+    <script src="app/entities/taxpayer-ftp-account/taxpayer-ftp-account.service.js"></script>
+    <script src="app/entities/taxpayer-ftp-account/taxpayer-ftp-account.controller.js"></script>
+    <script src="app/entities/taxpayer-ftp-account/taxpayer-ftp-account-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-ftp-account/taxpayer-ftp-account-detail.controller.js"></script>
+    <script src="app/entities/taxpayer-ftp-account/taxpayer-ftp-account-delete-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-mail-accounts/taxpayer-mail-accounts.state.js"></script>
+    <script src="app/entities/taxpayer-mail-accounts/taxpayer-mail-accounts.service.js"></script>
+    <script src="app/entities/taxpayer-mail-accounts/taxpayer-mail-accounts.controller.js"></script>
+    <script src="app/entities/taxpayer-mail-accounts/taxpayer-mail-accounts-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-mail-accounts/taxpayer-mail-accounts-detail.controller.js"></script>
+    <script src="app/entities/taxpayer-mail-accounts/taxpayer-mail-accounts-delete-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-client/taxpayer-client.state.js"></script>
+    <script src="app/entities/taxpayer-client/taxpayer-client.service.js"></script>
+    <script src="app/entities/taxpayer-client/taxpayer-client.controller.js"></script>
+    <script src="app/entities/taxpayer-client/taxpayer-client-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-client/taxpayer-client-detail.controller.js"></script>
+    <script src="app/entities/taxpayer-client/taxpayer-client-delete-dialog.controller.js"></script>
+	<script src="app/entities/client-address/client-address.state.js"></script>
+    <script src="app/entities/client-address/client-address.service.js"></script>
+    <script src="app/entities/client-address/client-address.controller.js"></script>
+    <script src="app/entities/client-address/client-address-dialog.controller.js"></script>
+    <script src="app/entities/client-address/client-address-detail.controller.js"></script>
+    <script src="app/entities/client-address/client-address-delete-dialog.controller.js"></script>
+	<script src="app/entities/taxpayer-concept/taxpayer-concept.state.js"></script>
+    <script src="app/entities/taxpayer-concept/taxpayer-concept.service.js"></script>
+    <script src="app/entities/taxpayer-concept/taxpayer-concept.controller.js"></script>
+    <script src="app/entities/taxpayer-concept/taxpayer-concept-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-concept/taxpayer-concept-detail.controller.js"></script>
+    <script src="app/entities/taxpayer-concept/taxpayer-concept-delete-dialog.controller.js"></script>
+	<script src="app/entities/measure-unit-concept/measure-unit-concept.state.js"></script>
+    <script src="app/entities/measure-unit-concept/measure-unit-concept.service.js"></script>
+    <script src="app/entities/measure-unit-concept/measure-unit-concept.controller.js"></script>
+    <script src="app/entities/measure-unit-concept/measure-unit-concept-dialog.controller.js"></script>
+    <script src="app/entities/measure-unit-concept/measure-unit-concept-detail.controller.js"></script>
+    <script src="app/entities/measure-unit-concept/measure-unit-concept-delete-dialog.controller.js"></script>
+	<script src="app/entities/price-concept/price-concept.state.js"></script>
+    <script src="app/entities/price-concept/price-concept.service.js"></script>
+    <script src="app/entities/price-concept/price-concept.controller.js"></script>
+    <script src="app/entities/price-concept/price-concept-dialog.controller.js"></script>
+    <script src="app/entities/price-concept/price-concept-detail.controller.js"></script>
+    <script src="app/entities/price-concept/price-concept-delete-dialog.controller.js"></script>
+	<script src="app/entities/discount-concept/discount-concept.state.js"></script>
+    <script src="app/entities/discount-concept/discount-concept.service.js"></script>
+    <script src="app/entities/discount-concept/discount-concept.controller.js"></script>
+    <script src="app/entities/discount-concept/discount-concept-dialog.controller.js"></script>
+    <script src="app/entities/discount-concept/discount-concept-detail.controller.js"></script>
+    <script src="app/entities/discount-concept/discount-concept-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-local-retentions/freecom-local-retentions.state.js"></script>
+    <script src="app/entities/freecom-local-retentions/freecom-local-retentions.service.js"></script>
+    <script src="app/entities/freecom-local-retentions/freecom-local-retentions.controller.js"></script>
+    <script src="app/entities/freecom-local-retentions/freecom-local-retentions-dialog.controller.js"></script>
+    <script src="app/entities/freecom-local-retentions/freecom-local-retentions-detail.controller.js"></script>
+    <script src="app/entities/freecom-local-retentions/freecom-local-retentions-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-local-transfered/freecom-local-transfered.state.js"></script>
+    <script src="app/entities/freecom-local-transfered/freecom-local-transfered.service.js"></script>
+    <script src="app/entities/freecom-local-transfered/freecom-local-transfered.controller.js"></script>
+    <script src="app/entities/freecom-local-transfered/freecom-local-transfered-dialog.controller.js"></script>
+    <script src="app/entities/freecom-local-transfered/freecom-local-transfered-detail.controller.js"></script>
+    <script src="app/entities/freecom-local-transfered/freecom-local-transfered-delete-dialog.controller.js"></script>
+    <script src="app/entities/branch-office/branch-office.state.js"></script>
+    <script src="app/entities/branch-office/branch-office.service.js"></script>
+    <script src="app/entities/branch-office/branch-office.controller.js"></script>
+    <script src="app/entities/branch-office/branch-office-dialog.controller.js"></script>
+    <script src="app/entities/branch-office/branch-office-detail.controller.js"></script>
+    <script src="app/entities/branch-office/branch-office-delete-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-account/add-seriefolio.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-seriefolio.controller.js"></script>
+    <script src="app/entities/taxpayer-account/dialog-seriefolio.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account.service.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account.state.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-general.controller.js"></script>
+    <script src="app/entities/taxpayer-account/conformation-delete-cert.controller.js"></script>
+    <script src="app/entities/taxpayer-account/validateDC.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-users.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-inbox.controller.js"></script>
+    <script src="app/entities/taxpayer-account/add-user.controller.js"></script>
+    <script src="app/entities/taxpayer-account/add-taxregime.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-taxregime.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-branchoffice.controller.js"></script>
+    <script src="app/entities/taxpayer-account/add-branchoffice.controller.js"></script>
+    <script src="app/entities/taxpayer-account/dialog-branchoffice.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-detail.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-mail.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-transaction.controller.js"></script>
+    <script src="app/entities/taxpayer-account/confirmation-transfer.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-ftp.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-index.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-taxer-home.controller.js"></script>
+    <script src="app/entities/taxpayer-account/taxpayer-account-delete-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-account/messtransactions.controller.js"></script>
+    <script src="app/entities/taxpayer-account/messWelcome.controller.js"></script>
+    <script src="app/entities/tax-address/tax-address.state.js"></script>
+    <script src="app/entities/tax-address/tax-address.service.js"></script>
+    <script src="app/entities/tax-address/tax-address.controller.js"></script>
+    <script src="app/entities/tax-address/tax-address-dialog.controller.js"></script>
+    <script src="app/entities/tax-address/tax-address-detail.controller.js"></script>
+    <script src="app/entities/tax-address/tax-address-delete-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-certificate/taxpayer-certificate.state.js"></script>
+    <script src="app/entities/taxpayer-certificate/taxpayer-certificate.service.js"></script>
+    <script src="app/entities/taxpayer-certificate/taxpayer-certificate.controller.js"></script>
+    <script src="app/entities/taxpayer-certificate/taxpayer-certificate-dialog.controller.js"></script>
+    <script src="app/entities/taxpayer-certificate/taxpayer-certificate-detail.controller.js"></script>
+    <script src="app/entities/taxpayer-certificate/taxpayer-certificate-delete-dialog.controller.js"></script>
+    <script src="app/entities/request-taxpayer-account/request-taxpayer-account.state.js"></script>
+    <script src="app/entities/request-taxpayer-account/request-taxpayer-account.service.js"></script>
+    <script src="app/entities/request-taxpayer-account/request-taxpayer-account.controller.js"></script>
+    <script src="app/entities/request-taxpayer-account/request-taxpayer-account-dialog.controller.js"></script>
+    <script src="app/entities/request-taxpayer-account/request-taxpayer-account-detail.controller.js"></script>
+    <script src="app/entities/request-taxpayer-account/request-taxpayer-account-delete-dialog.controller.js"></script>
+    <script src="app/entities/request-taxpayer-account/request-taxpayer-account-new.controller.js"></script>
+    <script src="app/entities/request-taxpayer-account/request-taxpayer-account-afilitated.controller.js"></script>
+    <script src="app/entities/tax-address-request/tax-address-request.state.js"></script>
+    <script src="app/entities/tax-address-request/tax-address-request.service.js"></script>
+    <script src="app/entities/tax-address-request/tax-address-request.controller.js"></script>
+    <script src="app/entities/tax-address-request/tax-address-request-dialog.controller.js"></script>
+    <script src="app/entities/tax-address-request/tax-address-request-detail.controller.js"></script>
+    <script src="app/entities/tax-address-request/tax-address-request-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-complement/c-complement.state.js"></script>
+    <script src="app/entities/c-complement/c-complement.service.js"></script>
+    <script src="app/entities/c-complement/c-complement.controller.js"></script>
+    <script src="app/entities/c-complement/c-complement-dialog.controller.js"></script>
+    <script src="app/entities/c-complement/c-complement-detail.controller.js"></script>
+    <script src="app/entities/c-complement/c-complement-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-commodity/freecom-commodity.state.js"></script>
+    <script src="app/entities/freecom-commodity/freecom-commodity.service.js"></script>
+    <script src="app/entities/freecom-commodity/freecom-commodity.controller.js"></script>
+    <script src="app/entities/freecom-commodity/freecom-commodity-dialog.controller.js"></script>
+    <script src="app/entities/freecom-commodity/freecom-commodity-detail.controller.js"></script>
+    <script src="app/entities/freecom-commodity/freecom-commodity-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-specific-descriptions/freecom-specific-descriptions.state.js"></script>
+    <script src="app/entities/freecom-specific-descriptions/freecom-specific-descriptions.service.js"></script>
+    <script src="app/entities/freecom-specific-descriptions/freecom-specific-descriptions.controller.js"></script>
+    <script src="app/entities/freecom-specific-descriptions/freecom-specific-descriptions-dialog.controller.js"></script>
+    <script src="app/entities/freecom-specific-descriptions/freecom-specific-descriptions-detail.controller.js"></script>
+    <script src="app/entities/freecom-specific-descriptions/freecom-specific-descriptions-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-foreign-trade/freecom-foreign-trade.state.js"></script>
+    <script src="app/entities/freecom-foreign-trade/freecom-foreign-trade.service.js"></script>
+    <script src="app/entities/freecom-foreign-trade/freecom-foreign-trade.controller.js"></script>
+    <script src="app/entities/freecom-foreign-trade/freecom-foreign-trade-dialog.controller.js"></script>
+    <script src="app/entities/freecom-foreign-trade/freecom-foreign-trade-detail.controller.js"></script>
+    <script src="app/entities/freecom-foreign-trade/freecom-foreign-trade-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-addressee/freecom-addressee.state.js"></script>
+    <script src="app/entities/freecom-addressee/freecom-addressee.service.js"></script>
+    <script src="app/entities/freecom-addressee/freecom-addressee.controller.js"></script>
+    <script src="app/entities/freecom-addressee/freecom-addressee-dialog.controller.js"></script>
+    <script src="app/entities/freecom-addressee/freecom-addressee-detail.controller.js"></script>
+    <script src="app/entities/freecom-addressee/freecom-addressee-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-type-operation-ce/c-type-operation-ce.state.js"></script>
+    <script src="app/entities/c-type-operation-ce/c-type-operation-ce.service.js"></script>
+    <script src="app/entities/c-type-operation-ce/c-type-operation-ce.controller.js"></script>
+    <script src="app/entities/c-type-operation-ce/c-type-operation-ce-dialog.controller.js"></script>
+    <script src="app/entities/c-type-operation-ce/c-type-operation-ce-detail.controller.js"></script>
+    <script src="app/entities/c-type-operation-ce/c-type-operation-ce-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-key-pediment/c-key-pediment.state.js"></script>
+    <script src="app/entities/c-key-pediment/c-key-pediment.service.js"></script>
+    <script src="app/entities/c-key-pediment/c-key-pediment.controller.js"></script>
+    <script src="app/entities/c-key-pediment/c-key-pediment-dialog.controller.js"></script>
+    <script src="app/entities/c-key-pediment/c-key-pediment-detail.controller.js"></script>
+    <script src="app/entities/c-key-pediment/c-key-pediment-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-custom-unit/freecom-custom-unit.state.js"></script>
+    <script src="app/entities/freecom-custom-unit/freecom-custom-unit.service.js"></script>
+    <script src="app/entities/freecom-custom-unit/freecom-custom-unit.controller.js"></script>
+    <script src="app/entities/freecom-custom-unit/freecom-custom-unit-dialog.controller.js"></script>
+    <script src="app/entities/freecom-custom-unit/freecom-custom-unit-detail.controller.js"></script>
+    <script src="app/entities/freecom-custom-unit/freecom-custom-unit-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-tariff-fraction/freecom-tariff-fraction.state.js"></script>
+    <script src="app/entities/freecom-tariff-fraction/freecom-tariff-fraction.service.js"></script>
+    <script src="app/entities/freecom-tariff-fraction/freecom-tariff-fraction.controller.js"></script>
+    <script src="app/entities/freecom-tariff-fraction/freecom-tariff-fraction-dialog.controller.js"></script>
+    <script src="app/entities/freecom-tariff-fraction/freecom-tariff-fraction-detail.controller.js"></script>
+    <script src="app/entities/freecom-tariff-fraction/freecom-tariff-fraction-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-incoterm/freecom-incoterm.state.js"></script>
+    <script src="app/entities/freecom-incoterm/freecom-incoterm.service.js"></script>
+    <script src="app/entities/freecom-incoterm/freecom-incoterm.controller.js"></script>
+    <script src="app/entities/freecom-incoterm/freecom-incoterm-dialog.controller.js"></script>
+    <script src="app/entities/freecom-incoterm/freecom-incoterm-detail.controller.js"></script>
+    <script src="app/entities/freecom-incoterm/freecom-incoterm-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-spei-third/freecom-spei-third.state.js"></script>
+    <script src="app/entities/freecom-spei-third/freecom-spei-third.service.js"></script>
+    <script src="app/entities/freecom-spei-third/freecom-spei-third.controller.js"></script>
+    <script src="app/entities/freecom-spei-third/freecom-spei-third-dialog.controller.js"></script>
+    <script src="app/entities/freecom-spei-third/freecom-spei-third-detail.controller.js"></script>
+    <script src="app/entities/freecom-spei-third/freecom-spei-third-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-spei/freecom-spei.state.js"></script>
+    <script src="app/entities/freecom-spei/freecom-spei.service.js"></script>
+    <script src="app/entities/freecom-spei/freecom-spei.controller.js"></script>
+    <script src="app/entities/freecom-spei/freecom-spei-dialog.controller.js"></script>
+    <script src="app/entities/freecom-spei/freecom-spei-detail.controller.js"></script>
+    <script src="app/entities/freecom-spei/freecom-spei-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-payer/freecom-payer.state.js"></script>
+    <script src="app/entities/freecom-payer/freecom-payer.service.js"></script>
+    <script src="app/entities/freecom-payer/freecom-payer.controller.js"></script>
+    <script src="app/entities/freecom-payer/freecom-payer-dialog.controller.js"></script>
+    <script src="app/entities/freecom-payer/freecom-payer-detail.controller.js"></script>
+    <script src="app/entities/freecom-payer/freecom-payer-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-beneficiary/freecom-beneficiary.state.js"></script>
+    <script src="app/entities/freecom-beneficiary/freecom-beneficiary.service.js"></script>
+    <script src="app/entities/freecom-beneficiary/freecom-beneficiary.controller.js"></script>
+    <script src="app/entities/freecom-beneficiary/freecom-beneficiary-dialog.controller.js"></script>
+    <script src="app/entities/freecom-beneficiary/freecom-beneficiary-detail.controller.js"></script>
+    <script src="app/entities/freecom-beneficiary/freecom-beneficiary-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-product-key/freecom-product-key.state.js"></script>
+    <script src="app/entities/freecom-product-key/freecom-product-key.service.js"></script>
+    <script src="app/entities/freecom-product-key/freecom-product-key.controller.js"></script>
+    <script src="app/entities/freecom-product-key/freecom-product-key-dialog.controller.js"></script>
+    <script src="app/entities/freecom-product-key/freecom-product-key-detail.controller.js"></script>
+    <script src="app/entities/freecom-product-key/freecom-product-key-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-ecc-11-transfer/freecom-ecc-11-transfer.state.js"></script>
+    <script src="app/entities/freecom-ecc-11-transfer/freecom-ecc-11-transfer.service.js"></script>
+    <script src="app/entities/freecom-ecc-11-transfer/freecom-ecc-11-transfer.controller.js"></script>
+    <script src="app/entities/freecom-ecc-11-transfer/freecom-ecc-11-transfer-dialog.controller.js"></script>
+    <script src="app/entities/freecom-ecc-11-transfer/freecom-ecc-11-transfer-detail.controller.js"></script>
+    <script src="app/entities/freecom-ecc-11-transfer/freecom-ecc-11-transfer-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-ecc-11-concept/freecom-ecc-11-concept.state.js"></script>
+    <script src="app/entities/freecom-ecc-11-concept/freecom-ecc-11-concept.service.js"></script>
+    <script src="app/entities/freecom-ecc-11-concept/freecom-ecc-11-concept.controller.js"></script>
+    <script src="app/entities/freecom-ecc-11-concept/freecom-ecc-11-concept-dialog.controller.js"></script>
+    <script src="app/entities/freecom-ecc-11-concept/freecom-ecc-11-concept-detail.controller.js"></script>
+    <script src="app/entities/freecom-ecc-11-concept/freecom-ecc-11-concept-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-ecc-11/freecom-ecc-11.state.js"></script>
+    <script src="app/entities/freecom-ecc-11/freecom-ecc-11.service.js"></script>
+    <script src="app/entities/freecom-ecc-11/freecom-ecc-11.controller.js"></script>
+    <script src="app/entities/freecom-ecc-11/freecom-ecc-11-dialog.controller.js"></script>
+    <script src="app/entities/freecom-ecc-11/freecom-ecc-11-detail.controller.js"></script>
+    <script src="app/entities/freecom-ecc-11/freecom-ecc-11-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-tax-type/freecom-tax-type.state.js"></script>
+    <script src="app/entities/freecom-tax-type/freecom-tax-type.service.js"></script>
+    <script src="app/entities/freecom-tax-type/freecom-tax-type.controller.js"></script>
+    <script src="app/entities/freecom-tax-type/freecom-tax-type-dialog.controller.js"></script>
+    <script src="app/entities/freecom-tax-type/freecom-tax-type-detail.controller.js"></script>
+    <script src="app/entities/freecom-tax-type/freecom-tax-type-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-determined/freecom-determined.state.js"></script>
+    <script src="app/entities/freecom-determined/freecom-determined.service.js"></script>
+    <script src="app/entities/freecom-determined/freecom-determined.controller.js"></script>
+    <script src="app/entities/freecom-determined/freecom-determined-dialog.controller.js"></script>
+    <script src="app/entities/freecom-determined/freecom-determined-detail.controller.js"></script>
+    <script src="app/entities/freecom-determined/freecom-determined-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-concept-fuel/freecom-concept-fuel.state.js"></script>
+    <script src="app/entities/freecom-concept-fuel/freecom-concept-fuel.service.js"></script>
+    <script src="app/entities/freecom-concept-fuel/freecom-concept-fuel.controller.js"></script>
+    <script src="app/entities/freecom-concept-fuel/freecom-concept-fuel-dialog.controller.js"></script>
+    <script src="app/entities/freecom-concept-fuel/freecom-concept-fuel-detail.controller.js"></script>
+    <script src="app/entities/freecom-concept-fuel/freecom-concept-fuel-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-fuel-consumption/freecom-fuel-consumption.state.js"></script>
+    <script src="app/entities/freecom-fuel-consumption/freecom-fuel-consumption.service.js"></script>
+    <script src="app/entities/freecom-fuel-consumption/freecom-fuel-consumption.controller.js"></script>
+    <script src="app/entities/freecom-fuel-consumption/freecom-fuel-consumption-dialog.controller.js"></script>
+    <script src="app/entities/freecom-fuel-consumption/freecom-fuel-consumption-detail.controller.js"></script>
+    <script src="app/entities/freecom-fuel-consumption/freecom-fuel-consumption-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-paybill-concept/freecom-paybill-concept.state.js"></script>
+    <script src="app/entities/freecom-paybill-concept/freecom-paybill-concept.service.js"></script>
+    <script src="app/entities/freecom-paybill-concept/freecom-paybill-concept.controller.js"></script>
+    <script src="app/entities/freecom-paybill-concept/freecom-paybill-concept-dialog.controller.js"></script>
+    <script src="app/entities/freecom-paybill-concept/freecom-paybill-concept-detail.controller.js"></script>
+    <script src="app/entities/freecom-paybill-concept/freecom-paybill-concept-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-storeroom-paybill/freecom-storeroom-paybill.state.js"></script>
+    <script src="app/entities/freecom-storeroom-paybill/freecom-storeroom-paybill.service.js"></script>
+    <script src="app/entities/freecom-storeroom-paybill/freecom-storeroom-paybill.controller.js"></script>
+    <script src="app/entities/freecom-storeroom-paybill/freecom-storeroom-paybill-dialog.controller.js"></script>
+    <script src="app/entities/freecom-storeroom-paybill/freecom-storeroom-paybill-detail.controller.js"></script>
+    <script src="app/entities/freecom-storeroom-paybill/freecom-storeroom-paybill-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-vehicle-customs-information/freecom-vehicle-customs-information.state.js"></script>
+    <script src="app/entities/freecom-vehicle-customs-information/freecom-vehicle-customs-information.service.js"></script>
+    <script src="app/entities/freecom-vehicle-customs-information/freecom-vehicle-customs-information.controller.js"></script>
+    <script src="app/entities/freecom-vehicle-customs-information/freecom-vehicle-customs-information-dialog.controller.js"></script>
+    <script src="app/entities/freecom-vehicle-customs-information/freecom-vehicle-customs-information-detail.controller.js"></script>
+    <script src="app/entities/freecom-vehicle-customs-information/freecom-vehicle-customs-information-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-used-vehicle/freecom-used-vehicle.state.js"></script>
+    <script src="app/entities/freecom-used-vehicle/freecom-used-vehicle.service.js"></script>
+    <script src="app/entities/freecom-used-vehicle/freecom-used-vehicle.controller.js"></script>
+    <script src="app/entities/freecom-used-vehicle/freecom-used-vehicle-dialog.controller.js"></script>
+    <script src="app/entities/freecom-used-vehicle/freecom-used-vehicle-detail.controller.js"></script>
+    <script src="app/entities/freecom-used-vehicle/freecom-used-vehicle-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-type-series/c-type-series.state.js"></script>
+    <script src="app/entities/c-type-series/c-type-series.service.js"></script>
+    <script src="app/entities/c-type-series/c-type-series.controller.js"></script>
+    <script src="app/entities/c-type-series/c-type-series-dialog.controller.js"></script>
+    <script src="app/entities/c-type-series/c-type-series-detail.controller.js"></script>
+    <script src="app/entities/c-type-series/c-type-series-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-info-customs-destruction/freecom-info-customs-destruction.state.js"></script>
+    <script src="app/entities/freecom-info-customs-destruction/freecom-info-customs-destruction.service.js"></script>
+    <script src="app/entities/freecom-info-customs-destruction/freecom-info-customs-destruction.controller.js"></script>
+    <script src="app/entities/freecom-info-customs-destruction/freecom-info-customs-destruction-dialog.controller.js"></script>
+    <script src="app/entities/freecom-info-customs-destruction/freecom-info-customs-destruction-detail.controller.js"></script>
+    <script src="app/entities/freecom-info-customs-destruction/freecom-info-customs-destruction-delete-dialog.controller.js"></script>
+    <script src="app/entities/freecom-destruction-certificate/freecom-destruction-certificate.state.js"></script>
+    <script src="app/entities/freecom-destruction-certificate/freecom-destruction-certificate.service.js"></script>
+    <script src="app/entities/freecom-destruction-certificate/freecom-destruction-certificate.controller.js"></script>
+    <script src="app/entities/freecom-destruction-certificate/freecom-destruction-certificate-dialog.controller.js"></script>
+    <script src="app/entities/freecom-destruction-certificate/freecom-destruction-certificate-detail.controller.js"></script>
+    <script src="app/entities/freecom-destruction-certificate/freecom-destruction-certificate-delete-dialog.controller.js"></script>
+    <script src="app/entities/tracemg/tracemg.state.js"></script>
+    <script src="app/entities/tracemg/tracemg.service.js"></script>
+    <script src="app/entities/tracemg/tracemg.controller.js"></script>
+    <script src="app/entities/tracemg/tracemg-dialog.controller.js"></script>
+    <script src="app/entities/tracemg/tracemg-detail.controller.js"></script>
+    <script src="app/entities/tracemg/tracemg-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-well-type/c-well-type.state.js"></script>
+    <script src="app/entities/c-well-type/c-well-type.service.js"></script>
+    <script src="app/entities/c-well-type/c-well-type.controller.js"></script>
+    <script src="app/entities/c-well-type/c-well-type-dialog.controller.js"></script>
+    <script src="app/entities/c-well-type/c-well-type-detail.controller.js"></script>
+    <script src="app/entities/c-well-type/c-well-type-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-school-level/c-school-level.state.js"></script>
+    <script src="app/entities/c-school-level/c-school-level.service.js"></script>
+    <script src="app/entities/c-school-level/c-school-level.controller.js"></script>
+    <script src="app/entities/c-school-level/c-school-level-dialog.controller.js"></script>
+    <script src="app/entities/c-school-level/c-school-level-detail.controller.js"></script>
+    <script src="app/entities/c-school-level/c-school-level-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-process-type/c-process-type.state.js"></script>
+    <script src="app/entities/c-process-type/c-process-type.service.js"></script>
+    <script src="app/entities/c-process-type/c-process-type.controller.js"></script>
+    <script src="app/entities/c-process-type/c-process-type-dialog.controller.js"></script>
+    <script src="app/entities/c-process-type/c-process-type-detail.controller.js"></script>
+    <script src="app/entities/c-process-type/c-process-type-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-committee-type/c-committee-type.state.js"></script>
+    <script src="app/entities/c-committee-type/c-committee-type.service.js"></script>
+    <script src="app/entities/c-committee-type/c-committee-type.controller.js"></script>
+    <script src="app/entities/c-committee-type/c-committee-type-dialog.controller.js"></script>
+    <script src="app/entities/c-committee-type/c-committee-type-detail.controller.js"></script>
+    <script src="app/entities/c-committee-type/c-committee-type-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-scope-type/c-scope-type.state.js"></script>
+    <script src="app/entities/c-scope-type/c-scope-type.service.js"></script>
+    <script src="app/entities/c-scope-type/c-scope-type.controller.js"></script>
+    <script src="app/entities/c-scope-type/c-scope-type-dialog.controller.js"></script>
+    <script src="app/entities/c-scope-type/c-scope-type-detail.controller.js"></script>
+    <script src="app/entities/c-scope-type/c-scope-type-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-acquired-title/c-acquired-title.state.js"></script>
+    <script src="app/entities/c-acquired-title/c-acquired-title.service.js"></script>
+    <script src="app/entities/c-acquired-title/c-acquired-title.controller.js"></script>
+    <script src="app/entities/c-acquired-title/c-acquired-title-dialog.controller.js"></script>
+    <script src="app/entities/c-acquired-title/c-acquired-title-detail.controller.js"></script>
+    <script src="app/entities/c-acquired-title/c-acquired-title-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-features-work-piece/c-features-work-piece.state.js"></script>
+    <script src="app/entities/c-features-work-piece/c-features-work-piece.service.js"></script>
+    <script src="app/entities/c-features-work-piece/c-features-work-piece.controller.js"></script>
+    <script src="app/entities/c-features-work-piece/c-features-work-piece-dialog.controller.js"></script>
+    <script src="app/entities/c-features-work-piece/c-features-work-piece-detail.controller.js"></script>
+    <script src="app/entities/c-features-work-piece/c-features-work-piece-delete-dialog.controller.js"></script>
+    <script src="app/entities/digital-certificate/digital-certificate.state.js"></script>
+    <script src="app/entities/digital-certificate/digital-certificate.service.js"></script>
+    <script src="app/entities/digital-certificate/digital-certificate.controller.js"></script>
+    <script src="app/entities/digital-certificate/digital-certificate-dialog.controller.js"></script>
+    <script src="app/entities/digital-certificate/digital-certificate-detail.controller.js"></script>
+    <script src="app/entities/digital-certificate/digital-certificate-delete-dialog.controller.js"></script>
+    <script src="app/entities/complement/complement.state.js"></script>
+    <script src="app/entities/complement/complement.service.js"></script>
+    <script src="app/entities/complement/complement.controller.js"></script>
+    <script src="app/entities/complement/complement-dialog.controller.js"></script>
+    <script src="app/entities/complement/complement-detail.controller.js"></script>
+    <script src="app/entities/complement/complement-delete-dialog.controller.js"></script>
+    <script src="app/entities/cfdi-types/cfdi-types.state.js"></script>
+    <script src="app/entities/cfdi-types/cfdi-types.service.js"></script>
+    <script src="app/entities/cfdi-types/cfdi-types.controller.js"></script>
+    <script src="app/entities/cfdi-types/cfdi-types-dialog.controller.js"></script>
+    <script src="app/entities/cfdi-types/cfdi-types-detail.controller.js"></script>
+    <script src="app/entities/cfdi-types/cfdi-types-delete-dialog.controller.js"></script>
+    <script src="app/entities/cfdi-type-doc/cfdi-type-doc.state.js"></script>
+    <script src="app/entities/cfdi-type-doc/cfdi-type-doc.service.js"></script>
+    <script src="app/entities/cfdi-type-doc/cfdi-type-doc.controller.js"></script>
+    <script src="app/entities/cfdi-type-doc/cfdi-type-doc-dialog.controller.js"></script>
+    <script src="app/entities/cfdi-type-doc/cfdi-type-doc-detail.controller.js"></script>
+    <script src="app/entities/cfdi-type-doc/cfdi-type-doc-delete-dialog.controller.js"></script>
+    <script src="app/entities/cfdi-template/cfdi-template.state.js"></script>
+    <script src="app/entities/cfdi-template/cfdi-template.service.js"></script>
+    <script src="app/entities/cfdi-template/cfdi-template.controller.js"></script>
+    <script src="app/entities/cfdi-template/cfdi-template-dialog.controller.js"></script>
+    <script src="app/entities/cfdi-template/cfdi-template-detail.controller.js"></script>
+    <script src="app/entities/cfdi-template/cfdi-template-delete-dialog.controller.js"></script>
+    <script src="app/entities/cfdi-states/cfdi-states.state.js"></script>
+    <script src="app/entities/cfdi-states/cfdi-states.service.js"></script>
+    <script src="app/entities/cfdi-states/cfdi-states.controller.js"></script>
+    <script src="app/entities/cfdi-states/cfdi-states-dialog.controller.js"></script>
+    <script src="app/entities/cfdi-states/cfdi-states-detail.controller.js"></script>
+    <script src="app/entities/cfdi-states/cfdi-states-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-zip-code/c-zip-code.state.js"></script>
+    <script src="app/entities/c-zip-code/c-zip-code.service.js"></script>
+    <script src="app/entities/c-zip-code/c-zip-code.controller.js"></script>
+    <script src="app/entities/c-zip-code/c-zip-code-dialog.controller.js"></script>
+    <script src="app/entities/c-zip-code/c-zip-code-detail.controller.js"></script>
+    <script src="app/entities/c-zip-code/c-zip-code-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-state/c-state.state.js"></script>
+    <script src="app/entities/c-state/c-state.service.js"></script>
+    <script src="app/entities/c-state/c-state.controller.js"></script>
+    <script src="app/entities/c-state/c-state-dialog.controller.js"></script>
+    <script src="app/entities/c-state/c-state-detail.controller.js"></script>
+    <script src="app/entities/c-state/c-state-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-state-event/c-state-event.state.js"></script>
+    <script src="app/entities/c-state-event/c-state-event.service.js"></script>
+    <script src="app/entities/c-state-event/c-state-event.controller.js"></script>
+    <script src="app/entities/c-state-event/c-state-event-dialog.controller.js"></script>
+    <script src="app/entities/c-state-event/c-state-event-detail.controller.js"></script>
+    <script src="app/entities/c-state-event/c-state-event-delete-dialog.controller.js"></script>
+    <script src="app/entities/free-tax-transfered/free-tax-transfered.state.js"></script>
+    <script src="app/entities/free-tax-transfered/free-tax-transfered.service.js"></script>
+    <script src="app/entities/free-tax-transfered/free-tax-transfered.controller.js"></script>
+    <script src="app/entities/free-tax-transfered/free-tax-transfered-dialog.controller.js"></script>
+    <script src="app/entities/free-tax-transfered/free-tax-transfered-detail.controller.js"></script>
+    <script src="app/entities/free-tax-transfered/free-tax-transfered-delete-dialog.controller.js"></script>
+    <script src="app/entities/type-taxpayer/type-taxpayer.state.js"></script>
+    <script src="app/entities/type-taxpayer/type-taxpayer.service.js"></script>
+    <script src="app/entities/type-taxpayer/type-taxpayer.controller.js"></script>
+    <script src="app/entities/type-taxpayer/type-taxpayer-dialog.controller.js"></script>
+    <script src="app/entities/type-taxpayer/type-taxpayer-detail.controller.js"></script>
+    <script src="app/entities/type-taxpayer/type-taxpayer-delete-dialog.controller.js"></script>
+    <script src="app/entities/free-tax-retentions/free-tax-retentions.state.js"></script>
+    <script src="app/entities/free-tax-retentions/free-tax-retentions.service.js"></script>
+    <script src="app/entities/free-tax-retentions/free-tax-retentions.controller.js"></script>
+    <script src="app/entities/free-tax-retentions/free-tax-retentions-dialog.controller.js"></script>
+    <script src="app/entities/free-tax-retentions/free-tax-retentions-detail.controller.js"></script>
+    <script src="app/entities/free-tax-retentions/free-tax-retentions-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-municipality/c-municipality.state.js"></script>
+    <script src="app/entities/c-municipality/c-municipality.service.js"></script>
+    <script src="app/entities/c-municipality/c-municipality.controller.js"></script>
+    <script src="app/entities/c-municipality/c-municipality-dialog.controller.js"></script>
+    <script src="app/entities/c-municipality/c-municipality-detail.controller.js"></script>
+    <script src="app/entities/c-municipality/c-municipality-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-money/c-money.state.js"></script>
+    <script src="app/entities/c-money/c-money.service.js"></script>
+    <script src="app/entities/c-money/c-money.controller.js"></script>
+    <script src="app/entities/c-money/c-money-dialog.controller.js"></script>
+    <script src="app/entities/c-money/c-money-detail.controller.js"></script>
+    <script src="app/entities/c-money/c-money-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-country/c-country.state.js"></script>
+    <script src="app/entities/c-country/c-country.service.js"></script>
+    <script src="app/entities/c-country/c-country.controller.js"></script>
+    <script src="app/entities/c-country/c-country-dialog.controller.js"></script>
+    <script src="app/entities/c-country/c-country-detail.controller.js"></script>
+    <script src="app/entities/c-country/c-country-delete-dialog.controller.js"></script>
+    <script src="app/entities/c-colony/c-colony.state.js"></script>
+    <script src="app/entities/c-colony/c-colony.service.js"></script>
+    <script src="app/entities/c-colony/c-colony.controller.js"></script>
+    <script src="app/entities/c-colony/c-colony-dialog.controller.js"></script>
+    <script src="app/entities/c-colony/c-colony-detail.controller.js"></script>
+    <script src="app/entities/c-colony/c-colony-delete-dialog.controller.js"></script>
+    <script src="app/entities/config-pathrootfile/config-pathrootfile.state.js"></script>
+    <script src="app/entities/config-pathrootfile/config-pathrootfile.service.js"></script>
+    <script src="app/entities/config-pathrootfile/config-pathrootfile.controller.js"></script>
+    <script src="app/entities/config-pathrootfile/config-pathrootfile-dialog.controller.js"></script>
+    <script src="app/entities/config-pathrootfile/config-pathrootfile-detail.controller.js"></script>
+    <script src="app/entities/config-pathrootfile/config-pathrootfile-delete-dialog.controller.js"></script>
+    <script src="app/entities/config-pathrootfile/config-pathrootfiles-new.controller.js"></script>	
+    <script src="app/entities/billing-account-state/billing-account-state.state.js"></script>
+    <script src="app/entities/billing-account-state/billing-account-state.service.js"></script>
+    <script src="app/entities/billing-account-state/billing-account-state.controller.js"></script>
+    <script src="app/entities/billing-account-state/billing-account-state-dialog.controller.js"></script>
+    <script src="app/entities/billing-account-state/billing-account-state-detail.controller.js"></script>
+    <script src="app/entities/billing-account-state/billing-account-state-delete-dialog.controller.js"></script>	
+	<script src="app/entities/customs-info-part/customs-info-part.state.js"></script>
+    <script src="app/entities/customs-info-part/customs-info-part.service.js"></script>
+    <script src="app/entities/customs-info-part/customs-info-part.controller.js"></script>
+    <script src="app/entities/customs-info-part/customs-info-part-dialog.controller.js"></script>
+    <script src="app/entities/customs-info-part/customs-info-part-detail.controller.js"></script>
+    <script src="app/entities/customs-info-part/customs-info-part-delete-dialog.controller.js"></script>	
+    <script src="app/components/util/truncate-words.filter.js"></script>
+    <script src="app/components/util/truncate-characters.filter.js"></script>
+    <script src="app/components/util/sort.directive.js"></script>
+    <script src="app/components/util/sort-by.directive.js"></script>
+    <script src="app/components/util/parse-links.service.js"></script>
+    <script src="app/components/util/pagination-util.service.js"></script>
+    <script src="app/components/util/jhi-item-count.directive.js"></script>
+    <script src="app/components/util/date-util.service.js"></script>
+    <script src="app/components/util/data-util.service.js"></script>
+    <script src="app/components/util/capitalize.filter.js"></script>
+    <script src="app/components/util/ui-mega-number-format.filter.js"></script>
+    <script src="app/components/util/ui-mega-html-to-plain-text.filter.js"></script>
+    <script src="app/components/util/base64.service.js"></script>
+    <script src="app/components/login/login.service.js"></script>
+    <script src="app/components/login/login.controller.js"></script>
+    <script src="app/components/language/language.service.js"></script>
+    <script src="app/components/language/language.filter.js"></script>
+    <script src="app/components/language/language.controller.js"></script>
+    <script src="app/components/language/language.constants.js"></script>
+    <script src="app/components/form/uib-pagination.config.js"></script>
+    <script src="app/components/form/uib-pager.config.js"></script>
+    <script src="app/components/form/show-validation.directive.js"></script>
+    <script src="app/components/form/pagination.constants.js"></script>
+    <script src="app/components/form/minbytes.directive.js"></script>
+    <script src="app/components/form/maxbytes.directive.js"></script>
+    <script src="app/components/form/ui-mega-number-format.directive.js"></script>
+    <script src="app/components/alert/alert.service.js"></script>
+    <script src="app/components/alert/alert.directive.js"></script>
+    <script src="app/components/alert/alert-error.directive.js"></script>
+    <script src="app/blocks/interceptor/notification.interceptor.js"></script>
+    <script src="app/blocks/interceptor/errorhandler.interceptor.js"></script>
+    <script src="app/blocks/interceptor/auth-expired.interceptor.js"></script>
+    <script src="app/blocks/handlers/translation.handler.js"></script>
+    <script src="app/blocks/handlers/state.handler.js"></script>
+    <script src="app/blocks/config/translation.config.js"></script>
+    <script src="app/blocks/config/translation-storage.provider.js"></script>
+    <script src="app/blocks/config/localstorage.config.js"></script>
+    <script src="app/blocks/config/http.config.js"></script>
+    <script src="app/blocks/config/compile.config.js"></script>
+    <script src="app/blocks/config/alert.config.js"></script>
+    <script src="app/admin/user-management/user-management.state.js"></script>
+    <script src="app/admin/user-management/user-management.controller.js"></script>
+    <script src="app/admin/user-management/user-management-dialog.controller.js"></script>
+    <script src="app/admin/user-management/user-management-detail.controller.js"></script>
+    <script src="app/admin/user-management/user-management-delete-dialog.controller.js"></script>
+    <script src="app/admin/metrics/metrics.state.js"></script>
+    <script src="app/admin/metrics/metrics.service.js"></script>
+    <script src="app/admin/metrics/metrics.modal.controller.js"></script>
+    <script src="app/admin/metrics/metrics.controller.js"></script>
+    <script src="app/admin/logs/logs.state.js"></script>
+    <script src="app/admin/logs/logs.service.js"></script>
+    <script src="app/admin/logs/logs.controller.js"></script>
+    <script src="app/admin/health/health.state.js"></script>
+    <script src="app/admin/health/health.service.js"></script>
+    <script src="app/admin/health/health.modal.controller.js"></script>
+    <script src="app/admin/health/health.controller.js"></script>
+    <script src="app/admin/docs/docs.state.js"></script>
+    <script src="app/admin/configuration/configuration.state.js"></script>
+    <script src="app/admin/configuration/configuration.service.js"></script>
+    <script src="app/admin/configuration/configuration.controller.js"></script>
+    <script src="app/admin/audits/audits.state.js"></script>
+    <script src="app/admin/audits/audits.service.js"></script>
+    <script src="app/admin/audits/audits.controller.js"></script>
+    <script src="app/account/settings/settings.state.js"></script>
+    <script src="app/account/settings/settings.controller.js"></script>
+    <script src="app/account/sessions/sessions.state.js"></script>
+    <script src="app/account/sessions/sessions.controller.js"></script>
+    <script src="app/account/password/password.state.js"></script>
+    <script src="app/account/password/password.controller.js"></script>
+    <script src="app/account/password/password-strength-bar.directive.js"></script>
+    <script src="app/account/register/register.state.js"></script>
+    <script src="app/account/register/register.controller.js"></script>
+    <script src="app/account/activate/activate.state.js"></script>
+    <script src="app/account/activate/activate.controller.js"></script>
+    <script src="app/entities/entity.state.js"></script>
+    <script src="app/home/home.state.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/home/messegeUser.controller.js"></script>
+    <script src="app/admin/admin.state.js"></script>
+    <script src="app/account/account.state.js"></script>
+    <script src="app/app.state.js"></script>
+    <script src="app/app.constants.js"></script>
+    <!-- endinject -->
+    <!-- endbuild -->
+
+
+
+	<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script src="content/js/jquery.2.1.1.min.js"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script src="content/js/jquery.1.11.1.min.js"></script>
+		<![endif]-->
+
+		<!--[if !IE]> -->
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='content/js/jquery.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script type="text/javascript">
+		 window.jQuery || document.write("<script src='content/js/jquery1x.min.js'>"+"<"+"/script>");
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='content/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="content/js/bootstrap.min.js"></script>
+
+	<!-- page specific plugin scripts -->
+	<script src="content/js/jquery-ui.custom.min.js"></script>
+	<script src="content/js/jquery.ui.touch-punch.min.js"></script>
+	<script src="content/js/jquery.easypiechart.min.js"></script>
+	<script src="content/js/jquery.sparkline.min.js"></script>
+	<script src="content/js/jquery.flot.min.js"></script>
+	<script src="content/js/jquery.flot.pie.min.js"></script>
+	<script src="content/js/jquery.flot.resize.min.js"></script>
+
+	<script src="content/js/jquery.jqGrid.min.js"></script>
+	<script src="content/js/grid.locale-en.js"></script>
+
+	<!-- ace scripts -->
+	<script src="content/js/ace-elements.min.js"></script>
+	<script src="content/js/ace.min.js"></script>
+
+	<!-- inline scripts related to this page -->
+	<script type="text/javascript">
+		jQuery(function($) {
+		 var $sidebar = $('.sidebar').eq(0);
+		 if( !$sidebar.hasClass('h-sidebar') ) return;
+
+		 $(window).on('resize.ace.top_menu', function() {
+			$(document).triggerHandler('settings.ace.top_menu', ['sidebar_fixed' , $sidebar.hasClass('sidebar-fixed')]);
+		 });
+
+		 $('[data-rel=tooltip]').tooltip();
+		 $('[data-rel=popover]').popover({html:true});
+
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+    "megabillingplatformApp": {
+        "com_ecc_11_concept" : {
+            "home": {
+                "title": "Com Ecc 11 Concepts",
+                "createLabel": "Crear nuevo Com Ecc 11 Concept",
+                "createOrEditLabel": "Crear o editar Com Ecc 11 Concept",
+                "search": "Search for Com Ecc 11 Concept"
+            },
+            "created": "Un nuevo Com Ecc 11 Concept ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Ecc 11 Concept ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Ecc 11 Concept ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Ecc 11 Concept {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Ecc 11 Concept"
+            },
+            "identifier": "No. Identificación (*):",
+            "date": "Fecha (*):",
+            "rfc": "RFC (*)",
+            "key_station": "Clave Estación (*):",
+            "quantity": "Cantidad (*):",
+            "unit": "Unidad de Medida:",
+            "fuel_name": "Nombre Combustible (*):",
+            "folio_operation": "Folio de Operación (*):",
+            "unit_value": "Valor Unitario (*):",
+            "amount": "Importe:",
+            "com_ecc_11": "Ecc 11",
+            "com_product_key": "Clave del Producto:",
+            "c_tar": "TAR:"
+        }
+    }
+}

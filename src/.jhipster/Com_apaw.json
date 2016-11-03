@@ -1,0 +1,67 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "cfdi",
+            "otherEntityName": "cfdi",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "com_apaw"
+        },
+        {
+            "relationshipName": "c_well_type",
+            "otherEntityName": "c_well_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipName": "c_acquired_title",
+            "otherEntityName": "c_acquired_title",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        },
+        {
+            "relationshipName": "c_features_work_piece",
+            "otherEntityName": "c_features_work_piece",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "code"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "version",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "others_well_type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "others_acquired_title",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subtotal",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "iva",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "date_acquisition",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160712201235",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_apaw",
+    "pagination": "pagination"
+}

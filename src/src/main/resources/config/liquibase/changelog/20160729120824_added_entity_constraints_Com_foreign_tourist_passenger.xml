@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Com_foreign_tourist_passenger.
+    -->
+    <changeSet id="20160729120824-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="c_transit_type_id"
+                                 baseTableName="com_foreign_tourist_passenger"
+                                 constraintName="fk_com_foreign_tourist_passenger_c_transit_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_transit_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_type_road_id"
+                                 baseTableName="com_foreign_tourist_passenger"
+                                 constraintName="fk_com_foreign_tourist_passenger_c_type_road_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_type_road"/>
+
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_foreign_tourist_passenger"
+                                 constraintName="fk_com_foreign_tourist_passenger_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
+
+    </changeSet>
+</databaseChangeLog>

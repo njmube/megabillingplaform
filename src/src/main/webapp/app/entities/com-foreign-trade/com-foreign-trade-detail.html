@@ -1,0 +1,78 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_foreign_trade.detail.title">Com Foreign Trade</span> {{vm.com_foreign_trade.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.version">Version</span></dt>
+        <dd>
+            <span>{{vm.com_foreign_trade.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.emitter_curp">Emitter Curp</span></dt>
+        <dd>
+            <span>{{vm.com_foreign_trade.emitter_curp}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.receiver_curp">Receiver Curp</span></dt>
+        <dd>
+            <span>{{vm.com_foreign_trade.receiver_curp}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.receiver_numregidtrib">Receiver Numregidtrib</span></dt>
+        <dd>
+            <span>{{vm.com_foreign_trade.receiver_numregidtrib}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.origin_certificate">Origin Certificate</span></dt>
+        <dd>
+            <span>{{vm.com_foreign_trade.origin_certificate}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.number_origin_certificate">Number Origin Certificate</span></dt>
+        <dd>
+            <span>{{vm.com_foreign_trade.number_origin_certificate}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.number_reliable_exporter">Number Reliable Exporter</span></dt>
+        <dd>
+            <span>{{vm.com_foreign_trade.number_reliable_exporter}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.subdivision">Subdivision</span></dt>
+        <dd>
+            <span>{{vm.com_foreign_trade.subdivision}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.observations">Observations</span></dt>
+        <dd>
+            <span>{{vm.com_foreign_trade.observations}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.typechangeusd">Typechangeusd</span></dt>
+        <dd>
+            <span>{{vm.com_foreign_trade.typechangeusd}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.totalusd">Totalusd</span></dt>
+        <dd>
+            <span>{{vm.com_foreign_trade.totalusd}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.cfdi">Cfdi</span></dt>
+        <dd>
+            <a ui-sref="cfdi-detail({id:vm.com_foreign_trade.cfdi.id})">{{vm.com_foreign_trade.cfdi.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.com_incoterm">Com Incoterm</span></dt>
+        <dd>
+            <a ui-sref="com-incoterm-detail({id:vm.com_foreign_trade.com_incoterm.id})">{{vm.com_foreign_trade.com_incoterm.value}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.c_type_operation_ce">C Type Operation Ce</span></dt>
+        <dd>
+            <a ui-sref="c-type-operation-ce-detail({id:vm.com_foreign_trade.c_type_operation_ce.id})">{{vm.com_foreign_trade.c_type_operation_ce.value}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.c_key_pediment">C Key Pediment</span></dt>
+        <dd>
+            <a ui-sref="c-key-pediment-detail({id:vm.com_foreign_trade.c_key_pediment.id})">{{vm.com_foreign_trade.c_key_pediment.value}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_foreign_trade.com_addressee">Com Addressee</span></dt>
+        <dd>
+            <a ui-sref="com-addressee-detail({id:vm.com_foreign_trade.com_addressee.id})">{{vm.com_foreign_trade.com_addressee.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

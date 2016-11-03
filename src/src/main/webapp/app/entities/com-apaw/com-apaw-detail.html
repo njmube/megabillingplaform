@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_apaw.detail.title">Com Apaw</span> {{vm.com_apaw.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_apaw.version">Version</span></dt>
+        <dd>
+            <span>{{vm.com_apaw.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_apaw.others_well_type">Others Well Type</span></dt>
+        <dd>
+            <span>{{vm.com_apaw.others_well_type}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_apaw.others_acquired_title">Others Acquired Title</span></dt>
+        <dd>
+            <span>{{vm.com_apaw.others_acquired_title}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_apaw.subtotal">Subtotal</span></dt>
+        <dd>
+            <span>{{vm.com_apaw.subtotal}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_apaw.iva">Iva</span></dt>
+        <dd>
+            <span>{{vm.com_apaw.iva}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_apaw.date_acquisition">Date Acquisition</span></dt>
+        <dd>
+            <span>{{vm.com_apaw.date_acquisition | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_apaw.cfdi">Cfdi</span></dt>
+        <dd>
+            <a ui-sref="cfdi-detail({id:vm.com_apaw.cfdi.id})">{{vm.com_apaw.cfdi.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_apaw.c_well_type">C Well Type</span></dt>
+        <dd>
+            <a ui-sref="c-well-type-detail({id:vm.com_apaw.c_well_type.id})">{{vm.com_apaw.c_well_type.code}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_apaw.c_acquired_title">C Acquired Title</span></dt>
+        <dd>
+            <a ui-sref="c-acquired-title-detail({id:vm.com_apaw.c_acquired_title.id})">{{vm.com_apaw.c_acquired_title.code}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_apaw.c_features_work_piece">C Features Work Piece</span></dt>
+        <dd>
+            <a ui-sref="c-features-work-piece-detail({id:vm.com_apaw.c_features_work_piece.id})">{{vm.com_apaw.c_features_work_piece.code}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

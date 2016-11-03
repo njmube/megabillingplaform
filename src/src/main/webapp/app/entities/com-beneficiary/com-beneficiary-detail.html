@@ -1,0 +1,46 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_beneficiary.detail.title">Com Beneficiary</span> {{vm.com_beneficiary.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_beneficiary.receiver_bank">Receiver Bank</span></dt>
+        <dd>
+            <span>{{vm.com_beneficiary.receiver_bank}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_beneficiary.name">Name</span></dt>
+        <dd>
+            <span>{{vm.com_beneficiary.name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_beneficiary.type_account">Type Account</span></dt>
+        <dd>
+            <span>{{vm.com_beneficiary.type_account}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_beneficiary.account">Account</span></dt>
+        <dd>
+            <span>{{vm.com_beneficiary.account}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_beneficiary.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.com_beneficiary.rfc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_beneficiary.concept">Concept</span></dt>
+        <dd>
+            <span>{{vm.com_beneficiary.concept}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_beneficiary.iva">Iva</span></dt>
+        <dd>
+            <span>{{vm.com_beneficiary.iva}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_beneficiary.payment_amount">Payment Amount</span></dt>
+        <dd>
+            <span>{{vm.com_beneficiary.payment_amount}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

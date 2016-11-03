@@ -1,0 +1,50 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_spei_third.detail.title">Com Spei Third</span> {{vm.com_spei_third.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_spei_third.date_operation">Date Operation</span></dt>
+        <dd>
+            <span>{{vm.com_spei_third.date_operation | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_spei_third.hour">Hour</span></dt>
+        <dd>
+            <span>{{vm.com_spei_third.hour | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_spei_third.key_spei">Key Spei</span></dt>
+        <dd>
+            <span>{{vm.com_spei_third.key_spei}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_spei_third.stamp">Stamp</span></dt>
+        <dd>
+            <span>{{vm.com_spei_third.stamp}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_spei_third.number_certificate">Number Certificate</span></dt>
+        <dd>
+            <span>{{vm.com_spei_third.number_certificate}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_spei_third.cda">Cda</span></dt>
+        <dd>
+            <span>{{vm.com_spei_third.cda}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_spei_third.com_spei">Com Spei</span></dt>
+        <dd>
+            <a ui-sref="com-spei-detail({id:vm.com_spei_third.com_spei.id})">{{vm.com_spei_third.com_spei.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_spei_third.com_payer">Com Payer</span></dt>
+        <dd>
+            <a ui-sref="com-payer-detail({id:vm.com_spei_third.com_payer.id})">{{vm.com_spei_third.com_payer.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_spei_third.com_beneficiary">Com Beneficiary</span></dt>
+        <dd>
+            <a ui-sref="com-beneficiary-detail({id:vm.com_spei_third.com_beneficiary.id})">{{vm.com_spei_third.com_beneficiary.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

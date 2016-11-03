@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_donees.detail.title">Com Donees</span> {{vm.com_donees.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_donees.version">Version</span></dt>
+        <dd>
+            <span>{{vm.com_donees.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_donees.no_authorization">No Authorization</span></dt>
+        <dd>
+            <span>{{vm.com_donees.no_authorization}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_donees.date_authorization">Date Authorization</span></dt>
+        <dd>
+            <span>{{vm.com_donees.date_authorization | date:'medium'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_donees.legend">Legend</span></dt>
+        <dd>
+            <span>{{vm.com_donees.legend}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_donees.cfdi">Cfdi</span></dt>
+        <dd>
+            <a ui-sref="cfdi-detail({id:vm.com_donees.cfdi.id})">{{vm.com_donees.cfdi.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

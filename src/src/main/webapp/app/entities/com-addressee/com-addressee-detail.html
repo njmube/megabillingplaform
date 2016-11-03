@@ -1,0 +1,70 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_addressee.detail.title">Com Addressee</span> {{vm.com_addressee.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_addressee.street">Street</span></dt>
+        <dd>
+            <span>{{vm.com_addressee.street}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.no_ext">No Ext</span></dt>
+        <dd>
+            <span>{{vm.com_addressee.no_ext}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.no_int">No Int</span></dt>
+        <dd>
+            <span>{{vm.com_addressee.no_int}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.locate">Locate</span></dt>
+        <dd>
+            <span>{{vm.com_addressee.locate}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.reference">Reference</span></dt>
+        <dd>
+            <span>{{vm.com_addressee.reference}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.numregidtrib">Numregidtrib</span></dt>
+        <dd>
+            <span>{{vm.com_addressee.numregidtrib}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.com_addressee.rfc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.curp">Curp</span></dt>
+        <dd>
+            <span>{{vm.com_addressee.curp}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.name">Name</span></dt>
+        <dd>
+            <span>{{vm.com_addressee.name}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.c_country">C Country</span></dt>
+        <dd>
+            <a ui-sref="c-country-detail({id:vm.com_addressee.c_country.id})">{{vm.com_addressee.c_country.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.c_state">C State</span></dt>
+        <dd>
+            <a ui-sref="c-state-detail({id:vm.com_addressee.c_state.id})">{{vm.com_addressee.c_state.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.c_municipality">C Municipality</span></dt>
+        <dd>
+            <a ui-sref="c-municipality-detail({id:vm.com_addressee.c_municipality.id})">{{vm.com_addressee.c_municipality.name}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.c_colony">C Colony</span></dt>
+        <dd>
+            <a ui-sref="c-colony-detail({id:vm.com_addressee.c_colony.id})">{{vm.com_addressee.c_colony.code}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_addressee.c_zip_code">C Zip Code</span></dt>
+        <dd>
+            <a ui-sref="c-zip-code-detail({id:vm.com_addressee.c_zip_code.id})">{{vm.com_addressee.c_zip_code.code}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

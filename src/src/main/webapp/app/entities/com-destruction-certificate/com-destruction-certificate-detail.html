@@ -1,0 +1,66 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_destruction_certificate.detail.title">Com Destruction Certificate</span> {{vm.com_destruction_certificate.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.version">Version</span></dt>
+        <dd>
+            <span>{{vm.com_destruction_certificate.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.numfoldesveh">Numfoldesveh</span></dt>
+        <dd>
+            <span>{{vm.com_destruction_certificate.numfoldesveh}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.brand">Brand</span></dt>
+        <dd>
+            <span>{{vm.com_destruction_certificate.brand}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.class_dc">Class Dc</span></dt>
+        <dd>
+            <span>{{vm.com_destruction_certificate.class_dc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.year">Year</span></dt>
+        <dd>
+            <span>{{vm.com_destruction_certificate.year}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.model">Model</span></dt>
+        <dd>
+            <span>{{vm.com_destruction_certificate.model}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.niv">Niv</span></dt>
+        <dd>
+            <span>{{vm.com_destruction_certificate.niv}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.no_serie">No Serie</span></dt>
+        <dd>
+            <span>{{vm.com_destruction_certificate.no_serie}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.number_plates">Number Plates</span></dt>
+        <dd>
+            <span>{{vm.com_destruction_certificate.number_plates}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.number_engine">Number Engine</span></dt>
+        <dd>
+            <span>{{vm.com_destruction_certificate.number_engine}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.numfoltarjcir">Numfoltarjcir</span></dt>
+        <dd>
+            <span>{{vm.com_destruction_certificate.numfoltarjcir}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.cfdi">Cfdi</span></dt>
+        <dd>
+            <a ui-sref="cfdi-detail({id:vm.com_destruction_certificate.cfdi.id})">{{vm.com_destruction_certificate.cfdi.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_destruction_certificate.c_type_series">C Type Series</span></dt>
+        <dd>
+            <a ui-sref="c-type-series-detail({id:vm.com_destruction_certificate.c_type_series.id})">{{vm.com_destruction_certificate.c_type_series.value}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

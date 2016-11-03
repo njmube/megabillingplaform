@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "com_accreditation_ieps" : {
+            "home": {
+                "title": "Com_accreditation_ieps",
+                "createLabel": "Crear nuevo Com_accreditation_ieps",
+                "createOrEditLabel": "Crear o editar Com_accreditation_ieps",
+                "search": "Search for Com_accreditation_ieps"
+            },
+            "created": "Un nuevo Com_accreditation_ieps ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com_accreditation_ieps ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com_accreditation_ieps ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com_accreditation_ieps {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_accreditation_ieps"
+            },
+            "version": "Versión (*)",
+            "c_tar": "TAR (*)",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

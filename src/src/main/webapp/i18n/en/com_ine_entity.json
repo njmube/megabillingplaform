@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "com_ine_entity" : {
+            "home": {
+                "title": "Com Ine Entities",
+                "createLabel": "Create a new Com Ine Entity",
+                "createOrEditLabel": "Create or edit a Com Ine Entity",
+                "search": "Search for Com Ine Entity"
+            },
+            "created": "A new Com Ine Entity is created with identifier {{ param }}",
+            "updated": "A Com Ine Entity is updated with identifier {{ param }}",
+            "deleted": "A Com Ine Entity is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Ine Entity {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Ine Entity"
+            },
+            "key_entity": "Key Entity",
+            "Com_ine": "Com Ine",
+            "c_scope_type": "C Scope Type"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Com_fuel_consumption.
+    -->
+    <changeSet id="20160805131037-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_fuel_consumption"
+                                 constraintName="fk_com_fuel_consumption_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
+
+    </changeSet>
+</databaseChangeLog>

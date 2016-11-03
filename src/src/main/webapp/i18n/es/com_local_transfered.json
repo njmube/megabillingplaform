@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "com_local_transfered" : {
+            "home": {
+                "title": "Com Local Transfereds",
+                "createLabel": "Crear nuevo Com Local Transfered",
+                "createOrEditLabel": "Crear o editar Com Local Transfered",
+                "search": "Search for Com Local Transfered"
+            },
+            "created": "Un nuevo Com Local Transfered ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Local Transfered ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Local Transfered ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Local Transfered {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Local Transfered"
+            },
+            "imploctransfered": "Impuesto Local (*)",
+            "transferedrate": "Tasa  (*)",
+            "amounttransfered": "Importe  (*)",
+            "freecom_local_taxes": "Freecom Local Taxes"
+        }
+    }
+}

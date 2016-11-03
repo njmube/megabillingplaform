@@ -1,0 +1,80 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_concept_fuel.home.title">Com Concept Fuels</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-concept-fuel.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_concept_fuel.home.createLabel">
+                        Create new Com Concept Fuel
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="identifier"><span translate="megabillingplatformApp.com_concept_fuel.identifier">Identifier</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_expedition"><span translate="megabillingplatformApp.com_concept_fuel.date_expedition">Date Expedition</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.com_concept_fuel.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="key_station"><span translate="megabillingplatformApp.com_concept_fuel.key_station">Key Station</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quantity"><span translate="megabillingplatformApp.com_concept_fuel.quantity">Quantity</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fuel_name"><span translate="megabillingplatformApp.com_concept_fuel.fuel_name">Fuel Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="folio_operation"><span translate="megabillingplatformApp.com_concept_fuel.folio_operation">Folio Operation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="unit_value"><span translate="megabillingplatformApp.com_concept_fuel.unit_value">Unit Value</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amount"><span translate="megabillingplatformApp.com_concept_fuel.amount">Amount</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="com_fuel_consumption.id"><span translate="megabillingplatformApp.com_concept_fuel.com_fuel_consumption">Com Fuel Consumption</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_concept_fuel in vm.com_concept_fuels track by com_concept_fuel.id">
+                    <td><a ui-sref="com-concept-fuel-detail({id:com_concept_fuel.id})">{{com_concept_fuel.id}}</a></td>
+                    <td>{{com_concept_fuel.identifier}}</td>
+                    <td>{{com_concept_fuel.date_expedition | date:'medium'}}</td>
+                    <td>{{com_concept_fuel.rfc}}</td>
+                    <td>{{com_concept_fuel.key_station}}</td>
+                    <td>{{com_concept_fuel.quantity}}</td>
+                    <td>{{com_concept_fuel.fuel_name}}</td>
+                    <td>{{com_concept_fuel.folio_operation}}</td>
+                    <td>{{com_concept_fuel.unit_value}}</td>
+                    <td>{{com_concept_fuel.amount}}</td>
+                    <td>
+                        <a ui-sref="com-fuel-consumption-detail({id:com_concept_fuel.com_fuel_consumption.id})">{{com_concept_fuel.com_fuel_consumption.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-concept-fuel-detail({id:com_concept_fuel.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-concept-fuel.edit({id:com_concept_fuel.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-concept-fuel.delete({id:com_concept_fuel.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

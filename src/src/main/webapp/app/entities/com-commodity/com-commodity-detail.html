@@ -1,0 +1,42 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_commodity.detail.title">Com Commodity</span> {{vm.com_commodity.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_commodity.noidentification">Noidentification</span></dt>
+        <dd>
+            <span>{{vm.com_commodity.noidentification}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_commodity.customs_quantity">Customs Quantity</span></dt>
+        <dd>
+            <span>{{vm.com_commodity.customs_quantity}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_commodity.customs_unit_value">Customs Unit Value</span></dt>
+        <dd>
+            <span>{{vm.com_commodity.customs_unit_value}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_commodity.dollar_value">Dollar Value</span></dt>
+        <dd>
+            <span>{{vm.com_commodity.dollar_value}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_commodity.com_foreign_trade">Com Foreign Trade</span></dt>
+        <dd>
+            <a ui-sref="com-foreign-trade-detail({id:vm.com_commodity.com_foreign_trade.id})">{{vm.com_commodity.com_foreign_trade.id}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_commodity.com_tariff_fraction">Com Tariff Fraction</span></dt>
+        <dd>
+            <a ui-sref="com-tariff-fraction-detail({id:vm.com_commodity.com_tariff_fraction.id})">{{vm.com_commodity.com_tariff_fraction.value}}</a>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_commodity.com_custom_unit">Com Custom Unit</span></dt>
+        <dd>
+            <a ui-sref="com-custom-unit-detail({id:vm.com_commodity.com_custom_unit.id})">{{vm.com_commodity.com_custom_unit.value}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

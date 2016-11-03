@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "com_product_key" : {
+            "home": {
+                "title": "Com Product Keys",
+                "createLabel": "Crear nuevo Com Product Key",
+                "createOrEditLabel": "Crear o editar Com Product Key",
+                "search": "Search for Com Product Key"
+            },
+            "created": "Un nuevo Com Product Key ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Product Key ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Product Key ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Product Key {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Product Key"
+            },
+            "code": "Code"
+        }
+    }
+}

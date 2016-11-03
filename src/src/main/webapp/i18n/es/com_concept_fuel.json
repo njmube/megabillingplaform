@@ -1,0 +1,31 @@
+{
+    "megabillingplatformApp": {
+        "com_concept_fuel" : {
+            "home": {
+                "title": "Listado de Conceptos",
+                "createLabel": "Nuevo Concepto",
+                "createOrEditLabel": "Crear o editar Concepto",
+                "search": "Búsqueda por Concepto"
+            },
+            "created": "Un nuevo concepto ha sido creado con el identificador {{ param }}",
+            "updated": "Un concepto ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un concepto ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar concepto con ID: {{ id }}?"
+            },
+            "detail": {
+                "title": "Concepto"
+            },
+            "identifier": "Identificador (*):",
+            "date_expedition": "Fecha Expedición (*):",
+            "rfc": "RFC (*):",
+            "key_station": "Clave Estación (*):",
+            "quantity": "Cantidad (*):",
+            "fuel_name": "Nombre Combustible (*):",
+            "folio_operation": "Folio de Operación (*):",
+            "unit_value": "Valor Unitario (*):",
+            "amount": "Importe:",
+            "freecom_fuel_consumption": "Complemento Consumo de Combustible"
+        }
+    }
+}

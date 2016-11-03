@@ -1,0 +1,28 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "key_entity",
+            "otherEntityName": "key_entity",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "com_ine",
+            "otherEntityName": "com_ine",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "c_scope_type",
+            "otherEntityName": "c_scope_type",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20160809153830",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_ine_entity",
+    "pagination": "pager"
+}

@@ -1,0 +1,49 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "emitter_bank",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "40"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "40"
+        },
+        {
+            "fieldName": "type_account",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "account",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "rfc",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20160810160314",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_payer",
+    "pagination": "pagination"
+}

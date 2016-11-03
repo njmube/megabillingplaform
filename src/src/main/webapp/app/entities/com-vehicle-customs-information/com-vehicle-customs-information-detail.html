@@ -1,0 +1,30 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_vehicle_customs_information.detail.title">Com Vehicle Customs Information</span> {{vm.com_vehicle_customs_information.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_vehicle_customs_information.number">Number</span></dt>
+        <dd>
+            <span>{{vm.com_vehicle_customs_information.number}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_vehicle_customs_information.date_expedition">Date Expedition</span></dt>
+        <dd>
+            <span>{{vm.com_vehicle_customs_information.date_expedition | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_vehicle_customs_information.customs">Customs</span></dt>
+        <dd>
+            <span>{{vm.com_vehicle_customs_information.customs}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_vehicle_customs_information.com_used_vehicle">Com Used Vehicle</span></dt>
+        <dd>
+            <a ui-sref="com-used-vehicle-detail({id:vm.com_vehicle_customs_information.com_used_vehicle.id})">{{vm.com_vehicle_customs_information.com_used_vehicle.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

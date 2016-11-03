@@ -1,0 +1,25 @@
+{
+    "megabillingplatformApp": {
+        "com_determined" : {
+            "home": {
+                "title": "Listado de Determinados",
+                "createLabel": "Nuevo Determinado",
+                "createOrEditLabel": "Crear o editar Determinado",
+                "search": "Búsqueda por Determinado"
+            },
+            "created": "Un nuevo determinado ha sido creado con el identificador {{ param }}",
+            "updated": "Un determinado ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un determinado ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar un determinado con ID: {{ id }}?"
+            },
+            "detail": {
+                "title": "Determinado"
+            },
+            "rate": "Tasa (*):",
+            "amount": "Importe (*):",
+            "freecom_concept_fuel": "Complemento Consumo de Combustible:",
+            "freecom_tax_type": "Tipo Impuesto:"
+        }
+    }
+}

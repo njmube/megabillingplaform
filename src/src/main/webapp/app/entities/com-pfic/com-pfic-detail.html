@@ -1,0 +1,34 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_pfic.detail.title">Com Pfic</span> {{vm.com_pfic.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.com_pfic.version">Version</span></dt>
+        <dd>
+            <span>{{vm.com_pfic.version}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_pfic.key_vehicle">Key Vehicle</span></dt>
+        <dd>
+            <span>{{vm.com_pfic.key_vehicle}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_pfic.license_plate">License Plate</span></dt>
+        <dd>
+            <span>{{vm.com_pfic.license_plate}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_pfic.rfcpf">Rfcpf</span></dt>
+        <dd>
+            <span>{{vm.com_pfic.rfcpf}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.com_pfic.cfdi">Cfdi</span></dt>
+        <dd>
+            <a ui-sref="cfdi-detail({id:vm.com_pfic.cfdi.id})">{{vm.com_pfic.cfdi.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

@@ -7,7 +7,7 @@
 
     Freecom_ine_entityDialogController.$inject = ['$uibModal', '$uibModalInstance', 'entity', 'entity_req', 'key_scope_combinations', 'Key_entity', 'C_scope_type'];
 
-    function Freecom_ine_entityDialogController ( $uibModal, $uibModalInstance, entity, entity_req, key_scope_combinations, Key_entity, C_scope_type) {
+    function Freecom_ine_entityDialogController ($uibModal, $uibModalInstance, entity, entity_req, key_scope_combinations, Key_entity, C_scope_type) {
         var vm = this;
         vm.freecom_ine_entity = entity;
         vm.freecom_ine_entity_req = entity_req;
@@ -49,8 +49,6 @@
                 }
             }).result.then(function(result) {
                 vm.accountings.push(result);
-            }, function() {
-               //do not nothing...
             });
         };
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Com_determined.
+    -->
+    <changeSet id="20160805131933-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="com_concept_fuel_id"
+                                 baseTableName="com_determined"
+                                 constraintName="fk_com_determined_com_concept_fuel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_concept_fuel"/>
+
+        <addForeignKeyConstraint baseColumnNames="freecom_tax_type_id"
+                                 baseTableName="com_determined"
+                                 constraintName="fk_com_determined_freecom_tax_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_tax_type"/>
+
+    </changeSet>
+</databaseChangeLog>

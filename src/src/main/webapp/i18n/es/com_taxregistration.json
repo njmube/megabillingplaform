@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "com_taxregistration" : {
+            "home": {
+                "title": "Com Taxregistrations",
+                "createLabel": "Crear nuevo Com Taxregistration",
+                "createOrEditLabel": "Crear o editar Com Taxregistration",
+                "search": "Search for Com Taxregistration"
+            },
+            "created": "Un nuevo Com Taxregistration ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com Taxregistration ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com Taxregistration ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com Taxregistration {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Taxregistration"
+            },
+            "version": "Versión (*)",
+            "folio": "Folio (*)",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

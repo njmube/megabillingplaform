@@ -1,0 +1,30 @@
+{
+    "megabillingplatformApp": {
+        "com_spei_third" : {
+            "home": {
+                "title": "Listado de SPEI Tercero",
+                "createLabel": "Crear nuevo SPEI Tercero",
+                "createOrEditLabel": "Crear o editar SPEI Tercero",
+                "search": "Search for SPEI Tercero"
+            },
+            "created": "Un nuevo SPEI Tercero ha sido creado con el identificador {{ param }}",
+            "updated": "Un SPEI Tercero ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un SPEI Tercero ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar SPEI Tercero con ID: {{ id }}?"
+            },
+            "detail": {
+                "title": "SPEI Tercero"
+            },
+            "date_operation": "Fecha Operación (*):",
+            "hour": "Hora (*):",
+            "key_spei": "Clave SPEI (*):",
+            "stamp": "Sello (*):",
+            "number_certificate": "No. Certificado (*):",
+            "cda": "CDA (*):",
+            "com_spei": "SPEI Tercero",
+            "com_payer": "Ordenante",
+            "com_beneficiary": "Beneficiario"
+        }
+    }
+}

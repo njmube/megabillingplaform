@@ -1,0 +1,22 @@
+{
+    "megabillingplatformApp": {
+        "com_incoterm" : {
+            "home": {
+                "title": "Com Incoterms",
+                "createLabel": "Create a new Com Incoterm",
+                "createOrEditLabel": "Create or edit a Com Incoterm",
+                "search": "Search for Com Incoterm"
+            },
+            "created": "A new Com Incoterm is created with identifier {{ param }}",
+            "updated": "A Com Incoterm is updated with identifier {{ param }}",
+            "deleted": "A Com Incoterm is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com Incoterm {{ id }}?"
+            },
+            "detail": {
+                "title": "Com Incoterm"
+            },
+            "value": "Value"
+        }
+    }
+}

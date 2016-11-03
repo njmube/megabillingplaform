@@ -17,17 +17,17 @@
                 "title": "Freecom Partial Construction Services"
             },
             "version": "Version",
-            "street": "Street",
+            "street": "Street (*)",
             "noext": "Noext",
             "noint": "Noint",
             "location": "Location",
             "reference": "Reference",
-            "numperlicoaut": "Numperlicoaut",
+            "numperlicoaut": "Numperlicoaut (*)",
             "free_cfdi": "Free Cfdi",
-            "c_federal_entity": "C Federal Entity",
-            "c_municipality": "C Municipality",
+            "c_federal_entity": "C Federal Entity (*)",
+            "c_municipality": "C Municipality (*)",
             "c_colony": "C Colony",
-            "c_zip_code": "C Zip Code"
+            "c_zip_code": "C Zip Code (*)"
         }
     }
 }

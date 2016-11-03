@@ -1,0 +1,88 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_destruction_certificate.home.title">Com Destruction Certificates</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-destruction-certificate.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_destruction_certificate.home.createLabel">
+                        Create new Com Destruction Certificate
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="version"><span translate="megabillingplatformApp.com_destruction_certificate.version">Version</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numfoldesveh"><span translate="megabillingplatformApp.com_destruction_certificate.numfoldesveh">Numfoldesveh</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="brand"><span translate="megabillingplatformApp.com_destruction_certificate.brand">Brand</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="class_dc"><span translate="megabillingplatformApp.com_destruction_certificate.class_dc">Class Dc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="year"><span translate="megabillingplatformApp.com_destruction_certificate.year">Year</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="model"><span translate="megabillingplatformApp.com_destruction_certificate.model">Model</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="niv"><span translate="megabillingplatformApp.com_destruction_certificate.niv">Niv</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="no_serie"><span translate="megabillingplatformApp.com_destruction_certificate.no_serie">No Serie</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_plates"><span translate="megabillingplatformApp.com_destruction_certificate.number_plates">Number Plates</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="number_engine"><span translate="megabillingplatformApp.com_destruction_certificate.number_engine">Number Engine</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numfoltarjcir"><span translate="megabillingplatformApp.com_destruction_certificate.numfoltarjcir">Numfoltarjcir</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="cfdi.id"><span translate="megabillingplatformApp.com_destruction_certificate.cfdi">Cfdi</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="c_type_series.value"><span translate="megabillingplatformApp.com_destruction_certificate.c_type_series">C Type Series</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_destruction_certificate in vm.com_destruction_certificates track by com_destruction_certificate.id">
+                    <td><a ui-sref="com-destruction-certificate-detail({id:com_destruction_certificate.id})">{{com_destruction_certificate.id}}</a></td>
+                    <td>{{com_destruction_certificate.version}}</td>
+                    <td>{{com_destruction_certificate.numfoldesveh}}</td>
+                    <td>{{com_destruction_certificate.brand}}</td>
+                    <td>{{com_destruction_certificate.class_dc}}</td>
+                    <td>{{com_destruction_certificate.year}}</td>
+                    <td>{{com_destruction_certificate.model}}</td>
+                    <td>{{com_destruction_certificate.niv}}</td>
+                    <td>{{com_destruction_certificate.no_serie}}</td>
+                    <td>{{com_destruction_certificate.number_plates}}</td>
+                    <td>{{com_destruction_certificate.number_engine}}</td>
+                    <td>{{com_destruction_certificate.numfoltarjcir}}</td>
+                    <td>
+                        <a ui-sref="cfdi-detail({id:com_destruction_certificate.cfdi.id})">{{com_destruction_certificate.cfdi.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="c-type-series-detail({id:com_destruction_certificate.c_type_series.id})">{{com_destruction_certificate.c_type_series.value}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-destruction-certificate-detail({id:com_destruction_certificate.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-destruction-certificate.edit({id:com_destruction_certificate.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-destruction-certificate.delete({id:com_destruction_certificate.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

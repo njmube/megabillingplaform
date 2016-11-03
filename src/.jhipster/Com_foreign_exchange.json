@@ -1,0 +1,22 @@
+{
+    "relationships": [
+        {
+            "relationshipName": "c_type_operation",
+            "otherEntityName": "c_type_operation",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "cfdi",
+            "otherEntityName": "cfdi",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [],
+    "changelogDate": "20160729115046",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_foreign_exchange",
+    "pagination": "pagination"
+}

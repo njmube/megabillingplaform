@@ -1,0 +1,24 @@
+{
+    "megabillingplatformApp": {
+        "com_ine_entity" : {
+            "home": {
+                "title": "Listado de INE Entidad",
+                "createLabel": "Adicionar nueva INE Entidad",
+                "createOrEditLabel": "Adicionar o editar INE Entidad",
+                "search": "Búsqueda por INE Entidad"
+            },
+            "created": "La INE Entidad ha sido adicionada satisfactoriamente.",
+            "updated": "La INE Entidad ha sido modificada satisfactoriamente.",
+            "deleted": "La INE Entidad ha sido eliminada satisfactoriamente.",
+            "delete": {
+                "question": "Se eliminará la INE Entidad seleccionada. ¿Desea continuar?"
+            },
+            "detail": {
+                "title": "INE Entidad"
+            },
+            "key_entity": "Clave de entidad(*):",
+            "freecom_ine": "Complemento INE(*)",
+            "c_scope_type": "Tipo de ámbito(*):"
+        }
+    }
+}

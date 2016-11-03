@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Com_charge.
+    -->
+    <changeSet id="20160712212523-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="com_airline_id"
+                                 baseTableName="com_charge"
+                                 constraintName="fk_com_charge_com_airline_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_airline"/>
+
+    </changeSet>
+</databaseChangeLog>

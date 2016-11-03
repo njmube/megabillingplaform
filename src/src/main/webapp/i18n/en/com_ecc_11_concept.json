@@ -1,0 +1,34 @@
+{
+    "megabillingplatformApp": {
+        "com_ecc_11_concept" : {
+            "home": {
+                "title": "Freecom Ecc 11 Concepts",
+                "createLabel": "Create a new Freecom Ecc 11 Concept",
+                "createOrEditLabel": "Create or edit a Freecom Ecc 11 Concept",
+                "search": "Search for Freecom Ecc 11 Concept"
+            },
+            "created": "A new Freecom Ecc 11 Concept is created with identifier {{ param }}",
+            "updated": "A Freecom Ecc 11 Concept is updated with identifier {{ param }}",
+            "deleted": "A Freecom Ecc 11 Concept is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom Ecc 11 Concept {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom Ecc 11 Concept"
+            },
+            "identifier": "Identifier (*)",
+            "date": "Date (*)",
+            "rfc": "Rfc (*)",
+            "key_station": "Key Station (*)",
+            "quantity": "Quantity",
+            "unit": "Unit",
+            "fuel_name": "Fuel Name (*)",
+            "folio_operation": "Folio Operation (*)",
+            "unit_value": "Unit Value (*)",
+            "amount": "Amount",
+            "com_ecc_11": "Ecc 11",
+            "com_product_key": "Product Key",
+            "c_tar": "C Tar"
+        }
+    }
+}
