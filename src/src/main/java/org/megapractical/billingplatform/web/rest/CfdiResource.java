@@ -94,6 +94,21 @@ public class CfdiResource {
     @Inject
     private Com_legendsService com_legendsService;
 
+    @Inject
+    private Com_airlineService com_airlineService;
+
+    @Inject
+    private Com_chargeService com_chargeService;
+
+    @Inject
+    private Com_apawService com_apawService;
+
+    @Inject
+    private Com_doneesService com_doneesService;
+
+    @Inject
+    private Com_educational_institutionsService com_educational_institutionsService;
+
     /*@Inject
     private MailService mailService;*/
     /**
@@ -157,31 +172,31 @@ public class CfdiResource {
 
         //Update taxpayer series folios
         Taxpayer_series_folio taxpayer_series_folio = cfdiDTO.getTaxpayer_series_folio();
-        Integer folio_current = 0;
-        if(taxpayer_series_folio.getFolio_current() == null){
-            folio_current = taxpayer_series_folio.getFolio_start();
-        }
-        else{
-            folio_current = taxpayer_series_folio.getFolio_current() + 1;
-        }
-
-        if(folio_current == taxpayer_series_folio.getFolio_end()){
-            taxpayer_series_folio.setEnable(false);
-            taxpayer_series_folio.setFolio_current(folio_current);
-            taxpayer_series_folioService.save(taxpayer_series_folio);
-
-            Page<Taxpayer_series_folio> taxpayer_series_folio_page = taxpayer_series_folioService.findAll(pageable, taxpayer_accout_id);
-            for(Taxpayer_series_folio taxpayer_series_folio_item: taxpayer_series_folio_page.getContent()){
-                if(taxpayer_series_folio_item.getFolio_current() == null || taxpayer_series_folio_item.getFolio_current() < taxpayer_series_folio_item.getFolio_end()){
-                    taxpayer_series_folio_item.setEnable(true);
-                    taxpayer_series_folioService.save(taxpayer_series_folio_item);
-                    break;
-                }
+        if(taxpayer_series_folio != null) {
+            Integer folio_current = 0;
+            if (taxpayer_series_folio.getFolio_current() == null) {
+                folio_current = taxpayer_series_folio.getFolio_start();
+            } else {
+                folio_current = taxpayer_series_folio.getFolio_current() + 1;
             }
-        }
-        else {
-            taxpayer_series_folio.setFolio_current(folio_current);
-            taxpayer_series_folioService.save(taxpayer_series_folio);
+
+            if (folio_current == taxpayer_series_folio.getFolio_end()) {
+                taxpayer_series_folio.setEnable(false);
+                taxpayer_series_folio.setFolio_current(folio_current);
+                taxpayer_series_folioService.save(taxpayer_series_folio);
+
+                Page<Taxpayer_series_folio> taxpayer_series_folio_page = taxpayer_series_folioService.findAll(pageable, taxpayer_accout_id);
+                for (Taxpayer_series_folio taxpayer_series_folio_item : taxpayer_series_folio_page.getContent()) {
+                    if (taxpayer_series_folio_item.getFolio_current() == null || taxpayer_series_folio_item.getFolio_current() < taxpayer_series_folio_item.getFolio_end()) {
+                        taxpayer_series_folio_item.setEnable(true);
+                        taxpayer_series_folioService.save(taxpayer_series_folio_item);
+                        break;
+                    }
+                }
+            } else {
+                taxpayer_series_folio.setFolio_current(folio_current);
+                taxpayer_series_folioService.save(taxpayer_series_folio);
+            }
         }
 
         //Saving conceptDTOs
@@ -284,6 +299,39 @@ public class CfdiResource {
             }
         }
 
+        //airline
+        Com_airline com_airline = cfdiDTO.getCom_airline();
+        if(com_airline != null && com_airline.getVersion() != null) {
+            com_airline.setCfdi(result);
+            com_airline = com_airlineService.save(com_airline);
+
+            List<Com_charge> com_charges = cfdiDTO.getCom_charges();
+            for(Com_charge com_charge: com_charges){
+                com_charge.setCom_airline(com_airline);
+                com_chargeService.save(com_charge);
+            }
+        }
+
+        //apaw
+        Com_apaw com_apaw = cfdiDTO.getCom_apaw();
+        if(com_apaw != null && com_apaw.getVersion() != null) {
+            com_apaw.setCfdi(result);
+            com_apawService.save(com_apaw);
+        }
+
+        //donees
+        Com_donees com_donees = cfdiDTO.getCom_donees();
+        if(com_donees != null && com_donees.getVersion() != null) {
+            com_donees.setCfdi(result);
+            com_doneesService.save(com_donees);
+        }
+
+        //educational_institutions
+        Com_educational_institutions com_educational_institutions = cfdiDTO.getCom_educational_institutions();
+        if(com_educational_institutions != null && com_educational_institutions.getVersion() != null) {
+            com_educational_institutions.setCfdi(result);
+            com_educational_institutionsService.save(com_educational_institutions);
+        }
 
 
         Long idauditevent = new Long("49");
