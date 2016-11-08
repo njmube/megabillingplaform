@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$rootScope', '$scope', '$uibModal', 'Transactions_history','Taxpayer_transactions','User', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account', 'Request_taxpayer_account'];
+    HomeController.$inject = ['$rootScope', 'AlertService','$scope', '$uibModal', 'Transactions_history','Taxpayer_transactions','User', 'Principal', 'Tracemg','LoginService','$filter', 'Taxpayer_account', 'Request_taxpayer_account'];
 
-    function HomeController ($rootScope, $scope, $uibModal, Transactions_history, Taxpayer_transactions,  User, Principal, Tracemg,  LoginService, $filter, Taxpayer_account, Request_taxpayer_account) {
+    function HomeController ($rootScope,AlertService, $scope, $uibModal, Transactions_history, Taxpayer_transactions,  User, Principal, Tracemg,  LoginService, $filter, Taxpayer_account, Request_taxpayer_account) {
         var vm = this;
 
         vm.account = null;
@@ -28,6 +28,7 @@
         vm.pie = pie;
         vm.drawAccount = drawAccount;
         vm.drawMontWeek = drawMontWeek;
+        vm.loadTracemgAccount = loadTracemgAccount;
 
         var dateFormat = 'yyyy-MM-dd';
         var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -54,6 +55,8 @@
         getAccount();
 
         messegeUser();
+
+        loadTracemgAccount();
 
         function getAccount() {
 
@@ -149,8 +152,30 @@
                 }
 
             });
+        }
 
+        function loadTracemgAccount(){
+            Principal.identity().then(function(account) {
 
+                if (account != null) {
+                    vm.isAfilitated = account.authorities.indexOf('ROLE_AFILITATED') != -1;
+
+                    if(vm.isAfilitated){
+                        Tracemg.queryAccount({
+                            page: 0,
+                            size: 10,
+                            principal: " "
+                        }, onSuccess12, onError12);
+                    }
+                }
+            });
+        }
+
+        function  onSuccess12(data){
+            vm.tracemgAccounts = data;
+        }
+        function onError12(){
+            AlertService.error(error.data.message);
         }
 
         function messegeUser(){

@@ -16,6 +16,7 @@ public interface TracemgRepository extends JpaRepository<Tracemg,Long> {
     Page<Tracemg> findByTimestampBetweenOrderByIdDesc(ZonedDateTime from, ZonedDateTime to, Pageable pageable);
     //principal
     Page<Tracemg> findByPrincipalAndTimestampBetweenOrderByIdDesc(String principal, ZonedDateTime from, ZonedDateTime to, Pageable pageable);
+    List<Tracemg> findByPrincipalOrderByIdDesc(String principal);
     //ip
     Page<Tracemg> findByIpAndTimestampBetweenOrderByIdDesc(String ip, ZonedDateTime from, ZonedDateTime to, Pageable pageable);
     //ip and principal

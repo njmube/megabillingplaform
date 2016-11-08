@@ -3,6 +3,7 @@ package org.megapractical.billingplatform.service;
 import org.megapractical.billingplatform.domain.Audit_event_type;
 import org.megapractical.billingplatform.domain.C_state_event;
 import org.megapractical.billingplatform.domain.Tracemg;
+import org.megapractical.billingplatform.domain.TracemgAccount;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -37,6 +38,8 @@ public interface TracemgService {
     Page<Tracemg> findAll(ZonedDateTime from, ZonedDateTime to, Pageable pageable);
 
     Page<Tracemg> findCustom(ZonedDateTime from, ZonedDateTime to,String principal, String auditEventType, String ip, Pageable pageable);
+
+    Page<TracemgAccount> findCustomAccount(String principal, Pageable pageable);
 
     /**
      *  Get the "id" tracemg.

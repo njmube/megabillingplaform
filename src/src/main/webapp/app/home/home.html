@@ -335,21 +335,21 @@
                     <div class="table-responsive">
                         <table class="jh-table table table-striped">
                             <thead>
-                            <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                                <th jh-sort-by="datetime"><span translate="home.datetime">Fecha</span> <span class="glyphicon glyphicon-sort"></span></th>
-                                <th jh-sort-by="rfc"><span translate="home.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
-                                <th jh-sort-by="modul"><span translate="home.modul">Modul</span> <span class="glyphicon glyphicon-sort"></span></th>
-                                <th jh-sort-by="operation"><span translate="home.operation">Operation</span> <span class="glyphicon glyphicon-sort"></span></th>
-                                <th jh-sort-by="result"><span translate="home.result">Result</span> <span class="glyphicon glyphicon-sort"></span></th>
+                            <tr>
+                                <th><span translate="home.datetime">Fecha</span></th>
+                                <th><span translate="home.rfc">Rfc</span></th>
+                                <th><span translate="home.modul">Modul</span></th>
+                                <th><span translate="home.operation">Operation</span></th>
+                                <th><span translate="home.result">Result</span></th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
-                                <td>01/01/2016</td>
-                                <td>ABC</td>
-                                <td>Algo</td>
-                                <td>Modulo</td>
-                                <td>Resultado</td>
+                            <tr ng-repeat="tracemgAccount in vm.tracemgAccounts track by tracemgAccount.id">
+                                <td>{{tracemgAccount.timestamp}}</td>
+                                <td>{{tracemgAccount.rfc}}</td>
+                                <td>{{tracemgAccount.modulo}}</td>
+                                <td>{{tracemgAccount.operation}}</td>
+                                <td>{{tracemgAccount.result}}</td>
                             </tr>
                             </tbody>
                         </table>

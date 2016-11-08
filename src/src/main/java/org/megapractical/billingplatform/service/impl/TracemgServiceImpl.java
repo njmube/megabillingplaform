@@ -1,12 +1,11 @@
 package org.megapractical.billingplatform.service.impl;
 
-import org.megapractical.billingplatform.domain.Audit_event_type;
-import org.megapractical.billingplatform.domain.C_state_event;
+import org.megapractical.billingplatform.domain.*;
 import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.Audit_event_typeService;
 import org.megapractical.billingplatform.service.TracemgService;
-import org.megapractical.billingplatform.domain.Tracemg;
 import org.megapractical.billingplatform.repository.TracemgRepository;
+import org.megapractical.billingplatform.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -17,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
 import java.net.InetAddress;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +35,9 @@ public class TracemgServiceImpl implements TracemgService{
 
     @Inject
     private Audit_event_typeService audit_event_typeService;
+
+    @Inject
+    UserService userService;
 
     /**
      * Save a tracemg.
@@ -129,6 +132,40 @@ public class TracemgServiceImpl implements TracemgService{
 
         return result;
     }
+
+    public Page<TracemgAccount> findCustomAccount(String principal, Pageable pageable){
+        log.debug("Request to get some Tracemgs Account");
+        log.debug("PRINCIPAL: " + principal);
+
+        //Page<Tracemg> result = tracemgRepository.findByPrincipalOrderByIdDesc(principal,pageable);
+        List<Tracemg> result = tracemgRepository.findByPrincipalOrderByIdDesc(principal);
+        List<TracemgAccount> list = new ArrayList<>();
+        long id = 1;
+        int cont = 1;
+        for(Tracemg trace: result){
+            Long idtrace = trace.getAudit_event_type().getId();
+            Long start = new Long("38");
+            Long end = new Long("52");
+            //log.debug("ID de tipo de evento: " + idtrace.toString());
+            if(cont <= 10 && principal.compareTo(trace.getPrincipal())==0 && idtrace >= start && idtrace <= end){
+                TracemgAccount newTrace = new TracemgAccount();
+                newTrace.setID(id);
+                newTrace.setTimestamp(trace.getTimestamp().toLocalDateTime().toString().replace('T',' '));
+                newTrace.setResult(trace.getC_state_event().getName());
+                newTrace.setOperation(trace.getAudit_event_type().getDescription());
+                newTrace.setModulo("Facturación en línea");
+                User user = userService.getUserWithAuthoritiesByLogin(trace.getPrincipal()).get();
+                newTrace.setRfc(user.getRFC());
+                list.add(newTrace);
+                id++;
+                cont++;
+            }
+        }
+        Page<TracemgAccount> page = new PageImpl<TracemgAccount>(list,pageable,list.size());
+        return page;
+    }
+
+
     /**
      *  Get one tracemg by id.
      *

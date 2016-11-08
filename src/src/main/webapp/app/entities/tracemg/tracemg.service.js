@@ -12,6 +12,8 @@
         return $resource(resourceUrl, {}, {
             'query': { method: 'GET', isArray: true,
                 params: {fromDate: null, toDate: null, principal: null, auditEventType: null, ip:null}},
+            'queryAccount': { method: 'GET', isArray: true,
+                params: {principal: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {
