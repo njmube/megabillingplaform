@@ -16,17 +16,17 @@
             "detail": {
                 "title": "Dirección"
             },
-            "street": "Calle",
-            "no_int": "No Interior",
-            "no_ext": "No Exterior",
-            "location": "Localización",
-            "intersection": "Intersección",
-            "reference": "Referencia",
-            "c_country": "País",
-            "c_state": "Estado",
-            "c_municipality": "Municipio",
-            "c_colony": "Colonia",
-            "c_zip_code": "Código postal"
+            "street": "Calle:",
+            "no_int": "No Interior:",
+            "no_ext": "No Exterior:",
+            "location": "Localización:",
+            "intersection": "Intersección:",
+            "reference": "Referencia:",
+            "c_country": "País:",
+            "c_state": "Estado:",
+            "c_municipality": "Municipio:",
+            "c_colony": "Colonia:",
+            "c_zip_code": "Código postal:"
         }
     }
 }

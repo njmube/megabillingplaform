@@ -96,7 +96,9 @@
                     vm.taxpayer_account = result.taxpayer_account;
                     loadAll();
                 }, function() {
+
                 });
+
         }
 
         function deleteSerieFolio(taxpayerSerieFolio){
@@ -121,6 +123,7 @@
             }).result.then(function() {
                     loadAll();
                 }, function() {
+                    loadAll();
                 });
         }
     }

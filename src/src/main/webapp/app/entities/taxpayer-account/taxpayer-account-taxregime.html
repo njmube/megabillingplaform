@@ -89,7 +89,7 @@
                 <tr>
                     <th translate="global.field.id">ID</th>
                     <th translate="megabillingplatformApp.taxpayer_account.nameTaxregime">Name</th>
-                    <th translate="megabillingplatformApp.taxpayer_account.description">Description</th>
+                    <th translate="megabillingplatformApp.taxpayer_account.description1">Description</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -110,6 +110,10 @@
                 </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="text-center">
+            <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+            <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
         </div>
     </div>
 </div>

@@ -5,11 +5,15 @@
         .module('megabillingplatformApp')
         .controller('Taxpayer_accountTaxregimeController', Taxpayer_accountTaxregimeController);
 
-    Taxpayer_accountTaxregimeController.$inject = ['$scope', '$uibModal', '$rootScope', '$stateParams', 'entity', 'Taxpayer_account', 'Tax_address', 'Taxpayer_certificate', 'Type_taxpayer', 'Tax_regime', 'User'];
+    Taxpayer_accountTaxregimeController.$inject = ['$state', '$scope', '$uibModal', '$rootScope', '$stateParams', 'entity', 'Taxpayer_account', 'Tax_address', 'Taxpayer_certificate', 'Type_taxpayer', 'Tax_regime', 'User'];
 
-    function Taxpayer_accountTaxregimeController($scope, $uibModal, $rootScope, $stateParams, entity, Taxpayer_account, Tax_address, Taxpayer_certificate, Type_taxpayer, Tax_regime, User) {
+    function Taxpayer_accountTaxregimeController($state, $scope, $uibModal, $rootScope, $stateParams, entity, Taxpayer_account, Tax_address, Taxpayer_certificate, Type_taxpayer, Tax_regime, User) {
         var vm = this;
 
+        vm.page = 1;
+
+        vm.transition = transition;
+        vm.load = load;
         vm.taxpayer_account = entity;
         vm.taxpayer_accounts = Taxpayer_account.query();
         vm.add = add;
@@ -21,6 +25,13 @@
             vm.taxpayer_account = result;
         });
         $scope.$on('$destroy', unsubscribe);
+
+        load();
+
+        function load(){
+            vm.queryCount = vm.taxpayer_account.tax_regimes.length;
+            vm.totalItems = vm.queryCount;
+        }
 
         function deleteTaxregime(taxregime){
             var list = [];
@@ -67,8 +78,17 @@
                 }
             }).result.then(function(result) {
                     vm.taxpayer_account = result.taxpayer_account;
+                    load();
                 }, function() {
                 });
+        }
+
+        function transition () {
+            $state.transitionTo($state.$current, {
+                page: vm.page,
+                sort: vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc'),
+                search: vm.currentSearch
+            });
         }
     }
 })();

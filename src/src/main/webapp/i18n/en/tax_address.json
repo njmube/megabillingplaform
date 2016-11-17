@@ -16,17 +16,17 @@
             "detail": {
                 "title": "Tax Address"
             },
-            "street": "Street",
-            "no_int": "No Int",
-            "no_ext": "No Ext",
-            "location": "Location",
-            "intersection": "Intersection",
-            "reference": "Reference",
-            "c_country": "Country",
-            "c_state": "State",
-            "c_municipality": "Municipality",
-            "c_colony": "Colony",
-            "c_zip_code": "Zip Code"
+            "street": "Street:",
+            "no_int": "No. Int:",
+            "no_ext": "No. Ext:",
+            "location": "Location:",
+            "intersection": "Intersection:",
+            "reference": "Reference:",
+            "c_country": "Country:",
+            "c_state": "State:",
+            "c_municipality": "Municipality:",
+            "c_colony": "Colony:",
+            "c_zip_code": "Zip Code:"
         }
     }
 }

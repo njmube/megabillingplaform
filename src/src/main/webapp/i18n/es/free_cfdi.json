@@ -46,6 +46,7 @@
             "c_money": "Moneda:",
             "cfdi_type_doc": "Tipo de Documento (*):",
             "cfdi_type_doc1":"Tipo de Documento",
+            "cfdi_type_doc2":"Tipo de Documento:",
             "cfdi_states1": "Estado CFDI",
             "date_expedition1": "Fecha Expedición",
             "serial1": "Serie",

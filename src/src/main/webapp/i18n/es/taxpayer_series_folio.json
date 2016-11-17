@@ -16,12 +16,15 @@
             "detail": {
                 "title": "Serie y Folio"
             },
-            "serie": "Serie",
-            "folio_start": "Folio inicial",
-            "folio_end": "Folio final",
-            "folio_current": "Folio actual",
-            "date_creation": "Fecha de creación",
-            "taxpayer_account": "Cuenta de contribuyente",
+            "serie": "Serie:",
+            "folio_start": "Folio inicial:",
+            "folio_end": "Folio final:",
+            "seriee": "Serie",
+            "folio_startt": "Folio inicial",
+            "folio_endd": "Folio final",
+            "folio_current": "Folio actual:",
+            "date_creation": "Fecha de creación:",
+            "taxpayer_account": "Cuenta de contribuyente:",
             "enable":"Activo",
             "messenable":"Otro Serie y Folio está activo, solo un elemento puede estar activo.",
             "disable":"Desactivo"

@@ -44,7 +44,7 @@
         }
 
         function clear () {
-            $uibModalInstance.dismiss('cancel');
+            loadAll();
         }
 
         var unsubscribe = $rootScope.$on('megabillingplatformApp:taxpayer_accountUpdate', function(event, result) {

@@ -16,11 +16,11 @@
             "detail": {
                 "title": "Correo electrónico de la cuenta"
             },
-            "incoming_mail_type": "Tipo de correo entrante",
-            "incoming_server_name": "Nombre del servidor entrante",
-            "incoming_port": "Puerto entrante",
-            "username": "Usuario",
-            "password": "Contraseña",
+            "incoming_mail_type": "Tipo de correo entrante:",
+            "incoming_server_name": "Nombre del servidor entrante:",
+            "incoming_port": "Puerto entrante:",
+            "username": "Usuario:",
+            "password": "Contraseña:",
             "taxpayer_account": "Cuenta de facturación"
         }
     }

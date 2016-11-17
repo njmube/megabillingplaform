@@ -16,12 +16,15 @@
             "detail": {
                 "title": "Taxpayer Series Folio"
             },
-            "serie": "Serie",
-            "folio_start": "Folio Start",
-            "folio_end": "Folio End",
-            "folio_current": "Folio Current",
-            "date_creation": "Date Creation",
-            "taxpayer_account": "Taxpayer Account",
+            "serie": "Serie:",
+            "folio_start": "Folio Start:",
+            "folio_end": "Folio End:",
+            "seriee": "Serie",
+            "folio_startt": "Folio Start",
+            "folio_endd": "Folio End",
+            "folio_current": "Folio Current:",
+            "date_creation": "Date Creation:",
+            "taxpayer_account": "Taxpayer Account:",
             "enable":"Enable",
             "messenable":"Other Serie and Folio is enable",
             "disable":"Deactivated"

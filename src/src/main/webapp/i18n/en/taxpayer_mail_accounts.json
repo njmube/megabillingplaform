@@ -16,11 +16,11 @@
             "detail": {
                 "title": "Taxpayer Mail Accounts"
             },
-            "incoming_mail_type": "Incoming Mail Type",
-            "incoming_server_name": "Incoming Server Name",
-            "incoming_port": "Incoming Port",
-            "username": "Username",
-            "password": "Password",
+            "incoming_mail_type": "Incoming Mail Type:",
+            "incoming_server_name": "Incoming Server Name:",
+            "incoming_port": "Port:",
+            "username": "Username:",
+            "password": "Password:",
             "taxpayer_account": "Taxpayer Account"
         }
     }

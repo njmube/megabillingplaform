@@ -16,11 +16,11 @@
             "detail": {
                 "title": "FTP de la cuenta"
             },
-            "server_type": "Tipo de servidor",
-            "server_name_ip": "Nombre/IP Servidor",
-            "port": "Puerto",
-            "username": "Usuario",
-            "password": "Contraseña",
+            "server_type": "Tipo de servidor:",
+            "server_name_ip": "Nombre/IP Servidor:",
+            "port": "Puerto:",
+            "username": "Usuario:",
+            "password": "Contraseña:",
             "taxpayer_account": "Cuenta de facturación"
         }
     }
