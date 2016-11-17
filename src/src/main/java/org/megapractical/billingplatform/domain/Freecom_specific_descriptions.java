@@ -39,7 +39,8 @@ public class Freecom_specific_descriptions implements Serializable {
     @Column(name = "serial_number", length = 40)
     private String serial_number;
 
-    @ManyToOne
+    @OneToOne
+    @JoinColumn(unique = true)
     private Freecom_commodity freecom_commodity;
 
     public Long getId() {

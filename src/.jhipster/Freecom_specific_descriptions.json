@@ -3,8 +3,10 @@
         {
             "relationshipName": "freecom_commodity",
             "otherEntityName": "freecom_commodity",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "freecom_specific_descriptions"
         }
     ],
     "fields": [

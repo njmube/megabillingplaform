@@ -1551,6 +1551,15 @@
                             dollar_value: (0).toFixed(2),
                             id: null
                         };
+                    },
+                    com_specific_descriptions_entity: function () {
+                        return {
+                            brand: null,
+                            model: null,
+                            submodel: null,
+                            serial_number: null,
+                            id: null
+                        };
                     }
                 }
             }).result.then(function(result) {

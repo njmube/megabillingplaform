@@ -36,11 +36,9 @@
             <column name="serial_number" type="varchar(40)">
                 <constraints nullable="true" />
             </column>
-            
-            <column name="freecom_commodity_id" type="bigint">
-                <constraints nullable="true" />
+                        <column name="freecom_commodity_id" type="bigint">
+                <constraints unique="true" nullable="true" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         

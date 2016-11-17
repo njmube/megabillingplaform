@@ -10,7 +10,7 @@ public class Freecom_CommodityDTO {
 
     private Freecom_commodity freecom_commodity;
 
-    private List<Freecom_specific_descriptions> specific_descriptions;
+    private Freecom_specific_descriptions specific_descriptions;
 
     public Freecom_commodity getFreecom_commodity() {
         return freecom_commodity;
@@ -20,11 +20,11 @@ public class Freecom_CommodityDTO {
         this.freecom_commodity = freecom_commodity;
     }
 
-    public List<Freecom_specific_descriptions> getSpecific_descriptions() {
+    public Freecom_specific_descriptions getSpecific_descriptions() {
         return specific_descriptions;
     }
 
-    public void setSpecific_descriptions(List<Freecom_specific_descriptions> specific_descriptions) {
+    public void setSpecific_descriptions(Freecom_specific_descriptions specific_descriptions) {
         this.specific_descriptions = specific_descriptions;
     }
 }
