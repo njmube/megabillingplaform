@@ -9,6 +9,7 @@
 
     function Taxpayer_accountInboxController ($scope, Free_cfdi, Cfdi_type_doc, entity, Taxpayer_account, Principal, User, DataUtils, $filter, $state, Cfdi, ParseLinks, AlertService, pagingParams, paginationConstants, Cfdi_states) {
         var vm = this;
+        vm.messDate = null;
         vm.taxpayer_account = entity;
         vm.taxpayer_accounts = Taxpayer_account.query();
         vm.states = Cfdi_states.query({filtername:" "});
@@ -75,6 +76,7 @@
         }
 
         function searchPre(){
+            vm.messDate = null;
             var dateFormat = 'yyyy-MM-dd';
 
             var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -84,6 +86,11 @@
             }
             if(vm.dateEnd != null){
                 toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+            if(vm.dateStart != null && vm.dateEnd != null){
+                if(vm.dateStart > vm.dateEnd){
+                    vm.messDate = 'OK';
+                }
             }
             var foliof = " ";
             if(vm.folio_fiscal != null && vm.folio_fiscal != ""){
@@ -106,23 +113,25 @@
             if(vm.cfdi_type_doc != null){
                 idcfdi_type_doc = vm.cfdi_type_doc.id;
             }
-            Cfdi.query({
-                page: pagingParams.page - 1,
-                size: paginationConstants.itemsPerPage,
-                sort: sort(),
-                folio_fiscal: foliof,
-                rfc_receiver: rfcreceiver,
-                fromDate: fromDate,
-                toDate: toDate,
-                idcfdi_type_doc: idcfdi_type_doc,
-                serie: serie,
-                folio: folio,
-                idaccount: vm.taxpayer_account.id,
-                pre: 1,
-                send: 0,
-                cancel: 0,
-                reciever: 0
-            }, onSuccess, onError);
+            if(vm.messDate == null){
+                Cfdi.query({
+                    page: pagingParams.page - 1,
+                    size: paginationConstants.itemsPerPage,
+                    sort: sort(),
+                    folio_fiscal: foliof,
+                    rfc_receiver: rfcreceiver,
+                    fromDate: fromDate,
+                    toDate: toDate,
+                    idcfdi_type_doc: idcfdi_type_doc,
+                    serie: serie,
+                    folio: folio,
+                    idaccount: vm.taxpayer_account.id,
+                    pre: 1,
+                    send: 0,
+                    cancel: 0,
+                    reciever: 0
+                }, onSuccess, onError);
+            }
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
                 if (vm.predicate !== 'id') {
@@ -143,6 +152,7 @@
         }
 
         function searchReciever(){
+            vm.messDate = null;
             var dateFormat = 'yyyy-MM-dd';
 
             var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -152,6 +162,12 @@
             }
             if(vm.dateEnd != null){
                 toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+
+            if(vm.dateStart != null && vm.dateEnd != null){
+                if(vm.dateStart > vm.dateEnd){
+                    vm.messDate = 'OK';
+                }
             }
             var foliof = " ";
             if(vm.folio_fiscal != null && vm.folio_fiscal != ""){
@@ -174,23 +190,25 @@
             if(vm.cfdi_type_doc != null){
                 idcfdi_type_doc = vm.cfdi_type_doc.id;
             }
-            Cfdi.query({
-                page: pagingParams.page - 1,
-                size: paginationConstants.itemsPerPage,
-                sort: sort(),
-                folio_fiscal: foliof,
-                rfc_receiver: rfcreceiver,
-                fromDate: fromDate,
-                toDate: toDate,
-                idcfdi_type_doc: idcfdi_type_doc,
-                serie: serie,
-                folio: folio,
-                idaccount: vm.taxpayer_account.id,
-                pre: 0,
-                send: 0,
-                cancel: 0,
-                reciever: 1
-            }, onSuccess, onError);
+            if(vm.messDate == null){
+                Cfdi.query({
+                    page: pagingParams.page - 1,
+                    size: paginationConstants.itemsPerPage,
+                    sort: sort(),
+                    folio_fiscal: foliof,
+                    rfc_receiver: rfcreceiver,
+                    fromDate: fromDate,
+                    toDate: toDate,
+                    idcfdi_type_doc: idcfdi_type_doc,
+                    serie: serie,
+                    folio: folio,
+                    idaccount: vm.taxpayer_account.id,
+                    pre: 0,
+                    send: 0,
+                    cancel: 0,
+                    reciever: 1
+                }, onSuccess, onError);
+            }
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
                 if (vm.predicate !== 'id') {
@@ -211,6 +229,7 @@
         }
 
         function searchCancel(){
+            vm.messDate = null;
             var dateFormat = 'yyyy-MM-dd';
 
             var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -220,6 +239,12 @@
             }
             if(vm.dateEnd != null){
                 toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+
+            if(vm.dateStart != null && vm.dateEnd != null){
+                if(vm.dateStart > vm.dateEnd){
+                    vm.messDate = 'OK';
+                }
             }
             var foliof = " ";
             if(vm.folio_fiscal != null && vm.folio_fiscal != ""){
@@ -242,23 +267,26 @@
             if(vm.cfdi_type_doc != null){
                 idcfdi_type_doc = vm.cfdi_type_doc.id;
             }
-            Cfdi.query({
-                page: pagingParams.page - 1,
-                size: paginationConstants.itemsPerPage,
-                sort: sort(),
-                folio_fiscal: foliof,
-                rfc_receiver: rfcreceiver,
-                fromDate: fromDate,
-                toDate: toDate,
-                idcfdi_type_doc: idcfdi_type_doc,
-                serie: serie,
-                folio: folio,
-                idaccount: vm.taxpayer_account.id,
-                pre: 0,
-                send: 0,
-                cancel: 1,
-                reciever: 0
-            }, onSuccess, onError);
+            if(vm.messDate == null){
+                Cfdi.query({
+                    page: pagingParams.page - 1,
+                    size: paginationConstants.itemsPerPage,
+                    sort: sort(),
+                    folio_fiscal: foliof,
+                    rfc_receiver: rfcreceiver,
+                    fromDate: fromDate,
+                    toDate: toDate,
+                    idcfdi_type_doc: idcfdi_type_doc,
+                    serie: serie,
+                    folio: folio,
+                    idaccount: vm.taxpayer_account.id,
+                    pre: 0,
+                    send: 0,
+                    cancel: 1,
+                    reciever: 0
+                }, onSuccess, onError);
+            }
+
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
                 if (vm.predicate !== 'id') {
@@ -279,6 +307,7 @@
         }
 
         function searchSending() {
+            vm.messDate = null;
             var dateFormat = 'yyyy-MM-dd';
 
             var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -288,6 +317,11 @@
             }
             if(vm.dateEnd != null){
                 toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+            if(vm.dateStart != null && vm.dateEnd != null){
+                if(vm.dateStart > vm.dateEnd){
+                    vm.messDate = 'OK';
+                }
             }
             var foliof = " ";
             if(vm.folio_fiscal != null && vm.folio_fiscal != ""){
@@ -310,23 +344,26 @@
             if(vm.cfdi_type_doc != null){
                 idcfdi_type_doc = vm.cfdi_type_doc.id;
             }
-            Cfdi.query({
-                page: pagingParams.page - 1,
-                size: paginationConstants.itemsPerPage,
-                sort: sort(),
-                folio_fiscal: foliof,
-                rfc_receiver: rfcreceiver,
-                fromDate: fromDate,
-                toDate: toDate,
-                idcfdi_type_doc: idcfdi_type_doc,
-                serie: serie,
-                folio: folio,
-                idaccount: vm.taxpayer_account.id,
-                pre: 0,
-                send: 1,
-                cancel: 0,
-                reciever: 0
-            }, onSuccess, onError);
+            if(vm.messDate == null){
+                Cfdi.query({
+                    page: pagingParams.page - 1,
+                    size: paginationConstants.itemsPerPage,
+                    sort: sort(),
+                    folio_fiscal: foliof,
+                    rfc_receiver: rfcreceiver,
+                    fromDate: fromDate,
+                    toDate: toDate,
+                    idcfdi_type_doc: idcfdi_type_doc,
+                    serie: serie,
+                    folio: folio,
+                    idaccount: vm.taxpayer_account.id,
+                    pre: 0,
+                    send: 1,
+                    cancel: 0,
+                    reciever: 0
+                }, onSuccess, onError);
+            }
+
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
                 if (vm.predicate !== 'id') {
@@ -347,7 +384,7 @@
         }
 
         function searchFree() {
-
+            vm.messDate = null;
             var dateFormat = 'yyyy-MM-dd';
 
             var fromDate = $filter('date')("0000-01-01", dateFormat);
@@ -357,6 +394,11 @@
             }
             if(vm.dateEnd != null){
                 toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+            if(vm.dateStart != null && vm.dateEnd != null){
+                if(vm.dateStart > vm.dateEnd){
+                    vm.messDate = 'OK';
+                }
             }
             var foliof = " ";
             if(vm.folio_fiscal != null && vm.folio_fiscal != ""){
@@ -382,19 +424,22 @@
             if(vm.state != null){
                 idstate = vm.state.id;
             }
-            Free_cfdi.query({
-                page: pagingParams.page - 1,
-                size: paginationConstants.itemsPerPage,
-                sort: sort(),
-                idFree_cfdi: idFree_cfdi,
-                folio_fiscal: foliof,
-                rfc_receiver: rfcreceiver,
-                fromDate: fromDate,
-                toDate: toDate,
-                idState: idstate,
-                serie: serie,
-                folio: folio
-            }, onSuccess, onError);
+            if(vm.messDate == null){
+                Free_cfdi.query({
+                    page: pagingParams.page - 1,
+                    size: paginationConstants.itemsPerPage,
+                    sort: sort(),
+                    idFree_cfdi: idFree_cfdi,
+                    folio_fiscal: foliof,
+                    rfc_receiver: rfcreceiver,
+                    fromDate: fromDate,
+                    toDate: toDate,
+                    idState: idstate,
+                    serie: serie,
+                    folio: folio
+                }, onSuccess, onError);
+            }
+
             function sort() {
                 var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
                 if (vm.predicate !== 'id') {

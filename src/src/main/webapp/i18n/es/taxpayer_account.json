@@ -149,7 +149,8 @@
             "textuser":"Estimado usuario",
             "textuser1":"Le informamos que la cuenta de contribuyente a la cual ha accedido actualmente no cuenta con timbres disponibles para utilizar nuestros sistemas.",
             "textuser2":"Le invitamos a que adquiera timbres a través de la funcionalidad Adquirir Timbres que aparece en el menú. También puede acceder a dicha funcionalidad presionando el botón que aparece debajo.",
-            "textuser3":"Le informamos que para operar con nuestro sistema su cuenta de contribuyente debe contar con al menos 1 timbres disponible."
+            "textuser3":"Le informamos que para operar con nuestro sistema su cuenta de contribuyente debe contar con al menos 1 timbres disponible.",
+            "messDate":"Las fechas definidas no son correctas"
 
         }
     }

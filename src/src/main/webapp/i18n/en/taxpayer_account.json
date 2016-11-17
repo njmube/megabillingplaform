@@ -154,7 +154,8 @@
             "textuser":"User",
             "textuser1":"Your taxpayer account do not have any transactions.",
             "textuser2":"You can adquired it using the menu or the follow button.",
-            "textuser3":"Your taxpayer account required at least 1 transaction."
+            "textuser3":"Your taxpayer account required at least 1 transaction.",
+            "messDate":"Incorrect dates"
         }
     }
 }
