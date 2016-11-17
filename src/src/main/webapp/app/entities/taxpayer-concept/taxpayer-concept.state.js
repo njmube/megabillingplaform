@@ -49,6 +49,7 @@
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('taxpayer_concept');
+                    $translatePartialLoader.addPart('taxpayer_account');
                     $translatePartialLoader.addPart('measure_unit_concept');
                     $translatePartialLoader.addPart('price_concept');
                     $translatePartialLoader.addPart('discount_concept');

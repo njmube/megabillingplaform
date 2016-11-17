@@ -49,6 +49,7 @@
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('taxpayer_client');
+                    $translatePartialLoader.addPart('taxpayer_account');
                     $translatePartialLoader.addPart('client_address');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();

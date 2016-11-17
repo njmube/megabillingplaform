@@ -49,6 +49,7 @@
                 }],
                 translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
                     $translatePartialLoader.addPart('tax_concept');
+                    $translatePartialLoader.addPart('taxpayer_account');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

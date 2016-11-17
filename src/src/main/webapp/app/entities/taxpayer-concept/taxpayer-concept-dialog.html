@@ -36,7 +36,7 @@
                             <option value="">Seleccione...</option>
                         </select>
                     </div>
-                    <div class="col-sm-2 ">
+                    <div class="col-sm-2">
                         <button type="button" class="btn btn-xs btn-primary pull-right" ng-disabled="vm.measure_unit == null || vm.measure_unit_concept_add_error == true" ng-click="vm.addMeasureUnitConcept()">
                             <span class="glyphicon glyphicon-plus"></span>
                         </button>
@@ -111,7 +111,7 @@
                         <table id="price-concept-table" class="table table-striped table-bordered">
                             <tbody>
                             <tr ng-repeat="price_concept in vm.price_concepts">
-                                <td>{{price_concept.value}}</td>
+                                <td>{{price_concept.value | number: vm.taxpayer_account.accuracy}}</td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-defaultv pull-right" ng-click="vm.removePriceConcept($index)">
                                         <span class="glyphicon glyphicon-trash"></span>
@@ -152,7 +152,7 @@
                         <table id="discount-concept-table" class="table table-striped table-bordered">
                             <tbody>
                             <tr ng-repeat="discount_concept in vm.discount_concepts">
-                                <td>{{discount_concept.value}}</td>
+                                <td>{{discount_concept.value | number: 2}}</td>
                                 <td>
                                     <button type="button" class="btn btn-sm btn-defaultv pull-right" ng-click="vm.removeDiscountConcept($index)">
                                         <span class="glyphicon glyphicon-trash"></span>

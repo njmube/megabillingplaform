@@ -63,6 +63,18 @@
 
 <form name="searchForm" class="form-horizontal" role="form" novalidate ng-submit="vm.search()" show-validation>
     <div class="row" ng-show="vm.taxpayer_account != null">
+        <div class="col-md-2">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button type="button" class="btn btn-primary" ng-click="vm.addTaxConcept()">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.tax_concept.home.add">
+                        Add
+                    </span>
+                    </button>
+                </div>
+            </div>
+        </div>
         <div class="col-md-5">
             <div class="form-group">
                 <label class="col-sm-4 control-label no-padding-right" for="search_form_tax_type">
@@ -101,18 +113,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2">
-            <div class="form-group">
-                <div class="col-sm-12">
-                    <button type="button" class="btn btn-primary pull-right" ng-click="vm.addTaxConcept()">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    <span  translate="megabillingplatformApp.tax_concept.home.add">
-                        Add
-                    </span>
-                    </button>
-                </div>
-            </div>
-        </div>
     </div>
 </form>
 
@@ -143,13 +143,13 @@
                                 ng-click="vm.editTaxConcept(tax_concept.id)"
                                 class="btn btn-primary btn-sm">
                             <span class="glyphicon glyphicon-pencil"></span>
-                            <!--<span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>-->
+                            <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
                         </button>
                         <button type="button"
                                 ng-click="vm.deleteTaxConcept(tax_concept.id)"
                                 class="btn btn-danger btn-sm">
                             <span class="glyphicon glyphicon-trash"></span>
-                            <!--<span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>-->
+                            <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
                         </button>
                     </div>
                 </td>
