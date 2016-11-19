@@ -87,7 +87,7 @@
             data: {
                 authorities: ['ROLE_AFILITATED']
             },
-            onEnter: ['$stateParams', 'Taxpayer_account', '$state', '$uibModal', function($stateParams, Taxpayer_account, $state, $uibModal) {
+            onEnter: ['$stateParams', 'Taxpayer_account', 'Taxpayer_client', '$state', '$uibModal', function($stateParams, Taxpayer_account, Taxpayer_client, $state, $uibModal) {
                 $uibModal.open({
                     templateUrl: 'app/entities/taxpayer-client/taxpayer-client-dialog.html',
                     controller: 'Taxpayer_clientDialogController',

@@ -5,13 +5,32 @@
         .module('megabillingplatformApp')
         .controller('Taxpayer_clientDialogController', Taxpayer_clientDialogController);
 
-    Taxpayer_clientDialogController.$inject = ['$timeout', '$scope', '$uibModalInstance', '$q', 'entity', 'taxpayer_account_entity', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'Taxpayer_client'];
+    Taxpayer_clientDialogController.$inject = ['$timeout', '$scope', '$uibModalInstance', 'entity', 'taxpayer_account_entity', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', 'Taxpayer_client'];
 
-    function Taxpayer_clientDialogController ($timeout, $scope, $uibModalInstance, $q, entity, taxpayer_account_entity, C_country, C_state, C_municipality, C_colony, C_zip_code, Taxpayer_client) {
+    function Taxpayer_clientDialogController ($timeout, $scope, $uibModalInstance, entity, taxpayer_account_entity, C_country, C_state, C_municipality, C_colony, C_zip_code, Taxpayer_client) {
         var vm = this;
 
         vm.taxpayer_client = entity;
         vm.taxpayer_account = taxpayer_account_entity;
+        vm.taxpayer_clients = [];
+        vm.client_rfc_repeated = false;
+
+        loadAll();
+
+        function loadAll () {
+            Taxpayer_client.query({
+                page: 0,
+                size: 30,
+                taxpayeraccount: vm.taxpayer_account.id,
+                rfc: " ",
+                bussinesname: " ",
+                email: " ",
+                phone: " "
+            }, onSuccess);
+            function onSuccess(data) {
+                vm.taxpayer_clients = data;
+            }
+        }
 
         vm.client_address = { street: null, no_int: null, no_ext: null, location: null, intersection: null, reference: null, id: null, c_country: {id: 151, name: "México", abrev: "MEX"}};
         vm.c_countries = C_country.query({pg:1, filtername:" "});
@@ -36,6 +55,7 @@
             }
         }
 
+        vm.checkClientRFC = checkClientRFC;
         vm.onChangeC_country = onChangeC_country;
         vm.onChangeC_state = onChangeC_state;
         vm.onChangeC_municipality = onChangeC_municipality;
@@ -47,6 +67,17 @@
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
         });
+
+        function checkClientRFC(){
+            vm.client_rfc_repeated = false;
+            var i;
+            for(i = 0; i < vm.taxpayer_clients.length; i++){
+                if(vm.taxpayer_client.rfc == vm.taxpayer_clients[i].rfc){
+                    vm.client_rfc_repeated = true;
+                    break;
+                }
+            }
+        }
 
         function onChangeC_country () {
             var countryId = vm.client_address.c_country.id;
