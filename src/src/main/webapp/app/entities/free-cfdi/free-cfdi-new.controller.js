@@ -777,9 +777,11 @@
             var commodity_saved = result;
             var specific_descriptions = vm.f_add_commodities[vm.commodities_index].specific_descriptions;
 
-            if(specific_descriptions.brand){
-                specific_descriptions.freecom_commodity = commodity_saved;
-                Freecom_specific_descriptions.save(specific_descriptions);
+            var i;
+            for(i=0; i < specific_descriptions.length; i++) {
+                var freecom_specific_descriptions = specific_descriptions[i];
+                freecom_specific_descriptions.freecom_commodity = commodity_saved;
+                Freecom_specific_descriptions.save(freecom_specific_descriptions);
             }
 
             saveCommodity();
@@ -2166,19 +2168,12 @@
                             dollar_value: (0).toFixed(2),
                             id: null
                         };
-                    },
-                    freecom_specific_descriptions_entity: function () {
-                        return {
-                            brand: null,
-                            model: null,
-                            submodel: null,
-                            serial_number: null,
-                            id: null
-                        };
                     }
                 }
             }).result.then(function(result) {
                 vm.f_add_commodities.push(result);
+            }, function() {
+                //do not nothing
             });
         };
 

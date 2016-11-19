@@ -3,10 +3,8 @@
         {
             "relationshipName": "com_commodity",
             "otherEntityName": "com_commodity",
-            "relationshipType": "one-to-one",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "com_specific_descriptions"
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "fields": [

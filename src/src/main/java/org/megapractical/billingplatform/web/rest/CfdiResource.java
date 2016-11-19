@@ -604,8 +604,8 @@ public class CfdiResource {
                 com_commodity.setCom_foreign_trade(com_foreign_trade);
                 com_commodity = com_commodityService.save(com_commodity);
 
-                Com_specific_descriptions com_specific_descriptions = commodity.getSpecific_descriptions();
-                if(com_specific_descriptions.getBrand() != null){
+                List<Com_specific_descriptions> specific_descriptions = commodity.getSpecific_descriptions();
+                for(Com_specific_descriptions com_specific_descriptions: specific_descriptions){
                     com_specific_descriptions.setCom_commodity(com_commodity);
                     com_specific_descriptionsService.save(com_specific_descriptions);
                 }
