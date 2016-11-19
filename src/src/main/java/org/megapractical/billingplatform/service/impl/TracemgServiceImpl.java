@@ -54,8 +54,9 @@ public class TracemgServiceImpl implements TracemgService{
     public Tracemg saveTrace(Audit_event_type audit_event_type, C_state_event c_state_event){
         try {
             Tracemg tracemg = new Tracemg();
-            InetAddress localHost = InetAddress.getLocalHost();
-            String address = localHost.getHostAddress();
+
+            String address = SecurityUtils.ipCliente;
+            log.debug("IP Client : " + address);
             tracemg.setPrincipal(SecurityUtils.getCurrentUserLogin());
             tracemg.setAudit_event_type(audit_event_type);
             tracemg.setC_state_event(c_state_event);
@@ -72,8 +73,9 @@ public class TracemgServiceImpl implements TracemgService{
     public Tracemg saveTraceUser(String user, Audit_event_type audit_event_type, C_state_event c_state_event){
         try {
             Tracemg tracemg = new Tracemg();
-            InetAddress localHost = InetAddress.getLocalHost();
-            String address = localHost.getHostAddress();
+
+            String address = SecurityUtils.ipCliente;
+            log.debug("IP Client : " + address);
             tracemg.setPrincipal(user);
             tracemg.setAudit_event_type(audit_event_type);
             tracemg.setC_state_event(c_state_event);

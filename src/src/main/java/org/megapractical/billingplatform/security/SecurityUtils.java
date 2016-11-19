@@ -8,6 +8,7 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 
 /**
@@ -18,6 +19,9 @@ public final class SecurityUtils {
     private SecurityUtils() {
     }
 
+    public static String ipCliente;
+
+    public static String intentLogin;
     /**
      * Get the login of the current user.
      *
@@ -36,6 +40,29 @@ public final class SecurityUtils {
             }
         }
         return userName;
+    }
+
+    public static String setIPClient(HttpServletRequest request){
+        ipCliente = request.getHeader("X-Real-IP");
+        if (null != ipCliente && !"".equals(ipCliente.trim())
+            && !"unknown".equalsIgnoreCase(ipCliente)) {
+
+            return ipCliente;
+        }
+        ipCliente = request.getHeader("X-Forwarded-For");
+        if (null != ipCliente && !"".equals(ipCliente.trim())
+            && !"unknown".equalsIgnoreCase(ipCliente)) {
+            // get first ip from proxy ip
+            int index = ipCliente.indexOf(',');
+            if (index != -1) {
+                return ipCliente.substring(0, index);
+            } else {
+                return ipCliente;
+            }
+        }
+        ipCliente = request.getRemoteAddr();
+
+        return ipCliente;
     }
 
     /**

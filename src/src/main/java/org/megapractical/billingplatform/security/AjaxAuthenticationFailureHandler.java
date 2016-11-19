@@ -46,7 +46,7 @@ public class AjaxAuthenticationFailureHandler extends SimpleUrlAuthenticationFai
         Long idstate = new Long("2");
         C_state_event c_state_event = c_state_eventService.findOne(idstate);
 
-        tracemgService.saveTraceUser("anonymousUser",audit_event_type,c_state_event);
+        tracemgService.saveTraceUser(SecurityUtils.intentLogin,audit_event_type,c_state_event);
 
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Authentication failed");
     }

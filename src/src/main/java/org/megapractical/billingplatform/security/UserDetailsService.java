@@ -48,6 +48,7 @@ public class UserDetailsService implements org.springframework.security.core.use
 
         log.debug("Authenticating {}", login);
         String lowercaseLogin = login.toLowerCase();
+        SecurityUtils.intentLogin = login;
         Optional<User> userFromDatabase = userRepository.findOneByLogin(lowercaseLogin);
 
         return userFromDatabase.map(user -> {

@@ -96,6 +96,8 @@ public class CustomPersistentRememberMeServices extends
     protected UserDetails processAutoLoginCookie(String[] cookieTokens, HttpServletRequest request,
         HttpServletResponse response) {
 
+        SecurityUtils.setIPClient(request);
+
         PersistentToken token = getPersistentToken(cookieTokens);
         String login = token.getUser().getLogin();
 
@@ -217,6 +219,7 @@ public class CustomPersistentRememberMeServices extends
     }
 
     private void addCookie(PersistentToken token, HttpServletRequest request, HttpServletResponse response) {
+        SecurityUtils.setIPClient(request);
         setCookie(
             new String[]{token.getSeries(), token.getTokenValue()},
             TOKEN_VALIDITY_SECONDS, request, response);

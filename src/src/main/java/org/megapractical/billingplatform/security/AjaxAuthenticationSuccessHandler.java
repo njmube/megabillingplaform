@@ -41,6 +41,9 @@ public class AjaxAuthenticationSuccessHandler extends SimpleUrlAuthenticationSuc
         Authentication authentication)
         throws IOException, ServletException {
 
+        //se obtiene el ip del cliente
+        SecurityUtils.setIPClient(request);
+
         Long idauditevent = new Long("3");
         Audit_event_type audit_event_type = audit_event_typeService.findOne(idauditevent);
 
