@@ -34,7 +34,7 @@
                 },
                 "secondsurname": {
                     "required": "Your second surname is required.",
-                    "minlength": "Your second surname is required to be at least 3 characters.",
+                    "minlength": "Your second surname is required to be at least 2 characters.",
                     "maxlength": "Your second surname cannot be longer than 50 characters."
                 },
                 "phone": {

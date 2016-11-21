@@ -34,7 +34,7 @@
                 },
                 "secondsurname": {
                     "required": "Su apellido materno es obligatorio.",
-                    "minlength": "Su apellido materno debe tener al menos 3 caracteres.",
+                    "minlength": "Su apellido materno debe tener al menos 2 caracteres.",
                     "maxlength": "Su apellido paterno no puede tener más de 50 caracteres."
                 },
                 "phone": {

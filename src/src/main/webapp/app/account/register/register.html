@@ -103,7 +103,7 @@
                 <div class="form-group">
                     <label class="control-label" for="secondsurname" translate="global.form.secondsurname">Second surname</label>
                     <input type="text" class="form-control" id="secondsurname" name="secondsurname" placeholder="{{'global.form.secondsurname.placeholder' | translate}}"
-                           ng-model="vm.registerAccount.secondsurname" ng-minlength=3 ng-maxlength=50 required>
+                           ng-model="vm.registerAccount.secondsurname" ng-minlength=2 ng-maxlength=50 required>
                     <div ng-show="form.secondsurname.$dirty && form.secondsurname.$invalid">
                         <p class="help-block"
                            ng-show="form.secondsurname.$error.required" translate="register.messages.validate.secondsurname.required">
@@ -111,7 +111,7 @@
                         </p>
                         <p class="help-block"
                            ng-show="form.secondsurname.$error.minlength" translate="register.messages.validate.secondsurname.minlength">
-                            Your second surname is required to be at least 3 characters.
+                            Your second surname is required to be at least 2 characters.
                         </p>
                         <p class="help-block"
                            ng-show="form.secondsurname.$error.maxlength" translate="register.messages.validate.secondsurname.maxlength">

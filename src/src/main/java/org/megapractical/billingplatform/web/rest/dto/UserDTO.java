@@ -41,7 +41,7 @@ public class UserDTO {
     private String firtsurname;
 
     @NotNull
-    @Size(min = 3, max = 50)
+    @Size(min = 2, max = 50)
     private String secondsurname;
 
     @Email
