@@ -3,8 +3,8 @@
 			<div class="footer-content">
 				<span>
 					&copy; 2016 <span style="margin-right:20px">Megapractical</span>
-					<a class="link-icon-table" ui-sref="register" href="#/register" ><span translate="global.menu.account.register">Registrarte</span></a>
-					<a class="link-icon-table" href="" ng-click="vm.login()" id="login" data-toggle="collapse" data-target=".navbar-collapse.in"><span translate="global.menu.account.login">Iniciar Sesión</span></a>
+					<a class="link-icon-table" ui-sref="register" href="#/register" ng-switch-when="false"><span translate="global.menu.account.register">Registrarte</span></a>
+					<a class="link-icon-table" href="" ng-click="vm.login()" id="login" data-toggle="collapse" data-target=".navbar-collapse.in" ng-switch-when="false"><span translate="global.menu.account.login">Iniciar Sesión</span></a>
 					<a class="link-icon-table" href="" ng-click="vm.asnSAT()" ><span translate="home.text24">SLA</span></a>
 					<a class="link-icon-table" target="_blank" href="http://www.megafactura.com.mx/atencion-al-cliente-megafactura"><span translate="global.menu.account.soporte.tecnico">Soporte Técnico</span></a>
 					<a class="link-icon-table" target="_blank" href="content/pdfs/aviso_privacidad.pdf"><span translate="global.menu.account.politica.privacidad">Política de Privacidad</span></a>
