@@ -2,27 +2,27 @@
     "megabillingplatformApp": {
         "com_commodity" : {
             "home": {
-                "title": "Com Commodities",
-                "createLabel": "Crear nuevo Com Commodity",
-                "createOrEditLabel": "Crear o editar Com Commodity",
-                "search": "Search for Com Commodity"
+                "title": "Mercancías",
+                "createLabel": "Nueva Mercancía",
+                "createOrEditLabel": "Crear o editar Mercancía",
+                "search": "Search for Mercancía"
             },
-            "created": "Un nuevo Com Commodity ha sido creado con el identificador {{ param }}",
-            "updated": "Un Com Commodity ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Com Commodity ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo mercancía ha sido creado con el identificador {{ param }}",
+            "updated": "Un mercancía ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un mercancía ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Com Commodity {{ id }}?"
+                "question": "¿Seguro que quiere eliminar mercancía {{ id }}?"
             },
             "detail": {
-                "title": "Com Commodity"
+                "title": "Mercancía"
             },
-            "noidentification": "Noidentification (*)",
-            "customs_quantity": "Customs Quantity",
-            "customs_unit_value": "Customs Unit Value",
-            "dollar_value": "Dollar Value (*)",
+            "noidentification": "No. Identificación (*):",
+            "customs_quantity": "Cantidad Aduana:",
+            "customs_unit_value": "Valor Unitario:",
+            "dollar_value": "Valor Dolares (*):",
             "com_foreign_trade": "Foreign Trade",
-            "com_tariff_fraction": "Tariff Fraction",
-            "com_custom_unit": "Custom Unit"
+            "com_tariff_fraction": "Fracción Arancelaria:",
+            "com_custom_unit": "Unidad Aduana:"
         }
     }
 }

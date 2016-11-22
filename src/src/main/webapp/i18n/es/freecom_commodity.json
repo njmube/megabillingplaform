@@ -2,27 +2,27 @@
     "megabillingplatformApp": {
         "freecom_commodity" : {
             "home": {
-                "title": "Freecom Commodities",
-                "createLabel": "Crear nuevo Freecom Commodity",
-                "createOrEditLabel": "Crear o editar Freecom Commodity",
-                "search": "Search for Freecom Commodity"
+                "title": "Mercancías",
+                "createLabel": "Nueva Mercancía",
+                "createOrEditLabel": "Crear o editar Mercancía",
+                "search": "Search for Mercancía"
             },
-            "created": "Un nuevo Freecom Commodity ha sido creado con el identificador {{ param }}",
-            "updated": "Un Freecom Commodity ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Freecom Commodity ha sido eliminado con el identificador {{ param }}",
+            "created": "Un nuevo mercancía ha sido creado con el identificador {{ param }}",
+            "updated": "Un mercancía ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un mercancía ha sido eliminado con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Freecom Commodity {{ id }}?"
+                "question": "¿Seguro que quiere eliminar mercancía {{ id }}?"
             },
             "detail": {
-                "title": "Freecom Commodity"
+                "title": "Mercancía"
             },
-            "noidentification": "Noidentification (*)",
-            "customs_quantity": "Customs Quantity",
-            "customs_unit_value": "Customs Unit Value",
-            "dollar_value": "Dollar Value (*)",
+            "noidentification": "No. Identificación (*):",
+            "customs_quantity": "Cantidad Aduana:",
+            "customs_unit_value": "Valor Unitario:",
+            "dollar_value": "Valor Dolares (*):",
             "freecom_foreign_trade": "Freecom Foreign Trade",
-            "freecom_tariff_fraction": "Freecom Tariff Fraction",
-            "freecom_custom_unit": "Freecom Custom Unit"
+            "freecom_tariff_fraction": "Fracción Arancelaria:",
+            "freecom_custom_unit": "Unidad Aduana:"
         }
     }
 }
