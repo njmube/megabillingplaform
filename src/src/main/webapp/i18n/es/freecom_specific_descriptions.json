@@ -2,24 +2,24 @@
     "megabillingplatformApp": {
         "freecom_specific_descriptions" : {
             "home": {
-                "title": "Freecom Specific Descriptions",
-                "createLabel": "Crear nuevo Freecom Specific Descriptions",
-                "createOrEditLabel": "Crear o editar Freecom Specific Descriptions",
-                "search": "Search for Freecom Specific Descriptions"
+                "title": "Descripciones Específicas",
+                "createLabel": "Nueva Descripción Específica",
+                "createOrEditLabel": "Crear o editar Descripción Específica",
+                "search": "Search for Descripción Específica"
             },
-            "created": "Un nuevo Freecom Specific Descriptions ha sido creado con el identificador {{ param }}",
-            "updated": "Un Freecom Specific Descriptions ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Freecom Specific Descriptions ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva descripción específica ha sido creado con el identificador {{ param }}",
+            "updated": "Una descripción específica ha sido actualizada con el identificador {{ param }}",
+            "deleted": "Una descripción específica ha sido eliminada con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Freecom Specific Descriptions {{ id }}?"
+                "question": "¿Seguro que quiere eliminar una descripción específica {{ id }}?"
             },
             "detail": {
-                "title": "Freecom Specific Descriptions"
+                "title": "Descripción Específica"
             },
-            "brand": "Brand (*)",
-            "model": "Model",
-            "submodel": "Submodel",
-            "serial_number": "Serial Number",
+            "brand": "Marca (*):",
+            "model": "Modelo:",
+            "submodel": "SubModelo:",
+            "serial_number": "No. Serie:",
             "freecom_commodity": "Freecom Commodity"
         }
     }
