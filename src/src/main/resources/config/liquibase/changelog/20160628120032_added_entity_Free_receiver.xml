@@ -24,47 +24,47 @@
             <column name="rfc" type="varchar(13)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="business_name" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="email" type="varchar(254)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="activated" type="bit">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="create_date" type="timestamp">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="street" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="no_ext" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="no_int" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="reference" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="phone" type="varchar(15)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="location" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="c_country_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -92,6 +92,41 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="free_receiver" columnName="create_date" columnDataType="datetime"/>
-        
+        <addForeignKeyConstraint baseColumnNames="c_country_id"
+                                 baseTableName="free_receiver"
+                                 constraintName="fk_free_receiver_c_country_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_country"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_state_id"
+                                 baseTableName="free_receiver"
+                                 constraintName="fk_free_receiver_c_state_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_state"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_municipality_id"
+                                 baseTableName="free_receiver"
+                                 constraintName="fk_free_receiver_c_municipality_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_municipality"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_colony_id"
+                                 baseTableName="free_receiver"
+                                 constraintName="fk_free_receiver_c_colony_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_colony"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_zip_code_id"
+                                 baseTableName="free_receiver"
+                                 constraintName="fk_free_receiver_c_zip_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_zip_code"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_taxpayer_id"
+                                 baseTableName="free_receiver"
+                                 constraintName="fk_free_receiver_type_taxpayer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_taxpayer"/>
+
     </changeSet>
 </databaseChangeLog>

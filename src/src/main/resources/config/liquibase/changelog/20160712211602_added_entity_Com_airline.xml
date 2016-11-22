@@ -24,11 +24,11 @@
             <column name="version" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="tua" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="total_charge" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
@@ -37,6 +37,10 @@
             </column>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_airline"
+                                 constraintName="fk_com_airline_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
     </changeSet>
 </databaseChangeLog>

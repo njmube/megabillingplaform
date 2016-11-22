@@ -24,21 +24,25 @@
             <column name="tax_provision" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="norm" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="text_legend" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="freecom_taxlegends_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="freecom_taxlegends_id"
+                                 baseTableName="legend"
+                                 constraintName="fk_freecom_legend_freecom_taxlegends_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_taxlegends"/>
     </changeSet>
 </databaseChangeLog>

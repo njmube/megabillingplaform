@@ -24,15 +24,15 @@
             <column name="version" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="key_vehicle" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="license_plate" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="rfcpf" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -41,6 +41,10 @@
             </column>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_pfic"
+                                 constraintName="fk_com_pfic_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
     </changeSet>
 </databaseChangeLog>

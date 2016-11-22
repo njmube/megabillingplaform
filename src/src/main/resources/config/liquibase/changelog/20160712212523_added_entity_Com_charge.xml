@@ -24,17 +24,21 @@
             <column name="codecharge" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="amount" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="com_airline_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="com_airline_id"
+                                 baseTableName="com_charge"
+                                 constraintName="fk_com_charge_com_airline_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_airline"/>
     </changeSet>
 </databaseChangeLog>

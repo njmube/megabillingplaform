@@ -25,6 +25,10 @@
             </column>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_spei"
+                                 constraintName="fk_com_spei_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
     </changeSet>
 </databaseChangeLog>

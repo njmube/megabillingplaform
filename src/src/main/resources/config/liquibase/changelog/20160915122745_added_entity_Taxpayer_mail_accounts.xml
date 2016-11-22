@@ -24,29 +24,33 @@
             <column name="incoming_mail_type" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="incoming_server_name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="incoming_port" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="username" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="password" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="taxpayer_account_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="taxpayer_account_id"
+                                 baseTableName="taxpayer_mail_accounts"
+                                 constraintName="fk_taxpayer_mail_accounts_taxpayer_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_account"/>
     </changeSet>
 </databaseChangeLog>

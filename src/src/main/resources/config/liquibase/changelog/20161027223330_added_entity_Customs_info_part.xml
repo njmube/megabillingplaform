@@ -24,21 +24,25 @@
             <column name="number_doc" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="date" type="date">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="customs" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="part_concept_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="part_concept_id"
+                                 baseTableName="customs_info_part"
+                                 constraintName="fk_customs_info_part_part_concept_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="part_concept"/>
     </changeSet>
 </databaseChangeLog>

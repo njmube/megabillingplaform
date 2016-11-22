@@ -24,31 +24,31 @@
             <column name="version" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="street" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="noext" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="noint" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="location" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="reference" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="numperlicoaut" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="cfdi_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -71,6 +71,34 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_partial_construction_services"
+                                 constraintName="fk_com_partial_construction_services_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_federal_entity_id"
+                                 baseTableName="com_partial_construction_services"
+                                 constraintName="fk_com_partial_construction_services_c_federal_entity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_federal_entity"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_municipality_id"
+                                 baseTableName="com_partial_construction_services"
+                                 constraintName="fk_com_partial_construction_services_c_municipality_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_municipality"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_colony_id"
+                                 baseTableName="com_partial_construction_services"
+                                 constraintName="fk_com_partial_construction_services_c_colony_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_colony"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_zip_code_id"
+                                 baseTableName="com_partial_construction_services"
+                                 constraintName="fk_com_partial_construction_services_c_zip_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_zip_code"/>
     </changeSet>
 </databaseChangeLog>

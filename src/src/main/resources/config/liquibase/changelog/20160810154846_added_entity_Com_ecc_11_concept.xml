@@ -24,43 +24,43 @@
             <column name="identifier" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="date" type="timestamp">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="rfc" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="key_station" type="varchar(10)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="quantity" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="unit" type="varchar(25)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="fuel_name" type="varchar(300)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="folio_operation" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="unit_value" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="amount" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="com_ecc_11_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -76,6 +76,22 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="com_ecc_11_concept" columnName="date" columnDataType="datetime"/>
-        
+        <addForeignKeyConstraint baseColumnNames="com_ecc_11_id"
+                                 baseTableName="com_ecc_11_concept"
+                                 constraintName="fk_com_ecc_11_concept_com_ecc_11_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_ecc_11"/>
+
+        <addForeignKeyConstraint baseColumnNames="com_product_key_id"
+                                 baseTableName="com_ecc_11_concept"
+                                 constraintName="fk_com_ecc_11_concept_com_product_key_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_product_key"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_tar_id"
+                                 baseTableName="com_ecc_11_concept"
+                                 constraintName="fk_com_ecc_11_concept_c_tar_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_tar"/>
     </changeSet>
 </databaseChangeLog>

@@ -58,6 +58,7 @@
                     vm.taxpayer_account.taxpayer_certificate.bussines_name_cert = null;
                     vm.taxpayer_account.taxpayer_certificate.date_created_cert = null;
                     vm.taxpayer_account.taxpayer_certificate.date_expiration_cert = null;
+                    vm.taxpayer_account.taxpayer_certificate.valid_days_cert = null;
 
                     vm.showInfo = false;
                 }, function() {

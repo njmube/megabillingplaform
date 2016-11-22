@@ -10,8 +10,8 @@ id;name;description
 9;ELIMINADO-C-TITULO-ADQUIRIDO;Se elimina la entidad titulo adquirido
 10;SALVADA-COLONIA;Se salva la entidad colonia
 11;ELIMINADA-COLONIA;Se elimina la entidad colonia
-12;SALVADO-TIPO-COMITEE;Se salva la entidad tipo de comité
-13;ELIMINADA-TIPO-COMITEE;Se elimina la entidad tipo de comité
+12;SALVADO-TIPO-COMITEE;Se salva la entidad tipo de comitï¿½
+13;ELIMINADA-TIPO-COMITEE;Se elimina la entidad tipo de comitï¿½
 14;SALVADO-PAIS;Se salva la entidad pais
 15;ELIMINADO-PAIS;Se elimina la entidad pais
 16;SALVADO-CARACTERISTICA-OBRA-ARTE;Se salva la entidad caracteristica de obra de arte
@@ -51,3 +51,6 @@ id;name;description
 50;REPORTE-CFDI;Se consulta cfdi
 51;CANCELACION-CFDI;Se cancela un CFDI
 52;CANCELACION-CFDI-GRATUITO;Se cancela un CFDI gratuito
+53;CERTIFICADOS-RFC-INCOMPATIBLES;Se detecta incompatibilidad entre el certificado y el RFC del usuario
+54;CERTIFICADO-EXPIRADO;Se detecta que el certificado ha expirado
+55;LLAVE-CERTIFICADO-INCORRECTA;Se detecta incompatibilidad en la llave del certificado

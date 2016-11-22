@@ -24,21 +24,25 @@
             <column name="implocretentions" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="retentionrate" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="amountretentions" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="com_local_taxes_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="com_local_taxes_id"
+                                 baseTableName="com_local_retentions"
+                                 constraintName="fk_com_local_retentions_com_local_taxes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_local_taxes"/>
     </changeSet>
 </databaseChangeLog>

@@ -21,14 +21,20 @@
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+
             <column name="version" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-                        <column name="cfdi_id" type="bigint">
+
+            <column name="cfdi_id" type="bigint">
                 <constraints unique="true" nullable="true" />
             </column>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_taxlegends"
+                                 constraintName="fk_com_taxlegends_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
     </changeSet>
 </databaseChangeLog>

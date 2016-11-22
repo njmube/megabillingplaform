@@ -24,39 +24,39 @@
             <column name="street" type="varchar(100)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="no_ext" type="varchar(55)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="no_int" type="varchar(55)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="locate" type="varchar(120)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="reference" type="varchar(250)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="numregidtrib" type="varchar(40)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="rfc" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="curp" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="name" type="varchar(300)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="c_country_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -79,6 +79,34 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="c_country_id"
+                                 baseTableName="com_addressee"
+                                 constraintName="fk_com_addressee_c_country_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_country"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_state_id"
+                                 baseTableName="com_addressee"
+                                 constraintName="fk_com_addressee_c_state_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_state"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_municipality_id"
+                                 baseTableName="com_addressee"
+                                 constraintName="fk_com_addressee_c_municipality_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_municipality"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_colony_id"
+                                 baseTableName="com_addressee"
+                                 constraintName="fk_com_addressee_c_colony_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_colony"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_zip_code_id"
+                                 baseTableName="com_addressee"
+                                 constraintName="fk_com_addressee_c_zip_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_zip_code"/>
     </changeSet>
 </databaseChangeLog>

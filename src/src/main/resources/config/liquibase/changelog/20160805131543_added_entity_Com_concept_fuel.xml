@@ -24,39 +24,39 @@
             <column name="identifier" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="date_expedition" type="timestamp">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="rfc" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="key_station" type="varchar(10)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="quantity" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="fuel_name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="folio_operation" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="unit_value" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="amount" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="com_fuel_consumption_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -64,6 +64,10 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="com_concept_fuel" columnName="date_expedition" columnDataType="datetime"/>
-        
+        <addForeignKeyConstraint baseColumnNames="com_fuel_consumption_id"
+                                 baseTableName="com_concept_fuel"
+                                 constraintName="fk_com_concept_fuel_com_fuel_consumption_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_fuel_consumption"/>
     </changeSet>
 </databaseChangeLog>

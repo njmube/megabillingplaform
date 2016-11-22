@@ -24,53 +24,57 @@
             <column name="version" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="acquisition_amount" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="monto_enajenacion" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="key_vehicle" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="brand" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="type" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="model" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="number_engine" type="varchar(17)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="no_serie" type="varchar(17)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="niv" type="varchar(17)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="value" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="cfdi_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_used_vehicle"
+                                 constraintName="fk_com_used_vehicle_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
     </changeSet>
 </databaseChangeLog>

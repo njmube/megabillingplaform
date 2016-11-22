@@ -124,6 +124,14 @@ public class Free_emitterResource {
 
             free_emitter = free_emitterService.InfoCertificate(free_emitter);
             //log.debug("RFC del certificado: " + free_emitter.getRfc_certificate());
+
+            Integer days = Integer.parseInt(free_emitter.getValid_days_cert());
+            if(days <= 0){
+                Long id = new Long("54");
+                Long idtypeevent = new Long("1");
+                tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+            }
+
             if(free_emitter.getRfc().compareTo(free_emitter.getRfc_certificate())!=0) {
                 free_emitter.setInfo_certificate("ERROR: El RFC del emisor es diferente al RFC del certificado");
                 free_emitter.setNumber_certificate(null);
@@ -133,6 +141,12 @@ public class Free_emitterResource {
                 free_emitter.setDate_created_cert(null);
                 free_emitter.setDate_expiration_cert(null);
                 free_emitter.setValid_days_cert(null);
+
+                //Se registra evento de incompatibilidad del RFC y el certificado
+                Long id = new Long("53");
+                Long idtypeevent = new Long("1");
+                tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+
             }else {
                 if (response[0].compareTo("0") != 0) {
                     free_emitter.setNumber_certificate(null);
@@ -142,6 +156,13 @@ public class Free_emitterResource {
                     free_emitter.setDate_created_cert(null);
                     free_emitter.setDate_expiration_cert(null);
                     free_emitter.setValid_days_cert(null);
+
+                    if(response[0].compareTo("1") == 0){
+                        Long id = new Long("55");
+                        Long idtypeevent = new Long("1");
+                        tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+                    }
+
                 } else {
                     free_emitter.setInfo_certificate(null);
                 }
@@ -161,6 +182,12 @@ public class Free_emitterResource {
                     free_emitter.setDate_created_cert(null);
                     free_emitter.setDate_expiration_cert(null);
                     free_emitter.setValid_days_cert(null);
+
+                    //Se registra evento de incompatibilidad del RFC y el certificado
+                    Long id = new Long("53");
+                    Long idtypeevent = new Long("1");
+                    tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+
                     return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "diferentRFC", "ERROR: Emitter RFC is diferent to Certificate RFC")).body(null);
                 }
             }

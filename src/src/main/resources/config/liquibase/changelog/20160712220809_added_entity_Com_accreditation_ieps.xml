@@ -24,7 +24,7 @@
             <column name="version" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="c_tar_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -33,6 +33,16 @@
             </column>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="c_tar_id"
+                                 baseTableName="com_accreditation_ieps"
+                                 constraintName="fk_com_accreditation_ieps_c_tar_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_tar"/>
+
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_accreditation_ieps"
+                                 constraintName="fk_com_accreditation_ieps_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
     </changeSet>
 </databaseChangeLog>

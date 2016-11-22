@@ -24,33 +24,37 @@
             <column name="serie" type="varchar(25)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="folio_start" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="folio_end" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="folio_current" type="integer">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="date_creation" type="date">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="enable" type="bit">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="taxpayer_account_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="taxpayer_account_id"
+                                 baseTableName="taxpayer_series_folio"
+                                 constraintName="fk_taxpayer_series_folio_taxpayer_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_account"/>
     </changeSet>
 </databaseChangeLog>

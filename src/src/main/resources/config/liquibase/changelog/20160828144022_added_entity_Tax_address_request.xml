@@ -24,27 +24,27 @@
             <column name="street" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="no_int" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="no_ext" type="varchar(10)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="location" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="intersection" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="reference" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="c_country_id" type="bigint">
                 <constraints nullable="false" />
             </column>
@@ -67,6 +67,34 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="c_country_id"
+                                 baseTableName="tax_address_request"
+                                 constraintName="fk_tax_address_request_c_country_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_country"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_state_id"
+                                 baseTableName="tax_address_request"
+                                 constraintName="fk_tax_address_request_c_state_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_state"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_municipality_id"
+                                 baseTableName="tax_address_request"
+                                 constraintName="fk_tax_address_request_c_municipality_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_municipality"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_colony_id"
+                                 baseTableName="tax_address_request"
+                                 constraintName="fk_tax_address_request_c_colony_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_colony"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_zip_code_id"
+                                 baseTableName="tax_address_request"
+                                 constraintName="fk_tax_address_request_c_zip_code_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_zip_code"/>
     </changeSet>
 </databaseChangeLog>

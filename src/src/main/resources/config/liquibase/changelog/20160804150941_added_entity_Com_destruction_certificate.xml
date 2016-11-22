@@ -24,47 +24,47 @@
             <column name="version" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="numfoldesveh" type="varchar(20)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="brand" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="class_dc" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="year" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="model" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="niv" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="no_serie" type="varchar(17)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="number_plates" type="varchar(10)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="number_engine" type="varchar(17)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="numfoltarjcir" type="varchar(40)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="cfdi_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -75,6 +75,16 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_destruction_certificate"
+                                 constraintName="fk_com_destruction_certificate_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_type_series_id"
+                                 baseTableName="com_destruction_certificate"
+                                 constraintName="fk_com_destruction_certificate_c_type_series_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_type_series"/>
     </changeSet>
 </databaseChangeLog>

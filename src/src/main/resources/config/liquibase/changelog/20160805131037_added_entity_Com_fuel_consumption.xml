@@ -24,29 +24,33 @@
             <column name="version" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="type_operation" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="account_number" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="subtotal" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="total" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="cfdi_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_fuel_consumption"
+                                 constraintName="fk_com_fuel_consumption_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
     </changeSet>
 </databaseChangeLog>

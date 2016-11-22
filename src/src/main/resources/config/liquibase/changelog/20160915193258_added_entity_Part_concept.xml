@@ -24,23 +24,23 @@
             <column name="no_identification" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="quanitty" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="description" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="unit_value" type="decimal(32,6)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="amount" type="decimal(32,6)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="concept_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -51,6 +51,16 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="concept_id"
+                                 baseTableName="part_concept"
+                                 constraintName="fk_part_concept_concept_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="concept"/>
+
+        <addForeignKeyConstraint baseColumnNames="measure_unit_id"
+                                 baseTableName="part_concept"
+                                 constraintName="fk_part_concept_measure_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="measure_unit"/>
     </changeSet>
 </databaseChangeLog>

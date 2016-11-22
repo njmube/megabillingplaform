@@ -24,13 +24,17 @@
             <column name="keyaccounting" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="freecom_ine_entity_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="freecom_ine_entity_id"
+                                 baseTableName="accounting"
+                                 constraintName="fk_accounting_freecom_ine_entity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_ine_entity"/>
     </changeSet>
 </databaseChangeLog>

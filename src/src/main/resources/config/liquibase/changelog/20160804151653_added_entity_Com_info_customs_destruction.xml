@@ -24,11 +24,11 @@
             <column name="numpedimp" type="varchar(40)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="date_expedition" type="date">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="customs" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
@@ -37,6 +37,10 @@
             </column>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="com_destruction_certificate_id"
+                                 baseTableName="com_info_customs_destruction"
+                                 constraintName="fk_com_info_customs_destruction_com_destruction_certificate_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_destruction_certificate"/>
     </changeSet>
 </databaseChangeLog>

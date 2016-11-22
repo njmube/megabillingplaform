@@ -24,31 +24,31 @@
             <column name="identification_number" type="varchar(20)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="date_expedition" type="timestamp">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="rfc" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="curp" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="name" type="varchar(100)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="social_security_number" type="varchar(15)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="amount" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="com_storeroom_paybill_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -56,6 +56,10 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="com_paybill_concept" columnName="date_expedition" columnDataType="datetime"/>
-        
+        <addForeignKeyConstraint baseColumnNames="com_storeroom_paybill_id"
+                                 baseTableName="com_paybill_concept"
+                                 constraintName="fk_com_paybill_concept_com_storeroom_paybill_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_storeroom_paybill"/>
     </changeSet>
 </databaseChangeLog>

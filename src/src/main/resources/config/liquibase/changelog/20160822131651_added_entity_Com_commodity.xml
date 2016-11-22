@@ -24,19 +24,19 @@
             <column name="noidentification" type="varchar(100)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="customs_quantity" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="customs_unit_value" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="dollar_value" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="com_foreign_trade_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -51,6 +51,22 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="com_foreign_trade_id"
+                                 baseTableName="com_commodity"
+                                 constraintName="fk_com_commodity_com_foreign_trade_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_foreign_trade"/>
+
+        <addForeignKeyConstraint baseColumnNames="com_tariff_fraction_id"
+                                 baseTableName="com_commodity"
+                                 constraintName="fk_com_commodity_com_tariff_fraction_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_tariff_fraction"/>
+
+        <addForeignKeyConstraint baseColumnNames="com_custom_unit_id"
+                                 baseTableName="com_commodity"
+                                 constraintName="fk_com_commodity_com_custom_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_custom_unit"/>
     </changeSet>
 </databaseChangeLog>

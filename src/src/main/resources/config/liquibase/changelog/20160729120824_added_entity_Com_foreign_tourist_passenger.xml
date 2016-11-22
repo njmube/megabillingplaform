@@ -24,31 +24,31 @@
             <column name="version" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="date_traffic" type="timestamp">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="typeid" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="numerid" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="nationality" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="transportcompany" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="idtransport" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="c_transit_type_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -64,6 +64,22 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="com_foreign_tourist_passenger" columnName="date_traffic" columnDataType="datetime"/>
-        
+        <addForeignKeyConstraint baseColumnNames="c_transit_type_id"
+                                 baseTableName="com_foreign_tourist_passenger"
+                                 constraintName="fk_com_foreign_tourist_passenger_c_transit_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_transit_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_type_road_id"
+                                 baseTableName="com_foreign_tourist_passenger"
+                                 constraintName="fk_com_foreign_tourist_passenger_c_type_road_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_type_road"/>
+
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_foreign_tourist_passenger"
+                                 constraintName="fk_com_foreign_tourist_passenger_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
     </changeSet>
 </databaseChangeLog>

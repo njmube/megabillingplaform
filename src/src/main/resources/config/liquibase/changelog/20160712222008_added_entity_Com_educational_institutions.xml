@@ -24,19 +24,19 @@
             <column name="version" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="name_student" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="curp" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="autrvoe" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="rfcpayment" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -49,6 +49,16 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_educational_institutions"
+                                 constraintName="fk_com_educational_institutions_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_school_level_id"
+                                 baseTableName="com_educational_institutions"
+                                 constraintName="fk_com_educational_institutions_c_school_level_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_school_level"/>
     </changeSet>
 </databaseChangeLog>

@@ -24,43 +24,43 @@
             <column name="name" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="daterequest" type="timestamp">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="firtsurname" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="secondsurname" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="phone" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="email" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="gender" type="varchar(50)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="rfc" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="bussinesname" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="accountemail" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="request_state_id" type="bigint">
                 <constraints nullable="false" />
             </column>
@@ -76,6 +76,22 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="request_taxpayer_account" columnName="daterequest" columnDataType="datetime"/>
-        
+        <addForeignKeyConstraint baseColumnNames="request_state_id"
+                                 baseTableName="request_taxpayer_account"
+                                 constraintName="fk_request_taxpayer_account_request_state_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="request_state"/>
+
+        <addForeignKeyConstraint baseColumnNames="tax_address_request_id"
+                                 baseTableName="request_taxpayer_account"
+                                 constraintName="fk_request_taxpayer_account_tax_address_request_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tax_address_request"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="request_taxpayer_account"
+                                 constraintName="fk_request_taxpayer_account_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
     </changeSet>
 </databaseChangeLog>

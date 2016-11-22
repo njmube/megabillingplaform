@@ -24,17 +24,21 @@
             <column name="transactions_available" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="transactions_spent" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="taxpayer_account_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="taxpayer_account_id"
+                                 baseTableName="taxpayer_transactions"
+                                 constraintName="fk_taxpayer_transactions_taxpayer_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_account"/>
     </changeSet>
 </databaseChangeLog>

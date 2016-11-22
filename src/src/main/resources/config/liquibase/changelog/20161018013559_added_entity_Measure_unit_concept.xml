@@ -31,6 +31,16 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="measure_unit_id"
+                                 baseTableName="measure_unit_concept"
+                                 constraintName="fk_measure_unit_concept_measure_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="measure_unit"/>
+
+        <addForeignKeyConstraint baseColumnNames="taxpayer_concept_id"
+                                 baseTableName="measure_unit_concept"
+                                 constraintName="fk_measure_unit_concept_taxpayer_concept_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_concept"/>
     </changeSet>
 </databaseChangeLog>

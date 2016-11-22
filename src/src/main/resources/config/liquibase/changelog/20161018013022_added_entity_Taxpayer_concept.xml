@@ -24,21 +24,25 @@
             <column name="no_identification" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="description" type="text">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="predial_number" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="taxpayer_account_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="taxpayer_account_id"
+                                 baseTableName="taxpayer_concept"
+                                 constraintName="fk_taxpayer_concept_taxpayer_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_account"/>
     </changeSet>
 </databaseChangeLog>

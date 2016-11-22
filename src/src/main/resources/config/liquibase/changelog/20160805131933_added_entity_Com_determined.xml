@@ -24,11 +24,11 @@
             <column name="rate" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="amount" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="com_concept_fuel_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -39,6 +39,16 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="com_concept_fuel_id"
+                                 baseTableName="com_determined"
+                                 constraintName="fk_com_determined_com_concept_fuel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_concept_fuel"/>
+
+        <addForeignKeyConstraint baseColumnNames="freecom_tax_type_id"
+                                 baseTableName="com_determined"
+                                 constraintName="fk_com_determined_freecom_tax_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_tax_type"/>
     </changeSet>
 </databaseChangeLog>

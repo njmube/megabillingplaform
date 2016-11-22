@@ -24,19 +24,19 @@
             <column name="rfc" type="varchar(13)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="bussinesname" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="email" type="varchar(254)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="email_2" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="phone" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -49,6 +49,16 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="client_address_id"
+                                 baseTableName="taxpayer_client"
+                                 constraintName="fk_taxpayer_client_client_address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="client_address"/>
+
+        <addForeignKeyConstraint baseColumnNames="taxpayer_account_id"
+                                 baseTableName="taxpayer_client"
+                                 constraintName="fk_taxpayer_client_taxpayer_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_account"/>
     </changeSet>
 </databaseChangeLog>

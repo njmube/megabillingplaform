@@ -24,7 +24,7 @@
             <column name="amount" type="decimal(32,6)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="tax_types_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -35,6 +35,16 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="tax_types_id"
+                                 baseTableName="tax_retentions"
+                                 constraintName="fk_tax_retentions_tax_types_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tax_types"/>
+
+        <addForeignKeyConstraint baseColumnNames="concept_id"
+                                 baseTableName="tax_retentions"
+                                 constraintName="fk_tax_retentions_concept_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="concept"/>
     </changeSet>
 </databaseChangeLog>

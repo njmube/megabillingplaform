@@ -24,25 +24,29 @@
             <column name="brand" type="varchar(35)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="model" type="varchar(80)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="submodel" type="varchar(50)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="serial_number" type="varchar(40)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="com_commodity_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="com_commodity_id"
+                                 baseTableName="com_specific_descriptions"
+                                 constraintName="fk_com_specific_descriptions_com_commodity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_commodity"/>
     </changeSet>
 </databaseChangeLog>

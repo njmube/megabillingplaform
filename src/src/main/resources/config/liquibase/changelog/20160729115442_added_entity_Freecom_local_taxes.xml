@@ -24,21 +24,25 @@
             <column name="version" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="total_local_retentions" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="total_local_transfered" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="free_cfdi_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="free_cfdi_id"
+                                 baseTableName="freecom_local_taxes"
+                                 constraintName="fk_freecom_local_taxes_free_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="free_cfdi"/>
     </changeSet>
 </databaseChangeLog>

@@ -24,31 +24,31 @@
             <column name="no_identification" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="quantity" type="decimal(32,6)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="description" type="text">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="unit_value" type="decimal(32,6)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="predial_number" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="discount" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="amount" type="decimal(32,6)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="measure_unit_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -59,6 +59,16 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="measure_unit_id"
+                                 baseTableName="concept"
+                                 constraintName="fk_concept_measure_unit_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="measure_unit"/>
+
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="concept"
+                                 constraintName="fk_concept_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
     </changeSet>
 </databaseChangeLog>

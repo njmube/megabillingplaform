@@ -161,6 +161,14 @@ public class Taxpayer_accountResource {
                     taxpayer_account.getTaxpayer_certificate().setInfo_certificate(response[1]);
 
                     Taxpayer_certificate taxpayer_certificate = taxpayer_certificateService.InfoCertificate(taxpayer_account.getTaxpayer_certificate());
+
+                    Integer days = Integer.parseInt(taxpayer_certificate.getValid_days_cert());
+                    if(days <= 0){
+                        Long id = new Long("54");
+                        Long idtypeevent = new Long("1");
+                        tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+                    }
+
                     if(taxpayer_account.getRfc().compareTo(taxpayer_certificate.getRfc_certificate())!=0) {
                         taxpayer_certificate.setInfo_certificate("ERROR: Emitter RFC is diferent to Certificate RFC");
                         taxpayer_certificate.setNumber_certificate(null);
@@ -170,6 +178,11 @@ public class Taxpayer_accountResource {
                         taxpayer_certificate.setDate_created_cert(null);
                         taxpayer_certificate.setDate_expiration_cert(null);
                         taxpayer_certificate.setValid_days_cert(null);
+
+                        //Se registra evento de incompatibilidad del RFC y el certificado
+                        Long id = new Long("53");
+                        Long idtypeevent = new Long("1");
+                        tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
                     }else {
                         if (response[0].compareTo("0") != 0) {
                             taxpayer_certificate.setNumber_certificate(null);
@@ -179,6 +192,12 @@ public class Taxpayer_accountResource {
                             taxpayer_certificate.setDate_created_cert(null);
                             taxpayer_certificate.setDate_expiration_cert(null);
                             taxpayer_certificate.setValid_days_cert(null);
+
+                            if(response[0].compareTo("1") == 0){
+                                Long id = new Long("55");
+                                Long idtypeevent = new Long("1");
+                                tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
+                            }
                         } else {
                             taxpayer_certificate.setInfo_certificate(null);
                         }
@@ -198,6 +217,11 @@ public class Taxpayer_accountResource {
                             taxpayer_certificate.setDate_created_cert(null);
                             taxpayer_certificate.setDate_expiration_cert(null);
                             taxpayer_certificate.setValid_days_cert(null);
+
+                            //Se registra evento de incompatibilidad del RFC y el certificado
+                            Long id = new Long("53");
+                            Long idtypeevent = new Long("1");
+                            tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
                             return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("taxpayer_account", "diferentRFC", "ERROR: Taxpayer Account RFC is diferent to Certificate RFC")).body(null);
                         }
                     }

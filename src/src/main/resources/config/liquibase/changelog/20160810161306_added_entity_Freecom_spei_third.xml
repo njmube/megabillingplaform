@@ -24,27 +24,27 @@
             <column name="date_operation" type="date">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="hour" type="timestamp">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="key_spei" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="stamp" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="number_certificate" type="varchar(20)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="cda" type="varchar(841)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="freecom_spei_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -56,6 +56,22 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="freecom_spei_third" columnName="hour" columnDataType="datetime"/>
-        
+        <addForeignKeyConstraint baseColumnNames="freecom_spei_id"
+                                 baseTableName="freecom_spei_third"
+                                 constraintName="fk_freecom_spei_third_freecom_spei_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_spei"/>
+
+        <addForeignKeyConstraint baseColumnNames="freecom_payer_id"
+                                 baseTableName="freecom_spei_third"
+                                 constraintName="fk_freecom_spei_third_freecom_payer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_payer"/>
+
+        <addForeignKeyConstraint baseColumnNames="freecom_beneficiary_id"
+                                 baseTableName="freecom_spei_third"
+                                 constraintName="fk_freecom_spei_third_freecom_beneficiary_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_beneficiary"/>
     </changeSet>
 </databaseChangeLog>

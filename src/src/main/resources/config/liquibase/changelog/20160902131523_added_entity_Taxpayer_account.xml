@@ -24,35 +24,35 @@
             <column name="rfc" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="bussines_name" type="varchar(100)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="email" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="fax" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="phone_1" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="phone_2" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="accuracy" type="integer">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="path_logo" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="file_logo" type="blob">
                 <constraints nullable="true" />
             </column>
@@ -72,7 +72,7 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+
         <createTable tableName="taxpayer_account_tax_regime">
             <column name="tax_regimes_id" type="bigint">
                 <constraints nullable="false"/>
@@ -83,7 +83,7 @@
         </createTable>
 
         <addPrimaryKey columnNames="taxpayer_accounts_id, tax_regimes_id" tableName="taxpayer_account_tax_regime"/>
-        
+
         <createTable tableName="taxpayer_account_user">
             <column name="users_id" type="bigint">
                 <constraints nullable="false"/>
@@ -94,6 +94,45 @@
         </createTable>
 
         <addPrimaryKey columnNames="taxpayer_accounts_id, users_id" tableName="taxpayer_account_user"/>
-        
+
+        <addForeignKeyConstraint baseColumnNames="tax_address_id"
+                                 baseTableName="taxpayer_account"
+                                 constraintName="fk_taxpayer_account_tax_address_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tax_address"/>
+
+        <addForeignKeyConstraint baseColumnNames="taxpayer_certificate_id"
+                                 baseTableName="taxpayer_account"
+                                 constraintName="fk_taxpayer_account_taxpayer_certificate_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_certificate"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_taxpayer_id"
+                                 baseTableName="taxpayer_account"
+                                 constraintName="fk_taxpayer_account_type_taxpayer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_taxpayer"/>
+
+        <addForeignKeyConstraint baseColumnNames="taxpayer_accounts_id"
+                                 baseTableName="taxpayer_account_tax_regime"
+                                 constraintName="fk_taxpayer_account_tax_regime_tax_regime_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_account"/>
+        <addForeignKeyConstraint baseColumnNames="tax_regimes_id"
+                                 baseTableName="taxpayer_account_tax_regime"
+                                 constraintName="fk_taxpayer_account_tax_regime_taxpayer_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tax_regime"/>
+
+        <addForeignKeyConstraint baseColumnNames="taxpayer_accounts_id"
+                                 baseTableName="taxpayer_account_user"
+                                 constraintName="fk_taxpayer_account_user_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_account"/>
+        <addForeignKeyConstraint baseColumnNames="users_id"
+                                 baseTableName="taxpayer_account_user"
+                                 constraintName="fk_taxpayer_account_user_taxpayer_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
     </changeSet>
 </databaseChangeLog>

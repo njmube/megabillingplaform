@@ -24,15 +24,15 @@
             <column name="date_transaction" type="timestamp">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="quantity" type="varchar(10)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="description" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-            
+
             <column name="c_system_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -60,6 +60,40 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="transactions_history" columnName="date_transaction" columnDataType="datetime"/>
-        
+        <addForeignKeyConstraint baseColumnNames="c_system_id"
+                                 baseTableName="transactions_history"
+                                 constraintName="fk_transactions_history_c_system_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_system"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="transactions_history"
+                                 constraintName="fk_transactions_history_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="type_transaction_id"
+                                 baseTableName="transactions_history"
+                                 constraintName="fk_transactions_history_type_transaction_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="type_transaction"/>
+
+        <addForeignKeyConstraint baseColumnNames="taxpayer_account_id"
+                                 baseTableName="transactions_history"
+                                 constraintName="fk_transactions_history_taxpayer_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_account"/>
+
+        <addForeignKeyConstraint baseColumnNames="ring_pack_id"
+                                 baseTableName="transactions_history"
+                                 constraintName="fk_transactions_history_ring_pack_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ring_pack"/>
+
+        <addForeignKeyConstraint baseColumnNames="taxpayer_request_id"
+                                 baseTableName="transactions_history"
+                                 constraintName="fk_transactions_history_taxpayer_request_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_request"/>
     </changeSet>
 </databaseChangeLog>

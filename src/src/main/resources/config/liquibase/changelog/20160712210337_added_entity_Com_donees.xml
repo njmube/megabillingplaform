@@ -24,15 +24,15 @@
             <column name="version" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="no_authorization" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="date_authorization" type="timestamp">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="legend" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
@@ -42,6 +42,10 @@
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="com_donees" columnName="date_authorization" columnDataType="datetime"/>
-        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_donees"
+                                 constraintName="fk_com_donees_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
     </changeSet>
 </databaseChangeLog>

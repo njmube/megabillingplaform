@@ -24,7 +24,7 @@
             <column name="version" type="varchar(50)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="ident" type="integer">
                 <constraints nullable="true" />
             </column>
@@ -41,6 +41,22 @@
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="cfdi_id"
+                                 baseTableName="com_ine"
+                                 constraintName="fk_com_ine_cfdi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_committee_type_id"
+                                 baseTableName="com_ine"
+                                 constraintName="fk_com_ine_c_committee_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_committee_type"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_process_type_id"
+                                 baseTableName="com_ine"
+                                 constraintName="fk_com_ine_c_process_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_process_type"/>
     </changeSet>
 </databaseChangeLog>

@@ -24,21 +24,25 @@
             <column name="imploctransfered" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="transferedrate" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="amounttransfered" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="com_local_taxes_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="com_local_taxes_id"
+                                 baseTableName="com_local_transfered"
+                                 constraintName="fk_com_local_transfered_com_local_taxes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_local_taxes"/>
     </changeSet>
 </databaseChangeLog>

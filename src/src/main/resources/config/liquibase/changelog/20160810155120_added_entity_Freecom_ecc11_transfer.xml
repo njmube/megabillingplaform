@@ -24,21 +24,25 @@
             <column name="type_tax" type="varchar(4)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="rate" type="decimal(10,6)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="amount" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-            
+
             <column name="freecom_ecc_11_concept_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <addForeignKeyConstraint baseColumnNames="freecom_ecc_11_concept_id"
+                                 baseTableName="freecom_ecc_11_transfer"
+                                 constraintName="fk_freecom_ecc_11_transfer_freecom_ecc_11_concept_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="freecom_ecc_11_concept"/>
     </changeSet>
 </databaseChangeLog>
