@@ -13,7 +13,7 @@
         vm.freecom_commodity = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.freecom_tariff_fractions = Freecom_tariff_fraction.query();
+        vm.freecom_tariff_fractions = Freecom_tariff_fraction.query({pg: -1});
         vm.freecom_custom_units = Freecom_custom_unit.query();
 
         function clear () {

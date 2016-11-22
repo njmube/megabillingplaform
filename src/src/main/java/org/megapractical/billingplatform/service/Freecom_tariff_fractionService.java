@@ -13,7 +13,7 @@ public interface Freecom_tariff_fractionService {
 
     /**
      * Save a freecom_tariff_fraction.
-     * 
+     *
      * @param freecom_tariff_fraction the entity to save
      * @return the persisted entity
      */
@@ -21,7 +21,7 @@ public interface Freecom_tariff_fractionService {
 
     /**
      *  Get all the freecom_tariff_fractions.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
@@ -29,7 +29,7 @@ public interface Freecom_tariff_fractionService {
 
     /**
      *  Get the "id" freecom_tariff_fraction.
-     *  
+     *
      *  @param id the id of the entity
      *  @return the entity
      */
@@ -37,8 +37,10 @@ public interface Freecom_tariff_fractionService {
 
     /**
      *  Delete the "id" freecom_tariff_fraction.
-     *  
+     *
      *  @param id the id of the entity
      */
     void delete(Long id);
+
+    List<Freecom_tariff_fraction> findAll();
 }

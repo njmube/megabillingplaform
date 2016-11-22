@@ -10,7 +10,7 @@
         var resourceUrl =  'api/com-tariff-fractions/:id';
 
         return $resource(resourceUrl, {}, {
-            'query': { method: 'GET', isArray: true},
+            'query': { method: 'GET', isArray: true, params: {pg: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

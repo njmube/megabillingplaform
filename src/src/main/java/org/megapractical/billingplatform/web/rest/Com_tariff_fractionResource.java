@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Com_tariff_fractionResource {
 
     private final Logger log = LoggerFactory.getLogger(Com_tariff_fractionResource.class);
-        
+
     @Inject
     private Com_tariff_fractionService com_tariff_fractionService;
-    
+
     /**
      * POST  /com-tariff-fractions : Create a new com_tariff_fraction.
      *
@@ -89,14 +89,21 @@ public class Com_tariff_fractionResource {
      */
     @RequestMapping(value = "/com-tariff-fractions",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"pg"})
     @Timed
-    public ResponseEntity<List<Com_tariff_fraction>> getAllCom_tariff_fractions(Pageable pageable)
+    public ResponseEntity<List<Com_tariff_fraction>> getAllCom_tariff_fractions(Pageable pageable, @RequestParam(value = "pg") Integer pg)
         throws URISyntaxException {
         log.debug("REST request to get a page of Com_tariff_fractions");
-        Page<Com_tariff_fraction> page = com_tariff_fractionService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/com-tariff-fractions");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if(pg == 0) {
+            Page<Com_tariff_fraction> page = com_tariff_fractionService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/com-tariff-fractions");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
+        else{
+            List<Com_tariff_fraction> page = com_tariff_fractionService.findAll();
+            return new ResponseEntity<>(page, HttpStatus.OK);
+        }
     }
 
     /**

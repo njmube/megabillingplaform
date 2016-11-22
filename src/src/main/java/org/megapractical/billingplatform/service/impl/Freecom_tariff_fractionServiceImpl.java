@@ -21,13 +21,13 @@ import java.util.List;
 public class Freecom_tariff_fractionServiceImpl implements Freecom_tariff_fractionService{
 
     private final Logger log = LoggerFactory.getLogger(Freecom_tariff_fractionServiceImpl.class);
-    
+
     @Inject
     private Freecom_tariff_fractionRepository freecom_tariff_fractionRepository;
-    
+
     /**
      * Save a freecom_tariff_fraction.
-     * 
+     *
      * @param freecom_tariff_fraction the entity to save
      * @return the persisted entity
      */
@@ -39,14 +39,14 @@ public class Freecom_tariff_fractionServiceImpl implements Freecom_tariff_fracti
 
     /**
      *  Get all the freecom_tariff_fractions.
-     *  
+     *
      *  @param pageable the pagination information
      *  @return the list of entities
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Page<Freecom_tariff_fraction> findAll(Pageable pageable) {
         log.debug("Request to get all Freecom_tariff_fractions");
-        Page<Freecom_tariff_fraction> result = freecom_tariff_fractionRepository.findAll(pageable); 
+        Page<Freecom_tariff_fraction> result = freecom_tariff_fractionRepository.findAll(pageable);
         return result;
     }
 
@@ -56,7 +56,7 @@ public class Freecom_tariff_fractionServiceImpl implements Freecom_tariff_fracti
      *  @param id the id of the entity
      *  @return the entity
      */
-    @Transactional(readOnly = true) 
+    @Transactional(readOnly = true)
     public Freecom_tariff_fraction findOne(Long id) {
         log.debug("Request to get Freecom_tariff_fraction : {}", id);
         Freecom_tariff_fraction freecom_tariff_fraction = freecom_tariff_fractionRepository.findOne(id);
@@ -65,11 +65,18 @@ public class Freecom_tariff_fractionServiceImpl implements Freecom_tariff_fracti
 
     /**
      *  Delete the  freecom_tariff_fraction by id.
-     *  
+     *
      *  @param id the id of the entity
      */
     public void delete(Long id) {
         log.debug("Request to delete Freecom_tariff_fraction : {}", id);
         freecom_tariff_fractionRepository.delete(id);
+    }
+
+    @Override
+    public List<Freecom_tariff_fraction> findAll() {
+        log.debug("Request to get all Freecom_tariff_fractions");
+        List<Freecom_tariff_fraction> result = freecom_tariff_fractionRepository.findAll();
+        return result;
     }
 }

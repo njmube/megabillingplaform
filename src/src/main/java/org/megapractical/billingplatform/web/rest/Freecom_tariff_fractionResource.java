@@ -30,10 +30,10 @@ import java.util.Optional;
 public class Freecom_tariff_fractionResource {
 
     private final Logger log = LoggerFactory.getLogger(Freecom_tariff_fractionResource.class);
-        
+
     @Inject
     private Freecom_tariff_fractionService freecom_tariff_fractionService;
-    
+
     /**
      * POST  /freecom-tariff-fractions : Create a new freecom_tariff_fraction.
      *
@@ -89,14 +89,21 @@ public class Freecom_tariff_fractionResource {
      */
     @RequestMapping(value = "/freecom-tariff-fractions",
         method = RequestMethod.GET,
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"pg"})
     @Timed
-    public ResponseEntity<List<Freecom_tariff_fraction>> getAllFreecom_tariff_fractions(Pageable pageable)
+    public ResponseEntity<List<Freecom_tariff_fraction>> getAllFreecom_tariff_fractions(Pageable pageable, @RequestParam(value = "pg") Integer pg)
         throws URISyntaxException {
         log.debug("REST request to get a page of Freecom_tariff_fractions");
-        Page<Freecom_tariff_fraction> page = freecom_tariff_fractionService.findAll(pageable); 
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/freecom-tariff-fractions");
-        return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        if (pg == 0) {
+            Page<Freecom_tariff_fraction> page = freecom_tariff_fractionService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/freecom-tariff-fractions");
+            return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
+        }
+        else{
+            List<Freecom_tariff_fraction> page = freecom_tariff_fractionService.findAll();
+            return new ResponseEntity<>(page, HttpStatus.OK);
+        }
     }
 
     /**

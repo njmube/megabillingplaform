@@ -27,6 +27,10 @@
             
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
-        
+        <loadData encoding="UTF-8"
+                  file="config/liquibase/c_key_pediment.csv"
+                  separator=";"
+                  tableName="c_key_pediment">
+        </loadData>
     </changeSet>
 </databaseChangeLog>

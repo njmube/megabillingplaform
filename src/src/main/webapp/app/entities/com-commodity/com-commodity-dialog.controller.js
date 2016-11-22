@@ -13,7 +13,7 @@
         vm.com_commodity = entity;
         vm.clear = clear;
         vm.save = save;
-        vm.com_tariff_fractions = Com_tariff_fraction.query();
+        vm.com_tariff_fractions = Com_tariff_fraction.query({pg: -1});
         vm.com_custom_units = Com_custom_unit.query();
 
         function clear () {
