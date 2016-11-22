@@ -33,7 +33,7 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="stamp_cfd" type="varchar(255)">
+            <column name="stamp_cfd" type="varchar(10000)">
                 <constraints nullable="false" />
             </column>
             
@@ -41,7 +41,7 @@
                 <constraints nullable="false" />
             </column>
             
-            <column name="stamp_sat" type="varchar(255)">
+            <column name="stamp_sat" type="varchar(10000)">
                 <constraints nullable="false" />
             </column>
             
