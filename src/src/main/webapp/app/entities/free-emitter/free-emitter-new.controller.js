@@ -39,6 +39,9 @@
 
         function clicEdit(){
             vm.edit = 'OK';
+            vm.free_emitter.c_state = null;
+            vm.free_emitter.c_municipality = null;
+            vm.free_emitter.c_colony = null;
         }
 
         function clearInfor(){

@@ -41,6 +41,8 @@ public interface TracemgService {
 
     Page<TracemgAccount> findCustomAccount(String principal, Pageable pageable);
 
+    Integer getTimeFailLogin(Integer time, Integer delay);
+
     /**
      *  Get the "id" tracemg.
      *

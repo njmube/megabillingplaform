@@ -52,7 +52,7 @@
             "c_country": "País (*):",
             "c_state": "Estado (*):",
             "c_municipality": "Municipio (*):",
-            "c_colony": "Colonia:",
+            "c_colony": "Colonia (*):",
             "c_zip_code": "Código postal:",
             "general_data":"Datos Generales",
             "messages": {

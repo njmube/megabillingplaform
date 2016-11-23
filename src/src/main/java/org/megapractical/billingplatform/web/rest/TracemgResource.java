@@ -175,6 +175,20 @@ public class TracemgResource {
 
     }
 
+    @RequestMapping(value = "/tracemgs",
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE,
+        params = {"time", "delay"})
+    @Timed
+    public ResponseEntity<Integer> getTimeLastFailureLogin(@RequestParam(value = "time") Integer time,
+                                                           @RequestParam(value = "delay") Integer delay)
+        throws URISyntaxException {
+        log.debug("REST request to get a time of 3 fail login");
+        Integer result = tracemgService.getTimeFailLogin(time,delay);
+
+        return new ResponseEntity<Integer>(result,HttpStatus.OK);
+    }
+
     /**
      * GET  /tracemgs/:id : get the "id" tracemg.
      *

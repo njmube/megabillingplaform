@@ -14,6 +14,7 @@
                 params: {fromDate: null, toDate: null, principal: null, auditEventType: null, ip:null}},
             'queryAccount': { method: 'GET', isArray: true,
                 params: {principal: null}},
+            'getTimeLastFailureLogin':{method: 'GET', params: {time: null, delay: null}},
             'get': {
                 method: 'GET',
                 transformResponse: function (data) {

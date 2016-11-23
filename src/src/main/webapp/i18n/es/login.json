@@ -9,7 +9,8 @@
         },
         "messages": {
             "error": {
-                "authentication": "<strong>¡El inicio de sesión ha fallado!</strong> Por favor, revise las credenciales e intente de nuevo."
+                "authentication": "<strong>¡El inicio de sesión ha fallado!</strong> Por favor, revise las credenciales e intente de nuevo.",
+                "faillogin": "<strong>Falló la autenticación 3 veces!</strong> Por favor, trate despúes de 30 min."
             }
         },
         "password" : {

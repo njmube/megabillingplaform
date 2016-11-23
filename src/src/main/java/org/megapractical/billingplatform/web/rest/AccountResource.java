@@ -204,6 +204,7 @@ public class AccountResource {
             .orElse(new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR));
     }
 
+
     /**
      * POST  /account : update the current user information.
      *

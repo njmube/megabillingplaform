@@ -18,6 +18,7 @@ import javax.inject.Inject;
 import java.net.InetAddress;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.temporal.TemporalField;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -69,6 +70,39 @@ public class TracemgServiceImpl implements TracemgService{
         }
         return null;
     }
+
+    public Integer getTimeFailLogin(Integer time, Integer delay){
+        ZonedDateTime to = ZonedDateTime.now().minusMinutes(new Long(time.toString()));
+        List<Tracemg> result = tracemgRepository.findByIpAndTimestampBetweenOrderByIdDesc(SecurityUtils.ipCliente,to,ZonedDateTime.now());
+
+        Integer count = 0;
+        Integer failLogin = 0;
+        List<Integer> postions = new ArrayList<>();
+        Integer min = 0;
+        ZonedDateTime lastfail = ZonedDateTime.now();
+        Long idevent = new Long("3");
+        Long idstate = new Long("2");
+        for(Tracemg trace: result){
+            count++;
+            if(trace.getAudit_event_type().getId() == idevent && trace.getC_state_event().getId()==idstate){
+                failLogin++;
+                postions.add(count);
+                if(failLogin == 1){
+                    lastfail = trace.getTimestamp();
+                }
+            }
+        }
+        if(failLogin >= 3){
+            if(postions.get(0) == postions.get(1)-1 && postions.get(1) == postions.get(2)-1){
+                Long minutosnow = (ZonedDateTime.now().toEpochSecond()-lastfail.toEpochSecond())/60;
+                if(minutosnow < time){
+                    min = delay - Integer.parseInt(minutosnow.toString());
+                }
+            }
+        }
+        return min;
+    }
+
 
     public Tracemg saveTraceUser(String user, Audit_event_type audit_event_type, C_state_event c_state_event){
         try {

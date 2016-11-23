@@ -257,6 +257,8 @@ public class Taxpayer_accountResource {
                 return createTaxpayer_account(taxpayer_account);
             }
 
+            tax_addressService.save(taxpayer_account.getTax_address());
+
             Taxpayer_account result = taxpayer_accountService.save(taxpayer_account);
 
             Long id = new Long("45");

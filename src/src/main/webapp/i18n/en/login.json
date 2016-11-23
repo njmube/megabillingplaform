@@ -9,7 +9,8 @@
         },
         "messages": {
             "error": {
-                "authentication": "<strong>Failed to sign in!</strong> Please check your credentials and try again."
+                "authentication": "<strong>Failed to sign in!</strong> Please check your credentials and try again.",
+                "faillogin": "<strong>Failed to sign 3 times!</strong> Please try again after 30 min."
             }
         },
         "password" : {

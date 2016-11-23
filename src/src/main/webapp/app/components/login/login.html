@@ -9,6 +9,11 @@
             <h1 translate="login.title">Sign in</h1>
         </div>
         <div class="col-md-8 col-md-offset-2">
+            <div class="alert alert-danger" ng-show="vm.messFailLogin != null" translate="login.messages.error.faillogin">
+                <strong>Ha errado el login 3 veces!</strong> Espere 30 min para volver a intentarlo.
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
             <div class="alert alert-danger" ng-show="vm.authenticationError" translate="login.messages.error.authentication">
                 <strong>Failed to sign in!</strong> Please check your credentials and try again.
             </div>

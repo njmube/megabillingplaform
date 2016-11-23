@@ -34,6 +34,9 @@
 
         function clicEdit(){
             vm.edit = 'OK';
+            vm.taxpayer_account.tax_address.c_municipality = null;
+            vm.taxpayer_account.tax_address.c_colony = null;
+            vm.taxpayer_account.tax_address.c_state = null;
         }
 
         function clearInfor(){
@@ -103,6 +106,7 @@
 
             vm.taxpayer_account =  result;
             vm.isSaving = false;
+            vm.edit = null;
             if(vm.taxpayer_account.taxpayer_certificate.info_certificate != null){
                 vm.showInfo = true;
             }else
