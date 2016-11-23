@@ -53,7 +53,7 @@ server:
     port: 8080
     address: 127.0.0.1
     session:
-        timeout: 600
+        timeout: 120
 
 liquibase:
     contexts: dev

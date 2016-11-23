@@ -51,6 +51,4 @@ id;name;description
 50;REPORTE-CFDI;Se consulta cfdi
 51;CANCELACION-CFDI;Se cancela un CFDI
 52;CANCELACION-CFDI-GRATUITO;Se cancela un CFDI gratuito
-53;CERTIFICADOS-RFC-INCOMPATIBLES;Se detecta incompatibilidad entre el certificado y el RFC del usuario
-54;CERTIFICADO-EXPIRADO;Se detecta que el certificado ha expirado
-55;LLAVE-CERTIFICADO-INCORRECTA;Se detecta incompatibilidad en la llave del certificado
+53;SESION EXPIRADA;Se expira la sesión por inactividad
