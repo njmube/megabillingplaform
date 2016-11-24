@@ -2,6 +2,7 @@ package org.megapractical.billingplatform.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.megapractical.billingplatform.security.SecurityUtils;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -203,7 +204,11 @@ public class Taxpayer_certificate implements Serializable {
     }
 
     public String getPass_certificate() {
-        return pass_certificate;
+        try {
+            return SecurityUtils.Desencrip(pass_certificate);
+        }catch (Exception ex){
+            return "";
+        }
     }
 
     public void setPass_certificate(String pass_certificate) {
