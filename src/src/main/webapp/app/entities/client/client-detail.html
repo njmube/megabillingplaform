@@ -1,0 +1,38 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.client.detail.title">Client</span> {{vm.client.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span translate="megabillingplatformApp.client.rfc">Rfc</span></dt>
+        <dd>
+            <span>{{vm.client.rfc}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.client.bussinesname">Bussinesname</span></dt>
+        <dd>
+            <span>{{vm.client.bussinesname}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.client.email">Email</span></dt>
+        <dd>
+            <span>{{vm.client.email}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.client.email2">Email 2</span></dt>
+        <dd>
+            <span>{{vm.client.email2}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.client.phone">Phone</span></dt>
+        <dd>
+            <span>{{vm.client.phone}}</span>
+        </dd>
+        <dt><span translate="megabillingplatformApp.client.client_address">Client Address</span></dt>
+        <dd>
+            <a ui-sref="client-address-detail({id:vm.client.client_address.id})">{{vm.client.client_address.id}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

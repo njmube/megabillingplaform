@@ -147,8 +147,9 @@ public class Cfdi implements Serializable {
     @NotNull
     private Tax_regime tax_regime;
 
-    @ManyToOne
-    private Taxpayer_client taxpayer_client;
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Client client;
 
     public Long getId() {
         return id;
@@ -438,12 +439,12 @@ public class Cfdi implements Serializable {
         this.tax_regime = tax_regime;
     }
 
-    public Taxpayer_client getTaxpayer_client() {
-        return taxpayer_client;
+    public Client getClient() {
+        return client;
     }
 
-    public void setTaxpayer_client(Taxpayer_client taxpayer_client) {
-        this.taxpayer_client = taxpayer_client;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     @Override

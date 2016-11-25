@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Cfdi.
+    -->
+    <changeSet id="20160916120951-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="cfdi_states_id"
+                                 baseTableName="cfdi"
+                                 constraintName="fk_cfdi_cfdi_states_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi_states"/>
+
+        <addForeignKeyConstraint baseColumnNames="payment_method_id"
+                                 baseTableName="cfdi"
+                                 constraintName="fk_cfdi_payment_method_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="payment_method"/>
+
+        <addForeignKeyConstraint baseColumnNames="cfdi_types_id"
+                                 baseTableName="cfdi"
+                                 constraintName="fk_cfdi_cfdi_types_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi_types"/>
+
+        <addForeignKeyConstraint baseColumnNames="cfdi_type_doc_id"
+                                 baseTableName="cfdi"
+                                 constraintName="fk_cfdi_cfdi_type_doc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cfdi_type_doc"/>
+
+        <addForeignKeyConstraint baseColumnNames="c_money_id"
+                                 baseTableName="cfdi"
+                                 constraintName="fk_cfdi_c_money_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="c_money"/>
+
+        <addForeignKeyConstraint baseColumnNames="com_tfd_id"
+                                 baseTableName="cfdi"
+                                 constraintName="fk_cfdi_com_tfd_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="com_tfd"/>
+
+        <addForeignKeyConstraint baseColumnNames="taxpayer_account_id"
+                                 baseTableName="cfdi"
+                                 constraintName="fk_cfdi_taxpayer_account_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="taxpayer_account"/>
+
+        <addForeignKeyConstraint baseColumnNames="tax_regime_id"
+                                 baseTableName="cfdi"
+                                 constraintName="fk_cfdi_tax_regime_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tax_regime"/>
+
+        <addForeignKeyConstraint baseColumnNames="client_id"
+                                 baseTableName="cfdi"
+                                 constraintName="fk_cfdi_client_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="client"/>
+
+    </changeSet>
+</databaseChangeLog>

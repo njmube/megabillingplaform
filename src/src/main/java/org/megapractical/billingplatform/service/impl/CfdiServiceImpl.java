@@ -92,7 +92,7 @@ public class CfdiServiceImpl implements CfdiService{
                 }
             }
             if(rfc_receiver.compareTo(" ") != 0){
-                if(rfc_receiver.compareTo(cfdi.getTaxpayer_client().getRfc())!=0){
+                if(rfc_receiver.compareTo(cfdi.getClient().getRfc())!=0){
                     b = false;
                 }
             }
@@ -159,9 +159,9 @@ public class CfdiServiceImpl implements CfdiService{
             if(receiver == 1){
                 if(idaccount != 0){
                     Taxpayer_account taxpayer_account = taxpayer_accountService.findOne(new Long(idaccount.toString()));
-                    //log.debug("Revisando receiver: cuenta: " + taxpayer_account.getRfc() + " cliente: " + cfdi.getTaxpayer_client().getRfc());
+                    //log.debug("Revisando receiver: cuenta: " + taxpayer_account.getRfc() + " cliente: " + cfdi.getClient().getRfc());
                     if(taxpayer_account != null){
-                        if(cfdi.getTaxpayer_client().getRfc().compareTo(taxpayer_account.getRfc())!=0){
+                        if(cfdi.getClient().getRfc().compareTo(taxpayer_account.getRfc())!=0){
                             //log.debug("Entro al receiver");
                             k = false;
                         }
@@ -219,21 +219,21 @@ public class CfdiServiceImpl implements CfdiService{
         else {
             root += "/";
         }
-        String base = root + cfdi.getTaxpayer_account().getRfc()+"_"+cfdi.getTaxpayer_client().getRfc()+
+        String base = root + cfdi.getTaxpayer_account().getRfc()+"_"+cfdi.getClient().getRfc()+
             "_" + cfdi.getDate_expedition().toLocalDate().getYear()+"_" +
             cfdi.getDate_expedition().toLocalDate().getMonthValue()+"_" +
             cfdi.getDate_expedition().toLocalDate().getDayOfMonth()+"T" +
             cfdi.getDate_expedition().getHour()+"_" +
             cfdi.getDate_expedition().getMinute()+"_" +
             cfdi.getDate_expedition().getSecond();
-        String filepdf = root + cfdi.getTaxpayer_account().getRfc()+"_"+cfdi.getTaxpayer_client().getRfc()+
+        String filepdf = root + cfdi.getTaxpayer_account().getRfc()+"_"+cfdi.getClient().getRfc()+
             "_" + cfdi.getDate_expedition().toLocalDate().getYear()+"_" +
             cfdi.getDate_expedition().toLocalDate().getMonthValue()+"_" +
             cfdi.getDate_expedition().toLocalDate().getDayOfMonth()+"T" +
             cfdi.getDate_expedition().getHour()+"_" +
             cfdi.getDate_expedition().getMinute()+"_" +
             cfdi.getDate_expedition().getSecond()+".pdf";
-        String filexml = root + cfdi.getTaxpayer_account().getRfc()+"_"+cfdi.getTaxpayer_client().getRfc()+
+        String filexml = root + cfdi.getTaxpayer_account().getRfc()+"_"+cfdi.getClient().getRfc()+
             "_" + cfdi.getDate_expedition().toLocalDate().getYear()+"_" +
             cfdi.getDate_expedition().toLocalDate().getMonthValue()+"_" +
             cfdi.getDate_expedition().toLocalDate().getDayOfMonth()+"T" +

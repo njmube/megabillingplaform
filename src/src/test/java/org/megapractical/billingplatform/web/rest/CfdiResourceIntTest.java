@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.hamcrest.Matchers.hasItem;
+
+import org.megapractical.billingplatform.web.rest.dto.CfdiDTO;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -21,6 +23,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -103,6 +106,18 @@ public class CfdiResourceIntTest {
     private static final String UPDATED_CERTIFICATE = "BBBBB";
     private static final String DEFAULT_WAY_PAYMENT = "AAAAA";
     private static final String UPDATED_WAY_PAYMENT = "BBBBB";
+    private static final String DEFAULT_PATH_CFDI = "AAAAA";
+    private static final String UPDATED_PATH_CFDI = "BBBBB";
+
+    private static final byte[] DEFAULT_FILEPDF = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_FILEPDF = TestUtil.createByteArray(2, "1");
+    private static final String DEFAULT_FILEPDF_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_FILEPDF_CONTENT_TYPE = "image/png";
+
+    private static final byte[] DEFAULT_FILEXML = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_FILEXML = TestUtil.createByteArray(2, "1");
+    private static final String DEFAULT_FILEXML_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_FILEXML_CONTENT_TYPE = "image/png";
 
     @Inject
     private CfdiRepository cfdiRepository;
@@ -120,6 +135,8 @@ public class CfdiResourceIntTest {
 
     private Cfdi cfdi;
 
+    private CfdiDTO cfdiDTO;
+
     @PostConstruct
     public void setup() {
         MockitoAnnotations.initMocks(this);
@@ -132,6 +149,7 @@ public class CfdiResourceIntTest {
 
     @Before
     public void initTest() {
+        cfdiDTO = new CfdiDTO();
         cfdi = new Cfdi();
         cfdi.setVersion(DEFAULT_VERSION);
         cfdi.setSerial(DEFAULT_SERIAL);
@@ -155,6 +173,12 @@ public class CfdiResourceIntTest {
         cfdi.setNumber_certificate(DEFAULT_NUMBER_CERTIFICATE);
         cfdi.setCertificate(DEFAULT_CERTIFICATE);
         cfdi.setWay_payment(DEFAULT_WAY_PAYMENT);
+        cfdi.setPath_cfdi(DEFAULT_PATH_CFDI);
+        cfdi.setFilepdf(DEFAULT_FILEPDF);
+        cfdi.setFilepdfContentType(DEFAULT_FILEPDF_CONTENT_TYPE);
+        cfdi.setFilexml(DEFAULT_FILEXML);
+        cfdi.setFilexmlContentType(DEFAULT_FILEXML_CONTENT_TYPE);
+        cfdiDTO.setCfdi(cfdi);
     }
 
     @Test
@@ -195,6 +219,11 @@ public class CfdiResourceIntTest {
         assertThat(testCfdi.getNumber_certificate()).isEqualTo(DEFAULT_NUMBER_CERTIFICATE);
         assertThat(testCfdi.getCertificate()).isEqualTo(DEFAULT_CERTIFICATE);
         assertThat(testCfdi.getWay_payment()).isEqualTo(DEFAULT_WAY_PAYMENT);
+        assertThat(testCfdi.getPath_cfdi()).isEqualTo(DEFAULT_PATH_CFDI);
+        assertThat(testCfdi.getFilepdf()).isEqualTo(DEFAULT_FILEPDF);
+        assertThat(testCfdi.getFilepdfContentType()).isEqualTo(DEFAULT_FILEPDF_CONTENT_TYPE);
+        assertThat(testCfdi.getFilexml()).isEqualTo(DEFAULT_FILEXML);
+        assertThat(testCfdi.getFilexmlContentType()).isEqualTo(DEFAULT_FILEXML_CONTENT_TYPE);
     }
 
     @Test
@@ -355,7 +384,12 @@ public class CfdiResourceIntTest {
                 .andExpect(jsonPath("$.[*].addenda").value(hasItem(DEFAULT_ADDENDA.toString())))
                 .andExpect(jsonPath("$.[*].number_certificate").value(hasItem(DEFAULT_NUMBER_CERTIFICATE.toString())))
                 .andExpect(jsonPath("$.[*].certificate").value(hasItem(DEFAULT_CERTIFICATE.toString())))
-                .andExpect(jsonPath("$.[*].way_payment").value(hasItem(DEFAULT_WAY_PAYMENT.toString())));
+                .andExpect(jsonPath("$.[*].way_payment").value(hasItem(DEFAULT_WAY_PAYMENT.toString())))
+                .andExpect(jsonPath("$.[*].path_cfdi").value(hasItem(DEFAULT_PATH_CFDI.toString())))
+                .andExpect(jsonPath("$.[*].filepdfContentType").value(hasItem(DEFAULT_FILEPDF_CONTENT_TYPE)))
+                .andExpect(jsonPath("$.[*].filepdf").value(hasItem(Base64Utils.encodeToString(DEFAULT_FILEPDF))))
+                .andExpect(jsonPath("$.[*].filexmlContentType").value(hasItem(DEFAULT_FILEXML_CONTENT_TYPE)))
+                .andExpect(jsonPath("$.[*].filexml").value(hasItem(Base64Utils.encodeToString(DEFAULT_FILEXML))));
     }
 
     @Test
@@ -390,7 +424,12 @@ public class CfdiResourceIntTest {
             .andExpect(jsonPath("$.addenda").value(DEFAULT_ADDENDA.toString()))
             .andExpect(jsonPath("$.number_certificate").value(DEFAULT_NUMBER_CERTIFICATE.toString()))
             .andExpect(jsonPath("$.certificate").value(DEFAULT_CERTIFICATE.toString()))
-            .andExpect(jsonPath("$.way_payment").value(DEFAULT_WAY_PAYMENT.toString()));
+            .andExpect(jsonPath("$.way_payment").value(DEFAULT_WAY_PAYMENT.toString()))
+            .andExpect(jsonPath("$.path_cfdi").value(DEFAULT_PATH_CFDI.toString()))
+            .andExpect(jsonPath("$.filepdfContentType").value(DEFAULT_FILEPDF_CONTENT_TYPE))
+            .andExpect(jsonPath("$.filepdf").value(Base64Utils.encodeToString(DEFAULT_FILEPDF)))
+            .andExpect(jsonPath("$.filexmlContentType").value(DEFAULT_FILEXML_CONTENT_TYPE))
+            .andExpect(jsonPath("$.filexml").value(Base64Utils.encodeToString(DEFAULT_FILEXML)));
     }
 
     @Test
@@ -405,8 +444,7 @@ public class CfdiResourceIntTest {
     @Transactional
     public void updateCfdi() throws Exception {
         // Initialize the database
-        /*
-        cfdiService.save(cfdi);
+        cfdiService.save(cfdiDTO);
 
         int databaseSizeBeforeUpdate = cfdiRepository.findAll().size();
 
@@ -435,6 +473,11 @@ public class CfdiResourceIntTest {
         updatedCfdi.setNumber_certificate(UPDATED_NUMBER_CERTIFICATE);
         updatedCfdi.setCertificate(UPDATED_CERTIFICATE);
         updatedCfdi.setWay_payment(UPDATED_WAY_PAYMENT);
+        updatedCfdi.setPath_cfdi(UPDATED_PATH_CFDI);
+        updatedCfdi.setFilepdf(UPDATED_FILEPDF);
+        updatedCfdi.setFilepdfContentType(UPDATED_FILEPDF_CONTENT_TYPE);
+        updatedCfdi.setFilexml(UPDATED_FILEXML);
+        updatedCfdi.setFilexmlContentType(UPDATED_FILEXML_CONTENT_TYPE);
 
         restCfdiMockMvc.perform(put("/api/cfdis")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -466,15 +509,19 @@ public class CfdiResourceIntTest {
         assertThat(testCfdi.getAddenda()).isEqualTo(UPDATED_ADDENDA);
         assertThat(testCfdi.getNumber_certificate()).isEqualTo(UPDATED_NUMBER_CERTIFICATE);
         assertThat(testCfdi.getCertificate()).isEqualTo(UPDATED_CERTIFICATE);
-        assertThat(testCfdi.getWay_payment()).isEqualTo(UPDATED_WAY_PAYMENT);*/
+        assertThat(testCfdi.getWay_payment()).isEqualTo(UPDATED_WAY_PAYMENT);
+        assertThat(testCfdi.getPath_cfdi()).isEqualTo(UPDATED_PATH_CFDI);
+        assertThat(testCfdi.getFilepdf()).isEqualTo(UPDATED_FILEPDF);
+        assertThat(testCfdi.getFilepdfContentType()).isEqualTo(UPDATED_FILEPDF_CONTENT_TYPE);
+        assertThat(testCfdi.getFilexml()).isEqualTo(UPDATED_FILEXML);
+        assertThat(testCfdi.getFilexmlContentType()).isEqualTo(UPDATED_FILEXML_CONTENT_TYPE);
     }
 
     @Test
     @Transactional
     public void deleteCfdi() throws Exception {
-        /*
         // Initialize the database
-        cfdiService.save(cfdi);
+        cfdiService.save(cfdiDTO);
 
         int databaseSizeBeforeDelete = cfdiRepository.findAll().size();
 
@@ -485,6 +532,6 @@ public class CfdiResourceIntTest {
 
         // Validate the database is empty
         List<Cfdi> cfdis = cfdiRepository.findAll();
-        assertThat(cfdis).hasSize(databaseSizeBeforeDelete - 1);*/
+        assertThat(cfdis).hasSize(databaseSizeBeforeDelete - 1);
     }
 }

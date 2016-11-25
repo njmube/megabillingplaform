@@ -6,6 +6,8 @@ import java.util.List;
 
 public class CfdiDTO {
 
+    private Taxpayer_client taxpayer_client;
+
     private Cfdi cfdi;
 
     private Taxpayer_series_folio taxpayer_series_folio;
@@ -98,6 +100,14 @@ public class CfdiDTO {
 
     private List<Com_commodityDTO> commodities;
 
+
+    public Taxpayer_client getTaxpayer_client() {
+        return taxpayer_client;
+    }
+
+    public void setTaxpayer_client(Taxpayer_client taxpayer_client) {
+        this.taxpayer_client = taxpayer_client;
+    }
 
     public Cfdi getCfdi() {
         return cfdi;

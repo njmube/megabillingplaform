@@ -429,7 +429,6 @@
 
             vm.cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
             vm.cfdi.taxpayer_account = vm.taxpayer_account;
-            vm.cfdi.taxpayer_client = vm.taxpayer_client;
 
             if(vm.cfdi.mont_folio_fiscal_orig != null && vm.cfdi.mont_folio_fiscal_orig > 0){
                 vm.cfdi.mont_folio_fiscal_orig = bln.add(vm.cfdi.mont_folio_fiscal_orig, 0, vm.taxpayer_account.accuracy);
@@ -517,6 +516,7 @@
             }
 
             var cfdiDTO = {
+                taxpayer_client: vm.taxpayer_client,
                 cfdi: vm.cfdi,
                 taxpayer_series_folio: vm.taxpayer_series_folio,
                 conceptDTOs: vm.concepts,

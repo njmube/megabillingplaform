@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "client" : {
+            "home": {
+                "title": "Clients",
+                "createLabel": "Crear nuevo Client",
+                "createOrEditLabel": "Crear o editar Client",
+                "search": "Search for Client"
+            },
+            "created": "Un nuevo Client ha sido creado con el identificador {{ param }}",
+            "updated": "Un Client ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Client ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Client {{ id }}?"
+            },
+            "detail": {
+                "title": "Client"
+            },
+            "rfc": "Rfc",
+            "bussinesname": "Bussinesname",
+            "email": "Email",
+            "email2": "Email 2",
+            "phone": "Phone",
+            "client_address": "Client Address"
+        }
+    }
+}

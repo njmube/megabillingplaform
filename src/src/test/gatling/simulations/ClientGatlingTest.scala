@@ -7,9 +7,9 @@ import org.slf4j.LoggerFactory
 import scala.concurrent.duration._
 
 /**
- * Performance test for the Cfdi entity.
+ * Performance test for the Client entity.
  */
-class CfdiGatlingTest extends Simulation {
+class ClientGatlingTest extends Simulation {
 
     val context: LoggerContext = LoggerFactory.getILoggerFactory.asInstanceOf[LoggerContext]
     // Log all HTTP requests
@@ -37,7 +37,7 @@ class CfdiGatlingTest extends Simulation {
         "X-CSRF-TOKEN" -> "${csrf_token}"
     )
 
-    val scn = scenario("Test the Cfdi entity")
+    val scn = scenario("Test the Client entity")
         .exec(http("First unauthenticated request")
         .get("/api/account")
         .headers(headers_http)
@@ -59,26 +59,26 @@ class CfdiGatlingTest extends Simulation {
         .check(headerRegex("Set-Cookie", "CSRF-TOKEN=(.*); [P,p]ath=/").saveAs("csrf_token")))
         .pause(10)
         .repeat(2) {
-            exec(http("Get all cfdis")
-            .get("/api/cfdis")
+            exec(http("Get all clients")
+            .get("/api/clients")
             .headers(headers_http_authenticated)
             .check(status.is(200)))
             .pause(10 seconds, 20 seconds)
-            .exec(http("Create new cfdi")
-            .post("/api/cfdis")
+            .exec(http("Create new client")
+            .post("/api/clients")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "version":"SAMPLE_TEXT", "serial":"SAMPLE_TEXT", "folio":"SAMPLE_TEXT", "date_expedition":"2020-01-01T00:00:00.000Z", "payment_conditions":"SAMPLE_TEXT", "change_type":"SAMPLE_TEXT", "place_expedition":"SAMPLE_TEXT", "account_number":"SAMPLE_TEXT", "folio_fiscal_orig":"SAMPLE_TEXT", "serial_folio_fiscal_orig":"SAMPLE_TEXT", "date_folio_fiscal_orig":"2020-01-01T00:00:00.000Z", "mont_folio_fiscal_orig":null, "total_tax_retention":null, "total_tax_transfered":null, "discount":null, "discount_reason":"SAMPLE_TEXT", "subtotal":null, "total":null, "addenda":"SAMPLE_TEXT", "number_certificate":"SAMPLE_TEXT", "certificate":"SAMPLE_TEXT", "way_payment":"SAMPLE_TEXT", "path_cfdi":"SAMPLE_TEXT", "filepdf":null, "filexml":null}""")).asJSON
+            .body(StringBody("""{"id":null, "rfc":"SAMPLE_TEXT", "bussinesname":"SAMPLE_TEXT", "email":"SAMPLE_TEXT", "email2":"SAMPLE_TEXT", "phone":"SAMPLE_TEXT"}""")).asJSON
             .check(status.is(201))
-            .check(headerRegex("Location", "(.*)").saveAs("new_cfdi_url"))).exitHereIfFailed
+            .check(headerRegex("Location", "(.*)").saveAs("new_client_url"))).exitHereIfFailed
             .pause(10)
             .repeat(5) {
-                exec(http("Get created cfdi")
-                .get("${new_cfdi_url}")
+                exec(http("Get created client")
+                .get("${new_client_url}")
                 .headers(headers_http_authenticated))
                 .pause(10)
             }
-            .exec(http("Delete created cfdi")
-            .delete("${new_cfdi_url}")
+            .exec(http("Delete created client")
+            .delete("${new_client_url}")
             .headers(headers_http_authenticated))
             .pause(10)
         }

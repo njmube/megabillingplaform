@@ -24,109 +24,109 @@
             <column name="version" type="varchar(3)">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="serial" type="varchar(25)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="folio" type="varchar(20)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="date_expedition" type="timestamp">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="payment_conditions" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="change_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="place_expedition" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="account_number" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="folio_fiscal_orig" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="serial_folio_fiscal_orig" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="date_folio_fiscal_orig" type="timestamp">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="mont_folio_fiscal_orig" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="total_tax_retention" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="total_tax_transfered" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="discount" type="decimal(10,2)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="discount_reason" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="subtotal" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="total" type="decimal(10,2)">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="addenda" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="number_certificate" type="varchar(20)">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="certificate" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
+            
             <column name="way_payment" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="path_cfdi" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="filepdf" type="blob">
                 <constraints nullable="true" />
             </column>
             <column name="filepdf_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="filexml" type="blob">
                 <constraints nullable="true" />
             </column>
             <column name="filexml_content_type" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
-
+            
             <column name="cfdi_states_id" type="bigint">
                 <constraints nullable="false" />
             </column>
@@ -158,67 +158,13 @@
             <column name="tax_regime_id" type="bigint">
                 <constraints nullable="false" />
             </column>
-
-            <column name="taxpayer_client_id" type="bigint">
-                <constraints nullable="true" />
+            <column name="client_id" type="bigint">
+                <constraints unique="true" nullable="true" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         <dropDefaultValue tableName="cfdi" columnName="date_expedition" columnDataType="datetime"/>
         <dropDefaultValue tableName="cfdi" columnName="date_folio_fiscal_orig" columnDataType="datetime"/>
-        <addForeignKeyConstraint baseColumnNames="cfdi_states_id"
-                                 baseTableName="cfdi"
-                                 constraintName="fk_cfdi_cfdi_states_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="cfdi_states"/>
-
-        <addForeignKeyConstraint baseColumnNames="payment_method_id"
-                                 baseTableName="cfdi"
-                                 constraintName="fk_cfdi_payment_method_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="payment_method"/>
-
-        <addForeignKeyConstraint baseColumnNames="cfdi_types_id"
-                                 baseTableName="cfdi"
-                                 constraintName="fk_cfdi_cfdi_types_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="cfdi_types"/>
-
-        <addForeignKeyConstraint baseColumnNames="cfdi_type_doc_id"
-                                 baseTableName="cfdi"
-                                 constraintName="fk_cfdi_cfdi_type_doc_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="cfdi_type_doc"/>
-
-        <addForeignKeyConstraint baseColumnNames="c_money_id"
-                                 baseTableName="cfdi"
-                                 constraintName="fk_cfdi_c_money_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="c_money"/>
-
-        <addForeignKeyConstraint baseColumnNames="com_tfd_id"
-                                 baseTableName="cfdi"
-                                 constraintName="fk_cfdi_com_tfd_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="com_tfd"/>
-
-        <addForeignKeyConstraint baseColumnNames="taxpayer_account_id"
-                                 baseTableName="cfdi"
-                                 constraintName="fk_cfdi_taxpayer_account_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="taxpayer_account"/>
-
-        <addForeignKeyConstraint baseColumnNames="tax_regime_id"
-                                 baseTableName="cfdi"
-                                 constraintName="fk_cfdi_tax_regime_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="tax_regime"/>
-
-        <addForeignKeyConstraint baseColumnNames="taxpayer_client_id"
-                                 baseTableName="cfdi"
-                                 constraintName="fk_cfdi_taxpayer_client_id"
-                                 referencedColumnNames="id"
-                                 referencedTableName="taxpayer_client"/>
+        
     </changeSet>
 </databaseChangeLog>

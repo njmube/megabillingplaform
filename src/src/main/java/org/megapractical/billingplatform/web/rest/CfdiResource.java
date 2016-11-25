@@ -39,6 +39,12 @@ public class CfdiResource {
     private final Logger log = LoggerFactory.getLogger(CfdiResource.class);
 
     @Inject
+    private Client_addressService client_addressService;
+
+    @Inject
+    private ClientService clientService;
+
+    @Inject
     private CfdiService cfdiService;
 
     @Inject
@@ -244,6 +250,34 @@ public class CfdiResource {
         cfdi.setPlace_expedition(place_expedition);
         cfdi.setCertificate("cetificate");
         cfdi.setNumber_certificate("numbercertificate");
+
+        Taxpayer_client taxpayer_client = cfdiDTO.getTaxpayer_client();
+
+        Client client = new Client();
+        client.setRfc(taxpayer_client.getRfc());
+        client.setBussinesname(taxpayer_client.getBussinesname());
+        client.setEmail(taxpayer_client.getEmail());
+        client.setEmail2(taxpayer_client.getEmail2());
+
+        Client_address taxpayer_client_address = taxpayer_client.getClient_address();
+        Client_address client_address = new Client_address();
+        client_address.setStreet(taxpayer_client_address.getStreet());
+        client_address.setNo_int(taxpayer_client_address.getNo_int());
+        client_address.setNo_ext(taxpayer_client_address.getNo_ext());
+        client_address.setLocation(taxpayer_client_address.getLocation());
+        client_address.setIntersection(taxpayer_client_address.getIntersection());
+        client_address.setReference(taxpayer_client_address.getReference());
+        client_address.setC_country(taxpayer_client_address.getC_country());
+        client_address.setC_state(taxpayer_client_address.getC_state());
+        client_address.setC_municipality(taxpayer_client_address.getC_municipality());
+        client_address.setC_colony(taxpayer_client_address.getC_colony());
+        client_address.setC_zip_code(taxpayer_client_address.getC_zip_code());
+        client_address = client_addressService.save(client_address);
+
+        client.setClient_address(client_address);
+        client = clientService.save(client);
+
+        cfdi.setClient(client);
 
         Cfdi result = cfdiService.save(cfdiDTO);
 
