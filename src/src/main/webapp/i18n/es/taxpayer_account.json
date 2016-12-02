@@ -7,9 +7,9 @@
                 "createOrEditLabel": "Crear o editar Cuenta de contribuyente",
                 "search": "Búsqueda para Cuenta de contribuyente"
             },
-            "created": "Una nueva Cuenta de contribuyente ha sido creado con el identificador {{ param }}",
-            "updated": "Una Cuenta de contribuyente ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Una Cuenta de contribuyente ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Cuenta de contribuyente ha sido creada satisfactoriamente",
+            "updated": "La cuenta de contribuyente ha sido actualizada satisfactoriamente",
+            "deleted": "Una Cuenta de contribuyente ha sido eliminado satisfactoriamente",
             "delete": {
                 "question": "¿Seguro que quiere eliminar Cuenta de contribuyente {{ id }}?"
             },

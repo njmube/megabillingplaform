@@ -7,9 +7,9 @@
                 "createOrEditLabel": "Create or edit a Taxpayer Account",
                 "search": "Search for Taxpayer Account"
             },
-            "created": "A new Taxpayer Account is created with identifier {{ param }}",
-            "updated": "A Taxpayer Account is updated with identifier {{ param }}",
-            "deleted": "A Taxpayer Account is deleted with identifier {{ param }}",
+            "created": "A new Taxpayer Account is created correctly",
+            "updated": "A Taxpayer Account is updated correctly",
+            "deleted": "A Taxpayer Account is deleted correctly",
             "delete": {
                 "question": "Are you sure you want to delete Taxpayer Account {{ id }}?"
             },
