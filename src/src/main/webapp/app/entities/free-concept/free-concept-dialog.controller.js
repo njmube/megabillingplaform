@@ -5,12 +5,12 @@
         .module('megabillingplatformApp')
         .controller('Free_conceptDialogController', Free_conceptDialogController);
 
-    Free_conceptDialogController.$inject = ['$uibModalInstance', '$uibModal', 'free_concept_entity', 'Free_cfdi', 'Measure_unit', 'rate_typess', 'Tax_types', 'free_concept_ids', 'accuracy','disable_ieps'];
+    Free_conceptDialogController.$inject = ['$uibModalInstance', '$uibModal', 'Free_concept', 'Free_cfdi', 'Measure_unit', 'rate_typess', 'Tax_types', 'free_concept_ids', 'accuracy','disable_ieps'];
 
-    function Free_conceptDialogController ($uibModalInstance, $uibModal, free_concept_entity, Free_cfdi, Measure_unit, rate_typess, Tax_types, free_concept_ids, accuracy, disable_ieps) {
+    function Free_conceptDialogController ($uibModalInstance, $uibModal, Free_concept, Free_cfdi, Measure_unit, rate_typess, Tax_types, free_concept_ids, accuracy, disable_ieps) {
         var vm = this;
 
-        vm.free_concept = free_concept_entity;
+        vm.free_concept = Free_concept;
 		vm.iva = null;
 		vm.ieps = (0).toFixed(2);
         vm.measure_units = Measure_unit.query({pg: -1, filtername:" "});

@@ -250,7 +250,7 @@
                         <table class="jh-table table table-striped">
                             <thead>
                             <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
-                                <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                                <th></th>
                                 <th jh-sort-by="rfc"><span translate="home.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
                                 <th jh-sort-by="bussines_name"><span translate="home.bussines_name">Bussines Name</span> <span class="glyphicon glyphicon-sort"></span></th>
                                 <th><span translate="home.transactions">Transactions</span></th>
@@ -258,10 +258,10 @@
                             </thead>
                             <tbody>
                             <tr ng-repeat="taxpayer_account in vm.taxpayer_accounts track by taxpayer_account.id">
-                                <td><a ui-sref="taxpayer-account-index({id:taxpayer_account.id})">{{taxpayer_account.id}}</a></td>
-                                <td>{{taxpayer_account.rfc}}</td>
-                                <td>{{taxpayer_account.bussines_name}}</td>
-                                <td>{{taxpayer_account.transactions_available}}</td>
+                                <td><a ui-sref="taxpayer-account-index({id:taxpayer_account.id})"><i class="fa fa-plug" aria-hidden="true"></i></a></td>
+                                <td><a ui-sref="taxpayer-account-index({id:taxpayer_account.id})">{{taxpayer_account.rfc}}</a></td>
+                                <td><a ui-sref="taxpayer-account-index({id:taxpayer_account.id})">{{taxpayer_account.bussines_name}}</a></td>
+                                <td><a ui-sref="taxpayer-account-index({id:taxpayer_account.id})">{{taxpayer_account.transactions_available}}</a></td>
                             </tr>
                             </tbody>
                         </table>

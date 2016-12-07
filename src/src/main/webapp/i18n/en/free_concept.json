@@ -19,14 +19,19 @@
             "no_identification": "No Identification",
             "no_identification_repeated": "The identification value is a unique value. It can not be repeated.",
             "quantity": "Quantity (*)",
+            "quantityy": "Quantity",
             "description": "Description (*)",
+            "descriptionn": "Description",
             "unit_value": "Unit value (*)",
+            "unit_valuee": "Unit value",
             "predial_number": "Predial number",
             "amount": "Amount",
             "discount": "Discount %",
             "free_cfdi": "Free_cfdi",
             "measure_unit": "Measure Unit  (*)",
+            "measure_unitt": "Measure Unit",
             "iva": "IVA % (*)",
+            "ivaa": "IVA %",
             "ieps": "IEPS %"
         }
     }

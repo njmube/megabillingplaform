@@ -19,14 +19,19 @@
             "no_identification": "Código",
             "no_identification_repeated": "El código es un valor único, no se puede repetir.",
             "quantity": "Cantidad (*)",
+            "quantityy": "Cantidad",
             "description": "Descripción (*)",
+            "descriptionn": "Descripción",
             "unit_value": "Valor Unitario (*)",
+            "unit_valuee": "Valor Unitario",
             "predial_number": "No. Predial",
             "amount": "Importe",
             "discount": "Descuento %",
             "free_cfdi": "free_cfdi",
             "measure_unit": "Unidad Medida (*)",
+            "measure_unitt": "Unidad Medida",
             "iva": "IVA % (*)",
+            "ivaa": "IVA %",
             "ieps": "IEPS %"
         }
     }
