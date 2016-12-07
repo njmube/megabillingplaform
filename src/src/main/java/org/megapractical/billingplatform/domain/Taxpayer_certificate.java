@@ -204,11 +204,7 @@ public class Taxpayer_certificate implements Serializable {
     }
 
     public String getPass_certificate() {
-        try {
-            return SecurityUtils.Desencrip(pass_certificate);
-        }catch (Exception ex){
-            return "";
-        }
+        return pass_certificate;
     }
 
     public void setPass_certificate(String pass_certificate) {

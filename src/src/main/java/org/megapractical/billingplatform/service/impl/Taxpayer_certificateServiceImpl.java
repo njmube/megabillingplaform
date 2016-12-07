@@ -53,7 +53,9 @@ public class Taxpayer_certificateServiceImpl implements Taxpayer_certificateServ
     public String[] validateCertificate(byte[] cert, byte[]key, String pass){
         String[] response = new String[2];
         response[0] = "3";
-        response[1] = "Error validation";
+        response[1] = "Error de validación";
+        log.debug("pass: " + pass);
+
         try{
             return UCertificate.validate(cert, key, pass);
         }catch (Exception ex){
