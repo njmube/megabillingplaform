@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "type_state" : {
+            "home": {
+                "title": "Type_states",
+                "createLabel": "Create a new Type_state",
+                "createOrEditLabel": "Create or edit a Type_state",
+                "search": "Search for Type_state"
+            },
+            "created": "A new Type_state is created with identifier {{ param }}",
+            "updated": "A Type_state is updated with identifier {{ param }}",
+            "deleted": "A Type_state is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Type_state {{ id }}?"
+            },
+            "detail": {
+                "title": "Type_state"
+            },
+            "code": "Code",
+            "description": "Description"
+        }
+    }
+}

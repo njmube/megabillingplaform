@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "com_acquiring_data" : {
+            "home": {
+                "title": "Com_acquiring_data",
+                "createLabel": "Create a new Com_acquiring_data",
+                "createOrEditLabel": "Create or edit a Com_acquiring_data",
+                "search": "Search for Com_acquiring_data"
+            },
+            "created": "A new Com_acquiring_data is created with identifier {{ param }}",
+            "updated": "A Com_acquiring_data is updated with identifier {{ param }}",
+            "deleted": "A Com_acquiring_data is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com_acquiring_data {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_acquiring_data"
+            },
+            "coprosocconyugaie": "Coprosocconyugaie (*)",
+            "com_public_notaries": "Com_public_notaries"
+        }
+    }
+}

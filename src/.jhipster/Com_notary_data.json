@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "com_public_notaries",
+            "otherEntityName": "com_public_notaries",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "com_notary_data"
+        },
+        {
+            "relationshipName": "public_notaries_federal_entity",
+            "otherEntityName": "public_notaries_federal_entity",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "curp",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "notarynumber",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ascription",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161201205112",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_notary_data",
+    "pagination": "pagination"
+}

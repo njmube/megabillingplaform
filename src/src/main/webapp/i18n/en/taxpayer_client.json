@@ -17,6 +17,14 @@
             "detail": {
                 "title": "Taxpayer Client"
             },
+			"tbl_heading": {
+                "c_country": "Country",
+                "c_state": "State",
+                "rfc": "RFC",				
+				"email": "Email",
+				"bussinesname": "Bussines Name",
+				"phone": "Phone"
+            },
             "rfc": "Rfc (*)",
             "bussinesname": "Bussinesname",
             "email": "Email (*)",

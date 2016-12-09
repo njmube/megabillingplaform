@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.com_dataunacquiring.detail.title">Com_dataunacquiring</span> {{vm.com_dataunacquiring.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.com_dataunacquiring.name">Name</dt></dt>
+        <dd>
+            <span>{{vm.com_dataunacquiring.name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.com_dataunacquiring.last_name">Last_name</dt></dt>
+        <dd>
+            <span>{{vm.com_dataunacquiring.last_name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.com_dataunacquiring.mother_last_name">Mother_last_name</dt></dt>
+        <dd>
+            <span>{{vm.com_dataunacquiring.mother_last_name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.com_dataunacquiring.rfc">Rfc</dt></dt>
+        <dd>
+            <span>{{vm.com_dataunacquiring.rfc}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.com_dataunacquiring.curp">Curp</dt></dt>
+        <dd>
+            <span>{{vm.com_dataunacquiring.curp}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.com_dataunacquiring.com_acquiring_data">com_acquiring_data</span></dt>
+        <dd>
+            <a ui-sref="com-acquiring-data-detail({id:vm.com_dataunacquiring.com_acquiring_data.id})">{{vm.com_dataunacquiring.com_acquiring_data.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

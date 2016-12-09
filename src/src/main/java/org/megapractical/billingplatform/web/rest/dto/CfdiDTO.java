@@ -101,6 +101,27 @@ public class CfdiDTO {
     private List<Com_commodityDTO> commodities;
 
 
+    private Com_public_notaries com_public_notaries;
+
+    private List<Com_desc_state> com_desc_states;
+
+    private Com_data_operation com_data_operation;
+
+    private Com_notary_data com_notary_data;
+
+    private Com_data_enajenante com_data_enajenante;
+
+    private Com_dataunenajenante com_dataunenajenante;
+
+    private List<Com_dataenajenantecopsc> com_dataenajenantecopscs;
+
+    private Com_acquiring_data com_acquiring_data;
+
+    private Com_dataunacquiring com_dataunacquiring;
+
+    private List<Com_dataacquiringcopsc> com_dataacquiringcopscs;
+
+
     public Taxpayer_client getTaxpayer_client() {
         return taxpayer_client;
     }
@@ -411,5 +432,85 @@ public class CfdiDTO {
 
     public void setCommodities(List<Com_commodityDTO> commodities) {
         this.commodities = commodities;
+    }
+
+    public Com_public_notaries getCom_public_notaries() {
+        return com_public_notaries;
+    }
+
+    public void setCom_public_notaries(Com_public_notaries com_public_notaries) {
+        this.com_public_notaries = com_public_notaries;
+    }
+
+    public List<Com_desc_state> getCom_desc_states() {
+        return com_desc_states;
+    }
+
+    public void setCom_desc_states(List<Com_desc_state> com_desc_states) {
+        this.com_desc_states = com_desc_states;
+    }
+
+    public Com_data_operation getCom_data_operation() {
+        return com_data_operation;
+    }
+
+    public void setCom_data_operation(Com_data_operation com_data_operation) {
+        this.com_data_operation = com_data_operation;
+    }
+
+    public Com_notary_data getCom_notary_data() {
+        return com_notary_data;
+    }
+
+    public void setCom_notary_data(Com_notary_data com_notary_data) {
+        this.com_notary_data = com_notary_data;
+    }
+
+    public Com_data_enajenante getCom_data_enajenante() {
+        return com_data_enajenante;
+    }
+
+    public void setCom_data_enajenante(Com_data_enajenante com_data_enajenante) {
+        this.com_data_enajenante = com_data_enajenante;
+    }
+
+    public Com_dataunenajenante getCom_dataunenajenante() {
+        return com_dataunenajenante;
+    }
+
+    public void setCom_dataunenajenante(Com_dataunenajenante com_dataunenajenante) {
+        this.com_dataunenajenante = com_dataunenajenante;
+    }
+
+    public List<Com_dataenajenantecopsc> getCom_dataenajenantecopscs() {
+        return com_dataenajenantecopscs;
+    }
+
+    public void setCom_dataenajenantecopscs(List<Com_dataenajenantecopsc> com_dataenajenantecopscs) {
+        this.com_dataenajenantecopscs = com_dataenajenantecopscs;
+    }
+
+    public Com_acquiring_data getCom_acquiring_data() {
+        return com_acquiring_data;
+    }
+
+    public void setCom_acquiring_data(Com_acquiring_data com_acquiring_data) {
+        this.com_acquiring_data = com_acquiring_data;
+    }
+
+    public Com_dataunacquiring getCom_dataunacquiring() {
+        return com_dataunacquiring;
+    }
+
+    public void setCom_dataunacquiring(Com_dataunacquiring com_dataunacquiring) {
+        this.com_dataunacquiring = com_dataunacquiring;
+    }
+
+    public List<Com_dataacquiringcopsc> getCom_dataacquiringcopscs() {
+        return com_dataacquiringcopscs;
+    }
+
+    public void setCom_dataacquiringcopscs(List<Com_dataacquiringcopsc> com_dataacquiringcopscs) {
+        this.com_dataacquiringcopscs = com_dataacquiringcopscs;
     }
 }

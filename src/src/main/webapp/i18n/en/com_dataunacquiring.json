@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "com_dataunacquiring" : {
+            "home": {
+                "title": "Com_dataunacquirings",
+                "createLabel": "Create a new Com_dataunacquiring",
+                "createOrEditLabel": "Create or edit a Com_dataunacquiring",
+                "search": "Search for Com_dataunacquiring"
+            },
+            "created": "A new Com_dataunacquiring is created with identifier {{ param }}",
+            "updated": "A Com_dataunacquiring is updated with identifier {{ param }}",
+            "deleted": "A Com_dataunacquiring is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com_dataunacquiring {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_dataunacquiring"
+            },
+            "name": "Name (*)",
+            "last_name": "Last_name",
+            "mother_last_name": "Mother_last_name",
+            "rfc": "Rfc (*)",
+            "curp": "Curp",
+            "com_acquiring_data": "Com_acquiring_data"
+        }
+    }
+}

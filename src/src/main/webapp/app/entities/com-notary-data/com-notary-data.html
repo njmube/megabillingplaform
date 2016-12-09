@@ -1,0 +1,72 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_notary_data.home.title">Com_notary_data</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-notary-data.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_notary_data.home.createLabel">
+                        Create new Com_notary_data
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="curp"><span translate="megabillingplatformApp.com_notary_data.curp">Curp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="notarynumber"><span translate="megabillingplatformApp.com_notary_data.notarynumber">Notarynumber</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ascription"><span translate="megabillingplatformApp.com_notary_data.ascription">Ascription</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="com_public_notaries.id"><span translate="megabillingplatformApp.com_notary_data.com_public_notaries">com_public_notaries</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="public_notaries_federal_entity.id"><span translate="megabillingplatformApp.com_notary_data.public_notaries_federal_entity">public_notaries_federal_entity</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_notary_data in vm.com_notary_data track by com_notary_data.id">
+                    <td><a ui-sref="com-notary-data-detail({id:com_notary_data.id})">{{com_notary_data.id}}</a></td>
+                    <td>{{com_notary_data.curp}}</td>
+                    <td>{{com_notary_data.notarynumber}}</td>
+                    <td>{{com_notary_data.ascription}}</td>
+                    <td>
+                        <a ui-sref="com-public-notaries-detail({id:com_notary_data.com_public_notaries.id})">{{com_notary_data.com_public_notaries.id}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="public-notaries-federal-entity-detail({id:com_notary_data.public_notaries_federal_entity.id})">{{com_notary_data.public_notaries_federal_entity.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-notary-data-detail({id:com_notary_data.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-notary-data.edit({id:com_notary_data.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-notary-data.delete({id:com_notary_data.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

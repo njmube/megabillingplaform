@@ -1,0 +1,28 @@
+{
+    "megabillingplatformApp": {
+        "com_dataenajenantecopsc" : {
+            "home": {
+                "title": "Com_dataenajenantecopscs",
+                "createLabel": "Create a new Com_dataenajenantecopsc",
+                "createOrEditLabel": "Create or edit a Com_dataenajenantecopsc",
+                "search": "Search for Com_dataenajenantecopsc"
+            },
+            "created": "A new Com_dataenajenantecopsc is created with identifier {{ param }}",
+            "updated": "A Com_dataenajenantecopsc is updated with identifier {{ param }}",
+            "deleted": "A Com_dataenajenantecopsc is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com_dataenajenantecopsc {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_dataenajenantecopsc"
+            },
+            "name": "Name (*)",
+            "last_name": "Last_name",
+            "mother_last_name": "Mother_last_name",
+            "rfc": "Rfc (*)",
+            "curp": "Curp",
+            "percentage": "Percentage (*)",
+            "com_data_enajenante": "Com_data_enajenante"
+        }
+    }
+}

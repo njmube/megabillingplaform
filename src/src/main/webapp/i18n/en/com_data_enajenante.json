@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "com_data_enajenante" : {
+            "home": {
+                "title": "Com_data_enajenantes",
+                "createLabel": "Create a new Com_data_enajenante",
+                "createOrEditLabel": "Create or edit a Com_data_enajenante",
+                "search": "Search for Com_data_enajenante"
+            },
+            "created": "A new Com_data_enajenante is created with identifier {{ param }}",
+            "updated": "A Com_data_enajenante is updated with identifier {{ param }}",
+            "deleted": "A Com_data_enajenante is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com_data_enajenante {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_data_enajenante"
+            },
+            "coprosocconyugaie": "Coprosocconyugaie (*)",
+            "com_public_notaries": "Com_public_notaries"
+        }
+    }
+}

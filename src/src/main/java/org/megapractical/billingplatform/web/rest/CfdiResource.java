@@ -204,6 +204,36 @@ public class CfdiResource {
     private Com_specific_descriptionsService com_specific_descriptionsService;
 
     @Inject
+    private Com_public_notariesService com_public_notariesService;
+
+    @Inject
+    private Com_desc_stateService com_desc_stateService;
+
+    @Inject
+    private Com_data_operationService com_data_operationService;
+
+    @Inject
+    private Com_notary_dataService com_notary_dataService;
+
+    @Inject
+    private Com_data_enajenanteService com_data_enajenanteService;
+
+    @Inject
+    private Com_dataunenajenanteService com_dataunenajenanteService;
+
+    @Inject
+    private Com_dataenajenantecopscService com_dataenajenantecopscService;
+
+    @Inject
+    private Com_acquiring_dataService com_acquiring_dataService;
+
+    @Inject
+    private Com_dataunacquiringService com_dataunacquiringService;
+
+    @Inject
+    private Com_dataacquiringcopscService com_dataacquiringcopscService;
+
+    @Inject
     private MailService mailService;
 
     /**
@@ -643,6 +673,55 @@ public class CfdiResource {
                     com_specific_descriptions.setCom_commodity(com_commodity);
                     com_specific_descriptionsService.save(com_specific_descriptions);
                 }
+            }
+        }
+
+        //public_notaries
+        Com_public_notaries com_public_notaries = cfdiDTO.getCom_public_notaries();
+        if(com_public_notaries != null && com_public_notaries.getVersion() != null){
+            com_public_notaries.setCfdi(result);
+            com_public_notaries = com_public_notariesService.save(com_public_notaries);
+
+            List<Com_desc_state> desc_states = cfdiDTO.getCom_desc_states();
+            for(Com_desc_state com_desc_state: desc_states){
+                com_desc_state.setCom_public_notaries(com_public_notaries);
+                com_desc_stateService.save(com_desc_state);
+            }
+
+            Com_data_operation com_data_operation = cfdiDTO.getCom_data_operation();
+            com_data_operation.setCom_public_notaries(com_public_notaries);
+            com_data_operationService.save(com_data_operation);
+
+            Com_notary_data com_notary_data = cfdiDTO.getCom_notary_data();
+            com_notary_data.setCom_public_notaries(com_public_notaries);
+            com_notary_dataService.save(com_notary_data);
+
+            Com_data_enajenante com_data_enajenante = cfdiDTO.getCom_data_enajenante();
+            com_data_enajenante.setCom_public_notaries(com_public_notaries);
+            com_data_enajenante = com_data_enajenanteService.save(com_data_enajenante);
+
+            Com_dataunenajenante com_dataunenajenante = cfdiDTO.getCom_dataunenajenante();
+            com_dataunenajenante.setCom_data_enajenante(com_data_enajenante);
+            com_dataunenajenanteService.save(com_dataunenajenante);
+
+            List<Com_dataenajenantecopsc> com_dataenajenantecopscs = cfdiDTO.getCom_dataenajenantecopscs();
+            for(Com_dataenajenantecopsc com_dataenajenantecopsc: com_dataenajenantecopscs){
+                com_dataenajenantecopsc.setCom_data_enajenante(com_data_enajenante);
+                com_dataenajenantecopscService.save(com_dataenajenantecopsc);
+            }
+
+            Com_acquiring_data com_acquiring_data = cfdiDTO.getCom_acquiring_data();
+            com_acquiring_data.setCom_public_notaries(com_public_notaries);
+            com_acquiring_data = com_acquiring_dataService.save(com_acquiring_data);
+
+            Com_dataunacquiring com_dataunacquiring = cfdiDTO.getCom_dataunacquiring();
+            com_dataunacquiring.setCom_acquiring_data(com_acquiring_data);
+            com_dataunacquiringService.save(com_dataunacquiring);
+
+            List<Com_dataacquiringcopsc> com_dataacquiringcopscs = cfdiDTO.getCom_dataacquiringcopscs();
+            for(Com_dataacquiringcopsc com_dataacquiringcopsc: com_dataacquiringcopscs){
+                com_dataacquiringcopsc.setCom_acquiring_data(com_acquiring_data);
+                com_dataacquiringcopscService.save(com_dataacquiringcopsc);
             }
         }
 

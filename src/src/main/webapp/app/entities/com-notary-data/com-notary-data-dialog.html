@@ -1,0 +1,72 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myCom_notary_dataLabel" translate="megabillingplatformApp.com_notary_data.home.createOrEditLabel">Create or edit a Com_notary_data</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.com_notary_data.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_notary_data.curp" for="field_curp">Curp</label>
+            <input type="text" class="form-control" name="curp" id="field_curp"
+                    ng-model="vm.com_notary_data.curp"
+                    required />
+            <div ng-show="editForm.curp.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.curp.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_notary_data.notarynumber" for="field_notarynumber">Notarynumber</label>
+            <input type="number" class="form-control" name="notarynumber" id="field_notarynumber"
+                    ng-model="vm.com_notary_data.notarynumber"
+                    required />
+            <div ng-show="editForm.notarynumber.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.notarynumber.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.notarynumber.$error.number" translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" translate="megabillingplatformApp.com_notary_data.ascription" for="field_ascription">Ascription</label>
+            <input type="text" class="form-control" name="ascription" id="field_ascription"
+                    ng-model="vm.com_notary_data.ascription"
+                     />
+        </div>
+
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_notary_data.com_public_notaries" for="field_com_public_notaries">com_public_notaries</label>
+            <select class="form-control" id="field_com_public_notaries" name="com_public_notaries" ng-model="vm.com_notary_data.com_public_notaries" ng-options="com_public_notaries as com_public_notaries.id for com_public_notaries in vm.com_public_notariess | orderBy:'id' track by com_public_notaries.id">
+                <option value=""></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label translate="megabillingplatformApp.com_notary_data.public_notaries_federal_entity" for="field_public_notaries_federal_entity">public_notaries_federal_entity</label>
+            <select class="form-control" id="field_public_notaries_federal_entity" name="public_notaries_federal_entity" ng-model="vm.com_notary_data.public_notaries_federal_entity" ng-options="public_notaries_federal_entity as public_notaries_federal_entity.id for public_notaries_federal_entity in vm.public_notaries_federal_entitys track by public_notaries_federal_entity.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

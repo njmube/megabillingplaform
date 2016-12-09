@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "com_notary_data" : {
+            "home": {
+                "title": "Com_notary_data",
+                "createLabel": "Crear nuevo Com_notary_data",
+                "createOrEditLabel": "Crear o editar Com_notary_data",
+                "search": "Search for Com_notary_data"
+            },
+            "created": "Un nuevo Com_notary_data ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com_notary_data ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com_notary_data ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com_notary_data {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_notary_data"
+            },
+            "curp": "Curp (*)",
+            "notarynumber": "Notarynumber (*)",
+            "ascription": "Ascription",
+            "com_public_notaries": "Com_public_notaries",
+            "public_notaries_federal_entity": "Notaries Federal Entity (*)"
+        }
+    }
+}

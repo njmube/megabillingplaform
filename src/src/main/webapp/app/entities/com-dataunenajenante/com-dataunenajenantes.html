@@ -1,0 +1,72 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_dataunenajenante.home.title">Com_dataunenajenantes</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-dataunenajenante.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_dataunenajenante.home.createLabel">
+                        Create new Com_dataunenajenante
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="megabillingplatformApp.com_dataunenajenante.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="last_name"><span translate="megabillingplatformApp.com_dataunenajenante.last_name">Last_name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mother_last_name"><span translate="megabillingplatformApp.com_dataunenajenante.mother_last_name">Mother_last_name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.com_dataunenajenante.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="curp"><span translate="megabillingplatformApp.com_dataunenajenante.curp">Curp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="com_data_enajenante.id"><span translate="megabillingplatformApp.com_dataunenajenante.com_data_enajenante">com_data_enajenante</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_dataunenajenante in vm.com_dataunenajenantes track by com_dataunenajenante.id">
+                    <td><a ui-sref="com-dataunenajenante-detail({id:com_dataunenajenante.id})">{{com_dataunenajenante.id}}</a></td>
+                    <td>{{com_dataunenajenante.name}}</td>
+                    <td>{{com_dataunenajenante.last_name}}</td>
+                    <td>{{com_dataunenajenante.mother_last_name}}</td>
+                    <td>{{com_dataunenajenante.rfc}}</td>
+                    <td>{{com_dataunenajenante.curp}}</td>
+                    <td>
+                        <a ui-sref="com-data-enajenante-detail({id:com_dataunenajenante.com_data_enajenante.id})">{{com_dataunenajenante.com_data_enajenante.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-dataunenajenante-detail({id:com_dataunenajenante.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-dataunenajenante.edit({id:com_dataunenajenante.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-dataunenajenante.delete({id:com_dataunenajenante.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

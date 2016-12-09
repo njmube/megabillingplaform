@@ -17,6 +17,11 @@
             "detail": {
                 "title": "Tax Concept"
             },
+			"tbl_heading": {
+                "taxpayer_concept": "Concept",
+				"tax_types": "Tax Type",
+				"rate": "Rate"
+            },
             "rate": "Rate  (*)",
             "tax_types": "Tax Types (*)",
             "taxpayer_concept": "Taxpayer Concept (*)"

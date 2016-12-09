@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "com_dataunacquiring" : {
+            "home": {
+                "title": "Com_dataunacquirings",
+                "createLabel": "Crear nuevo Com_dataunacquiring",
+                "createOrEditLabel": "Crear o editar Com_dataunacquiring",
+                "search": "Search for Com_dataunacquiring"
+            },
+            "created": "Un nuevo Com_dataunacquiring ha sido creado con el identificador {{ param }}",
+            "updated": "Un Com_dataunacquiring ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Com_dataunacquiring ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Com_dataunacquiring {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_dataunacquiring"
+            },
+            "name": "Name (*)",
+            "last_name": "Last_name",
+            "mother_last_name": "Mother_last_name",
+            "rfc": "Rfc (*)",
+            "curp": "Curp",
+            "com_acquiring_data": "Com_acquiring_data"
+        }
+    }
+}

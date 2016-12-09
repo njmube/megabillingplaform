@@ -1651,7 +1651,7 @@
                                 <div class="col-sm-8">
                                     <input type="text" class="form-control" name="freecom_used_vehicle_value" id="field_freecom_used_vehicle_value"
                                            ng-model="vm.freecom_used_vehicle.value" ng-pattern="/^(0|[1-9][0-9]*)$/"
-                                    />
+                                           ng-required="vm.show_used_vehicle" />
                                     <div ng-show="editForm.freecom_used_vehicle_value.$invalid">
                                         <p class="help-block"
                                            ng-show="editForm.freecom_used_vehicle_value.$error.pattern" translate="entity.validation.pattern" translate-value-pattern="^(0|[1-9][0-9]*)$">
@@ -1678,7 +1678,7 @@
                                 <tbody>
                                 <tr ng-repeat="vehicle_customs_information in vm.vehicle_customs_informations">
                                     <td class="text-left">{{vehicle_customs_information.number}}</td>
-                                    <td class="text-left">{{vehicle_customs_information.date_expedition}}</td>
+                                    <td class="text-left">{{vehicle_customs_information.date_expedition | date:'yyyy-MM-dd'}}</td>
                                     <td class="text-left">{{vehicle_customs_information.customs}}</td>
                                     <td class="text-center">
                                         <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeVehicleCustomsInformation($index)">
@@ -1972,7 +1972,7 @@
                         <tbody>
                         <tr ng-repeat="freecom_concept_fuel in vm.freecom_concept_fuels">
                             <td class="text-left">{{freecom_concept_fuel.concept_fuel.identifier}}</td>
-                            <td class="text-left">{{freecom_concept_fuel.concept_fuel.date_expedition}}</td>
+                            <td class="text-left">{{freecom_concept_fuel.concept_fuel.date_expedition | date:'yyyy-MM-dd'}}</td>
                             <td class="text-left">{{freecom_concept_fuel.concept_fuel.rfc}}</td>
                             <td class="text-left">{{freecom_concept_fuel.concept_fuel.key_station}}</td>
                             <td class="text-left">{{freecom_concept_fuel.concept_fuel.quantity}}</td>
@@ -2779,7 +2779,7 @@
 					</div>
 
 					<div class="alert alert-success" ng-show="vm.free_saved_success">
-						Factura guardada satisfactoriamente.
+						Se generó el Comprobante Fiscal Digital por Internet satisfactoriamente.
 					</div>
 
                     <jhi-alert-error></jhi-alert-error>

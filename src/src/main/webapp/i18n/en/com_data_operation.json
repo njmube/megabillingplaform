@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "com_data_operation" : {
+            "home": {
+                "title": "Com_data_operations",
+                "createLabel": "Create a new Com_data_operation",
+                "createOrEditLabel": "Create or edit a Com_data_operation",
+                "search": "Search for Com_data_operation"
+            },
+            "created": "A new Com_data_operation is created with identifier {{ param }}",
+            "updated": "A Com_data_operation is updated with identifier {{ param }}",
+            "deleted": "A Com_data_operation is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com_data_operation {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_data_operation"
+            },
+            "notarialinstrument": "Notarialinstrument (*)",
+            "dateinstnotarial": "Dateinstnotarial (*)",
+            "amountofoperation": "Amountofoperation (*)",
+            "subtotal": "Subtotal (*)",
+            "iva": "Iva (*)",
+            "com_public_notaries": "Com_public_notaries"
+        }
+    }
+}

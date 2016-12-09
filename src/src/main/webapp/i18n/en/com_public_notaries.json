@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "com_public_notaries" : {
+            "home": {
+                "title": "Com_public_notaries",
+                "createLabel": "Create a new Com_public_notaries",
+                "createOrEditLabel": "Create or edit a Com_public_notaries",
+                "search": "Search for Com_public_notaries"
+            },
+            "created": "A new Com_public_notaries is created with identifier {{ param }}",
+            "updated": "A Com_public_notaries is updated with identifier {{ param }}",
+            "deleted": "A Com_public_notaries is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com_public_notaries {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_public_notaries"
+            },
+            "version": "Version",
+            "cfdi": "Cfdi"
+        }
+    }
+}

@@ -1,0 +1,77 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "com_public_notaries",
+            "otherEntityName": "com_public_notaries",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "type_state",
+            "otherEntityName": "type_state",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "c_colony",
+            "otherEntityName": "c_colony",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "c_municipality",
+            "otherEntityName": "c_municipality",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "c_state",
+            "otherEntityName": "c_state",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "c_country",
+            "otherEntityName": "c_country",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "c_zip_code",
+            "otherEntityName": "c_zip_code",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "street",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "noext",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "noint",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "locale",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reference",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20161201201731",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "com_desc_state",
+    "pagination": "pagination"
+}

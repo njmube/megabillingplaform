@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('CfdiNewController', CfdiNewController);
 
-    CfdiNewController.$inject = ['$state', '$timeout', 'entity', 'taxpayer_account_entity', 'Cfdi', 'Payment_method', 'Cfdi_types', 'Cfdi_type_doc', 'C_money', 'Taxpayer_account', 'Taxpayer_transactions', 'AlertService', 'Taxpayer_series_folio', '$uibModal', 'Way_payment', 'Tax_types', 'C_tar', 'C_well_type',  'C_acquired_title', 'C_features_work_piece', 'C_school_level', 'C_process_type', 'C_committee_type', 'C_transit_type', 'C_type_road', 'C_municipality', 'C_colony', 'C_zip_code', 'C_federal_entity', 'C_type_operation', 'C_type_series', 'C_type_operation_ce', 'C_key_pediment', 'Com_incoterm', 'C_country', 'C_state'];
+    CfdiNewController.$inject = ['$state', '$timeout', 'entity', 'taxpayer_account_entity', 'Cfdi', 'Payment_method', 'Cfdi_types', 'Cfdi_type_doc', 'C_money', 'Taxpayer_account', 'Taxpayer_transactions', 'AlertService', 'Taxpayer_series_folio', '$uibModal', 'Way_payment', 'Tax_types', 'C_tar', 'C_well_type',  'C_acquired_title', 'C_features_work_piece', 'C_school_level', 'C_process_type', 'C_committee_type', 'C_transit_type', 'C_type_road', 'C_municipality', 'C_colony', 'C_zip_code', 'C_federal_entity', 'C_type_operation', 'C_type_series', 'C_type_operation_ce', 'C_key_pediment', 'Com_incoterm', 'C_country', 'C_state', 'Public_notaries_federal_entity'];
 
-    function CfdiNewController($state, $timeout, entity, taxpayer_account_entity, Cfdi, Payment_method, Cfdi_types, Cfdi_type_doc, C_money, Taxpayer_account, Taxpayer_transactions, AlertService, Taxpayer_series_folio, $uibModal, Way_payment, Tax_types, C_tar, C_well_type,  C_acquired_title, C_features_work_piece, C_school_level, C_process_type, C_committee_type, C_transit_type, C_type_road, C_municipality, C_colony, C_zip_code, C_federal_entity, C_type_operation, C_type_series, C_type_operation_ce, C_key_pediment, Com_incoterm, C_country, C_state) {
+    function CfdiNewController($state, $timeout, entity, taxpayer_account_entity, Cfdi, Payment_method, Cfdi_types, Cfdi_type_doc, C_money, Taxpayer_account, Taxpayer_transactions, AlertService, Taxpayer_series_folio, $uibModal, Way_payment, Tax_types, C_tar, C_well_type,  C_acquired_title, C_features_work_piece, C_school_level, C_process_type, C_committee_type, C_transit_type, C_type_road, C_municipality, C_colony, C_zip_code, C_federal_entity, C_type_operation, C_type_series, C_type_operation_ce, C_key_pediment, Com_incoterm, C_country, C_state, Public_notaries_federal_entity) {
         var vm = this;
 
         vm.cfdi = entity;
@@ -623,6 +623,29 @@
                         cfdiDTO.com_addressee = vm.com_addressee;
                         cfdiDTO.commodities = vm.c_add_commodities;
                         break;
+                    case "public_notaries":
+                        vm.com_public_notaries.version = "1.0";
+                        cfdiDTO.com_public_notaries = vm.com_public_notaries;
+                        cfdiDTO.com_desc_states = vm.com_desc_states;
+                        cfdiDTO.com_data_operation = vm.com_data_operation;
+                        cfdiDTO.com_notary_data = vm.com_notary_data;
+                        cfdiDTO.com_data_enajenante = vm.com_data_enajenante;
+                        cfdiDTO.com_dataunenajenante = vm.com_dataunenajenante;
+                        if(vm.use_dataenajenantecopsc) {
+                            cfdiDTO.com_dataenajenantecopscs = vm.com_dataenajenantecopscs;
+                        }
+                        else {
+                            cfdiDTO.com_dataenajenantecopscs = [];
+                        }
+                        cfdiDTO.com_acquiring_data = vm.com_acquiring_data;
+                        cfdiDTO.com_dataunacquiring = vm.com_dataunacquiring;
+                        if(vm.use_dataacquiringcopsc) {
+                            cfdiDTO.com_dataacquiringcopscs = vm.com_dataacquiringcopscs;
+                        }
+                        else {
+                            cfdiDTO.com_dataacquiringcopscs = [];
+                        }
+                        break;
                 }
             }
 
@@ -668,7 +691,7 @@
         vm.current_complement = null;
 
         vm.complements = [
-            {id: "taxregistration", name:"CFDI Registro Fiscal"},
+            {id:"taxregistration", name:"CFDI Registro Fiscal"},
             {id:"pfic", name: "Persona Física Integrante de Coordinado"},
             {id:"accreditation_ieps", name: "Concepto - Acreditación del IEPS"},
             {id:"taxlegends", name: "Leyendas Fiscales"},
@@ -688,7 +711,8 @@
             {id:"storeroom_paybill", name: "Vales de Despensa"},
             {id:"ecc11", name: "Estado de Cuenta de Combustibles de Monederos Electrónicos Autorizados"},
             {id:"spei", name: "SPEI Tercero a Tercero"},
-            {id:"foreign_trade", name: "Comercio Exterior"}
+            {id:"foreign_trade", name: "Comercio Exterior"},
+            {id:"public_notaries", name: "Notarios Públicos"}
         ];
 
         vm.onChangeComplemennt = function(){
@@ -769,6 +793,10 @@
                     break;
                 case "foreign_trade":
                     vm.show_foreign_trade = true;
+                    break;
+
+                case "public_notaries":
+                    vm.show_public_notaries = true;
                     break;
             }
         }
@@ -859,6 +887,20 @@
             vm.com_foreign_trade = { version: null, emitter_curp: null, receiver_curp: null, receiver_numregidtrib: null, origin_certificate: null, number_origin_certificate: null, number_reliable_exporter: null, subdivision: null, observations: null, typechangeusd: null, totalusd: null, id: null };
             vm.com_addressee = { street: null, no_ext: null, no_int: null, locate: null, reference: null, numregidtrib: null, rfc: null, curp: null, name: null, id: null };
             vm.c_add_commodities = [];
+
+            vm.show_public_notaries = false;
+            vm.com_public_notaries = { version: null, id: null };
+            vm.com_desc_states = [];
+            vm.com_data_operation = { notarialinstrument: null, dateinstnotarial: null, amountofoperation: null, subtotal: null, iva: null, id: null };
+            vm.com_notary_data = { curp: null, notarynumber: null, ascription: null, id: null };
+            vm.com_data_enajenante = { coprosocconyugaie: null, id: null };
+            vm.com_dataunenajenante = { name: null, last_name: null, mother_last_name: null, rfc: null, curp: null, id: null };
+            vm.use_dataenajenantecopsc = false;
+            vm.com_dataenajenantecopscs = [];
+            vm.com_acquiring_data = { coprosocconyugaie: null, id: null };
+            vm.com_dataunacquiring = { name: null, last_name: null, mother_last_name: null, rfc: null, curp: null, id: null };
+            vm.use_dataacquiringcopsc = false;
+            vm.com_dataacquiringcopscs = [];
         }
 
         function floorFigure(figure, decimals){
@@ -1560,6 +1602,115 @@
 
         vm.removeComCommodity = function(index){
             vm.c_add_commodities.splice(index,1);
+        };
+
+        //Public Notaries
+        vm.show_public_notaries = false;
+        vm.com_public_notaries = null;
+        vm.com_desc_states = [];
+        vm.com_data_operation = null;
+        vm.com_notary_data = null;
+        vm.public_notaries_federal_entitys = Public_notaries_federal_entity.query();
+        vm.com_data_enajenante = null;
+        vm.com_dataunenajenante = null;
+        vm.use_dataenajenantecopsc = false;
+        vm.com_dataenajenantecopscs = [];
+        vm.com_acquiring_data = null;
+        vm.com_dataunacquiring = null;
+        vm.use_dataacquiringcopsc = false;
+        vm.com_dataacquiringcopscs = [];
+
+        vm.addComDescState = function(){
+            $uibModal.open({
+                templateUrl: 'app/entities/com-desc-state/com-desc-state-dialog.html',
+                controller: 'Com_desc_stateDialogController',
+                controllerAs: 'vm',
+                backdrop: 'static',
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return {
+                            street: null,
+                            noext: null,
+                            noint: null,
+                            locale: null,
+                            reference: null,
+                            c_country: {id: 151, name: "México", abrev: "MEX"},
+                            id: null
+                        };
+                    }
+                }
+            }).result.then(function(result) {
+                vm.com_desc_states.push(result)
+            });
+        };
+
+        vm.removeComDescState= function(index){
+            vm.com_desc_states.splice(index,1);
+        };
+
+        vm.comDataOperationDatePickerOpenStatus = {};
+        vm.comDataOperationDatePickerOpenStatus.dateinstnotarial = false;
+        vm.comDataOperationOpenCalendar = function(date) {
+            vm.comDataOperationDatePickerOpenStatus[date] = true;
+        };
+
+        vm.addComDataEnajenantecoPsc = function(){
+            $uibModal.open({
+                templateUrl: 'app/entities/com-dataenajenantecopsc/com-dataenajenantecopsc-dialog.html',
+                controller: 'Com_dataenajenantecopscDialogController',
+                controllerAs: 'vm',
+                backdrop: 'static',
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return {
+                            name: null,
+                            last_name: null,
+                            mother_last_name: null,
+                            rfc: null,
+                            curp: null,
+                            percentage: null,
+                            id: null
+                        };
+                    }
+                }
+            }).result.then(function(result) {
+                vm.com_dataenajenantecopscs.push(result);
+            });
+        };
+
+        vm.removeComDataEnajenantecoPsc = function(index){
+            vm.com_dataenajenantecopscs.splice(index,1);
+        };
+
+        vm.addComDataAcquiringcoPsc = function(){
+            $uibModal.open({
+                templateUrl: 'app/entities/com-dataacquiringcopsc/com-dataacquiringcopsc-dialog.html',
+                controller: 'Com_dataacquiringcopscDialogController',
+                controllerAs: 'vm',
+                backdrop: 'static',
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return {
+                            name: null,
+                            last_name: null,
+                            mother_last_name: null,
+                            rfc: null,
+                            curp: null,
+                            percentage: null,
+                            id: null
+                        };
+                    }
+                }
+            }).result.then(function(result) {
+                vm.com_dataacquiringcopscs.push(result);
+            });
+        };
+
+        vm.removeComDataAcquiringcoPsc = function(index){
+            vm.com_dataacquiringcopscs.splice(index,1);
         };
     }
 })();

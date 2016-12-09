@@ -17,6 +17,13 @@
             "detail": {
                 "title": "Taxpayer Concept"
             },
+			"tbl_heading": {
+                "no_identification": "No Identification",
+                "price_value": "Unit Value",
+				"description": "Description",
+				"discount_value": "Discount (%)",
+				"measure_unit": "Measure Unit"
+            },
             "no_identification": "No Identification (*)",
             "description": "Description (*)",
             "predial_number": "Predial Number",

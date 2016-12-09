@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "public_notaries_federal_entity" : {
+            "home": {
+                "title": "Public_notaries_federal_entities",
+                "createLabel": "Create a new Public_notaries_federal_entity",
+                "createOrEditLabel": "Create or edit a Public_notaries_federal_entity",
+                "search": "Search for Public_notaries_federal_entity"
+            },
+            "created": "A new Public_notaries_federal_entity is created with identifier {{ param }}",
+            "updated": "A Public_notaries_federal_entity is updated with identifier {{ param }}",
+            "deleted": "A Public_notaries_federal_entity is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Public_notaries_federal_entity {{ id }}?"
+            },
+            "detail": {
+                "title": "Public_notaries_federal_entity"
+            },
+            "code": "Code",
+            "description": "Description"
+        }
+    }
+}

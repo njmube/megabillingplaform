@@ -143,6 +143,15 @@
                     $translatePartialLoader.addPart('com_addressee');
                     $translatePartialLoader.addPart('com_commodity');
                     $translatePartialLoader.addPart('com_specific_descriptions');
+                    $translatePartialLoader.addPart('com_desc_state');
+                    $translatePartialLoader.addPart('com_data_operation');
+                    $translatePartialLoader.addPart('com_notary_data');
+                    $translatePartialLoader.addPart('com_data_enajenante');
+                    $translatePartialLoader.addPart('com_dataunenajenante');
+                    $translatePartialLoader.addPart('com_dataenajenantecopsc');
+                    $translatePartialLoader.addPart('com_acquiring_data');
+                    $translatePartialLoader.addPart('com_dataunacquiring');
+                    $translatePartialLoader.addPart('com_dataacquiringcopsc');
                     $translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]

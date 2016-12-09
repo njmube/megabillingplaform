@@ -1,0 +1,28 @@
+{
+    "megabillingplatformApp": {
+        "com_dataacquiringcopsc" : {
+            "home": {
+                "title": "Com_dataacquiringcopscs",
+                "createLabel": "Create a new Com_dataacquiringcopsc",
+                "createOrEditLabel": "Create or edit a Com_dataacquiringcopsc",
+                "search": "Search for Com_dataacquiringcopsc"
+            },
+            "created": "A new Com_dataacquiringcopsc is created with identifier {{ param }}",
+            "updated": "A Com_dataacquiringcopsc is updated with identifier {{ param }}",
+            "deleted": "A Com_dataacquiringcopsc is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com_dataacquiringcopsc {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_dataacquiringcopsc"
+            },
+            "name": "Name (*)",
+            "last_name": "Last_name",
+            "mother_last_name": "Mother_last_name",
+            "rfc": "Rfc (*)",
+            "curp": "Curp",
+            "percentage": "Percentage (*)",
+            "com_acquiring_data": "Com_acquiring_data"
+        }
+    }
+}

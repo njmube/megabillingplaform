@@ -1,0 +1,72 @@
+<div>
+    <h2 translate="megabillingplatformApp.com_data_operation.home.title">Com_data_operations</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="com-data-operation.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.com_data_operation.home.createLabel">
+                        Create new Com_data_operation
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="notarialinstrument"><span translate="megabillingplatformApp.com_data_operation.notarialinstrument">Notarialinstrument</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dateinstnotarial"><span translate="megabillingplatformApp.com_data_operation.dateinstnotarial">Dateinstnotarial</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="amountofoperation"><span translate="megabillingplatformApp.com_data_operation.amountofoperation">Amountofoperation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="subtotal"><span translate="megabillingplatformApp.com_data_operation.subtotal">Subtotal</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="iva"><span translate="megabillingplatformApp.com_data_operation.iva">Iva</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="com_public_notaries.id"><span translate="megabillingplatformApp.com_data_operation.com_public_notaries">com_public_notaries</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="com_data_operation in vm.com_data_operations track by com_data_operation.id">
+                    <td><a ui-sref="com-data-operation-detail({id:com_data_operation.id})">{{com_data_operation.id}}</a></td>
+                    <td>{{com_data_operation.notarialinstrument}}</td>
+                        <td>{{com_data_operation.dateinstnotarial | date:'mediumDate'}}</td>
+                    <td>{{com_data_operation.amountofoperation}}</td>
+                    <td>{{com_data_operation.subtotal}}</td>
+                    <td>{{com_data_operation.iva}}</td>
+                    <td>
+                        <a ui-sref="com-public-notaries-detail({id:com_data_operation.com_public_notaries.id})">{{com_data_operation.com_public_notaries.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="com-data-operation-detail({id:com_data_operation.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-data-operation.edit({id:com_data_operation.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="com-data-operation.delete({id:com_data_operation.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

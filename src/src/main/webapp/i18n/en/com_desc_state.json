@@ -1,0 +1,33 @@
+{
+    "megabillingplatformApp": {
+        "com_desc_state" : {
+            "home": {
+                "title": "Com_desc_states",
+                "createLabel": "Create a new Com_desc_state",
+                "createOrEditLabel": "Create or edit a Com_desc_state",
+                "search": "Search for Com_desc_state"
+            },
+            "created": "A new Com_desc_state is created with identifier {{ param }}",
+            "updated": "A Com_desc_state is updated with identifier {{ param }}",
+            "deleted": "A Com_desc_state is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Com_desc_state {{ id }}?"
+            },
+            "detail": {
+                "title": "Com_desc_state"
+            },
+            "street": "Street (*)",
+            "noext": "Noext",
+            "noint": "Noint",
+            "locale": "Locale",
+            "reference": "Reference",
+            "com_public_notaries": "Com_public_notaries",
+            "type_state": "Type_state (*)",
+            "c_colony": "C_colony",
+            "c_municipality": "C_municipality (*)",
+            "c_state": "C_state (*)",
+            "c_country": "C_country (*)",
+            "c_zip_code": "C_zip_code"
+        }
+    }
+}
