@@ -5,12 +5,11 @@
         .module('megabillingplatformApp')
         .controller('File_stateDialogController', File_stateDialogController);
 
-    File_stateDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'File_state', 'File'];
+    File_stateDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'File_state'];
 
-    function File_stateDialogController ($scope, $stateParams, $uibModalInstance, entity, File_state, File) {
+    function File_stateDialogController ($scope, $stateParams, $uibModalInstance, entity, File_state) {
         var vm = this;
         vm.file_state = entity;
-        vm.files = File.query();
         vm.load = function(id) {
             File_state.get({id : id}, function(result) {
                 vm.file_state = result;

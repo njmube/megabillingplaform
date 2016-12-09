@@ -2,21 +2,21 @@
     "megabillingplatformApp": {
         "key_entity" : {
             "home": {
-                "title": "Key_entities",
-                "createLabel": "Crear nuevo Key_entity",
-                "createOrEditLabel": "Crear o editar Key_entity",
-                "search": "Search for Key_entity"
+                "title": "Llave de entidad",
+                "createLabel": "Crear nueva Llave de entidad",
+                "createOrEditLabel": "Crear o editar Llave de entidad",
+                "search": "Búsqueda para Llave de entidad"
             },
-            "created": "Un nuevo Key_entity ha sido creado con el identificador {{ param }}",
-            "updated": "Un Key_entity ha sido actualizado con el identificador {{ param }}",
-            "deleted": "Un Key_entity ha sido eliminado con el identificador {{ param }}",
+            "created": "Una nueva Llave de entidad ha sido creada con el identificador {{ param }}",
+            "updated": "Una Llave de entidad ha sido actualizada con el identificador {{ param }}",
+            "deleted": "Una Llave de entidad ha sido eliminada con el identificador {{ param }}",
             "delete": {
-                "question": "¿Seguro que quiere eliminar Key_entity {{ id }}?"
+                "question": "¿Seguro que quiere eliminar Llave de entidad {{ id }}?"
             },
             "detail": {
-                "title": "Key_entity"
+                "title": "Llave de entidad"
             },
-            "key": "Key"
+            "key": "Llave"
         }
     }
 }

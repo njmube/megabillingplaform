@@ -1,9 +1,7 @@
 package org.megapractical.billingplatform.security;
 
-import org.megapractical.billingplatform.domain.Audit_event_type;
-import org.megapractical.billingplatform.domain.Authority;
-import org.megapractical.billingplatform.domain.C_state_event;
-import org.megapractical.billingplatform.domain.User;
+import org.megapractical.billingplatform.domain.*;
+import org.megapractical.billingplatform.repository.TracemgRepository;
 import org.megapractical.billingplatform.repository.UserRepository;
 import org.megapractical.billingplatform.service.AuditEventService;
 import org.megapractical.billingplatform.service.Audit_event_typeService;
@@ -42,6 +40,9 @@ public class UserDetailsService implements org.springframework.security.core.use
     @Inject
     private TracemgService tracemgService;
 
+    @Inject
+    private TracemgRepository tracemgRepository;
+
     @Override
     @Transactional
     public UserDetails loadUserByUsername(final String login) {
@@ -49,6 +50,19 @@ public class UserDetailsService implements org.springframework.security.core.use
         log.debug("Authenticating {}", login);
         String lowercaseLogin = login.toLowerCase();
         SecurityUtils.intentLogin = login;
+        List<Tracemg> list = tracemgRepository.findByPrincipalOrderByIdDesc(login);
+        if(list != null){
+           Long id = new Long("37");
+           Long id1 = new Long("53");
+            if(list.size() > 0) {
+                if (list.get(0).getAudit_event_type().getId() == id || list.get(0).getAudit_event_type().getId() == id1) {
+
+                } else {
+                    if(list.get(0).getIp().compareTo(SecurityUtils.ipCliente)!=0)
+                        throw new UserNotActivatedException("El usuario está ya autenticado");
+                }
+            }
+        }
         Optional<User> userFromDatabase = userRepository.findOneByLogin(lowercaseLogin);
 
         return userFromDatabase.map(user -> {

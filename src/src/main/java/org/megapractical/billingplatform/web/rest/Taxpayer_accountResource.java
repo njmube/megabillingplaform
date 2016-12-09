@@ -170,7 +170,7 @@ public class Taxpayer_accountResource {
                     }
 
                     if(taxpayer_account.getRfc().compareTo(taxpayer_certificate.getRfc_certificate())!=0) {
-                        taxpayer_certificate.setInfo_certificate("ERROR: Emitter RFC is diferent to Certificate RFC");
+                        taxpayer_certificate.setInfo_certificate("ERROR: El RFC del emisor es diferente al RFC del certificado");
                         taxpayer_certificate.setNumber_certificate(null);
                         taxpayer_certificate.setDate_certificate(null);
                         taxpayer_certificate.setRfc_certificate(null);
@@ -209,7 +209,7 @@ public class Taxpayer_accountResource {
                     if(taxpayer_account.getTaxpayer_certificate().getFilecertificate() != null) {
                         Taxpayer_certificate taxpayer_certificate = taxpayer_certificateService.InfoCertificate(taxpayer_account.getTaxpayer_certificate());
                         if(taxpayer_account.getRfc().compareTo(taxpayer_certificate.getRfc_certificate())!=0) {
-                            taxpayer_certificate.setInfo_certificate("ERROR: Emitter RFC is diferent to Certificate RFC");
+                            taxpayer_certificate.setInfo_certificate("ERROR: El RFC del emisor es diferente al RFC del certificado");
                             taxpayer_certificate.setNumber_certificate(null);
                             taxpayer_certificate.setDate_certificate(null);
                             taxpayer_certificate.setRfc_certificate(null);
@@ -222,7 +222,7 @@ public class Taxpayer_accountResource {
                             Long id = new Long("53");
                             Long idtypeevent = new Long("1");
                             tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
-                            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("taxpayer_account", "diferentRFC", "ERROR: Taxpayer Account RFC is diferent to Certificate RFC")).body(null);
+                            return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("taxpayer_account", "diferentRFC", "ERROR: El RFC del emisor es diferente al RFC del certificado")).body(null);
                         }
                     }
                     if (taxpayer_account.getId() == null) {

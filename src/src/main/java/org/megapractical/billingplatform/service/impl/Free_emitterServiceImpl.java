@@ -3,6 +3,7 @@ package org.megapractical.billingplatform.service.impl;
 import org.megapractical.billingplatform.domain.C_state_event;
 import org.megapractical.billingplatform.domain.Config_pathrootfile;
 import org.megapractical.billingplatform.domain.User;
+import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.domain.Free_emitter;
 import org.megapractical.billingplatform.repository.Free_emitterRepository;
@@ -53,7 +54,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
      * @return the persisted entity
      */
     public Free_emitter save(Free_emitter free_emitter) {
-        log.debug("Request to save Free_emitter (Service) : {}", free_emitter);
+
         byte[] certificate = null;
         byte[] key = null;
         byte[] logo = null;
@@ -61,9 +62,13 @@ public class Free_emitterServiceImpl implements Free_emitterService{
             certificate = free_emitter.getFilecertificate();
             key = free_emitter.getFilekey();
             logo = free_emitter.getFilelogo();
+
+            if(free_emitter.getPass_certificate() != null)
+                free_emitter.setPass_certificate(SecurityUtils.Encrip(free_emitter.getPass_certificate()));
+
+
         }
         free_emitter = saveFile(free_emitter);
-        log.debug("Save File in Service.save  : {}", free_emitter);
 
         Free_emitter result = free_emitterRepository.save(free_emitter);
 
@@ -71,14 +76,16 @@ public class Free_emitterServiceImpl implements Free_emitterService{
             result.setFilecertificate(certificate);
             result.setFilekey(key);
             result.setFilelogo(logo);
+
         }
-        log.debug("Resultado de salvar en service : {}", free_emitter);
 
         return result;
     }
 
     public Free_emitter findOneByRfc(String rfc){
-        return free_emitterRepository.findOneByRfc(rfc);
+        Free_emitter free = free_emitterRepository.findOneByRfc(rfc);
+
+        return free;
     }
 
     public String[] validateCertificate(byte[] cert, byte[]key, String pass){
@@ -86,7 +93,17 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         response[0] = "3";
         response[1] = "Error de validación";
         try{
-            return UCertificate.validate(cert, key, pass);
+            response = UCertificate.validate(cert, key, pass);
+            if(response[0].compareTo("0")==0){
+                response[1] = "El certificado, la llave y la contraseña coinciden.";
+            }
+            if(response[0].compareTo("1")==0){
+                response[1] = "El certificado no se corresponde con la llave.";
+            }
+            if(response[0].compareTo("2")==0){
+                response[1] = "La contraseña no se corresponde con la llave.";
+            }
+            return response;
         }catch (Exception ex){
             return response;
         }
@@ -429,6 +446,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
         log.debug("Request to get Free_emitter : {}", id);
         Free_emitter free_emitter = free_emitterRepository.findOne(id);
         free_emitter = getFile(free_emitter);
+
         return free_emitter;
     }
 
@@ -446,6 +464,7 @@ public class Free_emitterServiceImpl implements Free_emitterService{
     public Free_emitter findOneByUser(User user) {
         Free_emitter free_emitter = free_emitterRepository.findOneByUser(user);
         if(free_emitter != null) {
+
             return getFile(free_emitter);
         }
         return  free_emitter;

@@ -2,6 +2,7 @@ package org.megapractical.billingplatform.service.impl;
 
 import org.apache.commons.io.IOUtils;
 import org.megapractical.billingplatform.domain.Config_pathrootfile;
+import org.megapractical.billingplatform.security.SecurityUtils;
 import org.megapractical.billingplatform.service.Config_pathrootfileService;
 import org.megapractical.billingplatform.service.Taxpayer_certificateService;
 import org.megapractical.billingplatform.domain.Taxpayer_certificate;
@@ -44,9 +45,11 @@ public class Taxpayer_certificateServiceImpl implements Taxpayer_certificateServ
      */
     public Taxpayer_certificate save(Taxpayer_certificate taxpayer_certificate, String rfc) {
         log.debug("Request to save Taxpayer_certificate : {}", taxpayer_certificate);
+
         taxpayer_certificate = saveFile(taxpayer_certificate, rfc);
-        taxpayer_certificate.setPass_certificate(null);
+        taxpayer_certificate.setPass_certificate(SecurityUtils.Encrip(taxpayer_certificate.getPass_certificate()));
         Taxpayer_certificate result = taxpayer_certificateRepository.save(taxpayer_certificate);
+
         return result;
     }
 
@@ -54,10 +57,19 @@ public class Taxpayer_certificateServiceImpl implements Taxpayer_certificateServ
         String[] response = new String[2];
         response[0] = "3";
         response[1] = "Error de validación";
-        log.debug("pass: " + pass);
 
         try{
-            return UCertificate.validate(cert, key, pass);
+            response = UCertificate.validate(cert, key, pass);
+            if(response[0].compareTo("0")==0){
+                response[1] = "El certificado, la llave y la contraseña coinciden.";
+            }
+            if(response[0].compareTo("1")==0){
+                response[1] = "El certificado no se corresponde con la llave.";
+            }
+            if(response[0].compareTo("2")==0){
+                response[1] = "La contraseña no se corresponde con la llave.";
+            }
+            return response;
         }catch (Exception ex){
             return response;
         }

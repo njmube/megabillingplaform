@@ -179,22 +179,24 @@ public class TracemgServiceImpl implements TracemgService{
         long id = 1;
         int cont = 1;
         for(Tracemg trace: result){
-            Long idtrace = trace.getAudit_event_type().getId();
-            Long start = new Long("38");
-            Long end = new Long("52");
-            //log.debug("ID de tipo de evento: " + idtrace.toString());
-            if(cont <= 10 && principal.compareTo(trace.getPrincipal())==0 && idtrace >= start && idtrace <= end){
-                TracemgAccount newTrace = new TracemgAccount();
-                newTrace.setID(id);
-                newTrace.setTimestamp(trace.getTimestamp().toLocalDateTime().toString().replace('T',' '));
-                newTrace.setResult(trace.getC_state_event().getName());
-                newTrace.setOperation(trace.getAudit_event_type().getDescription());
-                newTrace.setModulo("Facturación en línea");
-                User user = userService.getUserWithAuthoritiesByLogin(trace.getPrincipal()).get();
-                newTrace.setRfc(user.getRFC());
-                list.add(newTrace);
-                id++;
-                cont++;
+            if(trace.getAudit_event_type() != null) {
+                Long idtrace = trace.getAudit_event_type().getId();
+                Long start = new Long("38");
+                Long end = new Long("52");
+                //log.debug("ID de tipo de evento: " + idtrace.toString());
+                if (cont <= 10 && principal.compareTo(trace.getPrincipal()) == 0 && idtrace >= start && idtrace <= end) {
+                    TracemgAccount newTrace = new TracemgAccount();
+                    newTrace.setID(id);
+                    newTrace.setTimestamp(trace.getTimestamp().toLocalDateTime().toString().replace('T', ' '));
+                    newTrace.setResult(trace.getC_state_event().getName());
+                    newTrace.setOperation(trace.getAudit_event_type().getDescription());
+                    newTrace.setModulo("Facturación en línea");
+                    User user = userService.getUserWithAuthoritiesByLogin(trace.getPrincipal()).get();
+                    newTrace.setRfc(user.getRFC());
+                    list.add(newTrace);
+                    id++;
+                    cont++;
+                }
             }
         }
         Page<TracemgAccount> page = new PageImpl<TracemgAccount>(list,pageable,list.size());

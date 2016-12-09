@@ -33,7 +33,7 @@
                 vm.taxpayer_account.taxpayer_certificate.filecertificate!=null){
 
                 vm.messvalidate = false;
-                vm.taxpayer_account.taxpayer_certificate.info_certificate = 'validating...';
+                vm.taxpayer_account.taxpayer_certificate.info_certificate = 'validando...';
                 Taxpayer_account.update(vm.taxpayer_account, onSaveSuccess, onSaveError);
             }
             if(vm.taxpayer_account.taxpayer_certificate.pass_certificate == null ||

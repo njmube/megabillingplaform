@@ -188,7 +188,7 @@ public class Free_emitterResource {
                     Long idtypeevent = new Long("1");
                     tracemgService.saveTrace(audit_event_typeService.findOne(id), c_state_eventService.findOne(idtypeevent));
 
-                    return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "diferentRFC", "ERROR: Emitter RFC is diferent to Certificate RFC")).body(null);
+                    return ResponseEntity.badRequest().headers(HeaderUtil.createFailureAlert("free_emitter", "diferentRFC", "El RFC del emisor es diferente al RFC del certificado")).body(null);
                 }
             }
 

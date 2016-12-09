@@ -10,7 +10,7 @@
     function Tax_retentionsDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Tax_retentions, Tax_types, Concept) {
         var vm = this;
         vm.tax_retentions = entity;
-        vm.tax_types = Tax_types.query();
+        vm.tax_types = Tax_types.query({filtername:" "});
         vm.concepts = Concept.query();
 
         $timeout(function (){

@@ -1,6 +1,8 @@
 package org.megapractical.billingplatform.security;
 
 import org.megapractical.billingplatform.domain.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,6 +25,8 @@ public final class SecurityUtils {
 
     private SecurityUtils() {
     }
+
+
 
     public static String ipCliente;
 
@@ -53,11 +57,13 @@ public final class SecurityUtils {
         String base64EncryptedString = "";
 
         try {
-
+            Logger log = LoggerFactory.getLogger(SecurityUtils.class);
+            //log.debug("Entro a la encriptacion");
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));
+            //log.debug("digestOfPassword: " + digestOfPassword.toString());
             byte[] keyBytes = Arrays.copyOf(digestOfPassword, 24);
-
+            //log.debug("keyBytes: " + keyBytes.toString());
             SecretKey key = new SecretKeySpec(keyBytes, "DESede");
             Cipher cipher = Cipher.getInstance("DESede");
             cipher.init(Cipher.ENCRYPT_MODE, key);
@@ -66,8 +72,11 @@ public final class SecurityUtils {
             byte[] buf = cipher.doFinal(plainTextBytes);
             byte[] base64Bytes = Base64.encodeBase64(buf);
             base64EncryptedString = new String(base64Bytes);
+            //log.debug("base64EncryptedString: " + base64EncryptedString);
 
         } catch (Exception ex) {
+            Logger log = LoggerFactory.getLogger(SecurityUtils.class);
+            log.debug("Excepcion de la encriptacion");
             return "";
         }
         return base64EncryptedString;
@@ -79,6 +88,7 @@ public final class SecurityUtils {
         String base64EncryptedString = "";
 
         try {
+
             byte[] message = Base64.decodeBase64(textoEncriptado.getBytes("utf-8"));
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] digestOfPassword = md.digest(secretKey.getBytes("utf-8"));

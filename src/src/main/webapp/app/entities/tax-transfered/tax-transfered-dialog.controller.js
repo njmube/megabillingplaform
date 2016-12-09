@@ -10,7 +10,7 @@
     function Tax_transferedDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Tax_transfered, Tax_types, Concept) {
         var vm = this;
         vm.tax_transfered = entity;
-        vm.tax_types = Tax_types.query();
+        vm.tax_types = Tax_types.query({filtername:" "});
         vm.concepts = Concept.query();
 
         $timeout(function (){

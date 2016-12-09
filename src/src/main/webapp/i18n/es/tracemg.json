@@ -17,15 +17,20 @@
                 "title": "Traza"
             },
             "principal": "Usuario:",
+            "principall": "Usuario",
             "timestamp": "Fecha:",
+            "timestampp": "Fecha",
             "ip": "IP:",
+            "ipp": "IP",
             "audit_event_type": "Nombre:",
+            "audit_event_typee": "Nombre",
             "c_state_event": "Estado:",
+            "c_state_eventt": "Estado",
             "audit_event_type_description":"Descripción",
             "from":"Desde:",
             "to":"Hasta:",
             "auditEventType":"Tipo de evento:",
-            "search":"Buscar:",
+            "search":"Buscar",
             "search_result":"Resultado de la búsqueda:"
         }
     }
