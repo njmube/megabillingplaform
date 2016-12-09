@@ -17,7 +17,9 @@
                 "title": "Forma de Pago"
             },
             "name": "Nombre:",
-            "description": "Descripción:",
+            "namee": "Nombre",
+            "description": "Descripción",
+            "descriptionn": "Descripción:",
             "filtername":"Filtro por nombre:"
         }
     }

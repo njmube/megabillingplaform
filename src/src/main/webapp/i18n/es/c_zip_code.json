@@ -17,7 +17,9 @@
                 "title": "Código Postal"
             },
             "code": "Código:",
+            "codee": "Código",
             "value": "Valor:",
+            "valuee": "Valor",
             "filtername":"Filtro por código:"
         }
     }

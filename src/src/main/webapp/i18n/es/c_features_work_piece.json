@@ -16,7 +16,9 @@
                 "title": "Características de obra de arte"
             },
             "code": "Código:",
-            "name": "Nombre:"
+            "codee": "Código",
+            "name": "Nombre:",
+            "namee": "Nombre"
         }
     }
 }

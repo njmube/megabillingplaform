@@ -16,10 +16,14 @@
             "detail": {
                 "title": "Impuesto transferido"
             },
-            "amount": "Cantidad",
-            "rate": "Índice",
-            "tax_types": "Tipo de impuesto",
-            "concept": "Concepto"
+            "amount": "Cantidad:",
+            "amountt": "Cantidad",
+            "rate": "Índice:",
+            "ratee": "Índice",
+            "tax_types": "Tipo de impuesto:",
+            "tax_typess": "Tipo de impuesto",
+            "concept": "Concepto:",
+            "conceptt": "Concepto"
         }
     }
 }

@@ -17,8 +17,11 @@
                 "title": "Municipio"
             },
             "name": "Nombre:",
+            "namee": "Nombre",
             "code": "Código:",
+            "codee": "Código",
             "c_state": "Estado:",
+            "c_statee": "Estado",
             "filtername":"Filtro por nombre:"
         }
     }

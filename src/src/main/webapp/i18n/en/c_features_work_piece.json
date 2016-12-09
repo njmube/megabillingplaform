@@ -16,7 +16,9 @@
             "detail": {
                 "title": "Features Work Piece"
             },
-            "code": "Code",
+            "code": "Code:",
+            "codee": "Code",
+            "name": "Name:",
             "name": "Name"
         }
     }

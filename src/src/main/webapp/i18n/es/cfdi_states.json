@@ -17,7 +17,9 @@
                 "title": "Estado de CFDI"
             },
             "name": "Nombre:",
+            "namee": "Nombre",
             "description": "Descripción:",
+            "descriptionn": "Descripción",
             "filtername": "Filtro por nombre:"
         }
     }

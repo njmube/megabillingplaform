@@ -16,9 +16,11 @@
             "detail": {
                 "title": "Billing Account State"
             },
-            "name": "Name",
-            "description": "Description",
-            "filtername": "Filter by name"
+            "name": "Name:",
+            "namee": "Name",
+            "description": "Description:",
+            "descriptionn": "Description",
+            "filtername": "Filter by name:"
         }
     }
 }

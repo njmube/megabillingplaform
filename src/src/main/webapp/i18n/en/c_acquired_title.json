@@ -16,8 +16,10 @@
             "detail": {
                 "title": "Acquired Title"
             },
-            "code": "Code",
-            "name": "Name"
+            "code": "Code:",
+            "codee": "Code",
+            "name": "Name:",
+            "namee": "Name"
         }
     }
 }

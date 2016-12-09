@@ -16,7 +16,8 @@
             "detail": {
                 "title": "Código TAR"
             },
-            "name": "Nombre:"
+            "name": "Nombre:",
+            "namee": "Nombre"
         }
     }
 }

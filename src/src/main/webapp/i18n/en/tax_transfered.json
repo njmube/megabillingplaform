@@ -16,10 +16,14 @@
             "detail": {
                 "title": "Tax Transfered"
             },
-            "amount": "Amount",
-            "rate": "Rate",
-            "tax_types": "Tax Types",
-            "concept": "Concept"
+            "amount": "Amount:",
+            "amountt": "Amount",
+            "rate": "Rate:",
+            "ratee": "Rate",
+            "tax_types": "Tax Types:",
+            "tax_typess": "Tax Types",
+            "concept": "Concept:",
+            "conceptt": "Concept"
         }
     }
 }

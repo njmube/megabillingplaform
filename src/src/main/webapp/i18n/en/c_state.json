@@ -16,11 +16,15 @@
             "detail": {
                 "title": "State"
             },
-            "name": "Name",
-            "abrev": "Abrev",
-            "c_country": "Country",
-            "c_municipality": "Municipality",
-            "filtername":"Filter by name"
+            "name": "Name:",
+            "namee": "Name",
+            "abrev": "Abrev:",
+            "abrevv": "Abrev",
+            "c_country": "Country:",
+            "c_countryy": "Country",
+            "c_municipality": "Municipality:",
+            "c_municipalityy": "Municipality",
+            "filtername":"Filter by name:"
         }
     }
 }

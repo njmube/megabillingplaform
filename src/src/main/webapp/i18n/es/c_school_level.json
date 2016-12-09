@@ -17,7 +17,9 @@
                 "title": "Nivel escolar"
             },
             "name": "Nombre:",
-            "description": "Descripción:"
+            "namee": "Nombre",
+            "description": "Descripción:",
+            "descriptionn": "Descripción"
         }
     }
 }

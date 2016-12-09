@@ -77,6 +77,32 @@
 				}]
 			}
 		})
+        .state('free-emitter.newAdmin', {
+                parent: 'free-emitter',
+                url: '/newAdmin',
+                data: {
+                    authorities: ['ROLE_USER'],
+                    pageTitle: 'megabillingplatformApp.free_emitter.home.createLabel'
+                },
+                views: {
+                    'content@': {
+                        templateUrl: 'app/entities/free-emitter/free-emitter-newAdmin.html',
+                        controller: 'Free_emitterNewAdminController',
+                        controllerAs: 'vm'
+                    }
+                },
+                resolve: {
+                    entity: ['Free_emitter', function(Free_emitter) {
+                        return Free_emitter.get({id : 0});
+                    }],
+                    translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                        $translatePartialLoader.addPart('free_emitter');
+                        $translatePartialLoader.addPart('global');
+                        $translatePartialLoader.addPart('home');
+                        return $translate.refresh();
+                    }]
+                }
+            })
         .state('passCertificate', {
             parent: 'free-emitter.new',
             url: '/passCertificate',

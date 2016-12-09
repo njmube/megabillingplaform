@@ -16,9 +16,12 @@
             "detail": {
                 "title": "Impuesto retenido"
             },
-            "amount": "Cantidad",
-            "tax_types": "Tipo de impuesto",
-            "concept": "Concepto"
+            "amount": "Cantidad:",
+            "amountt": "Cantidad",
+            "tax_types": "Tipo de impuesto:",
+            "tax_typess": "Tipo de impuesto",
+            "concept": "Concepto:",
+            "conceptt": "Concepto"
         }
     }
 }

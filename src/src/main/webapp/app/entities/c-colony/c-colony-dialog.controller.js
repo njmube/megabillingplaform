@@ -10,8 +10,8 @@
     function C_colonyDialogController ($scope, $stateParams, $uibModalInstance, entity, C_colony, C_municipality, C_zip_code) {
         var vm = this;
         vm.c_colony = entity;
-        vm.c_municipalitys = C_municipality.query();
-        vm.c_zip_codes = C_zip_code.query();
+        vm.c_municipalitys = C_municipality.query({stateId:0,filtername:" "});
+        vm.c_zip_codes = C_zip_code.query({filtername:" "});
         vm.load = function(id) {
             C_colony.get({id : id}, function(result) {
                 vm.c_colony = result;

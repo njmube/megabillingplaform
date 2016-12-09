@@ -16,10 +16,12 @@
             "detail": {
                 "title": "Tipo Fichero"
             },
-            "name": "Nombre",
-            "description": "Descripción",
+            "name": "Nombre:",
+            "namee": "Nombre",
+            "description": "Descripción:",
+            "descriptionn": "Descripción",
             "file": "Fichero",
-            "filtername": "Filtro por nombre"
+            "filtername": "Filtro por nombre:"
         }
     }
 }

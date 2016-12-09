@@ -16,9 +16,11 @@
             "detail": {
                 "title": "Tipo de Impuesto"
             },
-            "name": "Nombre",
-            "description": "Descripción",
-            "filtername": "Filtro por nombre"
+            "name": "Nombre:",
+            "namee": "Nombre",
+            "description": "Descripción:",
+            "descriptionn": "Descripción",
+            "filtername": "Filtro por nombre:"
         }
     }
 }

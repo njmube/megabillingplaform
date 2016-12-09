@@ -16,7 +16,8 @@
             "detail": {
                 "title": "Llave de entidad"
             },
-            "key": "Llave"
+            "key": "Llave:",
+            "keyy": "Llave"
         }
     }
 }

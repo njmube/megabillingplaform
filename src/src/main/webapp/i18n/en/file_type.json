@@ -16,10 +16,12 @@
             "detail": {
                 "title": "File Type"
             },
-            "name": "Name",
-            "description": "Description",
+            "name": "Name:",
+            "namee": "Name",
+            "description": "Description:",
+            "descriptionn": "Description",
             "file": "File",
-            "filtername": "Filter by name"
+            "filtername": "Filter by name:"
         }
     }
 }

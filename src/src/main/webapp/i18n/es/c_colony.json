@@ -17,9 +17,13 @@
                 "title": "Colonia"
             },
             "code": "Código:",
+            "codee": "Código",
             "value": "Valor:",
+            "valuee": "Valor",
             "c_municipality": "Municipio:",
+            "c_municipalityy": "Municipio",
             "c_zip_code": "Código Postal:",
+            "c_zip_codee": "Código Postal",
             "filtername":"Filtro por Código:"
         }
     }

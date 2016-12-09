@@ -16,10 +16,13 @@
             "detail": {
                 "title": "Método de Pago"
             },
-            "name": "Nombre",
-            "description": "Descripción",
-            "code": "Código",
-            "filtername":"Filtro por nombre y código"
+            "name": "Nombre:",
+            "namee": "Nombre",
+            "description": "Descripción.",
+            "descriptionn": "Descripción",
+            "code": "Código:",
+            "codee": "Código",
+            "filtername":"Filtro por nombre y código:"
         }
     }
 }

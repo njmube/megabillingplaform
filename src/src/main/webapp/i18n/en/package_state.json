@@ -16,10 +16,12 @@
             "detail": {
                 "title": "Package State"
             },
-            "name": "Name",
-            "description": "Description",
+            "name": "Name:",
+            "namee": "Name",
+            "description": "Description:",
+            "descriptionn": "Description",
             "package_transations": "Package Transations",
-            "filtername": "Filter by name"
+            "filtername": "Filter by name:"
         }
     }
 }

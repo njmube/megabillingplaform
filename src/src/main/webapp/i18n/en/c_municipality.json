@@ -16,10 +16,13 @@
             "detail": {
                 "title": "Municipality"
             },
-            "name": "Name",
-            "code": "Code",
-            "c_state": "State",
-            "filtername":"Filter by name"
+            "name": "Name:",
+            "namee": "Name",
+            "code": "Code:",
+            "codee": "Code",
+            "c_state": "State:",
+            "c_statee": "State",
+            "filtername":"Filter by name:"
         }
     }
 }

@@ -16,11 +16,15 @@
             "detail": {
                 "title": "Colony"
             },
-            "code": "Code",
-            "value": "Value",
-            "c_municipality": "Municipality",
-            "c_zip_code": "Zip Code",
-            "filtername":"Filter by Code"
+            "code": "Code:",
+            "codee": "Code",
+            "value": "Value:",
+            "valuee": "Value",
+            "c_municipality": "Municipality:",
+            "c_municipalityy": "Municipality",
+            "c_zip_code": "Zip Code:",
+            "c_zip_codee": "Zip Code",
+            "filtername":"Filter by Code:"
         }
     }
 }

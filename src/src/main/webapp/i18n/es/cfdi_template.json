@@ -17,9 +17,13 @@
                 "title": "Plantilla de CFDI"
             },
             "name": "Nombre:",
+            "namee": "Nombre",
             "description": "Descripción:",
+            "descriptionn": "Descripción",
             "template": "Plantilla:",
+            "templatee": "Plantilla",
             "file": "Fichero:",
+            "filee": "Fichero",
             "filtername":"Filtro por nombre:"
         }
     }

@@ -16,10 +16,12 @@
             "detail": {
                 "title": "Régimen Fiscal"
             },
-            "name": "Nombre",
-            "description": "Descripción",
+            "name": "Nombre:",
+            "namee": "Nombre",
+            "description": "Descripción:",
+            "descriptionn": "Descripción",
             "code": "Código",
-            "filtername":"Filtro por nombre"
+            "filtername":"Filtro por nombre:"
         }
     }
 }

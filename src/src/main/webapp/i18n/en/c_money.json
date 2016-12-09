@@ -16,8 +16,10 @@
             "detail": {
                 "title": "Money"
             },
-            "name": "Name",
-            "description": "Description"
+            "name": "Name:",
+            "namee": "Name",
+            "description": "Description:",
+            "descriptionn": "Description"
         }
     }
 }

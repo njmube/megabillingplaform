@@ -16,9 +16,11 @@
             "detail": {
                 "title": "Zip Code"
             },
-            "code": "Code",
-            "value": "Value",
-            "filtername":"Filter by code"
+            "code": "Code:",
+            "codee": "Code",
+            "value": "Value:",
+            "valuee": "Value",
+            "filtername":"Filter by code:"
         }
     }
 }

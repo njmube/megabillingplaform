@@ -16,9 +16,11 @@
             "detail": {
                 "title": "CFDI Tipo Documento"
             },
-            "name": "Name",
-            "description": "Description",
-            "filtername": "Filtro por nombre"
+            "name": "Nombre:",
+            "namee": "Nombre",
+            "description": "Descripción:",
+            "descriptionn": "Descripción",
+            "filtername": "Filtro por nombre:"
         }
     }
 }

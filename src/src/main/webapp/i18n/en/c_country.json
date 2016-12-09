@@ -16,10 +16,13 @@
             "detail": {
                 "title": "Countries"
             },
-            "name": "Name",
-            "abrev": "Abrev",
-            "c_state": "State",
-            "filtername":"Filter by Name"
+            "name": "Name:",
+            "namee": "Name",
+            "abrev": "Abrev:",
+            "abrevv": "Abrev",
+            "c_state": "State:",
+            "c_statee": "State",
+            "filtername":"Filter by Name:"
         }
     }
 }

@@ -17,8 +17,11 @@
                 "title": "País"
             },
             "name": "Nombre:",
+            "namee": "Nombre",
             "abrev": "Abreviatura:",
+            "abrevv": "Abreviatura",
             "c_state": "Estado:",
+            "c_statee": "Estado",
             "filtername":"Filtro por nombre:"
         }
     }

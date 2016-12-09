@@ -16,11 +16,15 @@
             "detail": {
                 "title": "CFDI Template"
             },
-            "name": "Name",
-            "description": "Description",
-            "template": "Template",
-            "file": "File",
-            "filtername":"Filter by name"
+            "name": "Name:",
+            "namee": "Name",
+            "description": "Description:",
+            "descriptionn": "Description",
+            "template": "Template:",
+            "templatee": "Template",
+            "file": "File:",
+            "filee": "File",
+            "filtername":"Filter by name:"
         }
     }
 }

@@ -16,10 +16,13 @@
             "detail": {
                 "title": "Rate Type"
             },
-            "name": "Name",
-            "value": "Value",
-            "description": "Description",
-            "filtername": "Filter by name"
+            "name": "Name:",
+            "namee": "Name",
+            "value": "Value:",
+            "valuee": "Value",
+            "description": "Description:",
+            "descriptionn": "Description",
+            "filtername": "Filter by name:"
         }
     }
 }

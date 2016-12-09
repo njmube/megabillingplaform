@@ -99,8 +99,9 @@ public class C_municipalityResource {
         log.debug("REST request to get a page of C_municipalities");
         if(stateId == 0){
             if(filtername.compareTo(" ")==0 || filtername.isEmpty()) {
-                List<C_municipality> page = c_municipalityService.findAll();
-                return new ResponseEntity<>(page, HttpStatus.OK);
+                Page<C_municipality> page = c_municipalityService.findAll(pageable);
+                HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-municipalities");
+                return new ResponseEntity<>(page.getContent(), headers, HttpStatus.OK);
             }else {
                 Page<C_municipality> page = c_municipalityService.findAllByName(filtername,pageable);
                 HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/c-municipalities");

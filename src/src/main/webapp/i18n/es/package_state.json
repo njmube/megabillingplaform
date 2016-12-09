@@ -16,10 +16,12 @@
             "detail": {
                 "title": "Estado Paquete de Timbres"
             },
-            "name": "Nombre",
-            "description": "Descripción",
+            "name": "Nombre:",
+            "namee": "Nombre",
+            "description": "Descripción:",
+            "descriptionn": "Descripción",
             "package_transations": "Paquete de Timbres",
-            "filtername": "Filtro por nombre"
+            "filtername": "Filtro por nombre:"
         }
     }
 }

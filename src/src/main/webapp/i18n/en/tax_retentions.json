@@ -16,9 +16,12 @@
             "detail": {
                 "title": "Tax Retentions"
             },
-            "amount": "Amount",
-            "tax_types": "Tax Types",
-            "concept": "Concept"
+            "amount": "Amount:",
+            "amountt": "Amount",
+            "tax_types": "Tax Types:",
+            "tax_typess": "Tax Types",
+            "concept": "Concept:",
+            "conceptt": "Concept"
         }
     }
 }

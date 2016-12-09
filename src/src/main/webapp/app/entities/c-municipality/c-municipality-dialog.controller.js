@@ -10,7 +10,8 @@
     function C_municipalityDialogController ($scope, $stateParams, $uibModalInstance, entity, C_municipality, C_state) {
         var vm = this;
         vm.c_municipality = entity;
-        vm.c_states = C_state.query();
+        vm.c_states = C_state.query({countryId:0,
+            filtername:" "});
         vm.load = function(id) {
             C_municipality.get({id : id}, function(result) {
                 vm.c_municipality = result;

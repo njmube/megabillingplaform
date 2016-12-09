@@ -16,7 +16,8 @@
             "detail": {
                 "title": "Key entity"
             },
-            "key": "Key"
+            "key": "Key:",
+            "keyy": "Key"
         }
     }
 }

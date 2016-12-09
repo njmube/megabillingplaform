@@ -17,7 +17,9 @@
                 "title": "Tipo de ámbito"
             },
             "name": "Nombre:",
-            "description": "Descripción:"
+            "namee": "Nombre",
+            "description": "Descripción:",
+            "descriptionn": "Descripción"
         }
     }
 }

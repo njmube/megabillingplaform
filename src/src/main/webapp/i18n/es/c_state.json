@@ -17,9 +17,13 @@
                 "title": "Estado"
             },
             "name": "Nombre:",
+            "namee": "Nombre",
             "abrev": "Abreviatura:",
+            "abrevv": "Abreviatura",
             "c_country": "País:",
+            "c_countryy": "País",
             "c_municipality": "Municipio:",
+            "c_municipalityy": "Municipio",
             "filtername":"Filtro por nombre:"
         }
     }

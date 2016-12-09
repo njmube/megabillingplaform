@@ -16,10 +16,13 @@
             "detail": {
                 "title": "Tipo Tasa"
             },
-            "name": "Nombre",
-            "value": "Valor",
-            "description": "Descripción",
-            "filtername": "Filtro por nombre"
+            "name": "Nombre:",
+            "namee": "Nombre",
+            "value": "Valor:",
+            "valuee": "Valor",
+            "description": "Descripción:",
+            "descriptionn": "Descripción",
+            "filtername": "Filtro por nombre:"
         }
     }
 }
