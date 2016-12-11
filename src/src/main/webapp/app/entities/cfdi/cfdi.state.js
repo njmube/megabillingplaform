@@ -143,7 +143,7 @@
                     $translatePartialLoader.addPart('com_addressee');
                     $translatePartialLoader.addPart('com_commodity');
                     $translatePartialLoader.addPart('com_specific_descriptions');
-                    $translatePartialLoader.addPart('com_desc_state');
+                    $translatePartialLoader.addPart('com_desc_estate');
                     $translatePartialLoader.addPart('com_data_operation');
                     $translatePartialLoader.addPart('com_notary_data');
                     $translatePartialLoader.addPart('com_data_enajenante');

@@ -38,7 +38,7 @@ public class Com_notary_data implements Serializable {
     private Com_public_notaries com_public_notaries;
 
     @ManyToOne
-    private Public_notaries_federal_entity public_notaries_federal_entity;
+    private C_pn_federal_entity c_pn_federal_entity;
 
     public Long getId() {
         return id;
@@ -80,12 +80,12 @@ public class Com_notary_data implements Serializable {
         this.com_public_notaries = com_public_notaries;
     }
 
-    public Public_notaries_federal_entity getPublic_notaries_federal_entity() {
-        return public_notaries_federal_entity;
+    public C_pn_federal_entity getC_pn_federal_entity() {
+        return c_pn_federal_entity;
     }
 
-    public void setPublic_notaries_federal_entity(Public_notaries_federal_entity public_notaries_federal_entity) {
-        this.public_notaries_federal_entity = public_notaries_federal_entity;
+    public void setC_pn_federal_entity(C_pn_federal_entity c_pn_federal_entity) {
+        this.c_pn_federal_entity = c_pn_federal_entity;
     }
 
     @Override

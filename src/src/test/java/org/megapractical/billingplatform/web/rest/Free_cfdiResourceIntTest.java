@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import static org.hamcrest.Matchers.hasItem;
 
-import org.megapractical.billingplatform.web.rest.dto.Free_cfdiDTO;
+import org.megapractical.billingplatform.web.rest.dto.FreeCfdiDTO;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -482,7 +482,7 @@ public class Free_cfdiResourceIntTest {
     @Transactional
     public void updateFree_cfdi() throws Exception {
         // Initialize the database
-        Free_cfdiDTO free_cfdiDTO = new Free_cfdiDTO();
+        FreeCfdiDTO free_cfdiDTO = new FreeCfdiDTO();
         free_cfdiDTO.setFreeCFDI(free_cfdi);
         free_cfdiService.save(free_cfdiDTO);
 
@@ -563,7 +563,7 @@ public class Free_cfdiResourceIntTest {
     @Transactional
     public void deleteFree_cfdi() throws Exception {
         // Initialize the database
-        Free_cfdiDTO free_cfdiDTO = new Free_cfdiDTO();
+        FreeCfdiDTO free_cfdiDTO = new FreeCfdiDTO();
         free_cfdiDTO.setFreeCFDI(free_cfdi);
         free_cfdiService.save(free_cfdiDTO);
 

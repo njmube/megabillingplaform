@@ -21,7 +21,7 @@
                 "c_country": "País",
                 "c_state": "Estado",
                 "rfc": "RFC",				
-				"email": "Correo",
+				"email": "Correo Electrónico",
 				"bussinesname": "Razón Social",
 				"phone": "Teléfono"
             },

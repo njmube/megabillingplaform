@@ -20,7 +20,7 @@
             "notarynumber": "Notarynumber (*)",
             "ascription": "Ascription",
             "com_public_notaries": "Com_public_notaries",
-            "public_notaries_federal_entity": "Notaries Federal Entity (*)"
+            "c_pn_federal_entity": "Notaries Federal Entity (*)"
         }
     }
 }

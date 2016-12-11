@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Com_notary_dataDetailController', Com_notary_dataDetailController);
 
-    Com_notary_dataDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Com_notary_data', 'Com_public_notaries', 'Public_notaries_federal_entity'];
+    Com_notary_dataDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'entity', 'Com_notary_data', 'Com_public_notaries', 'C_pn_federal_entity'];
 
-    function Com_notary_dataDetailController($scope, $rootScope, $stateParams, entity, Com_notary_data, Com_public_notaries, Public_notaries_federal_entity) {
+    function Com_notary_dataDetailController($scope, $rootScope, $stateParams, entity, Com_notary_data, Com_public_notaries, C_pn_federal_entity) {
         var vm = this;
         vm.com_notary_data = entity;
         vm.load = function (id) {

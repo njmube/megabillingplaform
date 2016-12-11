@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "freecom_public_notaries" : {
+            "home": {
+                "title": "Freecom_public_notaries",
+                "createLabel": "Crear nuevo Freecom_public_notaries",
+                "createOrEditLabel": "Crear o editar Freecom_public_notaries",
+                "search": "Search for Freecom_public_notaries"
+            },
+            "created": "Un nuevo Freecom_public_notaries ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_public_notaries ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_public_notaries ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_public_notaries {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_public_notaries"
+            },
+            "version": "Version",
+            "free_cfdi": "Free_cfdi"
+        }
+    }
+}

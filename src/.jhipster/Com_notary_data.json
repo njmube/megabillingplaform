@@ -1,5 +1,4 @@
 {
-    "fluentMethods": true,
     "relationships": [
         {
             "relationshipName": "com_public_notaries",
@@ -10,8 +9,8 @@
             "otherEntityRelationshipName": "com_notary_data"
         },
         {
-            "relationshipName": "public_notaries_federal_entity",
-            "otherEntityName": "public_notaries_federal_entity",
+            "relationshipName": "c_pn_federal_entity",
+            "otherEntityName": "c_pn_federal_entity",
             "relationshipType": "many-to-one",
             "otherEntityField": "id"
         }

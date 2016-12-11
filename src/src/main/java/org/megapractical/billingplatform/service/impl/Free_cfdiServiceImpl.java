@@ -3,7 +3,7 @@ package org.megapractical.billingplatform.service.impl;
 import org.megapractical.billingplatform.domain.*;
 import org.megapractical.billingplatform.service.*;
 import org.megapractical.billingplatform.repository.Free_cfdiRepository;
-import org.megapractical.billingplatform.web.rest.dto.Free_cfdiDTO;
+import org.megapractical.billingplatform.web.rest.dto.FreeCfdiDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -43,7 +43,7 @@ public class Free_cfdiServiceImpl implements Free_cfdiService{
      * @param free_cfdi_dto the entity to save
      * @return the persisted entity
      */
-    public Free_cfdi save(Free_cfdiDTO free_cfdi_dto) {
+    public Free_cfdi save(FreeCfdiDTO free_cfdi_dto) {
         Free_cfdi free_cfdi = free_cfdi_dto.getFreeCFDI();
         log.debug("Request to save Free_cfdi : {}", free_cfdi);
         free_cfdi = saveXMLandPDF(free_cfdi);

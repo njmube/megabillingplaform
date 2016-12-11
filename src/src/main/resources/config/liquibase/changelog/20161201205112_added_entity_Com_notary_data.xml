@@ -36,7 +36,7 @@
             <column name="com_public_notaries_id" type="bigint">
                 <constraints unique="true"/>
             </column>
-            <column name="public_notaries_federal_entity_id" type="bigint"/>
+            <column name="c_pn_federal_entity_id" type="bigint"/>
             <!-- jhipster-needle-liquibase-add-column - Jhipster will add columns here, do not remove-->
         </createTable>
         
@@ -46,11 +46,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="com_public_notaries"/>
 
-        <addForeignKeyConstraint baseColumnNames="public_notaries_federal_entity_id"
+        <addForeignKeyConstraint baseColumnNames="c_pn_federal_entity_id"
                                  baseTableName="com_notary_data"
-                                 constraintName="fk_com_notary_data_public_notaries_federal_entity_id"
+                                 constraintName="fk_com_notary_data_c_pn_federal_entity_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="public_notaries_federal_entity"/>
+                                 referencedTableName="c_pn_federal_entity"/>
 
     </changeSet>
 </databaseChangeLog>

@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('CfdiNewController', CfdiNewController);
 
-    CfdiNewController.$inject = ['$state', '$timeout', 'entity', 'taxpayer_account_entity', 'Cfdi', 'Payment_method', 'Cfdi_types', 'Cfdi_type_doc', 'C_money', 'Taxpayer_account', 'Taxpayer_transactions', 'AlertService', 'Taxpayer_series_folio', '$uibModal', 'Way_payment', 'Tax_types', 'C_tar', 'C_well_type',  'C_acquired_title', 'C_features_work_piece', 'C_school_level', 'C_process_type', 'C_committee_type', 'C_transit_type', 'C_type_road', 'C_municipality', 'C_colony', 'C_zip_code', 'C_federal_entity', 'C_type_operation', 'C_type_series', 'C_type_operation_ce', 'C_key_pediment', 'Com_incoterm', 'C_country', 'C_state', 'Public_notaries_federal_entity'];
+    CfdiNewController.$inject = ['$state', '$timeout', 'entity', 'taxpayer_account_entity', 'Cfdi', 'Payment_method', 'Cfdi_types', 'Cfdi_type_doc', 'C_money', 'Taxpayer_account', 'Taxpayer_transactions', 'AlertService', 'Taxpayer_series_folio', '$uibModal', 'Way_payment', 'Tax_types', 'C_tar', 'C_well_type',  'C_acquired_title', 'C_features_work_piece', 'C_school_level', 'C_process_type', 'C_committee_type', 'C_transit_type', 'C_type_road', 'C_municipality', 'C_colony', 'C_zip_code', 'C_federal_entity', 'C_type_operation', 'C_type_series', 'C_type_operation_ce', 'C_key_pediment', 'Com_incoterm', 'C_country', 'C_state', 'C_pn_federal_entity'];
 
-    function CfdiNewController($state, $timeout, entity, taxpayer_account_entity, Cfdi, Payment_method, Cfdi_types, Cfdi_type_doc, C_money, Taxpayer_account, Taxpayer_transactions, AlertService, Taxpayer_series_folio, $uibModal, Way_payment, Tax_types, C_tar, C_well_type,  C_acquired_title, C_features_work_piece, C_school_level, C_process_type, C_committee_type, C_transit_type, C_type_road, C_municipality, C_colony, C_zip_code, C_federal_entity, C_type_operation, C_type_series, C_type_operation_ce, C_key_pediment, Com_incoterm, C_country, C_state, Public_notaries_federal_entity) {
+    function CfdiNewController($state, $timeout, entity, taxpayer_account_entity, Cfdi, Payment_method, Cfdi_types, Cfdi_type_doc, C_money, Taxpayer_account, Taxpayer_transactions, AlertService, Taxpayer_series_folio, $uibModal, Way_payment, Tax_types, C_tar, C_well_type,  C_acquired_title, C_features_work_piece, C_school_level, C_process_type, C_committee_type, C_transit_type, C_type_road, C_municipality, C_colony, C_zip_code, C_federal_entity, C_type_operation, C_type_series, C_type_operation_ce, C_key_pediment, Com_incoterm, C_country, C_state, C_pn_federal_entity) {
         var vm = this;
 
         vm.cfdi = entity;
@@ -626,7 +626,7 @@
                     case "public_notaries":
                         vm.com_public_notaries.version = "1.0";
                         cfdiDTO.com_public_notaries = vm.com_public_notaries;
-                        cfdiDTO.com_desc_states = vm.com_desc_states;
+                        cfdiDTO.com_desc_estates = vm.com_desc_estates;
                         cfdiDTO.com_data_operation = vm.com_data_operation;
                         cfdiDTO.com_notary_data = vm.com_notary_data;
                         cfdiDTO.com_data_enajenante = vm.com_data_enajenante;
@@ -651,11 +651,7 @@
 
             vm.isSaving = true;
 
-            if (vm.cfdi.id !== null) {
-                Cfdi.update(cfdiDTO, onSaveSuccess, onSaveError);
-            } else {
-                Cfdi.save(cfdiDTO, onSaveSuccess, onSaveError);
-            }
+            Cfdi.save(cfdiDTO, onSaveSuccess, onSaveError);
         }
 
         var onSaveError = function () {
@@ -890,7 +886,7 @@
 
             vm.show_public_notaries = false;
             vm.com_public_notaries = { version: null, id: null };
-            vm.com_desc_states = [];
+            vm.com_desc_estates = [];
             vm.com_data_operation = { notarialinstrument: null, dateinstnotarial: null, amountofoperation: null, subtotal: null, iva: null, id: null };
             vm.com_notary_data = { curp: null, notarynumber: null, ascription: null, id: null };
             vm.com_data_enajenante = { coprosocconyugaie: null, id: null };
@@ -1607,10 +1603,10 @@
         //Public Notaries
         vm.show_public_notaries = false;
         vm.com_public_notaries = null;
-        vm.com_desc_states = [];
+        vm.com_desc_estates = [];
         vm.com_data_operation = null;
         vm.com_notary_data = null;
-        vm.public_notaries_federal_entitys = Public_notaries_federal_entity.query();
+        vm.c_pn_federal_entitys = C_pn_federal_entity.query();
         vm.com_data_enajenante = null;
         vm.com_dataunenajenante = null;
         vm.use_dataenajenantecopsc = false;
@@ -1620,10 +1616,10 @@
         vm.use_dataacquiringcopsc = false;
         vm.com_dataacquiringcopscs = [];
 
-        vm.addComDescState = function(){
+        vm.addComDescEstate = function(){
             $uibModal.open({
-                templateUrl: 'app/entities/com-desc-state/com-desc-state-dialog.html',
-                controller: 'Com_desc_stateDialogController',
+                templateUrl: 'app/entities/com-desc-estate/com-desc-estate-dialog.html',
+                controller: 'Com_desc_estateDialogController',
                 controllerAs: 'vm',
                 backdrop: 'static',
                 size: '',
@@ -1641,12 +1637,12 @@
                     }
                 }
             }).result.then(function(result) {
-                vm.com_desc_states.push(result)
+                vm.com_desc_estates.push(result)
             });
         };
 
-        vm.removeComDescState= function(index){
-            vm.com_desc_states.splice(index,1);
+        vm.removeComDescEstate= function(index){
+            vm.com_desc_estates.splice(index,1);
         };
 
         vm.comDataOperationDatePickerOpenStatus = {};

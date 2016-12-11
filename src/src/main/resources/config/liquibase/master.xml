@@ -186,11 +186,11 @@
     <include file="classpath:config/liquibase/changelog/20160822131147_added_entity_Com_specific_descriptions.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160712204648_added_entity_Com_accounting.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161124122043_added_entity_Client.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20161201194446_added_entity_Com_public_notaries.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20161201200030_added_entity_Type_state.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20161201201731_added_entity_Com_desc_state.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20161201202901_added_entity_Com_data_operation.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20161201203329_added_entity_Public_notaries_federal_entity.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201194446_added_entity_Com_public_notaries.xml" relativeToChangelogFile="false"/>	
+    <include file="classpath:config/liquibase/changelog/20161201200030_added_entity_C_type_estate.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201201731_added_entity_Com_desc_estate.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201202901_added_entity_Com_data_operation.xml" relativeToChangelogFile="false"/>	
+    <include file="classpath:config/liquibase/changelog/20161201203329_added_entity_C_pn_federal_entity.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161201205112_added_entity_Com_notary_data.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161201211057_added_entity_Com_data_enajenante.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161201213916_added_entity_Com_dataunenajenante.xml" relativeToChangelogFile="false"/>
@@ -198,5 +198,6 @@
     <include file="classpath:config/liquibase/changelog/20161201215233_added_entity_Com_acquiring_data.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161201215829_added_entity_Com_dataunacquiring.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161201220445_added_entity_Com_dataacquiringcopsc.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201194446_added_entity_Freecom_public_notaries.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

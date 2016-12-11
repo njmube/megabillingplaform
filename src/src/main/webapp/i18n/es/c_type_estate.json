@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "c_type_estate" : {
+            "home": {
+                "title": "C_type_estates",
+                "createLabel": "Crear nuevo C_type_estate",
+                "createOrEditLabel": "Crear o editar C_type_estate",
+                "search": "Search for C_type_estate"
+            },
+            "created": "Un nuevo C_type_estate ha sido creado con el identificador {{ param }}",
+            "updated": "Un C_type_estate ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un C_type_estate ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar C_type_estate {{ id }}?"
+            },
+            "detail": {
+                "title": "C_type_estate"
+            },
+            "code": "Code",
+            "description": "Description"
+        }
+    }
+}

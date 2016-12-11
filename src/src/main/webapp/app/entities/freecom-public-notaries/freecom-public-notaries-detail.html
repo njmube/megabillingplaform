@@ -1,0 +1,23 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_public_notaries.detail.title">Freecom_public_notaries</span> {{vm.freecom_public_notaries.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.freecom_public_notaries.version">Version</dt></dt>
+        <dd>
+            <span>{{vm.freecom_public_notaries.version}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_public_notaries.free_cfdi">free_cfdi</span></dt>
+        <dd>
+            <a ui-sref="free-cfdi-detail({id:vm.freecom_public_notaries.free_cfdi.id})">{{vm.freecom_public_notaries.free_cfdi.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

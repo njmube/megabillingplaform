@@ -159,6 +159,7 @@
 						certificate: null,
 						way_payment: null,
                         path_cfdi: null,
+                        c_money: {id: 100, name: "MXN", description: "Peso Mexicano"},
 						id: null
 					};
 				}],

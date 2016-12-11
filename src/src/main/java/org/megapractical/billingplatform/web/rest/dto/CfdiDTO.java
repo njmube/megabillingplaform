@@ -103,7 +103,7 @@ public class CfdiDTO {
 
     private Com_public_notaries com_public_notaries;
 
-    private List<Com_desc_state> com_desc_states;
+    private List<Com_desc_estate> com_desc_estates;
 
     private Com_data_operation com_data_operation;
 
@@ -442,12 +442,12 @@ public class CfdiDTO {
         this.com_public_notaries = com_public_notaries;
     }
 
-    public List<Com_desc_state> getCom_desc_states() {
-        return com_desc_states;
+    public List<Com_desc_estate> getCom_desc_estates() {
+        return com_desc_estates;
     }
 
-    public void setCom_desc_states(List<Com_desc_state> com_desc_states) {
-        this.com_desc_states = com_desc_states;
+    public void setCom_desc_estates(List<Com_desc_estate> com_desc_estates) {
+        this.com_desc_estates = com_desc_estates;
     }
 
     public Com_data_operation getCom_data_operation() {

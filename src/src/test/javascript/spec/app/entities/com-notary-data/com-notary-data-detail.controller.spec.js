@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('Com_notary_data Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockCom_notary_data, MockCom_public_notaries, MockPublic_notaries_federal_entity;
+        var MockEntity, MockCom_notary_data, MockCom_public_notaries, MockC_pn_federal_entity;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -13,7 +13,7 @@ describe('Controller Tests', function() {
             MockEntity = jasmine.createSpy('MockEntity');
             MockCom_notary_data = jasmine.createSpy('MockCom_notary_data');
             MockCom_public_notaries = jasmine.createSpy('MockCom_public_notaries');
-            MockPublic_notaries_federal_entity = jasmine.createSpy('MockPublic_notaries_federal_entity');
+            MockC_pn_federal_entity = jasmine.createSpy('MockC_pn_federal_entity');
             
 
             var locals = {
@@ -22,7 +22,7 @@ describe('Controller Tests', function() {
                 'entity': MockEntity ,
                 'Com_notary_data': MockCom_notary_data,
                 'Com_public_notaries': MockCom_public_notaries,
-                'Public_notaries_federal_entity': MockPublic_notaries_federal_entity
+                'C_pn_federal_entity': MockC_pn_federal_entity
             };
             createController = function() {
                 $injector.get('$controller')("Com_notary_dataDetailController", locals);

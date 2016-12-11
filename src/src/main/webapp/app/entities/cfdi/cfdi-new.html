@@ -2591,17 +2591,17 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="com_desc_state in vm.com_desc_states">
-                            <td class="text-left">{{com_desc_state.type_state.code}}</td>
-                            <td class="text-left">{{com_desc_state.street}}</td>
-                            <td class="text-left">{{com_desc_state.noext}}</td>
-                            <td class="text-left">{{com_desc_state.c_colony.code}}</td>
-                            <td class="text-left">{{com_desc_state.locale}}</td>
-                            <td class="text-left">{{com_desc_state.c_municipality.name}}</td>
-                            <td class="text-left">{{com_desc_state.c_state.name}}</td>
-                            <td class="text-left">{{com_desc_state.c_country.name}}</td>
+                        <tr ng-repeat="com_desc_estate in vm.com_desc_estates">
+                            <td class="text-left">{{com_desc_estate.c_type_estate.code}}</td>
+                            <td class="text-left">{{com_desc_estate.street}}</td>
+                            <td class="text-left">{{com_desc_estate.noext}}</td>
+                            <td class="text-left">{{com_desc_estate.c_colony.code}}</td>
+                            <td class="text-left">{{com_desc_estate.locale}}</td>
+                            <td class="text-left">{{com_desc_estate.c_municipality.name}}</td>
+                            <td class="text-left">{{com_desc_estate.c_state.name}}</td>
+                            <td class="text-left">{{com_desc_estate.c_country.name}}</td>
                             <td class="text-center">
-                                <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeComDescState($index)">
+                                <button type="button" class="btn btn-sm btn-primary" ng-click="vm.removeComDescEstate($index)">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </td>
@@ -2609,7 +2609,7 @@
                         </tbody>
                     </table>
 
-                    <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addComDescState()">
+                    <button type="button" class="btn btn-sm btn-primary" ng-click="vm.addComDescEstate()">
                         Adicionar Inmueble
                     </button>
                 </uib-tab>
@@ -2717,10 +2717,10 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_notary_data.public_notaries_federal_entity" for="field_com_notary_data_public_notaries_federal_entity">public_notaries_federal_entity</label>
+                                <label class="col-sm-4 control-label no-padding-right" translate="megabillingplatformApp.com_notary_data.c_pn_federal_entity" for="field_com_notary_data_c_pn_federal_entity">c_pn_federal_entity</label>
                                 <div class="col-sm-8">
-                                    <select class="form-control" id="field_com_notary_data_public_notaries_federal_entity" name="com_notary_data_public_notaries_federal_entity" ng-model="vm.com_notary_data.public_notaries_federal_entity"
-                                            ng-options="public_notaries_federal_entity as public_notaries_federal_entity.code for public_notaries_federal_entity in vm.public_notaries_federal_entitys track by public_notaries_federal_entity.id" ng-required="vm.show_public_notaries">
+                                    <select class="form-control" id="field_com_notary_data_c_pn_federal_entity" name="com_notary_data_c_pn_federal_entity" ng-model="vm.com_notary_data.c_pn_federal_entity"
+                                            ng-options="c_pn_federal_entity as c_pn_federal_entity.code for c_pn_federal_entity in vm.c_pn_federal_entitys track by c_pn_federal_entity.id" ng-required="vm.show_public_notaries">
                                         <option value=""></option>
                                     </select>
                                 </div>

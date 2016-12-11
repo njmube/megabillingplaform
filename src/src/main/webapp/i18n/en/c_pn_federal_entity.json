@@ -1,0 +1,23 @@
+{
+    "megabillingplatformApp": {
+        "c_pn_federal_entity" : {
+            "home": {
+                "title": "C_pn_federal_entities",
+                "createLabel": "Create a new C_pn_federal_entity",
+                "createOrEditLabel": "Create or edit a C_pn_federal_entity",
+                "search": "Search for C_pn_federal_entity"
+            },
+            "created": "A new C_pn_federal_entity is created with identifier {{ param }}",
+            "updated": "A C_pn_federal_entity is updated with identifier {{ param }}",
+            "deleted": "A C_pn_federal_entity is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete C_pn_federal_entity {{ id }}?"
+            },
+            "detail": {
+                "title": "C_pn_federal_entity"
+            },
+            "code": "Code",
+            "description": "Description"
+        }
+    }
+}

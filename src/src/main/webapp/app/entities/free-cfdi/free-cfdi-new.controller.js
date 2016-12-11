@@ -5,18 +5,16 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['entity', 'Principal', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal','Free_concept', 'Free_customs_info', 'Free_part_concept', 'Free_tax_transfered', 'Free_tax_retentions', 'Tax_types', 'Rate_type','$timeout', '$state', '$q','Freecom_taxregistration', 'Freecom_pfic', 'C_tar', 'Freecom_accreditation_ieps', 'Freecom_taxlegends', 'Freecom_legend', 'Freecom_airline', 'Freecom_charge', 'C_well_type', 'C_acquired_title', 'C_features_work_piece','Freecom_apaw', 'Freecom_donees', 'C_school_level', 'Freecom_educational_institutions', 'C_committee_type', 'C_process_type', 'Freecom_ine', 'Freecom_ine_entity', 'Accounting', 'Freecom_kind_payment','C_transit_type','C_type_road','Freecom_foreign_tourist_passenger','C_federal_entity','Freecom_partial_construction_services','C_type_operation','Freecom_foreign_exchange','Freecom_local_taxes','Freecom_local_retentions', 'Freecom_local_transfered', 'Freecom_used_vehicle','Freecom_vehicle_customs_information', 'C_type_series','Freecom_destruction_certificate','Freecom_info_customs_destruction','Freecom_fuel_consumption','Freecom_concept_fuel', 'Freecom_determined', 'Freecom_storeroom_paybill', 'Freecom_paybill_concept', 'Freecom_ecc11', 'Freecom_ecc11_concept', 'Freecom_ecc11_transfer', 'Freecom_spei', 'Freecom_payer', 'Freecom_beneficiary', 'Freecom_spei_third','C_type_operation_ce','C_key_pediment','Freecom_incoterm','Freecom_addressee','Freecom_foreign_trade','Freecom_commodity','Freecom_specific_descriptions'];
+    Free_cfdiNewController.$inject = ['entity', 'Principal', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal', 'Tax_types', 'Rate_type','$timeout', '$state', '$q', 'C_tar', 'C_well_type', 'C_acquired_title', 'C_features_work_piece', 'C_school_level', 'C_committee_type', 'C_process_type', 'C_transit_type', 'C_type_road', 'C_federal_entity', 'C_type_operation', 'C_type_series', 'C_type_operation_ce','C_key_pediment','Freecom_incoterm'];
 
-    function Free_cfdiNewController (entity, Principal, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Free_concept, Free_customs_info, Free_part_concept, Free_tax_transfered, Free_tax_retentions, Tax_types, Rate_type, $timeout, $state, $q, Freecom_taxregistration, Freecom_pfic, C_tar, Freecom_accreditation_ieps, Freecom_taxlegends, Freecom_legend, Freecom_airline, Freecom_charge, C_well_type, C_acquired_title, C_features_work_piece, Freecom_apaw, Freecom_donees, C_school_level, Freecom_educational_institutions, C_committee_type, C_process_type, Freecom_ine, Freecom_ine_entity, Accounting, Freecom_kind_payment, C_transit_type, C_type_road, Freecom_foreign_tourist_passenger, C_federal_entity, Freecom_partial_construction_services, C_type_operation, Freecom_foreign_exchange, Freecom_local_taxes, Freecom_local_retentions, Freecom_local_transfered, Freecom_used_vehicle, Freecom_vehicle_customs_information, C_type_series, Freecom_destruction_certificate, Freecom_info_customs_destruction, Freecom_fuel_consumption, Freecom_concept_fuel, Freecom_determined, Freecom_storeroom_paybill, Freecom_paybill_concept, Freecom_ecc11, Freecom_ecc11_concept, Freecom_ecc11_transfer, Freecom_spei, Freecom_payer, Freecom_beneficiary, Freecom_spei_third, C_type_operation_ce, C_key_pediment, Freecom_incoterm, Freecom_addressee, Freecom_foreign_trade, Freecom_commodity, Freecom_specific_descriptions) {
+    function Free_cfdiNewController (entity, Principal, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Tax_types, Rate_type, $timeout, $state, $q, C_tar, C_well_type, C_acquired_title, C_features_work_piece, C_school_level, C_committee_type, C_process_type, C_transit_type, C_type_road, C_federal_entity, C_type_operation, C_type_series, C_type_operation_ce, C_key_pediment, Freecom_incoterm) {
 
 		var vm = this;
 
         vm.free_cfdi = entity;
         vm.free_emitter = free_emitter_entity;
-        vm.messegeUser = messegeUser;
         vm.free_cfdi.free_emitter = vm.free_emitter;
-		vm.free_cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
-		vm.free_cfdi.c_money = {id: 100, name: "MXN", description: "Peso Mexicano"};
+        vm.messegeUser = messegeUser;
 		vm.free_concepts = [];
 		vm.free_concept_ids = [];
 		vm.current_free_concept = null;
@@ -88,6 +86,34 @@
                 vm.free_cfdi = result;
             });
         };
+
+        function messegeUser(){
+            Principal.identity().then(function(account) {
+                if(account != null){
+                    vm.isUser = account.authorities.indexOf('ROLE_USER') != -1;
+                    vm.isNoAdmin = account.authorities.indexOf('ROLE_ADMIN') == -1;
+
+                    if(vm.isUser && vm.isNoAdmin){
+                        $uibModal.open({
+                            templateUrl: 'app/home/messegeUser.html',
+                            controller: 'MessegeUserController',
+                            controllerAs: 'vm',
+                            backdrop: true,
+                            size: '',
+                            resolve: {
+                                entity: function () {
+                                    return 0;
+                                }
+                            }
+                        }).result.then(function () {
+
+                        }, function () {
+                        });
+                    }
+                }
+
+            });
+        }
 
 		vm.onChangeReceiverRFC = onChangeReceiverRFC;
 		vm.onClickTaxpayerGP = onClickTaxpayerGP;
@@ -199,7 +225,6 @@
                 vm.free_concepts.push(result);
                 vm.free_concept_ids.push(result.free_concept.no_identification);
                 vm.updateCFDITotals();
-            }, function() {
             });
         };
 
@@ -368,561 +393,12 @@
             vm.free_cfdi.total_tax_retention = total_tax_retention;
         };
 
-        var onSaveError = function () {
-            vm.isSaving = false;
-        };
+		vm.save = function () {
 
-		var onSaveConceptSuccess = function (result) {
-			var free_concept = result;
+			var bln = new BigLargeNumberOperations();
 
-            var bln = new BigLargeNumberOperations();
-
-			//saving IVA in free_tax_transferred...
-            if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id != 6) {
-                var free_tax_transfered_iva = vm.free_concepts[vm.current_free_concept].free_concept_iva;
-                if (free_tax_transfered_iva.amount > 0) {
-                    free_tax_transfered_iva.free_concept = free_concept;
-                    Free_tax_transfered.save(free_tax_transfered_iva);
-                }
-            }
-
-			//saving IEPS in free_tax_transferred...
-            if(vm.free_cfdi.cfdi_type_doc != undefined && (vm.free_cfdi.cfdi_type_doc.id == 1 || vm.free_cfdi.cfdi_type_doc.id == 8)) {
-                var free_tax_transfered_ieps = vm.free_concepts[vm.current_free_concept].free_concept_ieps;
-                if (free_tax_transfered_ieps.amount > 0) {
-                    free_tax_transfered_ieps.free_concept = free_concept;
-                    Free_tax_transfered.save(free_tax_transfered_ieps);
-                }
-            }
-
-            //saving IVA in free_tax_retentions
-			var amount_iva_retentions = 0;
-			//calculating free cfdi ret iva...
-            if(vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12 && vm.free_cfdi.cfdi_type_doc != undefined) {
-                if (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5 || vm.free_cfdi.cfdi_type_doc.id == 3) {
-                    //amount_iva_retentions = 2/3 * free_concept.quantity * free_concept.unit_value;
-                    amount_iva_retentions = bln.multiply(bln.multiply(2 / 3, free_concept.quantity, 6), free_concept.unit_value, vm.accuracy);
-                }
-            }
-            else if(vm.free_cfdi.cfdi_type_doc != undefined && vm.free_cfdi.cfdi_type_doc.id == 4){
-                //amount_iva_retentions = 0.04 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
-                amount_iva_retentions = bln.multiply(bln.multiply(bln.multiply(0.04, free_concept.quantity, 6), free_concept.unit_value, 6), (1 - free_concept.discount/100), vm.accuracy);
-            }
-
-			if(amount_iva_retentions > 0){
-				var free_tax_retentions_iva = {
-					amount: amount_iva_retentions,
-					free_concept: free_concept,
-					tax_types: vm.tax_typess[0],
-					id: null
-				};
-                Free_tax_retentions.save(free_tax_retentions_iva);
-			}
-
-			//saving ISR in free_tax_retentions
-			var amount_isr_retentions = 0;
-			//calculating free cfdi ret isr...
-            if(vm.free_cfdi.free_emitter.rfc != undefined && vm.free_cfdi.free_emitter.rfc.length == 13 && vm.free_receiver.rfc != undefined && vm.free_receiver.rfc.length == 12 && vm.free_cfdi.cfdi_type_doc != undefined) {
-                if (vm.free_cfdi.cfdi_type_doc.id == 2 || vm.free_cfdi.cfdi_type_doc.id == 5) {
-                    //amount_isr_retentions = 1/10 * free_concept.quantity * free_concept.unit_value * (1 - free_concept.discount/100);
-                    amount_isr_retentions = bln.multiply(bln.multiply(bln.multiply(1/10, free_concept.quantity, 6), free_concept.unit_value, 6), (1 - free_concept.discount/100), vm.accuracy);
-                }
-            }
-
-			if(amount_isr_retentions > 0){
-				var free_tax_retentions_isr = {
-					amount: amount_isr_retentions,
-					free_concept: free_concept,
-					tax_types: vm.tax_typess[1],
-					id: null
-				};
-                Free_tax_retentions.save(free_tax_retentions_isr);
-			}
-
-			//saving free_customs_infos
-			var free_customs_infos = vm.free_concepts[vm.current_free_concept].free_customs_infos;
-			var i;
-			for(i=0; i < free_customs_infos.length; i++){
-				var free_customs_info = free_customs_infos[i];
-				free_customs_info.free_concept = free_concept;
-                Free_customs_info.save(free_customs_info);
-			}
-
-			//saving free_part_concept
-			var free_part_concepts = vm.free_concepts[vm.current_free_concept].free_part_concepts;
-			var j;
-			for(j=0; j < free_part_concepts.length; j++){
-				var free_part_concept = free_part_concepts[j];
-				free_part_concept.free_concept = free_concept;
-				free_part_concept.amount = bln.multiply(free_part_concept.quantity, free_part_concept.unit_value, vm.accuracy);
-				Free_part_concept.save(free_part_concept);
-			}
-			var next_index = vm.current_free_concept + 1;
-			if(next_index < vm.free_concepts.length){
-				vm.current_free_concept++;
-				saveConcept();
-			}
-			else{
-				resetView();
-
-				vm.free_saved_success = true;
-				$timeout(function() {
-					vm.free_saved_success = false;
-				}, 2000);
-			}
-		};
-
-		function saveConcept(){
-
-            var bln = new BigLargeNumberOperations();
-
-			var free_concept = vm.free_concepts[vm.current_free_concept].free_concept;
-			free_concept.free_cfdi = vm.free_cfdi;
-			var amount = bln.multiply(free_concept.quantity, free_concept.unit_value, vm.accuracy);
-            if(free_concept.discount == 0){
-                free_concept.discount = null;
-            }
-			free_concept.amount = amount;
-			if (free_concept.id !== null) {
-				Free_concept.update(free_concept, onSaveConceptSuccess, onSaveError);
-			} else {
-				Free_concept.save(free_concept, onSaveConceptSuccess, onSaveError);
-			}
-		}
-
-        var onTaxLegendsSaveSucccess = function (result) {
-            var freecom_taxlegends = result;
-
-            var i;
-            for(i=0; i < vm.legends.length; i++){
-                var legend = vm.legends[i];
-                legend.freecom_taxlegends = freecom_taxlegends;
-                Freecom_legend.save(legend);
-            }
-
-            saveConcept();
-        };
-
-        var onAirLineSaveSucccess = function (result) {
-            var freecom_airline_saved = result;
-
-            var i;
-            for(i=0; i < vm.charges.length; i++){
-                var charge = vm.charges[i];
-                charge.freecom_airline = freecom_airline_saved;
-                Freecom_charge.save(charge);
-            }
-
-            saveConcept();
-        };
-
-
-        vm.freecom_ine_entity_index = 0;
-        vm.freecom_ine_saved = null;
-
-        var onIneSaveSucsess = function(result){
-            vm.freecom_ine_saved = result;
-            vm.freecom_ine_entity_index = -1;
-            saveIneEntity();
-        };
-
-        function saveIneEntity(){
-            vm.freecom_ine_entity_index++;
-            if(vm.freecom_ine_entity_index < vm.freecom_ine_entities.length){
-                var freecom_ine_entity = vm.freecom_ine_entities[vm.freecom_ine_entity_index].freecom_ine_entity;
-                freecom_ine_entity.freecom_ine = vm.freecom_ine_saved;
-                Freecom_ine_entity.save(freecom_ine_entity, onIneEntitySaveSuccess, onSaveError);
-            }
-            else{
-                vm.current_free_concept = 0;
-                saveConcept();
-            }
-        }
-
-        var onIneEntitySaveSuccess = function(result){
-            var freecom_ine_entity_saved = result;
-
-            var accounting;
-            var accountings = vm.freecom_ine_entities[vm.freecom_ine_entity_index].accountings;
-
-            var i;
-            for(i=0; i < accountings.length; i++){
-                accounting = accountings[i];
-                accounting.freecom_ine_entity = freecom_ine_entity_saved;
-                Accounting.save(accounting);
-            }
-
-            saveIneEntity();
-        };
-
-        var onLocalTaxesSaveSucccess = function(result){
-            var freecom_local_taxes_saved = result;
-
-            var i;
-            for(i = 0; i < vm.freecom_ret_transfs.length; i++){
-                if(vm.freecom_ret_transfs[i].retentions != null) {
-                    var retention = vm.freecom_ret_transfs[i].retentions;
-                    retention.freecom_local_taxes = freecom_local_taxes_saved;
-                    Freecom_local_retentions.save(retention);
-                }
-
-                if(vm.freecom_ret_transfs[i].transfered != null) {
-                    var transfered = vm.freecom_ret_transfs[i].transfered;
-                    transfered.freecom_local_taxes = freecom_local_taxes_saved;
-                    Freecom_local_transfered.save(transfered);
-                }
-            }
-
-            saveConcept();
-        };
-
-        var onUsedVehicleSaveSucccess = function(result) {
-            var freecom_used_vehicle_saved = result;
-
-            var i;
-            for (i = 0; i < vm.vehicle_customs_informations.length; i++) {
-                var freecom_vehicle_customs_information = vm.vehicle_customs_informations[i];
-                freecom_vehicle_customs_information.freecom_used_vehicle = freecom_used_vehicle_saved;
-                Freecom_vehicle_customs_information.save(freecom_vehicle_customs_information);
-            }
-
-            saveConcept();
-        };
-
-        var onDestructionCertificateSaveSucccess = function(result){
-            if(vm.use_info_customs_destruction) {
-                var freecom_destruction_certificate_saved = result;
-                vm.freecom_info_customs_destruction.freecom_destruction_certificate = freecom_destruction_certificate_saved;
-                Freecom_info_customs_destruction.save(vm.freecom_info_customs_destruction);
-            }
-
-            saveConcept();
-        };
-
-        vm.freecom_fuel_consumption_saved = null;
-        vm.freecom_concept_fuel_index = null;
-
-        var onFuelConsumptionSaveSucccess = function(result){
-            vm.freecom_fuel_consumption_saved = result;
-            vm.freecom_concept_fuel_index = -1;
-            saveFuelConcept();
-        };
-
-        function saveFuelConcept(){
-            vm.freecom_concept_fuel_index++;
-            if(vm.freecom_concept_fuel_index < vm.freecom_concept_fuels.length){
-                var freecom_concept_fuel = vm.freecom_concept_fuels[vm.freecom_concept_fuel_index].concept_fuel;
-                freecom_concept_fuel.freecom_fuel_consumption = vm.freecom_fuel_consumption_saved;
-                Freecom_concept_fuel.save(freecom_concept_fuel, onConceptFuelSaveSuccess, onSaveError);
-            }
-            else{
-                saveConcept();
-            }
-        }
-
-        var onConceptFuelSaveSuccess = function(result){
-            var freecom_concept_fuel_saved = result;
-            var determinates = vm.freecom_concept_fuels[vm.freecom_concept_fuel_index].determinates;
-            var i;
-            for(i=0; i < determinates.length; i++){
-                var determinate = determinates[i];
-                determinate.freecom_concept_fuel = freecom_concept_fuel_saved;
-                Freecom_determined.save(determinate);
-            }
-
-            saveFuelConcept();
-        };
-
-        var onStoreroomPaybillSaveSucccess = function(result){
-            var freecom_storeroom_paybill_saved = result;
-            var i;
-            for(i=0; i < vm.freecom_paybill_concepts.length; i++){
-                var freecom_paybill_concept = vm.freecom_paybill_concepts[i];
-                freecom_paybill_concept.freecom_storeroom_paybill = freecom_storeroom_paybill_saved;
-                Freecom_paybill_concept.save(freecom_paybill_concept);
-            }
-
-            saveConcept();
-        };
-
-        function messegeUser(){
-            Principal.identity().then(function(account) {
-                if(account != null){
-                    vm.isUser = account.authorities.indexOf('ROLE_USER') != -1;
-                    vm.isNoAdmin = account.authorities.indexOf('ROLE_ADMIN') == -1;
-
-                    if(vm.isUser && vm.isNoAdmin){
-                        $uibModal.open({
-                            templateUrl: 'app/home/messegeUser.html',
-                            controller: 'MessegeUserController',
-                            controllerAs: 'vm',
-                            backdrop: true,
-                            size: '',
-                            resolve: {
-                                entity: function () {
-                                    return 0;
-                                }
-                            }
-                        }).result.then(function () {
-
-                            }, function () {
-                        });
-                    }
-                }
-
-            });
-        }
-
-        vm.freecom_ecc11_saved = null;
-        vm.freecom_ecc11_concept_index = null;
-
-        var onEcc11SaveSucccess = function(result){
-            vm.freecom_ecc11_saved = result;
-            vm.freecom_ecc11_concept_index = -1;
-            saveEcc11Concept();
-        };
-
-        function saveEcc11Concept(){
-            vm.freecom_ecc11_concept_index++;
-            if(vm.freecom_ecc11_concept_index < vm.freecom_ecc11_concepts.length){
-                var freecom_ecc11_concept = vm.freecom_ecc11_concepts[vm.freecom_ecc11_concept_index].concept;
-                freecom_ecc11_concept.freecom_ecc_11 = vm.freecom_ecc11_saved;
-                Freecom_ecc11_concept.save(freecom_ecc11_concept, onEcc11ConceptSaveSuccess, onSaveError);
-            }
-            else{
-                saveConcept();
-            }
-        }
-
-        var onEcc11ConceptSaveSuccess = function(result){
-            var freecom_ecc11_concept_saved = result;
-            var transfers = vm.freecom_ecc11_concepts[vm.freecom_ecc11_concept_index].transfers;
-            var i;
-            for(i=0; i < transfers.length; i++){
-                var freecom_ecc11_transfer = transfers[i];
-                freecom_ecc11_transfer.freecom_ecc_11_concept = freecom_ecc11_concept_saved;
-                Freecom_ecc11_transfer.save(freecom_ecc11_transfer);
-            }
-
-            saveEcc11Concept();
-        };
-
-        vm.freecom_spei_saved = null;
-        vm.freecom_payer_saved = null;
-        vm.freecom_beneficiary_saved = null;
-        vm.freecom_spei_third_index = null;
-        var onSpeiSaveSucccess = function(result){
-            vm.freecom_spei_saved = result;
-            vm.freecom_spei_third_index = 0;
-            savePayer();
-        };
-
-        function savePayer(){
-            var payer = vm.freecom_spei_thirds[vm.freecom_spei_third_index].payer;
-            Freecom_payer.save(payer, onFreecomPayerSaveSuccess, onSaveError);
-        }
-
-        var onFreecomPayerSaveSuccess = function(result){
-            vm.freecom_payer_saved = result;
-            var beneficiary = vm.freecom_spei_thirds[vm.freecom_spei_third_index].beneficiary;
-            Freecom_beneficiary.save(beneficiary, onFreecomBeneficiarySaveSuccess, onSaveError);
-        };
-
-        var onFreecomBeneficiarySaveSuccess = function(result){
-            vm.freecom_beneficiary_saved = result;
-            var spei_third = vm.freecom_spei_thirds[vm.freecom_spei_third_index].spei_third;
-            spei_third.freecom_spei = vm.freecom_spei_saved;
-            spei_third.freecom_payer = vm.freecom_payer_saved;
-            spei_third.freecom_beneficiary = vm.freecom_beneficiary_saved;
-            Freecom_spei_third.save(spei_third, onFreecomSpeiThirdSaveSuccess, onSaveError);
-        };
-
-        var onFreecomSpeiThirdSaveSuccess = function(result){
-            vm.freecom_spei_third_index++;
-            if(vm.freecom_spei_third_index < vm.freecom_spei_thirds.length){
-                savePayer();
-            }
-            else{
-                saveConcept();
-            }
-        };
-
-        var onAddresseSaveSucccess = function(result){
-            var freecom_addressee_saved = result;
-            vm.freecom_foreign_trade.freecom_addressee = freecom_addressee_saved;
-            Freecom_foreign_trade.save(vm.freecom_foreign_trade, onForeignTradeSaveSuccess, onSaveError);
-        };
-
-        vm.freecom_foreign_trade_saved = null;
-        vm.commodities_index = -1;
-
-        var onForeignTradeSaveSuccess = function(result){
-            vm.freecom_foreign_trade_saved = result;
-            saveCommodity();
-        };
-
-        function saveCommodity(){
-            vm.commodities_index++;
-            if(vm.commodities_index < vm.f_add_commodities.length){
-                var commodity = vm.f_add_commodities[vm.commodities_index].freecom_commodity;
-                commodity.freecom_foreign_trade = vm.freecom_foreign_trade_saved;
-                Freecom_commodity.save(commodity, onCommoditySaveSuccess, onSaveError);
-            }
-            else {
-                saveConcept();
-            }
-        }
-
-        var onCommoditySaveSuccess = function(result){
-            var commodity_saved = result;
-            var specific_descriptions = vm.f_add_commodities[vm.commodities_index].specific_descriptions;
-
-            var i;
-            for(i=0; i < specific_descriptions.length; i++) {
-                var freecom_specific_descriptions = specific_descriptions[i];
-                freecom_specific_descriptions.freecom_commodity = commodity_saved;
-                Freecom_specific_descriptions.save(freecom_specific_descriptions);
-            }
-
-            saveCommodity();
-        };
-
-		var onSaveSuccess = function (result) {
-			vm.free_cfdi = result;
-            vm.current_free_concept = 0;
-
-            //Save complements
-            if(vm.current_complement != null && vm.current_complement.id != null){
-                switch (vm.current_complement.id){
-                    case "taxregistration":
-                        vm.freecom_taxregistration.version = "1.0";
-                        vm.freecom_taxregistration.free_cfdi = vm.free_cfdi;
-                        Freecom_taxregistration.save(vm.freecom_taxregistration);
-                        saveConcept();
-                        break;
-                    case "pfic":
-                        vm.freecom_pfic.version = "1.0";
-                        vm.freecom_pfic.free_cfdi = vm.free_cfdi;
-                        Freecom_pfic.save(vm.freecom_pfic);
-                        saveConcept();
-                        break;
-                    case "accreditation_ieps":
-                        vm.freecom_accreditation_ieps.version = "1.0";
-                        vm.freecom_accreditation_ieps.free_cfdi = vm.free_cfdi;
-                        Freecom_accreditation_ieps.save(vm.freecom_accreditation_ieps);
-                        saveConcept();
-                        break;
-                    case "taxlegends":
-                        vm.freecom_taxlegends.version = "1.0";
-                        vm.freecom_taxlegends.free_cfdi = vm.free_cfdi;
-                        Freecom_taxlegends.save(vm.freecom_taxlegends, onTaxLegendsSaveSucccess, onSaveError);
-                        break;
-                    case "airline":
-                        vm.freecom_airline.version = "1.0";
-                        vm.freecom_airline.free_cfdi = vm.free_cfdi;
-                        Freecom_airline.save(vm.freecom_airline, onAirLineSaveSucccess, onSaveError);
-                        break;
-                    case "apaw":
-                        vm.freecom_apaw.version = "1.0";
-                        vm.freecom_apaw.free_cfdi = vm.free_cfdi;
-                        Freecom_apaw.save(vm.freecom_apaw);
-                        saveConcept();
-                        break;
-                    case "donees":
-                        vm.freecom_donees.version = "1.0";
-                        vm.freecom_donees.free_cfdi = vm.free_cfdi;
-                        Freecom_donees.save(vm.freecom_donees);
-                        saveConcept();
-                        break;
-                    case "educational_institutions":
-                        vm.freecom_educational_institutions.version = "1.0";
-                        vm.freecom_educational_institutions.free_cfdi = vm.free_cfdi;
-                        Freecom_educational_institutions.save(vm.freecom_educational_institutions);
-                        saveConcept();
-                        break;
-                    case "ine":
-                        vm.freecom_ine.version = "1.0";
-                        vm.freecom_ine.free_cfdi = vm.free_cfdi;
-                        Freecom_ine.save(vm.freecom_ine, onIneSaveSucsess, onSaveError);
-                        break;
-                    case "kind_payment":
-                        vm.freecom_kind_payment.version = "1.0";
-                        vm.freecom_kind_payment.free_cfdi = vm.free_cfdi;
-                        Freecom_kind_payment.save(vm.freecom_kind_payment);
-                        saveConcept();
-                        break;
-                    case "foreign_tourist_passenger":
-                        vm.freecom_foreign_tourist_passenger.version = "1.0";
-                        vm.freecom_foreign_tourist_passenger.free_cfdi = vm.free_cfdi;
-                        Freecom_foreign_tourist_passenger.save(vm.freecom_foreign_tourist_passenger);
-                        saveConcept();
-                        break;
-                    case "partial_construction_services":
-                        vm.freecom_partial_construction_services.version = "1.0";
-                        vm.freecom_partial_construction_services.free_cfdi = vm.free_cfdi;
-                        Freecom_partial_construction_services.save(vm.freecom_partial_construction_services);
-                        saveConcept();
-                        break;
-                    case "foreign_exchange":
-                        vm.freecom_foreign_exchange.version = "1.0";
-                        vm.freecom_foreign_exchange.free_cfdi = vm.free_cfdi;
-                        Freecom_foreign_exchange.save(vm.freecom_foreign_exchange);
-                        saveConcept();
-                        break;
-                    case "local_taxes":
-                        vm.freecom_local_taxes.version = "1.0";
-                        vm.freecom_local_taxes.free_cfdi = vm.free_cfdi;
-                        Freecom_local_taxes.save(vm.freecom_local_taxes, onLocalTaxesSaveSucccess, onSaveError);
-                        break;
-                    case "used_vehicle":
-                        vm.freecom_used_vehicle.version = "1.0";
-                        vm.freecom_used_vehicle.free_cfdi = vm.free_cfdi;
-                        Freecom_used_vehicle.save(vm.freecom_used_vehicle, onUsedVehicleSaveSucccess, onSaveError);
-                        break;
-                    case "destruction_certificate":
-                        vm.freecom_destruction_certificate.version = "1.0";
-                        vm.freecom_destruction_certificate.free_cfdi = vm.free_cfdi;
-                        Freecom_destruction_certificate.save(vm.freecom_destruction_certificate, onDestructionCertificateSaveSucccess, onSaveError);
-                        break;
-                    case "fuel_consumption":
-                        vm.freecom_fuel_consumption.version = "1.0";
-                        vm.freecom_fuel_consumption.free_cfdi = vm.free_cfdi;
-                        Freecom_fuel_consumption.save(vm.freecom_fuel_consumption, onFuelConsumptionSaveSucccess, onSaveError);
-                        break;
-                    case "storeroom_paybill":
-                        vm.freecom_storeroom_paybill.version = "1.0";
-                        vm.freecom_storeroom_paybill.free_cfdi = vm.free_cfdi;
-                        Freecom_storeroom_paybill.save(vm.freecom_storeroom_paybill, onStoreroomPaybillSaveSucccess, onSaveError);
-                        break;
-                    case "ecc11":
-                        vm.freecom_ecc11.version = "1.0";
-                        vm.freecom_ecc11.free_cfdi = vm.free_cfdi;
-                        Freecom_ecc11.save(vm.freecom_ecc11, onEcc11SaveSucccess, onSaveError);
-                        break;
-                    case "spei":
-                        vm.freecom_spei.free_cfdi = vm.free_cfdi;
-                        Freecom_spei.save(vm.freecom_spei, onSpeiSaveSucccess, onSaveError);
-                        break;
-                    case "foreign_trade":
-                        vm.freecom_foreign_trade.version = "1.0";
-                        vm.freecom_foreign_trade.free_cfdi = vm.free_cfdi;
-                        Freecom_addressee.save(vm.freecom_addressee, onAddresseSaveSucccess, onSaveError);
-                        break;
-                }
-            }
-            else {
-                saveConcept();
-            }
-		};
-
-		var onSaveFreeReceiverSuccess = function (result) {
-
-            var bln = new BigLargeNumberOperations();
-
-			vm.free_receiver = result;
-            vm.free_cfdi.free_receiver = vm.free_receiver;
+            vm.free_cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
             vm.free_cfdi.tax_regime = vm.free_emitter.tax_regime;
-            //vm.free_cfdi.freecom_tfd = { version: "1.0", uuid: null, stamp_date: null, stamp_cfd: null, sat_number_certificate: null, stamp_sat: null, id: null};
 
             if(vm.free_cfdi.mont_folio_fiscal_orig != null && vm.free_cfdi.mont_folio_fiscal_orig > 0){
                 vm.free_cfdi.mont_folio_fiscal_orig = bln.add(vm.free_cfdi.mont_folio_fiscal_orig, 0, vm.accuracy);
@@ -976,7 +452,10 @@
                         tax_types: vm.tax_typess[0],
                         id: null
                     };
+
                     free_tax_retentions.push(free_tax_retentions_iva);
+
+                    vm.free_concepts[i].free_tax_retentions_iva = free_tax_retentions_iva;
                 }
 
                 //getting ISR for free_tax_retentions
@@ -993,12 +472,17 @@
                         tax_types: vm.tax_typess[1],
                         id: null
                     };
+
                     free_tax_retentions.push(free_tax_retentions_isr);
+
+                    vm.free_concepts[i].free_tax_retentions_isr = free_tax_retentions_isr;
                 }
             }
 
-            var free_cfdi_dto = {
+            var freeCfdiDTO = {
+                freeReceiver: vm.free_receiver,
                 freeCFDI: vm.free_cfdi,
+                conceptDTOs: vm.free_concepts,
                 concepts: free_concepts,
                 freeTaxTransfereds: free_tax_transfereds,
                 freeTaxRetentions: free_tax_retentions
@@ -1008,96 +492,121 @@
 
                 switch (vm.current_complement.id) {
                     case "taxregistration":
-                        free_cfdi_dto.freecom_taxregistration = vm.freecom_taxregistration;
+                        vm.freecom_taxregistration.version = "1.0";
+                        freeCfdiDTO.freecom_taxregistration = vm.freecom_taxregistration;
                         break;
                     case "pfic":
-                        free_cfdi_dto.freecom_pfic = vm.freecom_pfic;
+                        vm.freecom_pfic.version = "1.0";
+                        freeCfdiDTO.freecom_pfic = vm.freecom_pfic;
                         break;
                     case "accreditation_ieps":
-                        free_cfdi_dto.freecom_accreditation_ieps = vm.freecom_accreditation_ieps;
+                        vm.freecom_accreditation_ieps.version = "1.0";
+                        freeCfdiDTO.freecom_accreditation_ieps = vm.freecom_accreditation_ieps;
                         break;
                     case "taxlegends":
-                        free_cfdi_dto.freecom_taxlegends = vm.freecom_taxlegends;
-                        free_cfdi_dto.freecom_legends = vm.legends;
+                        vm.freecom_taxlegends.version = "1.0";
+                        freeCfdiDTO.freecom_taxlegends = vm.freecom_taxlegends;
+                        freeCfdiDTO.freecom_legends = vm.legends;
                         break;
                     case "airline":
-                        free_cfdi_dto.freecom_airline = vm.freecom_airline;
-                        free_cfdi_dto.freecom_charges = vm.charges;
+                        vm.freecom_airline.version = "1.0";
+                        freeCfdiDTO.freecom_airline = vm.freecom_airline;
+                        freeCfdiDTO.freecom_charges = vm.charges;
                         break;
                     case "apaw":
-                        free_cfdi_dto.freecom_apaw = vm.freecom_apaw;
+                        vm.freecom_apaw.version = "1.0";
+                        freeCfdiDTO.freecom_apaw = vm.freecom_apaw;
                         break;
                     case "donees":
-                        free_cfdi_dto.freecom_donees = vm.freecom_donees;
+                        vm.freecom_donees.version = "1.0";
+                        freeCfdiDTO.freecom_donees = vm.freecom_donees;
                         break;
                     case "educational_institutions":
-                        free_cfdi_dto.freecom_educational_institutions = vm.freecom_educational_institutions;
+                        vm.freecom_educational_institutions.version = "1.0";
+                        freeCfdiDTO.freecom_educational_institutions = vm.freecom_educational_institutions;
                         break;
                     case "ine":
-                        free_cfdi_dto.freecom_ine = vm.freecom_ine;
-                        free_cfdi_dto.freecom_ine_entities = vm.freecom_ine_entities;
+                        vm.freecom_ine.version = "1.0";
+                        freeCfdiDTO.freecom_ine = vm.freecom_ine;
+                        freeCfdiDTO.freecom_ine_entities = vm.freecom_ine_entities;
                         break;
                     case "kind_payment":
-                        free_cfdi_dto.freecom_kind_payment = vm.freecom_kind_payment;
+                        vm.freecom_kind_payment.version = "1.0";
+                        freeCfdiDTO.freecom_kind_payment = vm.freecom_kind_payment;
                         break;
                     case "foreign_tourist_passenger":
-                        free_cfdi_dto.freecom_foreign_tourist_passenger = vm.freecom_foreign_tourist_passenger;
+                        vm.freecom_foreign_tourist_passenger.version = "1.0";
+                        freeCfdiDTO.freecom_foreign_tourist_passenger = vm.freecom_foreign_tourist_passenger;
                         break;
                     case "partial_construction_services":
-                        free_cfdi_dto.freecom_partial_construction_services = vm.freecom_partial_construction_services;
+                        vm.freecom_partial_construction_services.version = "1.0";
+                        freeCfdiDTO.freecom_partial_construction_services = vm.freecom_partial_construction_services;
                         break;
                     case "foreign_exchange":
-                        free_cfdi_dto.freecom_foreign_exchange = vm.freecom_foreign_exchange;
+                        vm.freecom_foreign_exchange.version = "1.0";
+                        freeCfdiDTO.freecom_foreign_exchange = vm.freecom_foreign_exchange;
                         break;
                     case "local_taxes":
-                        free_cfdi_dto.freecom_local_taxes = vm.freecom_local_taxes;
-                        free_cfdi_dto.freecom_ret_transfs = vm.freecom_ret_transfs;
+                        vm.freecom_local_taxes.version = "1.0";
+                        freeCfdiDTO.freecom_local_taxes = vm.freecom_local_taxes;
+                        freeCfdiDTO.freecom_ret_transfs = vm.freecom_ret_transfs;
                         break;
                     case "used_vehicle":
-                        free_cfdi_dto.freecom_used_vehicle = vm.freecom_used_vehicle;
-                        free_cfdi_dto.vehicle_customs_informations = vm.vehicle_customs_informations;
+                        vm.freecom_used_vehicle.version = "1.0";
+                        freeCfdiDTO.freecom_used_vehicle = vm.freecom_used_vehicle;
+                        freeCfdiDTO.vehicle_customs_informations = vm.vehicle_customs_informations;
                         break;
                     case "destruction_certificate":
-                        free_cfdi_dto.freecom_destruction_certificate = vm.freecom_destruction_certificate;
-                        free_cfdi_dto.freecom_info_customs_destruction = vm.freecom_info_customs_destruction;
+                        vm.freecom_destruction_certificate.version = "1.0";
+                        freeCfdiDTO.freecom_destruction_certificate = vm.freecom_destruction_certificate;
+                        if(vm.use_info_customs_destruction) {
+                            freeCfdiDTO.freecom_info_customs_destruction = vm.freecom_info_customs_destruction;
+                        }
                         break;
                     case "fuel_consumption":
-                        free_cfdi_dto.freecom_fuel_consumption = vm.freecom_fuel_consumption;
-                        free_cfdi_dto.freecom_concept_fuels = vm.freecom_concept_fuels;
+                        vm.freecom_fuel_consumption.version = "1.0";
+                        freeCfdiDTO.freecom_fuel_consumption = vm.freecom_fuel_consumption;
+                        freeCfdiDTO.freecom_concept_fuels = vm.freecom_concept_fuels;
                         break;
                     case "storeroom_paybill":
-                        free_cfdi_dto.freecom_storeroom_paybill = vm.freecom_storeroom_paybill;
-                        free_cfdi_dto.freecom_paybill_concepts = vm.freecom_paybill_concepts;
+                        vm.freecom_storeroom_paybill.version = "1.0";
+                        freeCfdiDTO.freecom_storeroom_paybill = vm.freecom_storeroom_paybill;
+                        freeCfdiDTO.freecom_paybill_concepts = vm.freecom_paybill_concepts;
                         break;
                     case "ecc11":
-                        free_cfdi_dto.freecom_ecc11 = vm.freecom_ecc11;
-                        free_cfdi_dto.freecom_ecc11_concepts = vm.freecom_ecc11_concepts;
+                        vm.freecom_ecc11.version = "1.0";
+                        freeCfdiDTO.freecom_ecc11 = vm.freecom_ecc11;
+                        freeCfdiDTO.freecom_ecc11_concepts = vm.freecom_ecc11_concepts;
                         break;
                     case "spei":
-                        free_cfdi_dto.freecom_spei_thirds = vm.freecom_spei_thirds;
+                        freeCfdiDTO.freecom_spei_thirds = vm.freecom_spei_thirds;
                         break;
                     case "foreign_trade":
-                        free_cfdi_dto.freecom_foreign_trade = vm.freecom_foreign_trade;
-                        free_cfdi_dto.freecom_addressee = vm.freecom_addressee;
-                        free_cfdi_dto.commodities = vm.f_add_commodities;
+                        vm.freecom_foreign_trade.version = "1.0";
+                        freeCfdiDTO.freecom_foreign_trade = vm.freecom_foreign_trade;
+                        freeCfdiDTO.freecom_addressee = vm.freecom_addressee;
+                        freeCfdiDTO.commodities = vm.f_add_commodities;
                         break;
                 }
             }
 
-			if (vm.free_cfdi.id !== null) {
-                Free_cfdi.update(free_cfdi_dto, onSaveSuccess, onSaveError);
-            } else {
-                Free_cfdi.save(free_cfdi_dto, onSaveSuccess, onSaveError);
-            }
+            vm.isSaving = true;
+
+            Free_cfdi.save(freeCfdiDTO, onSaveSuccess, onSaveError);
         };
 
-        vm.save = function () {
+        var onSaveSuccess = function () {
+            resetView();
+            vm.free_saved_success = true;
+            $timeout(function () {
+                vm.free_saved_success = false;
+            }, 2000);
 
-			if (vm.free_receiver.id !== null) {
-                Free_receiver.update(vm.free_receiver, onSaveFreeReceiverSuccess, onSaveError);
-            } else {
-                Free_receiver.save(vm.free_receiver, onSaveFreeReceiverSuccess, onSaveError);
-            }
+            vm.isSaving = false;
+        };
+
+        var onSaveError = function () {
+            vm.isSaving = false;
         };
 
 		function resetView(){

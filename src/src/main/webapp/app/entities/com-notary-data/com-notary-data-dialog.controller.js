@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Com_notary_dataDialogController', Com_notary_dataDialogController);
 
-    Com_notary_dataDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Com_notary_data', 'Com_public_notaries', 'Public_notaries_federal_entity'];
+    Com_notary_dataDialogController.$inject = ['$scope', '$stateParams', '$uibModalInstance', '$q', 'entity', 'Com_notary_data', 'Com_public_notaries', 'C_pn_federal_entity'];
 
-    function Com_notary_dataDialogController ($scope, $stateParams, $uibModalInstance, $q, entity, Com_notary_data, Com_public_notaries, Public_notaries_federal_entity) {
+    function Com_notary_dataDialogController ($scope, $stateParams, $uibModalInstance, $q, entity, Com_notary_data, Com_public_notaries, C_pn_federal_entity) {
         var vm = this;
         vm.com_notary_data = entity;
         vm.com_public_notariess = Com_public_notaries.query({filter: 'com_notary_data-is-null'});
@@ -19,7 +19,7 @@
         }).then(function(com_public_notaries) {
             vm.com_public_notariess.push(com_public_notaries);
         });
-        vm.public_notaries_federal_entitys = Public_notaries_federal_entity.query();
+        vm.c_pn_federal_entitys = C_pn_federal_entity.query();
         vm.load = function(id) {
             Com_notary_data.get({id : id}, function(result) {
                 vm.com_notary_data = result;

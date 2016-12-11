@@ -207,7 +207,7 @@ public class CfdiResource {
     private Com_public_notariesService com_public_notariesService;
 
     @Inject
-    private Com_desc_stateService com_desc_stateService;
+    private Com_desc_estateService com_desc_estateService;
 
     @Inject
     private Com_data_operationService com_data_operationService;
@@ -682,10 +682,10 @@ public class CfdiResource {
             com_public_notaries.setCfdi(result);
             com_public_notaries = com_public_notariesService.save(com_public_notaries);
 
-            List<Com_desc_state> desc_states = cfdiDTO.getCom_desc_states();
-            for(Com_desc_state com_desc_state: desc_states){
-                com_desc_state.setCom_public_notaries(com_public_notaries);
-                com_desc_stateService.save(com_desc_state);
+            List<Com_desc_estate> desc_estates = cfdiDTO.getCom_desc_estates();
+            for(Com_desc_estate com_desc_estate: desc_estates){
+                com_desc_estate.setCom_public_notaries(com_public_notaries);
+                com_desc_estateService.save(com_desc_estate);
             }
 
             Com_data_operation com_data_operation = cfdiDTO.getCom_data_operation();
