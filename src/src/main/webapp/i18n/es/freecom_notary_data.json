@@ -1,0 +1,26 @@
+{
+    "megabillingplatformApp": {
+        "freecom_notary_data" : {
+            "home": {
+                "title": "Freecom_notary_data",
+                "createLabel": "Crear nuevo Freecom_notary_data",
+                "createOrEditLabel": "Crear o editar Freecom_notary_data",
+                "search": "Search for Freecom_notary_data"
+            },
+            "created": "Un nuevo Freecom_notary_data ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_notary_data ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_notary_data ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_notary_data {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_notary_data"
+            },
+            "curp": "Curp (*)",
+            "notarynumber": "Notarynumber (*)",
+            "ascription": "Ascription",
+            "freecom_public_notaries": "Freecom_public_notaries",
+            "c_pn_federal_entity": "Notaries Federal Entity (*)"
+        }
+    }
+}

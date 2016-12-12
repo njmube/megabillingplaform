@@ -1,0 +1,43 @@
+
+<div>
+    <h2><span translate="megabillingplatformApp.freecom_dataunenajenante.detail.title">Freecom_dataunenajenante</span> {{vm.freecom_dataunenajenante.id}}</h2>
+    <hr>
+    <dl class="dl-horizontal">
+        <dt><span translate="megabillingplatformApp.freecom_dataunenajenante.name">Name</dt></dt>
+        <dd>
+            <span>{{vm.freecom_dataunenajenante.name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_dataunenajenante.last_name">Last_name</dt></dt>
+        <dd>
+            <span>{{vm.freecom_dataunenajenante.last_name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_dataunenajenante.mother_last_name">Mother_last_name</dt></dt>
+        <dd>
+            <span>{{vm.freecom_dataunenajenante.mother_last_name}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_dataunenajenante.rfc">Rfc</dt></dt>
+        <dd>
+            <span>{{vm.freecom_dataunenajenante.rfc}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_dataunenajenante.curp">Curp</dt></dt>
+        <dd>
+            <span>{{vm.freecom_dataunenajenante.curp}}<span>
+        </dd>
+        <hr>
+        <dt><span translate="megabillingplatformApp.freecom_dataunenajenante.freecom_data_enajenante">freecom_data_enajenante</span></dt>
+        <dd>
+            <a ui-sref="freecom-data-enajenante-detail({id:vm.freecom_dataunenajenante.freecom_data_enajenante.id})">{{vm.freecom_dataunenajenante.freecom_data_enajenante.id}}</a>
+        </dd>
+        <hr>
+    </dl>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

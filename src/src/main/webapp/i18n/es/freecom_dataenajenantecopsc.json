@@ -1,0 +1,28 @@
+{
+    "megabillingplatformApp": {
+        "freecom_dataenajenantecopsc" : {
+            "home": {
+                "title": "Freecom_dataenajenantecopscs",
+                "createLabel": "Crear nuevo Freecom_dataenajenantecopsc",
+                "createOrEditLabel": "Crear o editar Freecom_dataenajenantecopsc",
+                "search": "Search for Freecom_dataenajenantecopsc"
+            },
+            "created": "Un nuevo Freecom_dataenajenantecopsc ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_dataenajenantecopsc ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_dataenajenantecopsc ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_dataenajenantecopsc {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_dataenajenantecopsc"
+            },
+            "name": "Name (*)",
+            "last_name": "Last_name",
+            "mother_last_name": "Mother_last_name",
+            "rfc": "Rfc (*)",
+            "curp": "Curp",
+            "percentage": "Percentage (*)",
+            "freecom_data_enajenante": "Freecom_data_enajenante"
+        }
+    }
+}

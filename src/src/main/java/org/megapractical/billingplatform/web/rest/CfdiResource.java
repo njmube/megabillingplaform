@@ -525,7 +525,7 @@ public class CfdiResource {
             com_partial_construction_servicesService.save(com_partial_construction_services);
         }
 
-        //foreign_exchange":
+        //foreign_exchange
         Com_foreign_exchange com_foreign_exchange = cfdiDTO.getCom_foreign_exchange();
         if(com_foreign_exchange != null && com_foreign_exchange.getC_type_operation() != null) {
             com_foreign_exchange.setCfdi(result);

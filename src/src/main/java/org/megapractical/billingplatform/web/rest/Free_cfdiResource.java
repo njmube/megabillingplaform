@@ -203,6 +203,36 @@ public class Free_cfdiResource {
     @Inject
     private Freecom_specific_descriptionsService freecom_specific_descriptionsService;
 
+    @Inject
+    private Freecom_public_notariesService freecom_public_notariesService;
+
+    @Inject
+    private Freecom_desc_estateService freecom_desc_estateService;
+
+    @Inject
+    private Freecom_data_operationService freecom_data_operationService;
+
+    @Inject
+    private Freecom_notary_dataService freecom_notary_dataService;
+
+    @Inject
+    private Freecom_data_enajenanteService freecom_data_enajenanteService;
+
+    @Inject
+    private Freecom_dataunenajenanteService freecom_dataunenajenanteService;
+
+    @Inject
+    private Freecom_dataenajenantecopscService freecom_dataenajenantecopscService;
+
+    @Inject
+    private Freecom_acquiring_dataService freecom_acquiring_dataService;
+
+    @Inject
+    private Freecom_dataunacquiringService freecom_dataunacquiringService;
+
+    @Inject
+    private Freecom_dataacquiringcopscService freecom_dataacquiringcopscService;
+
 
     /**
      * POST  /free-cfdis : Create a new free_cfdi.
@@ -424,7 +454,7 @@ public class Free_cfdiResource {
             freecom_foreign_tourist_passengerService.save(freecom_foreign_tourist_passenger);
         }
 
-        //partial_construction_services":
+        //partial_construction_services
         Freecom_partial_construction_services freecom_partial_construction_services = freeCfdiDTO.getFreecom_partial_construction_services();
         if(freecom_partial_construction_services != null && freecom_partial_construction_services.getVersion() != null) {
             freecom_partial_construction_services.setFree_cfdi(result);
@@ -579,6 +609,55 @@ public class Free_cfdiResource {
                     freecom_specific_descriptions.setFreecom_commodity(freecom_commodity);
                     freecom_specific_descriptionsService.save(freecom_specific_descriptions);
                 }
+            }
+        }
+
+        //public_notaries
+        Freecom_public_notaries freecom_public_notaries = freeCfdiDTO.getFreecom_public_notaries();
+        if(freecom_public_notaries != null && freecom_public_notaries.getVersion() != null){
+            freecom_public_notaries.setFree_cfdi(result);
+            freecom_public_notaries = freecom_public_notariesService.save(freecom_public_notaries);
+
+            List<Freecom_desc_estate> desc_estates = freeCfdiDTO.getFreecom_desc_estates();
+            for(Freecom_desc_estate freecom_desc_estate: desc_estates){
+                freecom_desc_estate.setFreecom_public_notaries(freecom_public_notaries);
+                freecom_desc_estateService.save(freecom_desc_estate);
+            }
+
+            Freecom_data_operation freecom_data_operation = freeCfdiDTO.getFreecom_data_operation();
+            freecom_data_operation.setFreecom_public_notaries(freecom_public_notaries);
+            freecom_data_operationService.save(freecom_data_operation);
+
+            Freecom_notary_data freecom_notary_data = freeCfdiDTO.getFreecom_notary_data();
+            freecom_notary_data.setFreecom_public_notaries(freecom_public_notaries);
+            freecom_notary_dataService.save(freecom_notary_data);
+
+            Freecom_data_enajenante freecom_data_enajenante = freeCfdiDTO.getFreecom_data_enajenante();
+            freecom_data_enajenante.setFreecom_public_notaries(freecom_public_notaries);
+            freecom_data_enajenante = freecom_data_enajenanteService.save(freecom_data_enajenante);
+
+            Freecom_dataunenajenante freecom_dataunenajenante = freeCfdiDTO.getFreecom_dataunenajenante();
+            freecom_dataunenajenante.setFreecom_data_enajenante(freecom_data_enajenante);
+            freecom_dataunenajenanteService.save(freecom_dataunenajenante);
+
+            List<Freecom_dataenajenantecopsc> freecom_dataenajenantecopscs = freeCfdiDTO.getFreecom_dataenajenantecopscs();
+            for(Freecom_dataenajenantecopsc freecom_dataenajenantecopsc: freecom_dataenajenantecopscs){
+                freecom_dataenajenantecopsc.setFreecom_data_enajenante(freecom_data_enajenante);
+                freecom_dataenajenantecopscService.save(freecom_dataenajenantecopsc);
+            }
+
+            Freecom_acquiring_data freecom_acquiring_data = freeCfdiDTO.getFreecom_acquiring_data();
+            freecom_acquiring_data.setFreecom_public_notaries(freecom_public_notaries);
+            freecom_acquiring_data = freecom_acquiring_dataService.save(freecom_acquiring_data);
+
+            Freecom_dataunacquiring freecom_dataunacquiring = freeCfdiDTO.getFreecom_dataunacquiring();
+            freecom_dataunacquiring.setFreecom_acquiring_data(freecom_acquiring_data);
+            freecom_dataunacquiringService.save(freecom_dataunacquiring);
+
+            List<Freecom_dataacquiringcopsc> freecom_dataacquiringcopscs = freeCfdiDTO.getFreecom_dataacquiringcopscs();
+            for(Freecom_dataacquiringcopsc freecom_dataacquiringcopsc: freecom_dataacquiringcopscs){
+                freecom_dataacquiringcopsc.setFreecom_acquiring_data(freecom_acquiring_data);
+                freecom_dataacquiringcopscService.save(freecom_dataacquiringcopsc);
             }
         }
 

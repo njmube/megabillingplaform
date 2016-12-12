@@ -199,5 +199,14 @@
     <include file="classpath:config/liquibase/changelog/20161201215829_added_entity_Com_dataunacquiring.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161201220445_added_entity_Com_dataacquiringcopsc.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20161201194446_added_entity_Freecom_public_notaries.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201201731_added_entity_Freecom_desc_estate.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201202901_added_entity_Freecom_data_operation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201205112_added_entity_Freecom_notary_data.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201211057_added_entity_Freecom_data_enajenante.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201213916_added_entity_Freecom_dataunenajenante.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201214549_added_entity_Freecom_dataenajenantecopsc.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201215233_added_entity_Freecom_acquiring_data.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201215829_added_entity_Freecom_dataunacquiring.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20161201220445_added_entity_Freecom_dataacquiringcopsc.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

@@ -5,9 +5,9 @@
         .module('megabillingplatformApp')
         .controller('Free_cfdiNewController', Free_cfdiNewController);
 
-    Free_cfdiNewController.$inject = ['entity', 'Principal', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal', 'Tax_types', 'Rate_type','$timeout', '$state', '$q', 'C_tar', 'C_well_type', 'C_acquired_title', 'C_features_work_piece', 'C_school_level', 'C_committee_type', 'C_process_type', 'C_transit_type', 'C_type_road', 'C_federal_entity', 'C_type_operation', 'C_type_series', 'C_type_operation_ce','C_key_pediment','Freecom_incoterm'];
+    Free_cfdiNewController.$inject = ['entity', 'Principal', 'Free_cfdi', 'Cfdi_types', 'Cfdi_states', 'free_emitter_entity', 'Payment_method', 'Way_payment', 'C_money', 'Cfdi_type_doc', 'Tax_regime', 'DataUtils', 'free_receiver_entity', 'Free_receiver', 'Type_taxpayer', 'C_country', 'C_state', 'C_municipality', 'C_colony', 'C_zip_code', '$uibModal', 'Tax_types', 'Rate_type','$timeout', '$state', '$q', 'C_tar', 'C_well_type', 'C_acquired_title', 'C_features_work_piece', 'C_school_level', 'C_committee_type', 'C_process_type', 'C_transit_type', 'C_type_road', 'C_federal_entity', 'C_type_operation', 'C_type_series', 'C_type_operation_ce','C_key_pediment','Freecom_incoterm', 'C_pn_federal_entity'];
 
-    function Free_cfdiNewController (entity, Principal, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Tax_types, Rate_type, $timeout, $state, $q, C_tar, C_well_type, C_acquired_title, C_features_work_piece, C_school_level, C_committee_type, C_process_type, C_transit_type, C_type_road, C_federal_entity, C_type_operation, C_type_series, C_type_operation_ce, C_key_pediment, Freecom_incoterm) {
+    function Free_cfdiNewController (entity, Principal, Free_cfdi, Cfdi_types, Cfdi_states, free_emitter_entity, Payment_method, Way_payment, C_money, Cfdi_type_doc, Tax_regime, DataUtils, free_receiver_entity, Free_receiver, Type_taxpayer, C_country, C_state, C_municipality, C_colony, C_zip_code, $uibModal, Tax_types, Rate_type, $timeout, $state, $q, C_tar, C_well_type, C_acquired_title, C_features_work_piece, C_school_level, C_committee_type, C_process_type, C_transit_type, C_type_road, C_federal_entity, C_type_operation, C_type_series, C_type_operation_ce, C_key_pediment, Freecom_incoterm, C_pn_federal_entity) {
 
 		var vm = this;
 
@@ -587,6 +587,29 @@
                         freeCfdiDTO.freecom_addressee = vm.freecom_addressee;
                         freeCfdiDTO.commodities = vm.f_add_commodities;
                         break;
+                    case "public_notaries":
+                        vm.freecom_public_notaries.version = "1.0";
+                        freeCfdiDTO.freecom_public_notaries = vm.freecom_public_notaries;
+                        freeCfdiDTO.freecom_desc_estates = vm.freecom_desc_estates;
+                        freeCfdiDTO.freecom_data_operation = vm.freecom_data_operation;
+                        freeCfdiDTO.freecom_notary_data = vm.freecom_notary_data;
+                        freeCfdiDTO.freecom_data_enajenante = vm.freecom_data_enajenante;
+                        freeCfdiDTO.freecom_dataunenajenante = vm.freecom_dataunenajenante;
+                        if(vm.use_dataenajenantecopsc) {
+                            freeCfdiDTO.freecom_dataenajenantecopscs = vm.freecom_dataenajenantecopscs;
+                        }
+                        else {
+                            freeCfdiDTO.freecom_dataenajenantecopscs = [];
+                        }
+                        freeCfdiDTO.freecom_acquiring_data = vm.freecom_acquiring_data;
+                        freeCfdiDTO.freecom_dataunacquiring = vm.freecom_dataunacquiring;
+                        if(vm.use_dataacquiringcopsc) {
+                            freeCfdiDTO.freecom_dataacquiringcopscs = vm.freecom_dataacquiringcopscs;
+                        }
+                        else {
+                            freeCfdiDTO.freecom_dataacquiringcopscs = [];
+                        }
+                        break;
                 }
             }
 
@@ -803,7 +826,8 @@
             {id:"storeroom_paybill", name: "Vales de Despensa"},
             {id:"ecc11", name: "Estado de Cuenta de Combustibles de Monederos Electrónicos Autorizados"},
             {id:"spei", name: "SPEI Tercero a Tercero"},
-            {id:"foreign_trade", name: "Comercio Exterior"}
+            {id:"foreign_trade", name: "Comercio Exterior"},
+            {id:"public_notaries", name: "Notarios Públicos"}
         ];
 
         vm.current_complement = null;
@@ -820,57 +844,75 @@
                 case "taxregistration":
                     vm.show_taxregistration = true;
                     break;
+
                 case "pfic":
                     vm.show_pfic = true;
                     break;
+
                 case "accreditation_ieps":
                     vm.show_accreditation_ieps = true;
                     break;
+
                 case "taxlegends":
                     vm.show_taxlegends = true;
                     break;
+
                 case "airline":
                     vm.show_airline = true;
                     break;
+
                 case "apaw":
                     vm.show_apaw = true;
                     break;
+
                 case "donees":
                     vm.show_donees = true;
                     break;
+
                 case "educational_institutions":
                     vm.show_educational_institutions = true;
                     break;
+
                 case "ine":
                     vm.show_ine = true;
                     break;
+
                 case "kind_payment":
                     vm.show_kind_payment = true;
                     break;
+
                 case "foreign_tourist_passenger":
                     vm.show_foreign_tourist_passenger = true;
                     break;
+
                 case "partial_construction_services":
                     vm.show_partial_construction_services = true;
                     break;
+
                 case "foreign_exchange":
                     vm.show_foreign_exchange = true;
                     break;
+
                 case "local_taxes":
                     vm.show_local_taxes = true;
                     break;
+
                 case "used_vehicle":
                     vm.show_used_vehicle = true;
                     break;
+
                 case "destruction_certificate":
                     vm.show_destruction_certificate = true;
                     break;
+
                 case "fuel_consumption":
                     vm.show_fuel_consumption = true;
                     break;
+
                 case "storeroom_paybill":
                     vm.show_storeroom_paybill = true;
                     break;
+
                 case "ecc11":
                     if(vm.free_cfdi.cfdi_types != null && vm.free_cfdi.cfdi_types.id == 1) {
                         vm.show_ecc11 = true;
@@ -881,13 +923,18 @@
                         vm.show_ecc11_invalid = true;
                     }
                     break;
+
                 case "spei":
                     vm.show_spei = true;
                     break;
+
                 case "foreign_trade":
                     vm.show_foreign_trade = true;
                     break;
 
+                case "public_notaries":
+                    vm.show_public_notaries = true;
+                    break;
             }
         }
 
@@ -977,6 +1024,20 @@
             vm.freecom_foreign_trade = { version: null, emitter_curp: null, receiver_curp: null, receiver_numregidtrib: null, origin_certificate: null, number_origin_certificate: null, number_reliable_exporter: null, subdivision: null, observations: null, typechangeusd: null, totalusd: null, id: null };
             vm.freecom_addressee = { street: null, no_ext: null, no_int: null, locate: null, reference: null, numregidtrib: null, rfc: null, curp: null, name: null, id: null };
             vm.f_add_commodities = [];
+
+            vm.show_public_notaries = false;
+            vm.freecom_public_notaries = { version: null, id: null };
+            vm.freecom_desc_estates = [];
+            vm.freecom_data_operation = { notarialinstrument: null, dateinstnotarial: null, amountofoperation: null, subtotal: null, iva: null, id: null };
+            vm.freecom_notary_data = { curp: null, notarynumber: null, ascription: null, id: null };
+            vm.freecom_data_enajenante = { coprosocconyugaie: null, id: null };
+            vm.freecom_dataunenajenante = { name: null, last_name: null, mother_last_name: null, rfc: null, curp: null, id: null };
+            vm.use_dataenajenantecopsc = false;
+            vm.freecom_dataenajenantecopscs = [];
+            vm.freecom_acquiring_data = { coprosocconyugaie: null, id: null };
+            vm.freecom_dataunacquiring = { name: null, last_name: null, mother_last_name: null, rfc: null, curp: null, id: null };
+            vm.use_dataacquiringcopsc = false;
+            vm.freecom_dataacquiringcopscs = [];
         }
 
         //Tax Registration
@@ -1688,6 +1749,115 @@
 
         vm.removeFreecomCommodity = function(index){
             vm.f_add_commodities.splice(index,1);
+        };
+
+        //Public Notaries
+        vm.show_public_notaries = false;
+        vm.freecom_public_notaries = null;
+        vm.freecom_desc_estates = [];
+        vm.freecom_data_operation = null;
+        vm.freecom_notary_data = null;
+        vm.c_pn_federal_entitys = C_pn_federal_entity.query();
+        vm.freecom_data_enajenante = null;
+        vm.freecom_dataunenajenante = null;
+        vm.use_dataenajenantecopsc = false;
+        vm.freecom_dataenajenantecopscs = [];
+        vm.freecom_acquiring_data = null;
+        vm.freecom_dataunacquiring = null;
+        vm.use_dataacquiringcopsc = false;
+        vm.freecom_dataacquiringcopscs = [];
+
+        vm.addFreecomDescEstate = function(){
+            $uibModal.open({
+                templateUrl: 'app/entities/freecom-desc-estate/freecom-desc-estate-dialog.html',
+                controller: 'Freecom_desc_estateDialogController',
+                controllerAs: 'vm',
+                backdrop: 'static',
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return {
+                            street: null,
+                            noext: null,
+                            noint: null,
+                            locale: null,
+                            reference: null,
+                            c_country: {id: 151, name: "México", abrev: "MEX"},
+                            id: null
+                        };
+                    }
+                }
+            }).result.then(function(result) {
+                vm.freecom_desc_estates.push(result)
+            });
+        };
+
+        vm.removeFreecomDescEstate= function(index){
+            vm.freecom_desc_estates.splice(index,1);
+        };
+
+        vm.freecomDataOperationDatePickerOpenStatus = {};
+        vm.freecomDataOperationDatePickerOpenStatus.dateinstnotarial = false;
+        vm.freecomDataOperationOpenCalendar = function(date) {
+            vm.freecomDataOperationDatePickerOpenStatus[date] = true;
+        };
+
+        vm.addFreecomDataEnajenantecoPsc = function(){
+            $uibModal.open({
+                templateUrl: 'app/entities/freecom-dataenajenantecopsc/freecom-dataenajenantecopsc-dialog.html',
+                controller: 'Freecom_dataenajenantecopscDialogController',
+                controllerAs: 'vm',
+                backdrop: 'static',
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return {
+                            name: null,
+                            last_name: null,
+                            mother_last_name: null,
+                            rfc: null,
+                            curp: null,
+                            percentage: null,
+                            id: null
+                        };
+                    }
+                }
+            }).result.then(function(result) {
+                vm.freecom_dataenajenantecopscs.push(result);
+            });
+        };
+
+        vm.removeFreecomDataEnajenantecoPsc = function(index){
+            vm.freecom_dataenajenantecopscs.splice(index,1);
+        };
+
+        vm.addFreecomDataAcquiringcoPsc = function(){
+            $uibModal.open({
+                templateUrl: 'app/entities/freecom-dataacquiringcopsc/freecom-dataacquiringcopsc-dialog.html',
+                controller: 'Freecom_dataacquiringcopscDialogController',
+                controllerAs: 'vm',
+                backdrop: 'static',
+                size: '',
+                resolve: {
+                    entity: function () {
+                        return {
+                            name: null,
+                            last_name: null,
+                            mother_last_name: null,
+                            rfc: null,
+                            curp: null,
+                            percentage: null,
+                            id: null
+                        };
+                    }
+                }
+            }).result.then(function(result) {
+                vm.freecom_dataacquiringcopscs.push(result);
+            });
+        };
+
+        vm.removeFreecomDataAcquiringcoPsc = function(index){
+            vm.freecom_dataacquiringcopscs.splice(index,1);
         };
     }
 })();

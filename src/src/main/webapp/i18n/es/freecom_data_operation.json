@@ -1,0 +1,27 @@
+{
+    "megabillingplatformApp": {
+        "freecom_data_operation" : {
+            "home": {
+                "title": "Freecom_data_operations",
+                "createLabel": "Crear nuevo Freecom_data_operation",
+                "createOrEditLabel": "Crear o editar Freecom_data_operation",
+                "search": "Search for Freecom_data_operation"
+            },
+            "created": "Un nuevo Freecom_data_operation ha sido creado con el identificador {{ param }}",
+            "updated": "Un Freecom_data_operation ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Freecom_data_operation ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Freecom_data_operation {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_data_operation"
+            },
+            "notarialinstrument": "Notarialinstrument (*)",
+            "dateinstnotarial": "Dateinstnotarial (*)",
+            "amountofoperation": "Amountofoperation (*)",
+            "subtotal": "Subtotal (*)",
+            "iva": "Iva (*)",
+            "freecom_public_notaries": "Freecom_public_notaries"
+        }
+    }
+}

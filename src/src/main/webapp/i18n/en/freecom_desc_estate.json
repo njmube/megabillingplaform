@@ -1,0 +1,33 @@
+{
+    "megabillingplatformApp": {
+        "freecom_desc_estate" : {
+            "home": {
+                "title": "Freecom_desc_estates",
+                "createLabel": "Create a new Freecom_desc_estate",
+                "createOrEditLabel": "Create or edit a Freecom_desc_estate",
+                "search": "Search for Freecom_desc_estate"
+            },
+            "created": "A new Freecom_desc_estate is created with identifier {{ param }}",
+            "updated": "A Freecom_desc_estate is updated with identifier {{ param }}",
+            "deleted": "A Freecom_desc_estate is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Freecom_desc_estate {{ id }}?"
+            },
+            "detail": {
+                "title": "Freecom_desc_estate"
+            },
+            "street": "Street (*)",
+            "noext": "Noext",
+            "noint": "Noint",
+            "locale": "Locale",
+            "reference": "Reference",
+            "freecom_public_notaries": "Freecom_public_notaries",
+            "c_type_estate": "Type_state (*)",
+            "c_colony": "C_colony",
+            "c_municipality": "C_municipality (*)",
+            "c_state": "C_state (*)",
+            "c_country": "C_country (*)",
+            "c_zip_code": "C_zip_code"
+        }
+    }
+}

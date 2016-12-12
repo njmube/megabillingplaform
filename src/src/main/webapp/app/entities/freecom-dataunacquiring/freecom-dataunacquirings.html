@@ -1,0 +1,72 @@
+<div>
+    <h2 translate="megabillingplatformApp.freecom_dataunacquiring.home.title">Freecom_dataunacquirings</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="freecom-dataunacquiring.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span  translate="megabillingplatformApp.freecom_dataunacquiring.home.createLabel">
+                        Create new Freecom_dataunacquiring
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.transition()">
+                    <th jh-sort-by="id"><span translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="name"><span translate="megabillingplatformApp.freecom_dataunacquiring.name">Name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="last_name"><span translate="megabillingplatformApp.freecom_dataunacquiring.last_name">Last_name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mother_last_name"><span translate="megabillingplatformApp.freecom_dataunacquiring.mother_last_name">Mother_last_name</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="rfc"><span translate="megabillingplatformApp.freecom_dataunacquiring.rfc">Rfc</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="curp"><span translate="megabillingplatformApp.freecom_dataunacquiring.curp">Curp</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="freecom_acquiring_data.id"><span translate="megabillingplatformApp.freecom_dataunacquiring.freecom_acquiring_data">freecom_acquiring_data</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="freecom_dataunacquiring in vm.freecom_dataunacquirings track by freecom_dataunacquiring.id">
+                    <td><a ui-sref="freecom-dataunacquiring-detail({id:freecom_dataunacquiring.id})">{{freecom_dataunacquiring.id}}</a></td>
+                    <td>{{freecom_dataunacquiring.name}}</td>
+                    <td>{{freecom_dataunacquiring.last_name}}</td>
+                    <td>{{freecom_dataunacquiring.mother_last_name}}</td>
+                    <td>{{freecom_dataunacquiring.rfc}}</td>
+                    <td>{{freecom_dataunacquiring.curp}}</td>
+                    <td>
+                        <a ui-sref="freecom-acquiring-data-detail({id:freecom_dataunacquiring.freecom_acquiring_data.id})">{{freecom_dataunacquiring.freecom_acquiring_data.id}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="freecom-dataunacquiring-detail({id:freecom_dataunacquiring.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-dataunacquiring.edit({id:freecom_dataunacquiring.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="freecom-dataunacquiring.delete({id:freecom_dataunacquiring.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm" translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center">
+        <jhi-item-count page="vm.page" total="vm.queryCount"></jhi-item-count>
+        <uib-pagination class="pagination-sm" total-items="vm.totalItems" ng-model="vm.page" ng-change="vm.transition()"></uib-pagination>
+    </div>
+</div>

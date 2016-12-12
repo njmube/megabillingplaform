@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "freecom_public_notaries",
+            "otherEntityName": "freecom_public_notaries",
+            "relationshipType": "one-to-one",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "freecom_data_enajenante"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "coprosocconyugaie",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "10"
+        }
+    ],
+    "changelogDate": "20161201211057",
+    "dto": "no",
+    "service": "serviceImpl",
+    "entityTableName": "freecom_data_enajenante",
+    "pagination": "pagination"
+}

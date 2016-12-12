@@ -98,6 +98,27 @@ public class FreeCfdiDTO {
     private List<Freecom_CommodityDTO> commodities;
 
 
+    private Freecom_public_notaries freecom_public_notaries;
+
+    private List<Freecom_desc_estate> freecom_desc_estates;
+
+    private Freecom_data_operation freecom_data_operation;
+
+    private Freecom_notary_data freecom_notary_data;
+
+    private Freecom_data_enajenante freecom_data_enajenante;
+
+    private Freecom_dataunenajenante freecom_dataunenajenante;
+
+    private List<Freecom_dataenajenantecopsc> freecom_dataenajenantecopscs;
+
+    private Freecom_acquiring_data freecom_acquiring_data;
+
+    private Freecom_dataunacquiring freecom_dataunacquiring;
+
+    private List<Freecom_dataacquiringcopsc> freecom_dataacquiringcopscs;
+
+
     public Free_receiver getFreeReceiver() {
         return freeReceiver;
     }
@@ -401,5 +422,85 @@ public class FreeCfdiDTO {
 
     public void setCommodities(List<Freecom_CommodityDTO> commodities) {
         this.commodities = commodities;
+    }
+
+    public Freecom_public_notaries getFreecom_public_notaries() {
+        return freecom_public_notaries;
+    }
+
+    public void setFreecom_public_notaries(Freecom_public_notaries freecom_public_notaries) {
+        this.freecom_public_notaries = freecom_public_notaries;
+    }
+
+    public List<Freecom_desc_estate> getFreecom_desc_estates() {
+        return freecom_desc_estates;
+    }
+
+    public void setFreecom_desc_estates(List<Freecom_desc_estate> freecom_desc_estates) {
+        this.freecom_desc_estates = freecom_desc_estates;
+    }
+
+    public Freecom_data_operation getFreecom_data_operation() {
+        return freecom_data_operation;
+    }
+
+    public void setFreecom_data_operation(Freecom_data_operation freecom_data_operation) {
+        this.freecom_data_operation = freecom_data_operation;
+    }
+
+    public Freecom_notary_data getFreecom_notary_data() {
+        return freecom_notary_data;
+    }
+
+    public void setFreecom_notary_data(Freecom_notary_data freecom_notary_data) {
+        this.freecom_notary_data = freecom_notary_data;
+    }
+
+    public Freecom_data_enajenante getFreecom_data_enajenante() {
+        return freecom_data_enajenante;
+    }
+
+    public void setFreecom_data_enajenante(Freecom_data_enajenante freecom_data_enajenante) {
+        this.freecom_data_enajenante = freecom_data_enajenante;
+    }
+
+    public Freecom_dataunenajenante getFreecom_dataunenajenante() {
+        return freecom_dataunenajenante;
+    }
+
+    public void setFreecom_dataunenajenante(Freecom_dataunenajenante freecom_dataunenajenante) {
+        this.freecom_dataunenajenante = freecom_dataunenajenante;
+    }
+
+    public List<Freecom_dataenajenantecopsc> getFreecom_dataenajenantecopscs() {
+        return freecom_dataenajenantecopscs;
+    }
+
+    public void setFreecom_dataenajenantecopscs(List<Freecom_dataenajenantecopsc> freecom_dataenajenantecopscs) {
+        this.freecom_dataenajenantecopscs = freecom_dataenajenantecopscs;
+    }
+
+    public Freecom_acquiring_data getFreecom_acquiring_data() {
+        return freecom_acquiring_data;
+    }
+
+    public void setFreecom_acquiring_data(Freecom_acquiring_data freecom_acquiring_data) {
+        this.freecom_acquiring_data = freecom_acquiring_data;
+    }
+
+    public Freecom_dataunacquiring getFreecom_dataunacquiring() {
+        return freecom_dataunacquiring;
+    }
+
+    public void setFreecom_dataunacquiring(Freecom_dataunacquiring freecom_dataunacquiring) {
+        this.freecom_dataunacquiring = freecom_dataunacquiring;
+    }
+
+    public List<Freecom_dataacquiringcopsc> getFreecom_dataacquiringcopscs() {
+        return freecom_dataacquiringcopscs;
+    }
+
+    public void setFreecom_dataacquiringcopscs(List<Freecom_dataacquiringcopsc> freecom_dataacquiringcopscs) {
+        this.freecom_dataacquiringcopscs = freecom_dataacquiringcopscs;
     }
 }

@@ -230,8 +230,17 @@
                     $translatePartialLoader.addPart('freecom_addressee');
                     $translatePartialLoader.addPart('freecom_commodity');
                     $translatePartialLoader.addPart('freecom_specific_descriptions');
-					$translatePartialLoader.addPart('global');
+                    $translatePartialLoader.addPart('freecom_desc_estate');
+                    $translatePartialLoader.addPart('freecom_data_operation');
+                    $translatePartialLoader.addPart('freecom_notary_data');
+                    $translatePartialLoader.addPart('freecom_data_enajenante');
+                    $translatePartialLoader.addPart('freecom_dataunenajenante');
+                    $translatePartialLoader.addPart('freecom_dataenajenantecopsc');
+                    $translatePartialLoader.addPart('freecom_acquiring_data');
+                    $translatePartialLoader.addPart('freecom_dataunacquiring');
+                    $translatePartialLoader.addPart('freecom_dataacquiringcopsc');
                     $translatePartialLoader.addPart('home');
+					$translatePartialLoader.addPart('global');
                     return $translate.refresh();
                 }]
             }
