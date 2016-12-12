@@ -16,11 +16,16 @@
             "detail": {
                 "title": "Customs Information"
             },
-            "number_doc": "Number Document (*)",
-            "date": "Date (*)",
-            "customs": "Customs",
-            "free_concept": "Concept",
-            "free_part_concept": "Part Concept"
+            "number_doc": "Number Document (*):",
+            "number_docc": "Number Document",
+            "date": "Date (*):",
+            "datee": "Date",
+            "customs": "Customs:",
+            "customss": "Customs",
+            "free_concept": "Concept:",
+            "free_conceptt": "Concept",
+            "free_part_concept": "Part Concept:",
+            "free_part_conceptt": "Part Concept"
         }
     }
 }

@@ -16,12 +16,18 @@
             "detail": {
                 "title": "Paquete de Timbres"
             },
-            "name": "Nombre",
-            "description": "Descripción",
-            "price": "Precio",
-            "expiry_time": "Expiración",
-            "unit_time": "Unidad de Tiempo",
-            "package_state": "Estado"
+            "name": "Nombre:",
+            "namee": "Nombre",
+            "description": "Descripción:",
+            "descriptionn": "Descripción",
+            "price": "Precio:",
+            "pricee": "Precio",
+            "expiry_time": "Expiración:",
+            "expiry_timee": "Expiración",
+            "unit_time": "Unidad de Tiempo:",
+            "unit_timee": "Unidad de Tiempo",
+            "package_state": "Estado:",
+            "package_statee": "Estado"
         }
     }
 }

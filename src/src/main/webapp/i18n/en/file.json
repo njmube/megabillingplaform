@@ -16,12 +16,17 @@
             "detail": {
                 "title": "File"
             },
-            "name": "Name",
-            "description": "Description",
-            "path": "Path",
-            "file_state": "File State",
-            "file_type": "File Type",
-            "filtername":"Filter by name"
+            "name": "Name:",
+            "namee": "Name",
+            "description": "Description:",
+            "descriptionn": "Description",
+            "path": "Path:",
+            "pathh": "Path",
+            "file_state": "File State:",
+            "file_statee": "File State",
+            "file_type": "File Type:",
+            "file_typee": "File Type",
+            "filtername":"Filter by name:"
         }
     }
 }

@@ -41,7 +41,8 @@
             datefrom: fromDate,
             dateto: toDate,
             stateuser: -1,
-            role: " "});
+            role: " ",
+            filterlogin: " "});
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();

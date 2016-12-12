@@ -16,12 +16,17 @@
             "detail": {
                 "title": "Fichero"
             },
-            "name": "Nombre",
-            "description": "Descripción",
-            "path": "Ruta",
-            "file_state": "Estado Fichero",
-            "file_type": "Tipo Fichero",
-            "filtername":"Filtrado por nombre"
+            "name": "Nombre:",
+            "namee": "Nombre",
+            "description": "Descripción:",
+            "descriptionn": "Descripción",
+            "path": "Ruta:",
+            "pathh": "Ruta",
+            "file_state": "Estado Fichero:",
+            "file_statee": "Estado Fichero",
+            "file_type": "Tipo Fichero:",
+            "file_typee": "Tipo Fichero",
+            "filtername":"Filtrado por nombre:"
         }
     }
 }

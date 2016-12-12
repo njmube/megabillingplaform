@@ -18,12 +18,12 @@
             "detail": {
                 "title": "Rutas de Archivos del Emisor"
             },
-            "pathrootFreeCertificate": "Ruta Certificado",
-            "pathrootFreeLogo": "Ruta Logo",
-            "pathrootFreeCfdi": "Ruta CFDI",
-            "pathrootCertificate": "Ruta Certificado",
-            "pathrootLogo": "Ruta Logo",
-            "pathrootCfdi": "Ruta CFDI"
+            "pathrootFreeCertificate": "Ruta Certificado:",
+            "pathrootFreeLogo": "Ruta Logo:",
+            "pathrootFreeCfdi": "Ruta CFDI:",
+            "pathrootCertificate": "Ruta Certificado:",
+            "pathrootLogo": "Ruta Logo:",
+            "pathrootCfdi": "Ruta CFDI:"
         }
     }
 }

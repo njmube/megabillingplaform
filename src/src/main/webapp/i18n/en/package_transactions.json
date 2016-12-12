@@ -16,12 +16,18 @@
             "detail": {
                 "title": "Package Transactions"
             },
-            "name": "Name",
-            "description": "Description",
-            "price": "Price",
-            "expiry_time": "Expiry Ttime",
-            "unit_time": "Unit Time",
-            "package_state": "Package State"
+            "name": "Name:",
+            "namee": "Name",
+            "description": "Description:",
+            "descriptionn": "Description",
+            "price": "Price:",
+            "pricee": "Price",
+            "expiry_time": "Expiry Ttime:",
+            "expiry_timee": "Expiry Ttime",
+            "unit_time": "Unit Time:",
+            "unit_timee": "Unit Time",
+            "package_state": "Package State:",
+            "package_statee": "Package State"
         }
     }
 }

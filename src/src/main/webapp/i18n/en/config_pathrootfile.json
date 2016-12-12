@@ -18,12 +18,12 @@
             "detail": {
                 "title": "Emitter Routes Files"
             },
-            "pathrootFreeCertificate": "Path Certificate",
-            "pathrootFreeLogo": "Path Logo",
-            "pathrootFreeCfdi": "Path CFDI",
-            "pathrootCertificate": "Path Certificate",
-            "pathrootLogo": "Path Logo",
-            "pathrootCfdi": "Path CFDI"
+            "pathrootFreeCertificate": "Path Certificate:",
+            "pathrootFreeLogo": "Path Logo:",
+            "pathrootFreeCfdi": "Path CFDI:",
+            "pathrootCertificate": "Path Certificate:",
+            "pathrootLogo": "Path Logo:",
+            "pathrootCfdi": "Path CFDI:"
         }
     }
 }

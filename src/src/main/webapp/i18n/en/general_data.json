@@ -16,12 +16,12 @@
             "detail": {
                 "title": "General data"
             },
-            "platform_name": "Platform name",
-            "format_date": "Format date",
-            "logo": "Logo",
-            "adrees": "Adrees",
-            "phones": "Phones",
-            "path_root": "Path root"
+            "platform_name": "Platform name:",
+            "format_date": "Format date:",
+            "logo": "Logo:",
+            "adrees": "Adrees:",
+            "phones": "Phones:",
+            "path_root": "Path root:"
         }
     }
 }

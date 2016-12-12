@@ -16,12 +16,12 @@
             "detail": {
                 "title": "Datos generales"
             },
-            "platform_name": "Nombre de la plataforma",
-            "format_date": "Formato de fecha",
-            "logo": "Logo",
-            "adrees": "Dirección",
-            "phones": "Teléfonos",
-            "path_root": "Directorio raíz"
+            "platform_name": "Nombre de la plataforma:",
+            "format_date": "Formato de fecha:",
+            "logo": "Logo:",
+            "adrees": "Dirección:",
+            "phones": "Teléfonos:",
+            "path_root": "Directorio raíz:"
         }
     }
 }

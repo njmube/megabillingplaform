@@ -18,7 +18,8 @@
             },
             "adrees": "Dirección",
             "private_key": "Llave privada",
-            "possword": "Contraseña"
+            "possword": "Contraseña:",
+            "posswordd": "Contraseña"
         }
     }
 }
