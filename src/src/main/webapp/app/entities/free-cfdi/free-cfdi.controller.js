@@ -237,11 +237,75 @@
         }
 
         function transition () {
-            $state.transitionTo($state.$current, {
+            /*$state.transitionTo($state.$current, {
                 page: vm.page,
                 sort: vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc'),
                 search: vm.currentSearch
-            });
+            });*/
+            var dateFormat = 'yyyy-MM-dd';
+
+            var fromDate = $filter('date')("0000-01-01", dateFormat);
+            var toDate = $filter('date')("0000-01-01", dateFormat);
+            if(vm.dateStart != null){
+                fromDate = $filter('date')(vm.dateStart, dateFormat);
+            }
+            if(vm.dateEnd != null){
+                toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+            var foliof = " ";
+            if(vm.folio_fiscal != null && vm.folio_fiscal != ""){
+                foliof = vm.folio_fiscal;
+            }
+            var folio = " ";
+            if(vm.folio != null && vm.folio != ""){
+                folio = vm.folio;
+            }
+            var idFree_cfdi = 0;
+            if(vm.free_cfdi != null){
+                idFree_cfdi = vm.free_cfdi.id;
+            }
+            var serie = " ";
+            if(vm.serie != null && vm.serie != ""){
+                serie = vm.serie;
+            }
+            var rfcreceiver = " ";
+            if(vm.rfc_receiver != null && vm.rfc_receiver != ""){
+                rfcreceiver = vm.rfc_receiver;
+            }
+            var idstate = 0;
+            if(vm.state != null){
+                idstate = vm.state.id;
+            }
+            Free_cfdi.query({
+                page: vm.page - 1,
+                size: paginationConstants.itemsPerPage,
+                sort: sort(),
+                idFree_cfdi: idFree_cfdi,
+                folio_fiscal: foliof,
+                rfc_receiver: rfcreceiver,
+                fromDate: fromDate,
+                toDate: toDate,
+                idState: idstate,
+                serie: serie,
+                folio: folio
+            }, onSuccess, onError);
+            function sort() {
+                var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+                if (vm.predicate !== 'id') {
+                    result.push('id');
+                }
+                return result;
+            }
+            function onSuccess(data, headers) {
+                vm.links = ParseLinks.parse(headers('link'));
+                vm.totalItems = headers('X-Total-Count');
+                vm.queryCount = vm.totalItems;
+                vm.free_cfdis = data;
+                //vm.page = pagingParams.page;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
         }
 
         vm.datePickerOpenStatus = {};

@@ -31,6 +31,10 @@
         vm.predicate = pagingParams.predicate;
         vm.reverse = pagingParams.ascending;
         vm.transition = transition;
+        vm.transition1 = transition1;
+        vm.transition2 = transition2;
+        vm.transition3 = transition3;
+        vm.transition4 = transition4;
         //vm.loadAll();
         vm.folio_fiscal = null;
         vm.rfc_receiver = null;
@@ -498,11 +502,388 @@
         }
 
         function transition () {
-            $state.transitionTo($state.$current, {
+            /*$state.transitionTo($state.$current, {
                 page: vm.page,
                 sort: vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc'),
                 search: vm.currentSearch
-            });
+            });*/
+            vm.messDate = null;
+            var dateFormat = 'yyyy-MM-dd';
+
+            var fromDate = $filter('date')("0000-01-01", dateFormat);
+            var toDate = $filter('date')("0000-01-01", dateFormat);
+            if(vm.dateStart != null){
+                fromDate = $filter('date')(vm.dateStart, dateFormat);
+            }
+            if(vm.dateEnd != null){
+                toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+            if(vm.dateStart != null && vm.dateEnd != null){
+                if(vm.dateStart > vm.dateEnd){
+                    vm.messDate = 'OK';
+                }
+            }
+            var foliof = " ";
+            if(vm.folio_fiscal != null && vm.folio_fiscal != ""){
+                foliof = vm.folio_fiscal;
+            }
+            var folio = " ";
+            if(vm.folio != null && vm.folio != ""){
+                folio = vm.folio;
+            }
+
+            var serie = " ";
+            if(vm.serie != null && vm.serie != ""){
+                serie = vm.serie;
+            }
+            var rfcreceiver = " ";
+            if(vm.rfc_receiver != null && vm.rfc_receiver != ""){
+                rfcreceiver = vm.rfc_receiver;
+            }
+            var idcfdi_type_doc = 0;
+            if(vm.cfdi_type_doc != null){
+                idcfdi_type_doc = vm.cfdi_type_doc.id;
+            }
+            if(vm.messDate == null){
+                Cfdi.query({
+                    page: vm.page - 1,
+                    size: paginationConstants.itemsPerPage,
+                    sort: sort(),
+                    folio_fiscal: foliof,
+                    rfc_receiver: rfcreceiver,
+                    fromDate: fromDate,
+                    toDate: toDate,
+                    idcfdi_type_doc: idcfdi_type_doc,
+                    serie: serie,
+                    folio: folio,
+                    idaccount: vm.taxpayer_account.id,
+                    pre: 1,
+                    send: 0,
+                    cancel: 0,
+                    reciever: 0
+                }, onSuccess, onError);
+            }
+            function sort() {
+                var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+                if (vm.predicate !== 'id') {
+                    result.push('id');
+                }
+                return result;
+            }
+            function onSuccess(data, headers) {
+                vm.links = ParseLinks.parse(headers('link'));
+                vm.totalItems = headers('X-Total-Count');
+                vm.queryCount = vm.totalItems;
+                vm.precfdis = data;
+                //vm.page = pagingParams.page;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+        }
+        function transition1 () {
+            vm.messDate = null;
+            var dateFormat = 'yyyy-MM-dd';
+
+            var fromDate = $filter('date')("0000-01-01", dateFormat);
+            var toDate = $filter('date')("0000-01-01", dateFormat);
+            if(vm.dateStart != null){
+                fromDate = $filter('date')(vm.dateStart, dateFormat);
+            }
+            if(vm.dateEnd != null){
+                toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+            if(vm.dateStart != null && vm.dateEnd != null){
+                if(vm.dateStart > vm.dateEnd){
+                    vm.messDate = 'OK';
+                }
+            }
+            var foliof = " ";
+            if(vm.folio_fiscal != null && vm.folio_fiscal != ""){
+                foliof = vm.folio_fiscal;
+            }
+            var folio = " ";
+            if(vm.folio != null && vm.folio != ""){
+                folio = vm.folio;
+            }
+
+            var serie = " ";
+            if(vm.serie != null && vm.serie != ""){
+                serie = vm.serie;
+            }
+            var rfcreceiver = " ";
+            if(vm.rfc_receiver != null && vm.rfc_receiver != ""){
+                rfcreceiver = vm.rfc_receiver;
+            }
+            var idcfdi_type_doc = 0;
+            if(vm.cfdi_type_doc != null){
+                idcfdi_type_doc = vm.cfdi_type_doc.id;
+            }
+            if(vm.messDate == null){
+                Cfdi.query({
+                    page: vm.page - 1,
+                    size: paginationConstants.itemsPerPage,
+                    sort: sort(),
+                    folio_fiscal: foliof,
+                    rfc_receiver: rfcreceiver,
+                    fromDate: fromDate,
+                    toDate: toDate,
+                    idcfdi_type_doc: idcfdi_type_doc,
+                    serie: serie,
+                    folio: folio,
+                    idaccount: vm.taxpayer_account.id,
+                    pre: 0,
+                    send: 1,
+                    cancel: 0,
+                    reciever: 0
+                }, onSuccess, onError);
+            }
+
+            function sort() {
+                var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+                if (vm.predicate !== 'id') {
+                    result.push('id');
+                }
+                return result;
+            }
+            function onSuccess(data, headers) {
+                vm.links = ParseLinks.parse(headers('link'));
+                vm.totalItems = headers('X-Total-Count');
+                vm.queryCount = vm.totalItems;
+                vm.cfdis = data;
+                //vm.page = pagingParams.page;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+        }
+        function transition2 () {
+            vm.messDate = null;
+            var dateFormat = 'yyyy-MM-dd';
+
+            var fromDate = $filter('date')("0000-01-01", dateFormat);
+            var toDate = $filter('date')("0000-01-01", dateFormat);
+            if(vm.dateStart != null){
+                fromDate = $filter('date')(vm.dateStart, dateFormat);
+            }
+            if(vm.dateEnd != null){
+                toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+
+            if(vm.dateStart != null && vm.dateEnd != null){
+                if(vm.dateStart > vm.dateEnd){
+                    vm.messDate = 'OK';
+                }
+            }
+            var foliof = " ";
+            if(vm.folio_fiscal != null && vm.folio_fiscal != ""){
+                foliof = vm.folio_fiscal;
+            }
+            var folio = " ";
+            if(vm.folio != null && vm.folio != ""){
+                folio = vm.folio;
+            }
+
+            var serie = " ";
+            if(vm.serie != null && vm.serie != ""){
+                serie = vm.serie;
+            }
+            var rfcreceiver = " ";
+            if(vm.rfc_receiver != null && vm.rfc_receiver != ""){
+                rfcreceiver = vm.rfc_receiver;
+            }
+            var idcfdi_type_doc = 0;
+            if(vm.cfdi_type_doc != null){
+                idcfdi_type_doc = vm.cfdi_type_doc.id;
+            }
+            if(vm.messDate == null){
+                Cfdi.query({
+                    page: vm.page - 1,
+                    size: paginationConstants.itemsPerPage,
+                    sort: sort(),
+                    folio_fiscal: foliof,
+                    rfc_receiver: rfcreceiver,
+                    fromDate: fromDate,
+                    toDate: toDate,
+                    idcfdi_type_doc: idcfdi_type_doc,
+                    serie: serie,
+                    folio: folio,
+                    idaccount: vm.taxpayer_account.id,
+                    pre: 0,
+                    send: 0,
+                    cancel: 1,
+                    reciever: 0
+                }, onSuccess, onError);
+            }
+
+            function sort() {
+                var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+                if (vm.predicate !== 'id') {
+                    result.push('id');
+                }
+                return result;
+            }
+            function onSuccess(data, headers) {
+                vm.links = ParseLinks.parse(headers('link'));
+                vm.totalItems = headers('X-Total-Count');
+                vm.queryCount = vm.totalItems;
+                vm.cfdisCancel = data;
+                //vm.page = pagingParams.page;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+        }
+        function transition3 () {
+            vm.messDate = null;
+            var dateFormat = 'yyyy-MM-dd';
+
+            var fromDate = $filter('date')("0000-01-01", dateFormat);
+            var toDate = $filter('date')("0000-01-01", dateFormat);
+            if(vm.dateStart != null){
+                fromDate = $filter('date')(vm.dateStart, dateFormat);
+            }
+            if(vm.dateEnd != null){
+                toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+
+            if(vm.dateStart != null && vm.dateEnd != null){
+                if(vm.dateStart > vm.dateEnd){
+                    vm.messDate = 'OK';
+                }
+            }
+            var foliof = " ";
+            if(vm.folio_fiscal != null && vm.folio_fiscal != ""){
+                foliof = vm.folio_fiscal;
+            }
+            var folio = " ";
+            if(vm.folio != null && vm.folio != ""){
+                folio = vm.folio;
+            }
+
+            var serie = " ";
+            if(vm.serie != null && vm.serie != ""){
+                serie = vm.serie;
+            }
+            var rfcreceiver = " ";
+            if(vm.rfc_receiver != null && vm.rfc_receiver != ""){
+                rfcreceiver = vm.rfc_receiver;
+            }
+            var idcfdi_type_doc = 0;
+            if(vm.cfdi_type_doc != null){
+                idcfdi_type_doc = vm.cfdi_type_doc.id;
+            }
+            if(vm.messDate == null){
+                Cfdi.query({
+                    page: vm.page - 1,
+                    size: paginationConstants.itemsPerPage,
+                    sort: sort(),
+                    folio_fiscal: foliof,
+                    rfc_receiver: rfcreceiver,
+                    fromDate: fromDate,
+                    toDate: toDate,
+                    idcfdi_type_doc: idcfdi_type_doc,
+                    serie: serie,
+                    folio: folio,
+                    idaccount: vm.taxpayer_account.id,
+                    pre: 0,
+                    send: 0,
+                    cancel: 0,
+                    reciever: 1
+                }, onSuccess, onError);
+            }
+            function sort() {
+                var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+                if (vm.predicate !== 'id') {
+                    result.push('id');
+                }
+                return result;
+            }
+            function onSuccess(data, headers) {
+                vm.links = ParseLinks.parse(headers('link'));
+                vm.totalItems = headers('X-Total-Count');
+                vm.queryCount = vm.totalItems;
+                vm.cfdisRecieve = data;
+                //vm.page = pagingParams.page;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
+        }
+        function transition4 () {
+            vm.messDate = null;
+            var dateFormat = 'yyyy-MM-dd';
+
+            var fromDate = $filter('date')("0000-01-01", dateFormat);
+            var toDate = $filter('date')("0000-01-01", dateFormat);
+            if(vm.dateStart != null){
+                fromDate = $filter('date')(vm.dateStart, dateFormat);
+            }
+            if(vm.dateEnd != null){
+                toDate = $filter('date')(vm.dateEnd, dateFormat);
+            }
+            if(vm.dateStart != null && vm.dateEnd != null){
+                if(vm.dateStart > vm.dateEnd){
+                    vm.messDate = 'OK';
+                }
+            }
+            var foliof = " ";
+            if(vm.folio_fiscal != null && vm.folio_fiscal != ""){
+                foliof = vm.folio_fiscal;
+            }
+            var folio = " ";
+            if(vm.folio != null && vm.folio != ""){
+                folio = vm.folio;
+            }
+            var idFree_cfdi = 0;
+            if(vm.free_cfdi != null){
+                idFree_cfdi = vm.free_cfdi.id;
+            }
+            var serie = " ";
+            if(vm.serie != null && vm.serie != ""){
+                serie = vm.serie;
+            }
+            var rfcreceiver = " ";
+            if(vm.rfc_receiver != null && vm.rfc_receiver != ""){
+                rfcreceiver = vm.rfc_receiver;
+            }
+            var idstate = 0;
+            if(vm.state != null){
+                idstate = vm.state.id;
+            }
+            if(vm.messDate == null){
+                Free_cfdi.query({
+                    page: vm.page - 1,
+                    size: paginationConstants.itemsPerPage,
+                    sort: sort(),
+                    idFree_cfdi: idFree_cfdi,
+                    folio_fiscal: foliof,
+                    rfc_receiver: rfcreceiver,
+                    fromDate: fromDate,
+                    toDate: toDate,
+                    idState: idstate,
+                    serie: serie,
+                    folio: folio
+                }, onSuccess, onError);
+            }
+
+            function sort() {
+                var result = [vm.predicate + ',' + (vm.reverse ? 'asc' : 'desc')];
+                if (vm.predicate !== 'id') {
+                    result.push('id');
+                }
+                return result;
+            }
+            function onSuccess(data, headers) {
+                vm.links = ParseLinks.parse(headers('link'));
+                vm.totalItems = headers('X-Total-Count');
+                vm.queryCount = vm.totalItems;
+                vm.free_cfdis = data;
+                //vm.page = pagingParams.page;
+            }
+            function onError(error) {
+                AlertService.error(error.data.message);
+            }
         }
 
         vm.datePickerOpenStatus = {};

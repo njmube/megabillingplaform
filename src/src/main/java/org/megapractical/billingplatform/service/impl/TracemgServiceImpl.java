@@ -146,22 +146,27 @@ public class TracemgServiceImpl implements TracemgService{
         if(principal.compareTo(" ")!=0 && ip.compareTo(" ")==0){
            result = tracemgRepository.findByPrincipalAndTimestampBetweenOrderByIdDesc(principal,from,to,pageable);
         }
+
         if(principal.compareTo(" ")==0 && ip.compareTo(" ")!=0){
            result = tracemgRepository.findByIpAndTimestampBetweenOrderByIdDesc(ip, from, to, pageable);
         }
         if(principal.compareTo(" ")!=0 && ip.compareTo(" ")!=0){
            result = tracemgRepository.findByIpAndPrincipalAndTimestampBetweenOrderByIdDesc(ip,principal,from,to,pageable);
         }
+        log.debug("Result de Tracemgs antes del filtro: "+result.getContent().size());
         if(auditEventType.compareTo(" ")!=0){
             Audit_event_type au = audit_event_typeService.findByName(auditEventType);
             List<Tracemg> list = new ArrayList<>();
             if(au != null){
                 for(Tracemg trace: result.getContent()){
-                    if(trace.getAudit_event_type().getName().compareTo(au.getName())==0){
-                        list.add(trace);
+                    if(trace.getAudit_event_type()!= null) {
+                        if (trace.getAudit_event_type().getId() == au.getId()) {
+                            list.add(trace);
+                        }
                     }
                 }
-                Page<Tracemg> page = new PageImpl<Tracemg>(list,pageable,result.getTotalElements());
+                log.debug("List con el resultado del filtro: "+ list.size());
+                Page<Tracemg> page = new PageImpl<Tracemg>(list,pageable,list.size());
                 return page;
             }
         }
