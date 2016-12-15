@@ -16,9 +16,9 @@
             "detail": {
                 "title": "Com Accreditation IEPS"
             },
-            "version": "Version (*)",
-            "c_tar": "TAR (*)",
-            "free_cfdi": "Free_cfdi"
+            "version": "Version (*):",
+            "c_tar": "TAR (*):",
+            "cfdi": "Cfdi"
         }
     }
 }

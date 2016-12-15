@@ -16,11 +16,11 @@
             "detail": {
                 "title": "Freecom Specific Descriptions"
             },
-            "brand": "Brand (*)",
-            "model": "Model",
-            "submodel": "Submodel",
-            "serial_number": "Serial Number",
-            "freecom_commodity": "Freecom Commodity"
+            "brand": "Brand (*):",
+            "model": "Model:",
+            "submodel": "Submodel:",
+            "serial_number": "Serial Number:",
+            "freecom_commodity": "Freecom Commodity:"
         }
     }
 }

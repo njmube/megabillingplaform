@@ -16,7 +16,7 @@
             "detail": {
                 "title": "Freecom_foreign_exchange"
             },
-            "c_type_operation": "Tipo Operación (*)",
+            "c_type_operation": "Tipo Operación (*):",
             "free_cfdi": "Free_cfdi"
         }
     }

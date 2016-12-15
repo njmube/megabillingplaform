@@ -16,9 +16,9 @@
             "detail": {
                 "title": "Freecom_info_customs_destruction"
             },
-            "numpedimp": "Numpedimp (*)",
-            "date_expedition": "Date_expedition (*)",
-            "customs": "Customs (*)",
+            "numpedimp": "Numpedimp (*):",
+            "date_expedition": "Date_expedition (*):",
+            "customs": "Customs (*):",
             "freecom_destruction_certificate": "Freecom_destruction_certificate"
         }
     }

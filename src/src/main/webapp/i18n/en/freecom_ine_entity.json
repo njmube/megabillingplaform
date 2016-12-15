@@ -16,9 +16,9 @@
             "detail": {
                 "title": "Freecom Ine Entity"
             },
-            "key_entity": "Key Entity (*)",
-            "freecom_ine": "Freecom Ine",
-            "c_scope_type": "C Scope Type (*)"
+            "key_entity": "Key Entity (*):",
+            "freecom_ine": "Freecom Ine:",
+            "c_scope_type": "C Scope Type (*):"
         }
     }
 }

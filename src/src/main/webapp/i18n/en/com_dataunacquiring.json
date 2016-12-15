@@ -16,11 +16,11 @@
             "detail": {
                 "title": "Com_dataunacquiring"
             },
-            "name": "Name (*)",
-            "last_name": "Last_name",
-            "mother_last_name": "Mother_last_name",
-            "rfc": "Rfc (*)",
-            "curp": "Curp",
+            "name": "Name (*):",
+            "last_name": "Last_name:",
+            "mother_last_name": "Mother_last_name:",
+            "rfc": "Rfc (*):",
+            "curp": "Curp:",
             "com_acquiring_data": "Com_acquiring_data"
         }
     }

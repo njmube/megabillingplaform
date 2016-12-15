@@ -16,22 +16,22 @@
             "detail": {
                 "title": "Freecom Foreign Trade"
             },
-            "version": "Version",
-            "emitter_curp": "Emitter Curp",
-            "receiver_curp": "Receiver Curp",
-            "receiver_numregidtrib": "Receiver Numregidtrib (*)",
-            "origin_certificate": "Origin Certificate",
-            "number_origin_certificate": "Number Origin Certificate",
-            "number_reliable_exporter": "Number Reliable Exporter",
-            "subdivision": "Subdivision",
-            "observations": "Observations",
-            "typechangeusd": "Typechangeusd",
-            "totalusd": "Totalusd",
-            "free_cfdi": "Free Cfdi",
-            "freecom_incoterm": "Freecom Incoterm",
-            "c_type_operation_ce": "C Type Operation Ce",
-            "c_key_pediment": "C Key Pediment",
-            "freecom_addressee": "Freecom Addressee"
+            "version": "Version:",
+            "emitter_curp": "Emitter Curp:",
+            "receiver_curp": "Receiver Curp:",
+            "receiver_numregidtrib": "Receiver Numregidtrib (*):",
+            "origin_certificate": "Origin Certificate:",
+            "number_origin_certificate": "Number Origin Certificate:",
+            "number_reliable_exporter": "Number Reliable Exporter:",
+            "subdivision": "Subdivision:",
+            "observations": "Observations:",
+            "typechangeusd": "Typechangeusd:",
+            "totalusd": "Totalusd:",
+            "free_cfdi": "Free Cfdi:",
+            "freecom_incoterm": "Freecom Incoterm:",
+            "c_type_operation_ce": "C Type Operation Ce:",
+            "c_key_pediment": "C Key Pediment:",
+            "freecom_addressee": "Freecom Addressee:"
         }
     }
 }

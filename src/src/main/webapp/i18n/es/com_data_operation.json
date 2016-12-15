@@ -16,12 +16,12 @@
             "detail": {
                 "title": "Com_data_operation"
             },
-            "notarialinstrument": "Notarialinstrument (*)",
-            "dateinstnotarial": "Dateinstnotarial (*)",
-            "amountofoperation": "Amountofoperation (*)",
-            "subtotal": "Subtotal (*)",
-            "iva": "Iva (*)",
-            "com_public_notaries": "Com_public_notaries"
+            "notarialinstrument": "Notarialinstrument (*):",
+            "dateinstnotarial": "Dateinstnotarial (*):",
+            "amountofoperation": "Amountofoperation (*):",
+            "subtotal": "Subtotal (*):",
+            "iva": "Iva (*):",
+            "com_public_notaries": "Com_public_notaries:"
         }
     }
 }

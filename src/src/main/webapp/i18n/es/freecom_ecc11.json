@@ -16,11 +16,11 @@
             "detail": {
                 "title": "Freecom Ecc 11"
             },
-            "version": "Version",
-            "type_operation": "Type Operation (*)",
-            "number_account": "Number Account (*)",
-            "subtotal": "Subtotal (*)",
-            "total": "Total (*)",
+            "version": "Version:",
+            "type_operation": "Type Operation (*):",
+            "number_account": "Number Account (*):",
+            "subtotal": "Subtotal (*):",
+            "total": "Total (*):",
             "free_cfdi": "Free Cfdi"
         }
     }

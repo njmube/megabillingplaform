@@ -16,8 +16,8 @@
             "detail": {
                 "title": "Com Destruction Certificate"
             },
-            "version": "Version",
-            "numfoldesveh": "No. Folio Destrucción (*)",
+            "version": "Version:",
+            "numfoldesveh": "No. Folio Destrucción (*):",
             "brand": "Marca (*):",
             "class_dc": "Tipo Clase (*):",
             "year": "Año (*):",
@@ -27,7 +27,7 @@
             "number_plates": "No. Placas (*):",
             "number_engine": "No. Motor::",
             "numfoltarjcir": "No. Folio Tarjeta (*):",
-            "free_cfdi": "Free Cfdi",
+            "cfdi": "Cfdi",
             "c_type_series": "Series (*):",
 			"validation": {
 				"year": "El año debe ser superior a 1900."

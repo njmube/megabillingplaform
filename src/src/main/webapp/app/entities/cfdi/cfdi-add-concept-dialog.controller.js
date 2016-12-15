@@ -13,7 +13,7 @@
         vm.conceptDTOs = [];
         vm.taxpayer_account = taxpayer_account_entity;
         vm.tax_typess = Tax_types.query({filtername: " "});
-        vm.other_ivas = [{id: 101, rate: "0.00"}, {id: 102, rate: "No aplica"} , {id: 103, rate: "Excento"}];
+        vm.other_ivas = [{id: 101, rate: 0}, {id: 102, rate: "No aplica"} , {id: 103, rate: "Excento"}];
 
         vm.price_concepts = [];
         vm.measure_unit_concepts = [];

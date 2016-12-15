@@ -19,7 +19,7 @@
             "type_tax": "Tipo Impuesto (*):",
             "rate": "Tasa o Cuota (*):",
             "amount": "Importe (*):",
-            "Com_ecc11_concept": "Com Ecc 11 Concept"
+            "Com_ecc11_concept": "Com Ecc 11 Concept:"
         }
     }
 }

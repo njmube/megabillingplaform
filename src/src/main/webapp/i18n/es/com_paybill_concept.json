@@ -23,7 +23,7 @@
             "name": "Nombre (*):",
             "social_security_number": "No. Seguridad Social:",
             "amount": "Importe (*):",
-            "freecom_storeroom_paybill": "Freecom_storeroom_paybill"
+            "com_storeroom_paybill": "Com_storeroom_paybill"
         }
     }
 }

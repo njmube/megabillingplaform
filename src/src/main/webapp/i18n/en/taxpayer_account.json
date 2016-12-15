@@ -32,7 +32,7 @@
             "accuracyy": "Accuracy",
             "tax_address": "Tax Address",
             "taxpayer_certificate": "Taxpayer Certificate",
-            "type_taxpayer": "Type Taxpayer",
+            "type_taxpayer": "Type Taxpayer:",
             "tax_regime": "Tax Regime",
             "user": "User",
             "general":"General",

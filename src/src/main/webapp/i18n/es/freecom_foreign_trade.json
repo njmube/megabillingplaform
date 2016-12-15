@@ -16,7 +16,7 @@
             "detail": {
                 "title": "Freecom Foreign Trade"
             },
-            "version": "Version",
+            "version": "Version:",
             "emitter_curp": "CURP:",
             "receiver_curp": "CURP:",
             "receiver_numregidtrib": "No. RegIdTrib (*):",
@@ -31,7 +31,7 @@
             "freecom_incoterm": "Incoterm:",
             "c_type_operation_ce": "Tipo Operación (*):",
             "c_key_pediment": "Clave de Pedimento:",
-            "freecom_addressee": "Freecom Addressee"
+            "freecom_addressee": "Freecom Addressee:"
         }
     }
 }

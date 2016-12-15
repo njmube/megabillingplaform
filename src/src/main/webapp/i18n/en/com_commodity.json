@@ -16,13 +16,13 @@
             "detail": {
                 "title": "Com Commodity"
             },
-            "noidentification": "Noidentification (*)",
-            "customs_quantity": "Customs Quantity",
-            "customs_unit_value": "Customs Unit Value",
-            "dollar_value": "Dollar Value (*)",
-            "com_foreign_trade": "Foreign Trade",
-            "com_tariff_fraction": "Tariff Fraction",
-            "com_custom_unit": "Custom Unit"
+            "noidentification": "Noidentification (*):",
+            "customs_quantity": "Customs Quantity:",
+            "customs_unit_value": "Customs Unit Value:",
+            "dollar_value": "Dollar Value (*):",
+            "com_foreign_trade": "Foreign Trade:",
+            "com_tariff_fraction": "Tariff Fraction:",
+            "com_custom_unit": "Custom Unit:"
         }
     }
 }

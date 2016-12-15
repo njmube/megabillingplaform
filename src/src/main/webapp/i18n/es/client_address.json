@@ -16,17 +16,17 @@
             "detail": {
                 "title": "Client Address"
             },
-            "street": "Street",
-            "no_int": "No Int",
-            "no_ext": "No Ext",
-            "location": "Location",
-            "intersection": "Intersection",
-            "reference": "Reference",
-            "c_country": "C Country  (*)",
-            "c_state": "C State",
-            "c_municipality": "C Municipality",
-            "c_colony": "C Colony",
-            "c_zip_code": "C Zip Code"
+            "street": "Street:",
+            "no_int": "No Int:",
+            "no_ext": "No Ext:",
+            "location": "Location:",
+            "intersection": "Intersection:",
+            "reference": "Reference:",
+            "c_country": "C Country  (*):",
+            "c_state": "C State:",
+            "c_municipality": "C Municipality:",
+            "c_colony": "C Colony:",
+            "c_zip_code": "C Zip Code:"
         }
     }
 }

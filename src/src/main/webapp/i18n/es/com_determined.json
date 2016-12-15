@@ -18,8 +18,8 @@
             },
             "rate": "Tasa (*):",
             "amount": "Importe (*):",
-            "freecom_concept_fuel": "Complemento Consumo de Combustible:",
-            "freecom_tax_type": "Tipo Impuesto:"
+            "com_concept_fuel": "Complemento Consumo de Combustible:",
+            "com_tax_type": "Tipo Impuesto:"
         }
     }
 }

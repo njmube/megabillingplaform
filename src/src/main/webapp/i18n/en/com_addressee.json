@@ -16,20 +16,20 @@
             "detail": {
                 "title": "Com Addressee"
             },
-            "street": "Street (*)",
-            "no_ext": "No Ext",
-            "no_int": "No Int",
-            "locate": "Locate",
-            "reference": "Reference",
-            "numregidtrib": "Numregidtrib",
-            "rfc": "Rfc",
-            "curp": "Curp",
-            "name": "Name",
-            "c_country": "C Country",
-            "c_state": "C State",
-            "c_municipality": "C Municipality",
-            "c_colony": "C Colony",
-            "c_zip_code": "C Zip Code"
+            "street": "Street (*):",
+            "no_ext": "No Ext:",
+            "no_int": "No Int:",
+            "locate": "Locate:",
+            "reference": "Reference:",
+            "numregidtrib": "Numregidtrib:",
+            "rfc": "RFC:",
+            "curp": "Curp:",
+            "name": "Name:",
+            "c_country": "C Country:",
+            "c_state": "C State:",
+            "c_municipality": "C Municipality:",
+            "c_colony": "C Colony:",
+            "c_zip_code": "C Zip Code:"
         }
     }
 }

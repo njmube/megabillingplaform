@@ -30,8 +30,8 @@
             "com_incoterm": "Incoterm:",
             "c_type_operation_ce": "Tipo Operación (*):",
             "c_key_pediment": "Clave de Pedimento:",
-            "cfdi": "Cfdi",
-            "com_addressee": "Addressee"
+            "cfdi": "Cfdi:",
+            "com_addressee": "Addressee:"
         }
     }
 }

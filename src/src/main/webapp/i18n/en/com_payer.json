@@ -16,11 +16,11 @@
             "detail": {
                 "title": "Com Payer"
             },
-            "emitter_bank": "Emitter Bank (*)",
-            "name": "Name (*)",
-            "type_account": "Type Account (*)",
-            "account": "Account (*)",
-            "rfc": "Rfc (*)"
+            "emitter_bank": "Emitter Bank (*):",
+            "name": "Name (*):",
+            "type_account": "Type Account (*):",
+            "account": "Account (*):",
+            "rfc": "RFC (*):"
         }
     }
 }

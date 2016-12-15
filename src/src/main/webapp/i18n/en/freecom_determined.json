@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Freecom_determined"
             },
-            "rate": "Rate (*)",
-            "amount": "Amount (*)",
-            "freecom_concept_fuel": "Freecom_concept_fuel",
-            "freecom_tax_type": "Freecom_tax_type"
+            "rate": "Rate (*):",
+            "amount": "Amount (*):",
+            "freecom_concept_fuel": "Freecom_concept_fuel:",
+            "freecom_tax_type": "Freecom_tax_type:"
         }
     }
 }

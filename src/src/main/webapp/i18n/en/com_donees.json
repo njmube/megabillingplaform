@@ -16,11 +16,11 @@
             "detail": {
                 "title": "Com Donees"
             },
-            "version": "Version",
-            "no_authorization": "Authorization No. (*)",
-            "date_authorization": "Authorization Date (*)",
-            "legend": "Legend (*)",
-            "free_cfdi": "Free_cfdi"
+            "version": "Version:",
+            "no_authorization": "Authorization No. (*):",
+            "date_authorization": "Authorization Date (*):",
+            "legend": "Legend (*):",
+            "cfdi": "Cfdi"
         }
     }
 }

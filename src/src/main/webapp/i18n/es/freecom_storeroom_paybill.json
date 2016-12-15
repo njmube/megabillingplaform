@@ -16,7 +16,7 @@
             "detail": {
                 "title": "Freecom_storeroom_paybill"
             },
-            "version": "Version",
+            "version": "Version:",
             "type_operation": "Tipo Operación (*):",
             "employer_registration": "Registro Patronal:",
             "account_number": "No. Cuenta (*):",

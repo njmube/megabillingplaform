@@ -19,7 +19,7 @@
             "number": "No. Doc. Aduanero (*):",
             "date_expedition": "Fecha Expedición (*):",
             "customs": "Aduana:",
-            "freecom_used_vehicle": "Freecom_used_vehicle"
+            "com_used_vehicle": "Com_used_vehicle"
         }
     }
 }

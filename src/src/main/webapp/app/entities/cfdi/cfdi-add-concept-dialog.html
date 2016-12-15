@@ -75,19 +75,19 @@
                 </td>
                 <td>
                     <select ng-model="vm.iva[$index]"
-                            ng-options="iva_concept as iva_concept.rate for iva_concept in vm.iva_concepts[$index].concat(vm.other_ivas) track by iva_concept.id">
+                            ng-options="iva_concept as iva_concept.rate | uimegaselectdecimalformat for iva_concept in vm.iva_concepts[$index].concat(vm.other_ivas) track by iva_concept.id">
                         <option value=""></option>
                     </select>
                 </td>
                 <td>
                     <select ng-model="vm.ieps[$index]"
-                            ng-options="ieps_concept as ieps_concept.rate | number : 2 for ieps_concept in vm.ieps_concepts[$index] track by ieps_concept.id">
+                            ng-options="ieps_concept as ieps_concept.rate | uimegaselectdecimalformat for ieps_concept in vm.ieps_concepts[$index] track by ieps_concept.id">
                         <option value=""></option>
                     </select>
                 </td>
                 <td>
                     <select ng-model="vm.discount[$index]"
-                            ng-options="discount_concept as discount_concept.value | uimeganumberformat for discount_concept in vm.discount_concepts[$index] track by discount_concept.id" data-ng-change="vm.calcConceptAmount($index)">
+                            ng-options="discount_concept as discount_concept.value | uimegaselectdecimalformat for discount_concept in vm.discount_concepts[$index] track by discount_concept.id" data-ng-change="vm.calcConceptAmount($index)">
                         <option value=""></option>
                     </select>
                 </td>

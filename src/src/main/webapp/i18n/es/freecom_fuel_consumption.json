@@ -16,7 +16,7 @@
             "detail": {
                 "title": "Freecom_fuel_consumption"
             },
-            "version": "Version",
+            "version": "Version:",
             "type_operation": "Tipo Operación (*):",
             "account_number": "No. Cuenta (*):",
             "subtotal": "Subtotal:",

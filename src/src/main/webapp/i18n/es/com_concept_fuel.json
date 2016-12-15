@@ -25,7 +25,7 @@
             "folio_operation": "Folio de Operación (*):",
             "unit_value": "Valor Unitario (*):",
             "amount": "Importe:",
-            "freecom_fuel_consumption": "Complemento Consumo de Combustible"
+            "com_fuel_consumption": "Complemento Consumo de Combustible"
         }
     }
 }

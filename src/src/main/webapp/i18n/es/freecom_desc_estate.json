@@ -16,18 +16,18 @@
             "detail": {
                 "title": "Freecom_desc_estate"
             },
-            "street": "Street (*)",
-            "noext": "Noext",
-            "noint": "Noint",
-            "locale": "Locale",
-            "reference": "Reference",
-            "freecom_public_notaries": "Freecom_public_notaries",
-            "c_type_estate": "Type_state (*)",
-            "c_colony": "C_colony",
-            "c_municipality": "C_municipality (*)",
-            "c_state": "C_state (*)",
-            "c_country": "C_country (*)",
-            "c_zip_code": "C_zip_code"
+            "street": "Street (*):",
+            "noext": "Noext:",
+            "noint": "Noint:",
+            "locale": "Locale:",
+            "reference": "Reference:",
+            "freecom_public_notaries": "Freecom_public_notaries:",
+            "c_type_estate": "Type_state (*):",
+            "c_colony": "C_colony:",
+            "c_municipality": "C_municipality (*):",
+            "c_state": "C_state (*):",
+            "c_country": "C_country (*):",
+            "c_zip_code": "C_zip_code:"
         }
     }
 }

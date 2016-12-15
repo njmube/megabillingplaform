@@ -16,8 +16,8 @@
             "detail": {
                 "title": "Freecom Destruction Certificate"
             },
-            "version": "Version",
-            "numfoldesveh": "No. Folio Destrucción (*)",
+            "version": "Version:",
+            "numfoldesveh": "No. Folio Destrucción (*):",
             "brand": "Marca (*):",
             "class_dc": "Tipo Clase (*):",
             "year": "Año (*):",
@@ -25,7 +25,7 @@
             "niv": "NIV:",
             "no_serie": "No. Serie:",
             "number_plates": "No. Placas (*):",
-            "number_engine": "No. Motor::",
+            "number_engine": "No. Motor:",
             "numfoltarjcir": "No. Folio Tarjeta (*):",
             "free_cfdi": "Free Cfdi",
             "c_type_series": "Series (*):",

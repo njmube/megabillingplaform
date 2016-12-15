@@ -16,13 +16,13 @@
             "detail": {
                 "title": "Com Educational Institutions"
             },
-            "version": "Version",
+            "version": "Version:",
             "name_student": "Nombre Alumno (*):",
             "curp": "CURP (*):",
             "autrvoe": "Autrvoe:",
             "rfcpayment": "RFC Pago (*):",
             "c_school_level": "Nivel Educativo (*):",
-            "free_cfdi": "Free_cfdi"
+            "cfdi": "Cfdi"
         }
     }
 }

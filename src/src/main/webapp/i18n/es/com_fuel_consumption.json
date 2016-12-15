@@ -21,7 +21,7 @@
             "account_number": "No. Cuenta (*):",
             "subtotal": "Subtotal:",
             "total": "Total (*):",
-            "free_cfdi": "Free_cfdi"
+            "cfdi": "cfdi"
         }
     }
 }

@@ -16,12 +16,12 @@
             "detail": {
                 "title": "Com Ecc 11"
             },
-            "version": "Version",
-            "type_operation": "Type Operation (*)",
-            "number_account": "Number Account (*)",
-            "subtotal": "Subtotal (*)",
-            "total": "Total (*)",
-            "free_cfdi": "Free Cfdi"
+            "version": "Version:",
+            "type_operation": "Type Operation (*):",
+            "number_account": "Number Account (*):",
+            "subtotal": "Subtotal (*):",
+            "total": "Total (*):",
+            "cfdi": "Cfdi"
         }
     }
 }

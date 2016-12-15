@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Com Local Taxes"
             },
-            "version": "Version",
-            "total_local_retentions": "Total Rentenciones",
-            "total_local_transfered": "Total Traslados",
-            "free_cfdi": "Free Cfdi"
+            "version": "Version:",
+            "total_local_retentions": "Total Rentenciones:",
+            "total_local_transfered": "Total Traslados:",
+            "cfdi": "Cfdi"
         }
     }
 }

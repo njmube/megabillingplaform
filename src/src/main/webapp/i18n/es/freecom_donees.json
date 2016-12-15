@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Freecom_donees"
             },
-            "version": "Version",
-            "no_authorization": "No. Autorización (*)",
-            "date_authorization": "Fecha de Autorización (*)",
-            "legend": "Leyenda (*)",
+            "version": "Version:",
+            "no_authorization": "No. Autorización (*):",
+            "date_authorization": "Fecha de Autorización (*):",
+            "legend": "Leyenda (*):",
             "free_cfdi": "Free_cfdi"
         }
     }

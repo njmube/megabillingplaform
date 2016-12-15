@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Com_info_customs_destruction"
             },
-            "numpedimp": "Numpedimp (*)",
-            "date_expedition": "Date_expedition (*)",
-            "customs": "Customs (*)",
-            "freecom_destruction_certificate": "Freecom_destruction_certificate"
+            "numpedimp": "Numpedimp (*):",
+            "date_expedition": "Date_expedition (*):",
+            "customs": "Customs (*):",
+            "com_destruction_certificate": "Com_destruction_certificate"
         }
     }
 }

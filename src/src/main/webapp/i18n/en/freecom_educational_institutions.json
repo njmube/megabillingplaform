@@ -16,12 +16,12 @@
             "detail": {
                 "title": "Freecom_educational_institutions"
             },
-            "version": "Version",
-            "name_student": "Student Name (*)",
-            "curp": "CURP (*)",
-            "autrvoe": "Autrvoe",
-            "rfcpayment": "RFC Payment (*)",
-            "c_school_level": "School Level (*)",
+            "version": "Version:",
+            "name_student": "Student Name (*):",
+            "curp": "CURP (*):",
+            "autrvoe": "Autrvoe:",
+            "rfcpayment": "RFC Payment (*):",
+            "c_school_level": "School Level (*):",
             "free_cfdi": "Free_cfdi"
         }
     }

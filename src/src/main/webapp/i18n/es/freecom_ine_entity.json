@@ -17,7 +17,7 @@
                 "title": "INE Entidad"
             },
             "key_entity": "Clave de entidad(*):",
-            "freecom_ine": "Complemento INE(*)",
+            "freecom_ine": "Complemento INE(*):",
             "c_scope_type": "Tipo de ámbito(*):"
         }
     }

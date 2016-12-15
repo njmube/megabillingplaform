@@ -16,8 +16,8 @@
             "detail": {
                 "title": "Com Taxregistration"
             },
-            "version": "Version (*)",
-            "folio": "Folio (*)",
+            "version": "Version (*):",
+            "folio": "Folio (*):",
             "free_cfdi": "Free_cfdi"
         }
     }

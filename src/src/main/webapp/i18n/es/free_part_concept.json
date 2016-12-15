@@ -16,13 +16,13 @@
             "detail": {
                 "title": "parte concepto"
             },
-            "no_identification": "No Identificación (*)",
-            "quantity": "Cantidad (*)",
-            "description": "Descripción",
-            "unit_value": "Valor Unitario (*)",
-            "amount": "Importe (*)",
-            "free_concept": "Concepto",
-            "measure_unit": "Unidad de Medida"
+            "no_identification": "No Identificación (*):",
+            "quantity": "Cantidad (*):",
+            "description": "Descripción:",
+            "unit_value": "Valor Unitario (*):",
+            "amount": "Importe (*):",
+            "free_concept": "Concepto:",
+            "measure_unit": "Unidad de Medida:"
         }
     }
 }

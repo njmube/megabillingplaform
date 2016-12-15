@@ -16,11 +16,11 @@
             "detail": {
                 "title": "Com Pfic"
             },
-            "version": "Version (*)",
-            "key_vehicle": "Key Vehicle (*)",
-            "license_plate": "License Plate (*)",
-            "rfcpf": "RFCPF",
-            "free_cfdi": "Free_cfdi"
+            "version": "Version (*):",
+            "key_vehicle": "Key Vehicle (*):",
+            "license_plate": "License Plate (*):",
+            "rfcpf": "RFCPF:",
+            "cfdi": "Cfdi"
         }
     }
 }

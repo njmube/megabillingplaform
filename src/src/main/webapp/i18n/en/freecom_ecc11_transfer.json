@@ -16,9 +16,9 @@
             "detail": {
                 "title": "Freecom Ecc 11 Transfer"
             },
-            "type_tax": "Type Tax (*)",
-            "rate": "Rate (*)",
-            "amount": "Amount (*)",
+            "type_tax": "Type Tax (*):",
+            "rate": "Rate (*):",
+            "amount": "Amount (*):",
             "freecom_ecc11_concept": "Freecom Ecc 11 Concept"
         }
     }

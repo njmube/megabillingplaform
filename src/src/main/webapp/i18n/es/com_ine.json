@@ -16,11 +16,11 @@
             "detail": {
                 "title": "Com Ine"
             },
-            "version": "Version",
-            "ident": "ID Contabilidad",
-            "free_cfdi": "Free_cfdi",
-            "c_committee_type": "Tipo Comité",
-            "c_process_type": "Tipo Proceso (*)"
+            "version": "Version:",
+            "ident": "ID Contabilidad:",
+            "free_cfdi": "Free_cfdi:",
+            "c_committee_type": "Tipo Comité:",
+            "c_process_type": "Tipo Proceso (*):"
         }
     }
 }

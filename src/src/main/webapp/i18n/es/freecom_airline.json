@@ -16,9 +16,9 @@
             "detail": {
                 "title": "Freecom_airline"
             },
-            "version": "Version",
-            "tua": "TUA (*)",
-            "total_charge": "Total Cargos (*)",
+            "version": "Version:",
+            "tua": "TUA (*):",
+            "total_charge": "Total Cargos (*):",
             "free_cfdi": "Free_cfdi"
         }
     }

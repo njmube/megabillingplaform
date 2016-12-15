@@ -19,7 +19,7 @@
             "tax_provision": "Disposición Fiscal:",
             "norm": "Norma:",
             "text_legend": "Texto Leyenda (*):",
-            "freecom_taxlegends": "Freecom Taxlegends",
+            "freecom_taxlegends": "Freecom Taxlegends:",
 			"validation": {
                 "patternuppercaseletters": "Formato incorrecto, solo se aceptan letras mayúsculas."
             }

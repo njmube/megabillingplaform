@@ -16,12 +16,12 @@
             "detail": {
                 "title": "Com_storeroom_paybill"
             },
-            "version": "Version",
+            "version": "Version:",
             "type_operation": "Tipo Operación (*):",
             "employer_registration": "Registro Patronal:",
             "account_number": "No. Cuenta (*):",
             "total": "Total (*):",
-            "free_cfdi": "Free_cfdi"
+            "cfdi": "Cfdi"
         }
     }
 }

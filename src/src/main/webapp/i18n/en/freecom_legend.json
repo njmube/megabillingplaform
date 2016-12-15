@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Freecom Legend"
             },
-            "tax_provision": "Tax Provision",
-            "norm": "Norm",
-            "text_legend": "Text Legend (*)",
-            "freecom_taxlegends": "Freecom Taxlegends",
+            "tax_provision": "Tax Provision:",
+            "norm": "Norm:",
+            "text_legend": "Text Legend (*):",
+            "freecom_taxlegends": "Freecom Taxlegends:",
 			"validation": {
                 "patternuppercaseletters": "Wrong format, only uppercase letters are acepted."
             }

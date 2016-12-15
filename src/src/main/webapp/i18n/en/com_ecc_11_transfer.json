@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Com Ecc 11 Transfer"
             },
-            "type_tax": "Type Tax (*)",
-            "rate": "Rate (*)",
-            "amount": "Amount (*)",
-            "Com_ecc11_concept": "Com Ecc 11 Concept"
+            "type_tax": "Type Tax (*):",
+            "rate": "Rate (*):",
+            "amount": "Amount (*):",
+            "Com_ecc11_concept": "Com Ecc 11 Concept:"
         }
     }
 }

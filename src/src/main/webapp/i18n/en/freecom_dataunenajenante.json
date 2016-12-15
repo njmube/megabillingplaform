@@ -16,12 +16,12 @@
             "detail": {
                 "title": "Freecom_dataunenajenante"
             },
-            "name": "Name (*)",
-            "last_name": "Last_name (*)",
-            "mother_last_name": "Mother_last_name",
-            "rfc": "Rfc (*)",
-            "curp": "Curp (*)",
-            "freecom_data_enajenante": "Freecom_data_enajenante"
+            "name": "Name (*):",
+            "last_name": "Last_name (*):",
+            "mother_last_name": "Mother_last_name:",
+            "rfc": "Rfc (*):",
+            "curp": "Curp (*):",
+            "freecom_data_enajenante": "Freecom_data_enajenante:"
         }
     }
 }

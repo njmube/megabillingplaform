@@ -22,7 +22,7 @@
             "account": "Cuenta (*):",
             "rfc": "RFC (*):",
             "concept": "Concepto (*):",
-            "iva": "IVA (*)",
+            "iva": "IVA (*):",
             "payment_amount": "Monto de Pago (*):"
         }
     }

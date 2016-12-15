@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Freecom Local Retentions"
             },
-            "implocretentions": "Impuesto Local (*)",
-            "retentionrate": "Tasa  (*)",
-            "amountretentions": "Importe  (*)",
-            "freecom_local_taxes": "Freecom Local Taxes"
+            "implocretentions": "Impuesto Local (*):",
+            "retentionrate": "Tasa  (*):",
+            "amountretentions": "Importe  (*):",
+            "freecom_local_taxes": "Freecom Local Taxes:"
         }
     }
 }

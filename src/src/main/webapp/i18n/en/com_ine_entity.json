@@ -16,9 +16,9 @@
             "detail": {
                 "title": "Com Ine Entity"
             },
-            "key_entity": "Key Entity (*)",
-            "Com_ine": "Com Ine",
-            "c_scope_type": "C Scope Type  (*)"
+            "key_entity": "Key Entity (*):",
+            "Com_ine": "Com Ine:",
+            "c_scope_type": "C Scope Type  (*):"
         }
     }
 }

@@ -16,8 +16,8 @@
             "detail": {
                 "title": "Accounting"
             },
-            "keyaccounting": "Key Accounting (*)",
-            "freecom_ine_entity": "INE Entity"
+            "keyaccounting": "Key Accounting (*):",
+            "freecom_ine_entity": "INE Entity:"
         }
     }
 }

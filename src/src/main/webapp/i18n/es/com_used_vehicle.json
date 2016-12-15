@@ -16,7 +16,7 @@
             "detail": {
                 "title": "Com_used_vehicle"
             },
-            "version": "Version",
+            "version": "Version:",
             "acquisition_amount": "Monto Adquisicion (*):",
             "monto_enajenacion": "Monto Enajenación (*):",
             "key_vehicle": "Clave Vehicular (*):",
@@ -27,7 +27,7 @@
             "no_serie": "No. Serie (*):",
             "niv": "NIV (*):",
             "value": "Valor (*):",
-            "free_cfdi": "Free_cfdi"
+            "cfdi": "Cfdi"
         }
     }
 }

@@ -16,7 +16,7 @@
             "detail": {
                 "title": "Freecom_educational_institutions"
             },
-            "version": "Version",
+            "version": "Version:",
             "name_student": "Nombre Alumno (*):",
             "curp": "CURP (*):",
             "autrvoe": "Autrvoe:",

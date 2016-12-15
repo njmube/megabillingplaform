@@ -16,8 +16,8 @@
             "detail": {
                 "title": "Com_foreign_exchange"
             },
-            "c_type_operation": "Tipo Operación (*)",
-            "free_cfdi": "Free_cfdi"
+            "c_type_operation": "Tipo Operación (*):",
+            "cfdi": "Cfdi"
         }
     }
 }

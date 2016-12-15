@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Com_vehicle_customs_information"
             },
-            "number": "Number (*)",
-            "date_expedition": "Date_expedition (*)",
-            "customs": "Customs",
-            "freecom_used_vehicle": "Freecom_used_vehicle"
+            "number": "Number (*):",
+            "date_expedition": "Date_expedition (*):",
+            "customs": "Customs:",
+            "com_used_vehicle": "com_used_vehicle"
         }
     }
 }

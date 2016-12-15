@@ -16,13 +16,13 @@
             "detail": {
                 "title": "Part Concept"
             },
-            "no_identification": "No Identification (*)",
-            "quanitty": "Quanitty",
-            "description": "Description",
-            "unit_value": "Unit Value (*)",
-            "amount": "Amount",
-            "concept": "Concept",
-            "measure_unit": "Measure Unit (*)"
+            "no_identification": "No Identification (*):",
+            "quanitty": "Quanitty:",
+            "description": "Description:",
+            "unit_value": "Unit Value (*):",
+            "amount": "Amount:",
+            "concept": "Concept:",
+            "measure_unit": "Measure Unit (*):"
         }
     }
 }

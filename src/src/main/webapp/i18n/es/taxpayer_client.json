@@ -20,18 +20,18 @@
 			"tbl_heading": {
                 "c_country": "País",
                 "c_state": "Estado",
-                "rfc": "RFC",				
+                "rfc": "RFC",
 				"email": "Correo Electrónico",
 				"bussinesname": "Razón Social",
 				"phone": "Teléfono"
             },
-            "rfc": "Rfc (*)",
-            "bussinesname": "Bussinesname",
-            "email": "Email (*)",
-            "email2": "Email 2",
-            "phone": "Phone",
-            "client_address": "Client Address",
-            "taxpayer_account": "Taxpayer Account"
+            "rfc": "Rfc (*):",
+            "bussinesname": "Bussinesname:",
+            "email": "Email (*):",
+            "email2": "Email 2:",
+            "phone": "Phone:",
+            "client_address": "Client Address:",
+            "taxpayer_account": "Taxpayer Account:"
         }
     }
 }

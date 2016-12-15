@@ -16,18 +16,18 @@
             "detail": {
                 "title": "Com_used_vehicle"
             },
-            "version": "Version",
-            "acquisition_amount": "Acquisition_amount (*)",
-            "monto_enajenacion": "Monto_enajenacion (*)",
-            "key_vehicle": "Key_vehicle (*)",
-            "brand": "Brand (*)",
-            "type": "Type (*)",
-            "model": "Model (*)",
-            "number_engine": "Number_engine",
-            "no_serie": "No_serie (*)",
-            "niv": "Niv (*)",
-            "value": "Value (*)",
-            "free_cfdi": "Free_cfdi"
+            "version": "Version:",
+            "acquisition_amount": "Acquisition_amount (*):",
+            "monto_enajenacion": "Monto_enajenacion (*):",
+            "key_vehicle": "Key_vehicle (*):",
+            "brand": "Brand (*):",
+            "type": "Type (*):",
+            "model": "Model (*):",
+            "number_engine": "Number_engine:",
+            "no_serie": "No_serie (*):",
+            "niv": "Niv (*):",
+            "value": "Value (*):",
+            "cfdi": "Cfdi"
         }
     }
 }

@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Com Local Transfered"
             },
-            "imploctransfered": "Local Tax (*)",
-            "transferedrate": "Rate  (*)",
-            "amounttransfered": "Amount  (*)",
-            "freecom_local_taxes": "Freecom Local Taxes"
+            "imploctransfered": "Local Tax (*):",
+            "transferedrate": "Rate  (*):",
+            "amounttransfered": "Amount  (*):",
+            "com_local_taxes": "Com Local Taxes:"
         }
     }
 }

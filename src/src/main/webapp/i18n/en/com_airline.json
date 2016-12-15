@@ -16,10 +16,10 @@
             "detail": {
                 "title": "Com Airline"
             },
-            "version": "Version",
-            "tua": "TUA (*)",
-            "total_charge": "Total Charge (*)",
-            "free_cfdi": "Free_cfdi"
+            "version": "Version:",
+            "tua": "TUA (*):",
+            "total_charge": "Total Charge (*):",
+            "cfdi": "Cfdi"
         }
     }
 }

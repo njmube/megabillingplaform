@@ -22,9 +22,9 @@
 				"tax_types": "Tipo Impuesto",
 				"rate": "Tasa"
             },
-            "rate": "Rate (*)",
-            "tax_types": "Tax Types (*)",
-            "taxpayer_concept": "Taxpayer Concept (*)"
+            "rate": "Rate (*):",
+            "tax_types": "Tax Types (*):",
+            "taxpayer_concept": "Taxpayer Concept (*):"
         }
     }
 }

@@ -16,12 +16,12 @@
             "detail": {
                 "title": "Spei Third"
             },
-            "date_operation": "Date Operation (*)",
-            "hour": "Hour (*)",
-            "key_spei": "Key Spei (*)",
-            "stamp": "Stamp (*)",
-            "number_certificate": "Number Certificate (*)",
-            "cda": "Cda (*)",
+            "date_operation": "Date Operation (*):",
+            "hour": "Hour (*):",
+            "key_spei": "Key Spei (*):",
+            "stamp": "Stamp (*):",
+            "number_certificate": "Number Certificate (*):",
+            "cda": "Cda (*):",
             "com_spei": "SPEI Third",
             "com_payer": "Payer",
             "com_beneficiary": "Beneficiary"

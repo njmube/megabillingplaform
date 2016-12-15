@@ -16,12 +16,12 @@
             "detail": {
                 "title": "Com_fuel_consumption"
             },
-            "version": "Version",
-            "type_operation": "Type_operation (*)",
-            "account_number": "Account_number (*)",
-            "subtotal": "Subtotal",
-            "total": "Total (*)",
-            "free_cfdi": "Free_cfdi"
+            "version": "Version:",
+            "type_operation": "Type_operation (*):",
+            "account_number": "Account_number (*):",
+            "subtotal": "Subtotal:",
+            "total": "Total (*):",
+            "cfdi": "cfdi"
         }
     }
 }

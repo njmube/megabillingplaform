@@ -16,13 +16,13 @@
             "detail": {
                 "title": "Freecom Commodity"
             },
-            "noidentification": "Noidentification (*)",
-            "customs_quantity": "Customs Quantity",
-            "customs_unit_value": "Customs Unit Value",
-            "dollar_value": "Dollar Value (*)",
-            "freecom_foreign_trade": "Freecom Foreign Trade",
-            "freecom_tariff_fraction": "Freecom Tariff Fraction",
-            "freecom_custom_unit": "Freecom Custom Unit"
+            "noidentification": "Noidentification (*):",
+            "customs_quantity": "Customs Quantity:",
+            "customs_unit_value": "Customs Unit Value:",
+            "dollar_value": "Dollar Value (*):",
+            "freecom_foreign_trade": "Freecom Foreign Trade:",
+            "freecom_tariff_fraction": "Freecom Tariff Fraction:",
+            "freecom_custom_unit": "Freecom Custom Unit:"
         }
     }
 }
