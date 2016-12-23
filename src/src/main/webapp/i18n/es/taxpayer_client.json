@@ -25,11 +25,11 @@
 				"bussinesname": "Razón Social",
 				"phone": "Teléfono"
             },
-            "rfc": "Rfc (*):",
-            "bussinesname": "Bussinesname:",
-            "email": "Email (*):",
-            "email2": "Email 2:",
-            "phone": "Phone:",
+            "rfc": "RFC (*):",
+            "bussinesname": "Razón Social:",
+            "email": "Correo Electrónico # 1 (*):",
+            "email2": "Correo Electrónico # 2:",
+            "phone": "Teléfono:",
             "client_address": "Client Address:",
             "taxpayer_account": "Taxpayer Account:"
         }

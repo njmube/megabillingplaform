@@ -24,9 +24,9 @@
 				"discount_value": "Descuento (%)",
 				"measure_unit": "Unidad de Medida"
             },
-            "no_identification": "No Identification (*):",
-            "description": "Description (*):",
-            "predial_number": "Predial Number:",
+            "no_identification": "Código (*):",
+            "description": "Descripción (*):",
+            "predial_number": "No. Predial:",
             "taxpayer_account": "Taxpayer Account:",
             "measure_unit_concept": "Measure Unit Concept:",
             "price_concept": "Price Concept:",

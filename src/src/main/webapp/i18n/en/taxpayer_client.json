@@ -25,10 +25,10 @@
 				"bussinesname": "Bussines Name",
 				"phone": "Phone"
             },
-            "rfc": "Rfc (*):",
-            "bussinesname": "Bussinesname:",
-            "email": "Email (*):",
-            "email2": "Email 2:",
+            "rfc": "RFC (*):",
+            "bussinesname": "Bussines Name:",
+            "email": "Email # 1 (*):",
+            "email2": "Email # 2:",
             "phone": "Phone:",
             "client_address": "Client Address:",
             "taxpayer_account": "Taxpayer Account:"

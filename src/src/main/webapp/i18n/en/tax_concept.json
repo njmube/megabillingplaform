@@ -23,8 +23,8 @@
 				"rate": "Rate"
             },
             "rate": "Rate  (*):",
-            "tax_types": "Tax Types (*):",
-            "taxpayer_concept": "Taxpayer Concept (*):"
+            "tax_types": "Tax Type (*):",
+            "taxpayer_concept": "Concept (*):"
         }
     }
 }
