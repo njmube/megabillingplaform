@@ -47,7 +47,7 @@ public class Taxpayer_certificateServiceImpl implements Taxpayer_certificateServ
         log.debug("Request to save Taxpayer_certificate : {}", taxpayer_certificate);
 
         taxpayer_certificate = saveFile(taxpayer_certificate, rfc);
-        taxpayer_certificate.setPass_certificate(SecurityUtils.Encrip(taxpayer_certificate.getPass_certificate()));
+        //taxpayer_certificate.setPass_certificate(SecurityUtils.Encrip(taxpayer_certificate.getPass_certificate()));
         Taxpayer_certificate result = taxpayer_certificateRepository.save(taxpayer_certificate);
 
         return result;

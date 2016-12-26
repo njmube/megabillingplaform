@@ -232,6 +232,7 @@ public class Taxpayer_accountResource {
 
                     if(taxpayer_account.getTaxpayer_certificate() != null){
                         if(taxpayer_account.getTaxpayer_certificate().getPath_certificate()!=null) {
+                            taxpayer_account.getTaxpayer_certificate().setPass_certificate(SecurityUtils.Encrip(taxpayer_account.getTaxpayer_certificate().getPass_certificate()));
                             Taxpayer_certificate tc = taxpayer_certificateService.save(taxpayer_account.getTaxpayer_certificate(), taxpayer_account.getRfc());
                             taxpayer_account.setTaxpayer_certificate(tc);
                         }
