@@ -16,11 +16,11 @@
             "detail": {
                 "title": "Freecom_data_operation"
             },
-            "notarialinstrument": "Notarialinstrument (*):",
-            "dateinstnotarial": "Dateinstnotarial (*):",
-            "amountofoperation": "Amountofoperation (*):",
+            "notarialinstrument": "Notarial Instrument No. (*):",
+            "dateinstnotarial": "Notarial Instrument Date (*):",
+            "amountofoperation": "Operation Amount (*):",
             "subtotal": "Subtotal (*):",
-            "iva": "Iva (*):",
+            "iva": "IVA (*):",
             "freecom_public_notaries": "Freecom_public_notaries:"
         }
     }

@@ -17,10 +17,10 @@
                 "title": "Freecom_dataunacquiring"
             },
             "name": "Name (*):",
-            "last_name": "Last_name:",
-            "mother_last_name": "Mother_last_name:",
-            "rfc": "Rfc (*):",
-            "curp": "Curp:",
+            "last_name": "Last Name:",
+            "mother_last_name": "Mother Last Name:",
+            "rfc": "RFC (*):",
+            "curp": "CURP:",
             "freecom_acquiring_data": "Freecom_acquiring_data"
         }
     }

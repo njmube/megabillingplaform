@@ -16,8 +16,8 @@
             "detail": {
                 "title": "Freecom_notary_data"
             },
-            "curp": "Curp (*):",
-            "notarynumber": "Notarynumber (*):",
+            "curp": "CURP (*):",
+            "notarynumber": "Notary Number (*):",
             "ascription": "Ascription:",
             "freecom_public_notaries": "Freecom_public_notaries:",
             "c_pn_federal_entity": "Notaries Federal Entity (*):"
