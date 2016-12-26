@@ -662,8 +662,18 @@
             vm.taxpayer_client = null;
             vm.cfdi = {version: null, serial: null, folio: null, date_expedition: null, payment_conditions: null, change_type: (1).toFixed(2), place_expedition: null, account_number: null, folio_fiscal_orig: null, serial_folio_fiscal_orig: null, date_folio_fiscal_orig: null, mont_folio_fiscal_orig: null, total_tax_retention: null, total_tax_transfered: null, discount: (0).toFixed(2), discount_reason: null, subtotal: (0).toFixed(2), total: (0).toFixed(2), addenda: null, number_certificate: null, certificate: null, id: null};
             vm.cfdi.tax_regime = null;
+            vm.cfdi.cfdi_type_doc = null;
+            vm.cfdi.cfdi_types = null;
+            vm.cfdi.way_payment = null;
+            vm.cfdi.payment_method = null;
+
+            vm.way_payment = null;
+            vm.way_payment_x = 0;
+            vm.way_payment_y = 0;
+
             vm.cfdi.cfdi_states = {id: 1, name: "Creado  ", description: "CFDI creado en el sistema"};
             vm.cfdi.c_money = {id: 100, name: "MXN", description: "Peso Mexicano"};
+
             chooseSerieFolio();
             vm.show_iva = (0).toFixed(2);
             vm.calc_iva = (0).toFixed(2);
@@ -679,8 +689,6 @@
             resetComplements();
 
             vm.isSaving = false;
-
-
         };
 
         //Complements

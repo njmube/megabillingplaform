@@ -4,7 +4,7 @@
             "home": {
                 "title": "Com_desc_estates",
                 "createLabel": "Create a new Com_desc_estate",
-                "createOrEditLabel": "Create or edit a Com_desc_estate",
+                "createOrEditLabel": "Add Description State",
                 "search": "Search for Com_desc_estate"
             },
             "created": "A new Com_desc_estate is created with identifier {{ param }}",
@@ -17,17 +17,17 @@
                 "title": "Com_desc_estate"
             },
             "street": "Street (*):",
-            "noext": "Noext:",
-            "noint": "Noint:",
+            "noext": "No. Exterior:",
+            "noint": "No. Interior:",
             "locale": "Locale:",
             "reference": "Reference:",
             "com_public_notaries": "Com_public_notaries:",
-            "c_type_estate": "Type_state (*):",
-            "c_colony": "C_colony:",
-            "c_municipality": "C_municipality (*):",
-            "c_state": "C_state (*):",
-            "c_country": "C_country (*):",
-            "c_zip_code": "C_zip_code:"
+            "c_type_estate": "Type State (*):",
+            "c_colony": "Colony:",
+            "c_municipality": "Municipality (*):",
+            "c_state": "State (*):",
+            "c_country": "Country (*):",
+            "c_zip_code": "Zip_code:"
         }
     }
 }

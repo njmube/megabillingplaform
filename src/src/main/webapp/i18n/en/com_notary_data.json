@@ -16,8 +16,8 @@
             "detail": {
                 "title": "Com_notary_data"
             },
-            "curp": "Curp (*):",
-            "notarynumber": "Notarynumber (*):",
+            "curp": "CURP (*):",
+            "notarynumber": "Notary Number (*):",
             "ascription": "Ascription:",
             "com_public_notaries": "Com_public_notaries:",
             "c_pn_federal_entity": "Notaries Federal Entity (*):"

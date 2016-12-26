@@ -16,12 +16,12 @@
             "detail": {
                 "title": "Com_dataacquiringcopsc"
             },
-            "name": "Name (*):",
-            "last_name": "Last_name:",
-            "mother_last_name": "Mother_last_name:",
-            "rfc": "Rfc (*):",
-            "curp": "Curp:",
-            "percentage": "Percentage (*):",
+            "name": "Nombre (*):",
+            "last_name": "Apellido Paterno:",
+            "mother_last_name": "Apellido Materno:",
+            "rfc": "RFC (*):",
+            "curp": "CURP:",
+            "percentage": "Porcentaje (*):",
             "com_acquiring_data": "Com_acquiring_data"
         }
     }

@@ -4,7 +4,7 @@
             "home": {
                 "title": "Com_desc_estates",
                 "createLabel": "Crear nuevo Com_desc_estate",
-                "createOrEditLabel": "Crear o editar Com_desc_estate",
+                "createOrEditLabel": "Adicionar Inmueble",
                 "search": "Search for Com_desc_estate"
             },
             "created": "Un nuevo Com_desc_estate ha sido creado con el identificador {{ param }}",
@@ -16,18 +16,18 @@
             "detail": {
                 "title": "Com_desc_estate"
             },
-            "street": "Street (*):",
-            "noext": "Noext:",
-            "noint": "Noint:",
-            "locale": "Locale:",
-            "reference": "Reference:",
+            "street": "Calle (*):",
+            "noext": "No. Exterior:",
+            "noint": "No. Interior:",
+            "locale": "Localidad:",
+            "reference": "Referencia:",
             "com_public_notaries": "Com_public_notaries:",
-            "c_type_estate": "Type_state (*):",
-            "c_colony": "C_colony:",
-            "c_municipality": "C_municipality (*):",
-            "c_state": "C_state (*):",
-            "c_country": "C_country (*):",
-            "c_zip_code": "C_zip_code:"
+            "c_type_estate": "Tipo Inmueble (*):",
+            "c_colony": "Colonia:",
+            "c_municipality": "Municipio (*):",
+            "c_state": "Estado (*):",
+            "c_country": "País (*):",
+            "c_zip_code": "Código postal:"
         }
     }
 }
