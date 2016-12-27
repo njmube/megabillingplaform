@@ -124,7 +124,6 @@
                 if(vm.taxpayer_account.taxpayer_certificate.rfc_certificate != null){
                     vm.isSaving = true;
 
-                    vm.taxpayer_account.taxpayer_certificate.info_certificate = null;
                     vm.messvalidate = false;
                     if(vm.taxpayer_account.fax == ''){
                         vm.taxpayer_account.fax = null;

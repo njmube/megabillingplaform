@@ -48,6 +48,7 @@
             }else
             {
                 vm.showInfo = false;
+                vm.taxpayer_account.taxpayer_certificate.info_certificate = 'actualizando';
                 $uibModalInstance.close({
                     taxpayer_account: vm.taxpayer_account
                 });
@@ -59,6 +60,9 @@
         };
 
         vm.setPath_Certificate = function ($file, taxpayer_account) {
+            if(vm.taxpayer_account.taxpayer_certificate == null){
+                vm.taxpayer_account.taxpayer_certificate = {};
+            }
             if ($file) {
                 DataUtils.toBase64($file, function(base64Data) {
                     $scope.$apply(function() {
@@ -76,6 +80,9 @@
             }
         };
         vm.setPath_Key = function ($file, taxpayer_account) {
+            if(vm.taxpayer_account.taxpayer_certificate == null){
+                vm.taxpayer_account.taxpayer_certificate = {};
+            }
             if ($file) {
                 vm.path_key_file = $file;
                 DataUtils.toBase64($file, function(base64Data) {
